@@ -75,6 +75,7 @@ partial class TrainerIntegrationHost {
  void OpenRoute(){
   var uiThread=new System.Threading.Thread(()=>{try{
    var window=new DosRouteWindow(route);window.StartAtStation=n=>{if(!IsDisposed&&IsHandleCreated)try{BeginInvoke(new Action(()=>StartAtRouteStation(n)));}catch(InvalidOperationException){}};
+   window.ShowTrainPressures=()=>{if(!IsDisposed&&IsHandleCreated)try{BeginInvoke(new Action(OpenTrainPressureMode));}catch(InvalidOperationException){}};
    window.FormClosing+=(s,e)=>{if(e.CloseReason==CloseReason.UserClosing){e.Cancel=true;window.Hide();}};routeWindow=window;Application.Run(window);
   }catch(Exception ex){Log("Route window error: "+ex);}});
   uiThread.IsBackground=true;uiThread.SetApartmentState(System.Threading.ApartmentState.STA);uiThread.Start();

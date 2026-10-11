@@ -8,8 +8,6 @@ using System.Windows.Forms;
 partial class TrainerIntegrationHost {
  TrainPressureForm trainPressureView;
  void InstallTrainPressureMode(){
-  var button=new Button{Text="Режим: давления",Left=590,Top=240,Width=200,Height=30,Anchor=AnchorStyles.Bottom|AnchorStyles.Right};
-  button.Click+=(s,e)=>OpenTrainPressureMode();Controls.Add(button);
   FormClosed+=(s,e)=>{if(trainPressureView!=null){trainPressureView.Dispose();trainPressureView=null;}};
  }
  void OpenTrainPressureMode(){
