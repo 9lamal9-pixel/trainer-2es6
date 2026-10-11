@@ -651,6 +651,22 @@
       "scope": "Rules83 §3.2.8: I toUR6.4 thenII, timeUR5.8–5.6 80–120s and separate100–120 flag; actualPzar return, all75TC monitor. FinitePM,compressors off,no pressure fixtures/reinit. Visual TM pressure sensor indication not verified.",
       "timeout_seconds": 240,
       "enabled": true
+    },
+    {
+      "id": "MpsudAuditSnapshot",
+      "main_class": "MpsudAuditSnapshotProbe",
+      "title": "МПСУиД: фактически загруженные DLL",
+      "source": "work/pneumatic_live_fix/analysis/MpsudAuditSnapshotProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/MPSUD_audit_snapshot.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Assertions: four actual loaded module paths/SHA,100 warm idle native cycles,electricalFaults=0. Frame copies optional observations only; no protection/navigation/SME/link/diagnostics/rendering acceptance.",
+      "timeout_seconds": 180,
+      "enabled": true
     }
   ]
 }

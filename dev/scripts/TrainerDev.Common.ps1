@@ -458,8 +458,8 @@ function Save-TrainerContext {
         git_head=(Get-TrainerHead)
         working_tree=[ordered]@{changed_files=$dirty.Count;first_files=@($dirty|Select-Object -First 20);more=($dirty.Count -gt 20)}
         latest=$latest
-        active_focus='Стабилизатор КМ проверен: KmOvercharge test-20261011T113620525Z-a742a298 exit0 PASS,УР5.8→5.6 за91.420с при норме80–120 для300осей,возврат5.0,все75ТЦ0. TimeLikvid100 loc+0x1b; extended>=350осей100–120 не применим. Световая индикация датчикаТМ не принята. Производственная модель не менялась;темная тема/10Гц/кнопка режимки сохранены.'
-        next_model_question='Полное нормативное опробование не принято: плотностьII/IV,штоки/колодки,целостность хвостового крана8–10с,отдельный KMI-замер двух хвостовых вагонов,Ro/native режим. Волна/метрологияГОСТ,VR/АР/глобальный баланс и полный запускЭПК остаются открыты. Старые tempPzar0 cold пробы не подтверждают геометрию. NativeInitializationCapture unsafe не применять.'
+        active_focus='Подробный аудит МПСУиД сохранён в dev/docs/MPSUID_2ES6_AUDIT.md и3 частях: SA47 enum→bool, Useti0/3100, Random диагностика, токи/позиции/время Tyga, клавиши и CSV. Fresh MpsudAuditSnapshot test-20261011T115345530Z-bc12f052 exit0 PASS:4 actual DLL/SHA,100cycles,0fault. functional/screens=false; production не менялась.'
+        next_model_question='Установить целевую ревизию РЭ/комплектацию №137+ и ПО МПСУиД; затем отдельно принимать SA47 edge/latch, Uks/protections, Tyga Ia/средний ток и400vs410/реостатное время, ЭДТ/замещение, ПСЗ/СМЕ/диагностику. РЭ подтормаживание0.15–0.18vs0.25МПа конфликтует. Пневматический backlog и пользовательская зарядка5.0 сохранены; полный холодный запуск/нормативное тормозное опробование не приняты.'
         read_next=@('dev/environment-context.json','dev/state/context.json')
         avoid_reading=@('whole telemetry.csv','all historical logs','all disassembly dumps')
         source_of_truth='outputs/*.cs; versioned snapshots dev/builds/<id>/source; Git checkpoints'
