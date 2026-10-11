@@ -458,7 +458,7 @@ function Save-TrainerContext {
         git_head=(Get-TrainerHead)
         working_tree=[ordered]@{changed_files=$dirty.Count;first_files=@($dirty|Select-Object -First 20);more=($dirty.Count -gt 20)}
         latest=$latest
-        active_focus='Давления из режимки: темная тема,ТМ красный,ТЦ черный со светлой обводкой/светлыми ячейками. Обновление каждый цикл100мс/10Гц; история1800снимков/180с. TrainPressureView test-20261011T112507407Z-c9612e7f exit0 PASS,PNG визуально проверен. Зарядное5.0 сохранено.'
+        active_focus='Стабилизатор КМ проверен: KmOvercharge test-20261011T113620525Z-a742a298 exit0 PASS,УР5.8→5.6 за91.420с при норме80–120 для300осей,возврат5.0,все75ТЦ0. TimeLikvid100 loc+0x1b; extended>=350осей100–120 не применим. Световая индикация датчикаТМ не принята. Производственная модель не менялась;темная тема/10Гц/кнопка режимки сохранены.'
         next_model_question='Полное нормативное опробование не принято: плотностьII/IV,штоки/колодки,целостность хвостового крана8–10с,отдельный KMI-замер двух хвостовых вагонов,Ro/native режим. Волна/метрологияГОСТ,VR/АР/глобальный баланс и полный запускЭПК остаются открыты. Старые tempPzar0 cold пробы не подтверждают геометрию. NativeInitializationCapture unsafe не применять.'
         read_next=@('dev/environment-context.json','dev/state/context.json')
         avoid_reading=@('whole telemetry.csv','all historical logs','all disassembly dumps')
