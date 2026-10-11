@@ -4584,5 +4584,6 @@
     }
   ],
   "curve_coordinate_note": "Radius is printed in the PDF. Curve start/end and length are measured from the stepped horizontal vector drawing at 1 cm/km; they are approximate. Above/below distinguishes the graphic side only; no geographical left/right direction is claimed.",
-  "event_coordinate_note": "Static infrastructure and instruction symbols are digitized from the PDF, not a live signal state or ALSN input. No operational signal schedule or electronic map is supplied."
+  "event_coordinate_note": "Static infrastructure and instruction symbols are digitized from the PDF, not a live signal state or ALSN input. No operational signal schedule or electronic map is supplied.",
+  "local_source_pdf": "work/reference_inputs/Voynovka_Koshkarovsky_2ES6.pdf"
 }

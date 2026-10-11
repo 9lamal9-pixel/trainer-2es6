@@ -1,5 +1,5 @@
-$ErrorActionPreference='Stop'
-$taskBase='C:\Users\sibir\Documents\Codex\2026-10-07\e-launch-cam\work\trenager_static\WORK_TRENAGER_3D\RESOURCES\LOCOMOTIVES\1'
+﻿$ErrorActionPreference='Stop'
+$taskBase=Join-Path $PSScriptRoot '..\trenager_static\WORK_TRENAGER_3D\RESOURCES\LOCOMOTIVES\1'
 $taskEnc=[Text.Encoding]::GetEncoding(1251)
 $taskResults=@()
 foreach($taskRel in @('Init\Hardware1.cbn','Init\Hardware1(готовый).cbn','Init\Hardware111.cbn','2ES6\1\Init\Hardware1.cbn','1\Init\Hardware1.cbn','1\Init\Hardware1 - копия.cbn')) {

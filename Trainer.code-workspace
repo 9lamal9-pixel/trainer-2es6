@@ -1,6 +1,9 @@
 {
   "folders": [
-    { "name": "2ЭС6 — разработка тренажёра", "path": "." }
+    {
+      "name": "2ЭС6 — разработка тренажёра",
+      "path": "."
+    }
   ],
   "settings": {
     "files.encoding": "utf8",
@@ -9,7 +12,9 @@
       "dev/builds/**": true,
       "dev/runs/**": true,
       "dev/archives/**": true,
-      "work/**/vendor/**": true
+      "work/**/vendor/**": true,
+      "dev/checkpoints/**": true,
+      "dev/history/**": true
     },
     "search.exclude": {
       "dev/builds/**": true,
@@ -19,7 +24,17 @@
       "outputs/*.exe": true,
       "outputs/*.dll": true,
       "outputs/*.csv": true,
-      "outputs/Trainer_integration_*_log.txt": true
+      "outputs/Trainer_integration_*_log.txt": true,
+      "dev/checkpoints/**": true,
+      "dev/history/**": true,
+      "work/**/pydeps/**": true,
+      "work/**/__pycache__/**": true,
+      "**/.git/**": true,
+      "**/*.pdb": true,
+      "**/*.zip": true,
+      "**/*.csv": true,
+      "**/*.asm": true,
+      "**/*.wav": true
     }
   }
 }

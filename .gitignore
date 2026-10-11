@@ -3,6 +3,9 @@
 !/.gitattributes
 !/README.md
 !/AGENTS.md
+!/BOT_PROMPT.txt
+!/trainer.cmd
+!/.rgignore
 !/Trainer.code-workspace
 !/.vscode/
 !/dev/

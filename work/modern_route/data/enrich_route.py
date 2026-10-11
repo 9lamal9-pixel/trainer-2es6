@@ -90,7 +90,9 @@ for group in signal_groups:
 # Rectangles were omitted in the earlier vector dump. Read them from the same PDF.
 try:
     import pdfplumber
-    with pdfplumber.open(route['source_pdf']) as pdf:
+    local_pdf = route.get('local_source_pdf')
+    source_pdf = ROOT / local_pdf if local_pdf else Path(route['source_pdf'])
+    with pdfplumber.open(source_pdf) as pdf:
         for page in range(3,11):
             for r in pdf.pages[page-1].rects:
                 x=(r['x0']+r['x1'])/2

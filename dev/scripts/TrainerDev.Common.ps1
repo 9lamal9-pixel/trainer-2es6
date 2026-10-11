@@ -11,7 +11,13 @@ function Write-TrainerJson($Object,[string]$Path,[switch]$Compact) {
     [IO.File]::WriteAllText($temp,($Object | ConvertTo-Json -Depth 40 -Compress:$Compact),[Text.UTF8Encoding]::new($false))
     Move-Item -LiteralPath $temp -Destination $Path -Force
 }
-function Get-TrainerHash([string]$Path) { return (Get-FileHash -LiteralPath $Path -Algorithm SHA256).Hash }
+function Get-TrainerHash([string]$Path) {
+    # Avoid shell-specific availability of the Windows PowerShell hash function.
+    $stream=[IO.File]::OpenRead($Path)
+    $sha=[Security.Cryptography.SHA256]::Create()
+    try { return [BitConverter]::ToString($sha.ComputeHash($stream)).Replace('-','') }
+    finally { $sha.Dispose(); $stream.Dispose() }
+}
 function Get-TrainerGit {
     $command = Get-Command git -ErrorAction SilentlyContinue
     if (-not $command) { throw 'Git не найден. Doctor показывает доступные зависимости.' }
@@ -405,6 +411,9 @@ function Save-TrainerContext {
     foreach ($name in @('build','test','regression','checkpoint')) {
         $path=Resolve-TrainerPath ('dev/state/latest-'+$name+'.json')
         $latest[$name]=if(Test-Path -LiteralPath $path){Get-Content -LiteralPath $path -Encoding UTF8 -Raw | ConvertFrom-Json}else{$null}
+        if ($null -ne $latest[$name] -and $latest[$name].path.StartsWith($script:TrainerRoot + '\',[StringComparison]::OrdinalIgnoreCase)) {
+            $latest[$name].path=$latest[$name].path.Substring($script:TrainerRoot.Length+1).Replace('\','/')
+        }
     }
     $context=[ordered]@{
         schema_version=1
