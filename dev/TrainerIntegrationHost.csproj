@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <TrainerProfile Condition=" '$(TrainerProfile)' == '' ">candidate</TrainerProfile>
+    <ProjectGuid>{31CB8F12-435C-45EF-B406-8A4C1E7A31CB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TrainerDevelopment</RootNamespace>
+    <AssemblyName>TrainerIntegrationHost.$(TrainerProfile)</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <PlatformTarget>x86</PlatformTarget>
+    <StartupObject>TrainerIntegrationHost</StartupObject>
+    <OutputPath>builds\editor\$(TrainerProfile)\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>builds\editor\obj\$(TrainerProfile)\$(Configuration)\</IntermediateOutputPath>
+    <WarningLevel>4</WarningLevel>
+    <FileAlignment>512</FileAlignment>
+    <CodePage>65001</CodePage>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\outputs\TrainerIntegrationHost.cs"><Link>Host\TrainerIntegrationHost.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerNativeSystems.cs"><Link>Host\TrainerNativeSystems.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerAuxSystems.cs"><Link>Host\TrainerAuxSystems.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerRouteDOS.cs"><Link>Route\TrainerRouteDOS.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerRouteView.cs"><Link>Route\TrainerRouteView.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerNativeFixes.cs"><Link>Host\TrainerNativeFixes.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerPneumaticTiming.cs"><Link>Pneumatics\TrainerPneumaticTiming.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerSessionLogging.cs"><Link>Diagnostics\TrainerSessionLogging.cs</Link></Compile>
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TrainerProfile)' == 'candidate' ">
+    <Compile Include="..\outputs\TrainerAirNetwork.cs"><Link>Pneumatics\TrainerAirNetwork.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerControlAir.cs"><Link>Pneumatics\TrainerControlAir.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerBtoNetwork.cs"><Link>Pneumatics\TrainerBtoNetwork.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerAirSelector.cs"><Link>Pneumatics\TrainerAirSelector.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerKvtProfile.cs"><Link>Pneumatics\TrainerKvtProfile.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerTwoSectionAirChain.cs"><Link>Pneumatics\TrainerTwoSectionAirChain.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerPneumaticNetworkCandidate.cs"><Link>Pneumatics\TrainerPneumaticNetworkCandidate.cs</Link></Compile>
+  </ItemGroup>
+  <Target Name="ValidateTrainerProfile" BeforeTargets="BeforeBuild">
+    <Error Condition=" '$(TrainerProfile)' != 'candidate' and '$(TrainerProfile)' != 'integration' " Text="TrainerProfile must be candidate or integration." />
+    <Error Condition=" '$(Platform)' != 'x86' " Text="The native trainer modules require Platform=x86." />
+  </Target>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

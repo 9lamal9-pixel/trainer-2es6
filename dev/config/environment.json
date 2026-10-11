@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "compiler": "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\csc.exe",
+  "framework": "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\System.Windows.Forms.dll",
+  "python": "C:\\Users\\sibir\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "profiles": {
+    "candidate": {
+      "sources": [
+        "outputs/TrainerIntegrationHost.cs",
+        "outputs/TrainerNativeSystems.cs",
+        "outputs/TrainerAuxSystems.cs",
+        "outputs/TrainerRouteDOS.cs",
+        "outputs/TrainerRouteView.cs",
+        "outputs/TrainerNativeFixes.cs",
+        "outputs/TrainerPneumaticTiming.cs",
+        "outputs/TrainerSessionLogging.cs",
+        "outputs/TrainerAirNetwork.cs",
+        "outputs/TrainerControlAir.cs",
+        "outputs/TrainerBtoNetwork.cs",
+        "outputs/TrainerAirSelector.cs",
+        "outputs/TrainerKvtProfile.cs",
+        "outputs/TrainerTwoSectionAirChain.cs",
+        "outputs/TrainerPneumaticNetworkCandidate.cs"
+      ]
+    },
+    "integration": {
+      "sources": [
+        "outputs/TrainerIntegrationHost.cs",
+        "outputs/TrainerNativeSystems.cs",
+        "outputs/TrainerAuxSystems.cs",
+        "outputs/TrainerRouteDOS.cs",
+        "outputs/TrainerRouteView.cs",
+        "outputs/TrainerNativeFixes.cs",
+        "outputs/TrainerPneumaticTiming.cs",
+        "outputs/TrainerSessionLogging.cs"
+      ]
+    }
+  },
+  "required_files": [
+    "outputs/Voynovka_Koshkarovsky_route.json",
+    "work/msul_emulator/native_record_schema.json",
+    "dev/config/probes.json"
+  ],
+  "suites": {
+    "regression": [
+      "ColdNoSource",
+      "SectionPantographPressure",
+      "CandidateAirHost",
+      "ColdTrainAuxiliary",
+      "VcuAirSequence",
+      "CompressorPrepared"
+    ],
+    "smoke": [
+      "ColdNoSource",
+      "SectionPantographPressure",
+      "CandidateAirHost"
+    ]
+  }
+}

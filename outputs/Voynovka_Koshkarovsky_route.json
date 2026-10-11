@@ -1,0 +1,4588 @@
+{
+  "title": "Войновка — Кокшаровский, 2ЭС6",
+  "source_pdf": "C:/Users/sibir/Downloads/Telegram Desktop/Войновка - Кокшаровский 2ЭС6.pdf",
+  "source_year": 2018,
+  "source_pages": 10,
+  "direction": -1,
+  "map_start_km": 2149.5,
+  "map_end_km": 1949.507,
+  "initial_km": 2147.432,
+  "route_origin_km": 2147.432,
+  "recommendation_weight_t": 6300,
+  "simulation_weight_t": 6000,
+  "locomotive_mass_t": 200,
+  "units": {
+    "chainage": "kilometres",
+    "grade": "permille, positive uphill toward Koksharovsky",
+    "speed": "km/h",
+    "current": "ampere",
+    "weight": "tonne of trailing wagons"
+  },
+  "coordinate_note": "Graphical digitization; PDF cells used at their centres. No station pickets or exact segment coordinates are stated. Intervals derived from vector geometry (1 cm per km). Use as training map, not surveyed track passport. Current changes have text anchors on continuous strokes; those boundaries are approximate.",
+  "warnings": [
+    "The source is a 2018 regime card; no claim that speeds are valid today.",
+    "The source contains weight rows 8000, 6300 and 2500 t; no 6000 t row. Display 6300 t recommendations as comparison for the 6000 t simulation, without interpolation.",
+    "Station name on cover differs: Кошкаровский; graph labels the terminal station Кокшаровский.",
+    "Signal drawings show a scheme with multiple coloured circles, not a current ALSN indication. Do not automatically power safety code from their colours.",
+    "An unmarked gap in the recommendation stroke does not specify a traction current.",
+    "Empty-wagon dashed speed limits do not apply to the loaded 6000 t consist.",
+    "The PDF draws one curve on page 9 without a radius label (roughly 1966.106–1965.107 km). Its curvature resistance cannot be verified from this source; no radius is invented."
+  ],
+  "stations": [
+    {
+      "km": 2147.432,
+      "name": "Войновка",
+      "page": 3,
+      "chainage_kind": "graphical_digitization"
+    },
+    {
+      "km": 2138.633,
+      "name": "Тюмень",
+      "page": 3,
+      "chainage_kind": "graphical_digitization"
+    },
+    {
+      "km": 2128.268,
+      "name": "Утяшево",
+      "page": 3,
+      "chainage_kind": "graphical_digitization"
+    },
+    {
+      "km": 2117.852,
+      "name": "Подъём",
+      "page": 4,
+      "chainage_kind": "graphical_digitization"
+    },
+    {
+      "km": 2097.4,
+      "name": "Кармак",
+      "page": 4,
+      "chainage_kind": "graphical_digitization"
+    },
+    {
+      "km": 2078.552,
+      "name": "Тугулым",
+      "page": 5,
+      "chainage_kind": "graphical_digitization"
+    },
+    {
+      "km": 2069.952,
+      "name": "Бахметское",
+      "page": 5,
+      "chainage_kind": "graphical_digitization"
+    },
+    {
+      "km": 2060.92,
+      "name": "Юшала",
+      "page": 6,
+      "chainage_kind": "graphical_digitization"
+    },
+    {
+      "km": 2040.272,
+      "name": "Чупино",
+      "page": 6,
+      "chainage_kind": "graphical_digitization"
+    },
+    {
+      "km": 2027.773,
+      "name": "Талица",
+      "page": 7,
+      "chainage_kind": "graphical_digitization"
+    },
+    {
+      "km": 1996.438,
+      "name": "Ощепково",
+      "page": 8,
+      "chainage_kind": "graphical_digitization"
+    },
+    {
+      "km": 1975.455,
+      "name": "Аксариха",
+      "page": 9,
+      "chainage_kind": "graphical_digitization"
+    },
+    {
+      "km": 1956.776,
+      "name": "Камышлов",
+      "page": 9,
+      "chainage_kind": "graphical_digitization"
+    },
+    {
+      "km": 1950.14,
+      "name": "Кокшаровский",
+      "page": 10,
+      "chainage_kind": "graphical_digitization"
+    }
+  ],
+  "profile": [
+    {
+      "km_start": 2149.5,
+      "km_end": 2144.05,
+      "grade_permille": 0.0,
+      "page": 3
+    },
+    {
+      "km_start": 2144.05,
+      "km_end": 2141.05,
+      "grade_permille": 3.9,
+      "page": 3
+    },
+    {
+      "km_start": 2141.05,
+      "km_end": 2137.799,
+      "grade_permille": 0.0,
+      "page": 3
+    },
+    {
+      "km_start": 2137.799,
+      "km_end": 2133.2,
+      "grade_permille": 5.8,
+      "page": 3
+    },
+    {
+      "km_start": 2133.2,
+      "km_end": 2130.651,
+      "grade_permille": 1.5,
+      "page": 3
+    },
+    {
+      "km_start": 2130.651,
+      "km_end": 2123.651,
+      "grade_permille": 0.0,
+      "page": 3
+    },
+    {
+      "km_start": 2123.651,
+      "km_end": 2121.651,
+      "grade_permille": 2.1,
+      "page": 4
+    },
+    {
+      "km_start": 2121.651,
+      "km_end": 2119.801,
+      "grade_permille": -4.3,
+      "page": 4
+    },
+    {
+      "km_start": 2119.801,
+      "km_end": 2118.8,
+      "grade_permille": 3.0,
+      "page": 4
+    },
+    {
+      "km_start": 2118.8,
+      "km_end": 2117.052,
+      "grade_permille": 0.0,
+      "page": 4
+    },
+    {
+      "km_start": 2117.052,
+      "km_end": 2115.65,
+      "grade_permille": -3.3,
+      "page": 4
+    },
+    {
+      "km_start": 2115.65,
+      "km_end": 2110.702,
+      "grade_permille": -1.2,
+      "page": 4
+    },
+    {
+      "km_start": 2110.702,
+      "km_end": 2109.201,
+      "grade_permille": -4.5,
+      "page": 4
+    },
+    {
+      "km_start": 2109.201,
+      "km_end": 2104.551,
+      "grade_permille": 0.9,
+      "page": 4
+    },
+    {
+      "km_start": 2104.551,
+      "km_end": 2103.651,
+      "grade_permille": 0.0,
+      "page": 4
+    },
+    {
+      "km_start": 2103.651,
+      "km_end": 2101.602,
+      "grade_permille": -5.9,
+      "page": 4
+    },
+    {
+      "km_start": 2101.602,
+      "km_end": 2098.901,
+      "grade_permille": 6.1,
+      "page": 4
+    },
+    {
+      "km_start": 2098.901,
+      "km_end": 2097.201,
+      "grade_permille": 4.1,
+      "page": 4
+    },
+    {
+      "km_start": 2097.201,
+      "km_end": 2093.303,
+      "grade_permille": -0.8,
+      "page": 5
+    },
+    {
+      "km_start": 2093.303,
+      "km_end": 2089.952,
+      "grade_permille": -6.3,
+      "page": 5
+    },
+    {
+      "km_start": 2089.952,
+      "km_end": 2087.103,
+      "grade_permille": 5.6,
+      "page": 5
+    },
+    {
+      "km_start": 2087.103,
+      "km_end": 2085.801,
+      "grade_permille": 2.6,
+      "page": 5
+    },
+    {
+      "km_start": 2085.801,
+      "km_end": 2083.502,
+      "grade_permille": -5.9,
+      "page": 5
+    },
+    {
+      "km_start": 2083.502,
+      "km_end": 2082.302,
+      "grade_permille": 0.0,
+      "page": 5
+    },
+    {
+      "km_start": 2082.302,
+      "km_end": 2079.201,
+      "grade_permille": 6.1,
+      "page": 5
+    },
+    {
+      "km_start": 2079.201,
+      "km_end": 2067.403,
+      "grade_permille": 1.1,
+      "page": 5
+    },
+    {
+      "km_start": 2067.403,
+      "km_end": 2064.404,
+      "grade_permille": -5.9,
+      "page": 6
+    },
+    {
+      "km_start": 2064.404,
+      "km_end": 2060.803,
+      "grade_permille": 3.5,
+      "page": 6
+    },
+    {
+      "km_start": 2060.803,
+      "km_end": 2060.103,
+      "grade_permille": 4.9,
+      "page": 6
+    },
+    {
+      "km_start": 2060.103,
+      "km_end": 2054.504,
+      "grade_permille": -5.7,
+      "page": 6
+    },
+    {
+      "km_start": 2054.504,
+      "km_end": 2052.603,
+      "grade_permille": 6.6,
+      "page": 6
+    },
+    {
+      "km_start": 2052.603,
+      "km_end": 2051.204,
+      "grade_permille": 2.2,
+      "page": 6
+    },
+    {
+      "km_start": 2051.204,
+      "km_end": 2048.603,
+      "grade_permille": -5.9,
+      "page": 6
+    },
+    {
+      "km_start": 2048.603,
+      "km_end": 2045.204,
+      "grade_permille": 5.5,
+      "page": 6
+    },
+    {
+      "km_start": 2045.204,
+      "km_end": 2041.904,
+      "grade_permille": -5.1,
+      "page": 6
+    },
+    {
+      "km_start": 2041.904,
+      "km_end": 2040.104,
+      "grade_permille": -1.1,
+      "page": 6
+    },
+    {
+      "km_start": 2040.104,
+      "km_end": 2038.703,
+      "grade_permille": -5.3,
+      "page": 6
+    },
+    {
+      "km_start": 2038.703,
+      "km_end": 2038.005,
+      "grade_permille": 0.2,
+      "page": 7
+    },
+    {
+      "km_start": 2038.005,
+      "km_end": 2036.754,
+      "grade_permille": -4.9,
+      "page": 7
+    },
+    {
+      "km_start": 2036.754,
+      "km_end": 2036.104,
+      "grade_permille": 0.5,
+      "page": 7
+    },
+    {
+      "km_start": 2036.104,
+      "km_end": 2034.955,
+      "grade_permille": -4.1,
+      "page": 7
+    },
+    {
+      "km_start": 2034.955,
+      "km_end": 2034.305,
+      "grade_permille": 3.1,
+      "page": 7
+    },
+    {
+      "km_start": 2034.305,
+      "km_end": 2032.504,
+      "grade_permille": -2.6,
+      "page": 7
+    },
+    {
+      "km_start": 2032.504,
+      "km_end": 2030.205,
+      "grade_permille": 2.8,
+      "page": 7
+    },
+    {
+      "km_start": 2030.205,
+      "km_end": 2029.104,
+      "grade_permille": 5.1,
+      "page": 7
+    },
+    {
+      "km_start": 2029.104,
+      "km_end": 2028.205,
+      "grade_permille": -5.8,
+      "page": 7
+    },
+    {
+      "km_start": 2028.205,
+      "km_end": 2027.004,
+      "grade_permille": 0.0,
+      "page": 7
+    },
+    {
+      "km_start": 2027.004,
+      "km_end": 2024.204,
+      "grade_permille": 6.1,
+      "page": 7
+    },
+    {
+      "km_start": 2024.204,
+      "km_end": 2022.405,
+      "grade_permille": -6.4,
+      "page": 7
+    },
+    {
+      "km_start": 2022.405,
+      "km_end": 2021.704,
+      "grade_permille": 0.7,
+      "page": 7
+    },
+    {
+      "km_start": 2021.704,
+      "km_end": 2020.504,
+      "grade_permille": -3.2,
+      "page": 7
+    },
+    {
+      "km_start": 2020.504,
+      "km_end": 2019.655,
+      "grade_permille": 0.0,
+      "page": 7
+    },
+    {
+      "km_start": 2019.655,
+      "km_end": 2018.904,
+      "grade_permille": -1.3,
+      "page": 7
+    },
+    {
+      "km_start": 2018.904,
+      "km_end": 2017.505,
+      "grade_permille": 1.9,
+      "page": 7
+    },
+    {
+      "km_start": 2017.505,
+      "km_end": 2010.605,
+      "grade_permille": 0.0,
+      "page": 7
+    },
+    {
+      "km_start": 2010.605,
+      "km_end": 2009.904,
+      "grade_permille": 3.0,
+      "page": 7
+    },
+    {
+      "km_start": 2009.904,
+      "km_end": 2008.905,
+      "grade_permille": -2.5,
+      "page": 8
+    },
+    {
+      "km_start": 2008.905,
+      "km_end": 2006.056,
+      "grade_permille": 0.0,
+      "page": 8
+    },
+    {
+      "km_start": 2006.056,
+      "km_end": 2003.304,
+      "grade_permille": 1.5,
+      "page": 8
+    },
+    {
+      "km_start": 2003.304,
+      "km_end": 2002.606,
+      "grade_permille": -3.0,
+      "page": 8
+    },
+    {
+      "km_start": 2002.606,
+      "km_end": 2001.406,
+      "grade_permille": 2.0,
+      "page": 8
+    },
+    {
+      "km_start": 2001.406,
+      "km_end": 1999.306,
+      "grade_permille": 0.0,
+      "page": 8
+    },
+    {
+      "km_start": 1999.306,
+      "km_end": 1997.306,
+      "grade_permille": 6.3,
+      "page": 8
+    },
+    {
+      "km_start": 1997.306,
+      "km_end": 1996.304,
+      "grade_permille": 1.8,
+      "page": 8
+    },
+    {
+      "km_start": 1996.304,
+      "km_end": 1995.106,
+      "grade_permille": -4.8,
+      "page": 8
+    },
+    {
+      "km_start": 1995.106,
+      "km_end": 1993.206,
+      "grade_permille": 5.5,
+      "page": 8
+    },
+    {
+      "km_start": 1993.206,
+      "km_end": 1990.606,
+      "grade_permille": -6.1,
+      "page": 8
+    },
+    {
+      "km_start": 1990.606,
+      "km_end": 1985.006,
+      "grade_permille": 5.9,
+      "page": 8
+    },
+    {
+      "km_start": 1985.006,
+      "km_end": 1983.306,
+      "grade_permille": -5.8,
+      "page": 8
+    },
+    {
+      "km_start": 1983.306,
+      "km_end": 1975.707,
+      "grade_permille": 5.9,
+      "page": 9
+    },
+    {
+      "km_start": 1975.707,
+      "km_end": 1974.306,
+      "grade_permille": 0.1,
+      "page": 9
+    },
+    {
+      "km_start": 1974.306,
+      "km_end": 1973.506,
+      "grade_permille": 2.0,
+      "page": 9
+    },
+    {
+      "km_start": 1973.506,
+      "km_end": 1972.507,
+      "grade_permille": -3.4,
+      "page": 9
+    },
+    {
+      "km_start": 1972.507,
+      "km_end": 1971.607,
+      "grade_permille": -1.4,
+      "page": 9
+    },
+    {
+      "km_start": 1971.607,
+      "km_end": 1969.207,
+      "grade_permille": 3.3,
+      "page": 9
+    },
+    {
+      "km_start": 1969.207,
+      "km_end": 1968.007,
+      "grade_permille": -2.5,
+      "page": 9
+    },
+    {
+      "km_start": 1968.007,
+      "km_end": 1967.306,
+      "grade_permille": -6.0,
+      "page": 9
+    },
+    {
+      "km_start": 1967.306,
+      "km_end": 1966.506,
+      "grade_permille": 5.1,
+      "page": 9
+    },
+    {
+      "km_start": 1966.506,
+      "km_end": 1964.806,
+      "grade_permille": -5.6,
+      "page": 9
+    },
+    {
+      "km_start": 1964.806,
+      "km_end": 1963.807,
+      "grade_permille": -1.9,
+      "page": 9
+    },
+    {
+      "km_start": 1963.807,
+      "km_end": 1957.406,
+      "grade_permille": -5.9,
+      "page": 9
+    },
+    {
+      "km_start": 1957.406,
+      "km_end": 1953.908,
+      "grade_permille": 6.3,
+      "page": 9
+    },
+    {
+      "km_start": 1953.908,
+      "km_end": 1951.706,
+      "grade_permille": -5.0,
+      "page": 10
+    },
+    {
+      "km_start": 1951.706,
+      "km_end": 1949.907,
+      "grade_permille": 2.0,
+      "page": 10
+    },
+    {
+      "km_start": 1949.907,
+      "km_end": 1949.507,
+      "grade_permille": -6.0,
+      "page": 10
+    }
+  ],
+  "speed_limits": [
+    {
+      "km_start": 2149.5,
+      "km_end": 2138.5,
+      "speed_kmh": 70,
+      "page": 3,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 2138.5,
+      "km_end": 2128.7,
+      "speed_kmh": 60,
+      "page": 3,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 2128.7,
+      "km_end": 2087.202,
+      "speed_kmh": 80,
+      "page": 3,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 2087.202,
+      "km_end": 2086.703,
+      "speed_kmh": 60,
+      "page": 5,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 2086.703,
+      "km_end": 2077.902,
+      "speed_kmh": 80,
+      "page": 5,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 2077.902,
+      "km_end": 2071.001,
+      "speed_kmh": 90,
+      "page": 5,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 2071.001,
+      "km_end": 2069.403,
+      "speed_kmh": 70,
+      "page": 5,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 2069.403,
+      "km_end": 2054.703,
+      "speed_kmh": 80,
+      "page": 5,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 2054.703,
+      "km_end": 2054.104,
+      "speed_kmh": 70,
+      "page": 6,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 2054.104,
+      "km_end": 2037.503,
+      "speed_kmh": 80,
+      "page": 6,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 2037.503,
+      "km_end": 2035.979,
+      "speed_kmh": 70,
+      "page": 7,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 2035.979,
+      "km_end": 2032.804,
+      "speed_kmh": 80,
+      "page": 7,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 2032.804,
+      "km_end": 2032.305,
+      "speed_kmh": 70,
+      "page": 7,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 2032.305,
+      "km_end": 2011.104,
+      "speed_kmh": 80,
+      "page": 7,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 2011.104,
+      "km_end": 2010.105,
+      "speed_kmh": 70,
+      "page": 7,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 2010.105,
+      "km_end": 1996.006,
+      "speed_kmh": 80,
+      "page": 7,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 1996.006,
+      "km_end": 1995.705,
+      "speed_kmh": 60,
+      "page": 8,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 1995.705,
+      "km_end": 1994.306,
+      "speed_kmh": 80,
+      "page": 8,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 1994.306,
+      "km_end": 1993.705,
+      "speed_kmh": 60,
+      "page": 8,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 1993.705,
+      "km_end": 1992.405,
+      "speed_kmh": 70,
+      "page": 8,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 1992.405,
+      "km_end": 1990.306,
+      "speed_kmh": 80,
+      "page": 8,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 1990.306,
+      "km_end": 1989.605,
+      "speed_kmh": 70,
+      "page": 8,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 1989.605,
+      "km_end": 1988.507,
+      "speed_kmh": 80,
+      "page": 8,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 1988.507,
+      "km_end": 1985.607,
+      "speed_kmh": 60,
+      "page": 8,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 1985.607,
+      "km_end": 1978.207,
+      "speed_kmh": 80,
+      "page": 8,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 1978.207,
+      "km_end": 1977.305,
+      "speed_kmh": 70,
+      "page": 9,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 1977.305,
+      "km_end": 1976.207,
+      "speed_kmh": 80,
+      "page": 9,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 1976.207,
+      "km_end": 1975.506,
+      "speed_kmh": 60,
+      "page": 9,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 1975.506,
+      "km_end": 1974.606,
+      "speed_kmh": 80,
+      "page": 9,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 1974.606,
+      "km_end": 1974.306,
+      "speed_kmh": 70,
+      "page": 9,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 1974.306,
+      "km_end": 1958.808,
+      "speed_kmh": 80,
+      "page": 9,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 1958.808,
+      "km_end": 1956.007,
+      "speed_kmh": 60,
+      "page": 9,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 1956.007,
+      "km_end": 1955.806,
+      "speed_kmh": 40,
+      "page": 9,
+      "kind": "mandatory_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 1955.806,
+      "km_end": 1949.507,
+      "speed_kmh": 80,
+      "page": 9,
+      "kind": "mandatory_as_shown_in_2018_map"
+    }
+  ],
+  "empty_wagon_speed_limits": [
+    {
+      "km_start": 2051.602,
+      "km_end": 2050.904,
+      "speed_kmh": 60,
+      "page": 6,
+      "kind": "empty_wagons_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 1968.106,
+      "km_end": 1967.207,
+      "speed_kmh": 60,
+      "page": 9,
+      "kind": "empty_wagons_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 1955.307,
+      "km_end": 1954.507,
+      "speed_kmh": 60,
+      "page": 9,
+      "kind": "empty_wagons_as_shown_in_2018_map"
+    },
+    {
+      "km_start": 1950.007,
+      "km_end": 1949.607,
+      "speed_kmh": 60,
+      "page": 10,
+      "kind": "empty_wagons_as_shown_in_2018_map"
+    }
+  ],
+  "recommendations": [
+    {
+      "km_start": 2149.487,
+      "km_end": 2140.278,
+      "weight_t": 2500,
+      "text": "СП 250–350 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 250,
+      "current_max_A": 350,
+      "annotation_km": 2148.554,
+      "page": 3,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2140.278,
+      "km_end": 2131.53,
+      "weight_t": 2500,
+      "text": "СП 300–350 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 300,
+      "current_max_A": 350,
+      "annotation_km": 2140.278,
+      "page": 3,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2131.53,
+      "km_end": 2124.65,
+      "weight_t": 2500,
+      "text": "СП 250–350 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 250,
+      "current_max_A": 350,
+      "annotation_km": 2131.53,
+      "page": 3,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2123.15,
+      "km_end": 2113.9,
+      "weight_t": 2500,
+      "text": "СП 250–350 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 250,
+      "current_max_A": 350,
+      "annotation_km": 2123.061,
+      "page": 4,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2109.15,
+      "km_end": 2102.15,
+      "weight_t": 2500,
+      "text": "СП 250–350 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 250,
+      "current_max_A": 350,
+      "annotation_km": 2109.192,
+      "page": 4,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2101.151,
+      "km_end": 2096.806,
+      "weight_t": 2500,
+      "text": "СП 400–550 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 400,
+      "current_max_A": 550,
+      "annotation_km": 2101.062,
+      "page": 4,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2096.806,
+      "km_end": 2096.514,
+      "weight_t": 2500,
+      "text": "СП 300–400 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 300,
+      "current_max_A": 400,
+      "annotation_km": 2096.806,
+      "page": 4,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2096.514,
+      "km_end": 2092.903,
+      "weight_t": 2500,
+      "text": "П 300–400 А; тяга",
+      "mode": "traction",
+      "connection": "П",
+      "current_min_A": 300,
+      "current_max_A": 400,
+      "annotation_km": 2096.514,
+      "page": 5,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2089.901,
+      "km_end": 2083.653,
+      "weight_t": 2500,
+      "text": "СП 400–550 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 400,
+      "current_max_A": 550,
+      "annotation_km": 2089.943,
+      "page": 5,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2082.152,
+      "km_end": 2076.562,
+      "weight_t": 2500,
+      "text": "СП 400–550 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 400,
+      "current_max_A": 550,
+      "annotation_km": 2082.192,
+      "page": 5,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2076.562,
+      "km_end": 2065.153,
+      "weight_t": 2500,
+      "text": "СП 350–450 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 350,
+      "current_max_A": 450,
+      "annotation_km": 2076.562,
+      "page": 5,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2057.904,
+      "km_end": 2055.903,
+      "weight_t": 2500,
+      "text": "СП 350–450 А; электрическое торможение",
+      "mode": "electric_braking",
+      "connection": "СП",
+      "current_min_A": 350,
+      "current_max_A": 450,
+      "annotation_km": 2057.931,
+      "page": 6,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2054.652,
+      "km_end": 2050.152,
+      "weight_t": 2500,
+      "text": "СП 350–450 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 350,
+      "current_max_A": 450,
+      "annotation_km": 2054.608,
+      "page": 6,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2048.654,
+      "km_end": 2044.653,
+      "weight_t": 2500,
+      "text": "СП 350–450 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 350,
+      "current_max_A": 450,
+      "annotation_km": 2048.681,
+      "page": 6,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2040.653,
+      "km_end": 2037.903,
+      "weight_t": 2500,
+      "text": "СП 150–200 А; электрическое торможение",
+      "mode": "electric_braking",
+      "connection": "СП",
+      "current_min_A": 150,
+      "current_max_A": 200,
+      "annotation_km": 2040.608,
+      "page": 6,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2034.904,
+      "km_end": 2023.154,
+      "weight_t": 2500,
+      "text": "СП 400–450 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 400,
+      "current_max_A": 450,
+      "annotation_km": 2034.908,
+      "page": 7,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2018.654,
+      "km_end": 1995.655,
+      "weight_t": 2500,
+      "text": "СП 200–300 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 200,
+      "current_max_A": 300,
+      "annotation_km": 2018.684,
+      "page": 7,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 1994.905,
+      "km_end": 1992.156,
+      "weight_t": 2500,
+      "text": "СП 400–500 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 400,
+      "current_max_A": 500,
+      "annotation_km": 1994.797,
+      "page": 8,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 1990.655,
+      "km_end": 1976.909,
+      "weight_t": 2500,
+      "text": "СП 450–500 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 450,
+      "current_max_A": 500,
+      "annotation_km": 1990.685,
+      "page": 8,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 1976.909,
+      "km_end": 1967.907,
+      "weight_t": 2500,
+      "text": "СП 350–400 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 350,
+      "current_max_A": 400,
+      "annotation_km": 1976.909,
+      "page": 9,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 1964.156,
+      "km_end": 1959.157,
+      "weight_t": 2500,
+      "text": "СП 250–400 А; электрическое торможение",
+      "mode": "electric_braking",
+      "connection": "СП",
+      "current_min_A": 250,
+      "current_max_A": 400,
+      "annotation_km": 1964.186,
+      "page": 9,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 1957.656,
+      "km_end": 1952.657,
+      "weight_t": 2500,
+      "text": "СП 250–400 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 250,
+      "current_max_A": 400,
+      "annotation_km": 1957.66,
+      "page": 9,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2149.487,
+      "km_end": 2140.278,
+      "weight_t": 6300,
+      "text": "СП 450–500 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 450,
+      "current_max_A": 500,
+      "annotation_km": 2148.554,
+      "page": 3,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2140.278,
+      "km_end": 2131.53,
+      "weight_t": 6300,
+      "text": "СП 500–550 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 500,
+      "current_max_A": 550,
+      "annotation_km": 2140.278,
+      "page": 3,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2131.53,
+      "km_end": 2124.65,
+      "weight_t": 6300,
+      "text": "СП 350–450 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 350,
+      "current_max_A": 450,
+      "annotation_km": 2131.53,
+      "page": 3,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2123.15,
+      "km_end": 2116.652,
+      "weight_t": 6300,
+      "text": "СП 350–450 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 350,
+      "current_max_A": 450,
+      "annotation_km": 2123.061,
+      "page": 4,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2109.15,
+      "km_end": 2105.152,
+      "weight_t": 6300,
+      "text": "СП 350–450 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 350,
+      "current_max_A": 450,
+      "annotation_km": 2109.192,
+      "page": 4,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2101.115,
+      "km_end": 2097.115,
+      "weight_t": 6300,
+      "text": "П 400–450 А; тяга",
+      "mode": "traction",
+      "connection": "П",
+      "current_min_A": 400,
+      "current_max_A": 450,
+      "annotation_km": 2101.005,
+      "page": 4,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2089.901,
+      "km_end": 2085.151,
+      "weight_t": 6300,
+      "text": "П 400–450 А; тяга",
+      "mode": "traction",
+      "connection": "П",
+      "current_min_A": 400,
+      "current_max_A": 450,
+      "annotation_km": 2089.886,
+      "page": 5,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2082.152,
+      "km_end": 2076.505,
+      "weight_t": 6300,
+      "text": "П 450–550 А; тяга",
+      "mode": "traction",
+      "connection": "П",
+      "current_min_A": 450,
+      "current_max_A": 550,
+      "annotation_km": 2082.137,
+      "page": 5,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2076.505,
+      "km_end": 2065.153,
+      "weight_t": 6300,
+      "text": "П 400–450 А; тяга",
+      "mode": "traction",
+      "connection": "П",
+      "current_min_A": 400,
+      "current_max_A": 450,
+      "annotation_km": 2076.505,
+      "page": 5,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2059.152,
+      "km_end": 2055.154,
+      "weight_t": 6300,
+      "text": "П 400–450 А; электрическое торможение",
+      "mode": "electric_braking",
+      "connection": "П",
+      "current_min_A": 400,
+      "current_max_A": 450,
+      "annotation_km": 2059.006,
+      "page": 6,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2054.652,
+      "km_end": 2050.654,
+      "weight_t": 6300,
+      "text": "П 400–450 А; тяга",
+      "mode": "traction",
+      "connection": "П",
+      "current_min_A": 400,
+      "current_max_A": 450,
+      "annotation_km": 2054.506,
+      "page": 6,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2048.654,
+      "km_end": 2044.653,
+      "weight_t": 6300,
+      "text": "П 400–450 А; тяга",
+      "mode": "traction",
+      "connection": "П",
+      "current_min_A": 400,
+      "current_max_A": 450,
+      "annotation_km": 2048.582,
+      "page": 6,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2043.654,
+      "km_end": 2037.653,
+      "weight_t": 6300,
+      "text": "СП 250–350 А; электрическое торможение",
+      "mode": "electric_braking",
+      "connection": "СП",
+      "current_min_A": 250,
+      "current_max_A": 350,
+      "annotation_km": 2043.639,
+      "page": 6,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2034.904,
+      "km_end": 2023.154,
+      "weight_t": 6300,
+      "text": "П 400–450 А; тяга",
+      "mode": "traction",
+      "connection": "П",
+      "current_min_A": 400,
+      "current_max_A": 450,
+      "annotation_km": 2034.876,
+      "page": 7,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2018.654,
+      "km_end": 1995.655,
+      "weight_t": 6300,
+      "text": "П 300–350 А; тяга",
+      "mode": "traction",
+      "connection": "П",
+      "current_min_A": 300,
+      "current_max_A": 350,
+      "annotation_km": 2018.652,
+      "page": 7,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 1994.905,
+      "km_end": 1992.156,
+      "weight_t": 6300,
+      "text": "П 450–550 А; тяга",
+      "mode": "traction",
+      "connection": "П",
+      "current_min_A": 450,
+      "current_max_A": 550,
+      "annotation_km": 1994.766,
+      "page": 8,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 1990.655,
+      "km_end": 1976.935,
+      "weight_t": 6300,
+      "text": "П 500–550 А; тяга",
+      "mode": "traction",
+      "connection": "П",
+      "current_min_A": 500,
+      "current_max_A": 550,
+      "annotation_km": 1990.653,
+      "page": 8,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 1976.935,
+      "km_end": 1968.657,
+      "weight_t": 6300,
+      "text": "СП 400–450 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 400,
+      "current_max_A": 450,
+      "annotation_km": 1976.935,
+      "page": 9,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 1966.157,
+      "km_end": 1958.657,
+      "weight_t": 6300,
+      "text": "СП 400–500 А; электрическое торможение",
+      "mode": "electric_braking",
+      "connection": "СП",
+      "current_min_A": 400,
+      "current_max_A": 500,
+      "annotation_km": 1966.184,
+      "page": 9,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 1957.656,
+      "km_end": 1952.657,
+      "weight_t": 6300,
+      "text": "СП 400–500 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 400,
+      "current_max_A": 500,
+      "annotation_km": 1957.686,
+      "page": 9,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2149.487,
+      "km_end": 2140.265,
+      "weight_t": 8000,
+      "text": "СП 500–550 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 500,
+      "current_max_A": 550,
+      "annotation_km": 2148.541,
+      "page": 3,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2140.265,
+      "km_end": 2131.517,
+      "weight_t": 8000,
+      "text": "СП 550–600 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 550,
+      "current_max_A": 600,
+      "annotation_km": 2140.265,
+      "page": 3,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2131.517,
+      "km_end": 2124.65,
+      "weight_t": 8000,
+      "text": "СП 400–500 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 400,
+      "current_max_A": 500,
+      "annotation_km": 2131.517,
+      "page": 3,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2123.15,
+      "km_end": 2116.652,
+      "weight_t": 8000,
+      "text": "СП 400–500 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 400,
+      "current_max_A": 500,
+      "annotation_km": 2123.048,
+      "page": 4,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2109.15,
+      "km_end": 2105.152,
+      "weight_t": 8000,
+      "text": "СП 400–500 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 400,
+      "current_max_A": 500,
+      "annotation_km": 2109.18,
+      "page": 4,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2101.151,
+      "km_end": 2097.151,
+      "weight_t": 8000,
+      "text": "П 400–500 А; тяга",
+      "mode": "traction",
+      "connection": "П",
+      "current_min_A": 400,
+      "current_max_A": 500,
+      "annotation_km": 2100.992,
+      "page": 4,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2089.901,
+      "km_end": 2085.151,
+      "weight_t": 8000,
+      "text": "П 400–500 А; тяга",
+      "mode": "traction",
+      "connection": "П",
+      "current_min_A": 400,
+      "current_max_A": 500,
+      "annotation_km": 2089.874,
+      "page": 5,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2082.152,
+      "km_end": 2076.494,
+      "weight_t": 8000,
+      "text": "П 500–550 А; тяга",
+      "mode": "traction",
+      "connection": "П",
+      "current_min_A": 500,
+      "current_max_A": 550,
+      "annotation_km": 2082.125,
+      "page": 5,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2076.494,
+      "km_end": 2065.153,
+      "weight_t": 8000,
+      "text": "П 400–450 А; тяга",
+      "mode": "traction",
+      "connection": "П",
+      "current_min_A": 400,
+      "current_max_A": 450,
+      "annotation_km": 2076.494,
+      "page": 5,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2059.152,
+      "km_end": 2055.154,
+      "weight_t": 8000,
+      "text": "П 400–450 А; электрическое торможение",
+      "mode": "electric_braking",
+      "connection": "П",
+      "current_min_A": 400,
+      "current_max_A": 450,
+      "annotation_km": 2058.994,
+      "page": 6,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2054.652,
+      "km_end": 2050.654,
+      "weight_t": 8000,
+      "text": "П 450–500 А; тяга",
+      "mode": "traction",
+      "connection": "П",
+      "current_min_A": 450,
+      "current_max_A": 500,
+      "annotation_km": 2054.494,
+      "page": 6,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2048.654,
+      "km_end": 2044.653,
+      "weight_t": 8000,
+      "text": "П 450–500 А; тяга",
+      "mode": "traction",
+      "connection": "П",
+      "current_min_A": 450,
+      "current_max_A": 500,
+      "annotation_km": 2048.569,
+      "page": 6,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2043.654,
+      "km_end": 2037.653,
+      "weight_t": 8000,
+      "text": "СП 300–400 А; электрическое торможение",
+      "mode": "electric_braking",
+      "connection": "СП",
+      "current_min_A": 300,
+      "current_max_A": 400,
+      "annotation_km": 2043.627,
+      "page": 6,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2034.904,
+      "km_end": 2023.154,
+      "weight_t": 8000,
+      "text": "П 400–500 А; тяга",
+      "mode": "traction",
+      "connection": "П",
+      "current_min_A": 400,
+      "current_max_A": 500,
+      "annotation_km": 2034.864,
+      "page": 7,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 2018.654,
+      "km_end": 1995.655,
+      "weight_t": 8000,
+      "text": "П 300–400 А; тяга",
+      "mode": "traction",
+      "connection": "П",
+      "current_min_A": 300,
+      "current_max_A": 400,
+      "annotation_km": 2018.639,
+      "page": 7,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 1994.905,
+      "km_end": 1992.156,
+      "weight_t": 8000,
+      "text": "П 500–550 А; тяга",
+      "mode": "traction",
+      "connection": "П",
+      "current_min_A": 500,
+      "current_max_A": 550,
+      "annotation_km": 1994.753,
+      "page": 8,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 1990.655,
+      "km_end": 1976.922,
+      "weight_t": 8000,
+      "text": "П 500–600 А; тяга",
+      "mode": "traction",
+      "connection": "П",
+      "current_min_A": 500,
+      "current_max_A": 600,
+      "annotation_km": 1990.64,
+      "page": 8,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 1976.922,
+      "km_end": 1968.657,
+      "weight_t": 8000,
+      "text": "СП 400–500 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 400,
+      "current_max_A": 500,
+      "annotation_km": 1976.922,
+      "page": 9,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 1966.157,
+      "km_end": 1958.657,
+      "weight_t": 8000,
+      "text": "СП 450–500 А; электрическое торможение",
+      "mode": "electric_braking",
+      "connection": "СП",
+      "current_min_A": 450,
+      "current_max_A": 500,
+      "annotation_km": 1966.174,
+      "page": 9,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    },
+    {
+      "km_start": 1957.656,
+      "km_end": 1952.657,
+      "weight_t": 8000,
+      "text": "СП 450–550 А; тяга",
+      "mode": "traction",
+      "connection": "СП",
+      "current_min_A": 450,
+      "current_max_A": 550,
+      "annotation_km": 1957.673,
+      "page": 9,
+      "boundary_basis": "line extent; changes at next current annotation, approximate"
+    }
+  ],
+  "curves": [
+    {
+      "km_start": 2149.299,
+      "km_end": 2149.1,
+      "radius_m": 4000,
+      "length_m": 199.0,
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2149.1,
+      "km_end": 2149.0,
+      "radius_m": 3000,
+      "length_m": 99.5,
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2148.799,
+      "km_end": 2148.399,
+      "radius_m": 2150,
+      "length_m": 400.0,
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2140.999,
+      "km_end": 2140.9,
+      "radius_m": 3675,
+      "length_m": 99.5,
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2140.1,
+      "km_end": 2139.799,
+      "radius_m": 5170,
+      "length_m": 300.6,
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2139.693,
+      "km_end": 2139.6,
+      "radius_m": 2400,
+      "length_m": 93.1,
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2139.3,
+      "km_end": 2138.999,
+      "radius_m": 640,
+      "length_m": 300.6,
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2137.799,
+      "km_end": 2137.6,
+      "radius_m": 530,
+      "length_m": 199.0,
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2135.699,
+      "km_end": 2135.2,
+      "radius_m": 1050,
+      "length_m": 499.5,
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2119.702,
+      "km_end": 2119.501,
+      "radius_m": 2750,
+      "length_m": 201.1,
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2118.902,
+      "km_end": 2118.8,
+      "radius_m": 4500,
+      "length_m": 101.6,
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2118.8,
+      "km_end": 2118.601,
+      "radius_m": 5000,
+      "length_m": 199.0,
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2102.102,
+      "km_end": 2101.702,
+      "radius_m": 2386,
+      "length_m": 400.0,
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2101.301,
+      "km_end": 2101.1,
+      "radius_m": 3553,
+      "length_m": 201.1,
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2101.1,
+      "km_end": 2101.001,
+      "radius_m": 3465,
+      "length_m": 99.5,
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2098.601,
+      "km_end": 2098.501,
+      "radius_m": 2496,
+      "length_m": 99.5,
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2098.302,
+      "km_end": 2098.201,
+      "radius_m": 2958,
+      "length_m": 101.6,
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2097.102,
+      "km_end": 2097.0,
+      "radius_m": 3754,
+      "length_m": 101.6,
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2096.901,
+      "km_end": 2096.702,
+      "radius_m": 9062,
+      "length_m": 199.0,
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2092.401,
+      "km_end": 2091.901,
+      "radius_m": 1199,
+      "length_m": 499.5,
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2091.901,
+      "km_end": 2091.201,
+      "radius_m": 1055,
+      "length_m": 700.6,
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2090.602,
+      "km_end": 2090.102,
+      "radius_m": 2502,
+      "length_m": 499.5,
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2084.201,
+      "km_end": 2083.902,
+      "radius_m": 1749,
+      "length_m": 298.4,
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2083.202,
+      "km_end": 2082.501,
+      "radius_m": 1054,
+      "length_m": 700.6,
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2081.803,
+      "km_end": 2081.003,
+      "radius_m": 2103,
+      "length_m": 800.1,
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2078.594,
+      "km_end": 2078.503,
+      "radius_m": 5000,
+      "length_m": 91.0,
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2077.802,
+      "km_end": 2077.703,
+      "radius_m": 5000,
+      "length_m": 99.5,
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2077.703,
+      "km_end": 2077.601,
+      "radius_m": 5000,
+      "length_m": 101.6,
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2077.303,
+      "km_end": 2077.102,
+      "radius_m": 5000,
+      "length_m": 201.1,
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2070.72,
+      "km_end": 2070.502,
+      "radius_m": 5000,
+      "length_m": 218.0,
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2066.203,
+      "km_end": 2065.553,
+      "radius_m": 1037,
+      "length_m": 649.8,
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2065.553,
+      "km_end": 2065.202,
+      "radius_m": 1077,
+      "length_m": 351.4,
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2064.903,
+      "km_end": 2064.404,
+      "radius_m": 984,
+      "length_m": 499.5,
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2064.404,
+      "km_end": 2063.403,
+      "radius_m": 1271,
+      "length_m": 1001.2,
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2061.203,
+      "km_end": 2061.104,
+      "radius_m": 3221,
+      "length_m": 99.5,
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2061.104,
+      "km_end": 2061.002,
+      "radius_m": 6091,
+      "length_m": 101.6,
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2060.903,
+      "km_end": 2060.704,
+      "radius_m": 4042,
+      "length_m": 199.0,
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2060.704,
+      "km_end": 2060.602,
+      "radius_m": 3152,
+      "length_m": 101.6,
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2060.202,
+      "km_end": 2058.903,
+      "radius_m": 2114,
+      "length_m": 1299.6,
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2058.803,
+      "km_end": 2057.702,
+      "radius_m": 1862,
+      "length_m": 1100.7,
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2056.902,
+      "km_end": 2055.702,
+      "radius_m": 1049,
+      "length_m": 1200.1,
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2054.604,
+      "km_end": 2054.104,
+      "radius_m": 1502,
+      "length_m": 499.5,
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2054.002,
+      "km_end": 2053.103,
+      "radius_m": 1066,
+      "length_m": 899.6,
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2052.904,
+      "km_end": 2052.603,
+      "radius_m": 2673,
+      "length_m": 300.6,
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2052.512,
+      "km_end": 2051.704,
+      "radius_m": 2265,
+      "length_m": 808.6,
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2051.503,
+      "km_end": 2050.804,
+      "radius_m": 548,
+      "length_m": 698.5,
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2049.403,
+      "km_end": 2048.702,
+      "radius_m": 589,
+      "length_m": 700.6,
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2046.304,
+      "km_end": 2045.803,
+      "radius_m": 2173,
+      "length_m": 501.6,
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2038.303,
+      "km_end": 2038.005,
+      "radius_m": 1115,
+      "length_m": 298.4,
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2037.605,
+      "km_end": 2036.005,
+      "radius_m": 2077,
+      "length_m": 1600.2,
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2034.104,
+      "km_end": 2032.804,
+      "radius_m": 2092,
+      "length_m": 1299.6,
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2032.804,
+      "km_end": 2032.305,
+      "radius_m": 2041,
+      "length_m": 499.5,
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2028.804,
+      "km_end": 2028.505,
+      "radius_m": 1815,
+      "length_m": 298.4,
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2027.405,
+      "km_end": 2027.203,
+      "radius_m": 5017,
+      "length_m": 201.1,
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2026.897,
+      "km_end": 2026.204,
+      "radius_m": 931,
+      "length_m": 692.1,
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2023.705,
+      "km_end": 2023.205,
+      "radius_m": 2141,
+      "length_m": 499.5,
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2023.004,
+      "km_end": 2022.904,
+      "radius_m": 2200,
+      "length_m": 99.5,
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2022.805,
+      "km_end": 2022.303,
+      "radius_m": 1110,
+      "length_m": 501.6,
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2011.104,
+      "km_end": 2010.105,
+      "radius_m": 2189,
+      "length_m": 999.1,
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2010.006,
+      "km_end": 2009.504,
+      "radius_m": 1153,
+      "length_m": 501.6,
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2009.504,
+      "km_end": 2009.404,
+      "radius_m": 5332,
+      "length_m": 99.5,
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2009.404,
+      "km_end": 2009.305,
+      "radius_m": 5763,
+      "length_m": 99.5,
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2008.306,
+      "km_end": 2007.906,
+      "radius_m": 2061,
+      "length_m": 400.0,
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2006.604,
+      "km_end": 2006.405,
+      "radius_m": 6037,
+      "length_m": 199.0,
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2006.405,
+      "km_end": 2006.306,
+      "radius_m": 7958,
+      "length_m": 99.5,
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2004.904,
+      "km_end": 2004.805,
+      "radius_m": 4400,
+      "length_m": 99.5,
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 2004.805,
+      "km_end": 2004.705,
+      "radius_m": 1179,
+      "length_m": 99.5,
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 2002.904,
+      "km_end": 2002.504,
+      "radius_m": 2084,
+      "length_m": 400.0,
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 1997.413,
+      "km_end": 1997.306,
+      "radius_m": 4244,
+      "length_m": 107.9,
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 1997.104,
+      "km_end": 1996.713,
+      "radius_m": 2876,
+      "length_m": 391.6,
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 1996.713,
+      "km_end": 1996.605,
+      "radius_m": 6053,
+      "length_m": 107.9,
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 1996.406,
+      "km_end": 1996.006,
+      "radius_m": 1034,
+      "length_m": 400.0,
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 1993.805,
+      "km_end": 1992.405,
+      "radius_m": 1260,
+      "length_m": 1399.1,
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 1992.306,
+      "km_end": 1990.805,
+      "radius_m": 2117,
+      "length_m": 1500.7,
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 1990.714,
+      "km_end": 1990.513,
+      "radius_m": 1552,
+      "length_m": 201.1,
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 1990.513,
+      "km_end": 1990.405,
+      "radius_m": 1234,
+      "length_m": 107.9,
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 1990.206,
+      "km_end": 1989.605,
+      "radius_m": 722,
+      "length_m": 601.1,
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 1988.805,
+      "km_end": 1988.306,
+      "radius_m": 1060,
+      "length_m": 499.5,
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 1988.206,
+      "km_end": 1987.707,
+      "radius_m": 638,
+      "length_m": 499.5,
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 1987.505,
+      "km_end": 1986.805,
+      "radius_m": 1061,
+      "length_m": 700.6,
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 1984.206,
+      "km_end": 1983.306,
+      "radius_m": 2118,
+      "length_m": 899.6,
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 1983.005,
+      "km_end": 1982.307,
+      "radius_m": 829,
+      "length_m": 698.5,
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 1982.205,
+      "km_end": 1981.907,
+      "radius_m": 919,
+      "length_m": 298.4,
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 1980.605,
+      "km_end": 1980.307,
+      "radius_m": 1915,
+      "length_m": 298.4,
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 1979.606,
+      "km_end": 1979.206,
+      "radius_m": 1207,
+      "length_m": 400.0,
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 1979.206,
+      "km_end": 1978.505,
+      "radius_m": 1050,
+      "length_m": 700.6,
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 1978.105,
+      "km_end": 1977.305,
+      "radius_m": 1056,
+      "length_m": 800.1,
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 1976.107,
+      "km_end": 1975.606,
+      "radius_m": 1009,
+      "length_m": 501.6,
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 1974.706,
+      "km_end": 1974.405,
+      "radius_m": 661,
+      "length_m": 300.6,
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 1974.005,
+      "km_end": 1973.906,
+      "radius_m": 7329,
+      "length_m": 99.5,
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 1973.806,
+      "km_end": 1973.707,
+      "radius_m": 7477,
+      "length_m": 99.5,
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 1968.007,
+      "km_end": 1967.207,
+      "radius_m": 627,
+      "length_m": 800.1,
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 1963.807,
+      "km_end": 1963.107,
+      "radius_m": 2104,
+      "length_m": 700.6,
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 1962.607,
+      "km_end": 1962.108,
+      "radius_m": 2091,
+      "length_m": 499.5,
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 1961.906,
+      "km_end": 1961.307,
+      "radius_m": 2085,
+      "length_m": 599.0,
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 1960.507,
+      "km_end": 1960.006,
+      "radius_m": 2086,
+      "length_m": 501.6,
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 1958.808,
+      "km_end": 1958.008,
+      "radius_m": 495,
+      "length_m": 800.1,
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 1957.608,
+      "km_end": 1957.106,
+      "radius_m": 511,
+      "length_m": 501.6,
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 1956.107,
+      "km_end": 1955.607,
+      "radius_m": 453,
+      "length_m": 499.5,
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 1954.107,
+      "km_end": 1953.607,
+      "radius_m": 796,
+      "length_m": 499.5,
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 1951.207,
+      "km_end": 1951.116,
+      "radius_m": 4600,
+      "length_m": 91.0,
+      "page": 10,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    },
+    {
+      "km_start": 1951.116,
+      "km_end": 1951.008,
+      "radius_m": 2800,
+      "length_m": 107.9,
+      "page": 10,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "below"
+    },
+    {
+      "km_start": 1950.108,
+      "km_end": 1949.808,
+      "radius_m": 2730,
+      "length_m": 300.6,
+      "page": 10,
+      "chainage_kind": "graphical_digitization",
+      "length_kind": "graphical_plateau_span",
+      "drawing_side": "above"
+    }
+  ],
+  "unknown_curves": [
+    {
+      "km_start": 1966.106,
+      "km_end": 1965.107,
+      "radius_m": null,
+      "length_m": 999.1,
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "reason": "The PDF draws the curve span but prints no radius for it."
+    }
+  ],
+  "signals": [
+    {
+      "km": 2148.349,
+      "type": "station_signal",
+      "label": "НМ1",
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2146.72,
+      "type": "station_signal",
+      "label": "Н1",
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2143.553,
+      "type": "station_signal",
+      "label": "НМ1А",
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2142.515,
+      "type": "station_signal",
+      "label": "Н1В",
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2141.597,
+      "type": "station_signal",
+      "label": "Н",
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2139.54,
+      "type": "station_signal",
+      "label": "НВ1",
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2138.427,
+      "type": "station_signal",
+      "label": "Н1",
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2136.642,
+      "type": "passing_signal",
+      "label": "7",
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2135.253,
+      "type": "passing_signal",
+      "label": "5",
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2133.146,
+      "type": "passing_signal",
+      "label": "3",
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2130.94,
+      "type": "passing_signal",
+      "label": "1",
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2129.449,
+      "type": "station_signal",
+      "label": "Н",
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2127.821,
+      "type": "station_signal",
+      "label": "Н1",
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2126.049,
+      "type": "passing_signal",
+      "label": "7",
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2123.627,
+      "type": "passing_signal",
+      "label": "5",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2121.821,
+      "type": "passing_signal",
+      "label": "3",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2120.25,
+      "type": "passing_signal",
+      "label": "1",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2118.928,
+      "type": "station_signal",
+      "label": "Н",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2117.249,
+      "type": "station_signal",
+      "label": "Н1",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2115.25,
+      "type": "passing_signal",
+      "label": "15",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2113.05,
+      "type": "passing_signal",
+      "label": "13",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2110.65,
+      "type": "passing_signal",
+      "label": "11",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2108.55,
+      "type": "passing_signal",
+      "label": "9",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2106.572,
+      "type": "passing_signal",
+      "label": "7",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2104.45,
+      "type": "passing_signal",
+      "label": "5",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2102.45,
+      "type": "passing_signal",
+      "label": "3",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2100.263,
+      "type": "passing_signal",
+      "label": "1",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2099.05,
+      "type": "station_signal",
+      "label": "Н",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2097.05,
+      "type": "station_signal",
+      "label": "Н1",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2094.829,
+      "type": "passing_signal",
+      "label": "15",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2092.851,
+      "type": "passing_signal",
+      "label": "13",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2091.018,
+      "type": "passing_signal",
+      "label": "11",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2088.865,
+      "type": "passing_signal",
+      "label": "9",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2086.75,
+      "type": "passing_signal",
+      "label": "7",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2084.772,
+      "type": "passing_signal",
+      "label": "5",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2082.65,
+      "type": "passing_signal",
+      "label": "3",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2080.951,
+      "type": "passing_signal",
+      "label": "1",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2079.651,
+      "type": "station_signal",
+      "label": "Н",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2077.851,
+      "type": "station_signal",
+      "label": "Н1",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2075.873,
+      "type": "passing_signal",
+      "label": "5",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2073.951,
+      "type": "passing_signal",
+      "label": "3",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2072.351,
+      "type": "passing_signal",
+      "label": "1",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2070.973,
+      "type": "station_signal",
+      "label": "Н",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2069.351,
+      "type": "station_signal",
+      "label": "Н1",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2067.152,
+      "type": "passing_signal",
+      "label": "5",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2065.53,
+      "type": "passing_signal",
+      "label": "3",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2063.952,
+      "type": "passing_signal",
+      "label": "1",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2062.424,
+      "type": "station_signal",
+      "label": "Н",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2060.759,
+      "type": "station_signal",
+      "label": "Н1",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2058.762,
+      "type": "passing_signal",
+      "label": "17",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2057.152,
+      "type": "passing_signal",
+      "label": "15",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2055.352,
+      "type": "passing_signal",
+      "label": "13",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2053.153,
+      "type": "passing_signal",
+      "label": "11",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2051.656,
+      "type": "passing_signal",
+      "label": "9",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2049.54,
+      "type": "passing_signal",
+      "label": "7",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2047.34,
+      "type": "passing_signal",
+      "label": "5",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2045.068,
+      "type": "passing_signal",
+      "label": "3",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2042.853,
+      "type": "passing_signal",
+      "label": "1",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2041.435,
+      "type": "station_signal",
+      "label": "Н",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2039.853,
+      "type": "station_signal",
+      "label": "Н1",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2038.052,
+      "type": "passing_signal",
+      "label": "9",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2036.253,
+      "type": "passing_signal",
+      "label": "7",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2034.253,
+      "type": "passing_signal",
+      "label": "5",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2032.574,
+      "type": "passing_signal",
+      "label": "3",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2030.369,
+      "type": "passing_signal",
+      "label": "1",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2028.753,
+      "type": "station_signal",
+      "label": "Н",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2027.154,
+      "type": "station_signal",
+      "label": "Н1",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2024.753,
+      "type": "passing_signal",
+      "label": "29",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2022.854,
+      "type": "passing_signal",
+      "label": "27",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2021.053,
+      "type": "passing_signal",
+      "label": "25",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2019.158,
+      "type": "passing_signal",
+      "label": "23",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2017.254,
+      "type": "passing_signal",
+      "label": "21",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2015.153,
+      "type": "passing_signal",
+      "label": "19",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2013.175,
+      "type": "passing_signal",
+      "label": "17",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2011.454,
+      "type": "passing_signal",
+      "label": "15",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2009.854,
+      "type": "passing_signal",
+      "label": "13",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2008.179,
+      "type": "passing_signal",
+      "label": "11",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2006.575,
+      "type": "passing_signal",
+      "label": "9",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2004.554,
+      "type": "passing_signal",
+      "label": "7",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2002.954,
+      "type": "passing_signal",
+      "label": "5",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2000.954,
+      "type": "passing_signal",
+      "label": "3",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1999.154,
+      "type": "passing_signal",
+      "label": "1",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1997.754,
+      "type": "station_signal",
+      "label": "Н",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1996.055,
+      "type": "station_signal",
+      "label": "Н1",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1993.654,
+      "type": "passing_signal",
+      "label": "17",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1991.755,
+      "type": "passing_signal",
+      "label": "15",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1989.255,
+      "type": "passing_signal",
+      "label": "13",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1987.555,
+      "type": "passing_signal",
+      "label": "11",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1985.581,
+      "type": "passing_signal",
+      "label": "9",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1983.755,
+      "type": "passing_signal",
+      "label": "7",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1981.533,
+      "type": "passing_signal",
+      "label": "5",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1979.474,
+      "type": "passing_signal",
+      "label": "3",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1977.555,
+      "type": "passing_signal",
+      "label": "1",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1976.134,
+      "type": "station_signal",
+      "label": "Н",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1974.156,
+      "type": "station_signal",
+      "label": "Н1",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1972.455,
+      "type": "passing_signal",
+      "label": "13",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1969.856,
+      "type": "passing_signal",
+      "label": "11",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1967.834,
+      "type": "passing_signal",
+      "label": "9",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1965.756,
+      "type": "passing_signal",
+      "label": "7",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1963.555,
+      "type": "passing_signal",
+      "label": "5",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1961.456,
+      "type": "passing_signal",
+      "label": "3",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1959.655,
+      "type": "passing_signal",
+      "label": "1",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1958.356,
+      "type": "station_signal",
+      "label": "Н",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1956.256,
+      "type": "station_signal",
+      "label": "Н1",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1954.156,
+      "type": "passing_signal",
+      "label": "1",
+      "page": 10,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1952.057,
+      "type": "station_signal",
+      "label": "Н",
+      "page": 10,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1949.648,
+      "type": "station_signal",
+      "label": "Н1",
+      "page": 10,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    }
+  ],
+  "events": [
+    {
+      "km": 2145.898,
+      "type": "inspection_crew",
+      "label": "Осмотр поезда локомотивной бригадой",
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2142.849,
+      "type": "suburban_stop",
+      "label": "Остановочный пункт пригородных поездов",
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2135.979,
+      "type": "inspection_assistant",
+      "label": "Осмотр поезда помощником машиниста",
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2133.75,
+      "type": "suburban_stop",
+      "label": "Остановочный пункт пригородных поездов",
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2133.151,
+      "type": "uksps",
+      "label": "УКСПС",
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2133.129,
+      "type": "inspection_crew",
+      "label": "Осмотр поезда локомотивной бригадой",
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2130.949,
+      "type": "uksps",
+      "label": "УКСПС",
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2123.951,
+      "type": "brake_test",
+      "label": "Проверка действия тормозов",
+      "page": 3,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2122.951,
+      "type": "suburban_stop",
+      "label": "Остановочный пункт пригородных поездов",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2121.85,
+      "type": "uksps",
+      "label": "УКСПС",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2121.129,
+      "type": "inspection_crew",
+      "label": "Осмотр поезда локомотивной бригадой",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2120.252,
+      "type": "uksps",
+      "label": "УКСПС",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2119.913,
+      "type": "inspection_driver",
+      "label": "Осмотр поезда машинистом",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2119.102,
+      "type": "steep_drop",
+      "label": "Обрывное место",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2117.15,
+      "type": "unguarded_crossing",
+      "label": "Неохраняемый переезд",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2111.652,
+      "type": "suburban_stop",
+      "label": "Остановочный пункт пригородных поездов",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2108.401,
+      "type": "blocking_signal",
+      "label": "Заградительный светофор",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2108.252,
+      "type": "guarded_crossing",
+      "label": "Охраняемый переезд",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2108.201,
+      "type": "steep_drop",
+      "label": "Обрывное место",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2107.651,
+      "type": "suburban_stop",
+      "label": "Остановочный пункт пригородных поездов",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2106.65,
+      "type": "suburban_stop",
+      "label": "Остановочный пункт пригородных поездов",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2102.451,
+      "type": "uksps",
+      "label": "УКСПС",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2102.17,
+      "type": "inspection_crew",
+      "label": "Осмотр поезда локомотивной бригадой",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2101.551,
+      "type": "suburban_stop",
+      "label": "Остановочный пункт пригородных поездов",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2101.401,
+      "type": "bridge",
+      "label": "Мост",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2100.252,
+      "type": "uksps",
+      "label": "УКСПС",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2100.001,
+      "type": "steep_drop",
+      "label": "Обрывное место",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2099.863,
+      "type": "ktsm",
+      "label": "КТСМ",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2098.451,
+      "type": "unguarded_crossing",
+      "label": "Неохраняемый переезд",
+      "page": 4,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2093.951,
+      "type": "brake_test",
+      "label": "Проверка действия тормозов",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2091.908,
+      "type": "inspection_assistant",
+      "label": "Осмотр поезда помощником машиниста",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2091.26,
+      "type": "inspection_driver",
+      "label": "Осмотр поезда машинистом",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2089.252,
+      "type": "steep_drop",
+      "label": "Обрывное место",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2088.752,
+      "type": "suburban_stop",
+      "label": "Остановочный пункт пригородных поездов",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2086.652,
+      "type": "suburban_stop",
+      "label": "Остановочный пункт пригородных поездов",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2086.164,
+      "type": "ktsm",
+      "label": "КТСМ",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2084.903,
+      "type": "steep_drop",
+      "label": "Обрывное место",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2082.952,
+      "type": "suburban_stop",
+      "label": "Остановочный пункт пригородных поездов",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2082.651,
+      "type": "uksps",
+      "label": "УКСПС",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2081.881,
+      "type": "inspection_crew",
+      "label": "Осмотр поезда локомотивной бригадой",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2080.952,
+      "type": "uksps",
+      "label": "УКСПС",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2080.48,
+      "type": "blocking_signal",
+      "label": "Заградительный светофор",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2080.352,
+      "type": "guarded_crossing",
+      "label": "Охраняемый переезд",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2075.901,
+      "type": "bridge",
+      "label": "Мост",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2073.422,
+      "type": "inspection_crew",
+      "label": "Осмотр поезда локомотивной бригадой",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2070.07,
+      "type": "bridge",
+      "label": "Мост",
+      "page": 5,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2065.553,
+      "type": "uksps",
+      "label": "УКСПС",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2065.532,
+      "type": "inspection_crew",
+      "label": "Осмотр поезда локомотивной бригадой",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2065.265,
+      "type": "ktsm",
+      "label": "КТСМ",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2063.953,
+      "type": "uksps",
+      "label": "УКСПС",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2063.253,
+      "type": "steep_drop",
+      "label": "Обрывное место",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2060.436,
+      "type": "guarded_crossing",
+      "label": "Охраняемый переезд",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2059.453,
+      "type": "steep_drop",
+      "label": "Обрывное место",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2056.953,
+      "type": "brake_test",
+      "label": "Проверка действия тормозов",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2056.732,
+      "type": "inspection_assistant",
+      "label": "Осмотр поезда помощником машиниста",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2055.711,
+      "type": "inspection_driver",
+      "label": "Осмотр поезда машинистом",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2053.852,
+      "type": "suburban_stop",
+      "label": "Остановочный пункт пригородных поездов",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2047.653,
+      "type": "suburban_stop",
+      "label": "Остановочный пункт пригородных поездов",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2047.054,
+      "type": "steep_drop",
+      "label": "Обрывное место",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2046.282,
+      "type": "inspection_assistant",
+      "label": "Осмотр поезда помощником машиниста",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2045.053,
+      "type": "uksps",
+      "label": "УКСПС",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2044.923,
+      "type": "inspection_crew",
+      "label": "Осмотр поезда локомотивной бригадой",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2042.854,
+      "type": "uksps",
+      "label": "УКСПС",
+      "page": 6,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2036.854,
+      "type": "steep_drop",
+      "label": "Обрывное место",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2035.853,
+      "type": "steep_drop",
+      "label": "Обрывное место",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2035.355,
+      "type": "suburban_stop",
+      "label": "Остановочный пункт пригородных поездов",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2034.286,
+      "type": "bridge",
+      "label": "Мост",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2034.16,
+      "type": "inspection_assistant",
+      "label": "Осмотр поезда помощником машиниста",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2033.654,
+      "type": "steep_drop",
+      "label": "Обрывное место",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2032.854,
+      "type": "steep_drop",
+      "label": "Обрывное место",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2032.605,
+      "type": "uksps",
+      "label": "УКСПС",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2032.172,
+      "type": "inspection_crew",
+      "label": "Осмотр поезда локомотивной бригадой",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2030.355,
+      "type": "uksps",
+      "label": "УКСПС",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2030.242,
+      "type": "ktsm",
+      "label": "КТСМ",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2029.283,
+      "type": "blocking_signal",
+      "label": "Заградительный светофор",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2028.771,
+      "type": "bridge",
+      "label": "Мост",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2025.883,
+      "type": "blocking_signal",
+      "label": "Заградительный светофор",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2023.733,
+      "type": "inspection_assistant",
+      "label": "Осмотр поезда помощником машиниста",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2023.055,
+      "type": "suburban_stop",
+      "label": "Остановочный пункт пригородных поездов",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2022.886,
+      "type": "bridge",
+      "label": "Мост",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2021.955,
+      "type": "steep_drop",
+      "label": "Обрывное место",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2017.054,
+      "type": "suburban_stop",
+      "label": "Остановочный пункт пригородных поездов",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2011.123,
+      "type": "inspection_driver",
+      "label": "Осмотр поезда машинистом",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2010.205,
+      "type": "blocking_signal",
+      "label": "Заградительный светофор",
+      "page": 7,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2009.555,
+      "type": "bridge",
+      "label": "Мост",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2005.154,
+      "type": "suburban_stop",
+      "label": "Остановочный пункт пригородных поездов",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2004.672,
+      "type": "bridge",
+      "label": "Мост",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2004.263,
+      "type": "blocking_signal",
+      "label": "Заградительный светофор",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2004.155,
+      "type": "guarded_crossing",
+      "label": "Охраняемый переезд",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2002.734,
+      "type": "inspection_assistant",
+      "label": "Осмотр поезда помощником машиниста",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2002.155,
+      "type": "bridge",
+      "label": "Мост",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2000.955,
+      "type": "uksps",
+      "label": "УКСПС",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2000.568,
+      "type": "ktsm",
+      "label": "КТСМ",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 2000.175,
+      "type": "inspection_crew",
+      "label": "Осмотр поезда локомотивной бригадой",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1999.155,
+      "type": "uksps",
+      "label": "УКСПС",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1997.256,
+      "type": "steep_drop",
+      "label": "Обрывное место",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1995.054,
+      "type": "steep_drop",
+      "label": "Обрывное место",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1992.339,
+      "type": "inspection_assistant",
+      "label": "Осмотр поезда помощником машиниста",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1992.056,
+      "type": "suburban_stop",
+      "label": "Остановочный пункт пригородных поездов",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1990.405,
+      "type": "bridge",
+      "label": "Мост",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1989.956,
+      "type": "suburban_stop",
+      "label": "Остановочный пункт пригородных поездов",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1983.056,
+      "type": "suburban_stop",
+      "label": "Остановочный пункт пригородных поездов",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1982.125,
+      "type": "inspection_driver",
+      "label": "Осмотр поезда машинистом",
+      "page": 8,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1979.456,
+      "type": "uksps",
+      "label": "УКСПС",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1978.885,
+      "type": "inspection_crew",
+      "label": "Осмотр поезда локомотивной бригадой",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1978.857,
+      "type": "suburban_stop",
+      "label": "Остановочный пункт пригородных поездов",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1978.568,
+      "type": "ktsm",
+      "label": "КТСМ",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1977.557,
+      "type": "uksps",
+      "label": "УКСПС",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1975.864,
+      "type": "blocking_signal",
+      "label": "Заградительный светофор",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1972.856,
+      "type": "suburban_stop",
+      "label": "Остановочный пункт пригородных поездов",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1968.235,
+      "type": "inspection_assistant",
+      "label": "Осмотр поезда помощником машиниста",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1967.656,
+      "type": "brake_test",
+      "label": "Проверка действия тормозов",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1966.557,
+      "type": "suburban_stop",
+      "label": "Остановочный пункт пригородных поездов",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1963.656,
+      "type": "steep_drop",
+      "label": "Обрывное место",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1961.481,
+      "type": "uksps",
+      "label": "УКСПС",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1961.276,
+      "type": "inspection_crew",
+      "label": "Осмотр поезда локомотивной бригадой",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1959.869,
+      "type": "ktsm",
+      "label": "КТСМ",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1959.656,
+      "type": "uksps",
+      "label": "УКСПС",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1959.066,
+      "type": "blocking_signal",
+      "label": "Заградительный светофор",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1958.914,
+      "type": "inspection_driver",
+      "label": "Осмотр поезда машинистом",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1955.386,
+      "type": "inspection_crew",
+      "label": "Осмотр поезда локомотивной бригадой",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    },
+    {
+      "km": 1954.157,
+      "type": "uksps",
+      "label": "УКСПС",
+      "page": 9,
+      "chainage_kind": "graphical_digitization",
+      "static_scheme": true
+    }
+  ],
+  "curve_coordinate_note": "Radius is printed in the PDF. Curve start/end and length are measured from the stepped horizontal vector drawing at 1 cm/km; they are approximate. Above/below distinguishes the graphic side only; no geographical left/right direction is claimed.",
+  "event_coordinate_note": "Static infrastructure and instruction symbols are digitized from the PDF, not a live signal state or ALSN input. No operational signal schedule or electronic map is supplied."
+}

@@ -1,0 +1,84 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Trainer: doctor",
+      "type": "process",
+      "command": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}\\dev\\TrainerDev.ps1", "-Action", "Doctor"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Trainer: build candidate",
+      "type": "process",
+      "command": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}\\dev\\TrainerDev.ps1", "-Action", "Build", "-Profile", "candidate"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Trainer: build integration",
+      "type": "process",
+      "command": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}\\dev\\TrainerDev.ps1", "-Action", "Build", "-Profile", "integration"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Trainer: smoke tests",
+      "type": "process",
+      "command": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}\\dev\\TrainerDev.ps1", "-Action", "Test", "-Suite", "smoke", "-Profile", "candidate"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": { "kind": "test", "isDefault": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "Trainer: regression tests",
+      "type": "process",
+      "command": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}\\dev\\TrainerDev.ps1", "-Action", "Test", "-Suite", "regression", "-Profile", "candidate"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Trainer: run candidate",
+      "type": "process",
+      "command": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}\\dev\\TrainerDev.ps1", "-Action", "Run", "-Profile", "candidate"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "dependsOn": "Trainer: build candidate",
+      "problemMatcher": []
+    },
+    {
+      "label": "Trainer: checkpoint",
+      "type": "process",
+      "command": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}\\dev\\TrainerDev.ps1", "-Action", "Checkpoint", "-Name", "${input:checkpointName}", "-Note", "${input:checkpointNote}"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Trainer: status",
+      "type": "process",
+      "command": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}\\dev\\TrainerDev.ps1", "-Action", "Status"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Trainer: archive",
+      "type": "process",
+      "command": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}\\dev\\TrainerDev.ps1", "-Action", "Archive"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    { "id": "checkpointName", "type": "promptString", "description": "Название сохранённого исправления", "default": "pneumatics-update" },
+    { "id": "checkpointNote", "type": "promptString", "description": "Что исправлено и как проверено", "default": "" }
+  ]
+}

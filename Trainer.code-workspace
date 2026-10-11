@@ -1,0 +1,25 @@
+{
+  "folders": [
+    { "name": "2ЭС6 — разработка тренажёра", "path": "." }
+  ],
+  "settings": {
+    "files.encoding": "utf8",
+    "files.autoSave": "off",
+    "files.exclude": {
+      "dev/builds/**": true,
+      "dev/runs/**": true,
+      "dev/archives/**": true,
+      "work/**/vendor/**": true
+    },
+    "search.exclude": {
+      "dev/builds/**": true,
+      "dev/runs/**": true,
+      "dev/archives/**": true,
+      "work/**/vendor/**": true,
+      "outputs/*.exe": true,
+      "outputs/*.dll": true,
+      "outputs/*.csv": true,
+      "outputs/Trainer_integration_*_log.txt": true
+    }
+  }
+}

@@ -1,0 +1,469 @@
+{
+  "schema_version": 1,
+  "path_base": "workspace_root",
+  "compiler": "C:/Windows/Microsoft.NET/Framework/v4.0.30319/csc.exe",
+  "framework": "NETFramework v4.0",
+  "assembly_references": [
+    "System.Windows.Forms.dll",
+    "System.Drawing.dll",
+    "System.Web.Extensions.dll"
+  ],
+  "profiles": {
+    "integration": {
+      "sources": [
+        "outputs/TrainerIntegrationHost.cs",
+        "outputs/TrainerSessionLogging.cs",
+        "outputs/TrainerNativeSystems.cs",
+        "outputs/TrainerAuxSystems.cs",
+        "outputs/TrainerRouteDOS.cs",
+        "outputs/TrainerRouteView.cs",
+        "outputs/TrainerNativeFixes.cs",
+        "outputs/TrainerPneumaticTiming.cs"
+      ],
+      "target": "winexe",
+      "platform": "x86"
+    },
+    "candidate": {
+      "sources": [
+        "outputs/TrainerIntegrationHost.cs",
+        "outputs/TrainerSessionLogging.cs",
+        "outputs/TrainerNativeSystems.cs",
+        "outputs/TrainerAuxSystems.cs",
+        "outputs/TrainerRouteDOS.cs",
+        "outputs/TrainerRouteView.cs",
+        "outputs/TrainerNativeFixes.cs",
+        "outputs/TrainerPneumaticTiming.cs",
+        "outputs/TrainerAirNetwork.cs",
+        "outputs/TrainerControlAir.cs",
+        "outputs/TrainerBtoNetwork.cs",
+        "outputs/TrainerAirSelector.cs",
+        "outputs/TrainerKvtProfile.cs",
+        "outputs/TrainerTwoSectionAirChain.cs",
+        "outputs/TrainerPneumaticNetworkCandidate.cs"
+      ],
+      "target": "winexe",
+      "platform": "x86"
+    },
+    "standalone": {
+      "sources": [],
+      "target": "exe",
+      "platform": "x86",
+      "note": "Список исходников задается dependencies каждой проверки"
+    }
+  },
+  "modules": [
+    {
+      "id": "TrainerIntegrationHost",
+      "type": "csharp",
+      "path": "outputs/TrainerIntegrationHost.cs",
+      "role": "Окна, native pointers/callbacks, экраны и главный цикл 100 мс",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "limitations": "Оболочка использует ABI и объекты определенных сборок native DLL; успешная сборка не подтверждает полную физическую модель."
+    },
+    {
+      "id": "TrainerSessionLogging",
+      "type": "csharp",
+      "path": "outputs/TrainerSessionLogging.cs",
+      "role": "Постоянные журналы сессий, телеметрия и исключения",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "limitations": "Оболочка использует ABI и объекты определенных сборок native DLL; успешная сборка не подтверждает полную физическую модель."
+    },
+    {
+      "id": "TrainerNativeSystems",
+      "type": "csharp",
+      "path": "outputs/TrainerNativeSystems.cs",
+      "role": "Инициализация состава, штатная пневматика/движение/электрические шаги",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "limitations": "Оболочка использует ABI и объекты определенных сборок native DLL; успешная сборка не подтверждает полную физическую модель."
+    },
+    {
+      "id": "TrainerAuxSystems",
+      "type": "csharp",
+      "path": "outputs/TrainerAuxSystems.cs",
+      "role": "Звук, ограничения, САУТ, автоведение, КЛУБ и диагностические команды",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "limitations": "Оболочка использует ABI и объекты определенных сборок native DLL; успешная сборка не подтверждает полную физическую модель."
+    },
+    {
+      "id": "TrainerRouteDOS",
+      "type": "csharp",
+      "path": "outputs/TrainerRouteDOS.cs",
+      "role": "Чтение режимной карты и передача профиля/ограничений нативным системам",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "limitations": "Оболочка использует ABI и объекты определенных сборок native DLL; успешная сборка не подтверждает полную физическую модель."
+    },
+    {
+      "id": "TrainerRouteView",
+      "type": "csharp",
+      "path": "outputs/TrainerRouteView.cs",
+      "role": "Современное отдельное окно карты, выбор темы и предпочтения",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [
+        "TrainerRouteDOS"
+      ],
+      "limitations": "Оболочка использует ABI и объекты определенных сборок native DLL; успешная сборка не подтверждает полную физическую модель."
+    },
+    {
+      "id": "TrainerNativeFixes",
+      "type": "csharp",
+      "path": "outputs/TrainerNativeFixes.cs",
+      "role": "Обратимые исправления инструкций в памяти, guards и знаковая скорость тяги",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "limitations": "Оболочка использует ABI и объекты определенных сборок native DLL; успешная сборка не подтверждает полную физическую модель."
+    },
+    {
+      "id": "TrainerPneumaticTiming",
+      "type": "csharp",
+      "path": "outputs/TrainerPneumaticTiming.cs",
+      "role": "Согласование нативного шага пневматики с циклом оболочки",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "limitations": "Оболочка использует ABI и объекты определенных сборок native DLL; успешная сборка не подтверждает полную физическую модель."
+    },
+    {
+      "id": "TrainerAirNetwork",
+      "type": "csharp",
+      "path": "outputs/TrainerAirNetwork.cs",
+      "role": "Изотермические резервуары, конечная масса, сопла и идеальные реле",
+      "profiles": [
+        "candidate"
+      ],
+      "dependencies": [],
+      "limitations": "Кандидатная изотермическая сеть; часть проходов/объемов и оборудование точной ревизии РЭ №137+ не откалиброваны."
+    },
+    {
+      "id": "TrainerControlAir",
+      "type": "csharp",
+      "path": "outputs/TrainerControlAir.cs",
+      "role": "РС6/РС7, KN7/КЕП11, редуктор и внешняя подача КМ2",
+      "profiles": [
+        "candidate"
+      ],
+      "dependencies": [
+        "TrainerAirNetwork"
+      ],
+      "limitations": "Кандидатная изотермическая сеть; часть проходов/объемов и оборудование точной ревизии РЭ №137+ не откалиброваны."
+    },
+    {
+      "id": "TrainerBtoNetwork",
+      "type": "csharp",
+      "path": "outputs/TrainerBtoNetwork.cs",
+      "role": "ПР, два реле и две тележки в секции, краны и отключение",
+      "profiles": [
+        "candidate"
+      ],
+      "dependencies": [
+        "TrainerAirNetwork"
+      ],
+      "limitations": "Кандидатная изотермическая сеть; часть проходов/объемов и оборудование точной ревизии РЭ №137+ не откалиброваны."
+    },
+    {
+      "id": "TrainerAirSelector",
+      "type": "csharp",
+      "path": "outputs/TrainerAirSelector.cs",
+      "role": "Идеальный переключательный клапан автоматического/независимого управления",
+      "profiles": [
+        "candidate"
+      ],
+      "dependencies": [
+        "TrainerAirNetwork"
+      ],
+      "limitations": "Кандидатная изотермическая сеть; часть проходов/объемов и оборудование точной ревизии РЭ №137+ не откалиброваны."
+    },
+    {
+      "id": "TrainerKvtProfile",
+      "type": "csharp",
+      "path": "outputs/TrainerKvtProfile.cs",
+      "role": "Номинальные ступени независимого тормоза по кодам native КВТ",
+      "profiles": [
+        "candidate"
+      ],
+      "dependencies": [],
+      "limitations": "Кандидатная изотермическая сеть; часть проходов/объемов и оборудование точной ревизии РЭ №137+ не откалиброваны."
+    },
+    {
+      "id": "TrainerTwoSectionAirChain",
+      "type": "csharp",
+      "path": "outputs/TrainerTwoSectionAirChain.cs",
+      "role": "Двухсекционный конечный воздушный контур и учет внешних границ",
+      "profiles": [
+        "candidate"
+      ],
+      "dependencies": [
+        "TrainerAirNetwork",
+        "TrainerControlAir",
+        "TrainerBtoNetwork",
+        "TrainerAirSelector",
+        "TrainerKvtProfile"
+      ],
+      "limitations": "Кандидатная изотермическая сеть; часть проходов/объемов и оборудование точной ревизии РЭ №137+ не откалиброваны."
+    },
+    {
+      "id": "TrainerPneumaticNetworkCandidate",
+      "type": "csharp",
+      "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+      "role": "Подключение сети к native источникам, приборам, токоприемникам, ВЦУ и движению",
+      "profiles": [
+        "candidate"
+      ],
+      "dependencies": [
+        "TrainerIntegrationHost",
+        "TrainerNativeSystems",
+        "TrainerNativeFixes",
+        "TrainerPneumaticTiming",
+        "TrainerTwoSectionAirChain"
+      ],
+      "limitations": "Кандидатная изотермическая сеть; часть проходов/объемов и оборудование точной ревизии РЭ №137+ не откалиброваны."
+    },
+    {
+      "id": "Communication1",
+      "type": "native_binary",
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Communication1.dll",
+      "role": "Пульт, отображение и обмен с локомотивными модулями",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "expected_sha256": "27178A089EF33692D16B1D46AE0DD7567135B327A24BE9D7D0CA84AF8DF3DB7F",
+      "limitations": "Бинарная зависимость из копии тренажера; закрытый исходный код, точная ревизия оборудования не установлена. Нативные адресные исправления требуют исходного SHA/байтов."
+    },
+    {
+      "id": "Pult1",
+      "type": "native_binary",
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Pult1.dll",
+      "role": "Электрические схемы, реле/контакторы, команды и обратная связь",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "expected_sha256": "7DAC59BF94276309E012A6EB72602C08A921FE1910A4169F9F0EC27008F0F8F5",
+      "limitations": "Бинарная зависимость из копии тренажера; закрытый исходный код, точная ревизия оборудования не установлена. Нативные адресные исправления требуют исходного SHA/байтов."
+    },
+    {
+      "id": "Tyga1",
+      "type": "native_binary",
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Tyga1.dll",
+      "role": "Штатная тяга и электрические величины ТЭД",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "expected_sha256": null,
+      "limitations": "Бинарная зависимость из копии тренажера; закрытый исходный код, точная ревизия оборудования не установлена. Нативные адресные исправления требуют исходного SHA/байтов."
+    },
+    {
+      "id": "MSUL_MON",
+      "type": "native_binary",
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/MSUL_MON.dll",
+      "role": "Штатные изображения МСУЛ",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "expected_sha256": null,
+      "limitations": "Бинарная зависимость из копии тренажера; закрытый исходный код, точная ревизия оборудования не установлена. Нативные адресные исправления требуют исходного SHA/байтов."
+    },
+    {
+      "id": "SoundsMSUL",
+      "type": "native_binary",
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/SoundsMSUL.dll",
+      "role": "Штатные звуки МСУЛ",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "expected_sha256": null,
+      "limitations": "Бинарная зависимость из копии тренажера; закрытый исходный код, точная ревизия оборудования не установлена. Нативные адресные исправления требуют исходного SHA/байтов."
+    },
+    {
+      "id": "TormModel",
+      "type": "native_binary",
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/TormModel.dll",
+      "role": "КМ/ВР, поездная ТМ и native пневматические состояния",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "expected_sha256": "F871640C5B7699901E3AFBF755BB2B797B659524C29BAA046B311CA6ECC875B9",
+      "limitations": "Бинарная зависимость из копии тренажера; закрытый исходный код, точная ревизия оборудования не установлена. Нативные адресные исправления требуют исходного SHA/байтов."
+    },
+    {
+      "id": "POEZD",
+      "type": "native_binary",
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/POEZD.DLL",
+      "role": "Движение, силы, скорость и профиль состава",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "expected_sha256": "822B6D17CE45F80179A512EE6C70A35D5AE29BF187530BDA5EBD11446CFB3553",
+      "limitations": "Бинарная зависимость из копии тренажера; закрытый исходный код, точная ревизия оборудования не установлена. Нативные адресные исправления требуют исходного SHA/байтов."
+    },
+    {
+      "id": "KLUB_U_LCD_XE2",
+      "type": "native_binary",
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/KLUB_U_LCD_XE2.dll",
+      "role": "КЛУБ-У и центральный БИЛ-УТ",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "expected_sha256": null,
+      "limitations": "Бинарная зависимость из копии тренажера; закрытый исходный код, точная ревизия оборудования не установлена. Нативные адресные исправления требуют исходного SHA/байтов."
+    },
+    {
+      "id": "SoundsTren",
+      "type": "native_binary",
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/SoundsTren.dll",
+      "role": "Звук тренажера",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "expected_sha256": null,
+      "limitations": "Бинарная зависимость из копии тренажера; закрытый исходный код, точная ревизия оборудования не установлена. Нативные адресные исправления требуют исходного SHA/байтов."
+    },
+    {
+      "id": "TalkSound",
+      "type": "native_binary",
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/TalkSound.dll",
+      "role": "Диспетчерский звуковой канал",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "expected_sha256": null,
+      "limitations": "Бинарная зависимость из копии тренажера; закрытый исходный код, точная ревизия оборудования не установлена. Нативные адресные исправления требуют исходного SHA/байтов."
+    },
+    {
+      "id": "CalcOgr",
+      "type": "native_binary",
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/CalcOgr.dll",
+      "role": "Ограничения скорости",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "expected_sha256": null,
+      "limitations": "Бинарная зависимость из копии тренажера; закрытый исходный код, точная ревизия оборудования не установлена. Нативные адресные исправления требуют исходного SHA/байтов."
+    },
+    {
+      "id": "Saut_Dll",
+      "type": "native_binary",
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/Saut_Dll.dll",
+      "role": "САУТ",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "expected_sha256": null,
+      "limitations": "Бинарная зависимость из копии тренажера; закрытый исходный код, точная ревизия оборудования не установлена. Нативные адресные исправления требуют исходного SHA/байтов."
+    },
+    {
+      "id": "AVP",
+      "type": "native_binary",
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/AVP.dll",
+      "role": "Грузовое автоведение",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "expected_sha256": null,
+      "limitations": "Бинарная зависимость из копии тренажера; закрытый исходный код, точная ревизия оборудования не установлена. Нативные адресные исправления требуют исходного SHA/байтов."
+    },
+    {
+      "id": "KPD_3PV",
+      "type": "native_binary",
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/KPD_3PV.dll",
+      "role": "Резервный прибор скорости/регистрации",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "expected_sha256": null,
+      "limitations": "Бинарная зависимость из копии тренажера; закрытый исходный код, точная ревизия оборудования не установлена. Нативные адресные исправления требуют исходного SHA/байтов."
+    },
+    {
+      "id": "Voynovka_Koshkarovsky_route",
+      "type": "runtime_data",
+      "path": "outputs/Voynovka_Koshkarovsky_route.json",
+      "role": "Профиль, ограничения и рекомендации из пользовательской режимной карты",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "limitations": "Рекомендации карты не являются командой контроллера"
+    },
+    {
+      "id": "Trainer_view_settings",
+      "type": "user_settings",
+      "path": "outputs/Trainer_view_settings.json",
+      "role": "Тема, режим, масштаб и слежение окна режимной карты",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "optional": true,
+      "limitations": "Меняемые пользовательские данные; новые версии не должны затирать предпочтения"
+    },
+    {
+      "id": "Native_record_schema",
+      "type": "analysis_data",
+      "path": "work/msul_emulator/native_record_schema.json",
+      "role": "Сохраненная схема нативных записей/смещений для анализа ABI",
+      "profiles": [
+        "analysis"
+      ],
+      "dependencies": [],
+      "limitations": "Применима к исследованным сборкам, не универсальный API"
+    }
+  ],
+  "manual_applicability": "Точная ревизия РЭ/комплектация 2ЭС6 начиная с №137 не установлена; кандидатные проверки не являются полной нормативной приемкой.",
+  "documentation": "dev/docs/MODULES.md"
+}

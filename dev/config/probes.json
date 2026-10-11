@@ -1,0 +1,559 @@
+{
+  "schema_version": 1,
+  "path_base": "workspace_root",
+  "assembly_references": [
+    "System.Windows.Forms.dll",
+    "System.Drawing.dll",
+    "System.Web.Extensions.dll"
+  ],
+  "suites": {
+    "smoke": [
+      "ColdNoSource",
+      "SectionPantographPressure",
+      "CandidateAirHost"
+    ],
+    "regression": [
+      "ColdNoSource",
+      "SectionPantographPressure",
+      "CandidateAirHost",
+      "ColdTrainAuxiliary",
+      "VcuAirSequence",
+      "CompressorPrepared"
+    ]
+  },
+  "execution_contract": "Build sources directly using the selected profile; legacy build scripts may also execute probes. Run sequentially in separate processes, require exit code 0 and fresh expected artifacts. Do not require a universal passed JSON field. Obsolete and unsafe entries are disabled.",
+  "probes": [
+    {
+      "id": "AuxiliaryAirNative",
+      "main_class": "AuxiliaryAirNativeProbe",
+      "title": "Старый тест связи вспомогательного воздуха с ПМ",
+      "source": "work/pneumatic_live_fix/analysis/AuxiliaryAirNativeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_auxiliary_native_air_alias.json"
+      ],
+      "kind": "obsolete",
+      "scope": "Устаревшие предположения об additive-алгоритме и сохранении байтов старого hook. После физической РС6/РС7 и удаления старого алгоритма тест не является приемкой текущего кандидата.",
+      "timeout_seconds": 180,
+      "enabled": false,
+      "legacy_build_script": "outputs/BuildAuxiliaryAirNativeProbe.ps1"
+    },
+    {
+      "id": "AuxiliaryColdElectrical",
+      "main_class": "AuxiliaryColdElectricalProbe",
+      "title": "РС6/РС7 с непрогретыми нативными контактами",
+      "source": "work/pneumatic_live_fix/analysis/AuxiliaryColdElectricalProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_auxiliary_cold_electrical_validation.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "5000 native electrical шагов и отдельно StepHostControlAir; без native pneumatic шага. КМ10/11 не прогреты, источники и отключение проверены, но вся нативная тормозная сеть не становится холодной.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildAuxiliaryColdElectricalProbe.ps1"
+    },
+    {
+      "id": "AuxiliaryColdPressure",
+      "main_class": "AuxiliaryColdPressureProbe",
+      "title": "Холодный контур управления с прогретыми контактами",
+      "source": "work/pneumatic_live_fix/analysis/AuxiliaryColdPressureProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_auxiliary_cold_pressure_validation.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Перед тестом прогревается native electrical/pneumatic. Затем холодным заменяется только управляющий контур; зарядка/отключение проверены. Не проверяет полный холодный поезд.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildAuxiliaryColdPressureProbe.ps1"
+    },
+    {
+      "id": "AuxiliaryColdSf3",
+      "main_class": "AuxiliaryColdSf3Probe",
+      "title": "Отключение SF3 при холодной зарядке управления",
+      "source": "work/pneumatic_live_fix/analysis/AuxiliaryColdSf3Probe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_auxiliary_cold_sf3_validation.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Контур РС6/РС7 с native electrical шагами, событие CheckBox SF3, сохранение РС7 при отключении и потребитель 1 мм. Без native pneumatic шага и полной холодной сети.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildAuxiliaryColdSf3Probe.ps1"
+    },
+    {
+      "id": "AuxiliaryCommandPanel",
+      "main_class": "AuxiliaryCommandPanelProbe",
+      "title": "Три режима SB1: включено, выключено, оборудование",
+      "source": "work/pneumatic_live_fix/analysis/AuxiliaryCommandPanelProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_auxiliary_command_panel_validation.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Проверяет CheckState WinForms, физический источник и TPult.BC с SF3; hardware mode сохраняет native command. Мышь/пиксели/внешний приемник оборудования не проверены.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildAuxiliaryCommandPanelProbe.ps1"
+    },
+    {
+      "id": "CandidateAirHost",
+      "main_class": "CandidateAirHostProbe",
+      "title": "Два БТО, автоматическое/независимое торможение, отпуск и движение",
+      "source": "work/pneumatic_live_fix/analysis/CandidateAirHostProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_air_candidate_host_validation.json"
+      ],
+      "kind": "regression",
+      "scope": "4923 шага electrical/pneumatic/motion/route/aux/KLUB; проверяет приборные объекты ПМ/ТЦ, отпуск, отключение тележки и нативный вход тормозной силы. КМ/КВТ заданы стендом, компрессоры выключены; пиксели, внешнее железо, абсолютные единицы силы и калибровка РЭ не приняты.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildCandidateAirHostProbe.ps1"
+    },
+    {
+      "id": "ColdControlAirNative",
+      "main_class": "ColdControlAirNativeProbe",
+      "title": "Старый холодный тест управляющего воздуха",
+      "source": "work/pneumatic_live_fix/analysis/ColdControlAirNativeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_cold_control_native_validation.json"
+      ],
+      "kind": "obsolete",
+      "scope": "Ожидает старые инструкции и прежний обход алгоритма вспомогательной зарядки; заменен ColdNoSource и ColdTrainAuxiliary.",
+      "timeout_seconds": 180,
+      "enabled": false,
+      "legacy_build_script": "outputs/BuildColdControlAirNativeProbe.ps1"
+    },
+    {
+      "id": "ColdMainCommand",
+      "main_class": "ColdMainCommandProbe",
+      "title": "Команда основных компрессоров без питания",
+      "source": "work/pneumatic_live_fix/analysis/ColdMainCommandProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_cold_main_command_findings.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "После сухой сети и вспомогательной зарядки включает native main switch/KN7 и наблюдает нефорсированные запросы. Отсутствие питания оставляет ПМ=0; это отрицательная диагностика, не успешная зарядка ПМ.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildColdMainCommandProbe.ps1"
+    },
+    {
+      "id": "ColdNativeInitialization",
+      "main_class": "ColdNativeInitializationProbe",
+      "title": "Повторная нативная инициализация InitNew",
+      "source": "work/pneumatic_live_fix/analysis/ColdNativeInitializationProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "fresh"
+      ],
+      "result_files": [
+        "outputs/Trainer_cold_native_initialization_fresh_five.json"
+      ],
+      "kind": "unsafe",
+      "scope": "Режим fresh повторно вызывает InitNew и ранее завершался AccessViolation в финализаторе GDI/StringFormat, даже после записи JSON. Отключен целиком для обычных запусков; диагностика reuse не заменяет холодные проверки.",
+      "timeout_seconds": 180,
+      "enabled": false,
+      "legacy_build_script": "outputs/BuildColdNativeInitializationProbe.ps1"
+    },
+    {
+      "id": "ColdNoSource",
+      "main_class": "ColdNoSourceProbe",
+      "title": "Холодная тормозная сеть без источника воздуха",
+      "source": "work/pneumatic_live_fix/analysis/ColdNoSourceProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_cold_no_source_validation.json"
+      ],
+      "kind": "regression",
+      "scope": "77 узлов, временный Pzar=0 при InitSostavClass, затем уставка 5; 1000 электрических/пневматических шагов. Каждый шаг проверяет абсолютное давление ТМ/ТЦ/ЗР и ПМ/УР <=1e-5 при выключенных компрессорах/SF3/KN7. Повторный InitNew не вызывается. Полный запуск электровоза не принят.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildColdNoSourceProbe.ps1"
+    },
+    {
+      "id": "ColdPoweredMain",
+      "main_class": "ColdPoweredMainProbe",
+      "title": "Холодная последовательность токоприемник — БВ — компрессоры",
+      "source": "work/pneumatic_live_fix/analysis/ColdPoweredMainProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_cold_powered_main_findings.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Фиксирует 14500 шагов, подъем первого токоприемника и 3100 В до БВ. Нефорсированные разрешения основных компрессоров оставались нулевыми, ПМ не зарядилось. Не считать приемкой холодного запуска.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildColdPoweredMainProbe.ps1"
+    },
+    {
+      "id": "ColdTrainAuxiliary",
+      "main_class": "ColdTrainAuxiliaryProbe",
+      "title": "Холодная сеть: зарядка вспомогательным компрессором",
+      "source": "work/pneumatic_live_fix/analysis/ColdTrainAuxiliaryProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_cold_train_auxiliary_validation.json"
+      ],
+      "kind": "regression",
+      "scope": "1000 сухих +5000 зарядных шагов, 77 узлов. Assertions: РС6/РС7 достигают 3.5, тормозная сеть и ПМ/УР остаются сухими, вторую секцию источник не заряжает, баланс <1e-8. Модель SF3 и SB1 WinForms; 105 л/мин постоянная номинальная подача, расход приводов не учтен.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildColdTrainAuxiliaryProbe.ps1"
+    },
+    {
+      "id": "CompressorPrepared",
+      "main_class": "CompressorPreparedProbe",
+      "title": "Подготовленная электрическая схема и основные компрессоры",
+      "source": "work/pneumatic_live_fix/analysis/CompressorPreparedProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_compressor_prepared_observations.json"
+      ],
+      "kind": "regression",
+      "scope": "Нативная команда компрессоров, последовательность токоприемники/БВ с импульсом возврата, разрешения ПСН; два цикла 7.5/9, отсутствие подачи до 12 секунд разгрузки BB, снятие разрешений при отключении БВ, ноль electricalFaults. Начальное ПМ и сбросы — учтенные диагностические границы массы. Профиль DEN и полный холодный пуск не приняты.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildCompressorPreparedProbe.ps1"
+    },
+    {
+      "id": "ControlAir",
+      "main_class": "ControlAirProbe",
+      "title": "Изолированный физический контур РС6/РС7",
+      "source": "work/pneumatic_live_fix/analysis/ControlAirProbe.cs",
+      "profile": "standalone",
+      "dependencies": [
+        "outputs/TrainerAirNetwork.cs",
+        "outputs/TrainerControlAir.cs",
+        "outputs/TrainerSessionLogging.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_control_air_validation.json",
+        "outputs/Trainer_control_air_shared_pm_validation.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Стенд CSharp: finite PM, 5-редуктор, КЕП11/РС7, relief7.5, КМ2 номинально105л/мин, общая масса двух секций. Без native электрических связей; проходы6мм/Cd.7/потребитель1мм — допущения.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildControlAirProbe.ps1"
+    },
+    {
+      "id": "EmergencyDrain",
+      "main_class": "EmergencyDrainProbe",
+      "title": "Разрядка ТМ до условий смены кабины",
+      "source": "work/pneumatic_live_fix/analysis/EmergencyDrainProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_emergency_drain_sequence.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Полная цепь 77 узлов, трасса головы/хвоста, удержание торможения при ВЦУ II/III. Время до почти нулевого давления не является временем распространения тормозной волны; абсолютная скорость разрядки не откалибрована.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildEmergencyDrainProbe.ps1"
+    },
+    {
+      "id": "EmergencyLength",
+      "main_class": "EmergencyLengthProbe",
+      "title": "Длина состава и разрядка ТМ",
+      "source": "work/pneumatic_live_fix/analysis/EmergencyLengthProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_emergency_length_full.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Варианты full/short/novr, default full. Изменяет диагностический состав/ВР; времена разрядки до почти нуля не подтверждают норматив тормозного действия.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildEmergencyLengthProbe.ps1"
+    },
+    {
+      "id": "FourPantographPressure",
+      "main_class": "FourPantographPressureProbe",
+      "title": "Старый тест четырех каналов токоприемников",
+      "source": "work/pneumatic_live_fix/analysis/FourPantographPressureProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_four_pantograph_pressure_probe.json"
+      ],
+      "kind": "obsolete",
+      "scope": "Прямая запись общего TPult.BD не соответствует текущему раздельному источнику РС6. Для состава из двух секций активны первые два канала; заменен SectionPantographPressure.",
+      "timeout_seconds": 180,
+      "enabled": false,
+      "legacy_build_script": "outputs/BuildFourPantographPressureProbe.ps1"
+    },
+    {
+      "id": "KmLeakHold",
+      "main_class": "KmLeakHoldProbe",
+      "title": "КМ II/III/IV с искусственной утечкой",
+      "source": "work/pneumatic_live_fix/analysis/KmLeakHoldProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_km_leak_hold_4.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Трехузловая цепь, явный параметр Dut=.2, компрессоры выключены; default R2, 80 т, КМ IV. Абсолютная калибровка утечек не принята.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildKmLeakHoldProbe.ps1"
+    },
+    {
+      "id": "PantographPressure",
+      "main_class": "PantographPressureProbe",
+      "title": "Старый одиночный тест давления токоприемника",
+      "source": "work/pneumatic_live_fix/analysis/PantographPressureProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_pantograph_pressure_probe.json"
+      ],
+      "kind": "obsolete",
+      "scope": "Пишет TPult.BD непосредственно. Источник текущих native сравнений перенесен в отдельные физические РС6 секций; заменен SectionPantographPressure.",
+      "timeout_seconds": 180,
+      "enabled": false,
+      "legacy_build_script": "outputs/BuildPantographPressureProbe.ps1"
+    },
+    {
+      "id": "PerPadNative",
+      "main_class": "PerPadNativeProbe",
+      "title": "Нативная сила по давлениям тележек",
+      "source": "work/pneumatic_live_fix/analysis/PerPadNativeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_per_pad_native_validation.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "25 сочетаний давлений/скоростей, сохранение сил 75 вагонов и восстановление hook. Проверяет связь с текущей формулой, а не физическую правильность абсолютных единиц/закона трения или РЭ.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildPerPadNativeProbe.ps1"
+    },
+    {
+      "id": "SectionPantographPressure",
+      "main_class": "SectionPantographPressureProbe",
+      "title": "Независимое давление РС6 двух секций и токоприемники",
+      "source": "work/pneumatic_live_fix/analysis/SectionPantographPressureProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_section_pantograph_pressure_probe.json"
+      ],
+      "kind": "regression",
+      "scope": "Прямой вызов native UpdateButton с физическими фикстурами РС6, опубликованными BeforeElectricalAirCycle. 7 фаз падения/гистерезиса проверяются assertions; 4 комбинации подъема только записываются в rows и требуют проверки runner. Состояния кнопок/контактов диагностические; расход приводов и полный холодный пуск не проверены.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildSectionPantographPressureProbe.ps1"
+    },
+    {
+      "id": "Sf3ControlAirHost",
+      "main_class": "Sf3ControlAirHostProbe",
+      "title": "Связь SF3, команды КМ2 и контуров РС6/РС7",
+      "source": "work/pneumatic_live_fix/analysis/Sf3ControlAirHostProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_sf3_native_power_observations.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Нативные КМ10/11 после прогрева; проверяет TPult.BC, SF3, SB1, сохранение РС7 и переход источника. Потребитель — стендовое отверстие, часть шагов только StepHostControlAir.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildSf3ControlAirHostProbe.ps1"
+    },
+    {
+      "id": "TwoSectionPneumatic",
+      "main_class": "NativeTwoBvrBtoProbe",
+      "title": "Старый мост двух БВР и БТО",
+      "source": "work/pneumatic_live_fix/analysis/NativeTwoBvrBtoProbe.cs",
+      "profile": "integration",
+      "dependencies": [
+        "outputs/TrainerAirNetwork.cs",
+        "outputs/TrainerControlAir.cs",
+        "outputs/TrainerBtoNetwork.cs",
+        "outputs/TrainerAirSelector.cs",
+        "outputs/TrainerKvtProfile.cs",
+        "outputs/TrainerTwoSectionAirChain.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_native_two_BVR_BTO_validation.json"
+      ],
+      "kind": "obsolete",
+      "scope": "Сборка исключает TrainerPneumaticNetworkCandidate и реализует прежний диагностический мост в самом probe. Не проверяет нынешнюю интеграцию, заменен CandidateAirHost.",
+      "timeout_seconds": 180,
+      "enabled": false,
+      "legacy_build_script": "outputs/BuildTwoSectionPneumaticProbe.ps1"
+    },
+    {
+      "id": "UnifiedAir",
+      "main_class": "UnifiedAirProbe",
+      "title": "Общий конечный запас воздуха двух секций",
+      "source": "work/pneumatic_live_fix/analysis/UnifiedAirProbe.cs",
+      "profile": "standalone",
+      "dependencies": [
+        "outputs/TrainerAirNetwork.cs",
+        "outputs/TrainerControlAir.cs",
+        "outputs/TrainerBtoNetwork.cs",
+        "outputs/TrainerAirSelector.cs",
+        "outputs/TrainerKvtProfile.cs",
+        "outputs/TrainerTwoSectionAirChain.cs",
+        "outputs/TrainerSessionLogging.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_unified_air_validation.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "4000 стендовых CSharp шагов: тормоза, два контура управления, boundary PM, один KM2, сохранение резервов и баланс. Электрические состояния — заданные стендовые входы.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildUnifiedAirProbe.ps1"
+    },
+    {
+      "id": "VcuAirSequence",
+      "main_class": "VcuAirSequenceProbe",
+      "title": "Нативные события ВЦУ и сохранение независимого торможения",
+      "source": "work/pneumatic_live_fix/analysis/VcuAirSequenceProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_vcu_air_sequence.json"
+      ],
+      "kind": "regression",
+      "scope": "Проверяет блокировку снятия ключа до разрядки головы и хвоста ТМ, режим R1 всех 75 загруженных вагонов/ТЦ 4..4.5, ВЦУ II/III сохраняет ИМ и торможение, возврат I разрешает отпуск. Native SetPosition/event; КМ/КВТ задаются диагностически. JSON без passed; успешность определяется exit code и assertions.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildVcuAirSequenceProbe.ps1"
+    },
+    {
+      "id": "VcuPowerCab",
+      "main_class": "VcuPowerCabProbe",
+      "title": "Питание управления при позициях ВЦУ",
+      "source": "work/pneumatic_live_fix/analysis/VcuPowerCabProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_vcu_native_power_positions.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Native SetPosition/event, 100 электрических шагов на фазу; III разрешается фикстурами ТМ=.7 и ИМ=3.5 без пневматического шага. Полная смена кабины не проверяется.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildVcuPowerCabProbe.ps1"
+    },
+    {
+      "id": "VrCrack",
+      "main_class": "VrCrackProbe",
+      "title": "Эксперимент порога зарядки ВР",
+      "source": "work/pneumatic_live_fix/analysis/VrCrackProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_vr_crack_2_80.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "В процессе временно меняет порог native ВР на .001; трехузловой стенд, default R2/80 т. Производственная модель не меняется; объемы и точный стенд Р008 не воспроизведены.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildVrCrackProbe.ps1"
+    },
+    {
+      "id": "VrLeak",
+      "main_class": "VrLeakProbe",
+      "title": "Утечки и отпуск ВР",
+      "source": "work/pneumatic_live_fix/analysis/VrLeakProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_vr_leak_2_80.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Трехузловая native цепь, варианты отключения утечек; default R2 без АР/80 т. Уставка КМ 5.4, фактический стенд и объемы Р008 не воспроизведены.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildVrLeakProbe.ps1"
+    },
+    {
+      "id": "VrLoadMode",
+      "main_class": "VrLoadModeProbe",
+      "title": "Груженый/средний/порожний режим ВР",
+      "source": "work/pneumatic_live_fix/analysis/VrLoadModeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_vr_load_mode_2_80.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "R1/R2/R3 и optional ar; default R2 без АР/80 т. Подтверждает значение переключателя и реакцию native алгоритма; контракт массы АР и оборудование точной ревизии не приняты.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildVrLoadModeProbe.ps1"
+    },
+    {
+      "id": "VrService",
+      "main_class": "VrServiceProbe",
+      "title": "Служебное торможение и отпуск ВР",
+      "source": "work/pneumatic_live_fix/analysis/VrServiceProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_vr_service_2_80.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Трехузловая цепь, КМ II зарядка с уставкой 5.4, V до УР3.5, IV 100с, II отпуск. Default R2 без АР/80 т. Фактическое давление/объемы стенда Р008 не совпадают, нормативная приемка запрещена.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildVrServiceProbe.ps1"
+    }
+  ]
+}
