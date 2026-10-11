@@ -458,7 +458,7 @@ function Save-TrainerContext {
         git_head=(Get-TrainerHead)
         working_tree=[ordered]@{changed_files=$dirty.Count;first_files=@($dirty|Select-Object -First 20);more=($dirty.Count -gt 20)}
         latest=$latest
-        active_focus='По просьбе пользователя зарядное5.0 кгс/см²: согласованы native Pzar/ТМ/ЗР/УР и managed ТМ. Это override груженого профиля5.3–5.5; прежний нормативный PASS при5.4 не применим. Свежая проверка CandidateAirHost и production build сохраняются через Fix.'
+        active_focus='Добавлен режим давления: кнопка Режим: давления, таблицаТМ/ТЦ/ЗР всех75вагонов, график вдоль состава и история выбранного вагона900снимков/180с. Native read-only225readings,таблица,выбор,пауза,reopen,PNG проверяются TrainPressureView; CandidateAirHost проверяет регрессию. Зарядное5.0 по просьбе пользователя; нормативный PASS5.4 не распространяется.'
         next_model_question='Полное нормативное опробование не принято: плотностьII/IV,штоки/колодки,целостность хвостового крана8–10с,отдельный KMI-замер двух хвостовых вагонов,Ro/native режим. Волна/метрологияГОСТ,VR/АР/глобальный баланс и полный запускЭПК остаются открыты. Старые tempPzar0 cold пробы не подтверждают геометрию. NativeInitializationCapture unsafe не применять.'
         read_next=@('dev/environment-context.json','dev/state/context.json')
         avoid_reading=@('whole telemetry.csv','all historical logs','all disassembly dumps')

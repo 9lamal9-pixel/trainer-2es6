@@ -27,7 +27,7 @@ partial class TrainerIntegrationHost {
   for(int i=1;i<76;i++)Ptr(array,(i+1)*8+4,cars[i]);I(trainData,0,77);Ptr(trainData,0x42,array);
   airCircuit=new TwoSectionAirChain(new TwoSectionAirParameters(2000,100,1,20,1,1,1,12,6,.7,.001),8,trainCharge,8);
   airCircuit.InitializeControlAir(5,5);
-  ClientSize=new System.Drawing.Size(ClientSize.Width,315);for(int s=0;s<2;s++){int section=s;var sf3=new System.Windows.Forms.CheckBox{Left=10+s*330,Top=240,Width=320,Text="SF3 — вспом. компрессор, секция "+(s+1),Checked=true};sf3.CheckedChanged+=(sender,args)=>{controlSf3[section]=sf3.Checked;Log("SF3 section="+(section+1)+" on="+sf3.Checked);};Controls.Add(sf3);}
+  ClientSize=new System.Drawing.Size(ClientSize.Width,355);for(int s=0;s<2;s++){int section=s;var sf3=new System.Windows.Forms.CheckBox{Left=10+s*330,Top=240,Width=320,Text="SF3 — вспом. компрессор, секция "+(s+1),Checked=true};sf3.CheckedChanged+=(sender,args)=>{controlSf3[section]=sf3.Checked;Log("SF3 section="+(section+1)+" on="+sf3.Checked);};Controls.Add(sf3);}
   auxiliaryCommandControl=new System.Windows.Forms.CheckBox{Left=10,Top=275,Width=650,ThreeState=true,CheckState=System.Windows.Forms.CheckState.Indeterminate,Text="SB1 — вспомогательный компрессор: аппаратный пульт"};auxiliaryCommandControl.CheckStateChanged+=(sender,args)=>{auxiliaryCommandOverride=auxiliaryCommandControl.CheckState==System.Windows.Forms.CheckState.Indeterminate?(bool?)null:auxiliaryCommandControl.Checked;auxiliaryCommandControl.Text="SB1 — вспомогательный компрессор: "+(auxiliaryCommandOverride.HasValue?(auxiliaryCommandOverride.Value?"включён":"выключен"):"аппаратный пульт");};Controls.Add(auxiliaryCommandControl);
   tc2Source=Alloc(8);
   Text+=" [ПНЕВМОСЕТЬ: ПРОВЕРОЧНАЯ ГЕОМЕТРИЯ]";

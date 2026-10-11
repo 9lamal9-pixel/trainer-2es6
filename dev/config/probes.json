@@ -619,6 +619,22 @@
       "scope": "75 вагонов: закрытые краны 37/38, разъединение рукавов и открытые краны с обрывом, измеренное сравнение утечки, all-wagon pressure bounds. Не нормативный стенд.",
       "timeout_seconds": 300,
       "enabled": true
+    },
+    {
+      "id": "TrainPressureView",
+      "main_class": "TrainPressureViewProbe",
+      "title": "Режим давления всех вагонов: таблица и графики",
+      "source": "work/pneumatic_live_fix/analysis/TrainPressureViewProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_train_pressure_view_validation.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "225 actual native wagon readings; read-only UI mapping for75 wagons; spatial/time graphs rendered to PNG; selection, bounded history, invalid gaps, pause/reopen. No brake dynamics/norm certification.",
+      "timeout_seconds": 180,
+      "enabled": true
     }
   ]
 }
