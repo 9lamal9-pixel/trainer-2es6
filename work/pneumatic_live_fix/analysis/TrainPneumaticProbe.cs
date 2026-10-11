@@ -17,7 +17,8 @@ class TrainPneumaticProbe {
  static readonly BindingFlags Flags=BindingFlags.Instance|BindingFlags.NonPublic;
  static readonly int[] Observed={1,38,75};
  static readonly string[] ObservedNames={"head","middle","tail"};
- const double HeadSetpointTolerance=.15,ZrChargeLagTolerance=.15,RelativeHeadTmTolerance=.3;
+ const double UrSetpointLagTolerance=.15,ZrChargeLagTolerance=.15,RelativeHeadTmTolerance=.3,ServiceTmToUrTolerance=.15;
+ const string BrakeRulesPdf="work/reference_inputs/J_tormoza_2026_июля.pdf",BrakeRulesSha256="39DB7A0F06A5694D64EE260F53F98F20F6C5FEF3ACDB619CF5DAACCBCD90ACA2";
  static readonly List<object> Rows=new List<object>();
  static readonly List<object> Arrivals=new List<object>();
  static readonly List<Arrival> ActiveArrivals=new List<Arrival>();
@@ -38,6 +39,7 @@ class TrainPneumaticProbe {
  static bool coldGeometryPreserved;static int coldGeometryChecks;
  static object startupNativeAir;
  static Dictionary<string,object> serviceHold;
+ static Dictionary<string,object> serviceStep;static bool proceduralServiceStepMatched;
 
  static void Progress(string checkpoint){
   // This deliberately contains only scalars and a string array, never the
@@ -77,7 +79,7 @@ class TrainPneumaticProbe {
    Require(Marshal.ReadIntPtr(array,node*8)==(node==0?loc:IntPtr.Zero),"Unexpected native locomotive pointer at node "+node);
   }
   for(int wagon=1;wagon<=75;wagon++){
-   if(WagonConfiguration.Count<75)WagonConfiguration.Add(new{wagon=wagon,native_air_node=wagon+1,gross_t=Marshal.ReadInt32(cars[wagon],0x25),load_mode=Marshal.ReadByte(cars[wagon],0x18),auto_regulator=Marshal.ReadByte(cars[wagon],0x1a),configured_motion_ftk=1,brake_pad_material="cast_iron"});
+   if(WagonConfiguration.Count<75)WagonConfiguration.Add(new{wagon=wagon,native_air_node=wagon+1,gross_t=Marshal.ReadInt32(cars[wagon],0x25),load_mode=Marshal.ReadByte(cars[wagon],0x18),release_mode_ro_raw=Marshal.ReadByte(cars[wagon],0x19),auto_regulator=Marshal.ReadByte(cars[wagon],0x1a),configured_motion_ftk=1,brake_pad_material="cast_iron"});
    Require(Marshal.ReadInt32(cars[wagon],0x25)==80,"Unexpected wagon gross mass at "+wagon);
    Require(Marshal.ReadByte(cars[wagon],0x18)==1&&Marshal.ReadByte(cars[wagon],0x1a)==1,"Expected loaded R1 and auto regulator ON at wagon "+wagon);
    Require(Marshal.ReadByte(cars[wagon],0x1b)==1,"Wagon VR disabled at "+wagon);
@@ -107,13 +109,13 @@ class TrainPneumaticProbe {
  static double Min(int offset){bool detail=cycles==0;if(detail)Progress("min_"+offset+"_before_first_read");double value=Single(cars[1],offset);if(detail)Progress("min_"+offset+"_after_first_read");for(int wagon=2;wagon<=75;wagon++){double sample=Single(cars[wagon],offset);if(detail&&wagon==2)Progress("min_"+offset+"_before_first_compare");value=Math.Min(value,sample);if(detail&&wagon==2)Progress("min_"+offset+"_after_first_compare");}return value;}
  static double Max(int offset){bool detail=cycles==0;if(detail)Progress("max_"+offset+"_before_first_read");double value=Single(cars[1],offset);if(detail)Progress("max_"+offset+"_after_first_read");for(int wagon=2;wagon<=75;wagon++){double sample=Single(cars[wagon],offset);if(detail&&wagon==2)Progress("max_"+offset+"_before_first_compare");value=Math.Max(value,sample);if(detail&&wagon==2)Progress("max_"+offset+"_after_first_compare");}return value;}
  static bool ChargeReady(bool requirePm){
-  // Head approaches its actual regulator setpoint. The other wagons must
-  // approach the observed head, without an absolute tail setpoint. Rules808
-  // AppendixK allows a 0.3 head/tail difference for up to300 wagon axles.
+  // Provided Rules83 table1 note2 (PDF26) measures charge at locomotive TM,
+  // not UR or the first wagon. Loaded mode requires locomotiveTM5.3..5.5.
+  // Section9.3.3 (PDF67) allows a0.3 head/tail difference up to300 wagon axles.
   // Here75 wagons are assumed four-axle (300 axles); applying that bound to
   // every wagon is a diagnostic check. Axle count is not read from native RTTI.
-  // Head/setpoint and ZR/localTM tolerances remain separate diagnostic limits.
-  double head=Single(cars[1],0);if(head<chargingSetpointActual-HeadSetpointTolerance||head>chargingSetpointActual+HeadSetpointTolerance||Single(loc,9)<chargingSetpointActual-HeadSetpointTolerance||Max(4)>.1||(requirePm&&Single(loc,5)<7))return false;
+  // UR/setpoint and ZR/localTM tolerances remain separate diagnostic limits.
+  double head=Single(cars[0],0);if(!Finite(head)||head<5.3||head>5.5||Single(loc,9)<chargingSetpointActual-UrSetpointLagTolerance||Max(4)>.1||(requirePm&&Single(loc,5)<7))return false;
   for(int wagon=1;wagon<=75;wagon++)if(Math.Abs(Single(cars[wagon],0)-head)>RelativeHeadTmTolerance||Single(cars[wagon],8)<Single(cars[wagon],0)-ZrChargeLagTolerance)return false;
   return true;
  }
@@ -177,6 +179,7 @@ class TrainPneumaticProbe {
   Progress("snapshot_before_zr_min");row["wagon_zr_min"]=Min(8);
   Progress("snapshot_before_zr_max");row["wagon_zr_max"]=Max(8);
   Progress("snapshot_before_observations");row["observed"]=Observations();
+  double locomotiveTm=Single(cars[0],0),lastWagonTm=Single(cars[75],0);row["charging_head_reference_kind"]="native locomotive TM at node0";row["locomotive_tm"]=locomotiveTm;row["locomotive_to_tail_tm_difference"]=locomotiveTm-lastWagonTm;
   Progress("snapshot_before_native_inlet");row["native_inlet"]=NativeInlet();row["native_train_inputs"]=TrainInputs();row["locomotive_air_nodes"]=new[]{AirNode(cars[0],0,0,"first_bvr"),AirNode((IntPtr)Field("secondBvr"),1,0,"second_bvr")};
   Progress("snapshot_before_inventory");row["observable_pressure_volume_inventory_l_kgf_cm2"]=Inventory();
   Progress("snapshot_before_control_pressure");row["rs6"]=circuit.ControlAir[0].Rs6.Gauge;row["rs7"]=circuit.ControlAir[0].Rs7.Gauge;
@@ -246,25 +249,28 @@ class TrainPneumaticProbe {
    // ZR charge defect must fail visibly rather than inherit a warm initial ZR.
    bool ready=ChargeReady(true);
    stable=ready?stable+1:0;if(stable>=100){charged=true;break;}}
-  Snapshot("end");tm.Finish(false);zr.Finish(false);Require(charged,"Full cold train did not establish headTM within actualPzar+/-0.15, UR>=actualPzar-0.15, every wagonTM within observedheadTM+/-0.3 (assumed75 four-axle wagons=300 axles), ownZR>=ownTM-0.15, TC<=0.1 and PM>=7 within18000 cycles");tm.Finish(true);zr.Finish(true);
+  Snapshot("end");tm.Finish(false);zr.Finish(false);Require(charged,"Full cold train did not establish native locomotive TM5.3..5.5, UR>=actualPzar-0.15, every wagonTM within locomotiveTM+/-0.3 (assumed75 four-axle wagons=300 axles), ownZR>=ownTM-0.15, TC<=0.1 and PM>=7 within18000 cycles");tm.Finish(true);zr.Finish(true);
   // Ordering is required only after saving every arrival and the final charge data.
   Require(Marshal.ReadByte(schema,0xc0)==0,"Native compressor error during full train charge");
  }
 
  static void BrakeAndRelease(bool emergency){
   Begin(emergency?"emergency_application":"service_application");var tm=new Arrival("tm_fall",0,-1);var tc=new Arrival("tc_rise",4,1);
+  double initialUr=Single(loc,9),targetUr=emergency?.2:initialUr-.65,afterIvUr=0;
+  if(!emergency){Require(Finite(initialUr)&&targetUr>0,"Invalid measured initial UR for service reduction");serviceStep=new Dictionary<string,object>();serviceStep["initial_ur_kgf_cm2"]=initialUr;serviceStep["target_ur_kgf_cm2"]=targetUr;serviceStep["nominal_reduction_kgf_cm2"]=.65;serviceStep["ur_after_first_iv_step_kgf_cm2"]=null;serviceStep["actual_reduction_kgf_cm2"]=null;serviceStep["actual_reduction_in_0_6_to_0_7"]=false;serviceStep["tm_application_bound_kind"]="Measured UR after first KM IV step plus diagnostic0.15 tolerance; not a normative tail target";}
   Km(emergency?6:5);bool reduced=false;
-  // UR4.5 is this diagnostic's fixed trigger. From actualPzar5.4 the drop is
-  // about0.9; it does not certify the normative0.6..0.7 full-service bench step.
-  for(int i=0;i<1500;i++){Step();tm.Observe();tc.Observe();if(Single(loc,9)<=(emergency?.2:4.5)){reduced=true;break;}}
+  // Rules83 section9.3.3 (PDF68): UR reduction0.6..0.7, then KM IV.
+  // Select0.65 from measured initialUR and validate the actual settled step.
+  for(int i=0;i<1500;i++){Step();tm.Observe();tc.Observe();if(Single(loc,9)<=targetUr){reduced=true;break;}}
+  if(!emergency)serviceStep["ur_at_reduction_end_kgf_cm2"]=Single(loc,9);
   if(!emergency)Km(4);
-  bool applied=false;int stable=0;for(int i=0;i<3000;i++){Step();tm.Observe();tc.Observe();bool ready=Min(4)>=.5&&Max(0)<=(emergency?1:4.7);stable=ready?stable+1:0;if(stable>=100){applied=true;break;}}
+  bool applied=false;int stable=0;for(int i=0;i<3000;i++){Step();tm.Observe();tc.Observe();if(!emergency&&i==0){afterIvUr=Single(loc,9);double actualReduction=initialUr-afterIvUr;bool stepMatches=actualReduction>=.6&&actualReduction<=.7;serviceStep["ur_after_first_iv_step_kgf_cm2"]=afterIvUr;serviceStep["actual_reduction_kgf_cm2"]=actualReduction;serviceStep["actual_reduction_in_0_6_to_0_7"]=stepMatches;serviceStep["native_km_iv_observed"]=Marshal.ReadByte(loc,0x7d)==4;serviceStep["tm_application_upper_bound_kgf_cm2"]=afterIvUr+ServiceTmToUrTolerance;Require(stepMatches,"Actual service UR reduction after KM IV "+actualReduction+" is outside0.6..0.7 kgf/cm2");}bool ready=Min(4)>=.5&&Max(0)<=(emergency?1:afterIvUr+ServiceTmToUrTolerance);stable=ready?stable+1:0;if(stable>=100){applied=true;break;}}
   Snapshot("end");tm.Finish(false);tc.Finish(false);Require(reduced,"KM did not reduce UR within bounded application phase");Require(applied,"Automatic braking did not reach every wagon within bounded application phase");tm.Finish(true);tc.Finish(true);
   Require(Max(4)<=4.5,"Wagon TC exceeded broad physical diagnostic bound 4.5");
   if(!emergency)HoldService();
   Begin(emergency?"emergency_release":"service_release");var rise=new Arrival("tm_rise",0,1);var fall=new Arrival("tc_fall",4,-1);Km(2);
   bool released=false;stable=0;for(int i=0;i<18000;i++){Step();rise.Observe();fall.Observe();bool ready=ChargeReady(false);stable=ready?stable+1:0;if(stable>=100){released=true;break;}}
-  Snapshot("end");rise.Finish(false);fall.Finish(false);Require(released,"Train release/recharge did not establish headTM within actualPzar+/-0.15, UR>=actualPzar-0.15, every wagonTM within observedheadTM+/-0.3 (assumed75 four-axle wagons=300 axles), ownZR>=ownTM-0.15 and TC<=0.1 within18000 cycles");rise.Finish(true);fall.Finish(true);
+  Snapshot("end");rise.Finish(false);fall.Finish(false);Require(released,"Train release/recharge did not establish native locomotive TM5.3..5.5, UR>=actualPzar-0.15, every wagonTM within locomotiveTM+/-0.3 (assumed75 four-axle wagons=300 axles), ownZR>=ownTM-0.15 and TC<=0.1 within18000 cycles");rise.Finish(true);fall.Finish(true);
  }
 
  static void HoldService(){
@@ -280,19 +286,20 @@ class TrainPneumaticProbe {
    Step();double minimum=Min(4),maximum=Max(4);tcMinimum=Math.Min(tcMinimum,minimum);tcPeak=Math.Max(tcPeak,maximum);tmMinimum=Math.Min(tmMinimum,Min(0));tmMaximum=Math.Max(tmMaximum,Max(0));
    for(int i=0;i<3;i++){double tm=Single(cars[Observed[i]],0),tc=Single(cars[Observed[i]],4),zr=Single(cars[Observed[i]],8);tmMin[i]=Math.Min(tmMin[i],tm);tmMax[i]=Math.Max(tmMax[i],tm);tcMin[i]=Math.Min(tcMin[i],tc);tcMax[i]=Math.Max(tcMax[i],tc);zrMin[i]=Math.Min(zrMin[i],zr);zrMax[i]=Math.Max(zrMax[i],zr);}
    serviceHold["completed_cycles"]=phaseCycles;serviceHold["all_wagon_tc_min"]=tcMinimum;serviceHold["all_wagon_tc_peak"]=tcPeak;serviceHold["all_wagon_tm_min"]=tmMinimum;serviceHold["all_wagon_tm_max"]=tmMaximum;
+   Require(Marshal.ReadByte(loc,0x7d)==4,"Native KM input left IV during service hold at cycle "+phaseCycles);
    Require(minimum>=.5,"Automatic brake spontaneously released a wagon during KM IV service hold at cycle "+phaseCycles+", minimum TC "+minimum);Require(maximum<=4.5,"Wagon TC exceeded broad physical diagnostic bound 4.5 during service hold at cycle "+phaseCycles);
   }
-  serviceHold["completed"]=true;Snapshot("end");
+  serviceHold["completed"]=true;serviceStep["ur_after_hold_kgf_cm2"]=Single(loc,9);proceduralServiceStepMatched=(bool)serviceStep["actual_reduction_in_0_6_to_0_7"]&&(bool)serviceStep["native_km_iv_observed"]&&phaseCycles==1200;Snapshot("end");
  }
 
  static void Save(bool passed){
   Progress("before_final_result");
   var result=new{passed=passed,failure_reasons=Failures,phase=phase,total_cycles=cycles,nominal_sim_seconds=cycles*.1,wall_seconds=Clock.Elapsed.TotalSeconds,
    native_started=nativeStarted,safe_cold_initialized=coldInitialized,cold_geometry_preserved=coldGeometryPreserved,cold_geometry_checks=coldGeometryChecks,repeat_init_sostav=false,layout_verified=layoutVerified,native_air_nodes=77,wagons=75,wagon_gross_t=80,wagon_load_mode=1,auto_regulator=true,configured_wagon_motion_ftk=1,brake_pad_material="cast_iron",ftk_source="TrainerNativeSystems.InitializePhysics SetSostav argument6; native FTk1 cast-iron mapping confirmed separately",charging_setpoint_actual=chargingSetpointActual,loaded_cast_iron_charge_setpoint_in_re_range=chargingSetpointActual>=5.3&&chargingSetpointActual<=5.5,wagon_configuration=WagonConfiguration,layout_checks=layoutChecks,wagon_pressure_checks=pressureChecks,
-   minimum_observed_pressure=hasPressureObservation?(double?)allTimeMinimum:null,maximum_observed_pressure=hasPressureObservation?(double?)allTimeMaximum:null,
+   minimum_observed_pressure=hasPressureObservation?(double?)allTimeMinimum:null,maximum_observed_pressure=hasPressureObservation?(double?)allTimeMaximum:null,plain_release_mode_assumed=true,native_ro_enum_mapping_verified=false,
    electrical_faults=host!=null&&nativeStarted?(int?)Field("electricalFaults"):null,managed_boundary_mass_error=circuit==null?(double?)null:circuit.MaximumBalanceError,
-   full_native_train_mass_balance_verified=false,exact_equipment_bench=false,re008_calibrated=false,normative_brake_wave_speed_verified=false,normative_full_service_step_verified=false,service_diagnostic_ur_target_kgf_cm2=4.5,diagnostic_only=true,arrival_threshold_kgf_cm2=.1,charging_convergence_tolerance_kgf_cm2=RelativeHeadTmTolerance,charging_head_setpoint_tolerance_kgf_cm2=HeadSetpointTolerance,charging_zr_local_tm_lag_tolerance_kgf_cm2=ZrChargeLagTolerance,assumed_axles_per_wagon=4,assumed_wagon_axles=300,native_axle_count_verified=false,relative_head_tm_criterion_source="Rules808 AppendixK: head/tail TM difference<=0.3 for up to300 wagon axles; extended to each wagon as diagnostic, assuming75 four-axle wagons",nominal_step_seconds=.1,
-   scope="Candidate77-node cold initial pressures preserve normal native geometry and initialized VR objects, then native pantograph/BV/PSN/main-compressor inputs; full75-wagon R1/ARon charge, service, KM IV1200-cycle hold, release, emergency and release. KM/KVT are stand inputs. Every wagon TM/TC/ZR checked every step; head/middle/tail wave arrivals use local baselines. No repeated InitNew/InitSostavClass, PM replenishment fixture, native output forcing or extra native patch. Reservoir pressure-volume inventory is partial; native VR chamber volumes/source/exhaust contracts and normative timing remain unverified. Actuator air demand/full locomotive preparation not accepted.",service_hold=serviceHold,startup_native_air=startupNativeAir,terminal_wagon_pressures=TerminalWagonPressures(),arrivals=Arrivals,snapshots=Rows};
+   full_native_train_mass_balance_verified=false,exact_equipment_bench=false,re008_calibrated=false,normative_brake_wave_speed_verified=false,normative_full_service_step_verified=false,procedural_service_step_matched=proceduralServiceStepMatched,full_normative_brake_test_verified=false,service_tm_to_ur_diagnostic_tolerance_kgf_cm2=ServiceTmToUrTolerance,diagnostic_only=true,arrival_threshold_kgf_cm2=.1,charging_convergence_tolerance_kgf_cm2=RelativeHeadTmTolerance,charging_head_reference_kind="native locomotive TM at node0",charged_locomotive_tm_min_kgf_cm2=5.3,charged_locomotive_tm_max_kgf_cm2=5.5,charging_ur_setpoint_lag_tolerance_kgf_cm2=UrSetpointLagTolerance,charging_zr_local_tm_lag_tolerance_kgf_cm2=ZrChargeLagTolerance,assumed_axles_per_wagon=4,assumed_wagon_axles=300,native_axle_count_verified=false,brake_rules_source=new{path=BrakeRulesPdf,sha256=BrakeRulesSha256,charging_table="Table1, PDF25..26 and note2 locomotiveTM gauge",head_tail_difference="Section9.3.3 PDF67: TM head/tail difference<=0.3 up to300 wagon axles; all-wagon extension diagnostic",service_step="Section9.3.3 PDF68: UR reduction0.6..0.7 then KM IV and120s for plain mode",normal_release="Section9.3.3 PDF69: KM II for this assumed300-axle train",limits="TC>=0.5 is a diagnostic surrogate; rod stroke/pad application and the prescribed train-density procedures are not verified. This KM II release is not the separate tail-release timing procedure on PDF67."},nominal_step_seconds=.1,
+   scope="Candidate77-node cold initial pressures preserve normal native geometry and initialized VR objects, then native pantograph/BV/PSN/main-compressor inputs; full75-wagon R1/ARon charge, measured UR service reduction0.65 (actual0.6..0.7), KM IV1200-cycle hold, release, emergency and release. KM/KVT are stand inputs. Every wagon TM/TC/ZR checked every step; head/middle/tail wave arrivals use local baselines. No repeated InitNew/InitSostavClass, PM replenishment fixture, native output forcing or extra native patch. Reservoir pressure-volume inventory is partial; native VR chamber volumes/source/exhaust contracts and normative timing remain unverified. Actuator air demand/full locomotive preparation not accepted.",service_step=serviceStep,service_hold=serviceHold,startup_native_air=startupNativeAir,terminal_wagon_pressures=TerminalWagonPressures(),arrivals=Arrivals,snapshots=Rows};
   string json;try{json=new JavaScriptSerializer().Serialize(result);}catch(Exception serializationError){Failures.Add("Result graph serialization failed: "+serializationError.GetBaseException().Message);json=new JavaScriptSerializer().Serialize(new{passed=false,phase=phase,total_cycles=cycles,phase_cycles=phaseCycles,failure_reasons=Failures.ToArray(),snapshots_unavailable=true,charging_setpoint_actual=Finite(chargingSetpointActual)?(double?)chargingSetpointActual:null});}
   var resultPath=TrainerSession.ResultPath("Trainer_train_pneumatic_validation.json");File.WriteAllText(resultPath,json);Console.WriteLine(new JavaScriptSerializer().Serialize(new{passed=passed&&Failures.Count==0,phase=phase,total_cycles=cycles,failure_reasons=Failures.ToArray(),result_path=resultPath}));Console.Out.Flush();
  }

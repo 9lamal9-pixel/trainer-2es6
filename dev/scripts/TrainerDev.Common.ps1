@@ -458,8 +458,8 @@ function Save-TrainerContext {
         git_head=(Get-TrainerHead)
         working_tree=[ordered]@{changed_files=$dirty.Count;first_files=@($dirty|Select-Object -First 20);more=($dirty.Count -gt 20)}
         latest=$latest
-        active_focus='Пневматика75 вагонов и поезда проверена: Pzar5.0→5.4 и Double-база native/managed устранили несоответствие профиля и ложный mass deficit при отпуске. TrainPneumatic с холодной зарядкой, служебным/экстренным торможением, выдержкой120с и обоими отпусками PASS36295циклов; regression6/6 PASS. TrainIsolation закрытых кранов/рукавов/разрыва PASS. Отчёт dev/docs/TRAIN_PNEUMATICS_AUDIT.md.'
-        next_model_question='Нормативные времена зарядки и скорость волны не приняты; tailTC threshold0.1 достигается примерно10.7с, требуется точный путь/onset и измерение0.01с. Native глобальный баланс, модификация ВР, авторежим/объемы и полный запуск ЭПК не установлены. Старый cold tempPzar0 InitSostav меняет Dut: прежние dry/control/PM PASS не подтверждают геометрию вагонов. Новая TrainPneumatic сохраняет77-node geometry. NativeInitializationCapture unsafe не применять.'
+        active_focus='Правила83/приложение65 добавлены. Методика TrainPneumatic исправлена: ТМ головы по локомотиву, ступеньУР0.6–0.7. Свежий PASS test-20261011T105947976Z-eee0892a:36549циклов,перепад0.295201,ступень0.656585. Pzar5.4 подтвержден; production прежний. Отчет dev/docs/TRAIN_PNEUMATICS_AUDIT.md.'
+        next_model_question='Полное нормативное опробование не принято: плотностьII/IV,штоки/колодки,целостность хвостового крана8–10с,отдельный KMI-замер двух хвостовых вагонов,Ro/native режим. Волна/метрологияГОСТ,VR/АР/глобальный баланс и полный запускЭПК остаются открыты. Старые tempPzar0 cold пробы не подтверждают геометрию. NativeInitializationCapture unsafe не применять.'
         read_next=@('dev/environment-context.json','dev/state/context.json')
         avoid_reading=@('whole telemetry.csv','all historical logs','all disassembly dumps')
         source_of_truth='outputs/*.cs; versioned snapshots dev/builds/<id>/source; Git checkpoints'
