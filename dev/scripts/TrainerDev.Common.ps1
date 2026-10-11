@@ -136,6 +136,15 @@ function Set-TrainerProcessEnvironment($StartInfo,[string]$Folder,[string]$Build
 }
 function Deploy-TrainerBuild($Build,[string]$ExeName) {
     $destination = Resolve-TrainerPath ('outputs/' + $ExeName)
+    if (Test-Path -LiteralPath $destination) {
+        $previous=Join-Path $Build.folder ('previous/'+$ExeName)
+        [IO.Directory]::CreateDirectory((Split-Path -Parent $previous)) | Out-Null
+        Copy-Item -LiteralPath $destination -Destination $previous
+        if(Test-Path -LiteralPath ($destination+'.build.json')){Copy-Item -LiteralPath ($destination+'.build.json') -Destination ($previous+'.build.json')}
+        $previousPdb=[IO.Path]::ChangeExtension($destination,'.pdb')
+        if(Test-Path -LiteralPath $previousPdb){Copy-Item -LiteralPath $previousPdb -Destination ([IO.Path]::ChangeExtension($previous,'.pdb'))}
+        Write-TrainerJson @{path=$destination;sha256=(Get-TrainerHash $previous);replaced_by_build=$Build.id} (Join-Path $Build.folder 'previous/deployment.json')
+    }
     Copy-Item -LiteralPath $Build.exe -Destination $destination -Force
     $pdb = [IO.Path]::ChangeExtension($Build.exe,'.pdb')
     if (Test-Path -LiteralPath $pdb) { Copy-Item -LiteralPath $pdb -Destination ([IO.Path]::ChangeExtension($destination,'.pdb')) -Force }
@@ -285,7 +294,7 @@ function Save-TrainerCheckpoint {
     $lease=Get-TrainerLease
     try {
         $git=Get-TrainerGit
-        & $git -C $script:TrainerRoot add --all
+        & $git -C $script:TrainerRoot -c core.safecrlf=false add --all
         if ($LASTEXITCODE -ne 0) { throw 'Git add не выполнен.' }
         $id=New-TrainerId 'checkpoint'
         $folder=Resolve-TrainerPath ('dev/checkpoints/'+$id)
@@ -299,6 +308,12 @@ function Save-TrainerCheckpoint {
         & $git -C $script:TrainerRoot commit -m ("Тренажёр: $Name") 2>&1 | Tee-Object -FilePath (Join-Path $folder 'git.log') | Select-Object -Last 4 | Out-Host
         if ($LASTEXITCODE -ne 0) { throw 'Git commit не выполнен; diff и запись журнала сохранены.' }
         $details.commit=Get-TrainerHead
+        if ($details.previous_head -eq 'uncommitted') {
+            & $git -C $script:TrainerRoot show --format= --binary ('--output='+(Join-Path $folder 'changes.patch')) $details.commit
+        } else {
+            & $git -C $script:TrainerRoot diff $details.previous_head $details.commit --binary ('--output='+(Join-Path $folder 'changes.patch'))
+        }
+        if ($LASTEXITCODE -ne 0) { throw 'Commit сохранён, но его patch не создан.' }
         # Blob IDs describe the committed bytes, even if an editor changes the working tree concurrently.
         foreach ($line in (& $git -C $script:TrainerRoot -c core.quotePath=false ls-tree -r $details.commit)) {
             if ($line -match '^\d+ blob ([0-9a-f]+)\t(.+)$') { $details.sources += [pscustomobject]@{path=$Matches[2];git_blob=$Matches[1]} }

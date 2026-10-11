@@ -6,7 +6,8 @@ param(
     [string[]]$Probe,
     [string]$Name = 'checkpoint',
     [string]$Note = '',
-    [switch]$IncludeRuntime
+    [switch]$IncludeRuntime,
+    [switch]$Deploy
 )
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version 2
@@ -25,7 +26,11 @@ try {
     $transcriptStarted=$true
     switch ($Action) {
         Doctor { Invoke-TrainerDoctor }
-        Build { $build=New-TrainerBuild -Profile $Profile; Write-Host ('Сборка: '+$build.folder) }
+        Build {
+            $build=New-TrainerBuild -Profile $Profile
+            if($Deploy){$deployLease=Get-TrainerLease;try{Deploy-TrainerBuild $build ([IO.Path]::GetFileName($build.exe)) | Out-Host}finally{$deployLease.Dispose()}}
+            Write-Host ('Сборка: '+$build.folder)
+        }
         Test { Invoke-TrainerTests -Suite $Suite -Ids $Probe }
         Run { Start-TrainerDevelopment -Profile $Profile }
         Checkpoint { Save-TrainerCheckpoint -Name $Name -Note $Note }
