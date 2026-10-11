@@ -365,6 +365,7 @@ function Save-TrainerArchive {
         try {
             foreach ($file in @($files|Sort-Object FullName -Unique)) {
                 $relative=$file.FullName.Substring($script:TrainerRoot.Length+1).Replace('\','/')
+                if ($relative -eq 'dev/state/native-run.lock') { continue }
                 $inventory += Add-TrainerZipSnapshot $zip $file.FullName $relative
             }
         } finally { $zip.Dispose() }
