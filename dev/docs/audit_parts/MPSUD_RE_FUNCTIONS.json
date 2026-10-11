@@ -1,0 +1,2575 @@
+{
+  "metadata": {
+    "version": 2,
+    "date": "2026-10-11",
+    "state": "ALL_22_FUNCTIONAL_CARDS_SECONDARY_PRIMARY_PARTIAL",
+    "native_executed": false,
+    "production_changed": false,
+    "primary_original_received": false,
+    "primary_edition_and_137plus_configuration_verified": false,
+    "primary_sources": [
+      {
+        "id": "extra_0_023.json",
+        "path": "work/mpsud_manual_discovery/functions/extra_0_023.json",
+        "sha256": "C335A96A46A5D04252F011935AF596E014B1F370BA6AAE026798CFE786786B44",
+        "url": "https://zinref.ru/000_uchebniki/04600_raznie_6/358_Elektrovoz_2ES6_rukovodstvo/023.htm",
+        "role": "PRIMARY_TEXT_CACHE_PARTIAL",
+        "accepted_scope": "Only listed primary_text_overlap claims in relevant §1.7 fragments.",
+        "limitations": [
+          "OCR/cache and omitted adjacent text",
+          "No original raster authentication",
+          "Adjacent other chapters excluded"
+        ]
+      },
+      {
+        "id": "fresh_0_021.json",
+        "path": "work/mpsud_manual_discovery/functions/fresh_0_021.json",
+        "sha256": "3F64EF39CBA99876E665C2CA3D548435A8672C35447B36A714F54B28C00BFE76",
+        "url": "https://zinref.ru/000_uchebniki/04600_raznie_6/358_Elektrovoz_2ES6_rukovodstvo/021.htm",
+        "role": "PRIMARY_TEXT_CACHE_PARTIAL",
+        "accepted_scope": "Only listed primary_text_overlap claims in relevant §1.7 fragments.",
+        "limitations": [
+          "OCR/cache and omitted adjacent text",
+          "No original raster authentication",
+          "Adjacent other chapters excluded"
+        ]
+      },
+      {
+        "id": "fresh_1_021.json",
+        "path": "work/mpsud_manual_discovery/functions/fresh_1_021.json",
+        "sha256": "6B451D10ADDF71AE5C5C3788726AD6F658ACC0F130E836C4EB5D0633F3AF6903",
+        "url": "https://zinref.ru/000_uchebniki/04600_raznie_6/358_Elektrovoz_2ES6_rukovodstvo/021.htm",
+        "role": "PRIMARY_TEXT_CACHE_PARTIAL",
+        "accepted_scope": "Only listed primary_text_overlap claims in relevant §1.7 fragments.",
+        "limitations": [
+          "OCR/cache and omitted adjacent text",
+          "No original raster authentication",
+          "Adjacent other chapters excluded"
+        ]
+      },
+      {
+        "id": "fresh_2_022.json",
+        "path": "work/mpsud_manual_discovery/functions/fresh_2_022.json",
+        "sha256": "C6912364D4AD8EFBDB0F7C7581A952F4BE37A9F119FEC30E1AEA28E0E17B292E",
+        "url": "https://zinref.ru/000_uchebniki/04600_raznie_6/358_Elektrovoz_2ES6_rukovodstvo/022.htm",
+        "role": "PRIMARY_TEXT_CACHE_PARTIAL",
+        "accepted_scope": "Only listed primary_text_overlap claims in relevant §1.7 fragments.",
+        "limitations": [
+          "OCR/cache and omitted adjacent text",
+          "No original raster authentication",
+          "Adjacent other chapters excluded"
+        ]
+      },
+      {
+        "id": "fresh_4_022.json",
+        "path": "work/mpsud_manual_discovery/functions/fresh_4_022.json",
+        "sha256": "FD7DB9D29DA460E78FF8779EEC1148AAF7089B45376B3EEB7AF25EDE3E4563AE",
+        "url": "https://zinref.ru/000_uchebniki/04600_raznie_6/358_Elektrovoz_2ES6_rukovodstvo/022.htm",
+        "role": "PRIMARY_TEXT_CACHE_PARTIAL",
+        "accepted_scope": "Only listed primary_text_overlap claims in relevant §1.7 fragments.",
+        "limitations": [
+          "OCR/cache and omitted adjacent text",
+          "No original raster authentication",
+          "Adjacent other chapters excluded"
+        ]
+      },
+      {
+        "id": "fresh_4_023.json",
+        "path": "work/mpsud_manual_discovery/functions/fresh_4_023.json",
+        "sha256": "B0AC90E6B5C1A6618A7695509FEDB07C493AB009D445A9F9786E438E5BEB54F7",
+        "url": "https://zinref.ru/000_uchebniki/04600_raznie_6/358_Elektrovoz_2ES6_rukovodstvo/023.htm",
+        "role": "PRIMARY_TEXT_CACHE_PARTIAL",
+        "accepted_scope": "Only listed primary_text_overlap claims in relevant §1.7 fragments.",
+        "limitations": [
+          "OCR/cache and omitted adjacent text",
+          "No original raster authentication",
+          "Adjacent other chapters excluded"
+        ]
+      }
+    ],
+    "secondary_source": {
+      "id": "RPT2017",
+      "path": "work/mpsud_manual_discovery/control/description_mpsud_2017.pdf",
+      "sha256": "26972A1D4CAC81F35F940B6CB9313F1C55027871CC8F802DAD76382C08CFAA9E",
+      "url": "https://scbist.com/scb/uploaded/1_1767437709.pdf?download=1",
+      "role": "SECONDARY_REPRINT_NOT_FACTORY_ORIGINAL",
+      "pages": 46,
+      "monitor_pages": [
+        14,
+        46
+      ],
+      "metadata": {
+        "/Title": "ПОЛЬЗОВАНИЕ  МОНИТОРОМ",
+        "/Author": "Yakimova",
+        "/Creator": "Writer",
+        "/Producer": "LibreOffice 6.0",
+        "/CreationDate": "D:20190314023703+02'00'"
+      },
+      "forum_label": "Петров, 2017. Metadata2019 does not prove author/factory revision.",
+      "limitations": [
+        "No factory title/stamps or edition authentication",
+        "Renumbered figures 1–22",
+        "Not full original РЭ2",
+        "Grey screenshots do not authenticate monitor RGB"
+      ]
+    },
+    "local_extraction": {
+      "path": "work/mpsud_manual_discovery/functions/reprint_pages.json",
+      "sha256": "AF3ADBB78D96005E93202A1321CE5B63FF5AEA3AFE4E24670128449A32BE7EB2",
+      "role": "FULL_SECONDARY_PAGE_TEXT_FOR_TRACEABILITY"
+    },
+    "illustrations_manifest": "work/mpsud_manual_discovery/illustrations/illustrations.json",
+    "legacy_index": {
+      "path": "dev/docs/audit_parts/MPSUD_SCREEN_REQUIREMENTS.md",
+      "role": "SR IDs and §/figure/printed-page candidates only; no functional evidence"
+    },
+    "excluded_from_functional_claims": [
+      "source_*.json mixed search packages",
+      "direct_*_status.json network failures",
+      "Trainer ABI fields, defaults and factory behavior"
+    ],
+    "validation_policy": "Document/JSON/source SHA only; native acceptance belongs to separate root probes."
+  },
+  "general_discrete_conditions": [
+    {
+      "signal": "БВ",
+      "normal": "Переключатель БВ включён; подтверждена обратная связь.",
+      "alarm": "Нет/потеряна обратная связь в течение 3 с при команде.",
+      "delay_s": 3,
+      "reset": "Выключить/включить переключатель БВ.",
+      "pdf_pages": [
+        17
+      ],
+      "primary_overlap": true
+    },
+    {
+      "signal": "ПСН",
+      "normal": "БВ задан включённым; получен Контроль ПСН.",
+      "alarm": "Нет/потерян Контроль ПСН в течение 8 с.",
+      "delay_s": 8,
+      "reset": "Повторное включение после выключения БВ.",
+      "pdf_pages": [
+        17
+      ],
+      "primary_overlap": true
+    },
+    {
+      "signal": "МВ",
+      "normal": "Команда Вентиляторы, БВ включён, нет Возврата защиты, есть Контроль ПСН и подтверждение МВ.",
+      "alarm": "Нет/потеряно подтверждение в течение 5 с при команде.",
+      "delay_s": 5,
+      "reset": "Выключить/включить Вентиляторы.",
+      "pdf_pages": [
+        17,
+        18
+      ],
+      "primary_overlap": true
+    },
+    {
+      "signal": "МК",
+      "normal": "Команда Компрессоры/принудительная кнопка; БВ, готовность МК, Контроль ПСН, нет Возврата защиты, есть подтверждение МК.",
+      "alarm": "Нет/потеряно подтверждение в течение 5 с при команде.",
+      "delay_s": 5,
+      "reset": "Выключить/включить Компрессоры.",
+      "pdf_pages": [
+        18
+      ],
+      "primary_overlap": false
+    },
+    {
+      "signal": "ДР",
+      "normal": "После БВ завершён двухсекундный Возврат защиты; чёрный фон.",
+      "alarm": "Красный до/в течение 2 с после БВ; ДР1/ДР2 при срабатывании КА1/КА2.",
+      "delay_s": 2,
+      "reset": null,
+      "pdf_pages": [
+        18
+      ],
+      "primary_overlap": false
+    },
+    {
+      "signal": "БК",
+      "normal": "Чёрный фон — включён.",
+      "alarm": "Красный — сработал/отключён.",
+      "delay_s": null,
+      "reset": null,
+      "pdf_pages": [
+        18
+      ],
+      "primary_overlap": false
+    },
+    {
+      "signal": "ТМ",
+      "normal": "Чёрный фон — магистраль цела.",
+      "alarm": "Красный — нарушение целостности; краткий красный при торможении предусмотрен как самопроверка.",
+      "delay_s": null,
+      "reset": null,
+      "pdf_pages": [
+        18,
+        19
+      ],
+      "primary_overlap": false
+    },
+    {
+      "signal": "ВВК",
+      "normal": "Чёрный фон — подтверждена блокировка.",
+      "alarm": "Красный — нет подтверждения.",
+      "delay_s": null,
+      "reset": null,
+      "pdf_pages": [
+        19
+      ],
+      "primary_overlap": false
+    },
+    {
+      "signal": "ТЦ",
+      "normal": "Зелёный фон — присутствует сигнал давления; чёрный — отсутствует.",
+      "alarm": "Порог давления/таймер в разделе не задан.",
+      "delay_s": null,
+      "reset": null,
+      "pdf_pages": [
+        19
+      ],
+      "primary_overlap": false
+    }
+  ],
+  "screens": [
+    {
+      "id": "SR00",
+      "figure": "1.18",
+      "figure_status": "EXPECTED_PRIMARY_CROSSWALK_SEQUENCE_AND_TITLE",
+      "printed_page": [
+        48
+      ],
+      "printed_page_verified": false,
+      "section": "1.7.2",
+      "title": "Заставка",
+      "reprint_figure": 1,
+      "reprint_pdf_pages": [
+        14,
+        15
+      ],
+      "entry": "Автоматически после подачи питания ИП-ЛЭ системы МПСУиД.",
+      "purpose": "Начальное окно и выбор информационных режимов.",
+      "fields_groups": [
+        {
+          "name": "Текущие дата и время",
+          "kind": "date_time",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        },
+        {
+          "name": "Нижняя строка меню",
+          "kind": "text",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        }
+      ],
+      "behavior_status": [
+        "Цифра в меню указывает клавишу собственной клавиатуры монитора; в тексте цифры описаны как красные."
+      ],
+      "appearance_conditions": [],
+      "navigation": [
+        "2 — Машинист",
+        "3 — Состояние МСУЛ / ВМ",
+        "4 — Диагностика",
+        "5 — Настройка"
+      ],
+      "exit": "Начальное окно; переход выполняется клавишами 2–5.",
+      "source_refs": [
+        {
+          "source_id": "RPT2017",
+          "role": "SECONDARY_REPRINT",
+          "pdf_pages": [
+            14,
+            15
+          ],
+          "figure": 1
+        },
+        {
+          "source_id": "fresh_1_021.json",
+          "role": "PRIMARY_TEXT_CACHE_PARTIAL"
+        }
+      ],
+      "primary_text_overlap": [
+        "Автоматическое включение; дата/время и меню."
+      ],
+      "status": "FUNCTIONAL_SECONDARY_COMPLETE_PRIMARY_PARTIAL",
+      "factory_pixels_verified": false,
+      "current_2es6_from_137_edition_verified": false,
+      "pending": [
+        "Заводской оригинал рисунка и редакция РЭ2",
+        "Печатные листы оригинала",
+        "Сопоставимость с комплектацией №137+"
+      ],
+      "illustration": {
+        "path": "work/mpsud_manual_discovery/illustrations/SR00.png",
+        "sha256": "CD5FA9CC770809DD0272AD999743AB92E90B39105009BC538436926CA28CD784",
+        "pdf_page": 15,
+        "width": 801,
+        "height": 599,
+        "lossless_original_size_export": true,
+        "source_kind": "SECONDARY_REPRINT_NOT_FACTORY_ORIGINAL",
+        "visual_checked_by_functions_agent": false,
+        "visual_checked_by_display_agent": true,
+        "white_preview_path": "work/mpsud_manual_discovery/illustrations/white/SR00.png",
+        "white_preview_sha256": "4D832FAA9BC8F2F5E5C1C023696A3AC39FBE237A867B88742426F84F27117E3B",
+        "viewing_requirement": "Composite on white PDF page, not black-alpha canvas."
+      }
+    },
+    {
+      "id": "SR01",
+      "figure": "1.19",
+      "figure_status": "EXPECTED_PRIMARY_CROSSWALK_SEQUENCE_AND_TITLE",
+      "printed_page": [
+        49,
+        50,
+        51,
+        52,
+        53
+      ],
+      "printed_page_verified": false,
+      "section": "1.7.3.1",
+      "title": "Машинист без блока АВП",
+      "reprint_figure": 2,
+      "reprint_pdf_pages": [
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "entry": "2 в Заставке; вариант без обнаруженного в линии связи блока АВП.",
+      "purpose": "Измерения тяговой цепи, аппаратные подтверждения и нарушения МСУЛ.",
+      "fields_groups": [
+        {
+          "name": "Uкс",
+          "kind": "numeric",
+          "unit": "В",
+          "unit_status": "EXPLICIT_IN_SOURCE",
+          "evidence": "SECONDARY_TEXT_AND_FIGURE",
+          "note": "Левый столбец и его цифровая шкала."
+        },
+        {
+          "name": "Ia1–2, Ia3–4 и Iv1–2, Iv3–4 ведущей секции",
+          "kind": "numeric",
+          "unit": "А",
+          "unit_status": "EXPLICIT_IN_SOURCE",
+          "evidence": "SECONDARY_TEXT_AND_FIGURE",
+          "note": null
+        },
+        {
+          "name": "Максимальные Ia и Iv каждой ведомой секции",
+          "kind": "numeric",
+          "unit": "А",
+          "unit_status": "EXPLICIT_IN_SOURCE",
+          "evidence": "SECONDARY_TEXT_AND_FIGURE",
+          "note": "Максимум токов секции, а не произвольно выбранная группа 1–2."
+        },
+        {
+          "name": "БВ, ПСН, МВ, МК, ДР/ДР1/ДР2, БК, ТМ, ВВК, ТЦ",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": "Отдельный столбец на секцию; число столбцов соответствует числу секций."
+        },
+        {
+          "name": "Строка нарушений и раскрываемые сообщения",
+          "kind": "text",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        },
+        {
+          "name": "Режим, позиция, сила и уставка вентиляторов",
+          "kind": "text",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": "Нижняя область зависит от присутствия АВП."
+        }
+      ],
+      "behavior_status": [
+        "Uкс показано голубой заливкой; Ia в тяге — зелёной, при рекуперации — сине-фиолетовой; Iv — тёмно-голубой.",
+        "Если данных аналогового параметра нет, его нижнее числовое поле содержит жёлтый ноль. Измеренный ноль сам по себе не означает отсутствие связи.",
+        "Отдельные условия БВ/ПСН/МВ/МК/ДР/БК/ТМ/ВВК/ТЦ приведены в общей таблице.",
+        "2 раскрывает сообщения; внешний вид раскрытой панели отдельным рисунком не задан."
+      ],
+      "appearance_conditions": [
+        "В линии связи отсутствует блок автоведения."
+      ],
+      "navigation": [
+        "2 — Сообщения"
+      ],
+      "exit": "1 — Заставка.",
+      "source_refs": [
+        {
+          "source_id": "RPT2017",
+          "role": "SECONDARY_REPRINT",
+          "pdf_pages": [
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "figure": 2
+        },
+        {
+          "source_id": "fresh_1_021.json",
+          "role": "PRIMARY_TEXT_CACHE_PARTIAL"
+        }
+      ],
+      "primary_text_overlap": [
+        "Цвета токов; жёлтые нули при отсутствии данных; секционные дискреты; БВ 3 с, ПСН 8 с, МВ 5 с."
+      ],
+      "status": "FUNCTIONAL_SECONDARY_COMPLETE_PRIMARY_PARTIAL",
+      "factory_pixels_verified": false,
+      "current_2es6_from_137_edition_verified": false,
+      "pending": [
+        "Заводской оригинал рисунка и редакция РЭ2",
+        "Печатные листы оригинала",
+        "Сопоставимость с комплектацией №137+"
+      ],
+      "illustration": {
+        "path": "work/mpsud_manual_discovery/illustrations/SR01.png",
+        "sha256": "E494A304C36FD3FA82499D94A35B0EA67330462C048D54A71EE41DC0E2178997",
+        "pdf_page": 16,
+        "width": 801,
+        "height": 599,
+        "lossless_original_size_export": true,
+        "source_kind": "SECONDARY_REPRINT_NOT_FACTORY_ORIGINAL",
+        "visual_checked_by_functions_agent": false,
+        "visual_checked_by_display_agent": true,
+        "white_preview_path": "work/mpsud_manual_discovery/illustrations/white/SR01.png",
+        "white_preview_sha256": "B0FF2F9CA39726502B6D41FE0B5A5705AC2505B69CFDC2C502B45DBE78D982FC",
+        "viewing_requirement": "Composite on white PDF page, not black-alpha canvas."
+      }
+    },
+    {
+      "id": "SR02",
+      "figure": "1.20",
+      "figure_status": "EXPECTED_PRIMARY_CROSSWALK_SEQUENCE_AND_TITLE",
+      "printed_page": [
+        53
+      ],
+      "printed_page_verified": false,
+      "section": "1.7.3.2",
+      "title": "Машинист с обнаруженным АВП",
+      "reprint_figure": 3,
+      "reprint_pdf_pages": [
+        19,
+        20
+      ],
+      "entry": "2 в Заставке при присутствии блока АВП в линии связи.",
+      "purpose": "Базовые измерения Машиниста и доступ к данным/предупреждениям АВП.",
+      "fields_groups": [
+        {
+          "name": "Uкс",
+          "kind": "numeric",
+          "unit": "В",
+          "unit_status": "EXPLICIT_IN_SOURCE",
+          "evidence": "SECONDARY_TEXT_AND_FIGURE",
+          "note": "Левый столбец и его цифровая шкала."
+        },
+        {
+          "name": "Ia1–2, Ia3–4 и Iv1–2, Iv3–4 ведущей секции",
+          "kind": "numeric",
+          "unit": "А",
+          "unit_status": "EXPLICIT_IN_SOURCE",
+          "evidence": "SECONDARY_TEXT_AND_FIGURE",
+          "note": null
+        },
+        {
+          "name": "Максимальные Ia и Iv каждой ведомой секции",
+          "kind": "numeric",
+          "unit": "А",
+          "unit_status": "EXPLICIT_IN_SOURCE",
+          "evidence": "SECONDARY_TEXT_AND_FIGURE",
+          "note": "Максимум токов секции, а не произвольно выбранная группа 1–2."
+        },
+        {
+          "name": "БВ, ПСН, МВ, МК, ДР/ДР1/ДР2, БК, ТМ, ВВК, ТЦ",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": "Отдельный столбец на секцию; число столбцов соответствует числу секций."
+        },
+        {
+          "name": "Строка нарушений и раскрываемые сообщения",
+          "kind": "text",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        },
+        {
+          "name": "Режим, позиция, сила и уставка вентиляторов",
+          "kind": "text",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": "Нижняя область зависит от присутствия АВП."
+        },
+        {
+          "name": "Нижняя область АВП",
+          "kind": "text",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_FIGURE",
+          "note": null
+        }
+      ],
+      "behavior_status": [
+        "Добавляются 3 Настройки и 4 Предупреждения; нижняя область определяется состоянием автоведения.",
+        "Присутствие АВП не доказывает, что данные поезда введены или автоведение включено."
+      ],
+      "appearance_conditions": [
+        "АВП присутствует в линии связи."
+      ],
+      "navigation": [
+        "2 — Сообщения",
+        "3 — Ввод данных АВП",
+        "4 — Временные ограничения"
+      ],
+      "exit": "1 — Заставка.",
+      "source_refs": [
+        {
+          "source_id": "RPT2017",
+          "role": "SECONDARY_REPRINT",
+          "pdf_pages": [
+            19,
+            20
+          ],
+          "figure": 3
+        },
+        {
+          "source_id": "fresh_1_021.json",
+          "role": "PRIMARY_TEXT_CACHE_PARTIAL"
+        }
+      ],
+      "primary_text_overlap": [
+        "При присутствии АВП добавляются клавиши 3/4."
+      ],
+      "status": "FUNCTIONAL_SECONDARY_COMPLETE_PRIMARY_PARTIAL",
+      "factory_pixels_verified": false,
+      "current_2es6_from_137_edition_verified": false,
+      "pending": [
+        "Заводской оригинал рисунка и редакция РЭ2",
+        "Печатные листы оригинала",
+        "Сопоставимость с комплектацией №137+"
+      ],
+      "illustration": {
+        "path": "work/mpsud_manual_discovery/illustrations/SR02.png",
+        "sha256": "78A0F1CDD74BB47D5F0A36BA792FBDEEA0D489769AD65A47BCBE8D4358E87B14",
+        "pdf_page": 20,
+        "width": 801,
+        "height": 599,
+        "lossless_original_size_export": true,
+        "source_kind": "SECONDARY_REPRINT_NOT_FACTORY_ORIGINAL",
+        "visual_checked_by_functions_agent": false,
+        "visual_checked_by_display_agent": true,
+        "white_preview_path": "work/mpsud_manual_discovery/illustrations/white/SR02.png",
+        "white_preview_sha256": "D8D1381FF2DEE629EBB7D4D851BDE3D36F43C94314C0885958D9AAE21FC9B9A5",
+        "viewing_requirement": "Composite on white PDF page, not black-alpha canvas."
+      }
+    },
+    {
+      "id": "SR03",
+      "figure": "1.21",
+      "figure_status": "EXPECTED_PRIMARY_CROSSWALK_SEQUENCE_AND_TITLE",
+      "printed_page": [
+        54
+      ],
+      "printed_page_verified": false,
+      "section": "1.7.3.2",
+      "title": "Ввод данных для автоведения",
+      "reprint_figure": 4,
+      "reprint_pdf_pages": [
+        19,
+        21
+      ],
+      "entry": "3 Настройки в Машинисте с АВП.",
+      "purpose": "Редактирование исходных данных поезда и задания АВП.",
+      "fields_groups": [
+        {
+          "name": "Режим: 0 обычный / 1 по удалению / 2 нагон",
+          "kind": "enum",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_FIGURE",
+          "note": null
+        },
+        {
+          "name": "Интенсивность нагона",
+          "kind": "numeric",
+          "unit": null,
+          "unit_status": "UNIT_NOT_PRINTED_OR_NOT_ESTABLISHED",
+          "evidence": "SECONDARY_FIGURE",
+          "note": "На рисунке пример 2; диапазон не установлен."
+        },
+        {
+          "name": "Ток уставки",
+          "kind": "numeric",
+          "unit": "А",
+          "unit_status": "EXPLICIT_IN_SOURCE",
+          "evidence": "SECONDARY_FIGURE",
+          "note": null
+        },
+        {
+          "name": "Номер поезда",
+          "kind": "count",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_FIGURE",
+          "note": null
+        },
+        {
+          "name": "Вес состава",
+          "kind": "numeric",
+          "unit": "т",
+          "unit_status": "EXPLICIT_IN_SOURCE",
+          "evidence": "SECONDARY_FIGURE",
+          "note": null
+        },
+        {
+          "name": "Число вагонов",
+          "kind": "count",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_FIGURE",
+          "note": null
+        },
+        {
+          "name": "Порожние вагоны: 0 нет / 1 есть",
+          "kind": "enum",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_FIGURE",
+          "note": null
+        }
+      ],
+      "behavior_status": [
+        "Цифры вводят значения; стрелки выбирают поле; Del удаляет; Enter применяет.",
+        "Примеры 200 А, поезд 123, вес 100 т, 20 вагонов не являются нормативными пределами.",
+        "Наложенный диалог поверх Машиниста. Назначение клавиши 1 для него не установлено."
+      ],
+      "appearance_conditions": [
+        "Обнаружен АВП; пользователь выбрал ввод данных."
+      ],
+      "navigation": [
+        "Цифры — ввод",
+        "Стрелки — переключение",
+        "Del — удаление",
+        "Enter — применить"
+      ],
+      "exit": "Применение Enter подтверждено рисунком. Отмена/Esc и клавиша 1 не установлены.",
+      "source_refs": [
+        {
+          "source_id": "RPT2017",
+          "role": "SECONDARY_REPRINT",
+          "pdf_pages": [
+            19,
+            21
+          ],
+          "figure": 4
+        }
+      ],
+      "primary_text_overlap": [],
+      "status": "FUNCTIONAL_SECONDARY_COMPLETE_PRIMARY_PARTIAL",
+      "factory_pixels_verified": false,
+      "current_2es6_from_137_edition_verified": false,
+      "pending": [
+        "Заводской оригинал рисунка и редакция РЭ2",
+        "Печатные листы оригинала",
+        "Сопоставимость с комплектацией №137+"
+      ],
+      "illustration": {
+        "path": "work/mpsud_manual_discovery/illustrations/SR03.png",
+        "sha256": "8608C64E84A54E7ADD1D5AD9DF48271CFAA0585DAFE677DA6B0C5DA22875CFA7",
+        "pdf_page": 21,
+        "width": 801,
+        "height": 599,
+        "lossless_original_size_export": true,
+        "source_kind": "SECONDARY_REPRINT_NOT_FACTORY_ORIGINAL",
+        "visual_checked_by_functions_agent": true,
+        "visual_checked_by_display_agent": true,
+        "white_preview_path": "work/mpsud_manual_discovery/illustrations/white/SR03.png",
+        "white_preview_sha256": "8F49312F3C521C1DD3C45C661B27659B7FA32F499F372ED5B36A3149CD20F6B9",
+        "viewing_requirement": "Composite on white PDF page, not black-alpha canvas."
+      }
+    },
+    {
+      "id": "SR04",
+      "figure": "1.22",
+      "figure_status": "EXPECTED_PRIMARY_CROSSWALK_SEQUENCE_AND_TITLE",
+      "printed_page": [
+        55
+      ],
+      "printed_page_verified": false,
+      "section": "1.7.3.2",
+      "title": "Ввод и редактирование временных ограничений",
+      "reprint_figure": 5,
+      "reprint_pdf_pages": [
+        20,
+        21
+      ],
+      "entry": "4 Предупреждения в Машинисте с АВП.",
+      "purpose": "Список временных скоростных ограничений для автоведения.",
+      "fields_groups": [
+        {
+          "name": "Номер поезда и число предупреждений",
+          "kind": "count",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_FIGURE",
+          "note": null
+        },
+        {
+          "name": "Начало и конец ограничения: КМ и ПК",
+          "kind": "address",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_FIGURE",
+          "note": "Километр/пикет раздельно; диапазоны и длина пикета здесь не определены."
+        },
+        {
+          "name": "Ограничение скорости ОС",
+          "kind": "numeric",
+          "unit": "км/ч",
+          "unit_status": "EXPLICIT_IN_SOURCE",
+          "evidence": "SECONDARY_FIGURE",
+          "note": null
+        },
+        {
+          "name": "Список предупреждений",
+          "kind": "text",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_FIGURE",
+          "note": null
+        }
+      ],
+      "behavior_status": [
+        "Операции: 0 добавить, 1 корректировать текущее, 2 удалить текущее, 3 удалить все, 4 применить, 5 отменить.",
+        "Цифры выбирают операцию; стрелки переключают запись списка. Обработку неверных интервалов источник не описывает."
+      ],
+      "appearance_conditions": [
+        "Обнаружен АВП; пользователь выбрал предупреждения."
+      ],
+      "navigation": [
+        "0 — новое",
+        "1 — корректировать",
+        "2 — удалить текущее",
+        "3 — удалить все",
+        "4 — применить",
+        "5 — отменить",
+        "Стрелки — по списку"
+      ],
+      "exit": "4 применить / 5 отменить; здесь 1 означает корректирование текущего, а не общий выход.",
+      "source_refs": [
+        {
+          "source_id": "RPT2017",
+          "role": "SECONDARY_REPRINT",
+          "pdf_pages": [
+            20,
+            21
+          ],
+          "figure": 5
+        }
+      ],
+      "primary_text_overlap": [],
+      "status": "FUNCTIONAL_SECONDARY_COMPLETE_PRIMARY_PARTIAL",
+      "factory_pixels_verified": false,
+      "current_2es6_from_137_edition_verified": false,
+      "pending": [
+        "Заводской оригинал рисунка и редакция РЭ2",
+        "Печатные листы оригинала",
+        "Сопоставимость с комплектацией №137+"
+      ],
+      "illustration": {
+        "path": "work/mpsud_manual_discovery/illustrations/SR04.png",
+        "sha256": "4EBC956E01E0A4CEAB0FB8F309E783A3D0C7BACEB7F433E3D23EB15295273F42",
+        "pdf_page": 21,
+        "width": 801,
+        "height": 599,
+        "lossless_original_size_export": true,
+        "source_kind": "SECONDARY_REPRINT_NOT_FACTORY_ORIGINAL",
+        "visual_checked_by_functions_agent": true,
+        "visual_checked_by_display_agent": true,
+        "white_preview_path": "work/mpsud_manual_discovery/illustrations/white/SR04.png",
+        "white_preview_sha256": "D7E82FCEBF2FA28D6E89460235478D847576815F5D04B663317C2E1F21A7F338",
+        "viewing_requirement": "Composite on white PDF page, not black-alpha canvas."
+      }
+    },
+    {
+      "id": "SR05",
+      "figure": "1.23",
+      "figure_status": "EXPECTED_PRIMARY_CROSSWALK_SEQUENCE_AND_TITLE",
+      "printed_page": [
+        55,
+        56,
+        57
+      ],
+      "printed_page_verified": false,
+      "section": "1.7.3.2",
+      "title": "Машинист: Советчик / Автоведение",
+      "reprint_figure": 6,
+      "reprint_pdf_pages": [
+        22,
+        23,
+        24
+      ],
+      "entry": "После ввода данных — Советчик; затем 5 переключает Советчик ↔ Автоведение.",
+      "purpose": "Фактический и расчётный режим ведения; ограничения и задание.",
+      "fields_groups": [
+        {
+          "name": "Uкс",
+          "kind": "numeric",
+          "unit": "В",
+          "unit_status": "EXPLICIT_IN_SOURCE",
+          "evidence": "SECONDARY_TEXT_AND_FIGURE",
+          "note": "Левый столбец и его цифровая шкала."
+        },
+        {
+          "name": "Ia1–2, Ia3–4 и Iv1–2, Iv3–4 ведущей секции",
+          "kind": "numeric",
+          "unit": "А",
+          "unit_status": "EXPLICIT_IN_SOURCE",
+          "evidence": "SECONDARY_TEXT_AND_FIGURE",
+          "note": null
+        },
+        {
+          "name": "Максимальные Ia и Iv каждой ведомой секции",
+          "kind": "numeric",
+          "unit": "А",
+          "unit_status": "EXPLICIT_IN_SOURCE",
+          "evidence": "SECONDARY_TEXT_AND_FIGURE",
+          "note": "Максимум токов секции, а не произвольно выбранная группа 1–2."
+        },
+        {
+          "name": "БВ, ПСН, МВ, МК, ДР/ДР1/ДР2, БК, ТМ, ВВК, ТЦ",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": "Отдельный столбец на секцию; число столбцов соответствует числу секций."
+        },
+        {
+          "name": "Строка нарушений и раскрываемые сообщения",
+          "kind": "text",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        },
+        {
+          "name": "Режим, позиция, сила и уставка вентиляторов",
+          "kind": "text",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": "Нижняя область зависит от присутствия АВП."
+        },
+        {
+          "name": "С / АВ",
+          "kind": "enum",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        },
+        {
+          "name": "ОС: введённое ограничение",
+          "kind": "numeric",
+          "unit": null,
+          "unit_status": "UNIT_NOT_PRINTED_OR_NOT_ESTABLISHED",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        },
+        {
+          "name": "Режим: верхняя строка ф, нижняя р",
+          "kind": "enum",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        },
+        {
+          "name": "Позиция",
+          "kind": "count",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        },
+        {
+          "name": "Сила — заданное значение",
+          "kind": "numeric",
+          "unit": "%",
+          "unit_status": "EXPLICIT_IN_SOURCE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        },
+        {
+          "name": "МВ — уставка скорости вращения",
+          "kind": "numeric",
+          "unit": "%",
+          "unit_status": "EXPLICIT_IN_SOURCE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        },
+        {
+          "name": "Боксование/юз: колесная пара и секция",
+          "kind": "text",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        }
+      ],
+      "behavior_status": [
+        "После ввода данных отображается С; 5 включает АВ и меняет команду на Советчик; повторное 5 возвращает С.",
+        "Тяга С/СП/П: позиции 1–23/24–44/45–65. Рекуперация: 0–1. Для реостатного торможения верхний предел оставлен как хх.",
+        "Рекуперация С/СП/П обозначает приоритет соединения. Перечень ЭДТ содержит П,СП,П; первое обозначение нельзя исправлять без оригинала.",
+        "ФС — поддержание скорости на ходовых тяговых позициях либо при электрическом торможении с включённой Фиксацией скорости. Выбег — выключенные ТЭД.",
+        "Заданная сила: тяга 1…120%, торможение −1…−100%; при последовательном возбуждении индикатор не используется.",
+        "Старая зависимость МВ: до 200 А — 20%/10 Гц; 200…380 А — 20…40%/10…20 Гц; 380…480 А — 40…100%/20…50 Гц. Применимость к №137+ не установлена.",
+        "Последний столбец — боксование в тяге, юз при электрическом торможении/выбеге, с номером оси и секции."
+      ],
+      "appearance_conditions": [
+        "Присутствует АВП; исходные данные введены."
+      ],
+      "navigation": [
+        "2 — Сообщения",
+        "3 — Данные",
+        "4 — Предупреждения",
+        "5 — Автоведение / Советчик"
+      ],
+      "exit": "1 — Заставка.",
+      "source_refs": [
+        {
+          "source_id": "RPT2017",
+          "role": "SECONDARY_REPRINT",
+          "pdf_pages": [
+            22,
+            23,
+            24
+          ],
+          "figure": 6
+        },
+        {
+          "source_id": "fresh_0_021.json",
+          "role": "PRIMARY_TEXT_CACHE_PARTIAL"
+        },
+        {
+          "source_id": "fresh_1_021.json",
+          "role": "PRIMARY_TEXT_CACHE_PARTIAL"
+        }
+      ],
+      "primary_text_overlap": [
+        "Переключение 5; ф/р; диапазоны позиций, силы и старое задание МВ."
+      ],
+      "status": "FUNCTIONAL_SECONDARY_COMPLETE_PRIMARY_PARTIAL",
+      "factory_pixels_verified": false,
+      "current_2es6_from_137_edition_verified": false,
+      "pending": [
+        "Заводской оригинал рисунка и редакция РЭ2",
+        "Печатные листы оригинала",
+        "Сопоставимость с комплектацией №137+"
+      ],
+      "illustration": {
+        "path": "work/mpsud_manual_discovery/illustrations/SR05.png",
+        "sha256": "2CC0CBBBC4278040B201D2053FFAC091675021BBD59D020022AFD352EF066694",
+        "pdf_page": 22,
+        "width": 801,
+        "height": 599,
+        "lossless_original_size_export": true,
+        "source_kind": "SECONDARY_REPRINT_NOT_FACTORY_ORIGINAL",
+        "visual_checked_by_functions_agent": false,
+        "visual_checked_by_display_agent": true,
+        "white_preview_path": "work/mpsud_manual_discovery/illustrations/white/SR05.png",
+        "white_preview_sha256": "8C90075BEB73FC03B3AA11F217C18C921BD3B58F431AC0B7DC7F87864044135B",
+        "viewing_requirement": "Composite on white PDF page, not black-alpha canvas."
+      }
+    },
+    {
+      "id": "SR06",
+      "figure": "1.24",
+      "figure_status": "EXPECTED_PRIMARY_CROSSWALK_SEQUENCE_AND_TITLE",
+      "printed_page": [
+        58
+      ],
+      "printed_page_verified": false,
+      "section": "1.7.4.2",
+      "title": "Вспомогательные машины и защита — Состояние",
+      "reprint_figure": 7,
+      "reprint_pdf_pages": [
+        24,
+        25,
+        26
+      ],
+      "entry": "3 Состояние МСУЛ в Заставке.",
+      "purpose": "Прохождение дискретных сигналов БСП/БВС/БУК по RS-485 и каналам.",
+      "fields_groups": [
+        {
+          "name": "БСП: органы управления вспомогательными аппаратами и защитой",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        },
+        {
+          "name": "БВС: аппаратные подтверждения",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        },
+        {
+          "name": "БУК: команды БЦВ и состояние линии",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        }
+      ],
+      "behavior_status": [
+        "Строка сохраняет информацию по трём каналам и двум линиям связи.",
+        "2 переключает Состояние в Контакт; адреса относятся к блокам/входам, а не к секции."
+      ],
+      "appearance_conditions": [],
+      "navigation": [
+        "2 — Контакт",
+        "3 — ВМ",
+        "4 — Режим",
+        "5 — Управление",
+        "6 — Позиции",
+        "7 — СИ",
+        "8 — СМЕ",
+        "9 — ПС"
+      ],
+      "exit": "1 — Заставка.",
+      "source_refs": [
+        {
+          "source_id": "RPT2017",
+          "role": "SECONDARY_REPRINT",
+          "pdf_pages": [
+            24,
+            25,
+            26
+          ],
+          "figure": 7
+        },
+        {
+          "source_id": "fresh_1_021.json",
+          "role": "PRIMARY_TEXT_CACHE_PARTIAL"
+        }
+      ],
+      "primary_text_overlap": [
+        "Вход 3; контактный вариант 2; назначение БУК."
+      ],
+      "status": "FUNCTIONAL_SECONDARY_COMPLETE_PRIMARY_PARTIAL",
+      "factory_pixels_verified": false,
+      "current_2es6_from_137_edition_verified": false,
+      "pending": [
+        "Заводской оригинал рисунка и редакция РЭ2",
+        "Печатные листы оригинала",
+        "Сопоставимость с комплектацией №137+"
+      ],
+      "illustration": {
+        "path": "work/mpsud_manual_discovery/illustrations/SR06.png",
+        "sha256": "1C766F96FB5F72609E01612672B34053D344DD8186600D3B71F7BECE8219DA77",
+        "pdf_page": 25,
+        "width": 801,
+        "height": 599,
+        "lossless_original_size_export": true,
+        "source_kind": "SECONDARY_REPRINT_NOT_FACTORY_ORIGINAL",
+        "visual_checked_by_functions_agent": false,
+        "visual_checked_by_display_agent": true,
+        "white_preview_path": "work/mpsud_manual_discovery/illustrations/white/SR06.png",
+        "white_preview_sha256": "88DFE50A492F6A501917577134D40414C8EAE8149C6F8AC0583279CBD677353F",
+        "viewing_requirement": "Composite on white PDF page, not black-alpha canvas."
+      }
+    },
+    {
+      "id": "SR07",
+      "figure": "1.25",
+      "figure_status": "EXPECTED_PRIMARY_CROSSWALK_SEQUENCE_AND_TITLE",
+      "printed_page": [
+        59
+      ],
+      "printed_page_verified": false,
+      "section": "1.7.4.3",
+      "title": "Вспомогательные машины и защита — Контакт",
+      "reprint_figure": 8,
+      "reprint_pdf_pages": [
+        25,
+        26
+      ],
+      "entry": "2 Контакт в ВМ / Состояние.",
+      "purpose": "Локализация того же сигнала до номера блока и контакта.",
+      "fields_groups": [
+        {
+          "name": "Те же сигналы БСП и БВС",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        },
+        {
+          "name": "Двузначные номер блока и входа",
+          "kind": "address",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": "Тип блока в заголовке; пример 02.06 — БВС2, контакт A6, блокировка ВВК."
+        }
+      ],
+      "behavior_status": [
+        "Меняется представление адреса, а не смысл сигнала.",
+        "Состояние/Контакт — варианты окна; рисунки всех вариантов других групп отдельно не даны."
+      ],
+      "appearance_conditions": [],
+      "navigation": [
+        "2 — Состояние",
+        "3 — ВМ",
+        "4 — Режим",
+        "5 — Управление",
+        "6 — Позиции",
+        "7 — СИ",
+        "8 — СМЕ",
+        "9 — ПС"
+      ],
+      "exit": "1 — Заставка.",
+      "source_refs": [
+        {
+          "source_id": "RPT2017",
+          "role": "SECONDARY_REPRINT",
+          "pdf_pages": [
+            25,
+            26
+          ],
+          "figure": 8
+        },
+        {
+          "source_id": "fresh_1_021.json",
+          "role": "PRIMARY_TEXT_CACHE_PARTIAL"
+        }
+      ],
+      "primary_text_overlap": [
+        "Вход 2 и адреса; переходы основных окон состояния."
+      ],
+      "status": "FUNCTIONAL_SECONDARY_COMPLETE_PRIMARY_PARTIAL",
+      "factory_pixels_verified": false,
+      "current_2es6_from_137_edition_verified": false,
+      "pending": [
+        "Заводской оригинал рисунка и редакция РЭ2",
+        "Печатные листы оригинала",
+        "Сопоставимость с комплектацией №137+"
+      ],
+      "illustration": {
+        "path": "work/mpsud_manual_discovery/illustrations/SR07.png",
+        "sha256": "78C5689259E7104FCBD86A20F4602FFD4A9A8EED482D94A18DFEF59C137A1625",
+        "pdf_page": 26,
+        "width": 801,
+        "height": 599,
+        "lossless_original_size_export": true,
+        "source_kind": "SECONDARY_REPRINT_NOT_FACTORY_ORIGINAL",
+        "visual_checked_by_functions_agent": false,
+        "visual_checked_by_display_agent": true,
+        "white_preview_path": "work/mpsud_manual_discovery/illustrations/white/SR07.png",
+        "white_preview_sha256": "5BEC6D4A58063E85D9CB655BBC15B3130A65EB4BA293FBABDDD6F978379224AF",
+        "viewing_requirement": "Composite on white PDF page, not black-alpha canvas."
+      }
+    },
+    {
+      "id": "SR08",
+      "figure": "1.26",
+      "figure_status": "EXPECTED_PRIMARY_CROSSWALK_SEQUENCE_AND_TITLE",
+      "printed_page": [
+        60,
+        61,
+        62
+      ],
+      "printed_page_verified": false,
+      "section": "1.7.5",
+      "title": "Режим силовой схемы",
+      "reprint_figure": 9,
+      "reprint_pdf_pages": [
+        26,
+        27,
+        28,
+        29
+      ],
+      "entry": "4 Режим из группы Состояние МСУЛ.",
+      "purpose": "Команды/подтверждения реверсора, возбуждения и линейных контакторов.",
+      "fields_groups": [
+        {
+          "name": "БСП: вперёд/назад, головная секция 1/3, отключение ТЭД секций",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        },
+        {
+          "name": "БУК: реверсор, Тяга-КЛУБ от РП3, возбуждение, независимое возбуждение ТД1–2/3–4 от К31/К32",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        },
+        {
+          "name": "БУК: линейные К27…К30 и К33…К40",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        },
+        {
+          "name": "БВС: положения реверсора/режимного переключателя; К28,К30,К33,К35…К40",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        }
+      ],
+      "behavior_status": [
+        "Головная секция 1/3 определяется переключателями роли секций 1/3.",
+        "При Откл. ТЭД задана строка 1–4; при 3–4 — строка 3–4; при 1–2 одновременно строки 1–4 и 3–4. Это кодирование из текста, а не арифметическое объединение групп.",
+        "2 Контакт показывает для БСП/БВС адрес блока/контакта при тех же сигналах."
+      ],
+      "appearance_conditions": [],
+      "navigation": [
+        "2 — Контакт / Состояние",
+        "3 — ВМ",
+        "4 — Режим",
+        "5 — Управление",
+        "6 — Позиции",
+        "7 — СИ",
+        "8 — СМЕ",
+        "9 — ПС"
+      ],
+      "exit": "1 — Заставка.",
+      "source_refs": [
+        {
+          "source_id": "RPT2017",
+          "role": "SECONDARY_REPRINT",
+          "pdf_pages": [
+            26,
+            27,
+            28,
+            29
+          ],
+          "figure": 9
+        },
+        {
+          "source_id": "fresh_1_021.json",
+          "role": "PRIMARY_TEXT_CACHE_PARTIAL"
+        },
+        {
+          "source_id": "fresh_2_022.json",
+          "role": "PRIMARY_TEXT_CACHE_PARTIAL"
+        },
+        {
+          "source_id": "fresh_4_022.json",
+          "role": "PRIMARY_TEXT_CACHE_PARTIAL"
+        }
+      ],
+      "primary_text_overlap": [
+        "Команды БУК К27…К40; контактный вариант; общие переходы."
+      ],
+      "status": "FUNCTIONAL_SECONDARY_COMPLETE_PRIMARY_PARTIAL",
+      "factory_pixels_verified": false,
+      "current_2es6_from_137_edition_verified": false,
+      "pending": [
+        "Заводской оригинал рисунка и редакция РЭ2",
+        "Печатные листы оригинала",
+        "Сопоставимость с комплектацией №137+"
+      ],
+      "illustration": {
+        "path": "work/mpsud_manual_discovery/illustrations/SR08.png",
+        "sha256": "BE55B85F4AA7CD0D0C9D2CC03B8CC15E038EE252AA2C0C1CBF9FDCB04BC61A76",
+        "pdf_page": 27,
+        "width": 801,
+        "height": 599,
+        "lossless_original_size_export": true,
+        "source_kind": "SECONDARY_REPRINT_NOT_FACTORY_ORIGINAL",
+        "visual_checked_by_functions_agent": false,
+        "visual_checked_by_display_agent": true,
+        "white_preview_path": "work/mpsud_manual_discovery/illustrations/white/SR08.png",
+        "white_preview_sha256": "203616A5FD1A45A64FCC80C7B7DC0DFE805EAD6056AE90CA12057C6557D63DE6",
+        "viewing_requirement": "Composite on white PDF page, not black-alpha canvas."
+      }
+    },
+    {
+      "id": "SR09",
+      "figure": "1.27",
+      "figure_status": "EXPECTED_PRIMARY_CROSSWALK_SEQUENCE_AND_TITLE",
+      "printed_page": [
+        62,
+        63,
+        64,
+        65
+      ],
+      "printed_page_verified": false,
+      "section": "1.7.6",
+      "title": "Управление тягой и торможением",
+      "reprint_figure": 10,
+      "reprint_pdf_pages": [
+        29,
+        30,
+        31
+      ],
+      "entry": "5 Управление из группы Состояние МСУЛ.",
+      "purpose": "Управляющие входы, команды БУК и сигналы САУТ/боксования/юза.",
+      "fields_groups": [
+        {
+          "name": "БСП: +1,+А,−1,−А, Выбег, +С,−С, ФС, отключение ПБЗ, песок, яркость, отпуск тормозов",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        },
+        {
+          "name": "БУК: подпитка ДР-ТД, КЭБ, КЭП8, разрешение БЗС, Тяга, песок вперёд/назад, отпуск тормозов локомотива",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        },
+        {
+          "name": "БВС/БЗС: разрешение тяги, отключение тяги САУТ, слабое/сильное скольжение осей 1–4, экстренный песок, обрыв ТМ",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        }
+      ],
+      "behavior_status": [
+        "Команды джойстиков и Выбег здесь — отдельные входы, а не только итоговая надпись режима.",
+        "Подпитка ДР-ТД относится к переходам С↔СП↔П.",
+        "Для Разрешение (БЗС) текст указывает выключенный переключатель ПБЗ; однозначность слова выключен нужно сверить со схемой.",
+        "Откл. тяги от САУТ — команда разбора схемы. Экстренный песок — экстренное торможение/срыв ЭПК при скорости >10 км/ч.",
+        "Кратковременный Обрыв ТМ при торможении краном предусмотрен как самопроверка; устойчивый сигнал — нарушение целостности.",
+        "2 Контакт привязывает БСП/БВС к блоку и контакту без изменения смысла."
+      ],
+      "appearance_conditions": [],
+      "navigation": [
+        "2 — Контакт / Состояние",
+        "3 — ВМ",
+        "4 — Режим",
+        "5 — Управление",
+        "6 — Позиции",
+        "7 — СИ",
+        "8 — СМЕ",
+        "9 — ПС"
+      ],
+      "exit": "1 — Заставка.",
+      "source_refs": [
+        {
+          "source_id": "RPT2017",
+          "role": "SECONDARY_REPRINT",
+          "pdf_pages": [
+            29,
+            30,
+            31
+          ],
+          "figure": 10
+        },
+        {
+          "source_id": "fresh_4_022.json",
+          "role": "PRIMARY_TEXT_CACHE_PARTIAL"
+        }
+      ],
+      "primary_text_overlap": [
+        "Вход 5; команды БСП; контактный вариант; переходы."
+      ],
+      "status": "FUNCTIONAL_SECONDARY_COMPLETE_PRIMARY_PARTIAL",
+      "factory_pixels_verified": false,
+      "current_2es6_from_137_edition_verified": false,
+      "pending": [
+        "Заводской оригинал рисунка и редакция РЭ2",
+        "Печатные листы оригинала",
+        "Сопоставимость с комплектацией №137+"
+      ],
+      "illustration": {
+        "path": "work/mpsud_manual_discovery/illustrations/SR09.png",
+        "sha256": "DF81CCFCF8BF60B82B7C02346844FDAB5605174F10F393A2756B73E7FDECE7AF",
+        "pdf_page": 29,
+        "width": 801,
+        "height": 599,
+        "lossless_original_size_export": true,
+        "source_kind": "SECONDARY_REPRINT_NOT_FACTORY_ORIGINAL",
+        "visual_checked_by_functions_agent": false,
+        "visual_checked_by_display_agent": true,
+        "white_preview_path": "work/mpsud_manual_discovery/illustrations/white/SR09.png",
+        "white_preview_sha256": "76099989F0D0963398BFC5444556CC3CF04E9F1B2F545CF505E3F06EB4E3899C",
+        "viewing_requirement": "Composite on white PDF page, not black-alpha canvas."
+      }
+    },
+    {
+      "id": "SR10",
+      "figure": "1.28",
+      "figure_status": "EXPECTED_PRIMARY_CROSSWALK_SEQUENCE_AND_TITLE",
+      "printed_page": [
+        65,
+        66,
+        67
+      ],
+      "printed_page_verified": false,
+      "section": "1.7.7",
+      "title": "Реостатные контакторы силовой схемы",
+      "reprint_figure": 11,
+      "reprint_pdf_pages": [
+        32,
+        33
+      ],
+      "entry": "6 Позиции из группы Состояние МСУЛ.",
+      "purpose": "Задания МВ, позиция и ток возбуждения вместе с командами реостатных контакторов.",
+      "fields_groups": [
+        {
+          "name": "БС-РН/БИ: уставки вентиляторов ТД1–2 и ТД3–4",
+          "kind": "numeric",
+          "unit": "%",
+          "unit_status": "EXPLICIT_IN_SOURCE",
+          "evidence": "SECONDARY_TEXT",
+          "note": "20…100 в данной редакции."
+        },
+        {
+          "name": "Номер позиции",
+          "kind": "count",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        },
+        {
+          "name": "Заданные Iv1–2 и Iv3–4",
+          "kind": "numeric",
+          "unit": null,
+          "unit_status": "UNIT_NOT_PRINTED_OR_NOT_ESTABLISHED",
+          "evidence": "SECONDARY_TEXT",
+          "note": "Задания СТПР1/2; единица отдельно не установлена."
+        },
+        {
+          "name": "БУК(К): реостатные контакторы, охлаждение ПТР, жалюзи ПТР",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        }
+      ],
+      "behavior_status": [
+        "Числовые данные относятся к каналам БЦВ/линиям; позиция набирается автоматически либо вручную в тяге/электрическом торможении.",
+        "2 Контакт сохраняет БС-РН/БИ и добавляет к БУК(К) адрес блока/контакта."
+      ],
+      "appearance_conditions": [],
+      "navigation": [
+        "2 — Контакт / Состояние",
+        "3 — ВМ",
+        "4 — Режим",
+        "5 — Управление",
+        "6 — Позиции",
+        "7 — СИ",
+        "8 — СМЕ",
+        "9 — ПС"
+      ],
+      "exit": "1 — Заставка.",
+      "source_refs": [
+        {
+          "source_id": "RPT2017",
+          "role": "SECONDARY_REPRINT",
+          "pdf_pages": [
+            32,
+            33
+          ],
+          "figure": 11
+        }
+      ],
+      "primary_text_overlap": [],
+      "status": "FUNCTIONAL_SECONDARY_COMPLETE_PRIMARY_PARTIAL",
+      "factory_pixels_verified": false,
+      "current_2es6_from_137_edition_verified": false,
+      "pending": [
+        "Заводской оригинал рисунка и редакция РЭ2",
+        "Печатные листы оригинала",
+        "Сопоставимость с комплектацией №137+"
+      ],
+      "illustration": {
+        "path": "work/mpsud_manual_discovery/illustrations/SR10.png",
+        "sha256": "DF0EED4A2D0F85ED3EA7151E6A65A739AD51472AC448AED866774E98682DD6C0",
+        "pdf_page": 32,
+        "width": 640,
+        "height": 480,
+        "lossless_original_size_export": true,
+        "source_kind": "SECONDARY_REPRINT_NOT_FACTORY_ORIGINAL",
+        "visual_checked_by_functions_agent": false,
+        "visual_checked_by_display_agent": true,
+        "white_preview_path": "work/mpsud_manual_discovery/illustrations/white/SR10.png",
+        "white_preview_sha256": "DF0EED4A2D0F85ED3EA7151E6A65A739AD51472AC448AED866774E98682DD6C0",
+        "viewing_requirement": "Composite on white PDF page, not black-alpha canvas."
+      }
+    },
+    {
+      "id": "SR11",
+      "figure": "1.29",
+      "figure_status": "EXPECTED_PRIMARY_CROSSWALK_SEQUENCE_AND_TITLE",
+      "printed_page": [
+        67,
+        68
+      ],
+      "printed_page_verified": false,
+      "section": "1.7.8",
+      "title": "Система измерений",
+      "reprint_figure": 12,
+      "reprint_pdf_pages": [
+        34,
+        35
+      ],
+      "entry": "7 СИ из группы Состояние МСУЛ.",
+      "purpose": "Тяговая цепь, низковольтное питание, пневматика, изоляция, энергия и качество обмена.",
+      "fields_groups": [
+        {
+          "name": "БС-СИ: Uкс; Ia1–2/3–4; Iv1–2/3–4; напряжение ТЭД; ток собственных нужд; токи вентиляторов 1–2/3–4; давления ГР,ТМ,ЦУ",
+          "kind": "numeric",
+          "unit": null,
+          "unit_status": "UNIT_NOT_PRINTED_OR_NOT_ESTABLISHED",
+          "evidence": "SECONDARY_FIGURE",
+          "note": null
+        },
+        {
+          "name": "БС-СИ/БЗС: ток генератора; напряжения бортсети/АБ; ток АБ; изоляция ТД1–2/3–4/ЦУ; давления ТЦ1/ТЦ2; скорость БЗС",
+          "kind": "numeric",
+          "unit": null,
+          "unit_status": "UNIT_NOT_PRINTED_OR_NOT_ESTABLISHED",
+          "evidence": "SECONDARY_FIGURE",
+          "note": null
+        },
+        {
+          "name": "Энергия: Потреблённая / Рекуперация",
+          "kind": "numeric",
+          "unit": null,
+          "unit_status": "UNIT_NOT_PRINTED_OR_NOT_ESTABLISHED",
+          "evidence": "SECONDARY_TEXT_AND_FIGURE",
+          "note": null
+        },
+        {
+          "name": "Мегаомметр: разрешение включения, высокое напряжение 1/2",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        },
+        {
+          "name": "БЦВ: ошибки линий 1–4, индекс и число секций",
+          "kind": "count",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        }
+      ],
+      "behavior_status": [
+        "Измерения выводятся из трёх каналов БЦВ для каждой из двух линий; два поля не обозначают две секции.",
+        "Разрешение включения — выполнены условия мегаомметров; Высокое напряжение 1/2 — оба прибора подали испытательное напряжение.",
+        "Ошибки 1/2 — межблочные линии секции, 3/4 — межкузовные. Быстро меняющийся счётчик указывает на плохое качество линии.",
+        "Индекс секции считается по ходу движения от первой; число секций описывает конфигурацию МСУЛ.",
+        "Рисунок не печатает единицы измерения строк. Для Скорость от БЗС нельзя подтвердить обязательное км/ч или преобразование ×3.6."
+      ],
+      "appearance_conditions": [],
+      "navigation": [
+        "3 — ВМ",
+        "4 — Режим",
+        "5 — Управление",
+        "6 — Позиции",
+        "7 — СИ",
+        "8 — СМЕ",
+        "9 — ПС"
+      ],
+      "exit": "1 — Заставка.",
+      "source_refs": [
+        {
+          "source_id": "RPT2017",
+          "role": "SECONDARY_REPRINT",
+          "pdf_pages": [
+            34,
+            35
+          ],
+          "figure": 12
+        },
+        {
+          "source_id": "fresh_4_022.json",
+          "role": "PRIMARY_TEXT_CACHE_PARTIAL"
+        }
+      ],
+      "primary_text_overlap": [
+        "Ошибки 3/4; индекс/число секций; переходы."
+      ],
+      "status": "FUNCTIONAL_SECONDARY_COMPLETE_PRIMARY_PARTIAL",
+      "factory_pixels_verified": false,
+      "current_2es6_from_137_edition_verified": false,
+      "pending": [
+        "Заводской оригинал рисунка и редакция РЭ2",
+        "Печатные листы оригинала",
+        "Сопоставимость с комплектацией №137+"
+      ],
+      "illustration": {
+        "path": "work/mpsud_manual_discovery/illustrations/SR11.png",
+        "sha256": "F4EA8D3749D129FA5007D3AD8619527F46D819C246703BB7B6486F03A67AECF0",
+        "pdf_page": 34,
+        "width": 801,
+        "height": 599,
+        "lossless_original_size_export": true,
+        "source_kind": "SECONDARY_REPRINT_NOT_FACTORY_ORIGINAL",
+        "visual_checked_by_functions_agent": true,
+        "visual_checked_by_display_agent": true,
+        "white_preview_path": "work/mpsud_manual_discovery/illustrations/white/SR11.png",
+        "white_preview_sha256": "7040DE15B700A7245500DE6E46D2A378180C9BE7E714306854CA66845969730A",
+        "viewing_requirement": "Composite on white PDF page, not black-alpha canvas."
+      }
+    },
+    {
+      "id": "SR12",
+      "figure": "1.30",
+      "figure_status": "EXPECTED_PRIMARY_CROSSWALK_SEQUENCE_AND_TITLE",
+      "printed_page": [
+        69
+      ],
+      "printed_page_verified": false,
+      "section": "1.7.9",
+      "title": "Межсекционный обмен",
+      "reprint_figure": 13,
+      "reprint_pdf_pages": [
+        35,
+        36
+      ],
+      "entry": "8 СМЕ из группы Состояние МСУЛ.",
+      "purpose": "Межсекционные сигналы для секций 1–4.",
+      "fields_groups": [
+        {
+          "name": "С1/С2/С3/С4",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": "Здесь столбцы связаны с секциями."
+        },
+        {
+          "name": "Направление, роль/отключение ТЭД, тяговые команды и вспомогательные сигналы",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_FIGURE",
+          "note": null
+        }
+      ],
+      "behavior_status": [
+        "Межсекционные сигналы различаются по секциям/линиям. Полное кодирование пакета и защитных взаимосвязей раздел не задаёт."
+      ],
+      "appearance_conditions": [],
+      "navigation": [
+        "3 — ВМ",
+        "4 — Режим",
+        "5 — Управление",
+        "6 — Позиции",
+        "7 — СИ",
+        "8 — СМЕ",
+        "9 — ПС"
+      ],
+      "exit": "1 — Заставка.",
+      "source_refs": [
+        {
+          "source_id": "RPT2017",
+          "role": "SECONDARY_REPRINT",
+          "pdf_pages": [
+            35,
+            36
+          ],
+          "figure": 13
+        }
+      ],
+      "primary_text_overlap": [],
+      "status": "FUNCTIONAL_SECONDARY_COMPLETE_PRIMARY_PARTIAL",
+      "factory_pixels_verified": false,
+      "current_2es6_from_137_edition_verified": false,
+      "pending": [
+        "Заводской оригинал рисунка и редакция РЭ2",
+        "Печатные листы оригинала",
+        "Сопоставимость с комплектацией №137+"
+      ],
+      "illustration": {
+        "path": "work/mpsud_manual_discovery/illustrations/SR12.png",
+        "sha256": "F0F6534957287257AC45356321F55C965A21A68D3C47F7F79B6C34806D7D29D7",
+        "pdf_page": 36,
+        "width": 640,
+        "height": 480,
+        "lossless_original_size_export": true,
+        "source_kind": "SECONDARY_REPRINT_NOT_FACTORY_ORIGINAL",
+        "visual_checked_by_functions_agent": false,
+        "visual_checked_by_display_agent": true,
+        "white_preview_path": "work/mpsud_manual_discovery/illustrations/white/SR12.png",
+        "white_preview_sha256": "F0F6534957287257AC45356321F55C965A21A68D3C47F7F79B6C34806D7D29D7",
+        "viewing_requirement": "Composite on white PDF page, not black-alpha canvas."
+      }
+    },
+    {
+      "id": "SR13",
+      "figure": "1.31",
+      "figure_status": "EXPECTED_PRIMARY_CROSSWALK_SEQUENCE_AND_TITLE",
+      "printed_page": [
+        70,
+        71
+      ],
+      "printed_page_verified": false,
+      "section": "1.7.10",
+      "title": "Связь ПСН",
+      "reprint_figure": 14,
+      "reprint_pdf_pages": [
+        36,
+        37
+      ],
+      "entry": "9 ПС из группы Состояние МСУЛ.",
+      "purpose": "Обмен/готовность ПСН и доступ к диагностике его узлов.",
+      "fields_groups": [
+        {
+          "name": "Статус БС-ПС",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": "Команды МСУЛ, готовность и нарушения обмена ПСН."
+        },
+        {
+          "name": "Статус БС-УВ",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": "Данные управляемого выпрямителя."
+        },
+        {
+          "name": "РН3000",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": "Сигналы процессора регулятора."
+        }
+      ],
+      "behavior_status": [
+        "Состояние коммуникации, а не только итоговый ПСН включён. Меню связывает шесть окон группы ПСН."
+      ],
+      "appearance_conditions": [],
+      "navigation": [
+        "2 — Связь",
+        "3 — РН3000",
+        "4 — СТПР",
+        "5 — ПЧ",
+        "6 — Калориферы",
+        "7 — ПУ"
+      ],
+      "exit": "1 — Заставка.",
+      "source_refs": [
+        {
+          "source_id": "RPT2017",
+          "role": "SECONDARY_REPRINT",
+          "pdf_pages": [
+            36,
+            37
+          ],
+          "figure": 14
+        }
+      ],
+      "primary_text_overlap": [],
+      "status": "FUNCTIONAL_SECONDARY_COMPLETE_PRIMARY_PARTIAL",
+      "factory_pixels_verified": false,
+      "current_2es6_from_137_edition_verified": false,
+      "pending": [
+        "Заводской оригинал рисунка и редакция РЭ2",
+        "Печатные листы оригинала",
+        "Сопоставимость с комплектацией №137+"
+      ],
+      "illustration": {
+        "path": "work/mpsud_manual_discovery/illustrations/SR13.png",
+        "sha256": "49B63E5059C47BE55087C2B1D3EAFE127BA0FAF993B497A1CCF9CFC7C936F79C",
+        "pdf_page": 37,
+        "width": 801,
+        "height": 599,
+        "lossless_original_size_export": true,
+        "source_kind": "SECONDARY_REPRINT_NOT_FACTORY_ORIGINAL",
+        "visual_checked_by_functions_agent": false,
+        "visual_checked_by_display_agent": true,
+        "white_preview_path": "work/mpsud_manual_discovery/illustrations/white/SR13.png",
+        "white_preview_sha256": "8CDC8F60DA177FBC9CEDA794DDBF9EF5280858E6A3B8166A69EC5D3A334612A0",
+        "viewing_requirement": "Composite on white PDF page, not black-alpha canvas."
+      }
+    },
+    {
+      "id": "SR14",
+      "figure": "1.32",
+      "figure_status": "EXPECTED_PRIMARY_CROSSWALK_SEQUENCE_AND_TITLE",
+      "printed_page": [
+        71,
+        72
+      ],
+      "printed_page_verified": false,
+      "section": "1.7.11",
+      "title": "Состояние РН3000",
+      "reprint_figure": 15,
+      "reprint_pdf_pages": [
+        38
+      ],
+      "entry": "3 РН3000 в Связи ПСН.",
+      "purpose": "Два регулятора РН3000 по линиям МСУЛ.",
+      "fields_groups": [
+        {
+          "name": "РН3000 N1",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        },
+        {
+          "name": "РН3000 N2",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        }
+      ],
+      "behavior_status": [
+        "Сигнал относится к конкретному регулятору; единый общий флаг теряет раздельность."
+      ],
+      "appearance_conditions": [],
+      "navigation": [
+        "2 — Связь",
+        "3 — РН3000",
+        "4 — СТПР",
+        "5 — ПЧ",
+        "6 — Калориферы",
+        "7 — ПУ"
+      ],
+      "exit": "1 — Заставка.",
+      "source_refs": [
+        {
+          "source_id": "RPT2017",
+          "role": "SECONDARY_REPRINT",
+          "pdf_pages": [
+            38
+          ],
+          "figure": 15
+        }
+      ],
+      "primary_text_overlap": [],
+      "status": "FUNCTIONAL_SECONDARY_COMPLETE_PRIMARY_PARTIAL",
+      "factory_pixels_verified": false,
+      "current_2es6_from_137_edition_verified": false,
+      "pending": [
+        "Заводской оригинал рисунка и редакция РЭ2",
+        "Печатные листы оригинала",
+        "Сопоставимость с комплектацией №137+"
+      ],
+      "illustration": {
+        "path": "work/mpsud_manual_discovery/illustrations/SR14.png",
+        "sha256": "5CB0F7CA835F5BE862B7C216C314A7190AA45914F173A610DD539FBF5FD5B528",
+        "pdf_page": 38,
+        "width": 801,
+        "height": 599,
+        "lossless_original_size_export": true,
+        "source_kind": "SECONDARY_REPRINT_NOT_FACTORY_ORIGINAL",
+        "visual_checked_by_functions_agent": false,
+        "visual_checked_by_display_agent": true,
+        "white_preview_path": "work/mpsud_manual_discovery/illustrations/white/SR14.png",
+        "white_preview_sha256": "6A149BE9AF1E7F4F05EB21BD071B21DF2C9EFC84DD5A005FC714BA9F3133FD5C",
+        "viewing_requirement": "Composite on white PDF page, not black-alpha canvas."
+      }
+    },
+    {
+      "id": "SR15",
+      "figure": "1.33",
+      "figure_status": "EXPECTED_PRIMARY_CROSSWALK_SEQUENCE_AND_TITLE",
+      "printed_page": [
+        72,
+        73
+      ],
+      "printed_page_verified": false,
+      "section": "1.7.12",
+      "title": "Состояние СТПР",
+      "reprint_figure": 16,
+      "reprint_pdf_pages": [
+        39,
+        40
+      ],
+      "entry": "4 СТПР в Связи ПСН.",
+      "purpose": "Задания, измеренные токи и состояние выпрямителей СТПР1000.",
+      "fields_groups": [
+        {
+          "name": "БС-УВ (БЦВ): уставка по Iv БС-УВ1/2 и параметр для Ia БС-УВ1/2",
+          "kind": "numeric",
+          "unit": null,
+          "unit_status": "UNIT_NOT_PRINTED_OR_NOT_ESTABLISHED",
+          "evidence": "SECONDARY_TEXT_AND_FIGURE",
+          "note": null
+        },
+        {
+          "name": "БС-УВ (БС-ПС): значения Iv1/2 и Ia1/2",
+          "kind": "numeric",
+          "unit": null,
+          "unit_status": "UNIT_NOT_PRINTED_OR_NOT_ESTABLISHED",
+          "evidence": "SECONDARY_TEXT_AND_FIGURE",
+          "note": null
+        },
+        {
+          "name": "Статус БС-УВ N1/N2",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        }
+      ],
+      "behavior_status": [
+        "Задания и принятые токи — разные группы; статусы N1/N2 раздельные. Единицы числовых строк нужно подтвердить по их подписям."
+      ],
+      "appearance_conditions": [],
+      "navigation": [
+        "2 — Связь",
+        "3 — РН3000",
+        "4 — СТПР",
+        "5 — ПЧ",
+        "6 — Калориферы",
+        "7 — ПУ"
+      ],
+      "exit": "1 — Заставка.",
+      "source_refs": [
+        {
+          "source_id": "RPT2017",
+          "role": "SECONDARY_REPRINT",
+          "pdf_pages": [
+            39,
+            40
+          ],
+          "figure": 16
+        },
+        {
+          "source_id": "fresh_4_022.json",
+          "role": "PRIMARY_TEXT_CACHE_PARTIAL"
+        }
+      ],
+      "primary_text_overlap": [
+        "Токи через БС-ПС; статусы БС-УВ1/2; переходы/выход."
+      ],
+      "status": "FUNCTIONAL_SECONDARY_COMPLETE_PRIMARY_PARTIAL",
+      "factory_pixels_verified": false,
+      "current_2es6_from_137_edition_verified": false,
+      "pending": [
+        "Заводской оригинал рисунка и редакция РЭ2",
+        "Печатные листы оригинала",
+        "Сопоставимость с комплектацией №137+"
+      ],
+      "illustration": {
+        "path": "work/mpsud_manual_discovery/illustrations/SR15.png",
+        "sha256": "B907A65C3103E3BCE03EB968F719FBD869EA811FC4A14A5F6515B4FAF32351EE",
+        "pdf_page": 39,
+        "width": 801,
+        "height": 599,
+        "lossless_original_size_export": true,
+        "source_kind": "SECONDARY_REPRINT_NOT_FACTORY_ORIGINAL",
+        "visual_checked_by_functions_agent": false,
+        "visual_checked_by_display_agent": true,
+        "white_preview_path": "work/mpsud_manual_discovery/illustrations/white/SR15.png",
+        "white_preview_sha256": "CF973141AC46B7DABB7180187502E3EBFC360A04A1E226853952DBA5A6416978",
+        "viewing_requirement": "Composite on white PDF page, not black-alpha canvas."
+      }
+    },
+    {
+      "id": "SR16",
+      "figure": "1.34",
+      "figure_status": "EXPECTED_PRIMARY_CROSSWALK_SEQUENCE_AND_TITLE",
+      "printed_page": [
+        73,
+        74
+      ],
+      "printed_page_verified": false,
+      "section": "1.7.13",
+      "title": "Состояние ПЧ ВО, ТК, ЗУ",
+      "reprint_figure": 17,
+      "reprint_pdf_pages": [
+        40,
+        41
+      ],
+      "entry": "5 ПЧ в Связи ПСН.",
+      "purpose": "Преобразователи вентиляторов/компрессора и зарядное устройство.",
+      "fields_groups": [
+        {
+          "name": "ПЧ ВО ТД1–2/3–4, ПЧ компрессора, инверторы 1/2, ЗУ",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        },
+        {
+          "name": "ЦУ и ЗУ–АБ: перегрузки >250%/>150%, напряжение транзисторов, КЗ нижних, повышенное выходное напряжение",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_FIGURE",
+          "note": null
+        },
+        {
+          "name": "Токи АБ/генератора и напряжения",
+          "kind": "numeric",
+          "unit": null,
+          "unit_status": "UNIT_NOT_PRINTED_OR_NOT_ESTABLISHED",
+          "evidence": "SECONDARY_FIGURE",
+          "note": "Печатных единиц нет."
+        }
+      ],
+      "behavior_status": [
+        "Отдельные устройства и статусы нельзя заменять одним флагом готовности. Полная расшифровка битов требует документации ПСН."
+      ],
+      "appearance_conditions": [],
+      "navigation": [
+        "2 — Связь",
+        "3 — РН3000",
+        "4 — СТПР",
+        "5 — ПЧ",
+        "6 — Калориферы",
+        "7 — ПУ"
+      ],
+      "exit": "1 — Заставка.",
+      "source_refs": [
+        {
+          "source_id": "RPT2017",
+          "role": "SECONDARY_REPRINT",
+          "pdf_pages": [
+            40,
+            41
+          ],
+          "figure": 17
+        },
+        {
+          "source_id": "fresh_4_022.json",
+          "role": "PRIMARY_TEXT_CACHE_PARTIAL"
+        }
+      ],
+      "primary_text_overlap": [
+        "Вход 5 ПЧ и переходы/выход."
+      ],
+      "status": "FUNCTIONAL_SECONDARY_COMPLETE_PRIMARY_PARTIAL",
+      "factory_pixels_verified": false,
+      "current_2es6_from_137_edition_verified": false,
+      "pending": [
+        "Заводской оригинал рисунка и редакция РЭ2",
+        "Печатные листы оригинала",
+        "Сопоставимость с комплектацией №137+"
+      ],
+      "illustration": {
+        "path": "work/mpsud_manual_discovery/illustrations/SR16.png",
+        "sha256": "0CB5414A9D113C3121D964DAD34AA4270313363F71C677F8185B0CE066714DFC",
+        "pdf_page": 40,
+        "width": 801,
+        "height": 599,
+        "lossless_original_size_export": true,
+        "source_kind": "SECONDARY_REPRINT_NOT_FACTORY_ORIGINAL",
+        "visual_checked_by_functions_agent": false,
+        "visual_checked_by_display_agent": true,
+        "white_preview_path": "work/mpsud_manual_discovery/illustrations/white/SR16.png",
+        "white_preview_sha256": "E1B7E14417D2A0CA158850B2908E669B0F95B04CBB967F869B9B59D2AADA6F06",
+        "viewing_requirement": "Composite on white PDF page, not black-alpha canvas."
+      }
+    },
+    {
+      "id": "SR17",
+      "figure": "1.35",
+      "figure_status": "EXPECTED_PRIMARY_CROSSWALK_SEQUENCE_AND_TITLE",
+      "printed_page": [
+        74,
+        75
+      ],
+      "printed_page_verified": false,
+      "section": "1.7.14",
+      "title": "Состояние калориферов",
+      "reprint_figure": 18,
+      "reprint_pdf_pages": [
+        41,
+        42
+      ],
+      "entry": "6 Калориферы в Связи ПСН.",
+      "purpose": "Отопление и температуры кабины/воздуховода.",
+      "fields_groups": [
+        {
+          "name": "Калорифер 1/2, ТЭН, Включена установка",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT_AND_FIGURE",
+          "note": null
+        },
+        {
+          "name": "Температуры помещения и канала воздуховода",
+          "kind": "numeric",
+          "unit": null,
+          "unit_status": "UNIT_NOT_PRINTED_OR_NOT_ESTABLISHED",
+          "evidence": "SECONDARY_TEXT",
+          "note": "На рисунке нет °C; единица отдельно не установлена."
+        }
+      ],
+      "behavior_status": [
+        "Два калорифера и температурные данные показаны раздельно."
+      ],
+      "appearance_conditions": [],
+      "navigation": [
+        "2 — Связь",
+        "3 — РН3000",
+        "4 — СТПР",
+        "5 — ПЧ",
+        "6 — Калориферы",
+        "7 — ПУ"
+      ],
+      "exit": "1 — Заставка.",
+      "source_refs": [
+        {
+          "source_id": "RPT2017",
+          "role": "SECONDARY_REPRINT",
+          "pdf_pages": [
+            41,
+            42
+          ],
+          "figure": 18
+        },
+        {
+          "source_id": "fresh_4_022.json",
+          "role": "PRIMARY_TEXT_CACHE_PARTIAL"
+        }
+      ],
+      "primary_text_overlap": [
+        "Вход 6; калориферы 1/2 и температуры; переходы/выход."
+      ],
+      "status": "FUNCTIONAL_SECONDARY_COMPLETE_PRIMARY_PARTIAL",
+      "factory_pixels_verified": false,
+      "current_2es6_from_137_edition_verified": false,
+      "pending": [
+        "Заводской оригинал рисунка и редакция РЭ2",
+        "Печатные листы оригинала",
+        "Сопоставимость с комплектацией №137+"
+      ],
+      "illustration": {
+        "path": "work/mpsud_manual_discovery/illustrations/SR17.png",
+        "sha256": "69D1A75A3081C842930B1C31D18CD10B93F48365F5DC79001D08157E0C9CBDBC",
+        "pdf_page": 42,
+        "width": 801,
+        "height": 599,
+        "lossless_original_size_export": true,
+        "source_kind": "SECONDARY_REPRINT_NOT_FACTORY_ORIGINAL",
+        "visual_checked_by_functions_agent": false,
+        "visual_checked_by_display_agent": true,
+        "white_preview_path": "work/mpsud_manual_discovery/illustrations/white/SR17.png",
+        "white_preview_sha256": "D0C70496DB75F433E0AF7FC41E51E4101638566BE66124143AA115792FAD46E3",
+        "viewing_requirement": "Composite on white PDF page, not black-alpha canvas."
+      }
+    },
+    {
+      "id": "SR18",
+      "figure": "1.36",
+      "figure_status": "EXPECTED_PRIMARY_CROSSWALK_SEQUENCE_AND_TITLE",
+      "printed_page": [
+        75,
+        76
+      ],
+      "printed_page_verified": false,
+      "section": "1.7.15",
+      "title": "Состояние приточной установки",
+      "reprint_figure": 19,
+      "reprint_pdf_pages": [
+        42,
+        43
+      ],
+      "entry": "7 ПУ в Связи ПСН.",
+      "purpose": "Приточная установка, микроклимат и связанные ПЧ.",
+      "fields_groups": [
+        {
+          "name": "ПЧ приточной установки",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        },
+        {
+          "name": "ПЧ МВП: микроволновая печь",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        },
+        {
+          "name": "Приточная установка: охлаждение/ТЭН",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_FIGURE",
+          "note": null
+        },
+        {
+          "name": "СМ: неисправность контроллера микроклимата",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        },
+        {
+          "name": "Температура: уставки помещения/приточного воздуха и фактические значения",
+          "kind": "numeric",
+          "unit": null,
+          "unit_status": "UNIT_NOT_PRINTED_OR_NOT_ESTABLISHED",
+          "evidence": "SECONDARY_TEXT_AND_FIGURE",
+          "note": null
+        }
+      ],
+      "behavior_status": [
+        "Уставки отличаются от измеренных температур; единица в подписи рисунка не установлена."
+      ],
+      "appearance_conditions": [],
+      "navigation": [
+        "2 — Связь",
+        "3 — РН3000",
+        "4 — СТПР",
+        "5 — ПЧ",
+        "6 — Калориферы",
+        "7 — ПУ"
+      ],
+      "exit": "1 — Заставка.",
+      "source_refs": [
+        {
+          "source_id": "RPT2017",
+          "role": "SECONDARY_REPRINT",
+          "pdf_pages": [
+            42,
+            43
+          ],
+          "figure": 19
+        },
+        {
+          "source_id": "fresh_4_022.json",
+          "role": "PRIMARY_TEXT_CACHE_PARTIAL"
+        }
+      ],
+      "primary_text_overlap": [
+        "Переходы группы ПСН и выход."
+      ],
+      "status": "FUNCTIONAL_SECONDARY_COMPLETE_PRIMARY_PARTIAL",
+      "factory_pixels_verified": false,
+      "current_2es6_from_137_edition_verified": false,
+      "pending": [
+        "Заводской оригинал рисунка и редакция РЭ2",
+        "Печатные листы оригинала",
+        "Сопоставимость с комплектацией №137+"
+      ],
+      "illustration": {
+        "path": "work/mpsud_manual_discovery/illustrations/SR18.png",
+        "sha256": "69BD6FE9E65895A14384B42033FE6357607CEC42CFC1985B708ACD31E667F3D0",
+        "pdf_page": 43,
+        "width": 801,
+        "height": 599,
+        "lossless_original_size_export": true,
+        "source_kind": "SECONDARY_REPRINT_NOT_FACTORY_ORIGINAL",
+        "visual_checked_by_functions_agent": false,
+        "visual_checked_by_display_agent": true,
+        "white_preview_path": "work/mpsud_manual_discovery/illustrations/white/SR18.png",
+        "white_preview_sha256": "0603118604813E41943FFF9EE27EDA73BF1F6FD83CFFE7276BEBDAA74351B96F",
+        "viewing_requirement": "Composite on white PDF page, not black-alpha canvas."
+      }
+    },
+    {
+      "id": "SR19",
+      "figure": "1.37",
+      "figure_status": "EXPECTED_PRIMARY_CROSSWALK_SEQUENCE_AND_TITLE",
+      "printed_page": [
+        76,
+        77
+      ],
+      "printed_page_verified": false,
+      "section": "1.7.16",
+      "title": "Диагностика — Связь",
+      "reprint_figure": 20,
+      "reprint_pdf_pages": [
+        43,
+        44
+      ],
+      "entry": "4 Диагностика в Заставке.",
+      "purpose": "Конфигурация блоков и обмен по двум линиям данной секции.",
+      "fields_groups": [
+        {
+          "name": "Связь: присутствующие блоки и каналы БЦВ",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        },
+        {
+          "name": "Неиспр. БУК: неисправность блока/выхода",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": null
+        }
+      ],
+      "behavior_status": [
+        "Фактическая конфигурация/обмен; неисправный БУК выделяется красным. 2 БУК открывает числовую диагностику выходов."
+      ],
+      "appearance_conditions": [],
+      "navigation": [
+        "2 — БУК"
+      ],
+      "exit": "1 — Заставка.",
+      "source_refs": [
+        {
+          "source_id": "RPT2017",
+          "role": "SECONDARY_REPRINT",
+          "pdf_pages": [
+            43,
+            44
+          ],
+          "figure": 20
+        },
+        {
+          "source_id": "fresh_4_022.json",
+          "role": "PRIMARY_TEXT_CACHE_PARTIAL"
+        },
+        {
+          "source_id": "extra_0_023.json",
+          "role": "PRIMARY_TEXT_CACHE_PARTIAL"
+        },
+        {
+          "source_id": "fresh_4_023.json",
+          "role": "PRIMARY_TEXT_CACHE_PARTIAL"
+        }
+      ],
+      "primary_text_overlap": [
+        "Вход 4; обмен; красный неисправный БУК; переход 2 БУК."
+      ],
+      "status": "FUNCTIONAL_SECONDARY_COMPLETE_PRIMARY_PARTIAL",
+      "factory_pixels_verified": false,
+      "current_2es6_from_137_edition_verified": false,
+      "pending": [
+        "Заводской оригинал рисунка и редакция РЭ2",
+        "Печатные листы оригинала",
+        "Сопоставимость с комплектацией №137+"
+      ],
+      "illustration": {
+        "path": "work/mpsud_manual_discovery/illustrations/SR19.png",
+        "sha256": "B5377937DFB388073D51D8A778DC6BF9D32C029956C9CBEA8D5214A90A27522D",
+        "pdf_page": 44,
+        "width": 801,
+        "height": 599,
+        "lossless_original_size_export": true,
+        "source_kind": "SECONDARY_REPRINT_NOT_FACTORY_ORIGINAL",
+        "visual_checked_by_functions_agent": false,
+        "visual_checked_by_display_agent": true,
+        "white_preview_path": "work/mpsud_manual_discovery/illustrations/white/SR19.png",
+        "white_preview_sha256": "11F6B5E6868198F0382868B240D652E5CB0AAC2BC0533BB32E3A01232477DB55",
+        "viewing_requirement": "Composite on white PDF page, not black-alpha canvas."
+      }
+    },
+    {
+      "id": "SR20",
+      "figure": "1.38",
+      "figure_status": "EXPECTED_PRIMARY_CROSSWALK_SEQUENCE_AND_TITLE",
+      "printed_page": [
+        77,
+        78
+      ],
+      "printed_page_verified": false,
+      "section": "1.7.16",
+      "title": "Диагностика — выходы БУК",
+      "reprint_figure": 21,
+      "reprint_pdf_pages": [
+        44,
+        45
+      ],
+      "entry": "2 БУК в Диагностике / Связь.",
+      "purpose": "Характер неисправности каждого выхода БУК.",
+      "fields_groups": [
+        {
+          "name": "Связь / Неиспр. БУК слева",
+          "kind": "discrete",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_FIGURE",
+          "note": null
+        },
+        {
+          "name": "Коды выходов: линия 1/2",
+          "kind": "enum",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_TEXT",
+          "note": "0 исправен; 1 обрыв нагрузки; 2 перегрузка; 3 обрыв ключа; 4 КЗ нагрузки; 5 КЗ ключа или диода."
+        }
+      ],
+      "behavior_status": [
+        "Коды 0–5 полностью подтверждены текстом вторичного PDF; первичный кэш не содержит полного перечисления.",
+        "Иллюстрация содержит пустые кодовые поля; расшифровка берётся из текста. Код относится к конкретному выходу, а не всей секции."
+      ],
+      "appearance_conditions": [],
+      "navigation": [
+        "2 — Связь"
+      ],
+      "exit": "1 — Заставка.",
+      "source_refs": [
+        {
+          "source_id": "RPT2017",
+          "role": "SECONDARY_REPRINT",
+          "pdf_pages": [
+            44,
+            45
+          ],
+          "figure": 21
+        },
+        {
+          "source_id": "extra_0_023.json",
+          "role": "PRIMARY_TEXT_CACHE_PARTIAL"
+        }
+      ],
+      "primary_text_overlap": [
+        "Переход 2 БУК и рис.1.38; полного перечня кодов в кэше нет."
+      ],
+      "status": "FUNCTIONAL_SECONDARY_COMPLETE_PRIMARY_PARTIAL",
+      "factory_pixels_verified": false,
+      "current_2es6_from_137_edition_verified": false,
+      "pending": [
+        "Заводской оригинал рисунка и редакция РЭ2",
+        "Печатные листы оригинала",
+        "Сопоставимость с комплектацией №137+"
+      ],
+      "illustration": {
+        "path": "work/mpsud_manual_discovery/illustrations/SR20.png",
+        "sha256": "034FD4152875E56F885C272705C7B8D13BE777B39F4D5F024186D31DE1BB73A7",
+        "pdf_page": 45,
+        "width": 801,
+        "height": 599,
+        "lossless_original_size_export": true,
+        "source_kind": "SECONDARY_REPRINT_NOT_FACTORY_ORIGINAL",
+        "visual_checked_by_functions_agent": false,
+        "visual_checked_by_display_agent": true,
+        "white_preview_path": "work/mpsud_manual_discovery/illustrations/white/SR20.png",
+        "white_preview_sha256": "7F56F6781A8341490964D5BEAFE9417A462F210C9C4AE26843050AA503DC9957",
+        "viewing_requirement": "Composite on white PDF page, not black-alpha canvas."
+      }
+    },
+    {
+      "id": "SR21",
+      "figure": "1.39",
+      "figure_status": "EXPECTED_PRIMARY_CROSSWALK_SEQUENCE_AND_TITLE",
+      "printed_page": [
+        78,
+        79
+      ],
+      "printed_page_verified": false,
+      "section": "1.7.17",
+      "title": "Настройка даты и времени",
+      "reprint_figure": 22,
+      "reprint_pdf_pages": [
+        45,
+        46
+      ],
+      "entry": "5 Настройка в Заставке.",
+      "purpose": "Дата и время, отображаемые на начальном экране.",
+      "fields_groups": [
+        {
+          "name": "Год, месяц, день, часы, минуты; Сохранить",
+          "kind": "date_time",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_FIGURE",
+          "note": null
+        },
+        {
+          "name": "Версия ПО: пример 2.03 (25.10.2007)",
+          "kind": "text",
+          "unit": null,
+          "unit_status": "NOT_APPLICABLE",
+          "evidence": "SECONDARY_FIGURE",
+          "note": "Версия на рисунке не является установленной версией тренажера или датой редакции РЭ."
+        }
+      ],
+      "behavior_status": [
+        "Текст подтверждает установку даты/времени и возврат 1; рисунок содержит поля и Сохранить.",
+        "Секунды не добавлены: на иллюстрации их нет. Пример минут 36 не является пределом ввода.",
+        "Аппаратные часы, сохранность после выключения питания и диапазоны календаря разделом не описаны."
+      ],
+      "appearance_conditions": [],
+      "navigation": [],
+      "exit": "1 — Заставка.",
+      "source_refs": [
+        {
+          "source_id": "RPT2017",
+          "role": "SECONDARY_REPRINT",
+          "pdf_pages": [
+            45,
+            46
+          ],
+          "figure": 22
+        },
+        {
+          "source_id": "fresh_4_023.json",
+          "role": "PRIMARY_TEXT_CACHE_PARTIAL"
+        }
+      ],
+      "primary_text_overlap": [
+        "Вход 5; дата/время; выход 1."
+      ],
+      "status": "FUNCTIONAL_SECONDARY_COMPLETE_PRIMARY_PARTIAL",
+      "factory_pixels_verified": false,
+      "current_2es6_from_137_edition_verified": false,
+      "pending": [
+        "Заводской оригинал рисунка и редакция РЭ2",
+        "Печатные листы оригинала",
+        "Сопоставимость с комплектацией №137+"
+      ],
+      "illustration": {
+        "path": "work/mpsud_manual_discovery/illustrations/SR21.png",
+        "sha256": "5022C1575A219069F568399CC0CDDB718CA2D78B5B423D89B78D5FE05FA81B2E",
+        "pdf_page": 46,
+        "width": 801,
+        "height": 599,
+        "lossless_original_size_export": true,
+        "source_kind": "SECONDARY_REPRINT_NOT_FACTORY_ORIGINAL",
+        "visual_checked_by_functions_agent": false,
+        "visual_checked_by_display_agent": true,
+        "white_preview_path": "work/mpsud_manual_discovery/illustrations/white/SR21.png",
+        "white_preview_sha256": "A306EF09ACC005679A6CFCAB1CA3D5AF297226B73AB9E4BFD0C27C74E5D5463E",
+        "viewing_requirement": "Composite on white PDF page, not black-alpha canvas."
+      }
+    }
+  ]
+}

@@ -1,0 +1,526 @@
+{
+  "utc": "2026-10-11T13:16:08.326835+00:00",
+  "status": "PASS",
+  "assertions": 129,
+  "checks": [
+    {
+      "name": "guide SHA",
+      "passed": true
+    },
+    {
+      "name": "gallery SHA",
+      "passed": true
+    },
+    {
+      "name": "packaged PDF SHA",
+      "passed": true
+    },
+    {
+      "name": "22 functional cards",
+      "passed": true
+    },
+    {
+      "name": "dev/docs/audit_parts/MPSUD_RE_FUNCTIONS.json SHA",
+      "passed": true
+    },
+    {
+      "name": "dev/docs/audit_parts/MPSUD_RE_ILLUSTRATIONS.json SHA",
+      "passed": true
+    },
+    {
+      "name": "22 gallery articles",
+      "passed": true
+    },
+    {
+      "name": "22 embedded PNG",
+      "passed": true
+    },
+    {
+      "name": "unique DOM IDs",
+      "passed": true
+    },
+    {
+      "name": "DOM/card order",
+      "passed": true
+    },
+    {
+      "name": "SR00 embedded image SHA",
+      "passed": true
+    },
+    {
+      "name": "SR00 PNG file SHA",
+      "passed": true
+    },
+    {
+      "name": "SR00 navigation",
+      "passed": true
+    },
+    {
+      "name": "SR00 crosswalk",
+      "passed": true
+    },
+    {
+      "name": "SR00 source page range",
+      "passed": true
+    },
+    {
+      "name": "SR01 embedded image SHA",
+      "passed": true
+    },
+    {
+      "name": "SR01 PNG file SHA",
+      "passed": true
+    },
+    {
+      "name": "SR01 navigation",
+      "passed": true
+    },
+    {
+      "name": "SR01 crosswalk",
+      "passed": true
+    },
+    {
+      "name": "SR01 source page range",
+      "passed": true
+    },
+    {
+      "name": "SR02 embedded image SHA",
+      "passed": true
+    },
+    {
+      "name": "SR02 PNG file SHA",
+      "passed": true
+    },
+    {
+      "name": "SR02 navigation",
+      "passed": true
+    },
+    {
+      "name": "SR02 crosswalk",
+      "passed": true
+    },
+    {
+      "name": "SR02 source page range",
+      "passed": true
+    },
+    {
+      "name": "SR03 embedded image SHA",
+      "passed": true
+    },
+    {
+      "name": "SR03 PNG file SHA",
+      "passed": true
+    },
+    {
+      "name": "SR03 navigation",
+      "passed": true
+    },
+    {
+      "name": "SR03 crosswalk",
+      "passed": true
+    },
+    {
+      "name": "SR03 source page range",
+      "passed": true
+    },
+    {
+      "name": "SR04 embedded image SHA",
+      "passed": true
+    },
+    {
+      "name": "SR04 PNG file SHA",
+      "passed": true
+    },
+    {
+      "name": "SR04 navigation",
+      "passed": true
+    },
+    {
+      "name": "SR04 crosswalk",
+      "passed": true
+    },
+    {
+      "name": "SR04 source page range",
+      "passed": true
+    },
+    {
+      "name": "SR05 embedded image SHA",
+      "passed": true
+    },
+    {
+      "name": "SR05 PNG file SHA",
+      "passed": true
+    },
+    {
+      "name": "SR05 navigation",
+      "passed": true
+    },
+    {
+      "name": "SR05 crosswalk",
+      "passed": true
+    },
+    {
+      "name": "SR05 source page range",
+      "passed": true
+    },
+    {
+      "name": "SR06 embedded image SHA",
+      "passed": true
+    },
+    {
+      "name": "SR06 PNG file SHA",
+      "passed": true
+    },
+    {
+      "name": "SR06 navigation",
+      "passed": true
+    },
+    {
+      "name": "SR06 crosswalk",
+      "passed": true
+    },
+    {
+      "name": "SR06 source page range",
+      "passed": true
+    },
+    {
+      "name": "SR07 embedded image SHA",
+      "passed": true
+    },
+    {
+      "name": "SR07 PNG file SHA",
+      "passed": true
+    },
+    {
+      "name": "SR07 navigation",
+      "passed": true
+    },
+    {
+      "name": "SR07 crosswalk",
+      "passed": true
+    },
+    {
+      "name": "SR07 source page range",
+      "passed": true
+    },
+    {
+      "name": "SR08 embedded image SHA",
+      "passed": true
+    },
+    {
+      "name": "SR08 PNG file SHA",
+      "passed": true
+    },
+    {
+      "name": "SR08 navigation",
+      "passed": true
+    },
+    {
+      "name": "SR08 crosswalk",
+      "passed": true
+    },
+    {
+      "name": "SR08 source page range",
+      "passed": true
+    },
+    {
+      "name": "SR09 embedded image SHA",
+      "passed": true
+    },
+    {
+      "name": "SR09 PNG file SHA",
+      "passed": true
+    },
+    {
+      "name": "SR09 navigation",
+      "passed": true
+    },
+    {
+      "name": "SR09 crosswalk",
+      "passed": true
+    },
+    {
+      "name": "SR09 source page range",
+      "passed": true
+    },
+    {
+      "name": "SR10 embedded image SHA",
+      "passed": true
+    },
+    {
+      "name": "SR10 PNG file SHA",
+      "passed": true
+    },
+    {
+      "name": "SR10 navigation",
+      "passed": true
+    },
+    {
+      "name": "SR10 crosswalk",
+      "passed": true
+    },
+    {
+      "name": "SR10 source page range",
+      "passed": true
+    },
+    {
+      "name": "SR11 embedded image SHA",
+      "passed": true
+    },
+    {
+      "name": "SR11 PNG file SHA",
+      "passed": true
+    },
+    {
+      "name": "SR11 navigation",
+      "passed": true
+    },
+    {
+      "name": "SR11 crosswalk",
+      "passed": true
+    },
+    {
+      "name": "SR11 source page range",
+      "passed": true
+    },
+    {
+      "name": "SR12 embedded image SHA",
+      "passed": true
+    },
+    {
+      "name": "SR12 PNG file SHA",
+      "passed": true
+    },
+    {
+      "name": "SR12 navigation",
+      "passed": true
+    },
+    {
+      "name": "SR12 crosswalk",
+      "passed": true
+    },
+    {
+      "name": "SR12 source page range",
+      "passed": true
+    },
+    {
+      "name": "SR13 embedded image SHA",
+      "passed": true
+    },
+    {
+      "name": "SR13 PNG file SHA",
+      "passed": true
+    },
+    {
+      "name": "SR13 navigation",
+      "passed": true
+    },
+    {
+      "name": "SR13 crosswalk",
+      "passed": true
+    },
+    {
+      "name": "SR13 source page range",
+      "passed": true
+    },
+    {
+      "name": "SR14 embedded image SHA",
+      "passed": true
+    },
+    {
+      "name": "SR14 PNG file SHA",
+      "passed": true
+    },
+    {
+      "name": "SR14 navigation",
+      "passed": true
+    },
+    {
+      "name": "SR14 crosswalk",
+      "passed": true
+    },
+    {
+      "name": "SR14 source page range",
+      "passed": true
+    },
+    {
+      "name": "SR15 embedded image SHA",
+      "passed": true
+    },
+    {
+      "name": "SR15 PNG file SHA",
+      "passed": true
+    },
+    {
+      "name": "SR15 navigation",
+      "passed": true
+    },
+    {
+      "name": "SR15 crosswalk",
+      "passed": true
+    },
+    {
+      "name": "SR15 source page range",
+      "passed": true
+    },
+    {
+      "name": "SR16 embedded image SHA",
+      "passed": true
+    },
+    {
+      "name": "SR16 PNG file SHA",
+      "passed": true
+    },
+    {
+      "name": "SR16 navigation",
+      "passed": true
+    },
+    {
+      "name": "SR16 crosswalk",
+      "passed": true
+    },
+    {
+      "name": "SR16 source page range",
+      "passed": true
+    },
+    {
+      "name": "SR17 embedded image SHA",
+      "passed": true
+    },
+    {
+      "name": "SR17 PNG file SHA",
+      "passed": true
+    },
+    {
+      "name": "SR17 navigation",
+      "passed": true
+    },
+    {
+      "name": "SR17 crosswalk",
+      "passed": true
+    },
+    {
+      "name": "SR17 source page range",
+      "passed": true
+    },
+    {
+      "name": "SR18 embedded image SHA",
+      "passed": true
+    },
+    {
+      "name": "SR18 PNG file SHA",
+      "passed": true
+    },
+    {
+      "name": "SR18 navigation",
+      "passed": true
+    },
+    {
+      "name": "SR18 crosswalk",
+      "passed": true
+    },
+    {
+      "name": "SR18 source page range",
+      "passed": true
+    },
+    {
+      "name": "SR19 embedded image SHA",
+      "passed": true
+    },
+    {
+      "name": "SR19 PNG file SHA",
+      "passed": true
+    },
+    {
+      "name": "SR19 navigation",
+      "passed": true
+    },
+    {
+      "name": "SR19 crosswalk",
+      "passed": true
+    },
+    {
+      "name": "SR19 source page range",
+      "passed": true
+    },
+    {
+      "name": "SR20 embedded image SHA",
+      "passed": true
+    },
+    {
+      "name": "SR20 PNG file SHA",
+      "passed": true
+    },
+    {
+      "name": "SR20 navigation",
+      "passed": true
+    },
+    {
+      "name": "SR20 crosswalk",
+      "passed": true
+    },
+    {
+      "name": "SR20 source page range",
+      "passed": true
+    },
+    {
+      "name": "SR21 embedded image SHA",
+      "passed": true
+    },
+    {
+      "name": "SR21 PNG file SHA",
+      "passed": true
+    },
+    {
+      "name": "SR21 navigation",
+      "passed": true
+    },
+    {
+      "name": "SR21 crosswalk",
+      "passed": true
+    },
+    {
+      "name": "SR21 source page range",
+      "passed": true
+    },
+    {
+      "name": "offline gallery links",
+      "passed": true
+    },
+    {
+      "name": "one inline script",
+      "passed": true
+    },
+    {
+      "name": "JavaScript syntax",
+      "passed": true
+    },
+    {
+      "name": "registered source path",
+      "passed": true
+    },
+    {
+      "name": "registered source SHA",
+      "passed": true
+    },
+    {
+      "name": "source type retained",
+      "passed": true
+    },
+    {
+      "name": "factory/source gap retained",
+      "passed": true
+    },
+    {
+      "name": "16 production source guards",
+      "passed": true
+    },
+    {
+      "name": "full normative conformity not asserted",
+      "passed": true
+    }
+  ],
+  "scope": "Document/source integrity, crosswalk, packaged assets, offline HTML structure and JS syntax. Browser interaction was not exercised.",
+  "factory_original_received": false,
+  "native_tests_executed": false
+}
