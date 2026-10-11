@@ -29,6 +29,7 @@
       "title": "Изоляция общей ИМ при выключенной блокировке тормозов",
       "source": "work/pneumatic_live_fix/analysis/AirControlIsolationProbe.cs",
       "profile": "candidate",
+      "requires_native_initialization": false,
       "dependencies": [],
       "arguments": [],
       "result_files": [
@@ -223,7 +224,7 @@
         "outputs/Trainer_cold_powered_main_findings.json"
       ],
       "kind": "diagnostic",
-      "scope": "Фиксирует 14500 шагов, подъем первого токоприемника и 3100 В до БВ. Нефорсированные разрешения основных компрессоров оставались нулевыми, ПМ не зарядилось. Не считать приемкой холодного запуска.",
+      "scope": "Диагностическая холодная сеть из 77 узлов: безопасный InitSostavClass с Pzar=0, затем 5; сухая фаза, КМ2 и изоляция, первый токоприёмник и 3100 В, БВ со штатным возвратом. Команда основных компрессоров OFF до готовности ПСН, затем ON и зарядка ПМ >=7. Выходы компрессоров в положительной фазе не форсируются. Свежий PASS: test-20261011T100043250Z-630309b8. Полная подготовка электровоза, расход приводов и комплектация №137+ не проверяются.",
       "timeout_seconds": 180,
       "enabled": true,
       "legacy_build_script": "outputs/BuildColdPoweredMainProbe.ps1"
@@ -502,6 +503,22 @@
       "timeout_seconds": 180,
       "enabled": true,
       "legacy_build_script": "outputs/BuildVcuPowerCabProbe.ps1"
+    },
+    {
+      "id": "NativeInitializationCapture",
+      "main_class": "NativeInitializationCaptureProbe",
+      "title": "Отладочный захват исключений инициализации native DLL",
+      "source": "dev/tools/NativeInitializationCaptureProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_native_initialization_capture_result.json"
+      ],
+      "kind": "unsafe",
+      "scope": "Отключена после захвата первого EInOutError в unit initialization Communication1.dll: SaveLocoType, RewriteText DATA\\LIB\\ENGINE\\TypeLoc.klub через HKCU\\Software\\SPECTR\\TRENAGER\\Path\\WorkPath. Debugger изменил failure path: затем повторные C0000025 и CLR80131506. Не повторять для приемки. Helper теперь отсоединяется после первого Delphi exception и ограничивает повторы/число событий; это диагностические меры, не подтвержденное исправление модели.",
+      "timeout_seconds": 60,
+      "enabled": false
     },
     {
       "id": "VrCrack",

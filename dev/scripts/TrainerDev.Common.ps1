@@ -140,6 +140,38 @@ function Set-TrainerProcessEnvironment($StartInfo,[string]$Folder,[string]$Build
     $StartInfo.EnvironmentVariables['TRAINER_RUN_KIND'] = $Kind
     $StartInfo.EnvironmentVariables['TRAINER_RESULT_DIR'] = Join-Path $Folder 'results'
 }
+function Set-TrainerRuntimeRegistry([string]$Folder) {
+    # Communication1 unit initialization writes TypeLoc.klub using this HKCU32
+    # path before InitCommunication. Rebase it to the guarded working copy.
+    $runtime = Resolve-TrainerPath 'work/trenager_static/WORK_TRENAGER_3D'
+    $typeFile = Join-Path $runtime 'DATA\LIB\ENGINE\TypeLoc.klub'
+    if (-not (Test-Path -LiteralPath $typeFile -PathType Leaf)) { throw 'Рабочая копия TypeLoc.klub отсутствует; WorkPath не изменён.' }
+    $base = [Microsoft.Win32.RegistryKey]::OpenBaseKey([Microsoft.Win32.RegistryHive]::CurrentUser,[Microsoft.Win32.RegistryView]::Registry32)
+    $key = $null
+    $record = [ordered]@{schema_version=1;view='Registry32';key='HKCU\Software\SPECTR\TRENAGER\Path';name='WorkPath';utc=[DateTime]::UtcNow.ToString('O');value=$runtime;value_kind='String';type_file=$typeFile;type_file_sha256_before=(Get-TrainerHash $typeFile);status='preparing'}
+    $recordPath = Join-Path $Folder 'registry-runtime-path.json'
+    try {
+        $key = $base.OpenSubKey('Software\SPECTR\TRENAGER\Path',$true)
+        $record.existed = ($null -ne $key -and @($key.GetValueNames()) -contains 'WorkPath')
+        $record.previous = if ($record.existed) { $key.GetValue('WorkPath',$null,[Microsoft.Win32.RegistryValueOptions]::DoNotExpandEnvironmentNames) } else { $null }
+        $record.previous_kind = if ($record.existed) { $key.GetValueKind('WorkPath').ToString() } else { $null }
+        $record.changed = (-not $record.existed -or $record.previous_kind -ne 'String' -or $record.previous -cne $runtime)
+        # Save the original value before making the persistent relocation repair.
+        Write-TrainerJson $record $recordPath
+        if ($null -eq $key) { $key = $base.CreateSubKey('Software\SPECTR\TRENAGER\Path') }
+        if ($record.changed) { $key.SetValue('WorkPath',$runtime,[Microsoft.Win32.RegistryValueKind]::String) }
+        if ($key.GetValue('WorkPath',$null,[Microsoft.Win32.RegistryValueOptions]::DoNotExpandEnvironmentNames) -cne $runtime -or $key.GetValueKind('WorkPath') -ne [Microsoft.Win32.RegistryValueKind]::String) { throw 'WorkPath не соответствует рабочей копии после записи.' }
+        $record.status = 'ready'
+        Write-TrainerJson $record $recordPath
+    } catch {
+        $record.status='failed';$record.error=$_.ToString()
+        Write-TrainerJson $record $recordPath
+        throw
+    } finally {
+        if ($key) { $key.Dispose() }
+        $base.Dispose()
+    }
+}
 function Deploy-TrainerBuild($Build,[string]$ExeName) {
     $destination = Resolve-TrainerPath ('outputs/' + $ExeName)
     if (Test-Path -LiteralPath $destination) {
@@ -199,6 +231,8 @@ function Invoke-TrainerTests {
                 $result.build_id=$build.id
                 # Unique deployed name keeps concurrent legacy launches from replacing this binary.
                 $exe = Deploy-TrainerBuild $build ($entry.id + '.' + $runId + '.exe')
+                $requiresNative = ($entry.profile -ne 'standalone' -and ($null -eq $entry.PSObject.Properties['requires_native_initialization'] -or $entry.requires_native_initialization))
+                if ($requiresNative) { Set-TrainerRuntimeRegistry $probeFolder }
                 $start = New-Object Diagnostics.ProcessStartInfo
                 $start.FileName=$exe;$start.WorkingDirectory=(Resolve-TrainerPath 'outputs');$start.UseShellExecute=$false;$start.CreateNoWindow=$true
                 $start.RedirectStandardOutput=$true;$start.RedirectStandardError=$true
@@ -277,6 +311,7 @@ function Start-TrainerDevelopment {
         $runId=New-TrainerId 'interactive'
         $folder=Resolve-TrainerPath ('dev/runs/'+$runId)
         [IO.Directory]::CreateDirectory($folder) | Out-Null
+        Set-TrainerRuntimeRegistry $folder
         $key='HKCU:\Software\SPECTR\TRENAGER\LOCOPARAM\1'
         $registry=@()
         foreach ($item in @(@{name='GETBMPMSUD_';value='1'},@{name='BLOKPB';value='0'},@{name='KLUBUTYPE';value='БИЛ-УТ'})) {
@@ -423,8 +458,8 @@ function Save-TrainerContext {
         git_head=(Get-TrainerHead)
         working_tree=[ordered]@{changed_files=$dirty.Count;first_files=@($dirty|Select-Object -First 20);more=($dirty.Count -gt 20)}
         latest=$latest
-        active_focus='Среда разработки и сравнение пневматики 2ЭС6 с РЭ; 6000 т вагонов + 200 т локомотив.'
-        next_model_question='БВ/ПСН после холодной зарядки РС6: положительная зарядка ПМ ещё не подтверждена. Точная ревизия РЭ №137+ не установлена.'
+        active_focus='Сверка пневматики с РЭ: исправлены КП3/КО5 и изоляция КВТ; управляемые проверки 3/3 и свежая native regression 6/6 пройдены. ColdPoweredMain после исправления порядка штатных входов прошёл, ПМ max8.99368. Runtime217 устранён настройкой HKCU32 WorkPath на текущую рабочую копию. Candidate развёрнут. Отчёт: dev/docs/PNEUMATICS_RE_AUDIT.md.'
+        next_model_question='Холодная диагностическая пневматическая цепь подтверждена, полная подготовка реального электровоза не принята. Источник/порог/расход привода КЭБ, остальные приводы, кривая КМ2 и комплектация РЭ №137+ не установлены. NativeInitializationCapture отключён unsafe; повторный debugger capture не нужен.'
         read_next=@('dev/environment-context.json','dev/state/context.json')
         avoid_reading=@('whole telemetry.csv','all historical logs','all disassembly dumps')
         source_of_truth='outputs/*.cs; versioned snapshots dev/builds/<id>/source; Git checkpoints'
