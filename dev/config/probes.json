@@ -24,6 +24,22 @@
   "execution_contract": "Build sources directly using the selected profile; legacy build scripts may also execute probes. Run sequentially in separate processes, require exit code 0 and fresh expected artifacts. Do not require a universal passed JSON field. Obsolete and unsafe entries are disabled.",
   "probes": [
     {
+      "id": "AirControlIsolation",
+      "main_class": "AirControlIsolationProbe",
+      "title": "Изоляция общей ИМ при выключенной блокировке тормозов",
+      "source": "work/pneumatic_live_fix/analysis/AirControlIsolationProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_air_control_isolation_validation.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "1500 вызовов настоящего managed air bridge с mock packed records; constructor-only host без StartNative и загрузки DLL. Проверяет удержание ИМ при ВЦУ1/block0 и ВЦУ2/3, штатный отпуск при block1, работу автоматического БТО, восстановление запросов компрессора и баланс. Внешний сигнал БВР задан явно; native startup, электрический привод и калибровка РЭ не проверяются.",
+      "timeout_seconds": 60,
+      "enabled": true
+    },
+    {
       "id": "AuxiliaryAirNative",
       "main_class": "AuxiliaryAirNativeProbe",
       "title": "Старый тест связи вспомогательного воздуха с ПМ",

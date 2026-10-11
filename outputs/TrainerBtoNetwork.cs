@@ -24,7 +24,7 @@ namespace TrainerAir {
    for(int i=0;i<2;i++){
     if(ControlCock[i])Flow.Transfer(signal,Control[i],dt,line,cd,false);
     vent+=relay.Step(Feed,Output[i],Control[i],dt,FeedCock[i]);
-    // KR6/KR7: closed inlet is isolated and the cylinder side vents.
+    // KN9/KN10: closed inlet is isolated and the cylinder side vents (RE6 5.3.3).
     if(CylinderCock[i])Flow.Transfer(Output[i],Cylinder[i],dt,line,cd,false);
     else vent+=Flow.Transfer(Cylinder[i],null,dt,exhaust,cd,true);
    }

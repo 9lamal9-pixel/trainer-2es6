@@ -9,6 +9,7 @@ namespace TrainerAir {
   // Shared-PM boundary observations below are local diagnostics, not an extra air source.
   public double StoredMass {get{return Rs6.Mass+Rs7.Mass;}}
   public double AuxiliarySourceMass {get;private set;}
+  public double AuxiliaryReliefMass {get;private set;}
   public double SharedPmBoundaryMass {get;private set;}
   public double ExternalMass {get;private set;}
   public double ExhaustedMass {get;private set;}
@@ -34,13 +35,18 @@ namespace TrainerAir {
    SharedPmBoundaryMass+=sharedBoundary;ExternalMass+=sharedBoundary;
    for(int i=0;i<count;i++){
     double input=auxiliaryNormalM3Min/60*dt*Flow.Atmosphere/(Flow.R*Rs6.Temperature);
-    Rs6.ApplyBoundaryMass(input);ExternalMass+=input;AuxiliarySourceMass+=input;
+    // RE6 4.2: KP3 is upstream of KO5 in the KM2 branch. It can exhaust
+    // newly generated compressor air, but cannot drain retained RS6/RS7 air.
+    // This equivalent boundary omits the uncalibrated upstream pipe volume.
+    double headroom=Math.Max(0,(7.5-Rs6.Gauge)*Flow.Kgf*Rs6.Volume/(Flow.R*Rs6.Temperature));
+    double delivered=Math.Min(input,headroom),relief=input-delivered;
+    Rs6.ApplyBoundaryMass(delivered);ExternalMass+=input;AuxiliarySourceMass+=input;
+    AuxiliaryReliefMass+=relief;ExhaustedMass+=relief;
     ExhaustedMass+=reducer.StepSetpoint(pm,Rs6,5,dt,kn7Open);
     // KEP11 connects the reserve to the control line in both directions;
     // closing it preserves RS7 instead of venting the reserve.
     if(kep11Open)Flow.Transfer(Rs6,Rs7,dt,passage,cd,false);
     ExhaustedMass+=Flow.Transfer(Rs6,null,dt,consumerDiameterMm,cd,true);
-    if(Rs6.Gauge>7.5){double excess=(Rs6.Gauge-7.5)*Flow.Kgf*Rs6.Volume/(Flow.R*Rs6.Temperature);Rs6.ApplyBoundaryMass(-excess);ExhaustedMass+=excess;}
    }
    lastObservedPmMass=pm.Mass;
    MaximumBalanceError=Math.Max(MaximumBalanceError,Math.Abs(TotalMass+ExhaustedMass-initialMass-ExternalMass));
