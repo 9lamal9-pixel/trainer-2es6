@@ -1,4 +1,4 @@
-﻿{
+{
   "schema_version": 1,
   "path_base": "workspace_root",
   "assembly_references": [
@@ -667,6 +667,607 @@
       "scope": "Assertions: four actual loaded module paths/SHA,100 warm idle native cycles,electricalFaults=0. Frame copies optional observations only; no protection/navigation/SME/link/diagnostics/rendering acceptance.",
       "timeout_seconds": 180,
       "enabled": true
+    },
+    {
+      "id": "MpsudScreenRuntime",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД: переходы и новые кадры экранов",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "0"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen02",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 1",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "1"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen03",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 2",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "2"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen04",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 3",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "3"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen05",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 4",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "4"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen06",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 5",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "5"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen07",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 6",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "6"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen08",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 7",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "7"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen09",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 8",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "8"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen10",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 9",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "9"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen11",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 10",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "10"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen12",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 11",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "11"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen13",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 12",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "12"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen14",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 13",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "13"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen15",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 14",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "14"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen16",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 15",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "15"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen17",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 16",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "16"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen18",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 17",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "17"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen19",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 18",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "18"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen20",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 19",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "19"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen21",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 20",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "20"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudValuesDriver",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД фактические показания Driver",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "1",
+        "driver"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Guarded native current-window widget observations; controlled input bytes restored, no physics between fixture write/render. PASS reproduces observed defects, does not accept RE conformity.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudValuesCi",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД фактические показания Ci",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "7",
+        "ci"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Guarded native current-window widget observations; controlled input bytes restored, no physics between fixture write/render. PASS reproduces observed defects, does not accept RE conformity.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudValuesAv",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД фактические показания Av",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "9",
+        "av"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Guarded native current-window widget observations; controlled input bytes restored, no physics between fixture write/render. PASS reproduces observed defects, does not accept RE conformity.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudValuesSme",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД фактические показания Sme",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "13",
+        "sme"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Guarded native current-window widget observations; controlled input bytes restored, no physics between fixture write/render. PASS reproduces observed defects, does not accept RE conformity.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudValuesDiag",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД диагностика: недоступный БУК",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "8",
+        "diag"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Only ordinary digit2; arrow recreation excluded after timeout test-20261011T123239410Z-8361b221. No normative BUK diagnostics acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen22",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД недоступные меню 21",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "21"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen23",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД недоступные меню 22",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "22"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen24",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД недоступные меню 23",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "23"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen25",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД недоступные меню 24",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "24"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen26",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД недоступные меню 25",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "25"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen27",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД недоступные меню 26",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "26"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudDiagnosticArrows",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД стрелки: неприемочный захват",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "8",
+        "diag_arrows"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Disabled: native same-window recreation hung inside synchronous guarded capture; root cause unresolved. Not an acceptance probe.",
+      "timeout_seconds": 240,
+      "enabled": false,
+      "unsafe": true
     }
   ]
 }

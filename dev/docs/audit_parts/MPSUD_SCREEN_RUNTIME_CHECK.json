@@ -1,0 +1,191 @@
+{
+  "passed": true,
+  "verified_at_utc": "2026-10-11T12:45:23.394629+00:00",
+  "scope": "saved_screen_coverage_and_artifact_integrity",
+  "coverage_mode": "full",
+  "normative_mpsuid_accepted": false,
+  "counts": {
+    "checks": 494,
+    "checks_true": 494,
+    "captures": 318,
+    "png_records_verified": 318,
+    "unique_png_files": 318,
+    "fixture_statuses": 0,
+    "named_fixture_checks": 34,
+    "result_files": 32,
+    "required_screen_routes": 34,
+    "required_extra_view_routes": 8,
+    "screen_routes_verified": 34,
+    "extra_view_routes_verified": 8
+  },
+  "sources": [
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T124159264Z-4d7fd582\\MpsudValuesDriver\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "794D95D2CB52D0DC219423764DE608BDCDE422B53D7E0F5DBC22B0F1B8D7B638",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T123239410Z-8361b221\\MpsudScreen02\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "1C8DBE6EDADABADAD3CE96DEBCCCBC0874DA63E85F79218543FCE9D866C9B029",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T123239410Z-8361b221\\MpsudScreen03\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "3E54B9E97CFCFF6EAF772EDEA3D9216FA720170FCDE00901A2B7F555556C7055",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T124159264Z-4d7fd582\\MpsudScreen04\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "28ABCB2FABE5F229E52D813077FC4D981888E5EAA45AE07F23E315CB1D179342",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T123239410Z-8361b221\\MpsudScreen05\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "3DC898080BC6620C10CE26BA27CE898247D1E5D21B7FD0D65698B2A378279BE4",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T123239410Z-8361b221\\MpsudScreen06\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "440E81B1BC5FDDF658F03A8D906D0D8316572BFCB0F075746FE9C34EDC72EFDD",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T123239410Z-8361b221\\MpsudScreen07\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "9464872F3AF1C5AC95D45DB73AA6E55A7275E9D21890F02A8CF3FDB90DAB5E42",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T123239410Z-8361b221\\MpsudScreen08\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "F71BC869515D79366F4F62E1122FF4027FDB47FBD0AFAC35CD7E2107E549E26B",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T123239410Z-8361b221\\MpsudScreen09\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "05E9003441CC730CB77DA02ACA629EB75270AEA3742822CC525AB0266D20E4D3",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T123239410Z-8361b221\\MpsudScreen10\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "DC7C6FE6E6BF7DD47F51FC5F85179E7F171BA4EE0F457F4A1146DADACEF8D5E7",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T123239410Z-8361b221\\MpsudScreen11\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "35E2B1DD59BB897A3D733EF442BEB65D007801CF4006B1CD42B024D935D4DE6D",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T123239410Z-8361b221\\MpsudScreen12\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "FE42C18A2F9A09C6D5F105C65ADCAFD14547693DA055D7B37E892EAAC044AEB7",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T123239410Z-8361b221\\MpsudScreen13\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "9544FF429BDAE6B1EA6A93FB874881D07A30B0FDCEF94289C422F683FC18F395",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T123239410Z-8361b221\\MpsudScreen14\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "C4C9190CA9336367ED9EB53EBB10422F60376CBE8F191ED634B27E968C277C0C",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T123239410Z-8361b221\\MpsudScreen15\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "ED5676441C4D5B19F52BACC380F76C12BB597C218783D988DF646C320B096B2E",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T123239410Z-8361b221\\MpsudScreen16\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "6CB308379CA691243F2001767ED5CF53BC907CD912E91C8DAA0ADCCFD2F38541",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T123239410Z-8361b221\\MpsudScreen17\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "B80D87BBFBF6651A19C52E9C5F70E93116CAD25D5B5B23BDFEBC89941F0B6507",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T124159264Z-4d7fd582\\MpsudScreen18\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "D4289591A187AF9BEAE1DFFF3A3023D12F4BC8CC9F290ADF7025611CA2349487",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T124159264Z-4d7fd582\\MpsudScreen19\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "DB2ED86B9269AB2ECFF0584B40F85F606340B74F771453A3B4B0DF3323E5A0FE",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T124159264Z-4d7fd582\\MpsudScreen20\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "168C854CE87887C813423495810339D3CF5A6A31ED682A8D6B491F521E13FD80",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T124452567Z-081a9481\\MpsudScreen21\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "CC06ED421DEE06BAE632C303ABE3A6AC2DA818B4DEAAD635B0C1C197D7939354",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T123239410Z-8361b221\\MpsudScreen22\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "584ABC2B2F1C8897824D8C622C3D2DCDC1FAD0C9883B0F46F8FCAF0AA6FD8673",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T123239410Z-8361b221\\MpsudScreen23\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "DB1E86CD7592C7C373FF4C18CA93835CB37A09A473D1A501B0CF96382475B50D",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T123239410Z-8361b221\\MpsudScreen24\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "EBDB444C4132277FCA8A3DC998D5D832B39A6F67BC83B8B54084F67F59F3E745",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T123239410Z-8361b221\\MpsudScreen25\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "11653E4919BF0245BA2B628E09C9471C5495A90E7FA56BD36E2B0DCE7355BEC8",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T123239410Z-8361b221\\MpsudScreen26\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "50CF2858659E734BABE2FDA7344E8DD5F041DAA5902C9601CE831BFDA38E88D7",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T123239410Z-8361b221\\MpsudScreen27\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "7154F3DA970E44702CD7CD70751091D77AA468A9E57854E08C191A423DACFA2C",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T124159264Z-4d7fd582\\MpsudScreenRuntime\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "D40AE03B88C5D7190DA6D4413C5892155F31C5A73B3F62CF7037E952D8B53C9D",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T123239410Z-8361b221\\MpsudValuesAv\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "DC297B0962A9E56B77416F1162A3691B4028C1B7F64517121CA99BA23EA3B185",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T123239410Z-8361b221\\MpsudValuesCi\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "C33DF13C2A414E19BD22A05D0C9A0F83EC745CE984100201BC73B2D450506786",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T123239410Z-8361b221\\MpsudValuesSme\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "35C82EF0056943061B29CE7DAD58EDDAD17B79090845A469B0277EBEFE93D186",
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261011T124159264Z-4d7fd582\\MpsudValuesDiag\\results\\MPSUD_screens_runtime.json",
+      "source_sha256": "C51F6DA0C6DFE7EB7680CE5142619A555012BD62F1046966B8CCBC5F97BEA90C",
+      "passed": true
+    }
+  ],
+  "missing_screen_routes": [],
+  "missing_extra_view_routes": [],
+  "errors": [],
+  "notes": [
+    "Sources from independent native processes may be combined; each PNG is verified against its own result directory.",
+    "Coverage, saved assertions and PNG integrity only; pixel semantics/RE compliance/real-time are not certified.",
+    "Fixture statuses are checked if present; absence of fixture assertions does not accept quantitative values."
+  ]
+}

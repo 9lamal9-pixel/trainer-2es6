@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "checks": {
+    "all_local_links_exist": true,
+    "runtime_coverage_verified": true,
+    "counts_match": true,
+    "normative_not_overstated": true,
+    "production_unchanged": true,
+    "arrow_not_acceptance": true,
+    "catalog_ids_unique": true,
+    "full_view_table": true,
+    "failed_run_retained": true
+  },
+  "local_links": 31,
+  "missing": []
+}

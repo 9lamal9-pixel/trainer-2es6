@@ -458,8 +458,8 @@ function Save-TrainerContext {
         git_head=(Get-TrainerHead)
         working_tree=[ordered]@{changed_files=$dirty.Count;first_files=@($dirty|Select-Object -First 20);more=($dirty.Count -gt 20)}
         latest=$latest
-        active_focus='Подробный аудит МПСУиД сохранён в dev/docs/MPSUID_2ES6_AUDIT.md и3 частях: SA47 enum→bool, Useti0/3100, Random диагностика, токи/позиции/время Tyga, клавиши и CSV. Fresh MpsudAuditSnapshot test-20261011T115345530Z-bc12f052 exit0 PASS:4 actual DLL/SHA,100cycles,0fault. functional/screens=false; production не менялась.'
-        next_model_question='Установить целевую ревизию РЭ/комплектацию №137+ и ПО МПСУиД; затем отдельно принимать SA47 edge/latch, Uks/protections, Tyga Ia/средний ток и400vs410/реостатное время, ЭДТ/замещение, ПСЗ/СМЕ/диагностику. РЭ подтормаживание0.15–0.18vs0.25МПа конфликтует. Пневматический backlog и пользовательская зарядка5.0 сохранены; полный холодный запуск/нормативное тормозное опробование не приняты.'
+        active_focus='Экраны МПСУиД: 17 состояний, 14 классов форм, 21 представление на каждом мониторе. 32 свежих PASS, 318 PNG, 419 assertions и 75 наблюдений. Отчёт dev/docs/MPSUID_SCREENS_RE_AUDIT.md: SC01–SC15, токи ведомых, CI, поле вагонов, СМЕ, ПСН/РН/СТПР, диагностика, отсутствующие меню и контакты. Пакет 30/31 (Up зависла при захвате), безопасная повторная проверка 8/8 и сообщения PASS. 16 исходников и основной EXE не менялись; полное соответствие РЭ=false.'
+        next_model_question='Установить ревизию РЭ/комплектацию №137+ и получить рисунки 1.18–1.39. Исправлять SC01–SC15 обратимо с guards и новыми сценариями. Разобрать timeout DiagUp/WMSET (Arrows disabled/unsafe); отдельно принять NoData, кворум, таймеры, АВП, сохранение редакторов и layout. Сохраняются SA47, Useti/защиты, тяга/ЭДТ и пневматический backlog; зарядка 5.0, полный холодный запуск и нормативное опробование не изменены.'
         read_next=@('dev/environment-context.json','dev/state/context.json')
         avoid_reading=@('whole telemetry.csv','all historical logs','all disassembly dumps')
         source_of_truth='outputs/*.cs; versioned snapshots dev/builds/<id>/source; Git checkpoints'
