@@ -15,7 +15,7 @@ partial class TrainerIntegrationHost {
   // Native R codes:1 loaded,2 medium,3 empty. Scenario has75wagons at80t gross.
   // Keep the existing auto regulator enabled; its full load response is checked separately.
   // Loaded R1/cast-iron train: brake rules table V.1 specifies 5.3–5.5 kgf/cm2.
-  const double trainCharge=5.4;
+  const double trainCharge=5.0; // User-selected charging pressure; loaded-profile rules require 5.3–5.5.
   Dbl(mem["TLocParam"],0x13,trainCharge);F(mem["TLocParam"],9,(float)trainCharge);
   for(int w=0;w<76;w++){F(cars[w],0,(float)trainCharge);F(cars[w],8,(float)trainCharge);if(w>0)B(cars[w],0x18,1);}
   // Preserve total locomotive mass and existing total native TM volume while separating two BVR states.
