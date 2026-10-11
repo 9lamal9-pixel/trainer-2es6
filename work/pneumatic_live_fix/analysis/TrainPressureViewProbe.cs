@@ -22,7 +22,7 @@ class TrainPressureViewProbe {
   var immutable=new TrainPressureSample(1,synthetic,5,8,5);synthetic[0,0]=99;Assert(immutable.Pressure(0,0)==5,"Snapshot must own copied values");synthetic[0,0]=5;
   view.Push(immutable);for(int w=0;w<75;w++)for(int c=0;c<3;c++)Assert((string)view.PressureTable.Rows[w].Cells[c+1].Value==TrainPressureSample.Format(synthetic[w,c]),"Table mapping");
   view.PressureTable.CurrentCell=view.PressureTable.Rows[74].Cells[0];Assert(view.SelectedWagon==74,"Tail selection");
-  for(int n=2;n<=1005;n++){synthetic[74,1]=Math.Max(0,2.6-1.3*Math.Cos(n*.015));view.Push(new TrainPressureSample(n*.2,synthetic,5,8,5));}
+  for(int n=2;n<=TrainPressureForm.HistoryLimit+105;n++){synthetic[74,1]=Math.Max(0,2.6-1.3*Math.Cos(n*.015));view.Push(new TrainPressureSample(n*.1,synthetic,5,8,5));}
   Assert(view.HistoryCount==TrainPressureForm.HistoryLimit,"Bounded history");int retained=view.HistoryCount;
   var pause=(CheckBox)view.GetType().GetField("pause",Flags).GetValue(view);Assert(pause.Left>=0&&pause.Right<=pause.Parent.ClientSize.Width,"Pause control clipped");pause.Checked=true;view.Push(new TrainPressureSample(9999,synthetic,5,8,5));Assert(view.HistoryCount==retained,"View pause changes history");pause.Checked=false;
   using(var bitmap=new Bitmap(view.Width,view.Height)){view.DrawToBitmap(bitmap,new Rectangle(Point.Empty,bitmap.Size));bitmap.Save(TrainerSession.ResultPath("Trainer_train_pressure_view.png"));}

@@ -458,7 +458,7 @@ function Save-TrainerContext {
         git_head=(Get-TrainerHead)
         working_tree=[ordered]@{changed_files=$dirty.Count;first_files=@($dirty|Select-Object -First 20);more=($dirty.Count -gt 20)}
         latest=$latest
-        active_focus='Кнопка Давления перенесена в режимную карту рядом с Начать со станции; из окна управления тренажером удалена. TrainPressureView test-20261011T111916575Z-64ec99f0 exit0 PASS: route button cross-thread open,225native readings/read-only,table/graphs/pause/reopen. Зарядное5.0 сохранено.'
+        active_focus='Давления из режимки: темная тема,ТМ красный,ТЦ черный со светлой обводкой/светлыми ячейками. Обновление каждый цикл100мс/10Гц; история1800снимков/180с. TrainPressureView test-20261011T112507407Z-c9612e7f exit0 PASS,PNG визуально проверен. Зарядное5.0 сохранено.'
         next_model_question='Полное нормативное опробование не принято: плотностьII/IV,штоки/колодки,целостность хвостового крана8–10с,отдельный KMI-замер двух хвостовых вагонов,Ro/native режим. Волна/метрологияГОСТ,VR/АР/глобальный баланс и полный запускЭПК остаются открыты. Старые tempPzar0 cold пробы не подтверждают геометрию. NativeInitializationCapture unsafe не применять.'
         read_next=@('dev/environment-context.json','dev/state/context.json')
         avoid_reading=@('whole telemetry.csv','all historical logs','all disassembly dumps')
