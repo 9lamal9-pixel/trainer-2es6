@@ -28,8 +28,8 @@ static int InvokeRegister(IntPtr self,int edx,IntPtr target){var p=VirtualAlloc(
   Call(h,"UpdateVcuInterlock");SetPosition(vcu,IntPtr.Add(communication,0x2a4944),3);
   if(Marshal.ReadByte(loc,0x8f)!=1)throw new Exception("Unsafe key removal accepted");
   typeof(TrainerIntegrationHost).GetMethod("TestBrake",f).Invoke(h,new object[]{6});int chargingCycles=0;
-  do{Call(h,"ElectricalCycle");Call(h,"ApplyTestInputs");Marshal.WriteByte(loc,0x7e,6);Call(h,"PneumaticCycle");chargingCycles++;}while((Read(cars[0],0)>=.5||Read(cars[75],0)>=.5||chain.Independent.Gauge<=3)&&chargingCycles<3000);
-  Console.WriteLine("Emergency drain: head="+Read(cars[0],0)+" tail="+Read(cars[75],0));if(chargingCycles>=3000)throw new Exception("Real TM/IM key conditions not reached");
+  do{Call(h,"ElectricalCycle");Call(h,"ApplyTestInputs");Marshal.WriteByte(loc,0x7e,6);Call(h,"PneumaticCycle");chargingCycles++;}while((Read(cars[0],0)>=.5||Read(cars[75],0)>=.5||chain.Independent.Gauge<=3)&&chargingCycles<4000);
+  Console.WriteLine("Emergency drain: head="+Read(cars[0],0)+" tail="+Read(cars[75],0));if(chargingCycles>=4000)throw new Exception("Real TM/IM key conditions not reached");
   double minWagonTc=double.MaxValue,maxWagonTc=0;for(int w=1;w<76;w++){if(Marshal.ReadByte(cars[w],0x18)!=1)throw new Exception("Loaded wagon mode mismatch");double tc=Read(cars[w],4);minWagonTc=Math.Min(minWagonTc,tc);maxWagonTc=Math.Max(maxWagonTc,tc);}if(minWagonTc<4||maxWagonTc>4.5)throw new Exception("Full loaded wagon pressure outside target range: "+minWagonTc+"/"+maxWagonTc);double imBefore=chain.Independent.Gauge,tmBefore=Read(cars[0],0);
   SetPosition(vcu,IntPtr.Add(communication,0x2a4944),2);
   for(int i=0;i<200;i++){Call(h,"ElectricalCycle");Call(h,"ApplyTestInputs");Marshal.WriteByte(loc,0x7e,2);Call(h,"PneumaticCycle");}

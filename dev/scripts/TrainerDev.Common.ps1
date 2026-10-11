@@ -458,11 +458,12 @@ function Save-TrainerContext {
         git_head=(Get-TrainerHead)
         working_tree=[ordered]@{changed_files=$dirty.Count;first_files=@($dirty|Select-Object -First 20);more=($dirty.Count -gt 20)}
         latest=$latest
-        active_focus='Сверка пневматики с РЭ: исправлены КП3/КО5 и изоляция КВТ; управляемые проверки 3/3 и свежая native regression 6/6 пройдены. ColdPoweredMain после исправления порядка штатных входов прошёл, ПМ max8.99368. Runtime217 устранён настройкой HKCU32 WorkPath на текущую рабочую копию. Candidate развёрнут. Отчёт: dev/docs/PNEUMATICS_RE_AUDIT.md.'
-        next_model_question='Холодная диагностическая пневматическая цепь подтверждена, полная подготовка реального электровоза не принята. Источник/порог/расход привода КЭБ, остальные приводы, кривая КМ2 и комплектация РЭ №137+ не установлены. NativeInitializationCapture отключён unsafe; повторный debugger capture не нужен.'
+        active_focus='Пневматика75 вагонов и поезда проверена: Pzar5.0→5.4 и Double-база native/managed устранили несоответствие профиля и ложный mass deficit при отпуске. TrainPneumatic с холодной зарядкой, служебным/экстренным торможением, выдержкой120с и обоими отпусками PASS36295циклов; regression6/6 PASS. TrainIsolation закрытых кранов/рукавов/разрыва PASS. Отчёт dev/docs/TRAIN_PNEUMATICS_AUDIT.md.'
+        next_model_question='Нормативные времена зарядки и скорость волны не приняты; tailTC threshold0.1 достигается примерно10.7с, требуется точный путь/onset и измерение0.01с. Native глобальный баланс, модификация ВР, авторежим/объемы и полный запуск ЭПК не установлены. Старый cold tempPzar0 InitSostav меняет Dut: прежние dry/control/PM PASS не подтверждают геометрию вагонов. Новая TrainPneumatic сохраняет77-node geometry. NativeInitializationCapture unsafe не применять.'
         read_next=@('dev/environment-context.json','dev/state/context.json')
         avoid_reading=@('whole telemetry.csv','all historical logs','all disassembly dumps')
         source_of_truth='outputs/*.cs; versioned snapshots dev/builds/<id>/source; Git checkpoints'
     }
     Write-TrainerJson $context (Resolve-TrainerPath 'dev/state/context.json') -Compact
 }
+

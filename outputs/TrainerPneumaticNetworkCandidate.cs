@@ -1,7 +1,7 @@
 ﻿// Experimental host coupling. Build separately: uncalibrated geometry must not silently replace the default model.
 using System;using System.IO;using System.Security.Cryptography;using System.Collections.Generic;using System.Runtime.InteropServices;using TrainerAir;
 partial class TrainerIntegrationHost {
- IntPtr nativeInitialPressureCave;IntPtr pantographPressureSources,pantographPressureCave;TwoSectionAirChain airCircuit;IntPtr secondBvr;float beforeAirPm,beforeAirAuto1,beforeAirAuto2;
+ IntPtr nativeInitialPressureCave;IntPtr pantographPressureSources,pantographPressureCave;TwoSectionAirChain airCircuit;IntPtr secondBvr;double beforeAirPm,beforeAirAuto1,beforeAirAuto2;
  IntPtr controlPowerCave;bool controlPowerCommandsConnected;IntPtr tc2Source;bool airGaugeHooks;readonly List<KeyValuePair<IntPtr,byte[]>> airGaugeOriginal=new List<KeyValuePair<IntPtr,byte[]>>();
  bool locomotiveGeometryConnected;IntPtr perPadSource,perPadCave;bool perPadConnected;
  readonly double[] compressorUnloadRemaining=new double[4];readonly byte[] savedCompressorRequests=new byte[8];
@@ -14,7 +14,10 @@ partial class TrainerIntegrationHost {
   Dbl(mem["TLocParam"],0x4f,3.5);Dbl(mem["TLocParam"],0x5f,3.5);
   // Native R codes:1 loaded,2 medium,3 empty. Scenario has75wagons at80t gross.
   // Keep the existing auto regulator enabled; its full load response is checked separately.
-  for(int w=1;w<76;w++)B(cars[w],0x18,1);
+  // Loaded R1/cast-iron train: brake rules table V.1 specifies 5.3–5.5 kgf/cm2.
+  const double trainCharge=5.4;
+  Dbl(mem["TLocParam"],0x13,trainCharge);F(mem["TLocParam"],9,(float)trainCharge);
+  for(int w=0;w<76;w++){F(cars[w],0,(float)trainCharge);F(cars[w],8,(float)trainCharge);if(w>0)B(cars[w],0x18,1);}
   // Preserve total locomotive mass and existing total native TM volume while separating two BVR states.
   secondBvr=Alloc(243);byte[] record=new byte[243];Marshal.Copy(cars[0],record,0,243);Marshal.Copy(record,0,secondBvr,243);
   var vr=Alloc(136);record=new byte[136];Marshal.Copy(Marshal.ReadIntPtr(cars[0],0xe8),record,0,136);Marshal.Copy(record,0,vr,136);Ptr(secondBvr,0xe8,vr);
@@ -22,7 +25,7 @@ partial class TrainerIntegrationHost {
   B(secondBvr,0x20,1);B(secondBvr,0x22,1);
   var array=Alloc(77*8);Ptr(array,0,mem["TLocParam"]);Ptr(array,4,cars[0]);Ptr(array,12,secondBvr);
   for(int i=1;i<76;i++)Ptr(array,(i+1)*8+4,cars[i]);I(trainData,0,77);Ptr(trainData,0x42,array);
-  airCircuit=new TwoSectionAirChain(new TwoSectionAirParameters(2000,100,1,20,1,1,1,12,6,.7,.001),8,5,8);
+  airCircuit=new TwoSectionAirChain(new TwoSectionAirParameters(2000,100,1,20,1,1,1,12,6,.7,.001),8,trainCharge,8);
   airCircuit.InitializeControlAir(5,5);
   ClientSize=new System.Drawing.Size(ClientSize.Width,315);for(int s=0;s<2;s++){int section=s;var sf3=new System.Windows.Forms.CheckBox{Left=10+s*330,Top=240,Width=320,Text="SF3 — вспом. компрессор, секция "+(s+1),Checked=true};sf3.CheckedChanged+=(sender,args)=>{controlSf3[section]=sf3.Checked;Log("SF3 section="+(section+1)+" on="+sf3.Checked);};Controls.Add(sf3);}
   auxiliaryCommandControl=new System.Windows.Forms.CheckBox{Left=10,Top=275,Width=650,ThreeState=true,CheckState=System.Windows.Forms.CheckState.Indeterminate,Text="SB1 — вспомогательный компрессор: аппаратный пульт"};auxiliaryCommandControl.CheckStateChanged+=(sender,args)=>{auxiliaryCommandOverride=auxiliaryCommandControl.CheckState==System.Windows.Forms.CheckState.Indeterminate?(bool?)null:auxiliaryCommandControl.Checked;auxiliaryCommandControl.Text="SB1 — вспомогательный компрессор: "+(auxiliaryCommandOverride.HasValue?(auxiliaryCommandOverride.Value?"включён":"выключен"):"аппаратный пульт");};Controls.Add(auxiliaryCommandControl);
@@ -123,7 +126,10 @@ partial class TrainerIntegrationHost {
   // Keep electrical requests intact outside the physical air-source call, including exceptions.
   for(int i=0;i<4;i++)if(compressorUnloadRemaining[i]>1e-8){B(loc,0x80+i,0);B(loc,0x84+i,0);}
   F(loc,5,(float)airCircuit.Pm.Gauge);F(cars[0],4,(float)airCircuit.Automatic[0].Gauge);F(secondBvr,4,(float)airCircuit.Automatic[1].Gauge);
-  beforeAirPm=FloatAt(loc,5);beforeAirAuto1=FloatAt(cars[0],4);beforeAirAuto2=FloatAt(secondBvr,4);
+  // Use the physical pressure as the mass-delta basis. A rounded Single input
+  // can exceed it: native release to zero would then remove more than available.
+  // Native output quantization remains included in the signed boundary balance.
+  beforeAirPm=airCircuit.Pm.Gauge;beforeAirAuto1=airCircuit.Automatic[0].Gauge;beforeAirAuto2=airCircuit.Automatic[1].Gauge;
  }
  partial void AfterNativeAirStep(){
   if(airCircuit==null)return;var loc=mem["TLocParam"];

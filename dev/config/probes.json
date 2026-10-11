@@ -171,7 +171,7 @@
         "outputs/Trainer_cold_main_command_findings.json"
       ],
       "kind": "diagnostic",
-      "scope": "После сухой сети и вспомогательной зарядки включает native main switch/KN7 и наблюдает нефорсированные запросы. Отсутствие питания оставляет ПМ=0; это отрицательная диагностика, не успешная зарядка ПМ.",
+      "scope": "После сухой сети и вспомогательной зарядки включает native main switch/KN7 и наблюдает нефорсированные запросы. Отсутствие питания оставляет ПМ=0; это отрицательная диагностика, не успешная зарядка ПМ. Ограничение выявлено при аудите поезда: tempPzar0 InitSostavClass перекалибровывает Dut; результат подтверждает только заявленные dry/control/PM assertions, не штатную вагонную геометрию или зарядку полного состава. Использовать TrainPneumatic для сохранённой геометрии.",
       "timeout_seconds": 180,
       "enabled": true,
       "legacy_build_script": "outputs/BuildColdMainCommandProbe.ps1"
@@ -207,7 +207,7 @@
         "outputs/Trainer_cold_no_source_validation.json"
       ],
       "kind": "regression",
-      "scope": "77 узлов, временный Pzar=0 при InitSostavClass, затем уставка 5; 1000 электрических/пневматических шагов. Каждый шаг проверяет абсолютное давление ТМ/ТЦ/ЗР и ПМ/УР <=1e-5 при выключенных компрессорах/SF3/KN7. Повторный InitNew не вызывается. Полный запуск электровоза не принят.",
+      "scope": "77 узлов, временный Pzar=0 при InitSostavClass, затем уставка 5; 1000 электрических/пневматических шагов. Каждый шаг проверяет абсолютное давление ТМ/ТЦ/ЗР и ПМ/УР <=1e-5 при выключенных компрессорах/SF3/KN7. Повторный InitNew не вызывается. Полный запуск электровоза не принят. Ограничение выявлено при аудите поезда: tempPzar0 InitSostavClass перекалибровывает Dut; результат подтверждает только заявленные dry/control/PM assertions, не штатную вагонную геометрию или зарядку полного состава. Использовать TrainPneumatic для сохранённой геометрии.",
       "timeout_seconds": 180,
       "enabled": true,
       "legacy_build_script": "outputs/BuildColdNoSourceProbe.ps1"
@@ -224,7 +224,7 @@
         "outputs/Trainer_cold_powered_main_findings.json"
       ],
       "kind": "diagnostic",
-      "scope": "Диагностическая холодная сеть из 77 узлов: безопасный InitSostavClass с Pzar=0, затем 5; сухая фаза, КМ2 и изоляция, первый токоприёмник и 3100 В, БВ со штатным возвратом. Команда основных компрессоров OFF до готовности ПСН, затем ON и зарядка ПМ >=7. Выходы компрессоров в положительной фазе не форсируются. Свежий PASS: test-20261011T100043250Z-630309b8. Полная подготовка электровоза, расход приводов и комплектация №137+ не проверяются.",
+      "scope": "Диагностическая холодная сеть из 77 узлов: безопасный InitSostavClass с Pzar=0, затем 5; сухая фаза, КМ2 и изоляция, первый токоприёмник и 3100 В, БВ со штатным возвратом. Команда основных компрессоров OFF до готовности ПСН, затем ON и зарядка ПМ >=7. Выходы компрессоров в положительной фазе не форсируются. Свежий PASS: test-20261011T100043250Z-630309b8. Полная подготовка электровоза, расход приводов и комплектация №137+ не проверяются. Ограничение выявлено при аудите поезда: tempPzar0 InitSostavClass перекалибровывает Dut; результат подтверждает только заявленные dry/control/PM assertions, не штатную вагонную геометрию или зарядку полного состава. Использовать TrainPneumatic для сохранённой геометрии.",
       "timeout_seconds": 180,
       "enabled": true,
       "legacy_build_script": "outputs/BuildColdPoweredMainProbe.ps1"
@@ -241,7 +241,7 @@
         "outputs/Trainer_cold_train_auxiliary_validation.json"
       ],
       "kind": "regression",
-      "scope": "1000 сухих +5000 зарядных шагов, 77 узлов. Assertions: РС6/РС7 достигают 3.5, тормозная сеть и ПМ/УР остаются сухими, вторую секцию источник не заряжает, баланс <1e-8. Модель SF3 и SB1 WinForms; 105 л/мин постоянная номинальная подача, расход приводов не учтен.",
+      "scope": "1000 сухих +5000 зарядных шагов, 77 узлов. Assertions: РС6/РС7 достигают 3.5, тормозная сеть и ПМ/УР остаются сухими, вторую секцию источник не заряжает, баланс <1e-8. Модель SF3 и SB1 WinForms; 105 л/мин постоянная номинальная подача, расход приводов не учтен. Ограничение выявлено при аудите поезда: tempPzar0 InitSostavClass перекалибровывает Dut; результат подтверждает только заявленные dry/control/PM assertions, не штатную вагонную геометрию или зарядку полного состава. Использовать TrainPneumatic для сохранённой геометрии.",
       "timeout_seconds": 180,
       "enabled": true,
       "legacy_build_script": "outputs/BuildColdTrainAuxiliaryProbe.ps1"
@@ -587,6 +587,38 @@
       "timeout_seconds": 180,
       "enabled": true,
       "legacy_build_script": "outputs/BuildVrServiceProbe.ps1"
+    },
+    {
+      "id": "TrainPneumatic",
+      "main_class": "TrainPneumaticProbe",
+      "title": "Пневматика всех 75 вагонов: зарядка, торможение, отпуск и волна",
+      "source": "work/pneumatic_live_fix/analysis/TrainPneumaticProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_train_pneumatic_validation.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Полная цепь 77 узлов/75 вагонов R1 с авторегуляторами; безопасная холодная инициализация и штатные источники, all-wagon bounds, head/middle/tail arrival, служебное/экстренное торможение и отпуск. Проверяет actual Pzar в 5.3–5.5 для выбранного loaded/cast-iron профиля. Не является стендом Р008/ГОСТ; native глобальный баланс и нормативные времена не приняты. Cold fixture сохраняет исходные D/Dvh/Dvyh/Dut и объекты ВР, без повторного InitSostav. Сходимость ТМ относительно головы0.3 принята для сценария75 четырехосных вагонов/300вагонных осей; допуски головы/ЗР0.15 диагностические. Волна0.1с/порог0.1 не соответствует метрологической приемке ГОСТ. Включена перекрыша1200циклов (120 номинальных секунд) с сохранением all75 TC>=0.5, <=4.5 и signed native/managed boundary readouts; guard массы не ослаблен.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "TrainIsolation",
+      "main_class": "TrainIsolationProbe",
+      "title": "Разобщение полного поезда кранами и рукавами",
+      "source": "work/pneumatic_live_fix/analysis/TrainIsolationProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_train_isolation_validation.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "75 вагонов: закрытые краны 37/38, разъединение рукавов и открытые краны с обрывом, измеренное сравнение утечки, all-wagon pressure bounds. Не нормативный стенд.",
+      "timeout_seconds": 300,
+      "enabled": true
     }
   ]
 }
