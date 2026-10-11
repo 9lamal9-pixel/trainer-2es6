@@ -337,6 +337,7 @@ function Save-TrainerArchive {
     param([switch]$IncludeRuntime)
     $lease=Get-TrainerLease
     try {
+        Add-Type -AssemblyName System.IO.Compression
         Add-Type -AssemblyName System.IO.Compression.FileSystem
         $id=New-TrainerId 'archive'
         $folder=Resolve-TrainerPath ('dev/archives/'+$id)
