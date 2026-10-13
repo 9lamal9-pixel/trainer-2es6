@@ -139,6 +139,11 @@
         "work/native_distribution/LAUNCH_TREN/PROPERTY/ClientProperty.prop"
       ],
       "finding": "Launcher сохраняет относительные PROPERTY/RESOURCES/RADIO; настройки содержат исторические LAN-адреса и bat-пути. В CAM также записан абсолютный D:\\3D\\Trenager\\main.exe. Содержимое сохранено; запуск требует отдельной адаптации."
+    },
+    {
+      "id": "missing_registered_world_apps",
+      "file": "work/native_distribution/WORLD3DSERVER/DATA/WORLDS/WorldsSettings.wset",
+      "finding": "Реестр указывает Kornilcevo/main.exe и WorldSkils/main.exe, но среди34188 распакованных файлов main.exe отсутствует. Данные сервера и DirectX meshes отдельных объектов не доказывают наличие полного визуального пакета мира. Содержимое архивов/неизвестных контейнеров до уровня встроенных приложений не проверено."
     }
   ],
   "verification": {
@@ -226,5 +231,22 @@
     "files_without_existing_content": 23518,
     "policy": "Совпадение содержимого при другом пути фиксируется отдельно; никаких дубликатов не удалено.",
     "existing_content_report_sha256": "C251A49DD212E4DC78621037AB1678103DB18FA25FF43E61CE1814EE93D5D0F2"
+  },
+  "world3d_investigation": {
+    "status": "static_passed",
+    "document": "dev/docs/WORLD3D_ARCHITECTURE.md",
+    "result": "dev/runs/world3d-investigation-20261013/result.json",
+    "result_sha256": "891BCC5D724CCA22C8754EDA9E57E3A9F8CE559260478CDA2BAEB4D7BACDA9A0",
+    "world_registry": "work/native_distribution/WORLD3DSERVER/DATA/WORLDS/WorldsSettings.wset",
+    "registered_worlds": 2,
+    "server_motion_authority": "Confirmed by RTTI and selected calls: POEZD/profile/plan/brakes",
+    "client_interface": "Trenager.dll and Camera3D.dll InitClientDll/CloseClientDll; serialization ABI incomplete",
+    "video_interface": "VideoHandle.dll InitVideoModule/GoVideo/SetLightersState/Set3DObjectParam; separate video overlay branch",
+    "current_host_bridge": "No explicit managed network or renderer bridge; local POEZD and PDF route",
+    "registered_applications_found": false,
+    "loose_files_searched": 34188,
+    "rendering_accepted": false,
+    "live_network_accepted": false,
+    "current_runtime_doctor": "dev/runs/doctor-20261013T061927121Z-b4a0fb24/doctor.json"
   }
 }
