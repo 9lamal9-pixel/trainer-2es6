@@ -23,6 +23,7 @@ class TrainerNativeSafetyProbe {
  [DllImport("kernel32.dll")] static extern UIntPtr VirtualQuery(IntPtr p,out MemoryInfo info,UIntPtr length);
  static readonly BindingFlags flags=BindingFlags.Instance|BindingFlags.NonPublic;
  static TrainerIntegrationHost host;static Dictionary<string,IntPtr> mem;static IntPtr[] cars;
+ static TrainerAutovedenieNativeBridge operatorBridge;static bool operatorBridgeOwned,operatorDrivingReleased,nativeCoastAccepted;static int operatorCommand;
  static TrainerNativeSafetyAdapter adapter;static IntPtr communication,cabForm,tumbaForm,klubModule,klubOwner,klubSlot;
  static readonly Dictionary<IntPtr,byte> cabChanges=new Dictionary<IntPtr,byte>();
  static readonly Dictionary<int,IntPtr> cabPointers=new Dictionary<int,IntPtr>();
@@ -69,14 +70,27 @@ class TrainerNativeSafetyProbe {
   klub_tmp_alsn=Marshal.ReadByte(klubOwner,0xef),klub_period=Marshal.ReadInt32(klubOwner,0x11c),klub_counter=Marshal.ReadInt32(klubOwner,0x85),klub_led=Marshal.ReadByte(klubOwner,0x12c),klub_ack_type=Marshal.ReadByte(klubOwner,0x131),
   source_pisk=new[]{Marshal.ReadByte(common,0x16),Marshal.ReadByte(own,0xe),Marshal.ReadByte(common,0x23),Marshal.ReadByte(common,0x29),Marshal.ReadByte(common,0x30)},
   envelope_pisk=new[]{Marshal.ReadByte(adapter.InputOutput,0x16),Marshal.ReadByte(adapter.InputOutput,0xe),Marshal.ReadByte(adapter.InputOutput,0x23),Marshal.ReadByte(adapter.InputOutput,0x29),Marshal.ReadByte(adapter.InputOutput,0x30)},
-  state=Decision()==null?"null":Decision().State.ToString(),enabled=Decision()!=null&&Decision().DriveEnabled,reason=Decision()==null?"":Decision().Reason,electrical_faults=Field("electricalFaults")};}
+  diagnostic_operator_active=operatorBridge!=null,diagnostic_operator_command=operatorCommand,native_controller_position=Marshal.ReadInt32(mem["TTygaParam"],0xc),native_traction_groups=new[]{Marshal.ReadByte(mem["TTygaParam"],0x1f),Marshal.ReadByte(mem["TTygaParam"],0x20),Marshal.ReadByte(mem["TTygaParam"],0x21),Marshal.ReadByte(mem["TTygaParam"],0x22)},native_vigilance_positions=new[]{Marshal.ReadByte(mem["TPBBtnPos"],0),Marshal.ReadByte(mem["TPBBtnPos"],1),Marshal.ReadByte(mem["TPBBtnPos"],2),Marshal.ReadByte(mem["TPBBtnPos"],3),Marshal.ReadByte(mem["TPBBtnPos"],4)},
+   state=Decision()==null?"null":Decision().State.ToString(),enabled=Decision()!=null&&Decision().DriveEnabled,reason=Decision()==null?"":Decision().Reason,electrical_faults=Field("electricalFaults")};}
  static void NoDiagnosticInputs(){
   if(Field("commandedKm")!=null||Field("fileKm")!=null||(bool)Field("safetyPower")||(bool)Field("momentaryCharge"))throw new Exception("Diagnostic control/pressure/safety override active");
   if(File.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"Trainer_commands.txt")))throw new Exception("Native safety test requires no command file");
  }
  static void Step(bool dispatch=false){
   if(watch.Elapsed.TotalSeconds>230||cycles>9000)throw new Exception("Native safety scenario bound reached");
-  NoDiagnosticInputs();Call("PollCommands");Call("BeforeAutovedenieCycle");Call("ElectricalCycle");Call("AfterAutovedenieElectricalCycle");Call("ApplyTestInputs");
+  NoDiagnosticInputs();Call("PollCommands");Call("BeforeAutovedenieCycle");
+   // This fixture supplies explicit operator pulses only after the disabled
+   // production controller has published its non-driving state. No calibration
+   // or production AVP decision is enabled by this diagnostic input path.
+   if(operatorBridge!=null){
+    if(Field("avpController")!=null||Decision()!=null&&Decision().DriveEnabled)throw new Exception("Production AVP unexpectedly owns the diagnostic operator path");
+    var l=mem["TLocParam"];var p=mem["TPult"];
+    if(Marshal.ReadByte(l,0x7d)!=2||Marshal.ReadByte(l,0x7e)!=2||Marshal.ReadInt32(p,0x69)!=0||Marshal.ReadInt32(p,0x65)!=0||Marshal.ReadByte(p,0x26)!=0||Marshal.ReadByte(p,0x23)!=0||Marshal.ReadByte(p,0x24)!=0)throw new Exception("Manual input has priority over diagnostic native pulses");
+    operatorBridge.SubmitDecision(new TrainerAvpDecision{State=TrainerAvpState.Automatic,DriveEnabled=true,SuggestedTractionCommand=operatorCommand});
+   }
+   Call("ElectricalCycle");
+   if(operatorBridge!=null&&(operatorBridge.Fault.Length!=0||operatorBridge.CancellationLatched))throw new Exception("Diagnostic native operator path refused: "+operatorBridge.Fault+" / "+operatorBridge.ReadyReason);
+   Call("AfterAutovedenieElectricalCycle");Call("ApplyTestInputs");
   Call("RouteInputCycle");Call("AuxCycle");Call("KlubCoordinateCycle");
   var input=mem["TInputParamPult"];byte saved=Marshal.ReadByte(input,0x1e);
   try {
@@ -153,14 +167,41 @@ class TrainerNativeSafetyProbe {
   Check("ACK recovers coil with no trip",Marshal.ReadByte(mem["TLocParam"],0x9a)==1&&Marshal.ReadByte(mem["TLocParam"],0x9b)==0,"coil1/trip0",Row());allowedAckAccepted=true;rows.Add(Row());
  }
  static void AcquireNativeMotionAndAck(){
-  whiteScenario=true;phase="real_native_motion";Digit(5,"safety_explicit_auto_key5");
+  whiteScenario=true;phase="diagnostic_native_operator_start";
+  Check("Changed consist keeps production AVP disabled",Field("avpController")==null&&Decision()!=null&&!Decision().DriveEnabled,"controller absent / non-driving decision",Field("avpUnavailable"));
+  var inactive=(TrainerAutovedenieNativeBridge)Field("avpNative");
+  Check("No production bridge command ownership before diagnostic input",inactive==null||!inactive.OwnsCommands,false,inactive!=null&&inactive.OwnsCommands);
+  operatorBridgeOwned=inactive==null;
+  operatorBridge=inactive??TrainerAutovedenieNativeBridge.Attach(mem["CommOwner"],mem["TPult"],mem["TLocParam"],reason=>{throw new Exception("Diagnostic native operator path cancelled: "+reason);});
+  operatorBridge.SetOperatorInputSource(ptr=>(IDisposable)typeof(TrainerIntegrationHost).GetMethod("AutovedenieOperatorInputScope",flags).Invoke(host,new object[]{ptr}));
+  operatorBridge.SetAdditionalSafetySource(()=>(string)typeof(TrainerIntegrationHost).GetMethod("StandaloneSautSafetyReason",flags).Invoke(host,null));
+  Cab(0x3e0,0);
   for(int i=0;i<2500;i++){
-   Step();if(Marshal.ReadByte(mem["TOutParamAllTRen"],0x16)==1)AcknowledgeKlub();
-   if(allowedAckAccepted&&Speed()>=3&&F(mem["TResTyga"],0)>0){Check("Native traction and motion without assignment",forceObserved&&motionObserved,true,Row());return;}
-   if(allowedAckAccepted&&!Decision().DriveEnabled){phase="explicit_rearm_after_operator_ACK";Digit(5,"safety_rearm_after_RBS");}
-  }throw new Exception("Real native motion and firmware allowed ACK not reached");
+   operatorCommand=i%10==0?1:0;Step();
+   if(Marshal.ReadByte(mem["TOutParamAllTRen"],0x16)==1){operatorCommand=0;AcknowledgeKlub();}
+   // A coasting prepared fixture must remain moving through the next70s firmware period.
+   // At3kmh fresh160508 coast reached<1kmh before trip and correctly cleared Period to0.
+   // Reach8kmh through real operator traction; never seed speed or change the period assertion.
+   if(allowedAckAccepted&&Speed()>=8&&F(mem["TResTyga"],0)>0){
+    Check("Native traction and motion without assignment",forceObserved&&motionObserved,true,Row());
+    Check("Genuine start has no uncontrolled-motion indication",Marshal.ReadByte(klubOwner,0x11b)==0,0,Marshal.ReadByte(klubOwner,0x11b));
+    return;
+   }
+  }throw new Exception("Real native motion and firmware allowed ACK not reached by explicit diagnostic operator pulses");
+ }
+ static void ReleaseDiagnosticDriving(){
+  phase="diagnostic_native_operator_coast_handoff";
+  Check("Diagnostic bridge exists before coast",operatorBridge!=null,true,operatorBridge!=null);
+  operatorCommand=5;Step();operatorBridge.ReleaseCommands();
+  // A bridge borrowed from the host remains installed for input/protection
+  // scopes and is disposed only by the host's CloseAutovedenie lifecycle.
+  if(operatorBridgeOwned)operatorBridge.Dispose();operatorBridge=null;operatorCommand=0;operatorDrivingReleased=true;
+  Cab(0x3e0,1);Warm(30);
+  nativeCoastAccepted=Math.Abs(F(mem["TResTyga"],0))<.001&&Marshal.ReadByte(mem["TPult"],0x26)==1&&Field("avpController")==null&&(Decision()==null||!Decision().DriveEnabled);
+  Check("Actual native coast before missed acknowledgement",nativeCoastAccepted,"native force0 / physical coast1 / AVP disabled",Row());
  }
  static void MissedAck(){
+  Check("Diagnostic command ownership released before missed ACK",operatorDrivingReleased&&operatorBridge==null&&nativeCoastAccepted,true,operatorDrivingReleased);
   phase="native_KLUB_missed_ACK";Released();var loc=mem["TLocParam"];requestPressure=F(loc,0x9f);preTripTm=F(cars[0],0);preTripTc=F(loc,13);
   Check("Missed-ACK phase begins without request/trip",Marshal.ReadByte(mem["TOutParamAllTRen"],0x16)==0&&Marshal.ReadByte(loc,0x9b)==0,"request0/trip0",Row());
   for(int i=0;i<2000;i++){
@@ -183,24 +224,24 @@ class TrainerNativeSafetyProbe {
  static void Save(bool passed){var json=new JavaScriptSerializer{MaxJsonLength=8000000};File.WriteAllText(TrainerSession.ResultPath("Trainer_native_safety.json"),json.Serialize(new{
   passed=passed,error=failure,checks=checks,rows=rows,native_keys=keyRows,cycles=cycles,elapsed_seconds=watch.Elapsed.TotalSeconds,
   native_operator_antiwedging_accepted=antiwedgingAccepted,native_firmware_allowed_ack_accepted=allowedAckAccepted,native_missed_ack_pressure_trip_accepted=missedAckAccepted,native_physical_braking_accepted=physicalBrakeAccepted,
-  actual_native_force_observed=forceObserved,actual_native_motion_observed=motionObserved,input_guards_restored=restored,adapter_own_allocations_released=adapterDetached,native_closed=closed,
+  actual_native_force_observed=forceObserved,actual_native_motion_observed=motionObserved,diagnostic_operator_command_path=true,diagnostic_command_ownership_released=operatorDrivingReleased,native_actual_coast_accepted=nativeCoastAccepted,diagnostic_uses_host_bridge=!operatorBridgeOwned,production_avp_controller_disabled=host!=null&&Field("avpController")==null,input_guards_restored=restored,adapter_own_allocations_released=adapterDetached,native_closed=closed,
   stage_cycles=new{alarmCycle,piskCycle,coilCycle,tripCycle},native_pressure=new{requestPressure,minimumPressure},
   factory=new{exe_sha=TrainerNativeSafetyAdapter.MainSha256,method_rva="330EDC",method_bytes=687,method_sha=TrainerNativeSafetyAdapter.BodySha256,getter_sha=TrainerNativeSafetyAdapter.GetterSha256,constant_sha=TrainerNativeSafetyAdapter.ConstantsSha256},
-  scope="Prepared-air controlled native integration; actual cab/GUI operator inputs, real traction and native physics. Scoped CodeWay5 White source goes only to KLUB; no live route markup/occupancy claim. No managed protection/force/speed/pressure/contactor output writes, initial-speed assignment, AutoACK production or full factory/RE137+ certification."}));}
+  scope="Prepared-air controlled native integration; actual cab/GUI operator inputs plus explicit diagnostic +1/coast through the guarded original Pult bridge, real traction and native physics; changed-consist production AVP remains disabled. Scoped CodeWay5 White source goes only to KLUB; no live route markup/occupancy claim. No managed protection/force/speed/pressure/contactor output writes, initial-speed assignment, AutoACK production or full factory/RE137+ certification."}));}
  [STAThread]static int Main(){Application.EnableVisualStyles();watch.Start();int exit=1;
   try{
    Check("x86 safety ABI",IntPtr.Size==4,4,IntPtr.Size);if(File.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"Trainer_commands.txt")))throw new Exception("Command file present");
    host=(TrainerIntegrationHost)Activator.CreateInstance(typeof(TrainerIntegrationHost),true);var handle=host.Handle;Call("StartNative");var timer=(Timer)Field("timer");if(timer==null)throw new Exception("Host failed native startup");timer.Stop();
-   mem=(Dictionary<string,IntPtr>)Field("mem");cars=(IntPtr[])Field("cars");NoDiagnosticInputs();Check("Production AVP ready for physical fixture",(bool)Field("avpInitialized")&&Ui()!=null,true,Field("avpUnavailable"));
+   mem=(Dictionary<string,IntPtr>)Field("mem");cars=(IntPtr[])Field("cars");NoDiagnosticInputs();Check("Native operator interface ready independently of AVP calibration",(bool)Field("avpInitialized")&&Ui()!=null,true,Field("avpUnavailable"));Check("Production AVP remains disabled for the changed consist",Field("avpController")==null&&Decision()!=null&&!Decision().DriveEnabled,"controller absent / non-driving decision",Field("avpUnavailable"));
    klubModule=GetModuleHandle("KLUB_U_LCD_XE2.dll");klubSlot=Marshal.ReadIntPtr(klubModule,0x1d7028);klubOwner=Marshal.ReadIntPtr(klubSlot);Check("Native KLUB owner",Readable(klubOwner,0x132)&&Name(klubOwner)=="TProceedKLUB","TProceedKLUB",Name(klubOwner));
    oldVigilance=((CheckBox)Field("vigilanceSoftwareInputs")).Checked;oldPermission=((CheckBox)Field("avpMovementPermission")).Checked;oldSoftwareTd=((CheckBox)Field("avpSoftwareTd")).Checked;oldTd1=((CheckBox)Field("avpTd1")).Checked;oldTd2=((CheckBox)Field("avpTd2")).Checked;oldTarget=((NumericUpDown)Field("avpTargetLimit")).Value;oldMonitor=((ComboBox)Field("monitorCombo")).SelectedIndex;oldSautChoice=((ComboBox)Field("standaloneSautChoice")).SelectedIndex;uiSaved=true;
-   AdapterGuards();Setup();Antiwedging();ReleaseForMotion();Settings();AcquireNativeMotionAndAck();MissedAck();
+   AdapterGuards();Setup();Antiwedging();ReleaseForMotion();Settings();AcquireNativeMotionAndAck();ReleaseDiagnosticDriving();MissedAck();
    Check("All mandatory native safety phases",antiwedgingAccepted&&allowedAckAccepted&&missedAckAccepted&&physicalBrakeAccepted,true,true);exit=0;
   }catch(Exception error){failure=error.ToString();Console.WriteLine(error);}
   finally{
    if(host!=null){
     try{
-     if(mem!=null){whiteScenario=false;Released();Call("CloseAutovedenie");
+     if(mem!=null){whiteScenario=false;Released();if(operatorBridge!=null){operatorBridge.ReleaseCommands();if(operatorBridgeOwned)operatorBridge.Dispose();operatorBridge=null;operatorCommand=0;}Call("CloseAutovedenie");
       foreach(var change in cabChanges)Marshal.WriteByte(change.Key,change.Value);
       foreach(var change in cabChanges)Check("Cab input restored "+change.Key.ToString("X"),Marshal.ReadByte(change.Key)==change.Value,change.Value,Marshal.ReadByte(change.Key));
       if(nativeInputsSet){Position(Marshal.ReadIntPtr(cabForm,0x3b0),oldKm);Position(Marshal.ReadIntPtr(cabForm,0x3b4),oldKvt);Position(Marshal.ReadIntPtr(tumbaForm,0x3ac),oldEpk);Position(Marshal.ReadIntPtr(tumbaForm,0x3a4),oldVcu);Check("Actual native handle sources restored",Marshal.ReadByte(mem["TLocParam"],0x7d)==oldKm&&Marshal.ReadByte(mem["TLocParam"],0x7e)==oldKvt&&Marshal.ReadByte(mem["TLocParam"],0x99)==oldEpk&&Marshal.ReadByte(mem["TLocParam"],0x8f)==oldVcu,"original KM/KVT/EPK/VCU",true);}

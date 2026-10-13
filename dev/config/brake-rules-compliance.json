@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "status": "current_composite_configuration_native_scenarios_passed_full_compliance_pending",
+  "user_configuration": {
+    "freight_wagons": 75,
+    "wagon_gross_t": 80,
+    "wagon_axles": 300,
+    "wagon_mass_t": 6000,
+    "total_physical_mass_t": 6200,
+    "total_physical_axles": 308,
+    "wagon_pad_material": "composite",
+    "wagon_ftk": 0,
+    "wagon_vr_mode": 2,
+    "wagon_auto_regulator": 1,
+    "wagon_grade_mode": 0,
+    "charge_setpoint_kgf_cm2": 5.1,
+    "locomotive_ftk": 1,
+    "locomotive_material_status": "separate existing candidate; exact RE/equipment calibration pending"
+  },
+  "source": {
+    "reference_id": "brake-rules-83-2025",
+    "path": "work/reference_inputs/J_tormoza_2026_июля.pdf",
+    "sha256": "39DB7A0F06A5694D64EE260F53F98F20F6C5FEF3ACDB619CF5DAACCBCD90ACA2"
+  },
+  "requirements": [
+    {
+      "section": "7.3.2",
+      "pdf_pages": [
+        51,
+        52
+      ],
+      "requirement": "Composite pads with AR require medium mode; loaded exceptions require separate authorization.",
+      "implementation": "All75 configured native R2/AR1; no force or pressure output substitutions."
+    },
+    {
+      "section": "3.2.29 table1",
+      "pdf_pages": [
+        25,
+        26
+      ],
+      "requirement": "Charging pressure5.0..5.2 kgf/cm2 for loaded wagons on medium mode.",
+      "implementation": "Setpoint5.1; new TrainPneumatic cold actual locomotiveTM5.0253, service/emergency recharge5.0247/5.0272 andwagonspread<=0.3 passed."
+    },
+    {
+      "section": "17.2.4",
+      "pdf_pages": [
+        173
+      ],
+      "requirement": "TC maxima4.5/3.4/1.8 refer to wagons withoutAR; withAR pressure must track actual load.",
+      "implementation": "AR enabled; native load response not accepted yet; no universal3.4 clamp."
+    },
+    {
+      "section": "10.1.16;16.1.1",
+      "pdf_pages": [
+        96,
+        167,
+        168
+      ],
+      "requirement": "After stop full auxiliary brake. If descending train moves after release, apply train brakes and prescribed securing procedure.",
+      "implementation": "Stopped controller latches full nativeKVT6 and coasts until explicit driver action. Native20kmh −8 test passed IV+VI60s and real repeat0.7UR after release movement+60s hold. IndependentKVT-only wholeconsisthold remains unconfirmed."
+    },
+    {
+      "section": "10.3.1a/b",
+      "pdf_pages": [
+        106
+      ],
+      "requirement": "First loaded step0.5..0.8; feed lap>=6s for<=350wagon axles; subsequent steps0.3..0.8.",
+      "implementation": "First0.7 and6s present; subsequent-step state machine pending."
+    },
+    {
+      "section": "10.3.1g/d",
+      "pdf_pages": [
+        106,
+        107
+      ],
+      "requirement": "Between repeated downhill brakes recharge>=60s, otherwise next step>=previous+0.3; ordinary continuous brake<=150s.",
+      "implementation": "Full recharge/step-history timing pending; production AVP calibration disabled."
+    },
+    {
+      "section": "10.3.1k/m/o/r",
+      "pdf_pages": [
+        108,
+        109
+      ],
+      "requirement": "Moving traction delay>=60s plus tail release; normal full releaseI tocharge+0.2..0.6 thenII; pre-releaseKVT1.0..2.2 for30..40s; stopped restart90/120/360s for service/full/emergency, cold factor1.5.",
+      "implementation": "Complete release/restart operator state machine pending. Full stopped KVT is distinct from pre-release moving pressure."
+    }
+  ],
+  "ftk_identification": {
+    "kind": "mathematical identification, not OEM named enum",
+    "poezd_sha256": "822B6D17CE45F80179A512EE6C70A35D5AE29BF187530BDA5EBD11446CFB3553",
+    "array_rva": "0x1AD7C",
+    "consumer_rva": "0x1DBC..0x1EC4",
+    "formula_source": "https://prom-trans.kz/assets/files/zhurnal/1_50.pdf",
+    "pdf_page": 20,
+    "formulas": [
+      16,
+      17
+    ],
+    "composite_constants": [
+      0.055,
+      20,
+      5,
+      41.7,
+      20.85
+    ],
+    "cast_iron_constants": [
+      0.031,
+      6.25,
+      1.92,
+      27.78,
+      5.56
+    ]
+  },
+  "legacy_avp_calibration": {
+    "accepted": false,
+    "reason": "ChangedFTk1/R1 toFTk0/R2; historical coefficient invalid for current consist."
+  },
+  "full_model_compliance_accepted": false,
+  "validation": {
+    "run": "dev/runs/test-20261013T155611806Z-cd9be9fb",
+    "controller": {
+      "passed": true,
+      "scope": "Managed horizon and fullKVT latch/ownership; not nativeAVP calibration"
+    },
+    "train_pneumatic": {
+      "passed": true,
+      "exit_code": 0,
+      "session_closed": true,
+      "exceptions": 0,
+      "cycles": 35984,
+      "pressure_checks": 8096625,
+      "configuration_checks": 2699100,
+      "actual_locomotive_tm_cold_charge": 5.025306224822998,
+      "actual_ur_service_reduction": 0.6613750457763672
+    },
+    "adverse_brake": {
+      "passed": true,
+      "exit_code": 0,
+      "session_closed": true,
+      "exceptions": 0,
+      "assertions": 131,
+      "initial_speed_kmh": 20,
+      "head_start_m": 57900,
+      "stop_m": 58229.546875,
+      "whole_consist_stop_velocity_max_m_s": 0,
+      "secured_hold": "Real measuredIV+fullVI,60s all76 velocities below0.3kmh; repeated0.7UR after release movement, another60sIV+VI",
+      "independent_only_hold_confirmed": false,
+      "movement_detected_after_release": true,
+      "calibration_approved": false,
+      "final_run": "dev/runs/test-20261013T160508781Z-622f28e2"
+    },
+    "failed_evidence": {
+      "low_actual_pressure_run": "dev/runs/test-20261013T155158529Z-a3886cb4",
+      "independent_only_hold_failure_run": "dev/runs/test-20261013T155028576Z-ff4f3572",
+      "resolution": "Permitted midrange5.1 while preserving actual5.0..5.2; secured stop requires trainIV+fullVI, release motion triggers real reapplication. No weakened thresholds."
+    },
+    "safety": {
+      "vigilance": {
+        "run": "dev/runs/test-20261013T155820864Z-d0cb4bd3",
+        "passed": true,
+        "assertions": 753,
+        "exit_code": 0,
+        "session_closed": true
+      },
+      "markup": {
+        "run": "dev/runs/test-20261013T155820864Z-d0cb4bd3",
+        "passed": true,
+        "assertions": 4130,
+        "exit_code": 0,
+        "session_closed": true
+      },
+      "epk": {
+        "run": "dev/runs/test-20261013T160654450Z-ac92f322",
+        "passed": true,
+        "assertions": 107,
+        "cycles": 1996,
+        "exit_code": 0,
+        "session_closed": true,
+        "scope": "Genuine operator8kmh start, timely/missedRBS, realchamberpressuretrip andactualTM/TC; productionAVP disabled"
+      }
+    }
+  },
+  "pending_hardware_saut_review": "Existing hardware SAUT Lap branch NativeSystems overrides physicalKMV withIV; standalone source avoids this path. Requires actual hardware command contract/priority native proof before acceptance."
+}

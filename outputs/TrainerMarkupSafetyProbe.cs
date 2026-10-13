@@ -330,7 +330,8 @@ class TrainerMarkupSafetyProbe {
         phase = "declared_initial_" + label;
         Call("CancelAutovedenie", "Изменены начальные условия проверки разметки");
         var initialize = (Delegate)Field("stateTrain");
-        initialize.DynamicInvoke(new object[] { (float)nativeX, initialSpeedKmh/3.6f, 2, 76 });
+        // Native SetInitState2435 multiplies its km/h argument by xword27D8=1/3.6.
+        initialize.DynamicInvoke(new object[] { (float)nativeX, initialSpeedKmh, 2, 76 });
         // POEZD publishes its current output vector on the first real model step.
         Call("MotionCycle");
         var nativeRead = (Delegate)Field("readTrain");
@@ -339,6 +340,8 @@ class TrainerMarkupSafetyProbe {
         float x = Convert.ToSingle(measured[0]), velocity = Convert.ToSingle(measured[1]), acceleration = Convert.ToSingle(measured[3]);
         Check("Native initial readback " + label, Finite(x) && Finite(velocity) && Finite(acceleration) && Math.Abs(x - nativeX) < (initialSpeedKmh==0?.001:initialSpeedKmh/3.6*.11),
             nativeX, x);
+        Check("Native initial velocity units " + label, Math.Abs(velocity-initialSpeedKmh/3.6f)<.04,
+            "m/s near "+(initialSpeedKmh/3.6f), velocity);
         SetField("position", x); SetField("signedVelocity", velocity); SetField("acceleration", acceleration);
         var input = Memory("TInputParamPult", 52);
         InitialSensorFloat(input, 1, Math.Abs(velocity) * 3.6f);

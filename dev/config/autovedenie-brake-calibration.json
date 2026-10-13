@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "status": "model_specific_candidate",
+  "status": "invalidated_by_consist_change",
   "source_run": "dev/runs/test-20261013T101423817Z-e8a8ff9b",
   "calibration": {
-    "accepted": true,
+    "accepted": false,
     "reference_mass_t": 6200,
     "reference_wagons": 75,
     "reference_length_m": 1126.18,
@@ -41,5 +41,25 @@
   },
   "previous_full_service_source_run": "dev/runs/test-20261013T084737764Z-899a2974",
   "versioned_evidence": "dev/config/autovedenie-calibration-evidence",
-  "source_result_sha256": "278C6D56031614099D041A6CA045E0FFDCA39DE734EEFDCCBB3260A7E8200861"
+  "source_result_sha256": "278C6D56031614099D041A6CA045E0FFDCA39DE734EEFDCCBB3260A7E8200861",
+  "invalidated_utc": "2026-10-13",
+  "invalidation_reason": "All75 freight wagons changed from native FTk1/R1 to composite FTk0/medium R2 with AR1 per user and brake rules83/2026 section7.3.2. Legacy coefficient is retained only as historical evidence; no automatic driving acceptance for the new consist.",
+  "legacy_model_configuration": {
+    "wagon_count": 75,
+    "wagon_gross_mass_t": 80,
+    "wagon_ftk": 1,
+    "wagon_vr_mode": 1,
+    "wagon_auto_regulator": 1,
+    "wagon_grade_mode": 0,
+    "charging_kgf_cm2": 5
+  },
+  "required_model_configuration": {
+    "wagon_count": 75,
+    "wagon_gross_mass_t": 80,
+    "wagon_ftk": 0,
+    "wagon_vr_mode": 2,
+    "wagon_auto_regulator": 1,
+    "wagon_grade_mode": 0,
+    "charging_kgf_cm2": 5.1
+  }
 }

@@ -14,10 +14,13 @@ partial class TrainerIntegrationHost {
   Dbl(mem["TLocParam"],0x4f,3.5);Dbl(mem["TLocParam"],0x5f,3.5);
   // Native R codes:1 loaded,2 medium,3 empty. Scenario has75wagons at80t gross.
   // Keep the existing auto regulator enabled; its full load response is checked separately.
-  // Loaded R1/cast-iron train: brake rules table V.1 specifies 5.3–5.5 kgf/cm2.
-  const double trainCharge=5.0; // User-selected charging pressure; loaded-profile rules require 5.3–5.5.
+  // User configuration: all75 wagons have composite pads and AR; rules83/2026 section7.3.2 requires medium R2.
+  // Table1 permits charging5.0–5.2 kgf/cm2 for this configuration. Locomotive BVR stays separate.
+  // At5.0 setpoint fresh cold test155158 measured locomotiveTM4.927 (<norm5.0).
+  // Use allowed midrange5.1; retain the actual TM5.0..5.2 acceptance check.
+  const double trainCharge=5.1;
   Dbl(mem["TLocParam"],0x13,trainCharge);F(mem["TLocParam"],9,(float)trainCharge);
-  for(int w=0;w<76;w++){F(cars[w],0,(float)trainCharge);F(cars[w],8,(float)trainCharge);if(w>0)B(cars[w],0x18,1);}
+  for(int w=0;w<76;w++){F(cars[w],0,(float)trainCharge);F(cars[w],8,(float)trainCharge);if(w>0)B(cars[w],0x18,2);}
   // Preserve total locomotive mass and existing total native TM volume while separating two BVR states.
   secondBvr=Alloc(243);byte[] record=new byte[243];Marshal.Copy(cars[0],record,0,243);Marshal.Copy(record,0,secondBvr,243);
   var vr=Alloc(136);record=new byte[136];Marshal.Copy(Marshal.ReadIntPtr(cars[0],0xe8),record,0,136);Marshal.Copy(record,0,vr,136);Ptr(secondBvr,0xe8,vr);

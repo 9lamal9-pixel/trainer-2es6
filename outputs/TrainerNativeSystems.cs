@@ -38,12 +38,13 @@ partial class TrainerIntegrationHost {
   // EPK.Pkam is a packed Single at +0x9f; +0xa1 would overwrite part of cntKON.
   B(loc,0x7d,2);B(loc,0x7e,2);B(loc,0x80,1);B(loc,0x81,1);B(loc,0x8e,1);B(loc,0x8f,1);B(loc,0x90,1);B(loc,0x91,1);B(loc,0xa8,1);F(loc,0x9f,8);
   PrepareNativeAirCircuit(); var th=Library("TormModel.dll");EnablePneumaticMainTiming(th);byte init=Export<BoolInitFn>(th,"InitNew")();byte trainInit=Export<TrainInitFn>(th,"InitSostavClass")(trainData);Log("Pneumatics InitNew="+init+" InitSostavClass="+trainInit+" vehicles="+Marshal.ReadInt32(trainData));if(init!=1||trainInit!=1)throw new Exception("Pneumatic initialization failed");pneumoStep=Export<TrainStepFn>(th,"ProceedTormClass");
-  var ph=Library("POEZD.DLL");var set=Export<SostavFn>(ph,"SetSostav");set(200,31.93f,.065f,2,2,1,76);for(int n=1;n<76;n++)set(80,14.59f,.065f,1,1,1,76);
+  var ph=Library("POEZD.DLL");var set=Export<SostavFn>(ph,"SetSostav");set(200,31.93f,.065f,2,2,1,76);for(int n=1;n<76;n++)set(80,14.59f,.065f,1,1,0,76);
   // SetSostav argument 6 is FTk, a two-entry brake-pad table index, not axle count.
-  // FTk=1 is the original generic vehicle constructor default; 308 axles are metadata only.
+  // FTk=0 matches the composite-pad friction law; FTk=1 remains separate for the locomotive.
+  // The consist has 300 wagon axles; total physical train including locomotive has 308.
   ConfigureNativeRoute(ph);
   stateTrain=Export<StateFn>(ph,"SetInitState");stateTrain(position,0,2,76);motionStep=Export<PoezdFn>(ph,"Poezd");brakeTrain=Export<BrakeFn>(ph,"SetTorm");readTrain=Export<ValuesFn>(ph,"GetCurVal");physicsReady=true;
-  Log("POEZD native model initialized: 6000t wagons + 200t two-section locomotive, 76 vehicles, 308 axles, brake-pad table FTk=1 (native default), route profile/curves from user PDF");
+  Log("POEZD native model initialized: 6000t wagons + 200t two-section locomotive, 76 vehicles, 308 axles, wagon composite-pad table FTk=0 / medium R2 / AR enabled; locomotive FTk=1, route profile/curves from user PDF");
  }
  static byte[] Hex(string x){var b=new byte[x.Length/2];for(int n=0;n<b.Length;n++)b[n]=Convert.ToByte(x.Substring(n*2,2),16);return b;}
  // RE6 section 7.3: arbitrate SAUT commands without moving the physical KM handle. Native EPK trip and emergency KM remain above ordinary commands.

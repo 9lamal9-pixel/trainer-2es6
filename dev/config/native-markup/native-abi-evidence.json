@@ -70,5 +70,17 @@
     "Original route axis differs from PDF",
     "Empty original .ogran; teaching operational80 cap declared",
     "Exact RE137+ revision unresolved"
-  ]
+  ],
+  "poezd_initial_speed": {
+    "dll": "POEZD.DLL",
+    "sha256": "822B6D17CE45F80179A512EE6C70A35D5AE29BF187530BDA5EBD11446CFB3553",
+    "export": "SetInitState",
+    "speed_argument": "km/h",
+    "published_GetCurVal_velocity": "m/s",
+    "proof": "RVA2435 fld xword27D8;243B fmul [ebp+0C];2441 store velocity18F04",
+    "constant_rva": "27D8",
+    "constant_bytes": "3C8DE3388EE3388EFD3F",
+    "constant_value": 0.2777777777777778,
+    "fixture_correction": "MarkupSafety moving case8kmh previously passed8/3.6 to initializer and physically ran2.222kmh. Now8f plus fresh actual native velocity readback. Signal/EPK acceptance scope otherwise unchanged."
+  }
 }

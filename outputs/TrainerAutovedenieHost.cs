@@ -103,9 +103,11 @@ partial class TrainerIntegrationHost {
             avpEditorOpen=settings.EditorOpen; avpSettingsSignature=AutovedenieSettingsSignature(settings);
         } catch (Exception error) { avpUnavailable="Интерфейс МПСУиД не подключён: "+error.Message; Log(avpUnavailable); }
         try {
+            // Pressure feedback is read-only and remains available to diagnostics while a
+            // changed consist awaits fresh AVP calibration. It grants no drive ownership.
+            InitializeAutovedenieBrakeSource();
             double coefficient=LoadAutovedenieCalibration();
             string model=AutovedenieModelReason(); if (model.Length!=0) throw new Exception(model);
-            InitializeAutovedenieBrakeSource();
             avpController=new TrainerAutovedenieController(route,coefficient,avpReferenceMass);
         } catch (Exception error) {
             if (avpUnavailable.Length!=0) avpUnavailable+="; ";
@@ -303,6 +305,11 @@ partial class TrainerIntegrationHost {
         if (!input.SettingsValid) return avpUi==null ? "Нет интерфейса МПСУиД" : avpUi.ReadSettings().Reason;
         if (!input.Ready) return input.NotReadyReason;
         if (!input.CanApplyTraction && !AutovedenieOwnsController()) return "Сигнал ТМ: включение тяги запрещено";
+        // Full native-source braking has a fresh 20km/h prepared proof; FTk1
+        // force decreases with speed. This interim admission bound must be
+        // replaced by verified high-speed calibration, not extrapolated.
+        if (route!=null && route.native_axis && input.OperationalLimitKmh>20)
+            return "На полной разметке пока подтверждены задания до 20 км/ч; для большей скорости нужна тормозная калибровка";
         if (input.Operation==TrainerAvpOperation.SignalFollowing) return "Нет подтверждённого живого сигнального задания для режима по удалению";
         if (input.Operation==TrainerAvpOperation.CatchUp) return "Алгоритм режима нагон не подтверждён документацией";
         if (input.Operation!=TrainerAvpOperation.Ordinary) return "Неизвестный режим автоведения";
@@ -378,7 +385,7 @@ partial class TrainerIntegrationHost {
     int? AutovedenieKvtRequest() {
         if (!avpInitialized || avpClosing || avpDecision==null || !avpDecision.DriveEnabled || avpNative==null || !avpNative.OwnsCommands) return null;
         int kvt=avpDecision.KvtPosition;
-        if (kvt!=2 && kvt!=3) { CancelAutovedenie("Неподдерживаемая команда независимого тормоза АВП"); return null; }
+        if (kvt!=2 && kvt!=3 && kvt!=6) { CancelAutovedenie("Неподдерживаемая команда независимого тормоза АВП"); return null; }
         return kvt;
     }
     void PublishAutovedenie() {
@@ -473,7 +480,18 @@ partial class TrainerIntegrationHost {
             Marshal.ReadInt32(mem["TInputParamPult"],0x2c)!=75 || Marshal.ReadInt32(mem["TInputParamPult"],0x30)!=6000 ||
             Marshal.ReadInt32(cars[0],0x25)!=100 || Math.Abs(AutovedeniePhysicalMass()-6200)>.001)
             return "Для этого состава тормозная калибровка не подтверждена (6200 т, 75 вагонов)";
-        for (int n=1;n<cars.Length;n++) if (Marshal.ReadInt32(cars[n],0x25)!=80) return "Изменена физическая масса вагона; требуется новая калибровка";
+        // The accepted historical proof is FTk1/R1/AR1, not interchangeable with composite FTk0/R2.
+        // Read configured inputs only; never infer acceptance from transient TC pressure.
+        var poezd=AvpGetModuleHandle("POEZD.DLL");
+        if (poezd==IntPtr.Zero || Math.Abs(DoubleAt(mem["TLocParam"],0x13)-5)>1e-9) return "Изменена конфигурация тормозной калибровки";
+        for (int n=1;n<cars.Length;n++) {
+            if (Marshal.ReadInt32(cars[n],0x25)!=80) return "Изменена физическая масса вагона; требуется новая калибровка";
+            if (Marshal.ReadInt32(poezd,0x1ad7c+n*4)!=1 || Marshal.ReadByte(cars[n],0x18)!=1 ||
+                Marshal.ReadByte(cars[n],0x19)!=0 || Marshal.ReadByte(cars[n],0x1a)!=1 ||
+                Math.Abs(DoubleAt(cars[n],0xcb)-12.8)>1e-9 || Marshal.ReadInt32(cars[n],0xd3)!=29 ||
+                Math.Abs(DoubleAt(cars[n],0xd7)-78)>1e-9 || Math.Abs(DoubleAt(cars[n],0xdf)-12.52)>1e-9)
+                return "Материал, режим или геометрия вагона отличаются от исторической калибровки; требуется новый native прогон";
+        }
         foreach (var module in avpCalibrationModules) if (AvpGetModuleHandle(module.Key)!=module.Value) return "Изменился срок жизни DLL тормозной калибровки";
         return "";
     }
@@ -482,6 +500,7 @@ partial class TrainerIntegrationHost {
         string path=Path.Combine(workspace,@"dev\config\autovedenie-brake-calibration.json");
         var serializer=new JavaScriptSerializer { MaxJsonLength=8000000 };
         var config=AvpDictionary(serializer.DeserializeObject(File.ReadAllText(path)));
+        if (AvpString(config,"status")=="invalidated_by_consist_change") throw new Exception("Состав переведён на композиционные колодки и средний режим; требуется новая тормозная калибровка");
         if (AvpInteger(config,"schema_version")!=1 || AvpString(config,"status")!="model_specific_candidate") throw new Exception("Неизвестный контракт калибровки");
         var calibration=AvpDictionary(AvpValue(config,"calibration"));
         if (!AvpBoolean(calibration,"accepted")) throw new Exception("Калибровка не принята");

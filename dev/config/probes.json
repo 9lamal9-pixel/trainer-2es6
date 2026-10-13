@@ -668,7 +668,7 @@
         "outputs/Trainer_train_pneumatic_validation.json"
       ],
       "kind": "diagnostic",
-      "scope": "75 вагонов R1/АР/чугун, 77 узлов с сохранённой штатной геометрией без повторного InitSostav. Источник: brake-rules-83-2025, таблица1/примечание2 и п.9.3.3. Зарядка: actual ТМ локомотива cars0 в 5.3–5.5; перепад от локомотива до всех вагонов <=0.3 для принятого сценария300 вагонных осей. Служебная ступень по фактической УР0.6–0.7, native КМIV, выдержка1200циклов/120номинальных секунд, затем отпуск. Экстренное торможение/отпуск всех75 вагонов; signed bridge и mass guards сохранены. Допуски ЗР0.15 и ТЦ0.5/0.1 диагностические. Полное нормативное опробование НЕ принято: нет контроля штоков/колодок, плотности II/IV, хвостовой целостности8–10с и отдельного KMI-замера двух последних вагонов. Ro=0 записан, native соответствие равнинному режиму отдельно не доказано. Не стенд Р008/ГОСТ; волна с шагом0.1с/порогомТЦ0.1 и глобальный native баланс не приняты.",
+      "scope": "All75wagons composite FTk0/R2/AR1/Ro0 read-only guards; candidate77airnodes/native geometry retained. Actual locomotive TM5.0–5.2 and head-to-wagon spread<=0.3 for300wagonaxles, cold charge; measured UR0.6–0.7→IV120s, service/emergency release. Pneumatic only (noMotionCycle); noAR3.4clamp. ExactARloadresponse, nativeforce, fullnormativebraketest, rod/pad/density/tailintegrity/wavebench remain unaccepted.",
       "timeout_seconds": 300,
       "enabled": true
     },
@@ -1448,7 +1448,7 @@
         "outputs/Trainer_native_safety.json"
       ],
       "kind": "candidate",
-      "scope": "Prepared native host, guarded original TGeneralPB algorithm: RB holding warning, actual KLUB request, timely RBS versus missed ACK and native chamber/trip/brakes. Declared white CodeWay5 only to KLUB; no markup/occupancy/full cold-start or factory acceptance. No protection/force/speed/pressure output assignments.",
+      "scope": "Prepared native host composite75/charge5.1, production AVP disabled; explicit genuine operator8kmh +1/coast via guarded original bridge. Original TGeneralPB: RB holding warning, actual KLUB request, timelyRBS vs missedACK, real chamber drop/trip and TM/TC. Scoped WhiteCodeWay5 only toKLUB; notmarkup/liveoccupancy/fullcoldstart/factory acceptance; no output assignments.",
       "timeout_seconds": 300,
       "enabled": true
     },
@@ -1466,6 +1466,22 @@
       "kind": "candidate",
       "scope": "Original native-axis route,181lights/224profiles/177curves; actual source fields, private consumer contexts and native KLUB/ALSN publication. Declared initial states and measured motion through stop boundary; no live occupancy or output injection.",
       "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "AutovedenieAdverseBrake",
+      "main_class": "TrainerAutovedenieAdverseBrakeProbe",
+      "title": "АВП: штатное торможение на исходном спуске−8‰",
+      "source": "outputs/TrainerAutovedenieAdverseBrakeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Autovedenie_adverse_brake.json"
+      ],
+      "kind": "candidate",
+      "scope": "Full333033m source; all75compositeFTk0/R2/AR1; legacy AVP refused. Guarded original native operator start before prepared20kmh on−8; actual0.7UR V→IV, fullKVT6+IV securedhold60s; separate release observation and real0.7 reapplication if movement. ActualCOM/allvehicle speeds/pressures; VI-only release hold not assumed. Not80kmh/fullAVP acceptance.",
+      "timeout_seconds": 300,
       "enabled": true
     }
   ]

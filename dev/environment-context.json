@@ -215,7 +215,11 @@
         "AutovedenieJourney"
       ],
       "report": "dev/docs/AUTOVEDENIE_REQUIREMENTS_AUDIT.md",
-      "limit": "Prepared ordinary teaching algorithm; factory modes1/2/intensity and full cold-start unaccepted."
+      "limit": "Full original333033m course; local/prospective braking horizon and adverse-grade native calibration in progress. Prepared6500m PASS is not full-course acceptance; modes1/2/intensity still incomplete.",
+      "diagnostics": [
+        "AutovedenieGraduatedBrake",
+        "AutovedenieAdverseBrake"
+      ]
     }
   },
   "model_context": {
@@ -235,7 +239,8 @@
       "Supplied Rules protocol83 appendix65: corrected diagnostic head reference from first wagon to locomotive TM and service step from0.9 to0.6–0.7. Fresh TrainPneumatic test-20261011T105947976Z-eee0892a PASS36549cycles/8223750pressure checks; actual step0.656585, Loc-tail0.295201. Previous full-cycle PASS remains functional evidence only for its old method. Full normative brake test remains false. Production unchanged, SHA5D47ED655BD50D585B6358DF6654D4B84C8FCCB6CE8FB4A7D511520EF88AC05E.",
       "KmOvercharge native test-20261011T113620525Z-a742a298 exit0 PASS: I raises actualUR6.406,II lowers5.8→5.6 in91.420s (Rules83 §3.2.8 80..120 for assumed300axes), returnsPzar5.0 in630.1s; all75TC remain0. TimeLikvid offsetloc+0x1b is100sec, not UR volume. Extended>=350axes100..120 not applicable/current failed flag; visual sensor signal not verified. FinitePM/disabled compressors; no pressure fixtures or model edits.",
       "MpsudAuditSnapshot test-20261011T115345530Z-bc12f052 exit0 PASS: four actual LOCO/1 Communication/Pult/Tyga/MSUL module paths/SHA,100 warm idle cycles,electricalFaults0; functional_mpsuid_accepted=false,screen_rendering_accepted=false. Detailed audit dev/docs/MPSUID_2ES6_AUDIT.md,3 independent parts. Production unchanged.",
-      "MPSUID_SCREENS_RE_AUDIT.md:32 accepted fresh results,318PNG,419assertions+75observations,4912widgetreads;34base+8extra monitor routes. Latest Msgs test-20261011T124452567Z-081a9481 exit0. Mainbatch30/31,DiagUp timeout recorded; safe8/8 rerun andcorrect per-monitor messages. No production changes; RE conformityfalse. All15 discrepancies andsourcegaps documented."
+      "MPSUID_SCREENS_RE_AUDIT.md:32 accepted fresh results,318PNG,419assertions+75observations,4912widgetreads;34base+8extra monitor routes. Latest Msgs test-20261011T124452567Z-081a9481 exit0. Mainbatch30/31,DiagUp timeout recorded; safe8/8 rerun andcorrect per-monitor messages. No production changes; RE conformityfalse. All15 discrepancies andsourcegaps documented.",
+      "CurrentCOMPOSITE75FTk0/R2/AR1/charge5.1: fresh155611 PASS Controller/TrainPneumatic35984cycles8096625pressurechecks andAdverse131assertions prepared20kmh−8 stopallV0; IV+fullVI60s plus real0.7 reapplication/another60s secured hold. Independent-onlyhold false; AVPcalibration disabled; fullnormcompliance not accepted. Details dev/config/brake-rules-compliance.json."
     ],
     "mpsuid_screens_reference": {
       "guide": "dev/docs/MPSUID_RE_SCREENS_GUIDE.md",
@@ -248,7 +253,9 @@
       "factory_image_authentication_accepted": false,
       "limits": "RE2 §1.7 figures1.18–1.39 crosswalk established by sequence/title/text; reprint figures1–22 extracted and visually checked on white PDF background. Exact RE/equipment137+ and factory pixels remain unverified."
     },
-    "three_d_evidence": "dev/runs/world3d-investigation-20261013/result.json"
+    "three_d_evidence": "dev/runs/world3d-investigation-20261013/result.json",
+    "current_brake_configuration": "dev/config/brake-rules-compliance.json",
+    "autovedenie_calibration_status": "Invalidated: all75 wagons changed to composite FTk0/mediumR2/AR1; historical FTk1/R1 results are provenance only. Fresh coefficient/80kmh/delay/fullroute/release timing pending."
   },
   "backlog": {
     "priority": "Complete locomotive cold preparation remains unverified: diagnostic cold pneumatic chain now charges PM successfully, but actuator demand, exact equipment and calibration remain unresolved.",
@@ -260,7 +267,8 @@
       "Passages,leaks,delays and exact VR acceptance benches.",
       "Rendered instrument pixels,sound,external hardware.",
       "Legacy cold tempPzar0 InitSostav recalibrates Dut; old PM/control assertions do not certify wagon geometry. Normative train-wave onset/length/timing and full VR bench calibration remain unaccepted.",
-      "Rules83 §9.3.3: density II>=36s for2000L/300axes/Pzar5.4, IV>=0.9*II; tail integrity8–10s; separate KMI last-two pad-release timing; every-wagon rod/pad observation; native Ro mode contract."
+      "Rules83 §9.3.3: density II>=36s for2000L/300axes/Pzar5.4, IV>=0.9*II; tail integrity8–10s; separate KMI last-two pad-release timing; every-wagon rod/pad observation; native Ro mode contract.",
+      "Rules83/2026 for current compositeFTk0/R2/AR1: load response, actualcharge, fullstopKVT6hold, release/recharge/step/timing, fresh AVP calibration at operational speeds."
     ],
     "manual": "Точная ревизия РЭ/комплектация 2ЭС6 №137+ не установлена; РЭ2008 дает ориентиры.",
     "unsafe": "ColdNativeInitialization fresh repeats InitNew and crashed in GDI finalizer; disabled.",
