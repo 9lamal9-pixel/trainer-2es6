@@ -1,4 +1,4 @@
-using System;using System.Linq;using System.IO;using System.Runtime.InteropServices;
+using System;using System.Linq;using System.IO;using System.Runtime.InteropServices;using System.Windows.Forms;
 partial class TrainerIntegrationHost {
  [StructLayout(LayoutKind.Sequential,Pack=1,Size=20)]struct SautConfig{public IntPtr Path;public byte TipDv;public uint Sound;public byte Bitmap,Green,Yellow,Red,White;public int MinDistance;}
  [StructLayout(LayoutKind.Sequential,Pack=1,Size=20)]struct CalcConfig{public IntPtr Path;public byte TipDv;public uint Sound;public byte Green,Yellow,Red,White;public int MinDistance;}
@@ -12,19 +12,92 @@ partial class TrainerIntegrationHost {
  [StructLayout(LayoutKind.Sequential,Pack=1,Size=52)]struct RouteLimit{public int Start,End,Pass,Freight,Suburban,Special;public byte Flag,Klub,Saut,StartFlag;public int Distance,Allowed,Target,AllowedSaut,TargetSaut;public byte SautOS;}
  [UnmanagedFunctionPointer(CallingConvention.StdCall)]delegate void AvpLimitFn(RouteLimit record);
  string commandStamp="";int? commandedKm,fileKm;bool safetyPower,momentaryCharge;
- void AddAux(IntPtr h,string step,string close,string label){otherSteps.Add(Export<StepFn>(h,step));otherCloses.Add(Export<StepFn>(h,close));Log(label+" native initialization successful; connected to shared train records");}
+ TrainerStandaloneSautBinding standaloneSautBinding;
+ void SautLifecycleLog(string message){try{Log(message);}catch{}}
+ IntPtr standaloneSautSharedRecord,standaloneSautOutput;
+ void AllocateStandaloneSautRecords(IntPtr canonical){
+  if(standaloneSautSharedRecord!=IntPtr.Zero||standaloneSautOutput!=IntPtr.Zero||
+     mem.ContainsKey("StandaloneSautSharedRecord")||mem.ContainsKey("StandaloneSautOutput"))
+   throw new Exception("Standalone SAUT records already owned");
+  try{
+   // Full TOutParamAllTRen ABI, initially zero. Only native SAUT writes its
+   // effective limit and protection outputs after initialization.
+   standaloneSautOutput=Alloc(106);standaloneSautSharedRecord=Alloc(24);
+   foreach(int offset in new[]{0,4,8,0x10,0x14})
+    Marshal.WriteIntPtr(standaloneSautSharedRecord,offset,Marshal.ReadIntPtr(canonical,offset));
+   Marshal.WriteIntPtr(standaloneSautSharedRecord,0xc,standaloneSautOutput);
+   mem.Add("StandaloneSautSharedRecord",standaloneSautSharedRecord);
+   mem.Add("StandaloneSautOutput",standaloneSautOutput);
+  }catch{ReleaseStandaloneSautRecords();throw;}
+ }
+ void ReleaseStandaloneSautRecords(){
+  // Call only before any native initialization attempt, or after native close
+  // has returned successfully and the managed binding has detached.
+  var shared=standaloneSautSharedRecord;var output=standaloneSautOutput;
+  if(shared!=IntPtr.Zero){Marshal.FreeHGlobal(shared);standaloneSautSharedRecord=IntPtr.Zero;
+   if(mem.ContainsKey("StandaloneSautSharedRecord")&&mem["StandaloneSautSharedRecord"]==shared)mem.Remove("StandaloneSautSharedRecord");}
+  if(output!=IntPtr.Zero){Marshal.FreeHGlobal(output);standaloneSautOutput=IntPtr.Zero;
+   if(mem.ContainsKey("StandaloneSautOutput")&&mem["StandaloneSautOutput"]==output)mem.Remove("StandaloneSautOutput");}
+  SautLifecycleLog("Standalone SAUT private record ownership released");
+ }
+ void AddStandaloneSaut(IntPtr module,IntPtr shared,SautConfig configuration){
+  var nativeInit=Export<SautInitFn>(module,"Init_Saut_Dll");
+  var nativeStep=Export<StepFn>(module,"Proceed_saut");var nativeClose=Export<StepFn>(module,"CloseSAUTDll");
+  AllocateStandaloneSautRecords(shared);
+  TrainerStandaloneSautBinding binding=null;bool closeStarted=false,nativeInitAttempted=false;
+  // Register cleanup before initialization. A failed init/authority guard never
+  // borrows hardware PB inputs, and the owned buffers survive a failed close.
+  otherCloses.Add(delegate {
+   if(closeStarted)return;closeStarted=true;Exception failure=null;bool nativeClosed=!nativeInitAttempted,bindingDetached=binding==null;
+   try{
+    if(binding!=null&&binding.Connected){
+     SautLifecycleLog("Standalone SAUT close: operator input off begin");
+     using(BorrowStandaloneSautOperatorInputs(true)){
+      for(int n=0;n<20;n++){if(!binding.Connected)throw new Exception("Standalone SAUT authority unavailable during shutdown");nativeStep();binding.CaptureOutputs();Application.DoEvents();}
+     }
+     SautLifecycleLog("Standalone SAUT close: 20 native off steps completed");
+    }
+   }catch(Exception error){failure=error;SautLifecycleLog("Standalone SAUT off failure: "+error);}
+   try{
+    if(nativeInitAttempted){SautLifecycleLog("Standalone SAUT native close begin");nativeClose();nativeClosed=true;SautLifecycleLog("Standalone SAUT native close completed");}
+   }catch(Exception error){if(failure==null)failure=error;SautLifecycleLog("Standalone SAUT native close failure; private buffers retained: "+error);}
+   finally{
+    if(binding!=null)try{binding.Dispose();bindingDetached=true;}catch(Exception error){if(failure==null)failure=error;}
+    if(bindingDetached&&Object.ReferenceEquals(standaloneSautBinding,binding))standaloneSautBinding=null;
+    if(nativeClosed&&bindingDetached)try{ReleaseStandaloneSautRecords();}catch(Exception error){if(failure==null)failure=error;}
+    else SautLifecycleLog("Standalone SAUT private buffers remain owned because native close/detach was not successful");
+   }
+   if(failure!=null)throw new Exception("Standalone SAUT shutdown failed",failure);
+  });
+  try{
+   nativeInitAttempted=true;
+   if(nativeInit(configuration,standaloneSautSharedRecord)!=1)throw new Exception("SAUT initialization failed");
+   binding=TrainerStandaloneSautBinding.Attach(module,shared,mem["TOutParamAllTRen"],standaloneSautSharedRecord,
+    standaloneSautOutput,mem["TLocParam"],mem["CommOwner"],root,Log);
+   binding.CaptureOutputs();standaloneSautBinding=binding;
+   BindStandaloneSautK20ModeReader(delegate{return binding.NativeMode;});
+  }catch(Exception error){SautLifecycleLog("Standalone SAUT initialization/authority refused; buffers retained until close: "+error);throw;}
+  otherSteps.Add(delegate {
+   if(closeStarted)throw new ObjectDisposedException("Standalone SAUT native cycle");
+   if(!binding.Connected)throw new Exception("Standalone SAUT authority unavailable");
+   using(BorrowStandaloneSautOperatorInputs()){try{nativeStep();}catch(Exception error){throw new Exception("Native SAUT step failed",error);}binding.CaptureOutputs();}
+  });
+  SautLifecycleLog("Standalone software SAUT connected: canonical inputs, isolated output producer, immediate snapshot");
+ }
+
+ void AddAux(IntPtr h,string step,string close,string label){var nativeStep=Export<StepFn>(h,step);otherSteps.Add(delegate{try{nativeStep();}catch(Exception error){throw new Exception(label+" native step failed",error);}});otherCloses.Add(Export<StepFn>(h,close));Log(label+" native initialization successful; connected to shared train records");}
  void InitializeAux(){
   var pb=mem["TPribBezAllTren"];var path=Marshal.StringToHGlobalUni(root+"\\");
   var sound=Library("SoundsTren.dll");if(Export<SoundsInitFn>(sound,"Init_SoundsTrenDLL")(IntPtr.Zero,(uint)Handle.ToInt32())!=1)throw new Exception("SoundsTren initialization failed");otherCloses.Add(Export<StepFn>(sound,"CloseSounds"));
   var talk=Library("TalkSound.dll");if(Export<SoundsInitFn>(talk,"Init_SoundsTrenDLL")(IntPtr.Zero,(uint)Handle.ToInt32())!=1)throw new Exception("TalkSound initialization failed");otherCloses.Add(Export<StepFn>(talk,"CloseSounds"));Log("Dispatcher sound channel initialized");
   var calc=Library("CalcOgr.dll");if(Export<CalcInitFn>(calc,"Init_CalcOgr_Dll")(new CalcConfig{Path=path,TipDv=1,Sound=(uint)sound.ToInt32(),Green=(byte)route.speed_limits.ConvertAll(x=>x.speed_kmh).Max(),Yellow=60,Red=20,White=40},pb)!=1)throw new Exception("CalcOgr initialization failed");AddAux(calc,"Proceed_CalcOgr","CloseCalcOgrDll","CalcOgr");
-  var saut=Library("Saut_Dll.dll");if(Export<SautInitFn>(saut,"Init_Saut_Dll")(new SautConfig{Path=path,TipDv=1,Sound=(uint)sound.ToInt32(),Green=(byte)route.speed_limits.ConvertAll(x=>x.speed_kmh).Max(),Yellow=60,Red=20,White=40},pb)!=1)throw new Exception("SAUT initialization failed");AddAux(saut,"Proceed_saut","CloseSAUTDll","SAUT");
+  var saut=Library("Saut_Dll.dll");AddStandaloneSaut(saut,pb,new SautConfig{Path=path,TipDv=1,Sound=(uint)sound.ToInt32(),Green=(byte)route.speed_limits.ConvertAll(x=>x.speed_kmh).Max(),Yellow=60,Red=20,White=40});
   var avp=Library("AVP.dll");if(Export<AvpInitFn>(avp,"InitAVP")(pb,new KlubInit{Path=path,Type=2,TipDv=1})!=1)throw new Exception("AVP initialization failed");AddAux(avp,"ProceedAVP","CloseAVP","AVP freight");
   ConfigureAuxRoute(calc,saut,avp);
   // KPD is an alternative recorder. Its software model cycles but power remains off while KLUB-U is selected.
   var kpd=Library("KPD_3PV.dll");if(Export<KpdInitFn>(kpd,"InitKPD")(pb,new KpdConfig{Path=path,Type=2,Green=(byte)route.speed_limits.ConvertAll(x=>x.speed_kmh).Max(),Cassette=1})!=1)throw new Exception("KPD initialization failed");AddAux(kpd,"ProceedKPD","CloseKPD","KPD-3PV standby");
  }
- void AuxCycle(){foreach(var step in otherSteps)step();}
+ void AuxCycle(){foreach(var step in otherSteps)step();RefreshStandaloneSautControls();}
  void CloseAux(){for(int n=otherCloses.Count-1;n>=0;n--)otherCloses[n]();}
  void PollCommands(){
   var file=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"Trainer_commands.txt");if(!File.Exists(file)){if(commandStamp.Length>0){fileKm=null;safetyPower=false;commandStamp="";Log("Command file removed: test overrides released");}return;}var text=File.ReadAllText(file);if(text!=commandStamp){commandStamp=text;fileKm=null;safetyPower=false;foreach(var line in text.Split('\n')){var kv=line.Trim().Split('=');if(kv.Length!=2)continue;float v;int k;if(kv[0]=="speed"&&float.TryParse(kv[1],System.Globalization.NumberStyles.Float,System.Globalization.CultureInfo.InvariantCulture,out v))SetInitialSpeed(v);if(kv[0]=="km"&&int.TryParse(kv[1],out k)&&k>=1&&k<=7)fileKm=k;if(kv[0]=="safety")safetyPower=kv[1]=="1";}Log("Applied test inputs: "+text.Replace('\n',' '));}

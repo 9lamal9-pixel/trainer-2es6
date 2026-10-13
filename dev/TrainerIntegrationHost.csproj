@@ -40,6 +40,12 @@
     <Compile Include="..\outputs\TrainerNativeSystems.cs"><Link>Host\TrainerNativeSystems.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerAuxSystems.cs"><Link>Host\TrainerAuxSystems.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerRouteDOS.cs"><Link>Route\TrainerRouteDOS.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerAutovedenieController.cs"><Link>Autovedenie\TrainerAutovedenieController.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerAutovedenieInterface.cs"><Link>Autovedenie\TrainerAutovedenieInterface.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerAutovedenieNativeBridge.cs"><Link>Autovedenie\TrainerAutovedenieNativeBridge.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerAutovedenieHost.cs"><Link>Autovedenie\TrainerAutovedenieHost.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerStandaloneSautBinding.cs"><Link>Autovedenie\TrainerStandaloneSautBinding.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerSautOperatorControls.cs"><Link>Autovedenie\TrainerSautOperatorControls.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerTrainPressureView.cs"><Link>Pneumatics\TrainerTrainPressureView.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerRouteView.cs"><Link>Route\TrainerRouteView.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerNativeFixes.cs"><Link>Host\TrainerNativeFixes.cs</Link></Compile>

@@ -24,6 +24,74 @@
   "execution_contract": "Build sources directly using the selected profile; legacy build scripts may also execute probes. Run sequentially in separate processes, require exit code 0 and fresh expected artifacts. Do not require a universal passed JSON field. Obsolete and unsafe entries are disabled.",
   "probes": [
     {
+      "id": "AutovedenieNativeBridgeGuard",
+      "main_class": "AutovedenieCommandPathProbe",
+      "title": "АВП: guarded native мост, отказ готовности и отмена владения",
+      "source": "work/pneumatic_live_fix/analysis/AutovedenieCommandPathProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "bridge_guard"
+      ],
+      "result_files": [
+        "outputs/Autovedenie_command_path.json"
+      ],
+      "kind": "candidate",
+      "scope": "Production bridge pointer guards, readiness refusal and cancellation latch with loaded-pointer restoration; not closed-loop acceptance.",
+      "timeout_seconds": 180,
+      "enabled": true
+    },
+    {
+      "id": "AutovedenieBrakeCalibration",
+      "main_class": "AutovedenieCommandPathProbe",
+      "title": "АВП: калибровка штатного торможения после native разгона",
+      "source": "work/pneumatic_live_fix/analysis/AutovedenieCommandPathProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "brake_calibration"
+      ],
+      "result_files": [
+        "outputs/Autovedenie_command_path.json"
+      ],
+      "kind": "candidate",
+      "scope": "Native acceleration without synthetic speed, service braking and whole-train settled calibration. Model-specific, not closed-loop AVP acceptance.",
+      "timeout_seconds": 180,
+      "enabled": true
+    },
+    {
+      "id": "AutovedenieInterface",
+      "main_class": "AutovedenieInterfaceProbe",
+      "title": "АВП: native Enter, клавиша5 и индикация обоих мониторов",
+      "source": "work/pneumatic_live_fix/analysis/AutovedenieInterfaceProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Autovedenie_interface_validation.json"
+      ],
+      "kind": "candidate",
+      "scope": "Native settings commit/validation, both-monitor mode requests and render, guarded hook restoration. No closed-loop acceptance.",
+      "timeout_seconds": 180,
+      "enabled": true
+    },
+    {
+      "id": "AutovedenieController",
+      "main_class": "AutovedenieControllerProbe",
+      "title": "АВП: планирование и приоритет ручного управления",
+      "source": "work/pneumatic_live_fix/analysis/AutovedenieControllerProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Autovedenie_controller_probe.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Pure managed planner and ownership contract. Does not accept native AVP implementation or braking calibration.",
+      "timeout_seconds": 30,
+      "enabled": true
+    },
+    {
       "id": "AirControlIsolation",
       "main_class": "AirControlIsolationProbe",
       "title": "Изоляция общей ИМ при выключенной блокировке тормозов",
@@ -1285,6 +1353,70 @@
       ],
       "kind": "regression",
       "scope": "Fresh x86 host: actual native AV editor on both monitors, preview 77 wagons in wagon-count label while mass remains 6000 t. Tests preview binding only; controlled editor bytes restored. Native Enter/Cancel commit, physics train reconfiguration, full MPSUID/RE conformity and diagnostic arrows are outside scope.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "AutovedenieCommandPath",
+      "main_class": "AutovedenieCommandPathProbe",
+      "title": "АВП: проверка штатной командной цепи тяги",
+      "source": "work/pneumatic_live_fix/analysis/AutovedenieCommandPathProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Autovedenie_command_path.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Guarded native operator command acceptance with independent excitation, positive native force and POEZD motion; provider/input restoration. Does not accept closed-loop AVP controller.",
+      "timeout_seconds": 180,
+      "enabled": true
+    },
+    {
+      "id": "AutovedenieJourney",
+      "main_class": "AutovedenieJourneyProbe",
+      "title": "АВП: автоматический проезд, ограничение всего состава и остановка",
+      "source": "work/pneumatic_live_fix/analysis/AutovedenieJourneyProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Autovedenie_journey.json"
+      ],
+      "kind": "candidate",
+      "scope": "Closed-loop prepared native journey on a declared 6500 m educational route scenario: actual acceleration, speed tracking, temporary limit, whole-train release, terminal stop, manual cancellation and explicit rearm. Not factory AVP certification or full cold-start acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "AutovedenieGraduatedBrake",
+      "main_class": "AutovedenieGraduatedBrakeProbe",
+      "title": "АВП: native ступень УР0.7, перекрыша IV и отпуск",
+      "source": "work/pneumatic_live_fix/analysis/AutovedenieGraduatedBrakeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Autovedenie_graduated_brake.json"
+      ],
+      "kind": "candidate",
+      "scope": "Measured native V to UR reduction0.7 then IV, settled head/tail deceleration and II release, guarded input restoration. Model-specific educational calibration, no closed-loop acceptance.",
+      "timeout_seconds": 180,
+      "enabled": true
+    },
+    {
+      "id": "AutovedenieOverride",
+      "main_class": "AutovedenieOverrideProbe",
+      "title": "АВП: штатный ручной перехват, разрешение, ЭПК и САУТ",
+      "source": "work/pneumatic_live_fix/analysis/AutovedenieOverrideProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Autovedenie_override.json"
+      ],
+      "kind": "candidate",
+      "scope": "Prepared native production host: permission loss, manual KM/KVT, EPK key and native SAUT from a declared restriction, explicit rearm and input/API restoration. No protection/force/speed output writes, no full cold-start or factory conformity acceptance.",
       "timeout_seconds": 240,
       "enabled": true
     }

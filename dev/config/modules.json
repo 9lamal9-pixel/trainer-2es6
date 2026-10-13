@@ -9,46 +9,50 @@
     "System.Web.Extensions.dll"
   ],
   "profiles": {
-    "integration": {
-      "sources": [
-        "outputs/TrainerIntegrationHost.cs",
-        "outputs/TrainerSessionLogging.cs",
-        "outputs/TrainerNativeSystems.cs",
-        "outputs/TrainerAuxSystems.cs",
-        "outputs/TrainerRouteDOS.cs",
-        "outputs/TrainerRouteView.cs",
-        "outputs/TrainerNativeFixes.cs",
-        "outputs/TrainerPneumaticTiming.cs"
-      ],
-      "target": "winexe",
-      "platform": "x86"
-    },
     "candidate": {
       "sources": [
         "outputs/TrainerIntegrationHost.cs",
-        "outputs/TrainerSessionLogging.cs",
         "outputs/TrainerNativeSystems.cs",
         "outputs/TrainerAuxSystems.cs",
         "outputs/TrainerRouteDOS.cs",
+        "outputs/TrainerAutovedenieController.cs",
+        "outputs/TrainerAutovedenieInterface.cs",
+        "outputs/TrainerAutovedenieNativeBridge.cs",
+        "outputs/TrainerAutovedenieHost.cs",
+        "outputs/TrainerSautOperatorControls.cs",
+        "outputs/TrainerStandaloneSautBinding.cs",
         "outputs/TrainerRouteView.cs",
         "outputs/TrainerNativeFixes.cs",
         "outputs/TrainerPneumaticTiming.cs",
+        "outputs/TrainerSessionLogging.cs",
         "outputs/TrainerAirNetwork.cs",
         "outputs/TrainerControlAir.cs",
         "outputs/TrainerBtoNetwork.cs",
         "outputs/TrainerAirSelector.cs",
         "outputs/TrainerKvtProfile.cs",
         "outputs/TrainerTwoSectionAirChain.cs",
-        "outputs/TrainerPneumaticNetworkCandidate.cs"
-      ],
-      "target": "winexe",
-      "platform": "x86"
+        "outputs/TrainerPneumaticNetworkCandidate.cs",
+        "outputs/TrainerTrainPressureView.cs"
+      ]
     },
-    "standalone": {
-      "sources": [],
-      "target": "exe",
-      "platform": "x86",
-      "note": "Список исходников задается dependencies каждой проверки"
+    "integration": {
+      "sources": [
+        "outputs/TrainerIntegrationHost.cs",
+        "outputs/TrainerNativeSystems.cs",
+        "outputs/TrainerAuxSystems.cs",
+        "outputs/TrainerRouteDOS.cs",
+        "outputs/TrainerAutovedenieController.cs",
+        "outputs/TrainerAutovedenieInterface.cs",
+        "outputs/TrainerAutovedenieNativeBridge.cs",
+        "outputs/TrainerAutovedenieHost.cs",
+        "outputs/TrainerSautOperatorControls.cs",
+        "outputs/TrainerStandaloneSautBinding.cs",
+        "outputs/TrainerRouteView.cs",
+        "outputs/TrainerNativeFixes.cs",
+        "outputs/TrainerPneumaticTiming.cs",
+        "outputs/TrainerSessionLogging.cs",
+        "outputs/TrainerTrainPressureView.cs"
+      ]
     }
   },
   "modules": [
@@ -462,6 +466,93 @@
       ],
       "dependencies": [],
       "limitations": "Применима к исследованным сборкам, не универсальный API"
+    },
+    {
+      "id": "TrainerAutovedenieController",
+      "type": "csharp",
+      "path": "outputs/TrainerAutovedenieController.cs",
+      "role": "Расчётная цель, прогноз ограничений всего состава и ступенчатое native торможение",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [
+        "TrainerRouteDOS"
+      ],
+      "limitations": "Учебная адаптация, не заводской оптимизатор; native calibration/journey обязательны. Режим1 требует живых сигналов, режим2 недоступен."
+    },
+    {
+      "id": "TrainerAutovedenieInterface",
+      "type": "csharp",
+      "path": "outputs/TrainerAutovedenieInterface.cs",
+      "role": "Native Enter/клавиша5, обе панели и раздельная расчётная/фактическая индикация",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [
+        "TrainerNativeFixes"
+      ],
+      "limitations": "Только конкретный SHA/ABI MSUL/Pult; hooks в памяти с guards и восстановлением."
+    },
+    {
+      "id": "TrainerAutovedenieNativeBridge",
+      "type": "csharp",
+      "path": "outputs/TrainerAutovedenieNativeBridge.cs",
+      "role": "Guarded callback штатного Pult и временные операторские запросы тяги/выбега",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [
+        "TrainerNativeSystems"
+      ],
+      "limitations": "Не пишет силу, скорость или производные разрешения. Ручной ввод и защита выше приоритетом."
+    },
+    {
+      "id": "TrainerAutovedenieHost",
+      "type": "csharp",
+      "path": "outputs/TrainerAutovedenieHost.cs",
+      "role": "Интеграция АВП в native цикл, готовность, явные operator controls, арбитраж торможения",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [
+        "TrainerAutovedenieController",
+        "TrainerAutovedenieInterface",
+        "TrainerAutovedenieNativeBridge"
+      ],
+      "limitations": "6200 т/75 вагонов, candidate77/POEZD76 и привязанная native калибровка; prepared journey acceptance обязателен."
+    },
+    {
+      "id": "TrainerStandaloneSautBinding",
+      "type": "csharp",
+      "path": "outputs/TrainerStandaloneSautBinding.cs",
+      "role": "Guarded read-only binding и снимок реальных выходов отдельной native САУТ",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [
+        "TrainerAuxSystems"
+      ],
+      "limitations": "Только подтверждённая SHA/ABI; аппаратный канал не имитируется."
+    },
+    {
+      "id": "TrainerSautOperatorControls",
+      "type": "csharp",
+      "path": "outputs/TrainerSautOperatorControls.cs",
+      "role": "Явные scoped operator input5/6/13 для native САУТ",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [
+        "TrainerAutovedenieHost",
+        "TrainerStandaloneSautBinding"
+      ],
+      "limitations": "К20 доступна только при фактическом native mode3/4; live signal source пока отсутствует."
     }
   ],
   "manual_applicability": "Точная ревизия РЭ/комплектация 2ЭС6 начиная с №137 не установлена; кандидатные проверки не являются полной нормативной приемкой.",
