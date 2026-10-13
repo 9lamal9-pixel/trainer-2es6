@@ -4,6 +4,7 @@ dev/runs/
 dev/archives/
 dev/checkpoints/
 dev/history/
+work/native_distribution/
 **/vendor/
 **/pydeps/
 **/__pycache__/

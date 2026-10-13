@@ -31,6 +31,7 @@
 /work/**/vendor/
 /work/**/pydeps/
 /work/**/__pycache__/
+/work/native_distribution/
 
 /dev/builds/
 /dev/runs/

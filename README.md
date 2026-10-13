@@ -10,11 +10,14 @@
 | `dev/builds`, `dev/runs` | Версии сборок, результаты, журналы и телеметрия |
 | `dev/checkpoints`, `dev/archives`, `.git` | Сохранённые исправления и резервные копии |
 | `work` | Копия штатных DLL, источники диагностик и материалы анализа |
+| `work/native_distribution` | Полученный комплект штатных клиентов, редакторов и 3D-сервера |
 | `work/reference_inputs` | Оригиналы режимки и DOS-архива |
 
 Короткий вход для всех команд: `trainer.cmd -Action …`. Без параметров показывает Status. Задачи редактора также доступны в `Trainer.code-workspace`. Архивы, журналы, зависимости и дампы исключены из обычного поиска; история сохранена.
 
 Открыть `Trainer.code-workspace` или `dev/Trainer.sln`. Канонические исходники доработок находятся в `outputs`, нативные модули — в копии `work/trenager_static/WORK_TRENAGER_3D`.
+
+В `work/native_distribution` размещены шесть соседних папок полученного комплекта: `LAUNCH_CAM` — камера, `LAUNCH_DSP` — диспетчерский пульт, `LAUNCH_INSTR` — инструктор и редакторы сценариев, `LAUNCH_TREN` — сетевой тренажёр, `WORK_TRENAGER_3D` — полный клиент, `WORLD3DSERVER` — сервер 3D-мира. Состав и сравнение с прежней средой описаны в [`dev/config/native-distribution.json`](dev/config/native-distribution.json). Канонический runtime остаётся в `work/trenager_static/WORK_TRENAGER_3D`; комплект содержит другие версии DLL, старые пути и настройки локальной сети. Данные 3D-мира получены, но подключение, рендер и нативный запуск новых компонентов не проверены.
 
 Вся среда описана в [`dev/environment-context.json`](dev/environment-context.json). Короткое текущее состояние для продолжения работы: [`dev/state/context.json`](dev/state/context.json). Команды автоматически обновляют контекст, включая ошибки.
 

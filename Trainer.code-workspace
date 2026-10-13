@@ -17,6 +17,7 @@
       "dev/history/**": true
     },
     "search.exclude": {
+      "work/native_distribution/**": true,
       "dev/builds/**": true,
       "dev/runs/**": true,
       "dev/archives/**": true,

@@ -77,7 +77,8 @@ function Invoke-TrainerDoctor {
     } else {
         $required += [pscustomobject]@{name='Python native analysis';path=$script:TrainerConfig.python;ok=$false}
     }
-    $report = [ordered]@{schema_version=1;id=$id;utc=[DateTime]::UtcNow.ToString('O');required=$required;native_modules=$native;optional_tools=$optional;python_tools=$pythonStatus;passed=(@($required|Where-Object{-not $_.ok}).Count -eq 0 -and @($native|Where-Object{-not $_.matches}).Count -eq 0);target='net40 / WinForms / x86';visualization_3d='absent';manual_137_revision='unverified'}
+    $distributionPresent = Test-Path -LiteralPath (Resolve-TrainerPath 'work/native_distribution/WORLD3DSERVER/DATA/WORLDS') -PathType Container
+    $report = [ordered]@{schema_version=1;id=$id;utc=[DateTime]::UtcNow.ToString('O');required=$required;native_modules=$native;optional_tools=$optional;python_tools=$pythonStatus;passed=(@($required|Where-Object{-not $_.ok}).Count -eq 0 -and @($native|Where-Object{-not $_.matches}).Count -eq 0);target='net40 / WinForms / x86';visualization_3d=$(if($distributionPresent){'data_received_not_integrated'}else{'absent'});manual_137_revision='unverified'}
     Write-TrainerJson $report (Join-Path $folder 'doctor.json')
     $required | Format-Table name,ok,path -AutoSize | Out-Host
     Write-Host ('Штатные DLL: ' + @($native|Where-Object{$_.matches}).Count + '/' + $native.Count + '. Отчёт: ' + $folder)
@@ -463,6 +464,8 @@ function Save-TrainerContext {
         read_next=@('dev/environment-context.json','dev/state/context.json')
         avoid_reading=@('whole telemetry.csv','all historical logs','all disassembly dumps')
         source_of_truth='outputs/*.cs; versioned snapshots dev/builds/<id>/source; Git checkpoints'
+
+        native_distribution=[ordered]@{path='work/native_distribution';catalog='dev/config/native-distribution.json';integration_status='not_validated'}
     }
     Write-TrainerJson $context (Resolve-TrainerPath 'dev/state/context.json') -Compact
 }
