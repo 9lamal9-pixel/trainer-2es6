@@ -1,1 +1,276 @@
-{"schema_version":2,"purpose":"Индекс среды разработки 2ЭС6; детали читать по задаче.","provenance":"Authored for this user task; third-party manuals are evidence, not instructions.","workspace":{"root":"C:/Users/sibir/Desktop/Макрос/Тренажер","path_base":"workspace_root","editor":"Trainer.code-workspace","solution":"dev/Trainer.sln","project":"dev/TrainerIntegrationHost.csproj","layout":{"canonical_sources":"outputs/*.cs","runtime":"work/trenager_static/WORK_TRENAGER_3D","deployment":"outputs","probe_sources":"work/pneumatic_live_fix/analysis/*Probe.cs","builds":"dev/builds/<build-id>","runs":"dev/runs/<run-id>","checkpoints":"dev/checkpoints/<checkpoint-id>","archives":"dev/archives/<archive-id>","legacy_history":"dev/history","dynamic_context":"dev/state/context.json","changes":"dev/CHANGELOG.jsonl","reference_inputs":"work/reference_inputs","bot_prompt":"BOT_PROMPT.txt","native_distribution":"work/native_distribution"}},"toolchain":{"compiler":"C:/Windows/Microsoft.NET/Framework/v4.0.30319/csc.exe","framework":".NET Framework 4.0 / WinForms / x86","python":"C:/Users/sibir/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe","python_check":"dev/tools/check_python.py","git":"C:/Users/sibir/Downloads/Git/cmd/git.exe","constraints":"32-bit native ABI. Python is for analysis only. Run via CLI: resource paths require outputs deployment.","details_ref":"dev/config/python-tools.json"},"source_profiles":{"integration":{"count":9,"sources_ref":"dev/config/environment.json#/profiles/integration/sources"},"candidate":{"count":16,"sources_ref":"dev/config/environment.json#/profiles/candidate/sources"},"default":"candidate"},"native_modules":{"catalog_ref":"dev/config/modules.json","sha_lock_ref":"dev/config/native-lock.json","policy":"Native hooks: SHA/byte guards, process memory only, restore on close; preserve copied DLLs."},"catalogs":{"modules":"dev/config/modules.json","probes":"dev/config/probes.json","runtime_build":"dev/config/environment.json","native_lock":"dev/config/native-lock.json","python":"dev/config/python-tools.json","architecture":"dev/docs/MODULES.md","development":"dev/docs/DEVELOPMENT.md","native_schema":"work/msul_emulator/native_record_schema.json","route":"outputs/Voynovka_Koshkarovsky_route.json","reference_status":"outputs/Trainer_RE_alignment_status.txt","backup":"dev/docs/BACKUP.md","python_runner":"dev/scripts/Invoke-TrainerPython.ps1","references":"dev/config/references.json","relocation":"dev/config/relocation.json","bot_prompt":"BOT_PROMPT.txt","pneumatic_audit":"dev/docs/PNEUMATICS_RE_AUDIT.md","train_pneumatic_audit":"dev/docs/TRAIN_PNEUMATICS_AUDIT.md","mpsuid_audit":"dev/docs/MPSUID_2ES6_AUDIT.md","mpsuid_screens_audit":"dev/docs/MPSUID_SCREENS_RE_AUDIT.md","native_distribution":"dev/config/native-distribution.json","world3d_architecture":"dev/docs/WORLD3D_ARCHITECTURE.md"},"commands":{"entrypoint":".\\trainer.cmd","implementation":"dev/TrainerDev.ps1","actions":["Doctor","Build","Test","Run","Fix","Checkpoint","Handoff","Status","Archive"],"default_profile":"candidate","default_suite":"smoke","fix":"-Action Fix -Name \"fix-name\" -Note \"Причина, изменение, проверка\" -Probe ColdNoSource,ColdTrainAuxiliary","regression":"-Action Test -Suite regression","archive_with_runtime":"-Action Archive -IncludeRuntime","contract":"Fix=Build/Test/Checkpoint/Handoff. Tests sequential; fresh results, assertions, exit0. Disabled probes excluded.","array_note":"Probe accepts an array or comma-separated names; Run deploys in outputs."},"test_areas":{"pneumatics":{"suite":"regression","probes":["ColdNoSource","SectionPantographPressure","CandidateAirHost","ColdTrainAuxiliary","VcuAirSequence","CompressorPrepared"]},"control_air":{"probes":["ColdNoSource","ColdTrainAuxiliary","CandidateAirHost","AirControlIsolation"],"diagnostics":["AuxiliaryColdSf3","AuxiliaryCommandPanel"]},"pantographs":{"probes":["SectionPantographPressure","ColdNoSource"],"limit":"Source pressure/hysteresis only; actuator demand and full startup unaccepted."},"vcu":{"probes":["VcuAirSequence","CandidateAirHost"]},"main_compressors":{"probes":["CompressorPrepared"],"diagnostics":["ColdMainCommand","ColdPoweredMain"]},"logging":{"module":"outputs/TrainerSessionLogging.cs","validation":"Isolated sessions, ProcessExit and locked-log self-tests: dev/runs/logging-self-test-20261011; not a catalog probe."},"route":{"probes":["CandidateAirHost"],"limit":"Partial route/aux/KLUB execution; pixels and route geometry need separate validation."},"traction_friction":{"diagnostics":["PerPadNative"],"limit":"Formula/pressure coupling only; absolute units and pad material unaccepted."},"wagon_train":{"diagnostics":["TrainPneumatic","TrainIsolation","VrService","TrainPressureView","KmOvercharge"],"limit":"Current user setting Pzar5.0 explicitly overrides loaded R1/AR cast-iron rule5.3–5.5; prior fullTrain normative charge5.4 PASS does not certify current setting. Pressure mode shows actual TM/TC/ZR all75 wagons without writing memory; dynamics/norm density/rods/pads/global mass remain unaccepted."},"mpsuid":{"diagnostics":["MpsudAuditSnapshot","MpsudScreenRuntime","MpsudValuesDriver","MpsudValuesCi","MpsudValuesAv","MpsudValuesSme","MpsudValuesDiag"],"report":"dev/docs/MPSUID_2ES6_AUDIT.md","limit":"SC09 preview binding corrected with guarded memory-only patch; both monitors and restore verified. Enter/Esc/AVP commit and physical train changes unaccepted. Other current/measurement/SME/PS/RN/STPR/BUK findings remain. Exact RE137+ revision unresolved; diagnostic arrows disabled/unsafe.","screens_report":"dev/docs/MPSUID_SCREENS_RE_AUDIT.md","screen_routes":"MpsudScreenRuntime=index0; MpsudScreen02..21=indices1..20; MpsudScreen22..27=missing/ignored menus. Independent fresh process perroute, bothmonitors; allprobes selected via comma list.","probes":["MpsudWagonInput"],"full_set_evidence":"dev/runs/mpsuid-sc09-20261013/fullset.json"}},"model_context":{"train":"75 x 80t wagons=6000t plus 200t locomotive; 76 motion elements,77 air nodes.","display":"МСУЛ left/right, native КЛУБ-У БИЛ-УТ center; route map in a separate themed window. Separate train pressure mode: read-only all75 wagon TM/TC/ZR table, spatial graph and selected-wagon bounded simulated-time history.","three_d":"Received server world graph/scenario/DSP data and DirectX meshes for video overlays; registered Kornilcevo/main.exe and WorldSkils/main.exe absent from34188 loose files. Static network/code bridge mapped: server owns train motion/brakes, client cab+traction, separate VideoHandle overlay. Current managed host uses local POEZD/PDF route with no explicit world/render bridge. No native3D/live network/render acceptance.","known_valid":["Inactive VCU II/III isolates KVT and retains independent pilot.","Finite PM feeds BTO/control air; section RS6 sources are independent.","Cold77 nodes generate no pressure without air source.","KM2 charges RS6/RS7 without charging train brake network.","Section pantograph source/hysteresis; native negative initial pressure bounded.","Reversible guarded patches; prepared warm main compressor permissions, BB7.5/9 and12s delay.","Managed fixtures prove KP3 upstream of KO5 retains RS6/RS7 and VCU I with Blocked367=0 isolates KVT inlet/exhaust; ControlAir/UnifiedAir/AirControlIsolation passed. Fresh native regression passed6/6 at dev/runs/test-20261011T095028784Z-75470e12. Runtime217 fixed by rebasing HKCU32 WorkPath; CLI saves previous value/kind before Test/Run. Candidate deployed.","ColdPoweredMain diagnostic passed at dev/runs/test-20261011T100043250Z-630309b8: safe77-node cold network, KM2 then pantograph/BV/PSN, main command only after PSN ready, PM max8.99368, no electrical faults. Earlier early-demand sequence latched native KompError; this was corrected in the probe.","75 loaded R1/AR/cast-iron Pzar5.4; native bridge double physical pressure basis fixes release quantization deficit without weakened guards. TrainPneumatic passed full cold/hold/service/emergency/release at dev/runs/test-20261011T104850991Z-b45931da (36295cycles,8166600pressure checks,77geometry guards); TrainIsolation passed at dev/runs/test-20261011T105052714Z-c891f88d; regression6/6 at dev/runs/test-20261011T104944167Z-9d73e313. Report dev/docs/TRAIN_PNEUMATICS_AUDIT.md.","Supplied Rules protocol83 appendix65: corrected diagnostic head reference from first wagon to locomotive TM and service step from0.9 to0.6–0.7. Fresh TrainPneumatic test-20261011T105947976Z-eee0892a PASS36549cycles/8223750pressure checks; actual step0.656585, Loc-tail0.295201. Previous full-cycle PASS remains functional evidence only for its old method. Full normative brake test remains false. Production unchanged, SHA5D47ED655BD50D585B6358DF6654D4B84C8FCCB6CE8FB4A7D511520EF88AC05E.","KmOvercharge native test-20261011T113620525Z-a742a298 exit0 PASS: I raises actualUR6.406,II lowers5.8→5.6 in91.420s (Rules83 §3.2.8 80..120 for assumed300axes), returnsPzar5.0 in630.1s; all75TC remain0. TimeLikvid offsetloc+0x1b is100sec, not UR volume. Extended>=350axes100..120 not applicable/current failed flag; visual sensor signal not verified. FinitePM/disabled compressors; no pressure fixtures or model edits.","MpsudAuditSnapshot test-20261011T115345530Z-bc12f052 exit0 PASS: four actual LOCO/1 Communication/Pult/Tyga/MSUL module paths/SHA,100 warm idle cycles,electricalFaults0; functional_mpsuid_accepted=false,screen_rendering_accepted=false. Detailed audit dev/docs/MPSUID_2ES6_AUDIT.md,3 independent parts. Production unchanged.","MPSUID_SCREENS_RE_AUDIT.md:32 accepted fresh results,318PNG,419assertions+75observations,4912widgetreads;34base+8extra monitor routes. Latest Msgs test-20261011T124452567Z-081a9481 exit0. Mainbatch30/31,DiagUp timeout recorded; safe8/8 rerun andcorrect per-monitor messages. No production changes; RE conformityfalse. All15 discrepancies andsourcegaps documented."],"mpsuid_screens_reference":{"guide":"dev/docs/MPSUID_RE_SCREENS_GUIDE.md","gallery":"dev/docs/MPSUID_RE_SCREENS_GALLERY.html","functions":"dev/docs/audit_parts/MPSUD_RE_FUNCTIONS.md","check":"dev/docs/audit_parts/MPSUD_RE_SOURCE_CHECK.json","screens":22,"source_kind":"Primary RE2 text + secondary reprint details and images","factory_original_received":false,"factory_image_authentication_accepted":false,"limits":"RE2 §1.7 figures1.18–1.39 crosswalk established by sequence/title/text; reprint figures1–22 extracted and visually checked on white PDF background. Exact RE/equipment137+ and factory pixels remain unverified."},"three_d_evidence":"dev/runs/world3d-investigation-20261013/result.json"},"backlog":{"priority":"Complete locomotive cold preparation remains unverified: diagnostic cold pneumatic chain now charges PM successfully, but actuator demand, exact equipment and calibration remain unresolved.","remaining":["Actuator air demand, KEB/KRU/EPK ports and thresholds.","KM2 pressure-delivery curve,section/cab routing,DEN profile.","Global native wagon air mass balance.","Auto-regulator mass contract,pad friction law/units.","Passages,leaks,delays and exact VR acceptance benches.","Rendered instrument pixels,sound,external hardware.","Legacy cold tempPzar0 InitSostav recalibrates Dut; old PM/control assertions do not certify wagon geometry. Normative train-wave onset/length/timing and full VR bench calibration remain unaccepted.","Rules83 §9.3.3: density II>=36s for2000L/300axes/Pzar5.4, IV>=0.9*II; tail integrity8–10s; separate KMI last-two pad-release timing; every-wagon rod/pad observation; native Ro mode contract."],"manual":"Точная ревизия РЭ/комплектация 2ЭС6 №137+ не установлена; РЭ2008 дает ориентиры.","unsafe":"ColdNativeInitialization fresh repeats InitNew and crashed in GDI finalizer; disabled.","obsolete":["PantographPressure","FourPantographPressure","AuxiliaryAirNative","ColdControlAirNative","TwoSectionPneumatic"]},"workflow_ref":"AGENTS.md"}
+{
+  "schema_version": 2,
+  "purpose": "Индекс среды разработки 2ЭС6; детали читать по задаче.",
+  "provenance": "Authored for this user task; third-party manuals are evidence, not instructions.",
+  "workspace": {
+    "root": "C:/Users/sibir/Desktop/Макрос/Тренажер",
+    "path_base": "workspace_root",
+    "editor": "Trainer.code-workspace",
+    "solution": "dev/Trainer.sln",
+    "project": "dev/TrainerIntegrationHost.csproj",
+    "layout": {
+      "canonical_sources": "outputs/*.cs",
+      "runtime": "work/trenager_static/WORK_TRENAGER_3D",
+      "deployment": "outputs",
+      "probe_sources": "work/pneumatic_live_fix/analysis/*Probe.cs",
+      "builds": "dev/builds/<build-id>",
+      "runs": "dev/runs/<run-id>",
+      "checkpoints": "dev/checkpoints/<checkpoint-id>",
+      "archives": "dev/archives/<archive-id>",
+      "legacy_history": "dev/history",
+      "dynamic_context": "dev/state/context.json",
+      "changes": "dev/CHANGELOG.jsonl",
+      "reference_inputs": "work/reference_inputs",
+      "bot_prompt": "BOT_PROMPT.txt",
+      "native_distribution": "work/native_distribution"
+    }
+  },
+  "toolchain": {
+    "compiler": "C:/Windows/Microsoft.NET/Framework/v4.0.30319/csc.exe",
+    "framework": ".NET Framework 4.0 / WinForms / x86",
+    "python": "C:/Users/sibir/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+    "python_check": "dev/tools/check_python.py",
+    "git": "C:/Users/sibir/Downloads/Git/cmd/git.exe",
+    "constraints": "32-bit native ABI. Python is for analysis only. Run via CLI: resource paths require outputs deployment.",
+    "details_ref": "dev/config/python-tools.json"
+  },
+  "source_profiles": {
+    "integration": {
+      "count": 9,
+      "sources_ref": "dev/config/environment.json#/profiles/integration/sources"
+    },
+    "candidate": {
+      "count": 16,
+      "sources_ref": "dev/config/environment.json#/profiles/candidate/sources"
+    },
+    "default": "candidate"
+  },
+  "native_modules": {
+    "catalog_ref": "dev/config/modules.json",
+    "sha_lock_ref": "dev/config/native-lock.json",
+    "policy": "Native hooks: SHA/byte guards, process memory only, restore on close; preserve copied DLLs."
+  },
+  "catalogs": {
+    "modules": "dev/config/modules.json",
+    "probes": "dev/config/probes.json",
+    "runtime_build": "dev/config/environment.json",
+    "native_lock": "dev/config/native-lock.json",
+    "python": "dev/config/python-tools.json",
+    "architecture": "dev/docs/MODULES.md",
+    "development": "dev/docs/DEVELOPMENT.md",
+    "native_schema": "work/msul_emulator/native_record_schema.json",
+    "route": "outputs/Voynovka_Koshkarovsky_route.json",
+    "reference_status": "outputs/Trainer_RE_alignment_status.txt",
+    "backup": "dev/docs/BACKUP.md",
+    "python_runner": "dev/scripts/Invoke-TrainerPython.ps1",
+    "references": "dev/config/references.json",
+    "relocation": "dev/config/relocation.json",
+    "bot_prompt": "BOT_PROMPT.txt",
+    "pneumatic_audit": "dev/docs/PNEUMATICS_RE_AUDIT.md",
+    "train_pneumatic_audit": "dev/docs/TRAIN_PNEUMATICS_AUDIT.md",
+    "mpsuid_audit": "dev/docs/MPSUID_2ES6_AUDIT.md",
+    "mpsuid_screens_audit": "dev/docs/MPSUID_SCREENS_RE_AUDIT.md",
+    "native_distribution": "dev/config/native-distribution.json",
+    "world3d_architecture": "dev/docs/WORLD3D_ARCHITECTURE.md",
+    "safety_markup_audit": "dev/docs/SAFETY_MARKUP_RB_AUDIT.md"
+  },
+  "commands": {
+    "entrypoint": ".\\trainer.cmd",
+    "implementation": "dev/TrainerDev.ps1",
+    "actions": [
+      "Doctor",
+      "Build",
+      "Test",
+      "Run",
+      "Fix",
+      "Checkpoint",
+      "Handoff",
+      "Status",
+      "Archive"
+    ],
+    "default_profile": "candidate",
+    "default_suite": "smoke",
+    "fix": "-Action Fix -Name \"fix-name\" -Note \"Причина, изменение, проверка\" -Probe ColdNoSource,ColdTrainAuxiliary",
+    "regression": "-Action Test -Suite regression",
+    "archive_with_runtime": "-Action Archive -IncludeRuntime",
+    "contract": "Fix=Build/Test/Checkpoint/Handoff. Tests sequential; fresh results, assertions, exit0. Disabled probes excluded.",
+    "array_note": "Probe accepts an array or comma-separated names; Run deploys in outputs."
+  },
+  "test_areas": {
+    "pneumatics": {
+      "suite": "regression",
+      "probes": [
+        "ColdNoSource",
+        "SectionPantographPressure",
+        "CandidateAirHost",
+        "ColdTrainAuxiliary",
+        "VcuAirSequence",
+        "CompressorPrepared"
+      ]
+    },
+    "control_air": {
+      "probes": [
+        "ColdNoSource",
+        "ColdTrainAuxiliary",
+        "CandidateAirHost",
+        "AirControlIsolation"
+      ],
+      "diagnostics": [
+        "AuxiliaryColdSf3",
+        "AuxiliaryCommandPanel"
+      ]
+    },
+    "pantographs": {
+      "probes": [
+        "SectionPantographPressure",
+        "ColdNoSource"
+      ],
+      "limit": "Source pressure/hysteresis only; actuator demand and full startup unaccepted."
+    },
+    "vcu": {
+      "probes": [
+        "VcuAirSequence",
+        "CandidateAirHost"
+      ]
+    },
+    "main_compressors": {
+      "probes": [
+        "CompressorPrepared"
+      ],
+      "diagnostics": [
+        "ColdMainCommand",
+        "ColdPoweredMain"
+      ]
+    },
+    "logging": {
+      "module": "outputs/TrainerSessionLogging.cs",
+      "validation": "Isolated sessions, ProcessExit and locked-log self-tests: dev/runs/logging-self-test-20261011; not a catalog probe."
+    },
+    "route": {
+      "probes": [
+        "MarkupSafety",
+        "CandidateAirHost"
+      ],
+      "limit": "Partial route/aux/KLUB execution; pixels and route geometry need separate validation."
+    },
+    "traction_friction": {
+      "diagnostics": [
+        "PerPadNative"
+      ],
+      "limit": "Formula/pressure coupling only; absolute units and pad material unaccepted."
+    },
+    "wagon_train": {
+      "diagnostics": [
+        "TrainPneumatic",
+        "TrainIsolation",
+        "VrService",
+        "TrainPressureView",
+        "KmOvercharge"
+      ],
+      "limit": "Current user setting Pzar5.0 explicitly overrides loaded R1/AR cast-iron rule5.3–5.5; prior fullTrain normative charge5.4 PASS does not certify current setting. Pressure mode shows actual TM/TC/ZR all75 wagons without writing memory; dynamics/norm density/rods/pads/global mass remain unaccepted."
+    },
+    "mpsuid": {
+      "diagnostics": [
+        "MpsudAuditSnapshot",
+        "MpsudScreenRuntime",
+        "MpsudValuesDriver",
+        "MpsudValuesCi",
+        "MpsudValuesAv",
+        "MpsudValuesSme",
+        "MpsudValuesDiag"
+      ],
+      "report": "dev/docs/MPSUID_2ES6_AUDIT.md",
+      "limit": "SC09 preview binding corrected with guarded memory-only patch; both monitors and restore verified. Enter/Esc/AVP commit and physical train changes unaccepted. Other current/measurement/SME/PS/RN/STPR/BUK findings remain. Exact RE137+ revision unresolved; diagnostic arrows disabled/unsafe.",
+      "screens_report": "dev/docs/MPSUID_SCREENS_RE_AUDIT.md",
+      "screen_routes": "MpsudScreenRuntime=index0; MpsudScreen02..21=indices1..20; MpsudScreen22..27=missing/ignored menus. Independent fresh process perroute, bothmonitors; allprobes selected via comma list.",
+      "probes": [
+        "MpsudWagonInput"
+      ],
+      "full_set_evidence": "dev/runs/mpsuid-sc09-20261013/fullset.json"
+    },
+    "safety": {
+      "probes": [
+        "MarkupSafety",
+        "NativeSafetyAdapter",
+        "VigilanceOperator",
+        "AutovedenieOverride"
+      ],
+      "report": "dev/docs/SAFETY_MARKUP_RB_AUDIT.md",
+      "limit": "Actual bundled native scenarios only; saved/teaching signal source, no live occupancy or full RE137+ certification."
+    },
+    "vigilance": {
+      "probes": [
+        "VigilanceOperator",
+        "NativeSafetyAdapter"
+      ],
+      "report": "dev/docs/SAFETY_MARKUP_RB_AUDIT.md",
+      "limit": "Real RB/RBS cab and alternative RBP consumer input; physical RBP hardware excluded."
+    },
+    "autovedenie": {
+      "probes": [
+        "AutovedenieController",
+        "AutovedenieInterface",
+        "AutovedenieNativeBridgeGuard",
+        "AutovedenieOverride",
+        "AutovedenieJourney"
+      ],
+      "report": "dev/docs/AUTOVEDENIE_REQUIREMENTS_AUDIT.md",
+      "limit": "Prepared ordinary teaching algorithm; factory modes1/2/intensity and full cold-start unaccepted."
+    }
+  },
+  "model_context": {
+    "train": "75 x 80t wagons=6000t plus 200t locomotive; 76 motion elements,77 air nodes.",
+    "display": "МСУЛ left/right, native КЛУБ-У БИЛ-УТ center; route map in a separate themed window. Separate train pressure mode: read-only all75 wagon TM/TC/ZR table, spatial graph and selected-wagon bounded simulated-time history.",
+    "three_d": "Received server world graph/scenario/DSP data and DirectX meshes for video overlays; registered Kornilcevo/main.exe and WorldSkils/main.exe absent from34188 loose files. Static network/code bridge mapped: server owns train motion/brakes, client cab+traction, separate VideoHandle overlay. Current managed host uses local POEZD/PDF route with no explicit world/render bridge. No native3D/live network/render acceptance.",
+    "known_valid": [
+      "Inactive VCU II/III isolates KVT and retains independent pilot.",
+      "Finite PM feeds BTO/control air; section RS6 sources are independent.",
+      "Cold77 nodes generate no pressure without air source.",
+      "KM2 charges RS6/RS7 without charging train brake network.",
+      "Section pantograph source/hysteresis; native negative initial pressure bounded.",
+      "Reversible guarded patches; prepared warm main compressor permissions, BB7.5/9 and12s delay.",
+      "Managed fixtures prove KP3 upstream of KO5 retains RS6/RS7 and VCU I with Blocked367=0 isolates KVT inlet/exhaust; ControlAir/UnifiedAir/AirControlIsolation passed. Fresh native regression passed6/6 at dev/runs/test-20261011T095028784Z-75470e12. Runtime217 fixed by rebasing HKCU32 WorkPath; CLI saves previous value/kind before Test/Run. Candidate deployed.",
+      "ColdPoweredMain diagnostic passed at dev/runs/test-20261011T100043250Z-630309b8: safe77-node cold network, KM2 then pantograph/BV/PSN, main command only after PSN ready, PM max8.99368, no electrical faults. Earlier early-demand sequence latched native KompError; this was corrected in the probe.",
+      "75 loaded R1/AR/cast-iron Pzar5.4; native bridge double physical pressure basis fixes release quantization deficit without weakened guards. TrainPneumatic passed full cold/hold/service/emergency/release at dev/runs/test-20261011T104850991Z-b45931da (36295cycles,8166600pressure checks,77geometry guards); TrainIsolation passed at dev/runs/test-20261011T105052714Z-c891f88d; regression6/6 at dev/runs/test-20261011T104944167Z-9d73e313. Report dev/docs/TRAIN_PNEUMATICS_AUDIT.md.",
+      "Supplied Rules protocol83 appendix65: corrected diagnostic head reference from first wagon to locomotive TM and service step from0.9 to0.6–0.7. Fresh TrainPneumatic test-20261011T105947976Z-eee0892a PASS36549cycles/8223750pressure checks; actual step0.656585, Loc-tail0.295201. Previous full-cycle PASS remains functional evidence only for its old method. Full normative brake test remains false. Production unchanged, SHA5D47ED655BD50D585B6358DF6654D4B84C8FCCB6CE8FB4A7D511520EF88AC05E.",
+      "KmOvercharge native test-20261011T113620525Z-a742a298 exit0 PASS: I raises actualUR6.406,II lowers5.8→5.6 in91.420s (Rules83 §3.2.8 80..120 for assumed300axes), returnsPzar5.0 in630.1s; all75TC remain0. TimeLikvid offsetloc+0x1b is100sec, not UR volume. Extended>=350axes100..120 not applicable/current failed flag; visual sensor signal not verified. FinitePM/disabled compressors; no pressure fixtures or model edits.",
+      "MpsudAuditSnapshot test-20261011T115345530Z-bc12f052 exit0 PASS: four actual LOCO/1 Communication/Pult/Tyga/MSUL module paths/SHA,100 warm idle cycles,electricalFaults0; functional_mpsuid_accepted=false,screen_rendering_accepted=false. Detailed audit dev/docs/MPSUID_2ES6_AUDIT.md,3 independent parts. Production unchanged.",
+      "MPSUID_SCREENS_RE_AUDIT.md:32 accepted fresh results,318PNG,419assertions+75observations,4912widgetreads;34base+8extra monitor routes. Latest Msgs test-20261011T124452567Z-081a9481 exit0. Mainbatch30/31,DiagUp timeout recorded; safe8/8 rerun andcorrect per-monitor messages. No production changes; RE conformityfalse. All15 discrepancies andsourcegaps documented."
+    ],
+    "mpsuid_screens_reference": {
+      "guide": "dev/docs/MPSUID_RE_SCREENS_GUIDE.md",
+      "gallery": "dev/docs/MPSUID_RE_SCREENS_GALLERY.html",
+      "functions": "dev/docs/audit_parts/MPSUD_RE_FUNCTIONS.md",
+      "check": "dev/docs/audit_parts/MPSUD_RE_SOURCE_CHECK.json",
+      "screens": 22,
+      "source_kind": "Primary RE2 text + secondary reprint details and images",
+      "factory_original_received": false,
+      "factory_image_authentication_accepted": false,
+      "limits": "RE2 §1.7 figures1.18–1.39 crosswalk established by sequence/title/text; reprint figures1–22 extracted and visually checked on white PDF background. Exact RE/equipment137+ and factory pixels remain unverified."
+    },
+    "three_d_evidence": "dev/runs/world3d-investigation-20261013/result.json"
+  },
+  "backlog": {
+    "priority": "Complete locomotive cold preparation remains unverified: diagnostic cold pneumatic chain now charges PM successfully, but actuator demand, exact equipment and calibration remain unresolved.",
+    "remaining": [
+      "Actuator air demand, KEB/KRU/EPK ports and thresholds.",
+      "KM2 pressure-delivery curve,section/cab routing,DEN profile.",
+      "Global native wagon air mass balance.",
+      "Auto-regulator mass contract,pad friction law/units.",
+      "Passages,leaks,delays and exact VR acceptance benches.",
+      "Rendered instrument pixels,sound,external hardware.",
+      "Legacy cold tempPzar0 InitSostav recalibrates Dut; old PM/control assertions do not certify wagon geometry. Normative train-wave onset/length/timing and full VR bench calibration remain unaccepted.",
+      "Rules83 §9.3.3: density II>=36s for2000L/300axes/Pzar5.4, IV>=0.9*II; tail integrity8–10s; separate KMI last-two pad-release timing; every-wagon rod/pad observation; native Ro mode contract."
+    ],
+    "manual": "Точная ревизия РЭ/комплектация 2ЭС6 №137+ не установлена; РЭ2008 дает ориентиры.",
+    "unsafe": "ColdNativeInitialization fresh repeats InitNew and crashed in GDI finalizer; disabled.",
+    "obsolete": [
+      "PantographPressure",
+      "FourPantographPressure",
+      "AuxiliaryAirNative",
+      "ColdControlAirNative",
+      "TwoSectionPneumatic"
+    ]
+  },
+  "workflow_ref": "AGENTS.md"
+}

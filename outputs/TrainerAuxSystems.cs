@@ -12,7 +12,7 @@ partial class TrainerIntegrationHost {
  [StructLayout(LayoutKind.Sequential,Pack=1,Size=52)]struct RouteLimit{public int Start,End,Pass,Freight,Suburban,Special;public byte Flag,Klub,Saut,StartFlag;public int Distance,Allowed,Target,AllowedSaut,TargetSaut;public byte SautOS;}
  [UnmanagedFunctionPointer(CallingConvention.StdCall)]delegate void AvpLimitFn(RouteLimit record);
  string commandStamp="";int? commandedKm,fileKm;bool safetyPower,momentaryCharge;
- TrainerStandaloneSautBinding standaloneSautBinding;
+ TrainerStandaloneSautBinding standaloneSautBinding;bool nativeKpdEnabled=false;
  void SautLifecycleLog(string message){try{Log(message);}catch{}}
  IntPtr standaloneSautSharedRecord,standaloneSautOutput;
  void AllocateStandaloneSautRecords(IntPtr canonical){
@@ -22,10 +22,8 @@ partial class TrainerIntegrationHost {
   try{
    // Full TOutParamAllTRen ABI, initially zero. Only native SAUT writes its
    // effective limit and protection outputs after initialization.
-   standaloneSautOutput=Alloc(106);standaloneSautSharedRecord=Alloc(24);
-   foreach(int offset in new[]{0,4,8,0x10,0x14})
-    Marshal.WriteIntPtr(standaloneSautSharedRecord,offset,Marshal.ReadIntPtr(canonical,offset));
-   Marshal.WriteIntPtr(standaloneSautSharedRecord,0xc,standaloneSautOutput);
+   standaloneSautOutput=Alloc(106);sautInputContext=CreateSafetyContext("Saut",standaloneSautOutput);
+   standaloneSautSharedRecord=sautInputContext.SharedRecord;
    mem.Add("StandaloneSautSharedRecord",standaloneSautSharedRecord);
    mem.Add("StandaloneSautOutput",standaloneSautOutput);
   }catch{ReleaseStandaloneSautRecords();throw;}
@@ -34,7 +32,7 @@ partial class TrainerIntegrationHost {
   // Call only before any native initialization attempt, or after native close
   // has returned successfully and the managed binding has detached.
   var shared=standaloneSautSharedRecord;var output=standaloneSautOutput;
-  if(shared!=IntPtr.Zero){Marshal.FreeHGlobal(shared);standaloneSautSharedRecord=IntPtr.Zero;
+  if(shared!=IntPtr.Zero){ReleaseSafetyContext("Saut",sautInputContext);sautInputContext=null;standaloneSautSharedRecord=IntPtr.Zero;
    if(mem.ContainsKey("StandaloneSautSharedRecord")&&mem["StandaloneSautSharedRecord"]==shared)mem.Remove("StandaloneSautSharedRecord");}
   if(output!=IntPtr.Zero){Marshal.FreeHGlobal(output);standaloneSautOutput=IntPtr.Zero;
    if(mem.ContainsKey("StandaloneSautOutput")&&mem["StandaloneSautOutput"]==output)mem.Remove("StandaloneSautOutput");}
@@ -53,7 +51,7 @@ partial class TrainerIntegrationHost {
     if(binding!=null&&binding.Connected){
      SautLifecycleLog("Standalone SAUT close: operator input off begin");
      using(BorrowStandaloneSautOperatorInputs(true)){
-      for(int n=0;n<20;n++){if(!binding.Connected)throw new Exception("Standalone SAUT authority unavailable during shutdown");nativeStep();binding.CaptureOutputs();Application.DoEvents();}
+      for(int n=0;n<20;n++){if(!binding.Connected)throw new Exception("Standalone SAUT authority unavailable during shutdown");sautInputContext.Sync();nativeStep();binding.CaptureOutputs();Application.DoEvents();}
      }
      SautLifecycleLog("Standalone SAUT close: 20 native off steps completed");
     }
@@ -73,14 +71,15 @@ partial class TrainerIntegrationHost {
    nativeInitAttempted=true;
    if(nativeInit(configuration,standaloneSautSharedRecord)!=1)throw new Exception("SAUT initialization failed");
    binding=TrainerStandaloneSautBinding.Attach(module,shared,mem["TOutParamAllTRen"],standaloneSautSharedRecord,
-    standaloneSautOutput,mem["TLocParam"],mem["CommOwner"],root,Log);
+    standaloneSautOutput,mem["TLocParam"],mem["CommOwner"],root,Log,sautInputContext);
    binding.CaptureOutputs();standaloneSautBinding=binding;
    BindStandaloneSautK20ModeReader(delegate{return binding.NativeMode;});
   }catch(Exception error){SautLifecycleLog("Standalone SAUT initialization/authority refused; buffers retained until close: "+error);throw;}
   otherSteps.Add(delegate {
    if(closeStarted)throw new ObjectDisposedException("Standalone SAUT native cycle");
    if(!binding.Connected)throw new Exception("Standalone SAUT authority unavailable");
-   using(BorrowStandaloneSautOperatorInputs()){try{nativeStep();}catch(Exception error){throw new Exception("Native SAUT step failed",error);}binding.CaptureOutputs();}
+   sautInputContext.Sync();
+   using(BorrowStandaloneSautOperatorInputs())using(BorrowVigilanceOperatorInputs()){try{nativeStep();}catch(Exception error){throw new Exception("Native SAUT step failed",error);}binding.CaptureOutputs();}
   });
   SautLifecycleLog("Standalone software SAUT connected: canonical inputs, isolated output producer, immediate snapshot");
  }
@@ -90,14 +89,15 @@ partial class TrainerIntegrationHost {
   var pb=mem["TPribBezAllTren"];var path=Marshal.StringToHGlobalUni(root+"\\");
   var sound=Library("SoundsTren.dll");if(Export<SoundsInitFn>(sound,"Init_SoundsTrenDLL")(IntPtr.Zero,(uint)Handle.ToInt32())!=1)throw new Exception("SoundsTren initialization failed");otherCloses.Add(Export<StepFn>(sound,"CloseSounds"));
   var talk=Library("TalkSound.dll");if(Export<SoundsInitFn>(talk,"Init_SoundsTrenDLL")(IntPtr.Zero,(uint)Handle.ToInt32())!=1)throw new Exception("TalkSound initialization failed");otherCloses.Add(Export<StepFn>(talk,"CloseSounds"));Log("Dispatcher sound channel initialized");
-  var calc=Library("CalcOgr.dll");if(Export<CalcInitFn>(calc,"Init_CalcOgr_Dll")(new CalcConfig{Path=path,TipDv=1,Sound=(uint)sound.ToInt32(),Green=(byte)route.speed_limits.ConvertAll(x=>x.speed_kmh).Max(),Yellow=60,Red=20,White=40},pb)!=1)throw new Exception("CalcOgr initialization failed");AddAux(calc,"Proceed_CalcOgr","CloseCalcOgrDll","CalcOgr");
+  var calc=Library("CalcOgr.dll");InitializeAuxContext(calc,"Calc","Proceed_CalcOgr","CloseCalcOgrDll",delegate(IntPtr input){return Export<CalcInitFn>(calc,"Init_CalcOgr_Dll")(new CalcConfig{Path=path,TipDv=1,Sound=(uint)sound.ToInt32(),Green=(byte)route.speed_limits.ConvertAll(x=>x.speed_kmh).Max(),Yellow=60,Red=20,White=40},input);});
   var saut=Library("Saut_Dll.dll");AddStandaloneSaut(saut,pb,new SautConfig{Path=path,TipDv=1,Sound=(uint)sound.ToInt32(),Green=(byte)route.speed_limits.ConvertAll(x=>x.speed_kmh).Max(),Yellow=60,Red=20,White=40});
-  var avp=Library("AVP.dll");if(Export<AvpInitFn>(avp,"InitAVP")(pb,new KlubInit{Path=path,Type=2,TipDv=1})!=1)throw new Exception("AVP initialization failed");AddAux(avp,"ProceedAVP","CloseAVP","AVP freight");
+  var avp=Library("AVP.dll");InitializeAuxContext(avp,"NativeAvp","ProceedAVP","CloseAVP",delegate(IntPtr input){return Export<AvpInitFn>(avp,"InitAVP")(input,new KlubInit{Path=path,Type=2,TipDv=1});});
   ConfigureAuxRoute(calc,saut,avp);
-  // KPD is an alternative recorder. Its software model cycles but power remains off while KLUB-U is selected.
-  var kpd=Library("KPD_3PV.dll");if(Export<KpdInitFn>(kpd,"InitKPD")(pb,new KpdConfig{Path=path,Type=2,Green=(byte)route.speed_limits.ConvertAll(x=>x.speed_kmh).Max(),Cassette=1})!=1)throw new Exception("KPD initialization failed");AddAux(kpd,"ProceedKPD","CloseKPD","KPD-3PV standby");
+  // Original GeneralPB creates/cycles KPD only when its provider is selected.
+  // Do not initialize an alternative recorder beside the selected KLUB.
+  if(nativeKpdEnabled){var kpd=Library("KPD_3PV.dll");InitializeAuxContext(kpd,"Kpd","ProceedKPD","CloseKPD",delegate(IntPtr input){return Export<KpdInitFn>(kpd,"InitKPD")(input,new KpdConfig{Path=path,Type=2,Green=(byte)route.speed_limits.ConvertAll(x=>x.speed_kmh).Max(),Cassette=1});});}
  }
- void AuxCycle(){foreach(var step in otherSteps)step();RefreshStandaloneSautControls();}
+ void AuxCycle(){foreach(var step in otherSteps)step();RefreshStandaloneSautControls();RefreshVigilanceControls();}
  void CloseAux(){for(int n=otherCloses.Count-1;n>=0;n--)otherCloses[n]();}
  void PollCommands(){
   var file=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"Trainer_commands.txt");if(!File.Exists(file)){if(commandStamp.Length>0){fileKm=null;safetyPower=false;commandStamp="";Log("Command file removed: test overrides released");}return;}var text=File.ReadAllText(file);if(text!=commandStamp){commandStamp=text;fileKm=null;safetyPower=false;foreach(var line in text.Split('\n')){var kv=line.Trim().Split('=');if(kv.Length!=2)continue;float v;int k;if(kv[0]=="speed"&&float.TryParse(kv[1],System.Globalization.NumberStyles.Float,System.Globalization.CultureInfo.InvariantCulture,out v))SetInitialSpeed(v);if(kv[0]=="km"&&int.TryParse(kv[1],out k)&&k>=1&&k<=7)fileKm=k;if(kv[0]=="safety")safetyPower=kv[1]=="1";}Log("Applied test inputs: "+text.Replace('\n',' '));}
@@ -120,7 +120,7 @@ partial class TrainerIntegrationHost {
  void ReleaseTestInputs(){momentaryCharge=false;commandedKm=null;fileKm=null;safetyPower=false;Log("Test inputs released: native cab controls active");}
  [DllImport("msvcrt.dll",CallingConvention=CallingConvention.Cdecl,EntryPoint="_clearfp")]static extern uint ClearFloatingStatus();
  int electricalFaults;string electricalFault="";
- void ElectricalCycle(){UpdateVcuInterlock();try{BeforeElectricalAirCycle();Dbl(mem["TTygaParam"],0,signedVelocity);commStep();UpdateVcuInterlock();electricalFault="";}catch(ArithmeticException ex){ClearFloatingStatus();electricalFault=ex.GetType().Name;electricalFaults++;F(mem["TResTyga"],0,0);if(electricalFaults==1||ticks%100==0){var t=mem["TTygaParam"];var flags=new System.Text.StringBuilder();for(int n=0;n<8;n++)flags.Append(Marshal.ReadInt32(t,0x10d+n*4)+",");Log("Native electrical fault, traction removed: "+ex+"; sections="+Marshal.ReadInt32(t,8)+" pos="+Marshal.ReadInt32(t,0xc)+" soed="+Marshal.ReadByte(t,0xdc)+" mode="+Marshal.ReadInt32(t,0x1b)+" U="+FloatAt(mem["TResTyga"],0x11)+" TD flags="+flags);}}}
+ void ElectricalCycle(){UpdateVcuInterlock();BeginVigilanceElectricalInputs();try{BeforeElectricalAirCycle();Dbl(mem["TTygaParam"],0,signedVelocity);commStep();UpdateVcuInterlock();electricalFault="";}catch(ArithmeticException ex){ClearFloatingStatus();electricalFault=ex.GetType().Name;electricalFaults++;F(mem["TResTyga"],0,0);if(electricalFaults==1||ticks%100==0){var t=mem["TTygaParam"];var flags=new System.Text.StringBuilder();for(int n=0;n<8;n++)flags.Append(Marshal.ReadInt32(t,0x10d+n*4)+",");Log("Native electrical fault, traction removed: "+ex+"; sections="+Marshal.ReadInt32(t,8)+" pos="+Marshal.ReadInt32(t,0xc)+" soed="+Marshal.ReadByte(t,0xdc)+" mode="+Marshal.ReadInt32(t,0x1b)+" U="+FloatAt(mem["TResTyga"],0x11)+" TD flags="+flags);}}finally{EndVigilanceElectricalInputs();}}
 }
 
 

@@ -32,7 +32,16 @@
         "outputs/TrainerKvtProfile.cs",
         "outputs/TrainerTwoSectionAirChain.cs",
         "outputs/TrainerPneumaticNetworkCandidate.cs",
-        "outputs/TrainerTrainPressureView.cs"
+        "outputs/TrainerTrainPressureView.cs",
+        "outputs/TrainerSafetyInputContext.cs",
+        "outputs/TrainerSafetyContexts.cs",
+        "outputs/TrainerNativeSafetyAdapter.cs",
+        "outputs/TrainerSafetyHost.cs",
+        "outputs/TrainerVigilanceOperatorControls.cs",
+        "outputs/TrainerMarkupSignalSource.cs",
+        "outputs/TrainerMarkupHost.cs",
+        "outputs/TrainerKlubSafetyBinding.cs",
+        "outputs/TrainerNativeVirtualPult.cs"
       ]
     },
     "integration": {
@@ -51,7 +60,16 @@
         "outputs/TrainerNativeFixes.cs",
         "outputs/TrainerPneumaticTiming.cs",
         "outputs/TrainerSessionLogging.cs",
-        "outputs/TrainerTrainPressureView.cs"
+        "outputs/TrainerTrainPressureView.cs",
+        "outputs/TrainerSafetyInputContext.cs",
+        "outputs/TrainerSafetyContexts.cs",
+        "outputs/TrainerNativeSafetyAdapter.cs",
+        "outputs/TrainerSafetyHost.cs",
+        "outputs/TrainerVigilanceOperatorControls.cs",
+        "outputs/TrainerMarkupSignalSource.cs",
+        "outputs/TrainerMarkupHost.cs",
+        "outputs/TrainerKlubSafetyBinding.cs",
+        "outputs/TrainerNativeVirtualPult.cs"
       ]
     }
   },
@@ -553,6 +571,158 @@
         "TrainerStandaloneSautBinding"
       ],
       "limitations": "К20 доступна только при фактическом native mode3/4; live signal source пока отсутствует."
+    },
+    {
+      "id": "TrainerSafetyInputContext",
+      "type": "csharp",
+      "path": "outputs/TrainerSafetyInputContext.cs",
+      "role": "КЛУБ, САУТ, ЭПК и штатные входы бдительности",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "test_areas": [
+        "safety",
+        "signals",
+        "vigilance"
+      ],
+      "limitations": "Приёмка ограничена подтверждёнными native сценариями; полный РЭ137+ не подтверждён."
+    },
+    {
+      "id": "TrainerSafetyContexts",
+      "type": "csharp",
+      "path": "outputs/TrainerSafetyContexts.cs",
+      "role": "КЛУБ, САУТ, ЭПК и штатные входы бдительности",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "test_areas": [
+        "safety",
+        "signals",
+        "vigilance"
+      ],
+      "limitations": "Приёмка ограничена подтверждёнными native сценариями; полный РЭ137+ не подтверждён."
+    },
+    {
+      "id": "TrainerNativeSafetyAdapter",
+      "type": "csharp",
+      "path": "outputs/TrainerNativeSafetyAdapter.cs",
+      "role": "КЛУБ, САУТ, ЭПК и штатные входы бдительности",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "test_areas": [
+        "safety",
+        "signals",
+        "vigilance"
+      ],
+      "limitations": "Приёмка ограничена подтверждёнными native сценариями; полный РЭ137+ не подтверждён."
+    },
+    {
+      "id": "TrainerSafetyHost",
+      "type": "csharp",
+      "path": "outputs/TrainerSafetyHost.cs",
+      "role": "КЛУБ, САУТ, ЭПК и штатные входы бдительности",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "test_areas": [
+        "safety",
+        "signals",
+        "vigilance"
+      ],
+      "limitations": "Приёмка ограничена подтверждёнными native сценариями; полный РЭ137+ не подтверждён."
+    },
+    {
+      "id": "TrainerVigilanceOperatorControls",
+      "type": "csharp",
+      "path": "outputs/TrainerVigilanceOperatorControls.cs",
+      "role": "КЛУБ, САУТ, ЭПК и штатные входы бдительности",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "test_areas": [
+        "safety",
+        "signals",
+        "vigilance"
+      ],
+      "limitations": "Приёмка ограничена подтверждёнными native сценариями; полный РЭ137+ не подтверждён."
+    },
+    {
+      "id": "TrainerMarkupSignalSource",
+      "type": "csharp",
+      "path": "outputs/TrainerMarkupSignalSource.cs",
+      "role": "Проверенный источник сигналов исходной разметки",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "test_areas": [
+        "safety",
+        "signals",
+        "vigilance"
+      ],
+      "limitations": "Приёмка ограничена подтверждёнными native сценариями; полный РЭ137+ не подтверждён."
+    },
+    {
+      "id": "TrainerMarkupHost",
+      "type": "csharp",
+      "path": "outputs/TrainerMarkupHost.cs",
+      "role": "КЛУБ, САУТ, ЭПК и штатные входы бдительности",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "test_areas": [
+        "safety",
+        "signals",
+        "vigilance"
+      ],
+      "limitations": "Приёмка ограничена подтверждёнными native сценариями; полный РЭ137+ не подтверждён."
+    },
+    {
+      "id": "TrainerKlubSafetyBinding",
+      "type": "csharp",
+      "path": "outputs/TrainerKlubSafetyBinding.cs",
+      "role": "КЛУБ, САУТ, ЭПК и штатные входы бдительности",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "test_areas": [
+        "safety",
+        "signals",
+        "vigilance"
+      ],
+      "limitations": "Приёмка ограничена подтверждёнными native сценариями; полный РЭ137+ не подтверждён."
+    },
+    {
+      "id": "TrainerNativeVirtualPult",
+      "type": "csharp",
+      "path": "outputs/TrainerNativeVirtualPult.cs",
+      "role": "Штатный выбор VirtPult до native initialization с восстановлением конфигурации",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "test_areas": [
+        "safety",
+        "vigilance"
+      ],
+      "limitations": "Memory-only configuration, actual native hardware pointers and registry are not assigned."
     }
   ],
   "manual_applicability": "Точная ревизия РЭ/комплектация 2ЭС6 начиная с №137 не установлена; кандидатные проверки не являются полной нормативной приемкой.",

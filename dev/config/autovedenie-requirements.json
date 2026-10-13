@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "objective": "Сделай чтобы автоведение работало, используя РЭ и документации на подобные АВП",
-  "status": "native_ordinary_verified_safety_markup_priority_in_progress",
+  "status": "safety_markup_priority_verified_full_avp_goal_in_progress",
   "source_policy": "Factory RE2 screen semantics and official manufacturer documents; analogous AVP behaviors labelled as adaptations, no claim to exact undocumented factory algorithm.",
   "baseline_commit": "e64696681610c68fcaaa7faec8b1e7f257640b34",
   "requirements": [
@@ -23,22 +23,22 @@
     {
       "id": "AV04",
       "requirement": "Automatic acceleration, holding speed and preview braking for current/upcoming whole-train restrictions and route end",
-      "status": "fresh_native_prepared_journey74_verified"
+      "status": "prepared6500m_verified_full333km_grade_horizon_defect_open"
     },
     {
       "id": "AV05",
       "requirement": "Documented start readiness, manual controller/brake cancellation, safety/SAUT/emergency priority; re-entry only on explicit request",
-      "status": "native_override439_permission_manual_saut_epk_and_explicit_rearm_verified_declared_scenario"
+      "status": "native_override_and_safety_priority_verified_declared_scenarios"
     },
     {
       "id": "AV06",
       "requirement": "Train metadata and route/profile/stations used by planner; normal/following/catch-up modes consistent with sourced semantics and available data",
-      "status": "ordinary_adaptation_implemented_mode1_requires_live_signals_mode2_unconfirmed"
+      "status": "native_modes_0_ordinary_1_po_udaleniyu_2_nagon_confirmed_modes1_2_algorithms_pending"
     },
     {
       "id": "AV07",
       "requirement": "Fresh native end-to-end journey tests, failures/overrides, both monitors, byte/SHA guards and teardown restoration, regression and deployed build",
-      "status": "fresh_controller_interface_bridge_override_journey_verified_final_regression_build_deploy_pending"
+      "status": "safety_regression_build_deployed_startup_teardown_verified_full_route_pending"
     }
   ],
   "evidence": {
@@ -53,21 +53,41 @@
     "native_interface": "dev/runs/test-20261013T113541738Z-3a5542bb",
     "native_bridge_guard": "dev/runs/test-20261013T113541738Z-3a5542bb",
     "native_brake_calibration": "dev/runs/test-20261013T101423817Z-e8a8ff9b",
-    "native_journey": "dev/runs/test-20261013T114151485Z-a0e138ec",
-    "native_journey_limitation": "Fresh74assertions,10965nativecycles,prepared6500m ordinary scenario,stop6469.637m/zero speed/zero force/heldIV+KVTIII/restoration. Full200km, factory algorithms, cold-start and markup signal source not accepted.",
+    "native_journey": "dev/runs/test-20261013T133809456Z-d1f92771",
+    "native_journey_limitation": "74 assertions/10965 cycles; prepared declared 6500m ordinary scenario. Not full 333033m native markup acceptance.",
     "native_brake_calibration_limitation": "0.7UR step native V→IV→II, correct physical compressor startup,69assertions; candidate6200t/75 only, half settled native deceleration .07624053955078124, release79.3s.",
-    "native_override": "dev/runs/test-20261013T113337658Z-f2fb6351",
-    "native_override_limitation": "Fresh439assertions, permission/manualKMIII,V/KVTIII, real private nativeSAUT producer with declaredCodeWay1→3 and bounded future signal parameters, traction0/cylinderresponse, EPK physicalkeyloss/recovery and explicitrearm/restoration. Not live/block signaling or complete KLUB/RB acceptance."
+    "native_override": "dev/runs/test-20261013T135310623Z-4ecfce16",
+    "native_override_limitation": "441 assertions/3338 cycles; native SAUT, EPK/manual intervention, explicit rearm and restoration; declared source, no live occupancy.",
+    "safety_markup": "dev/runs/test-20261013T135310623Z-4ecfce16",
+    "safety_markup_limitation": "Markup5322, vigilance753, EPK100, override441 assertions. Full original source loaded; discrete signal/EPK tests, not continuous full-course driving.",
+    "regression": "dev/runs/test-20261013T134624507Z-b2816d7c",
+    "final_integration_build": "dev/builds/build-20261013T141921844Z-c6e51d80",
+    "production_startup": "dev/runs/interactive-20261013T142032048Z-409f0ac6/production-smoke.json",
+    "deployed_candidate_build": "dev/builds/build-20261013T142029336Z-c16ac8bf"
   },
   "completion_rule": "All requirements need current authoritative evidence; no completion from a working menu, startup, advice-only controller, or synthetic force fixture.",
   "priority_steering": {
     "request": "Сначала исправить КЛУБ-У, САУТ, локомотивный светофор по разметке и РБ",
-    "status": "in_progress",
+    "status": "verified_declared_native_scenarios",
     "markup_candidate": "work/native_distribution/WORK_TRENAGER_3D/RAZMETKA/Voiniovka - Ekat/Tumen - Ekaterinburg.nastr",
     "constraints": [
       "Use actual markup coordinates; PDF coordinate mapping unconfirmed",
       "RB hold7s warning is not another acknowledgement request",
       "No automatic production vigilance acknowledgement or protection-output writes"
-    ]
-  }
+    ],
+    "evidence": "dev/runs/test-20261013T135310623Z-4ecfce16",
+    "audit": "dev/docs/SAFETY_MARKUP_RB_AUDIT.md"
+  },
+  "open_findings": [
+    {
+      "id": "AV_FULL_ROUTE_HORIZON",
+      "status": "open",
+      "detail": "Controller scans worst grade to full333033m end; distant -8permille at56725..58325 yields negative bound from .07624053955 and wrongly refuses initial2600m. Need valid occupied/braking horizon and adverse-grade native calibration; must not truncate source or clamp braking bound."
+    },
+    {
+      "id": "AV_MODE_SOURCE",
+      "status": "open",
+      "detail": "MSUL modes0/1/2 and IntensNagon0..9 proven. Exact numerical algorithm not proven; 2018 percentage intensity is different. Po udaleniyu requires current green and following yellow per memo, not preceding train distance."
+    }
+  ]
 }

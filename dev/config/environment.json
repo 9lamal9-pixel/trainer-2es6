@@ -1,4 +1,4 @@
-﻿{
+{
   "schema_version": 1,
   "compiler": "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\csc.exe",
   "framework": "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\System.Windows.Forms.dll",
@@ -27,7 +27,16 @@
         "outputs/TrainerKvtProfile.cs",
         "outputs/TrainerTwoSectionAirChain.cs",
         "outputs/TrainerPneumaticNetworkCandidate.cs",
-        "outputs/TrainerTrainPressureView.cs"
+        "outputs/TrainerTrainPressureView.cs",
+        "outputs/TrainerSafetyInputContext.cs",
+        "outputs/TrainerSafetyContexts.cs",
+        "outputs/TrainerNativeSafetyAdapter.cs",
+        "outputs/TrainerSafetyHost.cs",
+        "outputs/TrainerVigilanceOperatorControls.cs",
+        "outputs/TrainerMarkupSignalSource.cs",
+        "outputs/TrainerMarkupHost.cs",
+        "outputs/TrainerKlubSafetyBinding.cs",
+        "outputs/TrainerNativeVirtualPult.cs"
       ]
     },
     "integration": {
@@ -46,7 +55,16 @@
         "outputs/TrainerNativeFixes.cs",
         "outputs/TrainerPneumaticTiming.cs",
         "outputs/TrainerSessionLogging.cs",
-        "outputs/TrainerTrainPressureView.cs"
+        "outputs/TrainerTrainPressureView.cs",
+        "outputs/TrainerSafetyInputContext.cs",
+        "outputs/TrainerSafetyContexts.cs",
+        "outputs/TrainerNativeSafetyAdapter.cs",
+        "outputs/TrainerSafetyHost.cs",
+        "outputs/TrainerVigilanceOperatorControls.cs",
+        "outputs/TrainerMarkupSignalSource.cs",
+        "outputs/TrainerMarkupHost.cs",
+        "outputs/TrainerKlubSafetyBinding.cs",
+        "outputs/TrainerNativeVirtualPult.cs"
       ]
     }
   },

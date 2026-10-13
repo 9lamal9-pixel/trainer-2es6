@@ -33,7 +33,8 @@ public sealed class TrainerStandaloneSautBinding : IDisposable {
     readonly string sautPath, communicationPath;
     IntPtr saut, communication, canonicalPb, commonOut, pb, loc, outp, commOwner;
     IntPtr klubButton, avpButton, inputParam, wagonParam, commonButtons, pbButtons;
-    static readonly int[] InputOffsets = { 0, 4, 8, 0x10, 0x14 };
+    static readonly int[] InputOffsets = { 0, 4, 0x10, 0x14 };
+    readonly TrainerSafetyInputContext inputContext;
     IntPtr ownerSlot, owner, ownerVmt, commVmt, communicationRecord, proceed;
     Action<string> log;
     bool disposed, outputsCaptured, brakeRequested, lapRequested, tractionCutRequested;
@@ -42,14 +43,15 @@ public sealed class TrainerStandaloneSautBinding : IDisposable {
     // runtimeDir is the WORK_TRENAGER_3D runtime root, not its RESOURCES folder.
     public static TrainerStandaloneSautBinding Attach(IntPtr module, IntPtr canonicalPB,
         IntPtr commonOutput, IntPtr privatePB, IntPtr privateOutput, IntPtr loc,
-        IntPtr commOwner, string runtimeDir, Action<string> log) {
+        IntPtr commOwner, string runtimeDir, Action<string> log, TrainerSafetyInputContext inputs) {
         return new TrainerStandaloneSautBinding(module, canonicalPB, commonOutput,
-            privatePB, privateOutput, loc, commOwner, runtimeDir, log);
+            privatePB, privateOutput, loc, commOwner, runtimeDir, log, inputs);
     }
 
     TrainerStandaloneSautBinding(IntPtr module, IntPtr shared, IntPtr sharedOutput,
         IntPtr privateShared, IntPtr privateOutput, IntPtr location,
-        IntPtr communicationOwner, string runtimeDir, Action<string> writer) {
+        IntPtr communicationOwner, string runtimeDir, Action<string> writer, TrainerSafetyInputContext inputs) {
+        if(inputs==null)throw new ArgumentNullException("inputs");inputContext=inputs;
         if (IntPtr.Size != 4) throw new PlatformNotSupportedException("Standalone SAUT binding requires x86");
         if (module == IntPtr.Zero || shared == IntPtr.Zero || sharedOutput == IntPtr.Zero ||
             privateShared == IntPtr.Zero || privateOutput == IntPtr.Zero ||
@@ -143,6 +145,10 @@ public sealed class TrainerStandaloneSautBinding : IDisposable {
             ReadPointer(pb, 0xc) != outp || ReadPointer(canonicalPb, 0x10) != loc ||
             ReadPointer(canonicalPb, 0xc) != commonOut)
             throw new Exception("Standalone SAUT isolated output authority guard");
+        inputContext.SourceGuard();
+        if(inputContext.OriginalSharedRecord!=canonicalPb || inputContext.SharedRecord!=pb || inputContext.Output!=outp ||
+            ReadPointer(pb,8)!=inputContext.Input || ReadPointer(inputContext.Input,0x1f)!=inputContext.Light)
+            throw new Exception("Standalone SAUT private signal calculation guard");
         foreach (int offset in InputOffsets)
             if (ReadPointer(pb, offset) != ReadPointer(canonicalPb, offset))
                 throw new Exception("Standalone SAUT canonical input alias guard");

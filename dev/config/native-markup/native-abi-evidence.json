@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "source_exe_sha256": "E217148C24427CAE5DAB46309676854C0E73274F79381AE62613D9D63B3C1612",
+  "normalized_json": "dev/config/native-markup/Tumen_Ekaterinburg.source.json",
+  "normalized_sha256": "BF11DB8D35391B7A3CBF3DC02F96C8AB08B0B6237A7DD5AEE4049C093F809728",
+  "contracts": {
+    "alsn_publication": {
+      "publisher_rva": "3E4D60",
+      "length": 286,
+      "sha256": "76EBFAF97DE1C789A7D3759B88E6B1CFC58FA2EC1272034F526A9A5885911EB6",
+      "setter_rva": "3E3B24",
+      "length_setter": 68,
+      "setter_sha256": "97999678DBE136DA9C6CE863F469221548CFA51CFE69A3CD2084D5AAE61A11F2",
+      "source": "Actual native KLUB PBOut+20 byte",
+      "target": "Canonical Input+1D",
+      "selection": "Loaded KLUB provider, independent of PBBtn4 power",
+      "order": "Original Comm Step -> GeneralPB/firmware/protection -> ALSN publication"
+    },
+    "main_cab_bitmap": {
+      "producer": "Native KLUB PBOut+32",
+      "consumer": "Communication1 TPultMash2ES6.Proceed2AE746 -> SetHndlKLUB2AEFDC -> cab+508 KLUB_DAB",
+      "no_managed_lamp_output_assignments": true
+    },
+    "pom_alsn": {
+      "consumer_rva": "2AB502",
+      "encoding": {
+        "0": "all off",
+        "1": "green",
+        "2": "yellow",
+        "3": "red-yellow",
+        "4": "red",
+        "5": "white"
+      },
+      "dfm": "PC_ALSN OnPicIndex0/2/4/6/8"
+    },
+    "light_name": {
+      "publisher_rva": "2E3290",
+      "convert_rva": "9468",
+      "copy_rva": "8E30",
+      "abi": "shortstring20, one length byte plus20 data bytes at record+4",
+      "published_name": "Windows ACP via GetACP + WideCharToMultiByte flags0/NULL fallback; native byte truncation20",
+      "codepage_initializer_rva": "43B090",
+      "codepage_initializer_bytes": "E8CB78BCFFA3FCB88400",
+      "default_system_codepage_global_rva": "44B8FC",
+      "conversion_rvas": [
+        "88B0",
+        "8884",
+        "C2C8",
+        "2980"
+      ]
+    },
+    "plan": {
+      "loader_rva": "2647C8",
+      "fields": [
+        "Nach",
+        "Long",
+        "Radius",
+        "Hkr"
+      ],
+      "record_rtti": "1DB1E4",
+      "poezd_sha256": "822B6D17CE45F80179A512EE6C70A35D5AE29BF187530BDA5EBD11446CFB3553",
+      "setplan_rva": "27F8",
+      "radius_abs_helper_rva": "114D0",
+      "radius_abs_bytes": "558BEC9B80650F7FDD45085DC3",
+      "raw_hkr": "Not used; original loader recomputes cant from radius"
+    }
+  },
+  "limitations": [
+    "Saved signal states and explicit teaching overrides, no live occupancy",
+    "Original route axis differs from PDF",
+    "Empty original .ogran; teaching operational80 cap declared",
+    "Exact RE137+ revision unresolved"
+  ]
+}

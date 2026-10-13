@@ -46,6 +46,15 @@
     <Compile Include="..\outputs\TrainerAutovedenieHost.cs"><Link>Autovedenie\TrainerAutovedenieHost.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerStandaloneSautBinding.cs"><Link>Autovedenie\TrainerStandaloneSautBinding.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerSautOperatorControls.cs"><Link>Autovedenie\TrainerSautOperatorControls.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerSafetyInputContext.cs"><Link>Safety\TrainerSafetyInputContext.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerSafetyContexts.cs"><Link>Safety\TrainerSafetyContexts.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerNativeSafetyAdapter.cs"><Link>Safety\TrainerNativeSafetyAdapter.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerSafetyHost.cs"><Link>Safety\TrainerSafetyHost.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerNativeVirtualPult.cs"><Link>Safety\TrainerNativeVirtualPult.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerKlubSafetyBinding.cs"><Link>Safety\TrainerKlubSafetyBinding.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerMarkupSignalSource.cs"><Link>Safety\TrainerMarkupSignalSource.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerMarkupHost.cs"><Link>Safety\TrainerMarkupHost.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerVigilanceOperatorControls.cs"><Link>Safety\TrainerVigilanceOperatorControls.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerTrainPressureView.cs"><Link>Pneumatics\TrainerTrainPressureView.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerRouteView.cs"><Link>Route\TrainerRouteView.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerNativeFixes.cs"><Link>Host\TrainerNativeFixes.cs</Link></Compile>

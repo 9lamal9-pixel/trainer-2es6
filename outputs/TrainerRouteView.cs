@@ -53,8 +53,8 @@ public class DosRouteSurface:Control {
   hits.Clear();g.Clear(palette.Background);g.SmoothingMode=SmoothingMode.AntiAlias;g.TextRenderingHint=TextRenderingHint.ClearTypeGridFit;
   if(Route==null){DrawText(g,"Загрузка режимной карты",24,24,size.Width-48,40,title,palette.Text);return;}
   float margin=18,gap=16,hudW=Math.Max(234,Math.Min(268,size.Width*.21f)),mainW=size.Width-margin*2-gap-hudW,hudX=margin+mainW+gap;
-  DrawText(g,"Войновка → Кокшаровский",margin,10,mainW,34,title,palette.Text);
-  DrawText(g,"2ЭС6 · режимная карта 2018 · километраж убывает",margin,43,mainW,25,body,palette.Muted);
+  DrawText(g,Route.native_axis?"Тюмень → Екатеринбург":"Войновка → Кокшаровский",margin,10,mainW,34,title,palette.Text);
+  DrawText(g,Route.native_axis?"2ЭС6 · исходная разметка · расстояние от начала пути":"2ЭС6 · режимная карта 2018 · километраж убывает",margin,43,mainW,25,body,palette.Muted);
   Pill(g,"75 вагонов · 6000 т",new RectangleF(hudX,14,hudW,28),palette.Accent);
   DrawText(g,"Электровоз 200 т · всего 6200 т",hudX,45,hudW,20,small,palette.Muted);
   var mapRect=new RectangleF(margin,82,mainW,Math.Max(420,size.Height-82-139));
@@ -95,7 +95,7 @@ public class DosRouteSurface:Control {
   float speedTop=top+kmH+6,speedBottom=speedTop+speedH,recTop=speedBottom+11,stationTop=recTop+rowH*3+7,profTop=stationTop+stationH,profBottom=r.Bottom-gradeH-88;
   using(var b=new SolidBrush(palette.Inset))g.FillRectangle(b,left,top,w,kmH);
   int kmStep=span<=12000?1:span<=22000?2:span<=45000?5:10;
-  for(int km=(int)Math.Floor(Route.Km(start));km>=Route.Km(end);km--){double sx=Route.X(km);float xx=px(sx);Line(g,palette.Grid,xx,top,xx,profBottom,.6f);if(km%kmStep==0)DrawText(g,km.ToString(),new RectangleF(xx-24,top,48,kmH),small,palette.Text,StringAlignment.Center);}
+  for(int km=(int)(Route.native_axis?Math.Ceiling(Route.Km(start)):Math.Floor(Route.Km(start)));Route.native_axis?km<=Route.Km(end):km>=Route.Km(end);km+=Route.native_axis?1:-1){double sx=Route.X(km);float xx=px(sx);Line(g,palette.Grid,xx,top,xx,profBottom,.6f);if(km%kmStep==0)DrawText(g,km.ToString(),new RectangleF(xx-24,top,48,kmH),small,palette.Text,StringAlignment.Center);}
   DrawText(g,"км",r.X+15,top,42,kmH,small,palette.Muted);
   Func<double,float> vy=v=>speedBottom-(float)(v/100*speedH);
   for(int v=0;v<=90;v+=10){float y=vy(v);Line(g,palette.Grid,left,y,right,y,.7f);DrawText(g,v.ToString(),new RectangleF(r.X+14,y-10,35,20),small,palette.Muted,StringAlignment.Far);}
@@ -115,7 +115,7 @@ public class DosRouteSurface:Control {
   DrawText(g,"путь",r.X+12,profTop+9,45,20,small,palette.Muted);
   foreach(var p in Route.profile){double a=Math.Max(start,Route.X(p.km_start)),b=Math.Min(end,Route.X(p.km_end));if(b<=a)continue;float x1=px(a),x2=px(b);Line(g,palette.Grid,x1,py(a),x1,profBottom+gradeH,.7f);if(x2-x1>34){string txt=p.grade_permille.ToString("+0.0;-0.0;0.0",CultureInfo.InvariantCulture);DrawText(g,txt,new RectangleF(x1,profBottom+2,x2-x1,gradeH-3),small,palette.Gold,StringAlignment.Center);}}
   foreach(var p in Route.stations){double x=Route.X(p.km);if(x<start||x>end)continue;float xx=px(x);Line(g,palette.Muted,xx,stationTop+20,xx,py(x),.9f);using(var b=new SolidBrush(palette.Card))g.FillEllipse(b,xx-4,py(x)-4,8,8);using(var pen=new Pen(palette.Gold,1.5f))g.DrawEllipse(pen,xx-4,py(x)-4,8,8);DrawText(g,p.name,new RectangleF(Math.Max(left,Math.Min(right-100,xx-50)),stationTop,100,23),small,palette.Text,StringAlignment.Center);}
-  foreach(var signal in Route.signals){double sx=Route.X(signal.km);if(sx<start||sx>end)continue;float xx=px(sx),yy=py(sx)-18;bool station=signal.type=="station_signal";int count=station?3:1;Line(g,palette.Muted,xx,yy+4,xx,py(sx),.8f);for(int n=0;n<count;n++){using(var b=new SolidBrush(palette.Card))g.FillEllipse(b,xx-3,yy-n*7-3,6,6);using(var pen=new Pen(palette.Muted,1.1f))g.DrawEllipse(pen,xx-3,yy-n*7-3,6,6);}DrawText(g,signal.label,new RectangleF(xx-19,yy-count*7-15,38,16),small,palette.Muted,StringAlignment.Center);Hit(new RectangleF(xx-8,yy-count*7-17,16,count*7+35),"Схема светофора "+signal.label+" · "+signal.km.ToString("0.000")+" км\nPDF стр. "+signal.page+". Кружки не отображают текущее показание АЛСН.");}
+  foreach(var signal in Route.signals){double sx=Route.X(signal.km);if(sx<start||sx>end)continue;float xx=px(sx),yy=py(sx)-18;bool station=signal.type=="station_signal";int count=station?3:1;Line(g,palette.Muted,xx,yy+4,xx,py(sx),.8f);for(int n=0;n<count;n++){using(var b=new SolidBrush(palette.Card))g.FillEllipse(b,xx-3,yy-n*7-3,6,6);using(var pen=new Pen(palette.Muted,1.1f))g.DrawEllipse(pen,xx-3,yy-n*7-3,6,6);}DrawText(g,signal.label,new RectangleF(xx-19,yy-count*7-15,38,16),small,palette.Muted,StringAlignment.Center);Hit(new RectangleF(xx-8,yy-count*7-17,16,count*7+35),"Схема светофора "+signal.label+" · "+signal.km.ToString("0.000")+" км\n"+(Route.native_axis?"Положение из исходной разметки. Показание прибора отображается на КЛУБ.":"PDF стр. "+signal.page+". Кружки не отображают текущее показание АЛСН."));}
   float curveY=profBottom+gradeH+9;Line(g,palette.Grid,left,curveY+18,right,curveY+18,.6f);DrawText(g,"R, м",r.X+10,curveY-2,44,20,small,palette.Muted);
   float lastCurveLabel=left-60;foreach(var curve in Route.curves.OrderByDescending(p=>p.km_start)){double a=Route.X(curve.km_start),b=Route.X(curve.km_end);if(b<start||a>end)continue;float x1=px(Math.Max(start,a)),x2=px(Math.Min(end,b));using(var pen=new Pen(palette.Braking,1.3f))g.DrawLines(pen,new PointF[]{new PointF(x1,curveY+18),new PointF(x1,curveY+9),new PointF(x2,curveY+9),new PointF(x2,curveY+18)});float middle=(x1+x2)/2;if(middle-lastCurveLabel>50){DrawText(g,curve.radius_m.ToString("0"),new RectangleF(middle-24,curveY-8,48,17),small,palette.Braking,StringAlignment.Center);lastCurveLabel=middle;}Hit(new RectangleF(x1-3,curveY-8,Math.Max(7,x2-x1+6),30),"Кривая R="+curve.radius_m.ToString("0")+" м · длина по схеме ≈ "+curve.length_m.ToString("0")+" м\nPDF стр. "+curve.page);}
   foreach(var curve in Route.unknown_curves){double a=Route.X(curve.km_start),b=Route.X(curve.km_end);if(b<start||a>end)continue;float x1=px(Math.Max(start,a)),x2=px(Math.Min(end,b));using(var pen=new Pen(palette.Gold,1.5f){DashStyle=DashStyle.Dash})g.DrawLines(pen,new PointF[]{new PointF(x1,curveY+18),new PointF(x1,curveY+9),new PointF(x2,curveY+9),new PointF(x2,curveY+18)});DrawText(g,"R?",new RectangleF((x1+x2)/2-16,curveY-8,32,17),small,palette.Gold,StringAlignment.Center);Hit(new RectangleF(x1-4,curveY-8,Math.Max(8,x2-x1+8),30),"Радиус в PDF не подписан; сопротивление этой кривой не рассчитано.\nPDF стр. "+curve.page+" · "+curve.km_start.ToString("0.000")+"–"+curve.km_end.ToString("0.000")+" км");}
@@ -135,18 +135,18 @@ public class DosRouteSurface:Control {
   else {g.DrawPolygon(pen,new PointF[]{new PointF(r.X+r.Width/2,r.Y),new PointF(r.Right,r.Bottom),new PointF(r.X,r.Bottom)});string text=type=="inspection_driver"?"М":type=="inspection_assistant"?"П":type=="inspection_crew"?"Б":"!";DrawText(g,text,new RectangleF(r.X,r.Y+2,r.Width,r.Height),small,color,StringAlignment.Center);}
  }}
  void RenderAdvice(Graphics g,RectangleF r){
-  Card(g,r,palette.Card);DrawText(g,"Рекомендация карты · строка 6300 т",r.X+15,r.Y+10,r.Width-30,24,heading,palette.Gold);
-  var advice=Route.Advice(Live.x);string text=advice==null?"На этом участке ток и соединение ТЭД в карте не указаны":advice.text;
+  Card(g,r,palette.Card);DrawText(g,Route.native_axis?"Исходная разметка":"Рекомендация карты · строка 6300 т",r.X+15,r.Y+10,r.Width-30,24,heading,palette.Gold);
+  var advice=Route.Advice(Live.x);string text=Route.native_axis?"Сигналы: исходные состояния разметки или явный учебный сценарий":advice==null?"На этом участке ток и соединение ТЭД в карте не указаны":advice.text;
   DrawText(g,text,r.X+15,r.Y+40,r.Width-30,27,body,palette.Text);
-  DrawText(g,"Для состава 6000 т — ближайшая строка PDF; управление остаётся на штатном пульте.",r.X+15,r.Y+74,r.Width-30,19,small,palette.Muted);
+  DrawText(g,Route.native_axis?"Ограничения .ogran отсутствуют: задан учебный предел 80 км/ч.":"Для состава 6000 т — ближайшая строка PDF; управление остаётся на штатном пульте.",r.X+15,r.Y+74,r.Width-30,19,small,palette.Muted);
  }
  void MetricRow(Graphics g,string label,string value,float x,float y,float w){DrawText(g,label,x,y,w*.53f,27,small,palette.Muted);DrawText(g,value,new RectangleF(x+w*.53f,y,w*.47f,27),body,palette.Text,StringAlignment.Far);}
  void RenderHud(Graphics g,RectangleF r){
   Card(g,r,palette.Card);float x=r.X+16,w=r.Width-32,y=r.Y+13;
   DrawText(g,"Данные штатной модели",x,y,w,23,heading,palette.Text);y+=31;
   DrawText(g,Live.v.ToString("0.0",CultureInfo.InvariantCulture),x,y,w-55,49,metric,Live.limit>0&&Live.v>Live.limit+.1?palette.Traction:palette.Accent);DrawText(g,"км/ч",r.Right-62,y+19,48,24,body,palette.Muted);y+=59;
-  Pill(g,"Допуск карты  "+(Live.limit<0?"—":Live.limit.ToString())+" км/ч",new RectangleF(x,y,w,28),palette.Traction);y+=39;
-  MetricRow(g,"Километр ~",Route.Km(Live.x).ToString("0.000",CultureInfo.InvariantCulture),x,y,w);y+=27;
+  Pill(g,(Route.native_axis?"Учебный предел  ":"Допуск карты  ")+(Live.limit<0?"—":Live.limit.ToString())+" км/ч",new RectangleF(x,y,w,28),palette.Traction);y+=39;
+  MetricRow(g,Route.native_axis?"От начала, км":"Километр ~",Route.Km(Live.x).ToString("0.000",CultureInfo.InvariantCulture),x,y,w);y+=27;
   var grade=Route.Grade(Live.x);MetricRow(g,"Уклон",grade==null?"—":grade.grade_permille.ToString("+0.0;-0.0;0.0",CultureInfo.InvariantCulture)+" ‰",x,y,w);y+=27;
   MetricRow(g,"Позиция / ТЭД",Live.position+" / "+Connection(),x,y,w);y+=32;
   Line(g,palette.Grid,x,y,x+w,y,.8f);y+=9;
@@ -172,12 +172,12 @@ public class DosRouteWindow:Form {
  FlowLayoutPanel row1,row2;ComboBox theme,mode,zoom,page;CheckBox follow;bool loading=true;
  string settingsPath=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"Trainer_view_settings.json");
  public DosRouteWindow(RouteModel route){
-  Text="2ЭС6 · режимная карта Войновка–Кокшаровский";Font=new Font("Segoe UI",10);ClientSize=new Size(1400,930);MinimumSize=new Size(1120,850);StartPosition=FormStartPosition.Manual;Location=new Point(50,70);
+  Text=route.native_axis?"2ЭС6 · разметка Тюмень–Екатеринбург":"2ЭС6 · режимная карта Войновка–Кокшаровский";Font=new Font("Segoe UI",10);ClientSize=new Size(1400,930);MinimumSize=new Size(1120,850);StartPosition=FormStartPosition.Manual;Location=new Point(50,70);
   View=new DosRouteSurface{Dock=DockStyle.Fill,Route=route};Controls.Add(View);
   var tools=new Panel{Dock=DockStyle.Top,Height=83,Padding=new Padding(14,7,14,6)};Controls.Add(tools);View.BringToFront();
   row1=new FlowLayoutPanel{Dock=DockStyle.Top,Height=34,WrapContents=false};row2=new FlowLayoutPanel{Dock=DockStyle.Bottom,Height=33,WrapContents=false};tools.Controls.Add(row1);tools.Controls.Add(row2);
   AddLabel(row1,"Тема");theme=Combo(119);theme.Items.AddRange(new object[]{"Тёмная","Светлая","Контрастная"});row1.Controls.Add(theme);
-  AddLabel(row1,"Вид");mode=Combo(129);mode.Items.AddRange(new object[]{"Как в PDF","Лист PDF"});row1.Controls.Add(mode);
+  AddLabel(row1,"Вид");mode=Combo(129);mode.Items.AddRange(route.native_axis?new object[]{"Разметка"}:new object[]{"Как в PDF","Лист PDF"});row1.Controls.Add(mode);
   follow=new CheckBox{Text="За поездом",AutoSize=true,Margin=new Padding(11,5,13,0),Checked=true};row1.Controls.Add(follow);
   var prev=Button("←",39);var next=Button("→",39);row1.Controls.Add(prev);row1.Controls.Add(next);
   AddLabel(row1,"Масштаб");zoom=Combo(88);zoom.Items.AddRange(new object[]{"8 км","18 км","40 км","Весь путь"});row1.Controls.Add(zoom);

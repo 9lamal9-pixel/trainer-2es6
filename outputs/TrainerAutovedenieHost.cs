@@ -410,8 +410,11 @@ partial class TrainerIntegrationHost {
     IDisposable AutovedenieOperatorInputScope(IntPtr pult) {
         if (!avpInitialized || avpClosing || pult!=mem["TPult"]) throw new Exception("AVP operator source owner guard");
         RestoreAutovedenieOperatorScopes(true);
-        if (avpSoftwareTd==null || !avpSoftwareTd.Checked) return new AutovedenieNoInputScope();
-        return new AutovedenieTdScope(avpTdScopes,pult,avpTd1.Checked,avpTd2.Checked);
+        var vigilance=BorrowVigilanceOperatorInputs();
+        try {
+            IDisposable td=(avpSoftwareTd==null || !avpSoftwareTd.Checked) ? (IDisposable)new AutovedenieNoInputScope() : new AutovedenieTdScope(avpTdScopes,pult,avpTd1.Checked,avpTd2.Checked);
+            return new SafetyOperatorInputScope(td,vigilance);
+        } catch { vigilance.Dispose(); throw; }
     }
     void RestoreAutovedenieOperatorScopes(bool failedOnly=false) {
         for (int n=avpTdScopes.Count-1;n>=0;n--)

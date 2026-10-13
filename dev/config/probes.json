@@ -1419,6 +1419,54 @@
       "scope": "Prepared native production host: permission loss, manual KM/KVT, EPK key and native SAUT from a declared restriction, explicit rearm and input/API restoration. No protection/force/speed output writes, no full cold-start or factory conformity acceptance.",
       "timeout_seconds": 240,
       "enabled": true
+    },
+    {
+      "id": "VigilanceOperator",
+      "main_class": "TrainerVigilanceProbe",
+      "title": "РБ, РБС и РБП: ввод, отпускание и длительное удержание",
+      "source": "outputs/TrainerVigilanceProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_vigilance_operator.json"
+      ],
+      "kind": "candidate",
+      "scope": "Fresh x86 real cab RB/RBS and explicit alternative RBP consumer input; native holding warning, scoped/deferred restoration and WinForms release events. No physical RBP hardware or EPK acceptance.",
+      "timeout_seconds": 180,
+      "enabled": true
+    },
+    {
+      "id": "NativeSafetyAdapter",
+      "main_class": "TrainerNativeSafetyProbe",
+      "title": "Нативные КЛУБ/РБ — катушка, камера и срыв ЭПК",
+      "source": "outputs/TrainerNativeSafetyProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_native_safety.json"
+      ],
+      "kind": "candidate",
+      "scope": "Prepared native host, guarded original TGeneralPB algorithm: RB holding warning, actual KLUB request, timely RBS versus missed ACK and native chamber/trip/brakes. Declared white CodeWay5 only to KLUB; no markup/occupancy/full cold-start or factory acceptance. No protection/force/speed/pressure output assignments.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "MarkupSafety",
+      "main_class": "TrainerMarkupSafetyProbe",
+      "title": "Исходная разметка: КЛУБ, САУТ и локомотивный светофор",
+      "source": "outputs/TrainerMarkupSafetyProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Markup_safety.json"
+      ],
+      "kind": "candidate",
+      "scope": "Original native-axis route,181lights/224profiles/177curves; actual source fields, private consumer contexts and native KLUB/ALSN publication. Declared initial states and measured motion through stop boundary; no live occupancy or output injection.",
+      "timeout_seconds": 240,
+      "enabled": true
     }
   ]
 }

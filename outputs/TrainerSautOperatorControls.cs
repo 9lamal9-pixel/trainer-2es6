@@ -147,6 +147,17 @@ partial class TrainerIntegrationHost {
         // In default mode, with no explicit K20 request, requests stays empty.
         return new StandaloneSautInputScope(this,pb,requests,pulse,releaseK20);
     }
+    IDisposable BorrowStandaloneSautModeInputs() {
+        StandaloneSautThreadGuard();RestoreFailedStandaloneSautScopes();
+        var requests=new System.Collections.Generic.List<StandaloneSautCell>();
+        int selection=standaloneSautChoice.SelectedIndex;
+        if(selection==1){requests.Add(new StandaloneSautCell(5,1));requests.Add(new StandaloneSautCell(6,1));}
+        else if(selection==2){requests.Add(new StandaloneSautCell(5,0));requests.Add(new StandaloneSautCell(6,1));}
+        else if(selection==3)requests.Add(new StandaloneSautCell(6,0));
+        else if(selection!=0)throw new Exception("Unknown SAUT mode source");
+        // Mode is a common operator input. K20 remains a single SAUT-only pulse.
+        return new StandaloneSautInputScope(this,StandaloneSautInputPointer(),requests,false,false);
+    }
     void RestoreFailedStandaloneSautScopes() {
         for (int n=standaloneSautScopes.Count-1;n>=0;n--)
             if (standaloneSautScopes[n].RestorationPending) standaloneSautScopes[n].Dispose();
