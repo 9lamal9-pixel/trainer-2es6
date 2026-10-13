@@ -1099,7 +1099,7 @@
         "outputs/MPSUD_screens_runtime.json"
       ],
       "kind": "diagnostic",
-      "scope": "Guarded native current-window widget observations; controlled input bytes restored, no physics between fixture write/render. PASS reproduces observed defects, does not accept RE conformity.",
+      "scope": "SC09 preview-binding acceptance alias: same both-monitor fixture as MpsudWagonInput; count preview 77, mass 6000 preserved and controlled editor bytes restored. Native Enter/Cancel commit and full MPSUID/RE conformity are not verified.",
       "timeout_seconds": 240,
       "enabled": true
     },
@@ -1268,6 +1268,25 @@
       "timeout_seconds": 240,
       "enabled": false,
       "unsafe": true
+    },
+    {
+      "id": "MpsudWagonInput",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД SC09: ввод вагонов сохраняет поле массы",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "9",
+        "av_wagons"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "regression",
+      "scope": "Fresh x86 host: actual native AV editor on both monitors, preview 77 wagons in wagon-count label while mass remains 6000 t. Tests preview binding only; controlled editor bytes restored. Native Enter/Cancel commit, physics train reconfiguration, full MPSUID/RE conformity and diagnostic arrows are outside scope.",
+      "timeout_seconds": 240,
+      "enabled": true
     }
   ]
 }
