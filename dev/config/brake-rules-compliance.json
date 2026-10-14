@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "current_composite_configuration_native_scenarios_passed_full_compliance_pending",
+  "status": "current_composite_brake_cycle_integrated_native_release_and_prepared80_force_passed_full_compliance_pending",
   "user_configuration": {
     "freight_wagons": 75,
     "wagon_gross_t": 80,
@@ -65,7 +65,7 @@
         106
       ],
       "requirement": "First loaded step0.5..0.8; feed lap>=6s for<=350wagon axles; subsequent steps0.3..0.8.",
-      "implementation": "First0.7 and6s present; subsequent-step state machine pending."
+      "implementation": "Production observation-based first0.7 and additional0.3..0.8; minimum6s from actual completed KMIV; 217pure checks and121native moving-release assertions. No fabricated pressure feedback."
     },
     {
       "section": "10.3.1g/d",
@@ -74,7 +74,7 @@
         107
       ],
       "requirement": "Between repeated downhill brakes recharge>=60s, otherwise next step>=previous+0.3; ordinary continuous brake<=150s.",
-      "implementation": "Full recharge/step-history timing pending; production AVP calibration disabled."
+      "implementation": "Production history survives advisor/cancel/rearm. Repeated downhill under60s uses previous FIRST+0.3, >1.0 requires original native sand-command acknowledgement; 150s constant step triggers strengthening. Release follows sufficient-speed demand clearance. Pure-state scenarios passed; prolonged native/repeated/cold scenarios pending."
     },
     {
       "section": "10.3.1k/m/o/r",
@@ -83,7 +83,15 @@
         109
       ],
       "requirement": "Moving traction delay>=60s plus tail release; normal full releaseI tocharge+0.2..0.6 thenII; pre-releaseKVT1.0..2.2 for30..40s; stopped restart90/120/360s for service/full/emergency, cold factor1.5.",
-      "implementation": "Complete release/restart operator state machine pending. Full stopped KVT is distinct from pre-release moving pressure."
+      "implementation": "Production cycle uses completed nativeI anchor, normalI tocharge+.3 thenII; actual KVT band beforeI and35s+allauto release, moving60s+allTC. Post-stop90/120/360s and cold1.5 tested in purefixtures; unknownambient conservatively1.5 forstoponly. Fresh native60 moving cycle passed: IV124,I130.8,KVTreleased191.9,tractionpermission197.1; no traction applied afterpermission. Rearm preservesKVT/release timing."
+    },
+    {
+      "section": "10.3.1и",
+      "pdf_pages": [
+        108
+      ],
+      "requirement": "Before UR reduction beyond1.0 bring sand devices into operation.",
+      "implementation": "OriginalPult input40 scoped and restored; originalcallback producesAF+A5. NativeSand18 electrical steps passed. Air-consumption/adhesion publisher pending; no credited sanding force."
     }
   ],
   "ftk_identification": {
@@ -179,7 +187,72 @@
         "session_closed": true,
         "scope": "Genuine operator8kmh start, timely/missedRBS, realchamberpressuretrip andactualTM/TC; productionAVP disabled"
       }
+    },
+    "brake_cycle": {
+      "pure_run": "dev/runs/test-20261014T010818205Z-4ecb7316",
+      "controller_assertions": 81,
+      "cycle_assertions": 217,
+      "native_run": "dev/runs/test-20261014T010503471Z-aa590bd6",
+      "native_assertions": 121,
+      "closed": true,
+      "exit_code": 0,
+      "scope": "Production policy choosing real KM/KVT on one warm moving prepared60 case; stopped/cold/repeated policies puretestedonly."
+    },
+    "native_prepared80_force": {
+      "run": "dev/runs/test-20261014T010411323Z-39d772b0",
+      "passed": true,
+      "exit_code": 0,
+      "closed": true,
+      "restored": true,
+      "assertions": 142,
+      "complete_frames": 195,
+      "qualified_frames": 30,
+      "delay_to_all75_tc1_seconds": 16.5,
+      "settlement_seconds": 19.4,
+      "max_predictor_or_corrector_speed_kmh": 82.41608963012696,
+      "numerically_guarded_wagon_only_bound_m_s2": 0.11914565807615227,
+      "net_on_minus8_m_s2": 0.040665658076152265,
+      "conditions": "Actualall75TC>=1, predictor<=90, unchangedmaterial/geometry/masses; noLoc/grade/curve/rolling/sandcredit.",
+      "onset_all_scenarios_verified": false,
+      "calibration_approved": false,
+      "whole80_stop_accepted": false,
+      "full_route_accepted": false
+    },
+    "sand": {
+      "run": "dev/runs/test-20261014T005611217Z-ab5fc761",
+      "passed": true,
+      "scope": "Originalcommandacceptance/restore only; native air consumption/adhesion unaccepted."
+    },
+    "latest_safety_regression": {
+      "run": "dev/runs/test-20261014T010503471Z-aa590bd6",
+      "probes": [
+        "TrainBrakeNative",
+        "AutovedenieAdverseBrake",
+        "VigilanceOperator",
+        "MarkupSafety",
+        "NativeSafetyAdapter",
+        "AutovedenieNativeBridgeGuard"
+      ],
+      "passed": true,
+      "exit_codes": 0,
+      "all_sessions_closed": true
     }
   },
-  "pending_hardware_saut_review": "Existing hardware SAUT Lap branch NativeSystems overrides physicalKMV withIV; standalone source avoids this path. Requires actual hardware command contract/priority native proof before acceptance."
+  "pending_hardware_saut_review": "Existing hardware SAUT Lap branch NativeSystems overrides physicalKMV withIV; standalone source avoids this path. Requires actual hardware command contract/priority native proof before acceptance.",
+  "planner_delay_policy": {
+    "seconds": 35,
+    "kind": "engineeringreserve, not accepted general onsetcalibration",
+    "accounts_for": "Adversegravity acceleration before braking plus30m positionreserve; whole-consist maximumactualspeed.",
+    "native_observation_seconds": 16.5,
+    "acceptance_pending": "cold/repeated onset pressurefloor proof and closed-loop80/fullroute"
+  },
+  "pending_normative_scenarios": [
+    "Native cold/stopped full-service/emergency90/120/360 timing withwinterfactor",
+    "Native repeatedapplication/earlyrecharge/150s strengthening-release/sand-aircoupling",
+    "DownhillTM<3.4 stop-and-recharge procedure",
+    "ARloadresponse, brakewave/density/rod/pad/tailintegrity bench",
+    "HardwareSAUTlap/manualVcommandpriority",
+    "Fresh acceptedAVPcontract and closed-loop80/full333033route; modes1/2",
+    "ExactRE137+ and locomotivepadmaterial"
+  ]
 }

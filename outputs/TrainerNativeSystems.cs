@@ -13,6 +13,8 @@ partial class TrainerIntegrationHost {
  TrainStepFn pneumoStep;StateFn stateTrain;PoezdFn motionStep;BrakeFn brakeTrain;ValuesFn readTrain;IntPtr trainData;IntPtr[] cars;
  List<StepFn> otherSteps=new List<StepFn>(),otherCloses=new List<StepFn>();
  bool physicsReady;float position,acceleration,signedVelocity;
+ double maximumConsistSpeedKmh=Double.NaN;
+ bool observedPneumaticCommandsKnown;int observedPneumaticKm=2,observedPneumaticKvt=2;double observedPneumaticCommandSeconds=Double.NaN;
  static bool Finite(float v){return !float.IsNaN(v)&&!float.IsInfinity(v);}
  static void Dbl(IntPtr p,int o,double v){Marshal.Copy(BitConverter.GetBytes(v),0,IntPtr.Add(p,o),8);}
  static double DoubleAt(IntPtr p,int o){byte[] b=new byte[8];Marshal.Copy(IntPtr.Add(p,o),b,0,8);return BitConverter.ToDouble(b,0);}
@@ -64,7 +66,11 @@ void SyncVcuNative(IntPtr tumba){var module=GetModuleHandle("Communication1.dll"
    else if(selected<6&&saut==1){if(Marshal.ReadByte(loc,0x8a)==1)B(loc,0x7d,2);else if(Marshal.ReadByte(loc,0x8b)==1)B(loc,0x7d,4);}
    if(!nativeBrakePriority){if(avpKm.HasValue)B(loc,0x7d,avpKm.Value);if(avpKvt.HasValue&&selectedKvt==2)B(loc,0x7e,avpKvt.Value);}
    if(Marshal.ReadByte(loc,0x8f)==2)B(loc,0x90,0);
-   BeforeNativeAirStep();pneumoStep(trainData);AfterNativeAirStep();
+   BeforeNativeAirStep();
+   int effectiveKm=Marshal.ReadByte(loc,0x7d),effectiveKvt=Marshal.ReadByte(loc,0x93)!=0?4:Marshal.ReadByte(loc,0x7e);
+   bool directlyObserved=effectiveKm>=6 || Marshal.ReadByte(loc,0x9b)==0 && !softwareSaut && !(saut==1&&(Marshal.ReadByte(loc,0x8a)!=0||Marshal.ReadByte(loc,0x8b)!=0));
+   observedPneumaticCommandsKnown=false;pneumoStep(trainData);AfterNativeAirStep();
+   observedPneumaticKm=effectiveKm;observedPneumaticKvt=effectiveKvt;observedPneumaticCommandSeconds=ticks*.1;observedPneumaticCommandsKnown=directlyObserved;
   }finally{try{RestoreNativeAirCompressorRequests();}finally{B(loc,0x7d,selected);B(loc,0x7e,selectedKvt);B(loc,0x89,saut);B(loc,0x90,savedBlock);}}
  }
  void MotionCycle(){if(!physicsReady)return;
@@ -75,9 +81,11 @@ void SyncVcuNative(IntPtr tumba){var module=GetModuleHandle("Communication1.dll"
   float force=FloatAt(mem["TResTyga"],0);if(!Finite(force))throw new Exception("Тяговая модель передала недопустимую силу");
   motionStep(force,.1f,0,0);
   // Verified against the original caller: absolute position, velocity, coupler force, acceleration, deformation.
-  for(int n=0;n<76;n++){float x,v,coupler,a,deformation;readTrain(out x,out v,out coupler,out a,out deformation,n);if(!Finite(x)||!Finite(v)||!Finite(coupler)||!Finite(a)||!Finite(deformation))throw new Exception("Недопустимое состояние модели вагона "+n);F(cars[n],0xc,coupler);F(cars[n],0x10,a);F(cars[n],0x14,x);if(n==0){position=x;signedVelocity=v;acceleration=a;F(mem["TInputParamPult"],1,Math.Abs(v)*3.6f);F(mem["TInputParamPult"],0xd,position);I(mem["TInputParamPult"],0x11,(int)position);F(mem["TInputParamPult"],0x19,a);}}
+  double measuredMaximum=0;
+  for(int n=0;n<76;n++){float x,v,coupler,a,deformation;readTrain(out x,out v,out coupler,out a,out deformation,n);if(!Finite(x)||!Finite(v)||!Finite(coupler)||!Finite(a)||!Finite(deformation))throw new Exception("Недопустимое состояние модели вагона "+n);measuredMaximum=Math.Max(measuredMaximum,Math.Abs((double)v)*3.6);F(cars[n],0xc,coupler);F(cars[n],0x10,a);F(cars[n],0x14,x);if(n==0){position=x;signedVelocity=v;acceleration=a;F(mem["TInputParamPult"],1,Math.Abs(v)*3.6f);F(mem["TInputParamPult"],0xd,position);I(mem["TInputParamPult"],0x11,(int)position);F(mem["TInputParamPult"],0x19,a);}}
+  maximumConsistSpeedKmh=measuredMaximum;
  }
- void SetInitialSpeed(float v){CancelAutovedenie("Изменены начальные условия движения; снова нажмите 5");if(!Finite(v)||v<0||v>120){Log("Rejected initial speed="+v);return;}if(physicsReady){stateTrain(position,v,2,76);signedVelocity=v/3.6f;Log("Native train initial speed="+v);}F(mem["TInputParamPult"],1,v);}
+ void SetInitialSpeed(float v){CancelAutovedenie("Изменены начальные условия движения; снова нажмите 5");if(!Finite(v)||v<0||v>120){Log("Rejected initial speed="+v);return;}if(physicsReady){stateTrain(position,v,2,76);maximumConsistSpeedKmh=Double.NaN;signedVelocity=v/3.6f;Log("Native train initial speed="+v);}F(mem["TInputParamPult"],1,v);}
  string telemetryFile;System.Globalization.CultureInfo inv=System.Globalization.CultureInfo.InvariantCulture;
  void RecordTelemetry(){if(!physicsReady||ticks%10!=0)return;if(telemetryFile==null)telemetryFile=TrainerSession.TelemetryPath;
   var lines=new System.Text.StringBuilder();for(int n=0;n<76;n++)lines.AppendFormat(inv,"{0},{1:F1},{2},{3:F4},{4:F4},{5:F6},{6:F5},{7:F5},{8:F5},{9:F5},{10:F5},{11:F3},{12:F3},{13:F5},{14:F5},{15:F5}\n",ticks,ticks*.1,n,FloatAt(mem["TInputParamPult"],1),FloatAt(cars[n],0x14),FloatAt(cars[n],0x10),FloatAt(cars[n],0),n==0?FloatAt(mem["TLocParam"],13):FloatAt(cars[n],4),FloatAt(cars[n],8),FloatAt(cars[n],0xc),FloatAt(mem["TResTyga"],0),FloatAt(mem["TTygaParam"],0x5b),FloatAt(mem["TTygaParam"],0x9b),FloatAt(mem["TLocParam"],5),FloatAt(mem["TLocParam"],9),FloatAt(cars[n],4));TrainerSession.AppendTelemetry("tick,sim_seconds,vehicle,head_v_kmh,x_m,a_m_s2,tm_bar,tc_bar,zr_bar,coupler_native,traction_native,current_A,excitation_A,gr_bar,ur_bar,vr_tc_bar\n",lines.ToString());}

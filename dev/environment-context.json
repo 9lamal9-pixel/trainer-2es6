@@ -36,11 +36,11 @@
   },
   "source_profiles": {
     "integration": {
-      "count": 9,
+      "count": 25,
       "sources_ref": "dev/config/environment.json#/profiles/integration/sources"
     },
     "candidate": {
-      "count": 16,
+      "count": 32,
       "sources_ref": "dev/config/environment.json#/profiles/candidate/sources"
     },
     "default": "candidate"
@@ -157,7 +157,7 @@
       "diagnostics": [
         "PerPadNative"
       ],
-      "limit": "Formula/pressure coupling only; absolute units and pad material unaccepted."
+      "limit": "FTk0 mathematicallyidentifiedcomposite andall75 nativeforces match capturedpredictor/pressure formula. ConditionalfloorTC1/speed90 bound measured; exactOEMequipment and generalonset/adhesion remain unaccepted."
     },
     "wagon_train": {
       "diagnostics": [
@@ -167,7 +167,7 @@
         "TrainPressureView",
         "KmOvercharge"
       ],
-      "limit": "Current user setting Pzar5.0 explicitly overrides loaded R1/AR cast-iron rule5.3–5.5; prior fullTrain normative charge5.4 PASS does not certify current setting. Pressure mode shows actual TM/TC/ZR all75 wagons without writing memory; dynamics/norm density/rods/pads/global mass remain unaccepted."
+      "limit": "Current75 compositeFTk0/R2/AR1, charge5.1. ActualheadTM5.0..5.2 andallwagonspread<=.3 passed. Native movingrelease andprepared80forceconditionalproof passed; ARloadresponse/density/rod/pad/tailintegrity/globalmass remain unaccepted."
     },
     "mpsuid": {
       "diagnostics": [
@@ -218,7 +218,11 @@
       "limit": "Full original333033m course; local/prospective braking horizon and adverse-grade native calibration in progress. Prepared6500m PASS is not full-course acceptance; modes1/2/intensity still incomplete.",
       "diagnostics": [
         "AutovedenieGraduatedBrake",
-        "AutovedenieAdverseBrake"
+        "AutovedenieAdverseBrake",
+        "TrainBrakeCycle",
+        "TrainBrakeNative",
+        "NativeBrakeBound",
+        "NativeSand"
       ]
     }
   },
@@ -240,7 +244,8 @@
       "KmOvercharge native test-20261011T113620525Z-a742a298 exit0 PASS: I raises actualUR6.406,II lowers5.8→5.6 in91.420s (Rules83 §3.2.8 80..120 for assumed300axes), returnsPzar5.0 in630.1s; all75TC remain0. TimeLikvid offsetloc+0x1b is100sec, not UR volume. Extended>=350axes100..120 not applicable/current failed flag; visual sensor signal not verified. FinitePM/disabled compressors; no pressure fixtures or model edits.",
       "MpsudAuditSnapshot test-20261011T115345530Z-bc12f052 exit0 PASS: four actual LOCO/1 Communication/Pult/Tyga/MSUL module paths/SHA,100 warm idle cycles,electricalFaults0; functional_mpsuid_accepted=false,screen_rendering_accepted=false. Detailed audit dev/docs/MPSUID_2ES6_AUDIT.md,3 independent parts. Production unchanged.",
       "MPSUID_SCREENS_RE_AUDIT.md:32 accepted fresh results,318PNG,419assertions+75observations,4912widgetreads;34base+8extra monitor routes. Latest Msgs test-20261011T124452567Z-081a9481 exit0. Mainbatch30/31,DiagUp timeout recorded; safe8/8 rerun andcorrect per-monitor messages. No production changes; RE conformityfalse. All15 discrepancies andsourcegaps documented.",
-      "CurrentCOMPOSITE75FTk0/R2/AR1/charge5.1: fresh155611 PASS Controller/TrainPneumatic35984cycles8096625pressurechecks andAdverse131assertions prepared20kmh−8 stopallV0; IV+fullVI60s plus real0.7 reapplication/another60s secured hold. Independent-onlyhold false; AVPcalibration disabled; fullnormcompliance not accepted. Details dev/config/brake-rules-compliance.json."
+      "CurrentCOMPOSITE75FTk0/R2/AR1/charge5.1: fresh155611 PASS Controller/TrainPneumatic35984cycles8096625pressurechecks andAdverse131assertions prepared20kmh−8 stopallV0; IV+fullVI60s plus real0.7 reapplication/another60s secured hold. Independent-onlyhold false; AVPcalibration disabled; fullnormcompliance not accepted. Details dev/config/brake-rules-compliance.json.",
+      "Current composite brake policy integrated: pure81controller/217cycle assertions, native60 IV6/I→II/KVT35/allauto/moving60/allTC121 assertions; prepared80 directforce142 assertions195frames, all75TCfloor1 in16.5s, conditionalwagon-only bound.119145658 atpredictor<=90. NativeSand commandacceptance18steps; safety six-probe regression fresh010503 passed. Fullmodel/AVP acceptancefalse. See brake-rules-compliance.json."
     ],
     "mpsuid_screens_reference": {
       "guide": "dev/docs/MPSUID_RE_SCREENS_GUIDE.md",
@@ -255,7 +260,7 @@
     },
     "three_d_evidence": "dev/runs/world3d-investigation-20261013/result.json",
     "current_brake_configuration": "dev/config/brake-rules-compliance.json",
-    "autovedenie_calibration_status": "Invalidated: all75 wagons changed to composite FTk0/mediumR2/AR1; historical FTk1/R1 results are provenance only. Fresh coefficient/80kmh/delay/fullroute/release timing pending."
+    "autovedenie_calibration_status": "LegacyFTk1/R1 calibration remains invalid. CurrentFTk0/R2 prepared80 directforce and16.5s warmonset passed; new35s delayplanner accounts forcoast acceleration. Cold/repeated onset, pressurefloorguardcontract, closed-loop80/fullroute pending."
   },
   "backlog": {
     "priority": "Complete locomotive cold preparation remains unverified: diagnostic cold pneumatic chain now charges PM successfully, but actuator demand, exact equipment and calibration remain unresolved.",

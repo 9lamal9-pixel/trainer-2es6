@@ -30,6 +30,7 @@ partial class TrainerIntegrationHost {
     int avpReferenceWagons;
     readonly Dictionary<string, IntPtr> avpCalibrationModules = new Dictionary<string, IntPtr>();
     readonly List<AutovedenieTdScope> avpTdScopes = new List<AutovedenieTdScope>();
+    readonly List<AutovedenieSandScope> avpSandScopes = new List<AutovedenieSandScope>();
     Func<double>[] avpBogiePressures;
 
     const string AvpCalibrationProofSha = "F42F304E42E3169ADC100183A01252D5FDFB79A380927869E023A5F5FFE4B90B";
@@ -217,6 +218,12 @@ partial class TrainerIntegrationHost {
         if (ready.Length==0 && signedVelocity<-(.3/3.6) && ReadAutovedenieConsistVelocity()<-(.3/3.6))
             ready="Движение назад не поддержано автоведением";
         bool brakesReleased, automaticBrakesReleased; string brakeState=ReadAutovedenieBrakeState(out brakesReleased,out automaticBrakesReleased);
+        double minBogie=Double.NaN,maxBogie=Double.NaN;
+        if (avpBogiePressures!=null && avpBogiePressures.Length==4) {
+            minBogie=Double.PositiveInfinity;maxBogie=Double.NegativeInfinity;
+            foreach (var sensor in avpBogiePressures) {double pressure=sensor();minBogie=Math.Min(minBogie,pressure);maxBogie=Math.Max(maxBogie,pressure);}
+        }
+        if (ready.Length==0 && !AvpFinite(maximumConsistSpeedKmh)) ready="Не подтверждена фактическая скорость всего состава";
         if (ready.Length==0 && brakeState.Length!=0) ready=brakeState;
         return new TrainerAvpInput {
             X=position, SpeedKmh=FloatAt(mem["TInputParamPult"],1), TrainLengthM=avpReferenceLength,
@@ -227,6 +234,14 @@ partial class TrainerIntegrationHost {
             NotReadyReason=ready, ManualOverride=manual.Length!=0, SafetyIntervention=safety.Length!=0,
             BrakesReleased=brakesReleased, AutomaticBrakesReleased=automaticBrakesReleased, CanApplyTraction=Marshal.ReadByte(mem["TLocParam"],0x11)==0,
             HasBrakeFeedback=true, EqualizingReservoirPressure=FloatAt(mem["TLocParam"],9),
+            ChargingPressureBar=DoubleAt(mem["TLocParam"],0x13),BrakePipePressureBar=FloatAt(cars[0],0),
+            MaximumConsistSpeedKmh=maximumConsistSpeedKmh,IndependentKvtPressureBar=DoubleAt(mem["TLocParam"],0xec),
+            MinBogiePressureBar=minBogie,MaxBogiePressureBar=maxBogie,WagonAxles=75*4,
+            BrakeCommandsKnown=observedPneumaticCommandsKnown && AvpFinite(observedPneumaticCommandSeconds) && ticks*.1-observedPneumaticCommandSeconds<=.100001,
+            ObservedKm=observedPneumaticKm,ObservedKvt=observedPneumaticKvt,
+            // No verified ambient source. Native tn is a time accumulator; unknown
+            // ambient uses conservative stopped waits, not fabricated winter physics.
+            AmbientTemperatureKnown=false,SandCommandAccepted=electricalFault.Length==0 && Marshal.ReadByte(mem["TPult"],0xa5)==1,
             Operation=(TrainerAvpOperation)settings.Mode,
             HasSignalPreview=false, SignalStopX=-1, SignalPermittedSpeedKmh=-1
         };
@@ -305,9 +320,9 @@ partial class TrainerIntegrationHost {
         if (!input.SettingsValid) return avpUi==null ? "Нет интерфейса МПСУиД" : avpUi.ReadSettings().Reason;
         if (!input.Ready) return input.NotReadyReason;
         if (!input.CanApplyTraction && !AutovedenieOwnsController()) return "Сигнал ТМ: включение тяги запрещено";
-        // Full native-source braking has a fresh 20km/h prepared proof; FTk1
-        // force decreases with speed. This interim admission bound must be
-        // replaced by verified high-speed calibration, not extrapolated.
+        // Current composite FTk0 has a prepared80 force/onset observation, but
+        // cold/repeated response and closed-loop80 journey remain unaccepted.
+        // Keep the interim speed gate until the complete calibration contract.
         if (route!=null && route.native_axis && input.OperationalLimitKmh>20)
             return "На полной разметке пока подтверждены задания до 20 км/ч; для большей скорости нужна тормозная калибровка";
         if (input.Operation==TrainerAvpOperation.SignalFollowing) return "Нет подтверждённого живого сигнального задания для режима по удалению";
@@ -378,7 +393,7 @@ partial class TrainerIntegrationHost {
             if (gate.Length!=0) { CancelAutovedenie(gate); return null; }
             if (!avpDecision.DriveEnabled) return null;
             int km=avpDecision.BrakePosition;
-            if (km!=2 && km!=4 && km!=5) { CancelAutovedenie("Неподдерживаемая команда крана автоведения"); return null; }
+            if (km!=1 && km!=2 && km!=4 && km!=5) { CancelAutovedenie("Неподдерживаемая команда крана автоведения"); return null; }
             return km;
         } catch (Exception error) { AutovedenieHostFault(error); return null; }
     }
@@ -420,12 +435,35 @@ partial class TrainerIntegrationHost {
         var vigilance=BorrowVigilanceOperatorInputs();
         try {
             IDisposable td=(avpSoftwareTd==null || !avpSoftwareTd.Checked) ? (IDisposable)new AutovedenieNoInputScope() : new AutovedenieTdScope(avpTdScopes,pult,avpTd1.Checked,avpTd2.Checked);
-            return new SafetyOperatorInputScope(td,vigilance);
+            try {
+                IDisposable sand=avpDecision!=null && avpDecision.DriveEnabled && avpDecision.SuggestedSandRequest
+                    ? (IDisposable)new AutovedenieSandScope(avpSandScopes,pult) : new AutovedenieNoInputScope();
+                return new SafetyOperatorInputScope(td,new SafetyOperatorInputScope(sand,vigilance));
+            } catch {td.Dispose();throw;}
         } catch { vigilance.Dispose(); throw; }
     }
     void RestoreAutovedenieOperatorScopes(bool failedOnly=false) {
+        for (int n=avpSandScopes.Count-1;n>=0;n--)
+            if (!failedOnly || avpSandScopes[n].PendingRestoration) avpSandScopes[n].Dispose();
         for (int n=avpTdScopes.Count-1;n>=0;n--)
             if (!failedOnly || avpTdScopes[n].PendingRestoration) avpTdScopes[n].Dispose();
+    }
+    // Communication cab form+3D4 -> TPult40 (2AF458); original Pult UpdateButton
+    // 18E934..18E973 produces AF.Pesok+A5. Borrow only the operator input.
+    sealed class AutovedenieSandScope : IDisposable {
+        readonly IntPtr pult;readonly int thread;readonly byte saved;readonly List<AutovedenieSandScope> owners;
+        bool owns,disposed;public bool PendingRestoration {get;private set;}
+        internal AutovedenieSandScope(List<AutovedenieSandScope> active,IntPtr ptr) {
+            pult=ptr;thread=System.Threading.Thread.CurrentThread.ManagedThreadId;owners=active;
+            AvpRequireWritable(IntPtr.Add(pult,0x40),1);saved=Marshal.ReadByte(pult,0x40);owners.Add(this);
+            try{owns=true;Marshal.WriteByte(pult,0x40,1);if(Marshal.ReadByte(pult,0x40)!=1)throw new Exception("Sand operator input guard");}
+            catch{Dispose();throw;}
+        }
+        public void Dispose(){if(disposed)return;PendingRestoration=true;
+            if(System.Threading.Thread.CurrentThread.ManagedThreadId!=thread)throw new Exception("Sand input restoration thread guard");
+            if(owns){AvpRequireWritable(IntPtr.Add(pult,0x40),1);if(Marshal.ReadByte(pult,0x40)==1)Marshal.WriteByte(pult,0x40,saved);owns=false;}
+            disposed=true;owners.Remove(this);
+        }
     }
     sealed class AutovedenieNoInputScope : IDisposable { public void Dispose() {} }
     sealed class AutovedenieTdScope : IDisposable {

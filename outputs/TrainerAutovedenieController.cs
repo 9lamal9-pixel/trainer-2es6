@@ -16,6 +16,12 @@ public sealed class TrainerAvpInput {
     public bool AutomaticBrakesReleased = true;
     public bool HasBrakeFeedback;
     public double EqualizingReservoirPressure;
+    public double ChargingPressureBar=Double.NaN, BrakePipePressureBar=Double.NaN;
+    public double MaximumConsistSpeedKmh=Double.NaN;
+    public double IndependentKvtPressureBar=Double.NaN, MinBogiePressureBar=Double.NaN, MaxBogiePressureBar=Double.NaN;
+    public int WagonAxles=300, ObservedKm=2, ObservedKvt=2;
+    public bool BrakeCommandsKnown, AmbientTemperatureKnown, SandCommandAccepted;
+    public double AmbientTemperatureC;
     public string NotReadyReason;
     public TrainerAvpOperation Operation;
     // Live signal preview requires a confirmed signalling source. Static
@@ -31,6 +37,7 @@ public sealed class TrainerAvpDecision {
     public double BrakeHorizonEndM = -1, WorstGradePermille, UnconfirmedGradeStartM = -1;
     public bool HoldingForUnconfirmedGrade, BrakePlanningFault;
     public bool DriveEnabled;
+    public bool SuggestedSandRequest;
     public int SuggestedTractionCommand, SuggestedBrakePosition, SuggestedKvtPosition=2;
     public int TractionCommand { get { return DriveEnabled ? SuggestedTractionCommand : 0; } }
     public int BrakePosition { get { return DriveEnabled ? SuggestedBrakePosition : 0; } }
@@ -42,13 +49,22 @@ public sealed class TrainerAutovedenieController {
     TrainerAvpState state = TrainerAvpState.Advisor;
     string reason = "Советчик";
     double nextTractionChange;
-    bool braking, locomotiveHeld, planningFaultHold;
+    bool planningFaultHold, explicitBrakeRestart;
     string planningFaultReason;
-    double brakeApplicationStarted;
-    double brakeReservoirTarget, brakeLapSince = -1;
+    readonly TrainerTrainBrakeCycle brakeCycle = new TrainerTrainBrakeCycle();
+    TrainerTrainBrakeCycleDecision lastBrakeCycle;
     public const double FirstBrakeReduction = .7, MinimumBrakeLapSeconds = 6, TerminalPositionToleranceM = 1;
     // Original POEZD native gravity constant at RVA218C, used by slope forces.
     const double NativeGravity = 9.81;
+    // Engineering reserve exceeds the single measured warm80 onset16.5s.
+    // Cold/repeated applications still require native validation before AVP admission.
+    public const double PneumaticResponseReserveSeconds = 35;
+    const double PositionReserveM = 30;
+    static double CoastAcceleration(double grade) { return Math.Max(0,-grade*NativeGravity/1000); }
+    static double RequiredDistance(double velocity,double decel,double grade) {
+        double a=CoastAcceleration(grade),t=PneumaticResponseReserveSeconds,v=velocity+a*t;
+        return PositionReserveM+velocity*t+.5*a*t*t+v*v/(2*decel);
+    }
     public TrainerAvpState State { get { return state; } }
     // serviceDeceleration is a conservative, verified native service-braking
     // calibration at referenceMassT. No factory/proprietary AVP tuning is implied.
@@ -61,23 +77,29 @@ public sealed class TrainerAutovedenieController {
     }
     public void RequestAutomatic(TrainerAvpInput input) {
         string refusal = Refusal(input);
+        if (refusal==null && (!input.HasBrakeFeedback || !Finite(input.MaximumConsistSpeedKmh) ||
+            !Finite(input.ChargingPressureBar) || !Finite(input.BrakePipePressureBar) ||
+            !Finite(input.IndependentKvtPressureBar) || !Finite(input.MinBogiePressureBar) || !Finite(input.MaxBogiePressureBar)))
+            refusal="Нет подтверждённых датчиков нормативного тормозного цикла";
         if (refusal == null) {
             var plan = PlanBraking(input, CurrentLimit(input));
             if (!plan.Valid) refusal = plan.Error;
             else if (plan.OccupiedUnconfirmed) refusal = "Торможение на уклоне под составом не подтверждено";
         }
-        if (refusal == null && !input.CanApplyTraction) refusal="Сигнал ТМ: включение тяги запрещено";
+        if (refusal == null && !input.CanApplyTraction &&
+            !(input.HasBrakeFeedback && Finite(input.MaximumConsistSpeedKmh) && input.MaximumConsistSpeedKmh<.3))
+            refusal="Сигнал ТМ: включение тяги запрещено";
         if (refusal != null) {
             // A refused new start must not drop an already owned stop hold.
-            if (!locomotiveHeld || state != TrainerAvpState.Automatic && state != TrainerAvpState.Finished)
+            if (lastBrakeCycle==null || lastBrakeCycle.Kvt!=6 || state != TrainerAvpState.Automatic && state != TrainerAvpState.Finished)
                 state = TrainerAvpState.Advisor;
             reason = refusal; return;
         }
         state = TrainerAvpState.Automatic; reason = "Автоведение";
-        nextTractionChange = input.Seconds; braking = false; locomotiveHeld = false; planningFaultHold = false; planningFaultReason = null;
+        nextTractionChange = input.Seconds; explicitBrakeRestart=true; planningFaultHold = false; planningFaultReason = null;
     }
-    public void RequestAdvisor() { state = TrainerAvpState.Advisor; reason = "Советчик"; braking = false; locomotiveHeld = false; planningFaultHold = false; }
-    public void Cancel(string cause) { state = TrainerAvpState.Cancelled; reason = cause; braking = false; locomotiveHeld = false; planningFaultHold = false; }
+    public void RequestAdvisor() { state = TrainerAvpState.Advisor; reason = "Советчик"; planningFaultHold = false; explicitBrakeRestart=false; }
+    public void Cancel(string cause) { state = TrainerAvpState.Cancelled; reason = cause; planningFaultHold = false; explicitBrakeRestart=false; }
     static bool Finite(double value) { return !double.IsNaN(value) && !double.IsInfinity(value); }
     string Refusal(TrainerAvpInput input) {
         if (input == null || !Finite(input.X) || !Finite(input.SpeedKmh) || input.SpeedKmh < 0 ||
@@ -154,9 +176,8 @@ public sealed class TrainerAutovedenieController {
         plan.GoalIsRouteEnd = plan.StopX == route.Length;
         // Prospective speed includes the whole-train current speed cap: a
         // standstill must not permit acceleration toward an unseen bad slope.
-        double velocity = Math.Max(input.SpeedKmh, currentLimit) / 3.6;
-        double reserve = Math.Max(30, velocity * 15);
-        double endX = Math.Max(input.X, Math.Min(plan.StopX, input.X + reserve + velocity * velocity / (2 * plan.Deceleration)));
+        double velocity = Math.Max(Math.Max(input.SpeedKmh,Finite(input.MaximumConsistSpeedKmh)?input.MaximumConsistSpeedKmh:input.SpeedKmh), currentLimit) / 3.6;
+        double endX = Math.Max(input.X, Math.Min(plan.StopX, input.X + RequiredDistance(velocity,plan.Deceleration,occupiedWorst)));
         // Expansion is monotone. Each increase in the worst adverse grade comes
         // from a finite source segment, so Count+1 iterations suffice.
         for (int iteration = 0; iteration <= route.profile.Count; iteration++) {
@@ -172,15 +193,32 @@ public sealed class TrainerAutovedenieController {
             if (!Finite(value) || value <= 0) {
                 plan.Valid = false; plan.Error = "Нет положительной границы замедления в тормозном горизонте"; return plan;
             }
-            double expanded = Math.Max(input.X, Math.Min(plan.StopX, input.X + reserve + velocity * velocity / (2 * value)));
+            double expanded = Math.Max(input.X, Math.Min(plan.StopX, input.X + RequiredDistance(velocity,value,worst)));
             if (expanded <= endX + 0.000001) return plan;
             endX = expanded;
         }
         plan.Valid = false; plan.Error = "Тормозной горизонт не сошёлся"; return plan;
     }
+    static TrainerTrainBrakeCycleInput BrakeObservation(TrainerAvpInput i,bool owns,bool demand,bool stop,bool ended,bool restart,bool downhill) {
+        if(i==null)return null;
+        bool sensors=i.HasBrakeFeedback && Finite(i.MaximumConsistSpeedKmh) &&
+            Finite(i.ChargingPressureBar) && Finite(i.BrakePipePressureBar) &&
+            Finite(i.IndependentKvtPressureBar) && Finite(i.MinBogiePressureBar) && Finite(i.MaxBogiePressureBar);
+        TrainerTrainBrakeKind kind=i.BrakeCommandsKnown && i.ObservedKm>=6?TrainerTrainBrakeKind.Emergency:
+            i.ChargingPressureBar-i.EqualizingReservoirPressure>=1.5?TrainerTrainBrakeKind.FullService:TrainerTrainBrakeKind.Service;
+        return new TrainerTrainBrakeCycleInput {Seconds=i.Seconds,UrBar=i.EqualizingReservoirPressure,ChargeBar=i.ChargingPressureBar,
+            ActualTmBar=i.BrakePipePressureBar,HeadSpeedKmh=i.SpeedKmh,MaximumConsistSpeedKmh=i.MaximumConsistSpeedKmh,
+            IndependentKvtPressureBar=i.IndependentKvtPressureBar,MinBogiePressureBar=i.MinBogiePressureBar,MaxBogiePressureBar=i.MaxBogiePressureBar,
+            SensorsKnown=sensors,Ready=sensors&&!i.SafetyIntervention,AllAutoReleased=i.AutomaticBrakesReleased,AllBrakesReleased=i.BrakesReleased,
+            OwnsCommands=owns,BrakeDemand=demand,StopRequired=stop,Ended=ended,ExplicitRestart=restart,IsDownhill=downhill,
+            ObservedCommandsKnown=i.BrakeCommandsKnown,ObservedKm=i.ObservedKm,ObservedKvt=i.ObservedKvt,ApplicationKind=kind,Axles=i.WagonAxles,
+            HasAmbientTemperature=i.AmbientTemperatureKnown,AmbientTemperatureC=i.AmbientTemperatureC,SandConfirmed=i.SandCommandAccepted};
+    }
     public TrainerAvpDecision Step(TrainerAvpInput input) {
         string refusal = Refusal(input);
         if ((state == TrainerAvpState.Automatic || state == TrainerAvpState.Finished) && refusal != null) Cancel(refusal);
+        bool owned=state==TrainerAvpState.Automatic || state==TrainerAvpState.Finished;
+        if (!owned) brakeCycle.Observe(BrakeObservation(input,false,false,false,false,false,false));
         var result = new TrainerAvpDecision { State = state, Reason = refusal ?? reason,
             SuggestedBrakePosition = 2, PreviewDistanceM = -1 };
         if (input == null || !Finite(input.X) || !Finite(input.SpeedKmh) || !Finite(input.TrainLengthM) ||
@@ -208,79 +246,54 @@ public sealed class TrainerAutovedenieController {
         bool planningFault = plan.OccupiedUnconfirmed || planningFaultHold;
         result.BrakePlanningFault = planningFault;
         double target = current;
-        // Initial engineering allowance for pneumatic propagation. Native
-        // journey probes must verify this value before operational acceptance.
-        double reserve = Math.Max(30, input.SpeedKmh / 3.6 * 15);
+        // Include adverse acceleration while pneumatic force propagates, then
+        // the conditional net brake bound. Admission remains independently gated.
+        double reserve = PositionReserveM;
         if (!planningFault) {
             foreach (RouteSpeed limit in route.speed_limits) {
                 double start = route.X(limit.km_start);
                 if (start <= input.X) continue;
-                ApplyEnvelope(ref target, result, limit.speed_kmh, start - input.X, reserve, decel);
+                ApplyEnvelope(ref target, result, limit.speed_kmh, start - input.X, reserve, decel, plan.WorstGrade);
             }
-            ApplyEnvelope(ref target, result, 0, Math.Max(0, route.Length - input.X), reserve, decel);
+            ApplyEnvelope(ref target, result, 0, Math.Max(0, route.Length - input.X), reserve, decel, plan.WorstGrade);
             if (input.Operation == TrainerAvpOperation.SignalFollowing && input.HasSignalPreview && Finite(input.SignalStopX)) {
                 ApplyEnvelope(ref target, result, Math.Max(0, input.SignalPermittedSpeedKmh),
-                    input.SignalStopX - input.X, reserve, decel);
+                    input.SignalStopX - input.X, reserve, decel, plan.WorstGrade);
             }
             if (plan.HazardStart >= 0)
-                ApplyEnvelope(ref target, result, 0, Math.Max(0, plan.HazardStart - TerminalPositionToleranceM - input.X), reserve, decel);
+                ApplyEnvelope(ref target, result, 0, Math.Max(0, plan.HazardStart - TerminalPositionToleranceM - input.X), reserve, decel, plan.WorstGrade);
         } else target = 0;
         bool hazardStop = plan.HazardStart >= 0 &&
-            plan.HazardStart - TerminalPositionToleranceM - input.X <= reserve + TerminalPositionToleranceM && input.SpeedKmh < .3;
+            plan.HazardStart - TerminalPositionToleranceM - input.X <= reserve + TerminalPositionToleranceM && input.SpeedKmh < .3 && Finite(input.MaximumConsistSpeedKmh) && input.MaximumConsistSpeedKmh < .3;
         bool mandatoryHold = hazardStop || planningFault;
         if (mandatoryHold) target = 0;
         result.HoldingForUnconfirmedGrade = mandatoryHold;
         result.TargetSpeedKmh = Math.Max(0, target);
         // One metre accounts for native longitudinal settling around the planned stop.
-        bool endStop = plan.GoalIsRouteEnd && !planningFault && route.Length - input.X <= reserve + TerminalPositionToleranceM && input.SpeedKmh < 0.3;
+        bool endStop = plan.GoalIsRouteEnd && !planningFault && route.Length - input.X <= reserve + TerminalPositionToleranceM && input.SpeedKmh < 0.3 &&
+            Finite(input.MaximumConsistSpeedKmh) && input.MaximumConsistSpeedKmh<.3;
         if (state == TrainerAvpState.Automatic && endStop) {
             state = TrainerAvpState.Finished; reason = "Конец маршрута";
         }
-        // A stopped train needs the full native independent brake (VI). The
-        // stop hold survives automatic-brake release and longitudinal motion;
-        // only an explicit accepted start or cancellation releases ownership.
-        // Moving pre-release stage III is a separate, unvalidated procedure.
-        bool ownsAutomatic = state == TrainerAvpState.Automatic || state == TrainerAvpState.Finished;
-        if (ownsAutomatic && input.SpeedKmh < .3 &&
-            (state == TrainerAvpState.Finished || mandatoryHold || input.HasBrakeFeedback && !input.AutomaticBrakesReleased))
-            locomotiveHeld = true;
-        result.SuggestedKvtPosition = ownsAutomatic && locomotiveHeld ? 6 : 2;
-        if (state == TrainerAvpState.Finished || locomotiveHeld) result.TargetSpeedKmh=0;
-        double controlBand = Math.Min(2, Math.Max(.1, target * .2));
-        bool needBrake = input.SpeedKmh > current + .01 ||
-            input.SpeedKmh > target + Math.Min(.7, Math.Max(.05, target * .1));
-        if ((needBrake || state == TrainerAvpState.Finished || endStop || mandatoryHold) && !braking) {
-            braking = true; brakeLapSince = -1; brakeApplicationStarted = input.Seconds;
-            // First loaded-train service step, then native IV lap with feed.
-            // This uses measured UR; no reservoir/pipe pressure is assigned.
-            brakeReservoirTarget = Math.Max(0, input.EqualizingReservoirPressure - FirstBrakeReduction);
+        if (!owned) return result;
+        double controlBand = Math.Min(2, Math.Max(.1, target*.2));
+        double controlSpeed=Finite(input.MaximumConsistSpeedKmh)?Math.Max(input.SpeedKmh,input.MaximumConsistSpeedKmh):input.SpeedKmh;
+        bool needBrake=controlSpeed>current+.01 || controlSpeed>target+Math.Min(.7,Math.Max(.05,target*.1));
+        bool mustStop=state==TrainerAvpState.Finished || endStop || mandatoryHold;
+        var brake=brakeCycle.Step(BrakeObservation(input,true,needBrake||mustStop,mustStop,
+            state==TrainerAvpState.Finished,explicitBrakeRestart&&!needBrake&&!mustStop,plan.WorstGrade<0));
+        explicitBrakeRestart=false;lastBrakeCycle=brake;
+        result.SuggestedBrakePosition=brake.Km;result.SuggestedKvtPosition=brake.Kvt;result.SuggestedSandRequest=brake.RequestSand;
+        if (brake.State==TrainerTrainBrakeCycleState.StoppedHold || state==TrainerAvpState.Finished || mandatoryHold)
+            result.TargetSpeedKmh=0;
+        if (!brake.CanApplyTraction || !input.CanApplyTraction || controlSpeed>=Math.Max(0,target-controlBand) || target<=.01)
+            result.SuggestedTractionCommand=5;
+        else if(input.Seconds>=nextTractionChange && input.TractionPosition<65) {
+            result.SuggestedTractionCommand=1;nextTractionChange=input.Seconds+1;
         }
-        bool lapHeld = !input.HasBrakeFeedback || brakeLapSince >= 0 && input.Seconds - brakeLapSince >= MinimumBrakeLapSeconds;
-        if (braking && !needBrake && state != TrainerAvpState.Finished && !endStop && !mandatoryHold && lapHeld &&
-            input.SpeedKmh < Math.Max(0, target - controlBand)) braking = false;
-        if (state == TrainerAvpState.Finished || braking || endStop || mandatoryHold) {
-            result.SuggestedTractionCommand = 5; // native Vybeg, never synthetic force
-            if (input.HasBrakeFeedback && input.EqualizingReservoirPressure <= brakeReservoirTarget + .01) {
-                if (brakeLapSince < 0) brakeLapSince = input.Seconds;
-                result.SuggestedBrakePosition = 4; // native IV, lap with feed
-            } else result.SuggestedBrakePosition = 5; // native V until measured step
-        } else if (locomotiveHeld || !input.CanApplyTraction || !input.BrakesReleased || input.SpeedKmh >= Math.Max(0, target - controlBand) || target <= .01) {
-            result.SuggestedTractionCommand = 5;
-        } else if (input.Seconds >= nextTractionChange && input.TractionPosition < 65) {
-            result.SuggestedTractionCommand = 1; // one native controller step
-            nextTractionChange = input.Seconds + 1;
-        }
-        if (braking && input.HasBrakeFeedback && input.EqualizingReservoirPressure > brakeReservoirTarget + .01 &&
-            input.Seconds - brakeApplicationStarted > 15) {
-            if (planningFaultHold) planningFaultReason = "Неподтверждённый уклон и нет снижения УР: команда остановки сохраняется";
-            else if (locomotiveHeld) reason = "Нет снижения УР: остановка удерживается полным КВТ, требуется действие машиниста";
-            else Cancel("Нет подтверждённого снижения давления УР при команде V");
-        }
-        if (state == TrainerAvpState.Automatic && !input.CanApplyTraction && !braking && !locomotiveHeld && input.AutomaticBrakesReleased)
-            Cancel("Сигнал ТМ не снят после отпуска; повторное включение только после готовности");
-        result.State = state; result.Reason = refusal ?? (planningFaultHold ? planningFaultReason : hazardStop ? "Остановка перед неподтверждённым уклоном" : reason);
-        if (state == TrainerAvpState.Automatic && !input.CanApplyTraction && refusal == null)
-            result.Reason="АВ: тяга заблокирована сигналом ТМ, управление тормозами сохраняется";
+        result.State=state;
+        result.Reason=planningFaultHold?planningFaultReason:hazardStop?"Остановка перед неподтверждённым уклоном":brake.CanApplyTraction?reason:brake.Reason;
+        if(brake.CanApplyTraction&&!input.CanApplyTraction)result.Reason="АВ: штатный сигнал ТМ запрещает тягу, выдержки и тормозная история сохранены";
         // Hold the stop after route completion; a driver's action releases
         // ownership through the same cancellation path as during the journey.
         result.DriveEnabled = (state == TrainerAvpState.Automatic || state == TrainerAvpState.Finished) && refusal == null;
@@ -288,9 +301,11 @@ public sealed class TrainerAutovedenieController {
         return result;
     }
     static void ApplyEnvelope(ref double target, TrainerAvpDecision result, double limitKmh,
-        double distance, double reserve, double decel) {
-        double limitMs = limitKmh / 3.6;
-        double permitted = Math.Sqrt(Math.Max(0, limitMs * limitMs + 2 * decel * Math.Max(0, distance - reserve))) * 3.6;
+        double distance, double reserve, double decel, double grade) {
+        double limitMs=limitKmh/3.6,a=CoastAcceleration(grade),t=PneumaticResponseReserveSeconds;
+        // Invert s=v*t+a*t²/2+((v+a*t)²-u²)/(2*d). Uphill gives no credit.
+        double permitted=Math.Max(0,-t*(decel+a)+Math.Sqrt(Math.Max(0,
+            t*t*decel*(decel+a)+limitMs*limitMs+2*decel*Math.Max(0,distance-reserve))))*3.6;
         if (permitted < target) {
             target = permitted; result.PreviewLimitKmh = limitKmh; result.PreviewDistanceM = Math.Max(0, distance);
         }

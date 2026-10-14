@@ -15,7 +15,7 @@ using System.Windows.Forms;
 // Every case has one declared POEZD initial condition before its measured cycle.
 // Afterwards only genuine operator inputs are changed. The original profile,
 // curves, signal states, native force, pressures and safety outputs are retained.
-public sealed class TrainerAutovedenieAdverseBrakeProbe {
+public sealed partial class TrainerAutovedenieAdverseBrakeProbe {
     const double StartX=57900, GradeStart=56725, GradeEnd=58325, Length=1126.18;
     const double Dt=.1, Standstill=.3/3.6;
     static readonly BindingFlags Flags=BindingFlags.Instance|BindingFlags.NonPublic;
@@ -48,8 +48,9 @@ public sealed class TrainerAutovedenieAdverseBrakeProbe {
         public bool fully_minus8,automatic_released,fully_released;
         public Vehicle[] vehicles; public double[] tc_bar,tm_bar,bogies_tc_bar;
     }
-    sealed class Fixture {
+    sealed partial class Fixture {
         public TrainerIntegrationHost host;
+        public Action beforeNativePneumatic,afterNativeMotion;
         TrainerAutovedenieNativeBridge operatorBridge;
         bool operatorBridgeOwned;
         int operatorCommand;
@@ -116,7 +117,8 @@ public sealed class TrainerAutovedenieAdverseBrakeProbe {
             if(operatorBridge!=null)operatorBridge.SubmitDecision(new TrainerAvpDecision {State=TrainerAvpState.Automatic,DriveEnabled=true,SuggestedTractionCommand=operatorCommand});
             Call("ElectricalCycle");Call("AfterAutovedenieElectricalCycle");
             Call("ApplyTestInputs");Call("RouteInputCycle");Call("AuxCycle");Call("KlubCoordinateCycle");
-            ObservedKlubStep();Call("PneumaticCycle");Call("MotionCycle");Call("RouteInputCycle");
+            ObservedKlubStep();if(beforeNativePneumatic!=null)beforeNativePneumatic();
+            Call("PneumaticCycle");Call("MotionCycle");if(afterNativeMotion!=null)afterNativeMotion();Call("RouteInputCycle");
             SetField("ticks",Convert.ToInt32(Field("ticks"))+1);cycle++;
             if(ackRemaining>0 && --ackRemaining==0) {Held(false);ackReleaseCycles=1;}
             if(Convert.ToInt32(Field("electricalFaults"))!=0)throw new Exception("Native electrical exception");

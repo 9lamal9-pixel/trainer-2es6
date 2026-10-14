@@ -89,7 +89,8 @@
       "kind": "diagnostic",
       "scope": "Pure managed planner and ownership contract. Does not accept native AVP implementation or braking calibration.",
       "timeout_seconds": 30,
-      "enabled": true
+      "enabled": true,
+      "requires_native_initialization": false
     },
     {
       "id": "AirControlIsolation",
@@ -1481,6 +1482,78 @@
       ],
       "kind": "candidate",
       "scope": "Full333033m source; all75compositeFTk0/R2/AR1; legacy AVP refused. Guarded original native operator start before prepared20kmh on−8; actual0.7UR V→IV, fullKVT6+IV securedhold60s; separate release observation and real0.7 reapplication if movement. ActualCOM/allvehicle speeds/pressures; VI-only release hold not assumed. Not80kmh/fullAVP acceptance.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "TrainBrakeCycle",
+      "main_class": "TrainBrakeCycleProbe",
+      "title": "Нормативный цикл торможения и выдержки до тяги",
+      "source": "work/pneumatic_live_fix/analysis/TrainBrakeCycleProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_train_brake_cycle.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Pure observed-command state machine: IV6s; I release anchor; KVT actualtarget35s+automaticrelease; moving60/stopped90-120-360 withcold1.5; subsequentsteps/recharge150s/sand/sensorfail/passivehistory. No native acceptance.",
+      "timeout_seconds": 30,
+      "requires_native_initialization": false,
+      "enabled": true
+    },
+    {
+      "id": "NativeSand",
+      "main_class": "TrainerNativeSandProbe",
+      "title": "Песок: штатный вход, подтверждение и восстановление",
+      "source": "outputs/TrainerNativeSandProbe.cs",
+      "profile": "candidate",
+      "dependencies": [
+        "outputs/TrainerAutovedenieAdverseBrakeProbe.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_native_sand.json"
+      ],
+      "kind": "candidate",
+      "scope": "Original Communication/Pult TPult40→nativeAF+A5; scoped input and recovery, physicalCab3D4/manualsourcepreservation. AVP disabled; acceptedcommand only, notairflow/adhesion or forcecredit.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "TrainBrakeNative",
+      "main_class": "TrainerTrainBrakeNativeProbe",
+      "title": "Нативный регламент: IV, I→II и выдержка до тяги",
+      "source": "outputs/TrainerTrainBrakeNativeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [
+        "outputs/TrainerAutovedenieAdverseBrakeProbe.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_train_brake_native.json"
+      ],
+      "kind": "candidate",
+      "scope": "Original full native route/prepared60kmh; productionbrakecycle commandsrealKM/KVT. ObservedIV6,Ianchor,KVT35+actualautoTC,moving60+allTCrelease. No syntheticphysics or fullAVP acceptance.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "NativeBrakeBound",
+      "main_class": "TrainerNativeBrakeBoundProbe",
+      "title": "Композиционные колодки: сила и задержка торможения с80км/ч",
+      "source": "outputs/TrainerNativeBrakeBoundProbe.cs",
+      "profile": "candidate",
+      "dependencies": [
+        "outputs/TrainerAutovedenieAdverseBrakeProbe.cs",
+        "outputs/TrainerNativeBrakeObserver.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Autovedenie_native_brake_bound.json"
+      ],
+      "kind": "candidate",
+      "scope": "Declaredprepared80aftergenuineoperatorstart; fulloriginalprofile/teachinggreen/SAUTOFF diagnostic. GuardedoriginalFSTP observer, all75actualpressures andpredictorforces, firstUR.7 V→IV. Conditionalwagon-onlybound; noAVPcalibrationorfullrouteacceptance.",
       "timeout_seconds": 300,
       "enabled": true
     }
