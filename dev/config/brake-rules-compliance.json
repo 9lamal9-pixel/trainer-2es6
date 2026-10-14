@@ -83,7 +83,7 @@
         109
       ],
       "requirement": "Moving traction delay>=60s plus tail release; normal full releaseI tocharge+0.2..0.6 thenII; pre-releaseKVT1.0..2.2 for30..40s; stopped restart90/120/360s for service/full/emergency, cold factor1.5.",
-      "implementation": "Production cycle uses completed nativeI anchor, normalI tocharge+.3 thenII; actual KVT band beforeI and35s+allauto release, moving60s+allTC. Post-stop90/120/360s and cold1.5 tested in purefixtures; unknownambient conservatively1.5 forstoponly. Fresh native60 moving cycle passed: IV124,I130.8,KVTreleased191.9,tractionpermission197.1; no traction applied afterpermission. Rearm preservesKVT/release timing."
+      "implementation": "Production cycle uses completed nativeI anchor, normalI tocharge+.3 thenII; actual KVT band beforeI and35s+allauto release, moving60s+allTC. Post-stop90/120/360s and cold1.5 tested in purefixtures; unknownambient conservatively1.5 forstoponly. Fresh native60 moving cycle passed: IV124,I130.8,KVTreleased191.9,tractionpermission197.1; no traction applied afterpermission. Rearm preservesKVT/release timing. Fresh native stopped matrix7/7 passed:90/120/360; declared negativeambient135/180/540 andunknown135. All cases used realKM/KVT and actualI anchor with independent fullTCrelease gate; native thermal parameters unchanged."
     },
     {
       "section": "10.3.1и",
@@ -91,7 +91,7 @@
         108
       ],
       "requirement": "Before UR reduction beyond1.0 bring sand devices into operation.",
-      "implementation": "OriginalPult input40 scoped and restored; originalcallback producesAF+A5. NativeSand18 electrical steps passed. Air-consumption/adhesion publisher pending; no credited sanding force."
+      "implementation": "OriginalPult produces AF+A5; reconstructed virtualhost guarded scopedAF→Loc7F publication, originalTorm computes4*DpOtdIV/DPother and finite physicalPMmass loss. Fresh NativeSandAir013011 PASS118/50steps inII/IV; staleflag, exceptionrestore andpreservationofexistingvalveinput verified. No sand adhesion or exactequipmentflow calibration."
     }
   ],
   "ftk_identification": {
@@ -221,7 +221,21 @@
     "sand": {
       "run": "dev/runs/test-20261014T005611217Z-ab5fc761",
       "passed": true,
-      "scope": "Originalcommandacceptance/restore only; native air consumption/adhesion unaccepted."
+      "scope": "Originalcommandacceptance plus reconstructedguardedinput7F/nativeairconsumption. Exactdeviceflow andadhesion remain unaccepted.",
+      "air_run": "dev/runs/test-20261014T013011748Z-3ddcdd5a",
+      "air_passed": true,
+      "air_steps": 50,
+      "air_assertions": 118,
+      "air_scope": {
+        "steps": 50,
+        "original_native_consumer": true,
+        "finite_pm_mass_decreased": true,
+        "reconstructed_input_publication": true,
+        "foreign_input_preserved": true,
+        "native_dll_files_modified": false,
+        "adhesion_verified": false,
+        "exact_equipment_flow_calibrated": false
+      }
     },
     "latest_safety_regression": {
       "run": "dev/runs/test-20261014T010503471Z-aa590bd6",
@@ -232,6 +246,120 @@
         "MarkupSafety",
         "NativeSafetyAdapter",
         "AutovedenieNativeBridgeGuard"
+      ],
+      "passed": true,
+      "exit_codes": 0,
+      "all_sessions_closed": true
+    },
+    "stopped_cycle_native": {
+      "cases": [
+        {
+          "probe": "StoppedBrakeService",
+          "run": "dev/runs/test-20261014T011421852Z-f6d39cb4",
+          "passed": true,
+          "assertions": 123,
+          "exit_code": 0,
+          "closed": true,
+          "restored": true,
+          "required_seconds": 90,
+          "observed_KVT_release_seconds": 90.1,
+          "observed_traction_permission_seconds": 100.6,
+          "early_denied_samples": 899
+        },
+        {
+          "probe": "StoppedBrakeFullService",
+          "run": "dev/runs/test-20261014T011518982Z-7a52bc5b",
+          "passed": true,
+          "assertions": 125,
+          "exit_code": 0,
+          "closed": true,
+          "restored": true,
+          "required_seconds": 120,
+          "observed_KVT_release_seconds": 120.10000000000002,
+          "observed_traction_permission_seconds": 130.60000000000002,
+          "early_denied_samples": 1199
+        },
+        {
+          "probe": "StoppedBrakeEmergency",
+          "run": "dev/runs/test-20261014T011518982Z-7a52bc5b",
+          "passed": true,
+          "assertions": 123,
+          "exit_code": 0,
+          "closed": true,
+          "restored": true,
+          "required_seconds": 360,
+          "observed_KVT_release_seconds": 360.1,
+          "observed_traction_permission_seconds": 370.6,
+          "early_denied_samples": 3599
+        },
+        {
+          "probe": "StoppedBrakeServiceCold",
+          "run": "dev/runs/test-20261014T011518982Z-7a52bc5b",
+          "passed": true,
+          "assertions": 123,
+          "exit_code": 0,
+          "closed": true,
+          "restored": true,
+          "required_seconds": 135,
+          "observed_KVT_release_seconds": 135.10000000000002,
+          "observed_traction_permission_seconds": 145.60000000000002,
+          "early_denied_samples": 1349
+        },
+        {
+          "probe": "StoppedBrakeFullServiceCold",
+          "run": "dev/runs/test-20261014T011518982Z-7a52bc5b",
+          "passed": true,
+          "assertions": 125,
+          "exit_code": 0,
+          "closed": true,
+          "restored": true,
+          "required_seconds": 180,
+          "observed_KVT_release_seconds": 180.10000000000002,
+          "observed_traction_permission_seconds": 190.60000000000002,
+          "early_denied_samples": 1799
+        },
+        {
+          "probe": "StoppedBrakeEmergencyCold",
+          "run": "dev/runs/test-20261014T011518982Z-7a52bc5b",
+          "passed": true,
+          "assertions": 123,
+          "exit_code": 0,
+          "closed": true,
+          "restored": true,
+          "required_seconds": 540,
+          "observed_KVT_release_seconds": 540.1,
+          "observed_traction_permission_seconds": 550.6,
+          "early_denied_samples": 5399
+        },
+        {
+          "probe": "StoppedBrakeServiceUnknown",
+          "run": "dev/runs/test-20261014T011518982Z-7a52bc5b",
+          "passed": true,
+          "assertions": 123,
+          "exit_code": 0,
+          "closed": true,
+          "restored": true,
+          "required_seconds": 135,
+          "observed_KVT_release_seconds": 135.10000000000002,
+          "observed_traction_permission_seconds": 145.60000000000002,
+          "early_denied_samples": 1349
+        }
+      ],
+      "thermal_scope": "Cold/unknown are declared policy scenarios; native thermal properties unchanged. Ambientsource/thermalphysics and cold brake onset remain unaccepted.",
+      "traction_scope": "Policypermission after actualfullTCrelease; actualpostpermissionacceleration untested."
+    },
+    "sand_regression": {
+      "run": "dev/runs/test-20261014T012728009Z-7ae8baf1",
+      "probes": [
+        "NativeSand",
+        "StoppedBrakeFullService",
+        "StoppedBrakeEmergencyCold",
+        "TrainBrakeNative",
+        "NativeSafetyAdapter",
+        "AutovedenieNativeBridgeGuard",
+        "ColdNoSource",
+        "AutovedenieController",
+        "TrainBrakeCycle"
       ],
       "passed": true,
       "exit_codes": 0,
@@ -247,8 +375,8 @@
     "acceptance_pending": "cold/repeated onset pressurefloor proof and closed-loop80/fullroute"
   },
   "pending_normative_scenarios": [
-    "Native cold/stopped full-service/emergency90/120/360 timing withwinterfactor",
-    "Native repeatedapplication/earlyrecharge/150s strengthening-release/sand-aircoupling",
+    "General ambient source/native thermal conditions and cold/repeated braking onset; stopped native policytimers7/7 alreadypassed",
+    "Native repeatedapplication/earlyrecharge/150s strengthening-release; exactsanddeviceairflow andadhesion (originalnativeairconsumer already verified)",
     "DownhillTM<3.4 stop-and-recharge procedure",
     "ARloadresponse, brakewave/density/rod/pad/tailintegrity bench",
     "HardwareSAUTlap/manualVcommandpriority",

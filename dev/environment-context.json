@@ -36,11 +36,11 @@
   },
   "source_profiles": {
     "integration": {
-      "count": 25,
+      "count": 26,
       "sources_ref": "dev/config/environment.json#/profiles/integration/sources"
     },
     "candidate": {
-      "count": 32,
+      "count": 33,
       "sources_ref": "dev/config/environment.json#/profiles/candidate/sources"
     },
     "default": "candidate"
@@ -105,7 +105,8 @@
         "CandidateAirHost",
         "ColdTrainAuxiliary",
         "VcuAirSequence",
-        "CompressorPrepared"
+        "CompressorPrepared",
+        "NativeSandAir"
       ]
     },
     "control_air": {
@@ -222,7 +223,15 @@
         "TrainBrakeCycle",
         "TrainBrakeNative",
         "NativeBrakeBound",
-        "NativeSand"
+        "NativeSand",
+        "StoppedBrakeService",
+        "StoppedBrakeFullService",
+        "StoppedBrakeEmergency",
+        "StoppedBrakeServiceCold",
+        "StoppedBrakeFullServiceCold",
+        "StoppedBrakeEmergencyCold",
+        "StoppedBrakeServiceUnknown",
+        "NativeSandAir"
       ]
     }
   },
@@ -245,7 +254,8 @@
       "MpsudAuditSnapshot test-20261011T115345530Z-bc12f052 exit0 PASS: four actual LOCO/1 Communication/Pult/Tyga/MSUL module paths/SHA,100 warm idle cycles,electricalFaults0; functional_mpsuid_accepted=false,screen_rendering_accepted=false. Detailed audit dev/docs/MPSUID_2ES6_AUDIT.md,3 independent parts. Production unchanged.",
       "MPSUID_SCREENS_RE_AUDIT.md:32 accepted fresh results,318PNG,419assertions+75observations,4912widgetreads;34base+8extra monitor routes. Latest Msgs test-20261011T124452567Z-081a9481 exit0. Mainbatch30/31,DiagUp timeout recorded; safe8/8 rerun andcorrect per-monitor messages. No production changes; RE conformityfalse. All15 discrepancies andsourcegaps documented.",
       "CurrentCOMPOSITE75FTk0/R2/AR1/charge5.1: fresh155611 PASS Controller/TrainPneumatic35984cycles8096625pressurechecks andAdverse131assertions prepared20kmh−8 stopallV0; IV+fullVI60s plus real0.7 reapplication/another60s secured hold. Independent-onlyhold false; AVPcalibration disabled; fullnormcompliance not accepted. Details dev/config/brake-rules-compliance.json.",
-      "Current composite brake policy integrated: pure81controller/217cycle assertions, native60 IV6/I→II/KVT35/allauto/moving60/allTC121 assertions; prepared80 directforce142 assertions195frames, all75TCfloor1 in16.5s, conditionalwagon-only bound.119145658 atpredictor<=90. NativeSand commandacceptance18steps; safety six-probe regression fresh010503 passed. Fullmodel/AVP acceptancefalse. See brake-rules-compliance.json."
+      "Current composite brake policy integrated: pure81controller/217cycle assertions, native60 IV6/I→II/KVT35/allauto/moving60/allTC121 assertions; prepared80 directforce142 assertions195frames, all75TCfloor1 in16.5s, conditionalwagon-only bound.119145658 atpredictor<=90. NativeSand commandacceptance18steps; safety six-probe regression fresh010503 passed. Fullmodel/AVP acceptancefalse. See brake-rules-compliance.json.",
+      "Stopped actualnative policy matrix7/7 PASS865assertions:90/120/360, declaredwinter135/180/540, unknown135, plusfullTC releasegate; initialflatstopped/genuineorigin, actualIanchor. Native thermalparametersunchanged. Fresh013011 NativeSandAir PASS118/50steps verifies reconstructedAF→7F scoped publication, original4*DP airconsumption inII/IV, finitePMmass, stale/exception/foreignrestore guards. Postlink012728 nineprobesPASS; fullAVP andadhesion notaccepted."
     ],
     "mpsuid_screens_reference": {
       "guide": "dev/docs/MPSUID_RE_SCREENS_GUIDE.md",
@@ -260,7 +270,7 @@
     },
     "three_d_evidence": "dev/runs/world3d-investigation-20261013/result.json",
     "current_brake_configuration": "dev/config/brake-rules-compliance.json",
-    "autovedenie_calibration_status": "LegacyFTk1/R1 calibration remains invalid. CurrentFTk0/R2 prepared80 directforce and16.5s warmonset passed; new35s delayplanner accounts forcoast acceleration. Cold/repeated onset, pressurefloorguardcontract, closed-loop80/fullroute pending."
+    "autovedenie_calibration_status": "LegacyFTk1/R1 calibration remains invalid. CurrentFTk0/R2 prepared80 directforce and16.5s warmonset passed; new35s delayplanner accounts forcoast acceleration. Cold/repeated onset, pressurefloorguardcontract, closed-loop80/fullroute pending. Native stoppedcycle matrix andoriginal sandairconsumer nowverified; new calibration/closedloop/AR/lowTMprocedure stillpending."
   },
   "backlog": {
     "priority": "Complete locomotive cold preparation remains unverified: diagnostic cold pneumatic chain now charges PM successfully, but actuator demand, exact equipment and calibration remain unresolved.",

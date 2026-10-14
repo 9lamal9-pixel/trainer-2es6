@@ -1556,6 +1556,171 @@
       "scope": "Declaredprepared80aftergenuineoperatorstart; fulloriginalprofile/teachinggreen/SAUTOFF diagnostic. GuardedoriginalFSTP observer, all75actualpressures andpredictorforces, firstUR.7 V→IV. Conditionalwagon-onlybound; noAVPcalibrationorfullrouteacceptance.",
       "timeout_seconds": 300,
       "enabled": true
+    },
+    {
+      "id": "StoppedBrakeService",
+      "main_class": "TrainerStoppedBrakeNativeProbe",
+      "title": "Остановочный отпуск: service/warm",
+      "source": "outputs/TrainerStoppedBrakeNativeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [
+        "outputs/TrainerAutovedenieAdverseBrakeProbe.cs"
+      ],
+      "arguments": [
+        "service",
+        "warm"
+      ],
+      "result_files": [
+        "outputs/Trainer_stopped_brake_native.json"
+      ],
+      "kind": "candidate",
+      "scope": "Prepared stopped initial state at originalflat16000m aftergenuineorigin; realphysicalbrake andproductionreleasepolicy. ActualI anchor, stopped90/120/360, winter/unknown1.5 policy only; allTC/fullKVT. No native thermal or fullAVP acceptance.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "StoppedBrakeFullService",
+      "main_class": "TrainerStoppedBrakeNativeProbe",
+      "title": "Остановочный отпуск: fullservice/warm",
+      "source": "outputs/TrainerStoppedBrakeNativeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [
+        "outputs/TrainerAutovedenieAdverseBrakeProbe.cs"
+      ],
+      "arguments": [
+        "fullservice",
+        "warm"
+      ],
+      "result_files": [
+        "outputs/Trainer_stopped_brake_native.json"
+      ],
+      "kind": "candidate",
+      "scope": "Prepared stopped initial state at originalflat16000m aftergenuineorigin; realphysicalbrake andproductionreleasepolicy. ActualI anchor, stopped90/120/360, winter/unknown1.5 policy only; allTC/fullKVT. No native thermal or fullAVP acceptance.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "StoppedBrakeEmergency",
+      "main_class": "TrainerStoppedBrakeNativeProbe",
+      "title": "Остановочный отпуск: emergency/warm",
+      "source": "outputs/TrainerStoppedBrakeNativeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [
+        "outputs/TrainerAutovedenieAdverseBrakeProbe.cs"
+      ],
+      "arguments": [
+        "emergency",
+        "warm"
+      ],
+      "result_files": [
+        "outputs/Trainer_stopped_brake_native.json"
+      ],
+      "kind": "candidate",
+      "scope": "Prepared stopped initial state at originalflat16000m aftergenuineorigin; realphysicalbrake andproductionreleasepolicy. ActualI anchor, stopped90/120/360, winter/unknown1.5 policy only; allTC/fullKVT. No native thermal or fullAVP acceptance.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "StoppedBrakeServiceCold",
+      "main_class": "TrainerStoppedBrakeNativeProbe",
+      "title": "Остановочный отпуск: service/cold",
+      "source": "outputs/TrainerStoppedBrakeNativeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [
+        "outputs/TrainerAutovedenieAdverseBrakeProbe.cs"
+      ],
+      "arguments": [
+        "service",
+        "cold"
+      ],
+      "result_files": [
+        "outputs/Trainer_stopped_brake_native.json"
+      ],
+      "kind": "candidate",
+      "scope": "Prepared stopped initial state at originalflat16000m aftergenuineorigin; realphysicalbrake andproductionreleasepolicy. ActualI anchor, stopped90/120/360, winter/unknown1.5 policy only; allTC/fullKVT. No native thermal or fullAVP acceptance.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "StoppedBrakeFullServiceCold",
+      "main_class": "TrainerStoppedBrakeNativeProbe",
+      "title": "Остановочный отпуск: fullservice/cold",
+      "source": "outputs/TrainerStoppedBrakeNativeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [
+        "outputs/TrainerAutovedenieAdverseBrakeProbe.cs"
+      ],
+      "arguments": [
+        "fullservice",
+        "cold"
+      ],
+      "result_files": [
+        "outputs/Trainer_stopped_brake_native.json"
+      ],
+      "kind": "candidate",
+      "scope": "Prepared stopped initial state at originalflat16000m aftergenuineorigin; realphysicalbrake andproductionreleasepolicy. ActualI anchor, stopped90/120/360, winter/unknown1.5 policy only; allTC/fullKVT. No native thermal or fullAVP acceptance.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "StoppedBrakeEmergencyCold",
+      "main_class": "TrainerStoppedBrakeNativeProbe",
+      "title": "Остановочный отпуск: emergency/cold",
+      "source": "outputs/TrainerStoppedBrakeNativeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [
+        "outputs/TrainerAutovedenieAdverseBrakeProbe.cs"
+      ],
+      "arguments": [
+        "emergency",
+        "cold"
+      ],
+      "result_files": [
+        "outputs/Trainer_stopped_brake_native.json"
+      ],
+      "kind": "candidate",
+      "scope": "Prepared stopped initial state at originalflat16000m aftergenuineorigin; realphysicalbrake andproductionreleasepolicy. ActualI anchor, stopped90/120/360, winter/unknown1.5 policy only; allTC/fullKVT. No native thermal or fullAVP acceptance.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "StoppedBrakeServiceUnknown",
+      "main_class": "TrainerStoppedBrakeNativeProbe",
+      "title": "Остановочный отпуск: service/unknown",
+      "source": "outputs/TrainerStoppedBrakeNativeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [
+        "outputs/TrainerAutovedenieAdverseBrakeProbe.cs"
+      ],
+      "arguments": [
+        "service",
+        "unknown"
+      ],
+      "result_files": [
+        "outputs/Trainer_stopped_brake_native.json"
+      ],
+      "kind": "candidate",
+      "scope": "Prepared stopped initial state at originalflat16000m aftergenuineorigin; realphysicalbrake andproductionreleasepolicy. ActualI anchor, stopped90/120/360, winter/unknown1.5 policy only; allTC/fullKVT. No native thermal or fullAVP acceptance.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "NativeSandAir",
+      "main_class": "TrainerNativeSandAirProbe",
+      "title": "Пескоподача: штатный расход конечной ПМ",
+      "source": "outputs/TrainerNativeSandAirProbe.cs",
+      "profile": "candidate",
+      "dependencies": [
+        "outputs/TrainerAutovedenieAdverseBrakeProbe.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_native_sand_air.json"
+      ],
+      "kind": "candidate",
+      "scope": "Reconstructed virtualAF→native7Finput; originalTorm4*actualDP consumer inKMIV/KMII, realfinitePM. OriginalcabSand/mainOFF, freshness andrestoration. No pressure/force/outputsubstitution, noadhesioncredit.",
+      "timeout_seconds": 300,
+      "enabled": true
     }
   ]
 }

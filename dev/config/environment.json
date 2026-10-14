@@ -37,7 +37,8 @@
         "outputs/TrainerMarkupSignalSource.cs",
         "outputs/TrainerMarkupHost.cs",
         "outputs/TrainerKlubSafetyBinding.cs",
-        "outputs/TrainerNativeVirtualPult.cs"
+        "outputs/TrainerNativeVirtualPult.cs",
+        "outputs/TrainerSandAirInput.cs"
       ]
     },
     "integration": {
@@ -66,7 +67,8 @@
         "outputs/TrainerMarkupSignalSource.cs",
         "outputs/TrainerMarkupHost.cs",
         "outputs/TrainerKlubSafetyBinding.cs",
-        "outputs/TrainerNativeVirtualPult.cs"
+        "outputs/TrainerNativeVirtualPult.cs",
+        "outputs/TrainerSandAirInput.cs"
       ]
     }
   },

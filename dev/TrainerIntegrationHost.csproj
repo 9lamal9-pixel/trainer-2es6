@@ -42,6 +42,7 @@
     <Compile Include="..\outputs\TrainerRouteDOS.cs"><Link>Route\TrainerRouteDOS.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerAutovedenieController.cs"><Link>Autovedenie\TrainerAutovedenieController.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerTrainBrakeCycle.cs"><Link>Autovedenie\TrainerTrainBrakeCycle.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerSandAirInput.cs"><Link>Pneumatics\TrainerSandAirInput.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerAutovedenieInterface.cs"><Link>Autovedenie\TrainerAutovedenieInterface.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerAutovedenieNativeBridge.cs"><Link>Autovedenie\TrainerAutovedenieNativeBridge.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerAutovedenieHost.cs"><Link>Autovedenie\TrainerAutovedenieHost.cs</Link></Compile>

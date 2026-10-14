@@ -69,7 +69,8 @@ void SyncVcuNative(IntPtr tumba){var module=GetModuleHandle("Communication1.dll"
    BeforeNativeAirStep();
    int effectiveKm=Marshal.ReadByte(loc,0x7d),effectiveKvt=Marshal.ReadByte(loc,0x93)!=0?4:Marshal.ReadByte(loc,0x7e);
    bool directlyObserved=effectiveKm>=6 || Marshal.ReadByte(loc,0x9b)==0 && !softwareSaut && !(saut==1&&(Marshal.ReadByte(loc,0x8a)!=0||Marshal.ReadByte(loc,0x8b)!=0));
-   observedPneumaticCommandsKnown=false;pneumoStep(trainData);AfterNativeAirStep();
+   observedPneumaticCommandsKnown=false;
+   using(BorrowNativeSandAirInput()){pneumoStep(trainData);AfterNativeAirStep();}
    observedPneumaticKm=effectiveKm;observedPneumaticKvt=effectiveKvt;observedPneumaticCommandSeconds=ticks*.1;observedPneumaticCommandsKnown=directlyObserved;
   }finally{try{RestoreNativeAirCompressorRequests();}finally{B(loc,0x7d,selected);B(loc,0x7e,selectedKvt);B(loc,0x89,saut);B(loc,0x90,savedBlock);}}
  }
