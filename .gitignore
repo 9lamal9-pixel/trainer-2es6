@@ -41,3 +41,7 @@
 /dev/history/*.zip
 /dev/**/__pycache__/
 /.vscode/launch.json
+
+!/setup.cmd
+
+/work/portable_python/

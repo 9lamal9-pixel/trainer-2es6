@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "repository": "9lamal9-pixel/trainer-2es6",
+  "tag": "trainer-environment-2026-10-16",
+  "scope": "All untracked data in work, outputs, dev; tracked files stay in Git. Excludes dev/state, dev/archives, work/3dfab_domain_audit, caches and credential directories. Historical binaries/results are reference snapshots, not acceptance of current sources.",
+  "assets": [
+    {
+      "name": "trainer-development-history-001.zip",
+      "size_bytes": 160799414,
+      "sha256": "adbb5edb048b9f9635c0e959791b7dc6272b5b8acedf2d1e3cd37ee713800092",
+      "files": 14354,
+      "unpacked_bytes": 534683682
+    },
+    {
+      "name": "trainer-development-history-002.zip",
+      "size_bytes": 5608559,
+      "sha256": "4da129f8c41b98879e967a932b6b6e0d416d9758e11c3d9345cab18f4c339d29",
+      "files": 576,
+      "unpacked_bytes": 40062296
+    },
+    {
+      "name": "trainer-native-distribution-001.zip",
+      "size_bytes": 220100858,
+      "sha256": "dc68052756097f1dd5d91bc979c97435560e3e312e9afdc7f2a4e421b738c25d",
+      "files": 923,
+      "unpacked_bytes": 511108547
+    },
+    {
+      "name": "trainer-native-distribution-002.zip",
+      "size_bytes": 224255712,
+      "sha256": "6705aaff11afe1b95c7e1014dd1bb41022e9468b18fa586d4e8125f46d07f616",
+      "files": 866,
+      "unpacked_bytes": 535927634
+    },
+    {
+      "name": "trainer-native-distribution-003.zip",
+      "size_bytes": 232034316,
+      "sha256": "dd29be5cabc7dcb4908f03f0d056c7ae8a52bfeefae7e7ed1c16af3144c58a58",
+      "files": 485,
+      "unpacked_bytes": 531599821
+    },
+    {
+      "name": "trainer-native-distribution-004.zip",
+      "size_bytes": 213610450,
+      "sha256": "1ce94d5c57a60b075e7fb42180082b4ee39edee5b8dbdc3e548ad1037c561f6a",
+      "files": 496,
+      "unpacked_bytes": 518897113
+    },
+    {
+      "name": "trainer-native-distribution-005.zip",
+      "size_bytes": 233735542,
+      "sha256": "5d495fcb80843f90876006e7185cc60104b73c71a9bed47bc8d9a63f736270b6",
+      "files": 396,
+      "unpacked_bytes": 527642855
+    },
+    {
+      "name": "trainer-native-distribution-006.zip",
+      "size_bytes": 251787548,
+      "sha256": "db588ab8a55dda7d280edf138ea6dcf46b5d4ffcef4b35c1154abdd810c2aee5",
+      "files": 4680,
+      "unpacked_bytes": 536862265
+    },
+    {
+      "name": "trainer-native-distribution-007.zip",
+      "size_bytes": 199803431,
+      "sha256": "95d9baf659d2b782ef53db746c641bd62c5287235ac5ff71083b1d3747e5657f",
+      "files": 18111,
+      "unpacked_bytes": 524491145
+    },
+    {
+      "name": "trainer-native-distribution-008.zip",
+      "size_bytes": 151036199,
+      "sha256": "3e7ba177dc7777b9db5a738015ba2249c4f6bbb68a26272f0bf2821bf0ff2697",
+      "files": 8018,
+      "unpacked_bytes": 536715938
+    },
+    {
+      "name": "trainer-native-distribution-009.zip",
+      "size_bytes": 48294370,
+      "sha256": "a9009d5243ec35f4bbb50c7493da12ca027008cc339867378fdf96442b0f5a66",
+      "files": 213,
+      "unpacked_bytes": 161100200
+    },
+    {
+      "name": "trainer-native-runtime-001.zip",
+      "size_bytes": 242789642,
+      "sha256": "4c7c47314038c1e0160e5a9f39924962c7565c1252cdf66568f1fd7bc2a14317",
+      "files": 929,
+      "unpacked_bytes": 531413592
+    },
+    {
+      "name": "trainer-native-runtime-002.zip",
+      "size_bytes": 101394289,
+      "sha256": "52e1dec0c495158d4271e42b5a7c67d10e65657e7cac3a2870b18bdc31a1e621",
+      "files": 136,
+      "unpacked_bytes": 196387398
+    },
+    {
+      "name": "trainer-outputs-data-001.zip",
+      "size_bytes": 84014013,
+      "sha256": "dee16b978bb77816f74a59da7f240e47c471ffdb8e693d54520afde52985a1d3",
+      "files": 1507,
+      "unpacked_bytes": 353510663
+    },
+    {
+      "name": "trainer-research-materials-001.zip",
+      "size_bytes": 324360019,
+      "sha256": "0d8d75e655655811f72e14720f304d817f69ab8f3392be9c84bc1f16e4b28888",
+      "files": 1701,
+      "unpacked_bytes": 535196821
+    },
+    {
+      "name": "trainer-empty-directories-001.zip",
+      "size_bytes": 61976,
+      "sha256": "40405bfabace6edb243779396c4b416f222124942fb821b37d1fa40d2d49aea1",
+      "files": 0,
+      "unpacked_bytes": 0,
+      "directories": 250
+    },
+    {
+      "name": "trainer-python-tools-001.zip",
+      "sha256": "a12831ce99be50dffcf59edd122269bcffed2f34477fadd04059e0e71231367f",
+      "size_bytes": 14839837,
+      "files": 599,
+      "unpacked_bytes": 37441123
+    }
+  ],
+  "payload_base_commit": "7252cc8889a9f0bee0493fdd44f8377cc32cf00c",
+  "source_ref": "refs/tags/trainer-environment-2026-10-16",
+  "empty_directories": 250,
+  "python_runtime": {
+    "version": "3.13.16",
+    "architecture": "Windows x64",
+    "executable": "work/portable_python/python.exe",
+    "packages": {
+      "pefile": "2024.8.26",
+      "capstone": "5.0.6",
+      "pip": "26.2.1"
+    },
+    "source_metadata": "work/portable_python/upstream-sources.json"
+  }
+}

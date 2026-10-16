@@ -72,7 +72,9 @@
     "mpsuid_screens_audit": "dev/docs/MPSUID_SCREENS_RE_AUDIT.md",
     "native_distribution": "dev/config/native-distribution.json",
     "world3d_architecture": "dev/docs/WORLD3D_ARCHITECTURE.md",
-    "safety_markup_audit": "dev/docs/SAFETY_MARKUP_RB_AUDIT.md"
+    "safety_markup_audit": "dev/docs/SAFETY_MARKUP_RB_AUDIT.md",
+    "portable_setup": "dev/docs/PORTABLE_SETUP.md",
+    "portable_release": "dev/config/portable-release.json"
   },
   "commands": {
     "entrypoint": ".\\trainer.cmd",
@@ -94,7 +96,8 @@
     "regression": "-Action Test -Suite regression",
     "archive_with_runtime": "-Action Archive -IncludeRuntime",
     "contract": "Fix=Build/Test/Checkpoint/Handoff. Tests sequential; fresh results, assertions, exit0. Disabled probes excluded.",
-    "array_note": "Probe accepts an array or comma-separated names; Run deploys in outputs."
+    "array_note": "Probe accepts an array or comma-separated names; Run deploys in outputs.",
+    "setup": ".\\setup.cmd"
   },
   "test_areas": {
     "pneumatics": {
