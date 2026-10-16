@@ -9,7 +9,109 @@
       "size_bytes": 160799414,
       "sha256": "adbb5edb048b9f9635c0e959791b7dc6272b5b8acedf2d1e3cd37ee713800092",
       "files": 14354,
-      "unpacked_bytes": 534683682
+      "unpacked_bytes": 534683682,
+      "parts": [
+        {
+          "name": "trainer-development-history-001.zip.part001",
+          "size_bytes": 8388608,
+          "sha256": "0aabf6336324f7b3b33fb8a2e15fe8b3b8c77ec53f970719f6dfccd53c7e80a1"
+        },
+        {
+          "name": "trainer-development-history-001.zip.part002",
+          "size_bytes": 8388608,
+          "sha256": "3479b2790a648a9ac7b115fe888a45d5233449d3af153ca4e0b3161df2b008f8"
+        },
+        {
+          "name": "trainer-development-history-001.zip.part003",
+          "size_bytes": 8388608,
+          "sha256": "16e418b0404e09dec537ddaa1a778ded767ca8d0c4e5d655152337df0a1ea2d9"
+        },
+        {
+          "name": "trainer-development-history-001.zip.part004",
+          "size_bytes": 8388608,
+          "sha256": "dca02cf152e991b2a7a6f8f24533ce7ba4f2fc98c2abe8379da20f68a67cccb5"
+        },
+        {
+          "name": "trainer-development-history-001.zip.part005",
+          "size_bytes": 8388608,
+          "sha256": "cccf2c17cae033591db8e25d8fb80a0147918fdf8d54dc9dff60a7bac9f15edc"
+        },
+        {
+          "name": "trainer-development-history-001.zip.part006",
+          "size_bytes": 8388608,
+          "sha256": "33c189a30d13c6baf940e7243b1abe507cbef9b8e5a95ef3729edfdff4b44922"
+        },
+        {
+          "name": "trainer-development-history-001.zip.part007",
+          "size_bytes": 8388608,
+          "sha256": "9c17e4f0872d627c3db5a8c08aa8d0e166dc1b4a3ad885b24abe344fd6fd75ca"
+        },
+        {
+          "name": "trainer-development-history-001.zip.part008",
+          "size_bytes": 8388608,
+          "sha256": "9360b8d6c208657436fccec92b8ab31382db472e8096657cb785eaee973437fe"
+        },
+        {
+          "name": "trainer-development-history-001.zip.part009",
+          "size_bytes": 8388608,
+          "sha256": "1853878e54218f473e8aa04e1cee79cf61f2146767bf2a73f796a8030d02c0e5"
+        },
+        {
+          "name": "trainer-development-history-001.zip.part010",
+          "size_bytes": 8388608,
+          "sha256": "ec997d495db1b8f9ba1252d7f4c5f9f5e3d99014974b88a464ab966e06f80a33"
+        },
+        {
+          "name": "trainer-development-history-001.zip.part011",
+          "size_bytes": 8388608,
+          "sha256": "107fa5f20df33f70fe0a47b892e279f2e2f39aba62c012134f9e4471cc1cf41a"
+        },
+        {
+          "name": "trainer-development-history-001.zip.part012",
+          "size_bytes": 8388608,
+          "sha256": "c6c5d21dcd943c0937f925218c91a51354f7fe6a369d96338d82b6ba565db460"
+        },
+        {
+          "name": "trainer-development-history-001.zip.part013",
+          "size_bytes": 8388608,
+          "sha256": "93475f5f0ef73cca8ae11843b6c6c1ddc7ee4d3cee767a2411bb25d3d51adb6d"
+        },
+        {
+          "name": "trainer-development-history-001.zip.part014",
+          "size_bytes": 8388608,
+          "sha256": "6f5427df552cc4aca2f0ecae2021eefafc004fa2f765bf7dadf79294b586ce5e"
+        },
+        {
+          "name": "trainer-development-history-001.zip.part015",
+          "size_bytes": 8388608,
+          "sha256": "42d110ea3be42ea1af1adb6b0537cf7de0a4001656b695447e02cab83b31d250"
+        },
+        {
+          "name": "trainer-development-history-001.zip.part016",
+          "size_bytes": 8388608,
+          "sha256": "1e320af0821d2ccda0e742a85563b3ebdfa6ff503017d3d9797b27b1fa63936b"
+        },
+        {
+          "name": "trainer-development-history-001.zip.part017",
+          "size_bytes": 8388608,
+          "sha256": "25de1ecee2a01be8fa6afbc395ca3cacfaa266acd8aac23e5d866b5f88308d9c"
+        },
+        {
+          "name": "trainer-development-history-001.zip.part018",
+          "size_bytes": 8388608,
+          "sha256": "9c8853808b1b7f5db1dcdce69ada5562b1dd3b8c89798b36bad6a32b10e9ee6c"
+        },
+        {
+          "name": "trainer-development-history-001.zip.part019",
+          "size_bytes": 8388608,
+          "sha256": "79b6e9e707eec58373ca6bfdf8c05cf8055a7681725518079ae9a1a1aff13068"
+        },
+        {
+          "name": "trainer-development-history-001.zip.part020",
+          "size_bytes": 1415862,
+          "sha256": "81439ba3505efd38376a52965bfe63297c4662c2e03aff41a1f6f360cad802ed"
+        }
+      ]
     },
     {
       "name": "trainer-development-history-002.zip",
@@ -23,91 +125,1657 @@
       "size_bytes": 220100858,
       "sha256": "dc68052756097f1dd5d91bc979c97435560e3e312e9afdc7f2a4e421b738c25d",
       "files": 923,
-      "unpacked_bytes": 511108547
+      "unpacked_bytes": 511108547,
+      "parts": [
+        {
+          "name": "trainer-native-distribution-001.zip.part001",
+          "size_bytes": 8388608,
+          "sha256": "01f4113b61d24a4e84a69a817bd9f85da398b417c87be57a667b2f5c10fae9f4"
+        },
+        {
+          "name": "trainer-native-distribution-001.zip.part002",
+          "size_bytes": 8388608,
+          "sha256": "5035406ed44b003caf0aff44a69081b73fff3c306e374c38cc13bc104dbfb602"
+        },
+        {
+          "name": "trainer-native-distribution-001.zip.part003",
+          "size_bytes": 8388608,
+          "sha256": "7c1fc2a304b0ba0a4da93fa727cd17f1eb9169373de2d6a4040e74e2d14e0f2f"
+        },
+        {
+          "name": "trainer-native-distribution-001.zip.part004",
+          "size_bytes": 8388608,
+          "sha256": "331f9fc7b24c020874621a111918335f6a28790d7416f150e5d38dee4c8218dd"
+        },
+        {
+          "name": "trainer-native-distribution-001.zip.part005",
+          "size_bytes": 8388608,
+          "sha256": "a981e0e04eaf269a3a544d3342ba7affd532aada2caf53f7c31b278a3fb9077e"
+        },
+        {
+          "name": "trainer-native-distribution-001.zip.part006",
+          "size_bytes": 8388608,
+          "sha256": "2cc7e5c45a839942269e497237de09c00b2de7f942cb3df9d67c3a3d3340bdda"
+        },
+        {
+          "name": "trainer-native-distribution-001.zip.part007",
+          "size_bytes": 8388608,
+          "sha256": "c6b7e7d02baed32222b045c79522a86dac2ca9d1ddd15580258fda431bc954ed"
+        },
+        {
+          "name": "trainer-native-distribution-001.zip.part008",
+          "size_bytes": 8388608,
+          "sha256": "169949c34ea322b40eb0665b70eda1a15a42c1226a0a5e26269bc95d8f34c08b"
+        },
+        {
+          "name": "trainer-native-distribution-001.zip.part009",
+          "size_bytes": 8388608,
+          "sha256": "d39bf1502f84a3724ddeda5dd57e7b7d945a61082b731956cd3d4cd16acc4e99"
+        },
+        {
+          "name": "trainer-native-distribution-001.zip.part010",
+          "size_bytes": 8388608,
+          "sha256": "0247b89e3a5cff0ba0fc3cbef90d310f270da82110d54f7dfa03205ae376678e"
+        },
+        {
+          "name": "trainer-native-distribution-001.zip.part011",
+          "size_bytes": 8388608,
+          "sha256": "9ba5092ceb3f3084c95c5e82462ed93e3712687e56fee99c25edff70a7ac32c1"
+        },
+        {
+          "name": "trainer-native-distribution-001.zip.part012",
+          "size_bytes": 8388608,
+          "sha256": "475760165f5e8d1259a6fb5e771645083cd5625b1bf14f311462ec0b3c77d712"
+        },
+        {
+          "name": "trainer-native-distribution-001.zip.part013",
+          "size_bytes": 8388608,
+          "sha256": "557ca6a03bf296a58a7eee3665ae4e172c7c21f7d8f1aaa6cc2b7f2960f12da9"
+        },
+        {
+          "name": "trainer-native-distribution-001.zip.part014",
+          "size_bytes": 8388608,
+          "sha256": "101d1331a0f3f987f4fd27d4ec3eda9de9205e638938f8aaa69a25467d99ff81"
+        },
+        {
+          "name": "trainer-native-distribution-001.zip.part015",
+          "size_bytes": 8388608,
+          "sha256": "461f7c61ed88995f44a96232433460a6a1bd6a75bbdc93b07c0c318d0fc6ad9b"
+        },
+        {
+          "name": "trainer-native-distribution-001.zip.part016",
+          "size_bytes": 8388608,
+          "sha256": "544079c8653547e7eed1a99a5296e6ff8b5a1564db14da065d5b8277ebd23979"
+        },
+        {
+          "name": "trainer-native-distribution-001.zip.part017",
+          "size_bytes": 8388608,
+          "sha256": "e0924d86a3d9f2800b10ec385856c21e190b0b6521e6f2df772333aadb635313"
+        },
+        {
+          "name": "trainer-native-distribution-001.zip.part018",
+          "size_bytes": 8388608,
+          "sha256": "4ebc8b0ce25b9d4cb900db78ad6e0d193858e8385845d36dc2c80f57a8985bfe"
+        },
+        {
+          "name": "trainer-native-distribution-001.zip.part019",
+          "size_bytes": 8388608,
+          "sha256": "fb97e794619a124bf10d51991c912d7b8bbb8e4549fee9654bf2e8e8d62f3349"
+        },
+        {
+          "name": "trainer-native-distribution-001.zip.part020",
+          "size_bytes": 8388608,
+          "sha256": "8ae6d62a7a6a78e726a8f450c9b128e357659ff8129e82f77aaf7c4143a33289"
+        },
+        {
+          "name": "trainer-native-distribution-001.zip.part021",
+          "size_bytes": 8388608,
+          "sha256": "3924fc7eff2520d0f94c5dec806361d51e6bc1c89880380b05e725c5b1ee74d3"
+        },
+        {
+          "name": "trainer-native-distribution-001.zip.part022",
+          "size_bytes": 8388608,
+          "sha256": "5a0f74cc9d031b59880ae1248276ab3f774c2d0bc4bf88638df83127d65eb491"
+        },
+        {
+          "name": "trainer-native-distribution-001.zip.part023",
+          "size_bytes": 8388608,
+          "sha256": "531cbf8cf792e84ed50f840d7c36cbd27543a0e6d0463f211733e02fb7ed0868"
+        },
+        {
+          "name": "trainer-native-distribution-001.zip.part024",
+          "size_bytes": 8388608,
+          "sha256": "12a64fc1ca2ee1b3157e984b7c9b95524b053dfc65951d0cf141bd2fbffa9ecc"
+        },
+        {
+          "name": "trainer-native-distribution-001.zip.part025",
+          "size_bytes": 8388608,
+          "sha256": "7d970715d1c2b0845dd23b2e70e1d0843fa022858016d5a9b9284bd48c3c3c80"
+        },
+        {
+          "name": "trainer-native-distribution-001.zip.part026",
+          "size_bytes": 8388608,
+          "sha256": "6e05883381f215cb2778c7c1abb817ee80f8dcc722e35af908f05b068c9d0fd9"
+        },
+        {
+          "name": "trainer-native-distribution-001.zip.part027",
+          "size_bytes": 1997050,
+          "sha256": "bf39fe24767550530111e4255b8ebeb318595138fdd59f5ac914062e6fcc6a01"
+        }
+      ]
     },
     {
       "name": "trainer-native-distribution-002.zip",
       "size_bytes": 224255712,
       "sha256": "6705aaff11afe1b95c7e1014dd1bb41022e9468b18fa586d4e8125f46d07f616",
       "files": 866,
-      "unpacked_bytes": 535927634
+      "unpacked_bytes": 535927634,
+      "parts": [
+        {
+          "name": "trainer-native-distribution-002.zip.part001",
+          "size_bytes": 8388608,
+          "sha256": "1200ed6ac67d8fb6ebe2ec941619c4810c49ae16b17d4c13ae74262be1ff2901"
+        },
+        {
+          "name": "trainer-native-distribution-002.zip.part002",
+          "size_bytes": 8388608,
+          "sha256": "bba3cfa063f0d3295bf1ab6d65a91c9ed3b941f8571394c10ec16f469c13022b"
+        },
+        {
+          "name": "trainer-native-distribution-002.zip.part003",
+          "size_bytes": 8388608,
+          "sha256": "39ee8d5e74a273c70f8923f32f2de2054cc9bec21a0bb0eab52b7814bcc00749"
+        },
+        {
+          "name": "trainer-native-distribution-002.zip.part004",
+          "size_bytes": 8388608,
+          "sha256": "c5c37d0189ebe9f51b56cf212db03f3546004d7ccfba139c8ba66a593adef6d5"
+        },
+        {
+          "name": "trainer-native-distribution-002.zip.part005",
+          "size_bytes": 8388608,
+          "sha256": "bb70452bd35b1dc088da48c55c6f75c0cd8b466ebfb414b1f55b479e8c1a5b1d"
+        },
+        {
+          "name": "trainer-native-distribution-002.zip.part006",
+          "size_bytes": 8388608,
+          "sha256": "48ffd1b6c98164dee40279b857817feae94173127b87c226645e7306085cf325"
+        },
+        {
+          "name": "trainer-native-distribution-002.zip.part007",
+          "size_bytes": 8388608,
+          "sha256": "66bcf138df1bb82173ab9c88d67fb7af92556bce1a0035278bdb86614651a4b5"
+        },
+        {
+          "name": "trainer-native-distribution-002.zip.part008",
+          "size_bytes": 8388608,
+          "sha256": "d81bdbb460e8f4ff1077c693c1d42956514ba3efd485ebd12797676f1ab40e92"
+        },
+        {
+          "name": "trainer-native-distribution-002.zip.part009",
+          "size_bytes": 8388608,
+          "sha256": "3eebba76f1e5755700d5571d82508b8ac0291c7fe01f6eabb59b1e59a366d824"
+        },
+        {
+          "name": "trainer-native-distribution-002.zip.part010",
+          "size_bytes": 8388608,
+          "sha256": "bf064dd5e110273d2b639c1599b40556bdcf8077bf43afcc75ed154f8750e4ff"
+        },
+        {
+          "name": "trainer-native-distribution-002.zip.part011",
+          "size_bytes": 8388608,
+          "sha256": "f63a61c3acf29215950b1f874d70fdec49cc515ccac89ed221c39933330fd41e"
+        },
+        {
+          "name": "trainer-native-distribution-002.zip.part012",
+          "size_bytes": 8388608,
+          "sha256": "1427c2870e818700b27c2ebe5b9ebb2ab9d0782573a5aa967ed6249c3377f602"
+        },
+        {
+          "name": "trainer-native-distribution-002.zip.part013",
+          "size_bytes": 8388608,
+          "sha256": "623b47140464647f5fa8733c61aa73222ee4dffc92c168a6e40e520ced8294a8"
+        },
+        {
+          "name": "trainer-native-distribution-002.zip.part014",
+          "size_bytes": 8388608,
+          "sha256": "03646688a9a3fcc2561761aa150fbb46a3e359f32cd60687e8bacbf9b36c3996"
+        },
+        {
+          "name": "trainer-native-distribution-002.zip.part015",
+          "size_bytes": 8388608,
+          "sha256": "bb26e8bb60c151f43527cf1d4bd0404f1dc1d201e32502bf9a8d597183b38113"
+        },
+        {
+          "name": "trainer-native-distribution-002.zip.part016",
+          "size_bytes": 8388608,
+          "sha256": "58403f137b7f79add5c720b7711fe31644561d4f260008b55ec5478a6b97a219"
+        },
+        {
+          "name": "trainer-native-distribution-002.zip.part017",
+          "size_bytes": 8388608,
+          "sha256": "09ea38fc8b2b6fbca812bc5998f2e37f63de8a59ee6e8f29d1e95e5485dfa0a4"
+        },
+        {
+          "name": "trainer-native-distribution-002.zip.part018",
+          "size_bytes": 8388608,
+          "sha256": "f62fdc224e2b046b088ca0e35f294df8c895930c46522cd83b51600266253e33"
+        },
+        {
+          "name": "trainer-native-distribution-002.zip.part019",
+          "size_bytes": 8388608,
+          "sha256": "2194af3a28cf22d16f1aedc72bdd4786c6138a63b1233251ccb976c8cbfcff34"
+        },
+        {
+          "name": "trainer-native-distribution-002.zip.part020",
+          "size_bytes": 8388608,
+          "sha256": "2a3cd2e7cea1cafb4d3efe3564047d3a1c47f0fc185247a08b2b9bb66b24109a"
+        },
+        {
+          "name": "trainer-native-distribution-002.zip.part021",
+          "size_bytes": 8388608,
+          "sha256": "bc115a4c744f289736388c9c9c007ff64fbdb5f6d81ded3a2de99a1c2086989b"
+        },
+        {
+          "name": "trainer-native-distribution-002.zip.part022",
+          "size_bytes": 8388608,
+          "sha256": "2c593a704bf75d7f84d228cec00a525b77e9e3f9623d7a4cd079c9d926a6776c"
+        },
+        {
+          "name": "trainer-native-distribution-002.zip.part023",
+          "size_bytes": 8388608,
+          "sha256": "e44212f6502044beae8fd641d6c52fa2eb417e19a2442a78b16522f20a36d97a"
+        },
+        {
+          "name": "trainer-native-distribution-002.zip.part024",
+          "size_bytes": 8388608,
+          "sha256": "a2cd24a712c28259303ae6872d0b9c6beb108c2a4e6053d6be423d7fde26b029"
+        },
+        {
+          "name": "trainer-native-distribution-002.zip.part025",
+          "size_bytes": 8388608,
+          "sha256": "78e9c9c5ef3565c3d36740741df1fda8a631065a17abfe1599a92ebffc303307"
+        },
+        {
+          "name": "trainer-native-distribution-002.zip.part026",
+          "size_bytes": 8388608,
+          "sha256": "59fc23ef46b93cb84dde93fdb15459230bd5de0d08e16256984207e0833f6cdd"
+        },
+        {
+          "name": "trainer-native-distribution-002.zip.part027",
+          "size_bytes": 6151904,
+          "sha256": "874e09f3c1f1d177627bd2b984233c56d404e03a5366412e22ea708e705fae79"
+        }
+      ]
     },
     {
       "name": "trainer-native-distribution-003.zip",
       "size_bytes": 232034316,
       "sha256": "dd29be5cabc7dcb4908f03f0d056c7ae8a52bfeefae7e7ed1c16af3144c58a58",
       "files": 485,
-      "unpacked_bytes": 531599821
+      "unpacked_bytes": 531599821,
+      "parts": [
+        {
+          "name": "trainer-native-distribution-003.zip.part001",
+          "size_bytes": 8388608,
+          "sha256": "321d88ece0e8fb6b53c21a5d155c69c8d526b531a689d82a4490feded3345b6e"
+        },
+        {
+          "name": "trainer-native-distribution-003.zip.part002",
+          "size_bytes": 8388608,
+          "sha256": "42a3049cb9bee1adc928646eda220954dd066e15b4ef37e17161c7dda08aeea6"
+        },
+        {
+          "name": "trainer-native-distribution-003.zip.part003",
+          "size_bytes": 8388608,
+          "sha256": "661de676b44634ebb81706ecbb043d119d24d63b9bb9610346ae7b4b96458b4e"
+        },
+        {
+          "name": "trainer-native-distribution-003.zip.part004",
+          "size_bytes": 8388608,
+          "sha256": "b8a3ac7128c5170ebe3120a73c57c3d9f83fdf3942ee800a04890d27e9288a8f"
+        },
+        {
+          "name": "trainer-native-distribution-003.zip.part005",
+          "size_bytes": 8388608,
+          "sha256": "ddabc9c41d5296baef32dc52b7d5b2f78c6cb6f58bb68a8caf3a57f094e71c9b"
+        },
+        {
+          "name": "trainer-native-distribution-003.zip.part006",
+          "size_bytes": 8388608,
+          "sha256": "b5d7361aee3c89ed2cc0277b20e24361e0fcd3c7474c0a2e4c9265077f9685ec"
+        },
+        {
+          "name": "trainer-native-distribution-003.zip.part007",
+          "size_bytes": 8388608,
+          "sha256": "5bccbf16a7b0eb0c0bfa098431280cbeb6dfed6b810f6b7622c1f049e6ab0325"
+        },
+        {
+          "name": "trainer-native-distribution-003.zip.part008",
+          "size_bytes": 8388608,
+          "sha256": "fb1aa98e81d696b9a5b50c44c2d02f0e5291238a87de687f1731be66e7de2305"
+        },
+        {
+          "name": "trainer-native-distribution-003.zip.part009",
+          "size_bytes": 8388608,
+          "sha256": "0e2b90e5b150c8c44a32f069c6342a40bbc66072f700ae5df611f292c263fbf8"
+        },
+        {
+          "name": "trainer-native-distribution-003.zip.part010",
+          "size_bytes": 8388608,
+          "sha256": "33c7eaa7cd16514b09f57e109b6a777548a4e7be4e4005bb8fb60cf43538335b"
+        },
+        {
+          "name": "trainer-native-distribution-003.zip.part011",
+          "size_bytes": 8388608,
+          "sha256": "61c8dc4bb90d54b5095cd785ae9480951475a1e76453c1610a551f86535142dc"
+        },
+        {
+          "name": "trainer-native-distribution-003.zip.part012",
+          "size_bytes": 8388608,
+          "sha256": "940819f2078ad78e351dd384206e3557f92e7c2ac38dde87589f1e21e3cc1664"
+        },
+        {
+          "name": "trainer-native-distribution-003.zip.part013",
+          "size_bytes": 8388608,
+          "sha256": "747214959e204b47f3e8c2373f3632551db0a5c539d69d8a8ab0e1e88152eb33"
+        },
+        {
+          "name": "trainer-native-distribution-003.zip.part014",
+          "size_bytes": 8388608,
+          "sha256": "497ad3150c48aa4facb59860cadd3729d9fc430960e981990c529a78f26c6194"
+        },
+        {
+          "name": "trainer-native-distribution-003.zip.part015",
+          "size_bytes": 8388608,
+          "sha256": "c6a2d11a9990eb74fc1e08c64ebdb0f9fd8dfc46496de3e4a6c1a15d09761aa1"
+        },
+        {
+          "name": "trainer-native-distribution-003.zip.part016",
+          "size_bytes": 8388608,
+          "sha256": "8278a6e90ed0d177329aae4fe8f816fd7d28caff52f28acac5fce68ec4c5d89d"
+        },
+        {
+          "name": "trainer-native-distribution-003.zip.part017",
+          "size_bytes": 8388608,
+          "sha256": "c5d0c97b9c0e0f91d125e5d6407e158b484c13bde719aa3fa706e3f04715d08d"
+        },
+        {
+          "name": "trainer-native-distribution-003.zip.part018",
+          "size_bytes": 8388608,
+          "sha256": "9a88c7a627668bb1dbbc43e5701cd30b6e6a8afbff0e3cdca6df64dc20007752"
+        },
+        {
+          "name": "trainer-native-distribution-003.zip.part019",
+          "size_bytes": 8388608,
+          "sha256": "7b6f9eebbc866074180a32ae8e291988b10101c88e5b79ee8af2d842139cbad7"
+        },
+        {
+          "name": "trainer-native-distribution-003.zip.part020",
+          "size_bytes": 8388608,
+          "sha256": "d5c7a63ffd0796d05f8cfbf538cb4cc75e0c68ba0347f425c15d8e0a15744730"
+        },
+        {
+          "name": "trainer-native-distribution-003.zip.part021",
+          "size_bytes": 8388608,
+          "sha256": "350ac80c86f7c735f1f72c1f6aaf9f097a22ae7ea0f7a3b567f2b2ee935794d5"
+        },
+        {
+          "name": "trainer-native-distribution-003.zip.part022",
+          "size_bytes": 8388608,
+          "sha256": "d31710b11bac84acaab460511b871acf78c9566ae4dfae9f705a3f912dfb2f78"
+        },
+        {
+          "name": "trainer-native-distribution-003.zip.part023",
+          "size_bytes": 8388608,
+          "sha256": "04d31c7bbd7bf239fd3bcd5cf742a5d99084d9c32b026a8806872c72e5874adb"
+        },
+        {
+          "name": "trainer-native-distribution-003.zip.part024",
+          "size_bytes": 8388608,
+          "sha256": "a1b21fc64a17dfd6b91797eff8fdd4ec1c3fb79b022b2e877b9adb3a85396566"
+        },
+        {
+          "name": "trainer-native-distribution-003.zip.part025",
+          "size_bytes": 8388608,
+          "sha256": "2158f4fc20420b7f6baaf12806fc86981694aabfb78d9c518307ae841d041ac6"
+        },
+        {
+          "name": "trainer-native-distribution-003.zip.part026",
+          "size_bytes": 8388608,
+          "sha256": "604ecdb1d14b9a2d3f687a29acdcb267c68990913662f0427b545183cad40e67"
+        },
+        {
+          "name": "trainer-native-distribution-003.zip.part027",
+          "size_bytes": 8388608,
+          "sha256": "94fb7d3fe7c6f6176e82a8deeca24ccbdc2cefa7027b7bf96a546fc1435a8193"
+        },
+        {
+          "name": "trainer-native-distribution-003.zip.part028",
+          "size_bytes": 5541900,
+          "sha256": "d7523cebd54c69df81a69a5e8b1da19d30e1ec13cb2f33d967768111b721950f"
+        }
+      ]
     },
     {
       "name": "trainer-native-distribution-004.zip",
       "size_bytes": 213610450,
       "sha256": "1ce94d5c57a60b075e7fb42180082b4ee39edee5b8dbdc3e548ad1037c561f6a",
       "files": 496,
-      "unpacked_bytes": 518897113
+      "unpacked_bytes": 518897113,
+      "parts": [
+        {
+          "name": "trainer-native-distribution-004.zip.part001",
+          "size_bytes": 8388608,
+          "sha256": "91193f40884b7ed0d745dcc7dcec0521d2214dc658ef4f0031704aa22716f4da"
+        },
+        {
+          "name": "trainer-native-distribution-004.zip.part002",
+          "size_bytes": 8388608,
+          "sha256": "213804a676b6151158f9fd98be688f6461e78e55ebeefc63d78d3633fa95d587"
+        },
+        {
+          "name": "trainer-native-distribution-004.zip.part003",
+          "size_bytes": 8388608,
+          "sha256": "747b92823e3b872d54406005d0ddbc5a9507aab40803c997a2a25fe91578817b"
+        },
+        {
+          "name": "trainer-native-distribution-004.zip.part004",
+          "size_bytes": 8388608,
+          "sha256": "f3f402716c0c5e2a47f1053fecdcd958cedd7429ace7e11ab791cb78a93f7340"
+        },
+        {
+          "name": "trainer-native-distribution-004.zip.part005",
+          "size_bytes": 8388608,
+          "sha256": "8903bbf932eb8d18fd577a626a28d884f55d54efabcf47a8846f6fab4bf9b280"
+        },
+        {
+          "name": "trainer-native-distribution-004.zip.part006",
+          "size_bytes": 8388608,
+          "sha256": "a45068984209cf277fc6624d9e0ab1b8398cb50d4fb989e8737801b860f46b48"
+        },
+        {
+          "name": "trainer-native-distribution-004.zip.part007",
+          "size_bytes": 8388608,
+          "sha256": "2706b9a4b85320506a2c7ab2a2e6e849225cbfeeab047714ba08053643802738"
+        },
+        {
+          "name": "trainer-native-distribution-004.zip.part008",
+          "size_bytes": 8388608,
+          "sha256": "e52443de8dd8b6c26fc77a2ee27351ec5ab61596e7ce5da648399efe76ae632a"
+        },
+        {
+          "name": "trainer-native-distribution-004.zip.part009",
+          "size_bytes": 8388608,
+          "sha256": "afe279ef1b5831742cb3b78b4ba4fc444ee9725628c7845faa9089b55237e823"
+        },
+        {
+          "name": "trainer-native-distribution-004.zip.part010",
+          "size_bytes": 8388608,
+          "sha256": "cdc2c299a40ba401c44554e0dcf08a35e48d2a9272184f392cf9e1d49dfc090a"
+        },
+        {
+          "name": "trainer-native-distribution-004.zip.part011",
+          "size_bytes": 8388608,
+          "sha256": "35f9dce56701d2d84ed3577153c758e74915aa87cd798e7ba310a40a6bd957fe"
+        },
+        {
+          "name": "trainer-native-distribution-004.zip.part012",
+          "size_bytes": 8388608,
+          "sha256": "1cdfb26057e6761c4898a15338ad3ad89c5836890a23be2203f8fc1aaacd13f4"
+        },
+        {
+          "name": "trainer-native-distribution-004.zip.part013",
+          "size_bytes": 8388608,
+          "sha256": "ed27afa920ecee8ae377f6cf42cd6edb1f998daf2af453b280eade5a0b5f7ad2"
+        },
+        {
+          "name": "trainer-native-distribution-004.zip.part014",
+          "size_bytes": 8388608,
+          "sha256": "af6f6d13bd5de91c0988e7e484716b3af6f62cc5f5bf20bdd5556d4c9c9fc14d"
+        },
+        {
+          "name": "trainer-native-distribution-004.zip.part015",
+          "size_bytes": 8388608,
+          "sha256": "51147438958f27886cf3723e7c90733d309d62d06b2cf1938f460c7fb7e849ee"
+        },
+        {
+          "name": "trainer-native-distribution-004.zip.part016",
+          "size_bytes": 8388608,
+          "sha256": "f7ce7cf72583e1a0543322b488d685947557bf99cd9254ce347a07d89d2c46e9"
+        },
+        {
+          "name": "trainer-native-distribution-004.zip.part017",
+          "size_bytes": 8388608,
+          "sha256": "a3624af10439bfacd8638b8b7f9c926d4e3dc0a90c0481c90b2f22d113b50df9"
+        },
+        {
+          "name": "trainer-native-distribution-004.zip.part018",
+          "size_bytes": 8388608,
+          "sha256": "bee69b37416e9573fa48d1d1359ec96a97cb9b81b2311b3b6b69cf227da20ab5"
+        },
+        {
+          "name": "trainer-native-distribution-004.zip.part019",
+          "size_bytes": 8388608,
+          "sha256": "f982ea22b175d46ff703379e4ce08c45d5049e4eaccf8f3334b8375d66da9521"
+        },
+        {
+          "name": "trainer-native-distribution-004.zip.part020",
+          "size_bytes": 8388608,
+          "sha256": "177873da6aba5f30ace52d7d5d07a9f63c8ac7e4229d24b5e5be1e0435ca2eb7"
+        },
+        {
+          "name": "trainer-native-distribution-004.zip.part021",
+          "size_bytes": 8388608,
+          "sha256": "f5b0d81d4480a6b73b784316bf611882e543a50ceeb5a24276fa0903731a1608"
+        },
+        {
+          "name": "trainer-native-distribution-004.zip.part022",
+          "size_bytes": 8388608,
+          "sha256": "d3dd0ffedd33d7031ab80beb527fd19da104534b1170b56467efadbd3ffd0316"
+        },
+        {
+          "name": "trainer-native-distribution-004.zip.part023",
+          "size_bytes": 8388608,
+          "sha256": "f27eeb1f546e4e820f6bbcb59d95ff1a59fbe0cbe0b9ff4510cf98f1b0569e93"
+        },
+        {
+          "name": "trainer-native-distribution-004.zip.part024",
+          "size_bytes": 8388608,
+          "sha256": "ce69c2c6aed8bd0c54dcf8444a3f6500b86d6ecc4eda2090d157934ef4ac116c"
+        },
+        {
+          "name": "trainer-native-distribution-004.zip.part025",
+          "size_bytes": 8388608,
+          "sha256": "1e9dc67d1bc20799c92791f661501a47744243d232283cbd0da298aa1119f4b3"
+        },
+        {
+          "name": "trainer-native-distribution-004.zip.part026",
+          "size_bytes": 3895250,
+          "sha256": "9600f0b748f8764c8f65c6e6336c3cf0ad373613161c7ff24bfa79cae3d14f43"
+        }
+      ]
     },
     {
       "name": "trainer-native-distribution-005.zip",
       "size_bytes": 233735542,
       "sha256": "5d495fcb80843f90876006e7185cc60104b73c71a9bed47bc8d9a63f736270b6",
       "files": 396,
-      "unpacked_bytes": 527642855
+      "unpacked_bytes": 527642855,
+      "parts": [
+        {
+          "name": "trainer-native-distribution-005.zip.part001",
+          "size_bytes": 8388608,
+          "sha256": "9f60a5c2fd75808cf8de4696a44648caae451d9d2f41a0056cb214e107c63c44"
+        },
+        {
+          "name": "trainer-native-distribution-005.zip.part002",
+          "size_bytes": 8388608,
+          "sha256": "03c41c0f02ee506ae0598f4ceab66185a5427a0c0fc2f0277c0e48de07f63f49"
+        },
+        {
+          "name": "trainer-native-distribution-005.zip.part003",
+          "size_bytes": 8388608,
+          "sha256": "a3e30b17bd1a90de1ac1306b7c5e52cf897c3571e7bfacdaeb6cfbb242e8b970"
+        },
+        {
+          "name": "trainer-native-distribution-005.zip.part004",
+          "size_bytes": 8388608,
+          "sha256": "e3252d2a05a7338b9a3fce8ba71004a0c4387f9c9a7436ca1bbef41ff19cb0fd"
+        },
+        {
+          "name": "trainer-native-distribution-005.zip.part005",
+          "size_bytes": 8388608,
+          "sha256": "c317e7db5d267db995f6bb1e080f2fb81f0b16690d5fcc7d6119faa530caebf2"
+        },
+        {
+          "name": "trainer-native-distribution-005.zip.part006",
+          "size_bytes": 8388608,
+          "sha256": "b06ac6875eb7eacd1142c8325c5bc8139de9920ee76bd58d2ec43b48bf4d8ab9"
+        },
+        {
+          "name": "trainer-native-distribution-005.zip.part007",
+          "size_bytes": 8388608,
+          "sha256": "dd9735ae56893b871549b5b7a730e2a6c74f371911800b931c84db41a1b15193"
+        },
+        {
+          "name": "trainer-native-distribution-005.zip.part008",
+          "size_bytes": 8388608,
+          "sha256": "af52ef8fb2502d2fb7365c4077927a202a998cbb1dad1a48f019ec0787415da6"
+        },
+        {
+          "name": "trainer-native-distribution-005.zip.part009",
+          "size_bytes": 8388608,
+          "sha256": "0b4457ab175546c4c1b486e993a8f703e5ae1723cbdd95d32ed3acdd11b0c72c"
+        },
+        {
+          "name": "trainer-native-distribution-005.zip.part010",
+          "size_bytes": 8388608,
+          "sha256": "81775f2d3e495760110cd5c3a9017a50ae9262bc0cc00e43e5a0e1f799f2a44d"
+        },
+        {
+          "name": "trainer-native-distribution-005.zip.part011",
+          "size_bytes": 8388608,
+          "sha256": "5786c326e830aaa4054ea5ab62ad2e7ae9a1db8c5c5ac748e13062b551dd9823"
+        },
+        {
+          "name": "trainer-native-distribution-005.zip.part012",
+          "size_bytes": 8388608,
+          "sha256": "c14ba8863df06cae1d694c2a57a5ea92b9038197238c36d7e6f731ccd35db7d3"
+        },
+        {
+          "name": "trainer-native-distribution-005.zip.part013",
+          "size_bytes": 8388608,
+          "sha256": "9ad1d16b71c4b971e3d7d6de87812957176f70db2bd2c47dda44ee2d92b2eb7c"
+        },
+        {
+          "name": "trainer-native-distribution-005.zip.part014",
+          "size_bytes": 8388608,
+          "sha256": "cf3273e4960143509a77aa451828fc6b9ebb36aca5175fa162eb4ab2567a1ab6"
+        },
+        {
+          "name": "trainer-native-distribution-005.zip.part015",
+          "size_bytes": 8388608,
+          "sha256": "24145e1efdd991bd4da88730f04217a8e952b588b96bf51e71eade5181a6b5af"
+        },
+        {
+          "name": "trainer-native-distribution-005.zip.part016",
+          "size_bytes": 8388608,
+          "sha256": "93169a1d7f7d3c06bc4cf99502c4e75cdc909a4318431654cc96b02eda66d69b"
+        },
+        {
+          "name": "trainer-native-distribution-005.zip.part017",
+          "size_bytes": 8388608,
+          "sha256": "c1bff895fd45a61b9f7994706a3e891a1a2bb136dca05d703829169b3959254e"
+        },
+        {
+          "name": "trainer-native-distribution-005.zip.part018",
+          "size_bytes": 8388608,
+          "sha256": "06062755e849be2eb2a5e1e8a5506b15756f0b36f8600bae8b56454ea5f77920"
+        },
+        {
+          "name": "trainer-native-distribution-005.zip.part019",
+          "size_bytes": 8388608,
+          "sha256": "4ed08890a2716009e9b1c952759c0ce124f250afb88cce9862bca01b875c0347"
+        },
+        {
+          "name": "trainer-native-distribution-005.zip.part020",
+          "size_bytes": 8388608,
+          "sha256": "b17676e1700a0eb44ad9bd94e4f0b21688298281650868d89f14f1808a9be9a1"
+        },
+        {
+          "name": "trainer-native-distribution-005.zip.part021",
+          "size_bytes": 8388608,
+          "sha256": "a387518ff403931a6bf0261c14517c527112348808dcb22bbf5b75474d709b67"
+        },
+        {
+          "name": "trainer-native-distribution-005.zip.part022",
+          "size_bytes": 8388608,
+          "sha256": "717212e7150ed7fb5e5bb1eb3bf69d4547010c8c0aa3d72cc836cb4f6d952d1d"
+        },
+        {
+          "name": "trainer-native-distribution-005.zip.part023",
+          "size_bytes": 8388608,
+          "sha256": "4b10fc8a2d25921d92876a18e4dc231f51bf4cde927d5212f1e42f0137345b80"
+        },
+        {
+          "name": "trainer-native-distribution-005.zip.part024",
+          "size_bytes": 8388608,
+          "sha256": "4cef456196c9caf9f5d79a0e4901daa6772843ae2803699a5033c92e83b1365e"
+        },
+        {
+          "name": "trainer-native-distribution-005.zip.part025",
+          "size_bytes": 8388608,
+          "sha256": "a6e6ffd9f7c543bf6a2d6bea039d85e67be4f4322165e59acde84fd74f4883f8"
+        },
+        {
+          "name": "trainer-native-distribution-005.zip.part026",
+          "size_bytes": 8388608,
+          "sha256": "74b93b47b72f596813604b60d4dc32ac37ce57c01cf1c68d3a18a64d4c67aeaf"
+        },
+        {
+          "name": "trainer-native-distribution-005.zip.part027",
+          "size_bytes": 8388608,
+          "sha256": "23d4a97166bd540a9e5b812cc9901f9c5cb77762892210ebd49b3cb7547e9fa7"
+        },
+        {
+          "name": "trainer-native-distribution-005.zip.part028",
+          "size_bytes": 7243126,
+          "sha256": "57e0f87c483b49e39522e857a020e311085d50473e13e59fab213afb45a8fe14"
+        }
+      ]
     },
     {
       "name": "trainer-native-distribution-006.zip",
       "size_bytes": 251787548,
       "sha256": "db588ab8a55dda7d280edf138ea6dcf46b5d4ffcef4b35c1154abdd810c2aee5",
       "files": 4680,
-      "unpacked_bytes": 536862265
+      "unpacked_bytes": 536862265,
+      "parts": [
+        {
+          "name": "trainer-native-distribution-006.zip.part001",
+          "size_bytes": 8388608,
+          "sha256": "7def0a6e7370c10132e98c127e9248fd35d2112bca556797a598ffd50e4aa6a1"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part002",
+          "size_bytes": 8388608,
+          "sha256": "001aad5faa4f5e373c50e1beb6fef4d7150bbed3a83fd288b92cded54c643db3"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part003",
+          "size_bytes": 8388608,
+          "sha256": "1779074f18c3419b0bc08ab96374083a66dff72bd66effb346e41022ad1f7795"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part004",
+          "size_bytes": 8388608,
+          "sha256": "ec6a2b1718646856d76ce20a7bedcd5771321ea6fefdaaf112b2e08d381e3fd6"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part005",
+          "size_bytes": 8388608,
+          "sha256": "b81da2715f27f424a65895925e451e479774e2df7b14e1af3759d6cce24134ec"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part006",
+          "size_bytes": 8388608,
+          "sha256": "7227cc933b8a42ae4d00c6dbf9b928ee480f3d2474ebe426534b94f65aa89e53"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part007",
+          "size_bytes": 8388608,
+          "sha256": "4d52e8514b28bdd985a73047d69e47cfd0512750114d5498791df4b12e7bb7f7"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part008",
+          "size_bytes": 8388608,
+          "sha256": "1d28dba3608ff2d4d13c414f0e52dae0e56c8b975f209ce308ffcae3100d6d1f"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part009",
+          "size_bytes": 8388608,
+          "sha256": "1a1946e643a607c685a9ec2c5473af7f21e84ca25ccd8b478f7f71f2058fe68d"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part010",
+          "size_bytes": 8388608,
+          "sha256": "df1db992e138988c5e8ccf8e1f1104f8eb9ed11589d14e776d51a944b2ed26f2"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part011",
+          "size_bytes": 8388608,
+          "sha256": "c70a6b49d341b5191eb12612f73eaa1ffc69cf4012fb3eda1252f5b2e07f1713"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part012",
+          "size_bytes": 8388608,
+          "sha256": "b98e9a68585fac19dfb90ab6c6acda6bd7e8ef1bfe303de33221a83999348b66"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part013",
+          "size_bytes": 8388608,
+          "sha256": "f1128ea482f1181e6986f6f084fcc1a08534f7f03108718979871f6fa131986a"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part014",
+          "size_bytes": 8388608,
+          "sha256": "b3c38a1b1a67ce57f4f5992adccc7f0c0dcb1d83ebc577dc352b51016925bdfd"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part015",
+          "size_bytes": 8388608,
+          "sha256": "8979b03ce6f0dd494c24c7760a95c75fdb8b864b3f8a3179e5634b785b1dc4dd"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part016",
+          "size_bytes": 8388608,
+          "sha256": "7a2fc46243b8f2396a64a9cd8073286abc0984e4bea0af0a4dd9a626ea8974c1"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part017",
+          "size_bytes": 8388608,
+          "sha256": "a2027e59ef60d0d8438ae69315d38738f59b6437289aa8a0806942aba8002088"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part018",
+          "size_bytes": 8388608,
+          "sha256": "8702f08fb318651b77f2b56d50bdefa97dc232ab3854ac4d84979591f93277f3"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part019",
+          "size_bytes": 8388608,
+          "sha256": "55a1c1d388b20bd0e504155857c8f70c827f8c267a5298f228479cd8af4dcffe"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part020",
+          "size_bytes": 8388608,
+          "sha256": "01f913451214d64bd806e89d1e8b3f17fd2219c6880fe2e42f76b2ad3f19f2ab"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part021",
+          "size_bytes": 8388608,
+          "sha256": "afcf04eb5295ccfdecf261f54c78b23b9f0d9ce889e688ab30bfff4349ff9c5f"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part022",
+          "size_bytes": 8388608,
+          "sha256": "21028fb0324f7a06eb9ecd62b56490e323793cc701d44b79904b82b8ce7eb3ea"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part023",
+          "size_bytes": 8388608,
+          "sha256": "c9811f996c453a6dcc47bc0e0c3b4bd28ab5fa220f2d3d7bd8ab3421b01de890"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part024",
+          "size_bytes": 8388608,
+          "sha256": "0bc66fe53a570c510c8e962a7a0aab05785d08d96b3e9238a4c74a52c085104e"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part025",
+          "size_bytes": 8388608,
+          "sha256": "07794a3a405939b99a8c3740b017b34dd08ad14caa583cfa35ba7050228aaa88"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part026",
+          "size_bytes": 8388608,
+          "sha256": "5269fdd916a9d6bc48dc2b90e38e4f12d9ae3a7f35ad5c528c7ba8e2bf9a5514"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part027",
+          "size_bytes": 8388608,
+          "sha256": "eb964ec21eb925834c541664f5fe341606d447e6547b1f9e04381d16e77b0bf4"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part028",
+          "size_bytes": 8388608,
+          "sha256": "06587e6dfe2982399e7ea518f8522c0d951e6e590d95419adb43f4dc99f411bc"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part029",
+          "size_bytes": 8388608,
+          "sha256": "04e53c71e5533ba87a1405bd8c730b1d2caf925a0f38f4f9a1123fcf0b6e102a"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part030",
+          "size_bytes": 8388608,
+          "sha256": "de748f5b8043cef8edd5c5149f3f27be2526ff034ec194186fedda10a797f7e4"
+        },
+        {
+          "name": "trainer-native-distribution-006.zip.part031",
+          "size_bytes": 129308,
+          "sha256": "63559bd37e9d63bbecf6ad54971d9a0b5ed068bc3c5a260e84ea8820e8cdb6d4"
+        }
+      ]
     },
     {
       "name": "trainer-native-distribution-007.zip",
       "size_bytes": 199803431,
       "sha256": "95d9baf659d2b782ef53db746c641bd62c5287235ac5ff71083b1d3747e5657f",
       "files": 18111,
-      "unpacked_bytes": 524491145
+      "unpacked_bytes": 524491145,
+      "parts": [
+        {
+          "name": "trainer-native-distribution-007.zip.part001",
+          "size_bytes": 8388608,
+          "sha256": "1248cae96a19d2159ec4346a6bb096d6d90107e8af96cca63ce193b8cf0aa4f2"
+        },
+        {
+          "name": "trainer-native-distribution-007.zip.part002",
+          "size_bytes": 8388608,
+          "sha256": "6f29d867a12fb844a6a765e038efe6e859353abddb53e7093545fa0e351035fa"
+        },
+        {
+          "name": "trainer-native-distribution-007.zip.part003",
+          "size_bytes": 8388608,
+          "sha256": "3e94c5e6c12b7215c70f4ac5ae761b3b27a310ef85bd2e7864094229c0f9096a"
+        },
+        {
+          "name": "trainer-native-distribution-007.zip.part004",
+          "size_bytes": 8388608,
+          "sha256": "d4dd208980bbe13d600b3d3af19308c018fbb064e153fd4797e622362f280f3f"
+        },
+        {
+          "name": "trainer-native-distribution-007.zip.part005",
+          "size_bytes": 8388608,
+          "sha256": "b73e79d16b05268448b08dd3aab0f465e7c14122e14fb0867a0c35ffb01828b5"
+        },
+        {
+          "name": "trainer-native-distribution-007.zip.part006",
+          "size_bytes": 8388608,
+          "sha256": "85f958e54b4f71fdd0e009eafba997efd57fc7c0fa9ab3b65e175f2be60e3573"
+        },
+        {
+          "name": "trainer-native-distribution-007.zip.part007",
+          "size_bytes": 8388608,
+          "sha256": "71075ea87a6f0bd443836e09348f9926289fbb11da97a8e328a5902cbecd6fe8"
+        },
+        {
+          "name": "trainer-native-distribution-007.zip.part008",
+          "size_bytes": 8388608,
+          "sha256": "af2fa64c0151b157eeb620fa7c2fae42247200852f37b3653702dc7df67b04ec"
+        },
+        {
+          "name": "trainer-native-distribution-007.zip.part009",
+          "size_bytes": 8388608,
+          "sha256": "51cfb57cc01e9c5dae812ef9f372110353b239966aed7e41fffc87aae3d9b4d4"
+        },
+        {
+          "name": "trainer-native-distribution-007.zip.part010",
+          "size_bytes": 8388608,
+          "sha256": "0f66647dc0dbe3413cb9f4c0abf7b0da4fa7ecce3b596e4860e8a28fedb2b99c"
+        },
+        {
+          "name": "trainer-native-distribution-007.zip.part011",
+          "size_bytes": 8388608,
+          "sha256": "81f7d73bd55f88637a5eb386ba51a0a911139e331af595e5bc215abf67e62235"
+        },
+        {
+          "name": "trainer-native-distribution-007.zip.part012",
+          "size_bytes": 8388608,
+          "sha256": "1c2d029c300588b621b66f06cb6c71ad4d373d72cc912f1e9a0badad1d48656d"
+        },
+        {
+          "name": "trainer-native-distribution-007.zip.part013",
+          "size_bytes": 8388608,
+          "sha256": "ea91d9380c59b5311ea0323eecc168b53a4c4ffa829e28b85052e03b0ba4ab71"
+        },
+        {
+          "name": "trainer-native-distribution-007.zip.part014",
+          "size_bytes": 8388608,
+          "sha256": "a993a0c82906f3099da8642ca77bf29d3f897b95d57710220a889aa89b0b44c8"
+        },
+        {
+          "name": "trainer-native-distribution-007.zip.part015",
+          "size_bytes": 8388608,
+          "sha256": "54c30e2f2556651aef0d752b64f03e85ff4ec34a965e5dc0bcf9b0fed53280e6"
+        },
+        {
+          "name": "trainer-native-distribution-007.zip.part016",
+          "size_bytes": 8388608,
+          "sha256": "9c945eb25cf28c1730c15a35c809129a3303eaab1e3e936ce9a994562370d818"
+        },
+        {
+          "name": "trainer-native-distribution-007.zip.part017",
+          "size_bytes": 8388608,
+          "sha256": "27876a8c9d36cd2cdf1b85d8b58c37c0390241f9dd0d33238d825914756de044"
+        },
+        {
+          "name": "trainer-native-distribution-007.zip.part018",
+          "size_bytes": 8388608,
+          "sha256": "0571c9b4388e2fa63bccd950016c2778ac6397be947c2c0f459c07c2b083a809"
+        },
+        {
+          "name": "trainer-native-distribution-007.zip.part019",
+          "size_bytes": 8388608,
+          "sha256": "e1d4b9994db59e081466a7c8103fa3e7de12801bbce4d22747be321a9b77481e"
+        },
+        {
+          "name": "trainer-native-distribution-007.zip.part020",
+          "size_bytes": 8388608,
+          "sha256": "df8311775ca7153d7ac3d776754f75532cc80ec37911668f027ab8b4ebfa53a1"
+        },
+        {
+          "name": "trainer-native-distribution-007.zip.part021",
+          "size_bytes": 8388608,
+          "sha256": "498785f80ea93916ba7cab8eaf1bc7bdc45dfe44048d46512c2cca155c6e446d"
+        },
+        {
+          "name": "trainer-native-distribution-007.zip.part022",
+          "size_bytes": 8388608,
+          "sha256": "f39eac48306c732e2e54c11133d2a9ce5f2b85ba1cdadc4590c7ca07e46a521f"
+        },
+        {
+          "name": "trainer-native-distribution-007.zip.part023",
+          "size_bytes": 8388608,
+          "sha256": "d0e88fba38ae253b7d7317131c6b49e07411715bca6e4353043bfd4b727b05cc"
+        },
+        {
+          "name": "trainer-native-distribution-007.zip.part024",
+          "size_bytes": 6865447,
+          "sha256": "f7aeb8e87905f98645438304bcca1da16a17b6cf555841836b2a28e98697ada7"
+        }
+      ]
     },
     {
       "name": "trainer-native-distribution-008.zip",
       "size_bytes": 151036199,
       "sha256": "3e7ba177dc7777b9db5a738015ba2249c4f6bbb68a26272f0bf2821bf0ff2697",
       "files": 8018,
-      "unpacked_bytes": 536715938
+      "unpacked_bytes": 536715938,
+      "parts": [
+        {
+          "name": "trainer-native-distribution-008.zip.part001",
+          "size_bytes": 8388608,
+          "sha256": "a8780a6ba50d23a55e7e8f378d1fc6f217c4320f1692526c09f2128333350daf"
+        },
+        {
+          "name": "trainer-native-distribution-008.zip.part002",
+          "size_bytes": 8388608,
+          "sha256": "7927cb3325d2867bd9e0f3403de47beb4de3c34c3a23545d9b8368203f66a641"
+        },
+        {
+          "name": "trainer-native-distribution-008.zip.part003",
+          "size_bytes": 8388608,
+          "sha256": "a086e03a995fb18c6ba0c417c3128a2b463c4047921bda7e27a15d2b78caaab5"
+        },
+        {
+          "name": "trainer-native-distribution-008.zip.part004",
+          "size_bytes": 8388608,
+          "sha256": "2a8204fca2c734477194613503067beb2be125200aa7a3b577c1270cc780e471"
+        },
+        {
+          "name": "trainer-native-distribution-008.zip.part005",
+          "size_bytes": 8388608,
+          "sha256": "a4aa1791311b58fad8e2f66664c75700b0c723db185efa2f8e6eb637d47bae04"
+        },
+        {
+          "name": "trainer-native-distribution-008.zip.part006",
+          "size_bytes": 8388608,
+          "sha256": "04500083832f8c6995fe82ef30e3f836fa2363a00d6eecf5fbbfea7e95bdd1c8"
+        },
+        {
+          "name": "trainer-native-distribution-008.zip.part007",
+          "size_bytes": 8388608,
+          "sha256": "5d87217184e523b8a0171aef473506f0424760719ae4e8f7a1af5ab50419db95"
+        },
+        {
+          "name": "trainer-native-distribution-008.zip.part008",
+          "size_bytes": 8388608,
+          "sha256": "4b38dc3d566cd0dea45f337e86b670dbe9b3f68057850445162ac0cd231700f2"
+        },
+        {
+          "name": "trainer-native-distribution-008.zip.part009",
+          "size_bytes": 8388608,
+          "sha256": "e0aa656ae6bc3c53f0c259299c51abcf340b21fc7ed083f902f51e70efdf259c"
+        },
+        {
+          "name": "trainer-native-distribution-008.zip.part010",
+          "size_bytes": 8388608,
+          "sha256": "ac329768fe727281297fedd92efe908b5b3dc8bb0d7bbdb6f59fc60eebc46927"
+        },
+        {
+          "name": "trainer-native-distribution-008.zip.part011",
+          "size_bytes": 8388608,
+          "sha256": "c2e27cba6c462400121bfd0543d7b65aefc7c79cd4578f2d7ec8734eb73221f6"
+        },
+        {
+          "name": "trainer-native-distribution-008.zip.part012",
+          "size_bytes": 8388608,
+          "sha256": "8e322c561f1c7edc7f8ece9e566e79acc8ff30eb728ae18c57501359f35311d8"
+        },
+        {
+          "name": "trainer-native-distribution-008.zip.part013",
+          "size_bytes": 8388608,
+          "sha256": "57415f210031662135fae8e9fc5c6600553c5f040292229d364d0ae817a93fb9"
+        },
+        {
+          "name": "trainer-native-distribution-008.zip.part014",
+          "size_bytes": 8388608,
+          "sha256": "981f7cc3637b3575f28a670887ef03d539ff00ec3e74e998b973e6149e40b013"
+        },
+        {
+          "name": "trainer-native-distribution-008.zip.part015",
+          "size_bytes": 8388608,
+          "sha256": "82fefcf321f33b348ac47a75347501f06dd77b05d0be4bcb2c703f37adeefeaa"
+        },
+        {
+          "name": "trainer-native-distribution-008.zip.part016",
+          "size_bytes": 8388608,
+          "sha256": "a35be5eece91fccdb2895dff760467acaa4cb4aa8cf0afffd448433d7fd44b08"
+        },
+        {
+          "name": "trainer-native-distribution-008.zip.part017",
+          "size_bytes": 8388608,
+          "sha256": "1c24ff38133ea0f682b37a004fe86d1b81373d3cde42788930f7a87d13638710"
+        },
+        {
+          "name": "trainer-native-distribution-008.zip.part018",
+          "size_bytes": 8388608,
+          "sha256": "181fb047a7b513c1204097420198a320c2f68477d6335aaa473a823501f2bee6"
+        },
+        {
+          "name": "trainer-native-distribution-008.zip.part019",
+          "size_bytes": 41255,
+          "sha256": "5ca506676975c607dc32858fa1362b257c6afd4b534223c7d44e06757c397c28"
+        }
+      ]
     },
     {
       "name": "trainer-native-distribution-009.zip",
       "size_bytes": 48294370,
       "sha256": "a9009d5243ec35f4bbb50c7493da12ca027008cc339867378fdf96442b0f5a66",
       "files": 213,
-      "unpacked_bytes": 161100200
+      "unpacked_bytes": 161100200,
+      "parts": [
+        {
+          "name": "trainer-native-distribution-009.zip.part001",
+          "size_bytes": 8388608,
+          "sha256": "ce9e2d6db4484d63e4cbe57e282315605661b9a58852139064c141be1f4b4609"
+        },
+        {
+          "name": "trainer-native-distribution-009.zip.part002",
+          "size_bytes": 8388608,
+          "sha256": "5f33c89c6faf80de9c480c2f6f21f8c5d7115d2bc4a172dfa9d1195590740cd7"
+        },
+        {
+          "name": "trainer-native-distribution-009.zip.part003",
+          "size_bytes": 8388608,
+          "sha256": "0afcd92022365bdd51d5b9194374cb9dd3adbbb16f34127c488cdb2f260338dc"
+        },
+        {
+          "name": "trainer-native-distribution-009.zip.part004",
+          "size_bytes": 8388608,
+          "sha256": "43894fc7f6996a9943f3fc0039b342aaaa91ff69b1425fec43d801f8228db5ae"
+        },
+        {
+          "name": "trainer-native-distribution-009.zip.part005",
+          "size_bytes": 8388608,
+          "sha256": "1322c27d23177681778b5c92a6d7766471dc2fbfba065978c8ba223a42432552"
+        },
+        {
+          "name": "trainer-native-distribution-009.zip.part006",
+          "size_bytes": 6351330,
+          "sha256": "92cf4eeab8b2cd8f4158b908f13c621cc0bee3a069a91372c03e2761623f3548"
+        }
+      ]
     },
     {
       "name": "trainer-native-runtime-001.zip",
       "size_bytes": 242789642,
       "sha256": "4c7c47314038c1e0160e5a9f39924962c7565c1252cdf66568f1fd7bc2a14317",
       "files": 929,
-      "unpacked_bytes": 531413592
+      "unpacked_bytes": 531413592,
+      "parts": [
+        {
+          "name": "trainer-native-runtime-001.zip.part001",
+          "size_bytes": 8388608,
+          "sha256": "258b36fc9a3019f1fc4932de415c7e03a711c6989cf81ee77b6361addbbedef1"
+        },
+        {
+          "name": "trainer-native-runtime-001.zip.part002",
+          "size_bytes": 8388608,
+          "sha256": "860aa2cce3faacfbd8d7d86e90d5fe80f85427e0f9f272ebb1f2801f51654a43"
+        },
+        {
+          "name": "trainer-native-runtime-001.zip.part003",
+          "size_bytes": 8388608,
+          "sha256": "1ceef6dff354cf5541b907687bab3c455a95f2ccb171a71827cbb75bae5f585b"
+        },
+        {
+          "name": "trainer-native-runtime-001.zip.part004",
+          "size_bytes": 8388608,
+          "sha256": "1e673e2b59aef72297872176273dcdebe0feccbc433dd6d2633ccd276b2d4b16"
+        },
+        {
+          "name": "trainer-native-runtime-001.zip.part005",
+          "size_bytes": 8388608,
+          "sha256": "a6848398220bd30849443da615558b8733d1877c5df1fdc560067519590863e6"
+        },
+        {
+          "name": "trainer-native-runtime-001.zip.part006",
+          "size_bytes": 8388608,
+          "sha256": "2f4fb4d33841d0752302bd032de409a3bf5d75fa5bdbd8b98d0d9e9bdbd3f77d"
+        },
+        {
+          "name": "trainer-native-runtime-001.zip.part007",
+          "size_bytes": 8388608,
+          "sha256": "1f4310175d63ea7b5524372e868ab6244bcd1a2b6ac2a30e86b81aa4a6a11e46"
+        },
+        {
+          "name": "trainer-native-runtime-001.zip.part008",
+          "size_bytes": 8388608,
+          "sha256": "26fac3b4d6cca198adaaa80abba4d9ea594513178dac8fedb8da9fe80692a0a6"
+        },
+        {
+          "name": "trainer-native-runtime-001.zip.part009",
+          "size_bytes": 8388608,
+          "sha256": "e6ef4dfc701735c1701a13e844e3ebe33dd6e48cb85e5a2074572e9bb8bdc19e"
+        },
+        {
+          "name": "trainer-native-runtime-001.zip.part010",
+          "size_bytes": 8388608,
+          "sha256": "c3fafbb97fabe70f0c19e9910b999be549d9e0c2161d4b534997fc5cd842ce35"
+        },
+        {
+          "name": "trainer-native-runtime-001.zip.part011",
+          "size_bytes": 8388608,
+          "sha256": "a14d7bb9240f632076bf649265df1d2b84be9618bf820621228078b1f316c242"
+        },
+        {
+          "name": "trainer-native-runtime-001.zip.part012",
+          "size_bytes": 8388608,
+          "sha256": "bbaa512eadf1ea9dbcef7c39e5331503759448464a452da31080af2509617d06"
+        },
+        {
+          "name": "trainer-native-runtime-001.zip.part013",
+          "size_bytes": 8388608,
+          "sha256": "5646a1a799c3cc78331f0a3bdab85911a259b60c4eb3ac5ccde48f1744f089ce"
+        },
+        {
+          "name": "trainer-native-runtime-001.zip.part014",
+          "size_bytes": 8388608,
+          "sha256": "24cbe145dcefedb99ac2f6ec0844f3bb44dc07e7ba972a04f928649e01d5f029"
+        },
+        {
+          "name": "trainer-native-runtime-001.zip.part015",
+          "size_bytes": 8388608,
+          "sha256": "bb3540b123634e60545ad33df6bd889513024843c9cb8563dce577d9af612461"
+        },
+        {
+          "name": "trainer-native-runtime-001.zip.part016",
+          "size_bytes": 8388608,
+          "sha256": "1e9eb56f2ab0f36e34bf8d67c3a02d3815bbf1c4f5a33d0df5c03509164f6d3a"
+        },
+        {
+          "name": "trainer-native-runtime-001.zip.part017",
+          "size_bytes": 8388608,
+          "sha256": "7d1fe4d8e378a105a7c892a83c9c425d2e5756d482c2ae57d34517f952768780"
+        },
+        {
+          "name": "trainer-native-runtime-001.zip.part018",
+          "size_bytes": 8388608,
+          "sha256": "9112fdff7f3f692a93c8bf53b917301ecca727a9f2ba2bf08f29090867f0972e"
+        },
+        {
+          "name": "trainer-native-runtime-001.zip.part019",
+          "size_bytes": 8388608,
+          "sha256": "c1d17511cf15c84f0f7094809e821c59da945b57033fa2a4f8261aea5ea3f198"
+        },
+        {
+          "name": "trainer-native-runtime-001.zip.part020",
+          "size_bytes": 8388608,
+          "sha256": "bbe9662436ba652a4e5345eeacbdc03f26b85458cf77233fa9e4888ab913a201"
+        },
+        {
+          "name": "trainer-native-runtime-001.zip.part021",
+          "size_bytes": 8388608,
+          "sha256": "d68ea67f34688712b254f65dd70fafac85ec37d58393ce925018dc02574fbff1"
+        },
+        {
+          "name": "trainer-native-runtime-001.zip.part022",
+          "size_bytes": 8388608,
+          "sha256": "82a8ec8026f24118304ea11d0c990c802ae76495a3bcbdb3a315b05172552a8e"
+        },
+        {
+          "name": "trainer-native-runtime-001.zip.part023",
+          "size_bytes": 8388608,
+          "sha256": "9b33191c1efcc2ee97ebcc2475f2fcfd1b509a4327b085bc72acebc1948323fd"
+        },
+        {
+          "name": "trainer-native-runtime-001.zip.part024",
+          "size_bytes": 8388608,
+          "sha256": "13fbef7ff83be8f0ca87c7ebd6250aa5871ef3348d7947576e84f0852f97c2fe"
+        },
+        {
+          "name": "trainer-native-runtime-001.zip.part025",
+          "size_bytes": 8388608,
+          "sha256": "d68d2acd1873fd1421e108612ffbb2d4bc8e7053ee5b95e16217a332aa8eac45"
+        },
+        {
+          "name": "trainer-native-runtime-001.zip.part026",
+          "size_bytes": 8388608,
+          "sha256": "d1fe35c26e095e0489619ffbdb2562f0f5d478ee2ef3a158ba9803c5c6873b78"
+        },
+        {
+          "name": "trainer-native-runtime-001.zip.part027",
+          "size_bytes": 8388608,
+          "sha256": "d8374c9402f7e10bf3cc5d2b2758eb59e6a6aa94961365335fdc100ea6c466fc"
+        },
+        {
+          "name": "trainer-native-runtime-001.zip.part028",
+          "size_bytes": 8388608,
+          "sha256": "4236c0af819622597d192c18e8220ec9ee21548b95d0fdb3894967b8b62d3ca4"
+        },
+        {
+          "name": "trainer-native-runtime-001.zip.part029",
+          "size_bytes": 7908618,
+          "sha256": "5965b285a5f224fad3bc14360b6e91fdfab42f9262350c9c72c931798bf5ff36"
+        }
+      ]
     },
     {
       "name": "trainer-native-runtime-002.zip",
       "size_bytes": 101394289,
       "sha256": "52e1dec0c495158d4271e42b5a7c67d10e65657e7cac3a2870b18bdc31a1e621",
       "files": 136,
-      "unpacked_bytes": 196387398
+      "unpacked_bytes": 196387398,
+      "parts": [
+        {
+          "name": "trainer-native-runtime-002.zip.part001",
+          "size_bytes": 8388608,
+          "sha256": "58b374a7bc0617f49a9ed5f98e8bc1a0ded2e65daa3b91a7f231b64a9eb6b91e"
+        },
+        {
+          "name": "trainer-native-runtime-002.zip.part002",
+          "size_bytes": 8388608,
+          "sha256": "c74968cb75b54f410fe78961bd2fb0f946ee889fc888cbdea3c2b3e24c853b55"
+        },
+        {
+          "name": "trainer-native-runtime-002.zip.part003",
+          "size_bytes": 8388608,
+          "sha256": "9fd03ea72396b4e656e10dc5bc041d8000e62cebbb0bd336411c81c76851b2aa"
+        },
+        {
+          "name": "trainer-native-runtime-002.zip.part004",
+          "size_bytes": 8388608,
+          "sha256": "2cbcf37f5f580722e336598c334b8e4ddddcf590e2e92e4b1b92865d3c992c18"
+        },
+        {
+          "name": "trainer-native-runtime-002.zip.part005",
+          "size_bytes": 8388608,
+          "sha256": "2fe57fb8ff8300c2e6ce23664d4650ea8cad322ed2b9f1188c66250b752eeaea"
+        },
+        {
+          "name": "trainer-native-runtime-002.zip.part006",
+          "size_bytes": 8388608,
+          "sha256": "121e5916defe4b48abb93942662affdbfc05e2f6dc980de4255152b40649429d"
+        },
+        {
+          "name": "trainer-native-runtime-002.zip.part007",
+          "size_bytes": 8388608,
+          "sha256": "9560c765ffe88150d2919c3cc1977a55c49d7f828e4b8c557410d2a0c2f4ce42"
+        },
+        {
+          "name": "trainer-native-runtime-002.zip.part008",
+          "size_bytes": 8388608,
+          "sha256": "1b8e9856028b7e4142cc38fed40b7f8e3a7d5c83f5b00264177626f0a6cfe0c6"
+        },
+        {
+          "name": "trainer-native-runtime-002.zip.part009",
+          "size_bytes": 8388608,
+          "sha256": "04b39580ac4d7823b390ab011811996d6fbe9e5d53cdae2e9c368c38f24b66a4"
+        },
+        {
+          "name": "trainer-native-runtime-002.zip.part010",
+          "size_bytes": 8388608,
+          "sha256": "c8665a20f6d57baf5fcfb619f9c19066b332c0553bfc099370febbb58b8f3688"
+        },
+        {
+          "name": "trainer-native-runtime-002.zip.part011",
+          "size_bytes": 8388608,
+          "sha256": "504cb92d3b0431f1f5bda9252f1629e000e5c46f8178757e70b78d9abeac2a40"
+        },
+        {
+          "name": "trainer-native-runtime-002.zip.part012",
+          "size_bytes": 8388608,
+          "sha256": "5ae3d8e8542140f98e53dac496d045c350323f1153aa211f99bbf558add2ccfa"
+        },
+        {
+          "name": "trainer-native-runtime-002.zip.part013",
+          "size_bytes": 730993,
+          "sha256": "f6669f28a646c178368cb3e8b95956fbace65478d438866115b7f0b5715ec477"
+        }
+      ]
     },
     {
       "name": "trainer-outputs-data-001.zip",
       "size_bytes": 84014013,
       "sha256": "dee16b978bb77816f74a59da7f240e47c471ffdb8e693d54520afde52985a1d3",
       "files": 1507,
-      "unpacked_bytes": 353510663
+      "unpacked_bytes": 353510663,
+      "parts": [
+        {
+          "name": "trainer-outputs-data-001.zip.part001",
+          "size_bytes": 8388608,
+          "sha256": "f11dfa08f5ec14334501c11977952973da53ecc6de87535304b852eed644931a"
+        },
+        {
+          "name": "trainer-outputs-data-001.zip.part002",
+          "size_bytes": 8388608,
+          "sha256": "bb6ba1db0d86a9d54b58277bda29b4f5c20cb0b617ea9b283eaa0ef1d0381f16"
+        },
+        {
+          "name": "trainer-outputs-data-001.zip.part003",
+          "size_bytes": 8388608,
+          "sha256": "062ece84faeeec27e42b18ffc4d330a052de044bbe36806216a41e9823265317"
+        },
+        {
+          "name": "trainer-outputs-data-001.zip.part004",
+          "size_bytes": 8388608,
+          "sha256": "0c5eef838610a6da160ac058d1fd99d30865ed6d3265241bb585495d664e1450"
+        },
+        {
+          "name": "trainer-outputs-data-001.zip.part005",
+          "size_bytes": 8388608,
+          "sha256": "5368d86c2d0b2b902a36f1e3880b354ca315822d6db18b164fd342be0bad8164"
+        },
+        {
+          "name": "trainer-outputs-data-001.zip.part006",
+          "size_bytes": 8388608,
+          "sha256": "7f357c52960d9e4d848f16e41a26f12de15e5cdced28ec6428cb2a73dd4ec21c"
+        },
+        {
+          "name": "trainer-outputs-data-001.zip.part007",
+          "size_bytes": 8388608,
+          "sha256": "dd5d41cfb18d877300887b72c535960fa78fbb6210576ba6bbd7b9f0cf9c28a2"
+        },
+        {
+          "name": "trainer-outputs-data-001.zip.part008",
+          "size_bytes": 8388608,
+          "sha256": "0ada6cfdeb49ab13b8505f929d25cfb7b6436fc08ba3b4375b9ebe6c14708182"
+        },
+        {
+          "name": "trainer-outputs-data-001.zip.part009",
+          "size_bytes": 8388608,
+          "sha256": "de1771678ba1df13f32b22e1f04c662842f50ec27e4366a5c2d15bd12751b2a1"
+        },
+        {
+          "name": "trainer-outputs-data-001.zip.part010",
+          "size_bytes": 8388608,
+          "sha256": "84d7757e67484feecb94fe3204608eee3846e6951cd7df14e87e182426218a4c"
+        },
+        {
+          "name": "trainer-outputs-data-001.zip.part011",
+          "size_bytes": 127933,
+          "sha256": "b5bc347397c542c1f25c2761b6c22a6352bbf3ce4d3d1be8f3dc7925bae8e944"
+        }
+      ]
     },
     {
       "name": "trainer-research-materials-001.zip",
       "size_bytes": 324360019,
       "sha256": "0d8d75e655655811f72e14720f304d817f69ab8f3392be9c84bc1f16e4b28888",
       "files": 1701,
-      "unpacked_bytes": 535196821
+      "unpacked_bytes": 535196821,
+      "parts": [
+        {
+          "name": "trainer-research-materials-001.zip.part001",
+          "size_bytes": 8388608,
+          "sha256": "4fe0c8a78bc101e9002201689655f3a25b3aa55a20ae333fd589f1bcb086b7dd"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part002",
+          "size_bytes": 8388608,
+          "sha256": "1ba3d83592522a9ef2ea3102fc389b9bfbb62d24f6d48e8e549268ac7777c876"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part003",
+          "size_bytes": 8388608,
+          "sha256": "b290abf09e41ec58e723bdaf3cb23312ea5640d457fc2f718508cca334415f2f"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part004",
+          "size_bytes": 8388608,
+          "sha256": "0e974ab43bd7055393d565cccf6bc18422003321c3108b52ed5ac7fb3adb6d29"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part005",
+          "size_bytes": 8388608,
+          "sha256": "c61f4ce9d623d10bbf365035ec582740ff1a3b332be363750b05301cb9f30468"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part006",
+          "size_bytes": 8388608,
+          "sha256": "05db68d681e055f9b8762f33f099e60e29b12713c3a7d8054c637e34ab6c1ab8"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part007",
+          "size_bytes": 8388608,
+          "sha256": "c61257cf770df5d3c61a9f622e00d193ccf063bdebc271ef8c25a21481d6aca0"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part008",
+          "size_bytes": 8388608,
+          "sha256": "bdb7be237087bffcc4173406184dd5850a7ff8b98826e9f793c541900c4dad6f"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part009",
+          "size_bytes": 8388608,
+          "sha256": "382b97b81c73c60dfd341b425c25965e63b2a309e9a19ea42ffad4284bc42672"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part010",
+          "size_bytes": 8388608,
+          "sha256": "3ff90e92fd4f2d97574b1b3f263457128ecd8e54650273c6bb7de74220476623"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part011",
+          "size_bytes": 8388608,
+          "sha256": "8b86aa3c20006c20b38ddb760914e805010709e9c54444db11c9af81be3ceb10"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part012",
+          "size_bytes": 8388608,
+          "sha256": "bd004f4d69966f02cb7b58116643d8619da01c366827f416c5fc0b3b5b8d383a"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part013",
+          "size_bytes": 8388608,
+          "sha256": "9acdbb577252a8268f74b8de9f7a009290550b6d990fc5b514eb62b5e53023b1"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part014",
+          "size_bytes": 8388608,
+          "sha256": "fc5a599e5d239c80d132b6c1079e428b8eb424e0939d9f9a64efc031f63b9aeb"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part015",
+          "size_bytes": 8388608,
+          "sha256": "74fd2168fe49e4c03be01eaea182ae2008007b2f61e59bd384dff7f0e3f6a70c"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part016",
+          "size_bytes": 8388608,
+          "sha256": "6fbc465c14fbb05bd36384beaf48cf21cb73719842064f27689e1908c3fbcbcc"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part017",
+          "size_bytes": 8388608,
+          "sha256": "9c858b9c01c642bd055d9bbc8ff09d708784b9e211f17d7f485489ed14ef862d"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part018",
+          "size_bytes": 8388608,
+          "sha256": "25c7e232deb7cb4e72a4d1561302d3febaf03ccabbfd0d872896b0d62e1603a6"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part019",
+          "size_bytes": 8388608,
+          "sha256": "de5d41b2698c2fdd520f276b1d05534b93052686705f4959e6145cde483983e0"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part020",
+          "size_bytes": 8388608,
+          "sha256": "dd7b6182d54ca0fd8f923b9d230f5e64bb0442d19732e420d74412c36f426951"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part021",
+          "size_bytes": 8388608,
+          "sha256": "918dc6b614b9a2b0736f5b1595cf7d0ed10fd91fefc29a3939d0ad695bb63b16"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part022",
+          "size_bytes": 8388608,
+          "sha256": "00a4038ab28669aa762bf3048cc32fac67a1a7b418b402cba5f6875f1d12afdb"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part023",
+          "size_bytes": 8388608,
+          "sha256": "d2db2e1532c5e21641e0f9a64e7cfa33b6c64441280e4321b4596e77cdc3779d"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part024",
+          "size_bytes": 8388608,
+          "sha256": "a55a58e3d300e43047d92ef3862ef08509bbeb7c29e2e10d16574719db53626c"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part025",
+          "size_bytes": 8388608,
+          "sha256": "ee3f814c3a97932c7fd1e4b5262104fe1b38d7541f93b44add38f70fa7265677"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part026",
+          "size_bytes": 8388608,
+          "sha256": "c6860f5175eece4f4af48d77a926e121fe6b3b10110c15366c64985f21a06bed"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part027",
+          "size_bytes": 8388608,
+          "sha256": "fcec4024a0fa277bff49a1f8a4394bfd468772a93173469c546e8d7150bf0d59"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part028",
+          "size_bytes": 8388608,
+          "sha256": "a7e96c7b3fb0ab10ef17d8f75efbb1f88fa3a0ce5af3eb9023a94cecf3114cb8"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part029",
+          "size_bytes": 8388608,
+          "sha256": "6d03eb08f5bce90ba707b75b231099b10137b885647c5d8855249d25c797e817"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part030",
+          "size_bytes": 8388608,
+          "sha256": "c26caade171e09b2cd236eb463023c918bb6e14602252185e8223305656ad3e2"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part031",
+          "size_bytes": 8388608,
+          "sha256": "f0719c54e84163c6d6a09e971c29b6c80e1e2aaffa46cd2be323a3d730a51c95"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part032",
+          "size_bytes": 8388608,
+          "sha256": "1e33e3d752864dc0e096c0726c58c4d44980343fe5b73e0d6a0776e951b3a749"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part033",
+          "size_bytes": 8388608,
+          "sha256": "23c78b04de735c5466968a5e96dd9fd70fa7a1c202259cd7b413794b2e51f52c"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part034",
+          "size_bytes": 8388608,
+          "sha256": "af9755501221f0fb6c4b881df545a79a8bf099a78769a229e445b83b8fd536c1"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part035",
+          "size_bytes": 8388608,
+          "sha256": "cefe3f8b33a26670f2b66295e177b50456872c9ba4ccb4a7316487b79a2292fc"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part036",
+          "size_bytes": 8388608,
+          "sha256": "de180191626c04323c2bf7e9a23a870c28f7844c8e266bc50a9530fe4e768acc"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part037",
+          "size_bytes": 8388608,
+          "sha256": "0eee6a046902c03e98634203f27428b4efe8ca5b23cbdae90b611e43f762ac86"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part038",
+          "size_bytes": 8388608,
+          "sha256": "3f676fc4078f15e3c4c3eaab94c8668baf132e7586cf3587b977bd7d716adcfa"
+        },
+        {
+          "name": "trainer-research-materials-001.zip.part039",
+          "size_bytes": 5592915,
+          "sha256": "8fc97e686754b84cc0787050e8c295de79e27102748f40e180837729fdfbe4f5"
+        }
+      ]
     },
     {
       "name": "trainer-empty-directories-001.zip",
@@ -122,7 +1790,19 @@
       "sha256": "a12831ce99be50dffcf59edd122269bcffed2f34477fadd04059e0e71231367f",
       "size_bytes": 14839837,
       "files": 599,
-      "unpacked_bytes": 37441123
+      "unpacked_bytes": 37441123,
+      "parts": [
+        {
+          "name": "trainer-python-tools-001.zip.part001",
+          "size_bytes": 8388608,
+          "sha256": "40c1865012d7638fde20263fb4bc57612678ec4fb4c13876f2b706b64e1add06"
+        },
+        {
+          "name": "trainer-python-tools-001.zip.part002",
+          "size_bytes": 6451229,
+          "sha256": "b5371e93694a9ed781cfa7a8f73cd5a38cab745777be4b15aa0175313db7a6d7"
+        }
+      ]
     }
   ],
   "payload_base_commit": "7252cc8889a9f0bee0493fdd44f8377cc32cf00c",
@@ -138,5 +1818,7 @@
       "pip": "26.2.1"
     },
     "source_metadata": "work/portable_python/upstream-sources.json"
-  }
+  },
+  "transfer_part_bytes": 8388608,
+  "transfer_note": "Large logical ZIPs are byte-split. Setup downloads verified parts, assembles the unchanged ZIP and verifies its full SHA256 before extraction."
 }

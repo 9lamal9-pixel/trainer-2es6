@@ -254,6 +254,19 @@ try {
     $assetNames = New-Object 'Collections.Generic.HashSet[string]' ([StringComparer]::OrdinalIgnoreCase)
     foreach ($asset in $manifest.assets) {
         if ($asset.name -notmatch '^[A-Za-z0-9][A-Za-z0-9._-]*\.zip$' -or -not $assetNames.Add($asset.name) -or $asset.sha256 -notmatch '^[A-Fa-f0-9]{64}$' -or [long]$asset.size_bytes -le 0 -or [long]$asset.files -lt 0 -or [long]$asset.unpacked_bytes -lt 0) { throw 'Invalid archive metadata.' }
+        if ($asset.PSObject.Properties['parts']) {
+            $parts = @($asset.parts)
+            if ($parts.Count -lt 1 -or $parts.Count -gt 999) { throw 'Invalid archive part count.' }
+            $total = 0L
+            for ($partIndex = 0; $partIndex -lt $parts.Count; $partIndex++) {
+                $part = $parts[$partIndex]
+                $expectedName = $asset.name + ('.part{0:D3}' -f ($partIndex + 1))
+                if ($part.name -cne $expectedName -or -not $assetNames.Add($part.name) -or $part.sha256 -notmatch '^[A-Fa-f0-9]{64}$' -or [long]$part.size_bytes -le 0 -or [long]$part.size_bytes -gt 16777216) { throw 'Invalid archive part metadata/order.' }
+                if ($total -gt ([long]$asset.size_bytes - [long]$part.size_bytes)) { throw 'Archive part sizes exceed ZIP size.' }
+                $total += [long]$part.size_bytes
+            }
+            if ($total -ne [long]$asset.size_bytes) { throw 'Archive part sizes do not sum to ZIP size.' }
+        }
     }
     $stage = Join-Path $projectRoot ('dev/state/portable-stage-' + [Guid]::NewGuid().ToString('N'))
     Assert-NoReparse $stage
@@ -269,22 +282,74 @@ try {
         $token = Get-GitHubToken
         $headers = @{ Authorization = 'Bearer ' + $token; Accept = 'application/vnd.github+json'; 'X-GitHub-Api-Version' = '2022-11-28'; 'User-Agent' = 'trainer-portable-setup' }
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-        try { $release = Invoke-RestMethod -Uri ('https://api.github.com/repos/' + $repository + '/releases/tags/' + $releaseTag) -Headers $headers } catch { throw 'Cannot read the private release. Verify GitHub authentication, repository access and network connection.' }
+        try {
+            $release = Invoke-RestMethod -Uri ('https://api.github.com/repos/' + $repository + '/releases/tags/' + $releaseTag) -Headers $headers
+            $remoteAssets = New-Object 'Collections.Generic.Dictionary[string,object]' ([StringComparer]::Ordinal)
+            for ($page = 1; $page -le 100; $page++) {
+                $pageResponse = Invoke-RestMethod -Uri ('https://api.github.com/repos/' + $repository + '/releases/' + [long]$release.id + '/assets?per_page=100&page=' + $page) -Headers $headers
+                $pageAssets = @($pageResponse)
+                foreach ($remote in $pageAssets) {
+                    if ($remoteAssets.ContainsKey([string]$remote.name)) { throw 'Duplicate remote asset name.' }
+                    $remoteAssets.Add([string]$remote.name,$remote)
+                }
+                if ($pageAssets.Count -lt 100) { break }
+                if ($page -eq 100) { throw 'Unexpected release asset pagination limit.' }
+            }
+        } catch { throw 'Cannot read all private release assets. Verify GitHub authentication, repository access and network connection.' }
     }
+    $archivePaths = @{}
     foreach ($asset in $manifest.assets) {
         $archivePath = Join-Path $cache $asset.name
         Assert-NoReparse $archivePath
-        if (-not (Test-Path -LiteralPath $archivePath -PathType Leaf)) {
-            if ($AssetDirectory) { throw ('Missing offline archive: ' + $asset.name) }
-            $remote = @($release.assets | Where-Object { $_.name -ceq $asset.name })
-            if ($remote.Count -ne 1 -or [long]$remote[0].size -ne [long]$asset.size_bytes) { throw ('Release asset missing or wrong size: ' + $asset.name) }
-            $partial = Join-Path $stage ($asset.name + '.download')
-            Write-Host ('Downloading ' + $asset.name)
-            Download-PrivateAsset ('https://api.github.com/repos/' + $repository + '/releases/assets/' + [long]$remote[0].id) $partial $token ([long]$asset.size_bytes) $asset.sha256
-            if (([IO.FileInfo]::new($partial)).Length -ne [long]$asset.size_bytes -or (File-Hash $partial) -ine $asset.sha256) { throw ('Downloaded archive failed SHA256/size: ' + $asset.name) }
-            [IO.File]::Move($partial,$archivePath)
+        if (-not [IO.File]::Exists($archivePath)) {
+            if ($asset.PSObject.Properties['parts']) {
+                $partPaths = New-Object 'Collections.Generic.List[string]'
+                foreach ($part in $asset.parts) {
+                    $partPath = Join-Path $cache $part.name
+                    Assert-NoReparse $partPath
+                    if (-not [IO.File]::Exists($partPath)) {
+                        if ($AssetDirectory) { throw ('Missing offline archive/part: ' + $part.name) }
+                        if (-not $remoteAssets.ContainsKey([string]$part.name) -or [long]$remoteAssets[$part.name].size -ne [long]$part.size_bytes) { throw ('Release part missing or wrong size: ' + $part.name) }
+                        $partial = Join-Path $stage ($part.name + '.download')
+                        Write-Host ('Downloading ' + $part.name)
+                        Download-PrivateAsset ('https://api.github.com/repos/' + $repository + '/releases/assets/' + [long]$remoteAssets[$part.name].id) $partial $token ([long]$part.size_bytes) $part.sha256
+                        [IO.File]::Move($partial,$partPath)
+                    }
+                    if (([IO.FileInfo]::new($partPath)).Length -ne [long]$part.size_bytes -or (File-Hash $partPath) -ine $part.sha256) { throw ('Archive part SHA256/size mismatch: ' + $part.name + '. Replace the bad cache/offline part and retry.') }
+                    $partPaths.Add($partPath)
+                }
+                $assembled = Join-Path $stage ($asset.name + '.assembled')
+                $outputStream = [IO.File]::Open($assembled,[IO.FileMode]::CreateNew,[IO.FileAccess]::Write,[IO.FileShare]::None)
+                try {
+                    foreach ($partPath in $partPaths) {
+                        $inputStream = [IO.File]::OpenRead($partPath)
+                        try { $inputStream.CopyTo($outputStream) } finally { $inputStream.Dispose() }
+                    }
+                } finally { $outputStream.Dispose() }
+                if (([IO.FileInfo]::new($assembled)).Length -ne [long]$asset.size_bytes -or (File-Hash $assembled) -ine $asset.sha256) { throw ('Assembled ZIP SHA256/size mismatch: ' + $asset.name) }
+                if ($AssetDirectory) {
+                    # Offline source is read-only; keep this owned assembly only until extraction finishes.
+                    $archivePath = $assembled
+                } else {
+                    [IO.File]::Move($assembled,$archivePath)
+                    # These exact manifest-named managed cache parts can be removed only after a valid ZIP exists.
+                    foreach ($part in $asset.parts) {
+                        $partPath = Join-Path $cache $part.name
+                        Assert-NoReparse $partPath
+                        if ([IO.File]::Exists($partPath) -and ([IO.FileInfo]::new($partPath)).Length -eq [long]$part.size_bytes -and (File-Hash $partPath) -ieq $part.sha256) { [IO.File]::Delete($partPath) }
+                    }
+                }
+            } else {
+                if ($AssetDirectory) { throw ('Missing offline archive: ' + $asset.name) }
+                if (-not $remoteAssets.ContainsKey([string]$asset.name) -or [long]$remoteAssets[$asset.name].size -ne [long]$asset.size_bytes) { throw ('Release asset missing or wrong size: ' + $asset.name) }
+                $partial = Join-Path $stage ($asset.name + '.download')
+                Write-Host ('Downloading ' + $asset.name)
+                Download-PrivateAsset ('https://api.github.com/repos/' + $repository + '/releases/assets/' + [long]$remoteAssets[$asset.name].id) $partial $token ([long]$asset.size_bytes) $asset.sha256
+                [IO.File]::Move($partial,$archivePath)
+            }
         }
         if (([IO.FileInfo]::new($archivePath)).Length -ne [long]$asset.size_bytes -or (File-Hash $archivePath) -ine $asset.sha256) { throw ('Archive SHA256/size mismatch: ' + $asset.name + '. Remove/replace this cache file and retry.') }
+        $archivePaths.Add([string]$asset.name,$archivePath)
     }
     # All archive hashes pass before any archive is opened or any runtime file is copied.
     Add-Type -AssemblyName System.IO.Compression
@@ -297,7 +362,7 @@ try {
     [IO.Directory]::CreateDirectory($extractRoot) | Out-Null
     Reset-PathChecks
     foreach ($asset in $manifest.assets) {
-        $archive = [IO.Compression.ZipFile]::OpenRead((Join-Path $cache $asset.name))
+        $archive = [IO.Compression.ZipFile]::OpenRead($archivePaths[$asset.name])
         try {
             $count = 0L; $bytes = 0L
             foreach ($entry in $archive.Entries) {
