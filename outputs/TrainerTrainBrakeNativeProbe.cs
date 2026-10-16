@@ -28,7 +28,7 @@ public sealed partial class TrainerAutovedenieAdverseBrakeProbe {
     var input=new TrainerTrainBrakeCycleInput {Seconds=seconds,UrBar=f.ur_bar,ChargeBar=DoubleAtLocal(mem["TLocParam"],0x13),ActualTmBar=f.tm_bar[0],
      HeadSpeedKmh=f.head_v_kmh,MaximumConsistSpeedKmh=f.maximum_abs_v_m_s*3.6,IndependentKvtPressureBar=DoubleAtLocal(mem["TLocParam"],0xec),
      MinBogiePressureBar=f.bogies_tc_bar.Min(),MaxBogiePressureBar=f.bogies_tc_bar.Max(),SensorsKnown=true,Ready=ready,
-     AllAutoReleased=f.automatic_released,AllBrakesReleased=f.fully_released,OwnsCommands=true,BrakeDemand=demand,IsDownhill=Grade(f.head_x_m)<0,
+     AllAutoReleased=f.automatic_released,AllBrakesReleased=f.fully_released,WagonTcFeedbackKnown=true,MinimumWagonTcBar=f.tc_bar.Skip(2).Min(),OwnsCommands=true,BrakeDemand=demand,IsDownhill=Grade(f.head_x_m)<0,
      ExplicitRestart=restart,Axles=300,HasAmbientTemperature=true,AmbientTemperatureC=20,
      ObservedCommandsKnown=(bool)Field("observedPneumaticCommandsKnown"),ObservedKm=(int)Field("observedPneumaticKm"),ObservedKvt=(int)Field("observedPneumaticKvt"),
      ApplicationKind=TrainerTrainBrakeKind.Service,SandConfirmed=Marshal.ReadByte(mem["TPult"],0xa5)==1};

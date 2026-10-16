@@ -1721,6 +1721,24 @@
       "scope": "Reconstructed virtualAF→native7Finput; originalTorm4*actualDP consumer inKMIV/KMII, realfinitePM. OriginalcabSand/mainOFF, freshness andrestoration. No pressure/force/outputsubstitution, noadhesioncredit.",
       "timeout_seconds": 300,
       "enabled": true
+    },
+    {
+      "id": "RepeatedBrakeNative",
+      "main_class": "TrainerRepeatedBrakeNativeProbe",
+      "title": "Повторное торможение до60с подзарядки",
+      "source": "outputs/TrainerRepeatedBrakeNativeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [
+        "outputs/TrainerAutovedenieAdverseBrakeProbe.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_repeated_brake_native.json"
+      ],
+      "kind": "candidate",
+      "scope": "Originalwholeconsist-6/full333033/prepared80 aftergenuineorigin; productionpolicy choosesrealhandles. EarlyrepeatI+30, measuredFIRST+.3, originalAF/sandair andsecondIV/allTC. Teachinggreen/SAUTOFF/scriptedRBS; no fullAVPacceptance.",
+      "timeout_seconds": 300,
+      "enabled": true
     }
   ]
 }

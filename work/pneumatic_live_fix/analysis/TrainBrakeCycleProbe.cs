@@ -99,6 +99,21 @@ class TrainBrakeCycleProbe {
         var recovery=new TrainerTrainBrakeCycle();BeginService(recovery);Held(recovery,7,4.3,false);ReleaseFrame(recovery,7.1,4.3,4,false,false);ReleaseFrame(recovery,7.2,4.3,1,false,false);
         i.HoldRecoveryOnDescent=true;var secured=recovery.Step(i);Near("Separate descent hold-recovery uses prescribed0.7",secured.FirstReductionBar,.7);
     }
+    static void EarlyOverchargeRepeat() {
+        var c=new TrainerTrainBrakeCycle();BeginService(c);Held(c,7,4.3,false);
+        ReleaseFrame(c,7.1,4.3,4,false,false);ReleaseFrame(c,7.2,4.3,1,false,false);
+        Near("AppliedUR retained through release boost",c.LastAppliedUrBar,4.3);
+        var i=Sample(20,5.3);i.BrakeDemand=true;i.IsDownhill=true;
+        var waiting=c.Step(i);Check("Overcharged earlyrepeat waits for sand before deeper target",waiting.RequestSand&&waiting.Km==4,true,waiting.RequestSand);
+        i.Seconds=20.1;i.SandConfirmed=true;var applied=c.Step(i);
+        Check("Overcharged repeat uses real application command",applied.Km==5,5,applied.Km);
+        Near("Earlyrepeat target below previousactualUR by0.3",applied.TargetUrBar,4.0);
+        Near("Relative step includes temporaryovercharge",applied.FirstReductionBar,1.3);
+        var after=new TrainerTrainBrakeCycle();BeginService(after);Held(after,7,4.3,false);
+        ReleaseFrame(after,7.1,4.3,4,false,false);ReleaseFrame(after,7.2,4.3,1,false,false);
+        var fully=Sample(67.2,5);fully.BrakeDemand=true;fully.IsDownhill=true;var ordinary=after.Step(fully);
+        Near("After60 normal firststep restored",ordinary.FirstReductionBar,.7);
+    }
     static TrainerTrainBrakeCycle PrepareStopped(TrainerTrainBrakeKind kind,bool known,bool cold) {
         var c=new TrainerTrainBrakeCycle();double applied=kind==TrainerTrainBrakeKind.Emergency?.2:kind==TrainerTrainBrakeKind.FullService?3.5:4.3;
         var a=Sample(0,5,0);a.ApplicationKind=kind;a.ObservedCommandsKnown=true;a.ObservedKm=kind==TrainerTrainBrakeKind.Emergency?6:5;a.AllAutoReleased=false;a.AllBrakesReleased=false;
@@ -193,7 +208,7 @@ class TrainBrakeCycleProbe {
     static int Main() {
         TrainerSession.EnsureStarted();
         Run("moving_release_lap_and_all_pressure_gates",MovingRelease);Run("kvt_actual_band_and_late_automatic_release",BandAndLateRelease);
-        Run("continuous_hold_recharge_and_sand",StrengtheningAndSand);Run("stopped_class_and_temperature_matrix",StoppedMatrix);
+        Run("continuous_hold_recharge_and_sand",StrengtheningAndSand);Run("overcharged_early_repeat",EarlyOverchargeRepeat);Run("stopped_class_and_temperature_matrix",StoppedMatrix);
         Run("mandatory_stop_and_passive_history",StopAndHistory);Run("sensor_readiness_and_clock_faults",Faults);Run("observed_lap_timeout_cold_merge_and_recovery",ObservedLapTimeoutAndTemperature);
         bool passed=failures==0;File.WriteAllText(TrainerSession.ResultPath("Trainer_train_brake_cycle.json"),new JavaScriptSerializer{MaxJsonLength=8000000}.Serialize(new{passed,checks,cases,
             scope="Pure deterministic operator-command state tests with supplied observations and clock. No native host/physics, no output writes, no full normative certification. Effective KM I anchors release; pressure feedback and confirmed sand are separate from requests."}));

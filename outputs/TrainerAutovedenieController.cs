@@ -14,7 +14,8 @@ public sealed class TrainerAvpInput {
     public bool BrakesReleased = true;
     public bool CanApplyTraction = true;
     public bool AutomaticBrakesReleased = true;
-    public bool HasBrakeFeedback;
+    public bool HasBrakeFeedback, HasWagonTcFeedback;
+    public double MinimumWagonTcBar=Double.NaN;
     public double EqualizingReservoirPressure;
     public double ChargingPressureBar=Double.NaN, BrakePipePressureBar=Double.NaN;
     public double MaximumConsistSpeedKmh=Double.NaN;
@@ -210,6 +211,7 @@ public sealed class TrainerAutovedenieController {
             ActualTmBar=i.BrakePipePressureBar,HeadSpeedKmh=i.SpeedKmh,MaximumConsistSpeedKmh=i.MaximumConsistSpeedKmh,
             IndependentKvtPressureBar=i.IndependentKvtPressureBar,MinBogiePressureBar=i.MinBogiePressureBar,MaxBogiePressureBar=i.MaxBogiePressureBar,
             SensorsKnown=sensors,Ready=sensors&&!i.SafetyIntervention,AllAutoReleased=i.AutomaticBrakesReleased,AllBrakesReleased=i.BrakesReleased,
+            WagonTcFeedbackKnown=i.HasWagonTcFeedback,MinimumWagonTcBar=i.MinimumWagonTcBar,
             OwnsCommands=owns,BrakeDemand=demand,StopRequired=stop,Ended=ended,ExplicitRestart=restart,IsDownhill=downhill,
             ObservedCommandsKnown=i.BrakeCommandsKnown,ObservedKm=i.ObservedKm,ObservedKvt=i.ObservedKvt,ApplicationKind=kind,Axles=i.WagonAxles,
             HasAmbientTemperature=i.AmbientTemperatureKnown,AmbientTemperatureC=i.AmbientTemperatureC,SandConfirmed=i.SandCommandAccepted};

@@ -15,7 +15,7 @@ public sealed partial class TrainerAutovedenieAdverseBrakeProbe {
    return new TrainerTrainBrakeCycleInput { Seconds=cycle*Dt,UrBar=f.ur_bar,ChargeBar=StopDouble(mem["TLocParam"],0x13),ActualTmBar=f.tm_bar[0],
     HeadSpeedKmh=f.head_v_kmh,MaximumConsistSpeedKmh=f.maximum_abs_v_m_s*3.6,IndependentKvtPressureBar=StopDouble(mem["TLocParam"],0xec),
     MinBogiePressureBar=f.bogies_tc_bar.Min(),MaxBogiePressureBar=f.bogies_tc_bar.Max(),SensorsKnown=true,
-    Ready=f.epk_trip==0&&f.kon_trip==0&&f.coil==1&&f.saut_request==0,AllAutoReleased=f.automatic_released,AllBrakesReleased=f.fully_released,
+    Ready=f.epk_trip==0&&f.kon_trip==0&&f.coil==1&&f.saut_request==0,AllAutoReleased=f.automatic_released,AllBrakesReleased=f.fully_released,WagonTcFeedbackKnown=true,MinimumWagonTcBar=f.tc_bar.Skip(2).Min(),
     OwnsCommands=owns,ExplicitRestart=restart,Axles=300,ApplicationKind=kind,HasAmbientTemperature=known,AmbientTemperatureC=cold?-10:20,ColdScenario=cold,
     ObservedCommandsKnown=(bool)Field("observedPneumaticCommandsKnown"),ObservedKm=(int)Field("observedPneumaticKm"),ObservedKvt=(int)Field("observedPneumaticKvt"),
     SandConfirmed=Marshal.ReadByte(mem["TPult"],0xa5)==1 };

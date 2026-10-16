@@ -10,6 +10,8 @@ public sealed class TrainerTrainBrakeCycleInput {
     public double HeadSpeedKmh, MaximumConsistSpeedKmh;
     public double IndependentKvtPressureBar, MinBogiePressureBar, MaxBogiePressureBar;
     public bool SensorsKnown, Ready, AllAutoReleased, AllBrakesReleased;
+    public bool WagonTcFeedbackKnown;
+    public double MinimumWagonTcBar;
     public bool OwnsCommands, BrakeDemand, StopRequired, Ended, ExplicitRestart, IsDownhill;
     public bool AdditionalStepDemand, HoldRecoveryOnDescent, SandConfirmed;
     public double RecoveryStepBar=.7;
@@ -43,10 +45,14 @@ public sealed class TrainerTrainBrakeCycleDecision {
 public sealed class TrainerTrainBrakeCycle {
     public const double FirstReduction=.7, MinimumLapSeconds=6, LocomotiveHoldSeconds=35;
     public const double RechargeSeconds=60, MovingReleaseDelaySeconds=60, ContinuousHoldSeconds=150;
+    // Candidate-specific response qualification for the all75 TC>=1 force law.
+    // The additional-step path uses ordinary KM V/IV; failed output is never filled.
+    public const double ResponseQualificationSeconds=35, RequiredWagonTcFloorBar=1;
     const double StandstillKmh=.3, PressureSlack=.000001;
     TrainerTrainBrakeCycleState state=TrainerTrainBrakeCycleState.Idle;
     TrainerTrainBrakeKind kind=TrainerTrainBrakeKind.Unknown;
     double lastSeconds=-1, lastUr, targetUr, applicationUr, firstReduction, lastStep;
+    double lastAppliedUr=Double.NaN;
     double holdSince=-1, releaseSince=-1, releaseRequestedSince=-1, releaseBaselineUr, applicationStarted=-1;
     double kvtBandSince=-1, lastReleaseDelay, lastColdFactor=1, releaseColdFactor=1;
     bool hasApplication, previousAutoReleased=true, stoppedLatch, releaseWasStopped;
@@ -55,6 +61,7 @@ public sealed class TrainerTrainBrakeCycle {
     int lastCommandedKvt=2;
     public double ReleaseStartedSeconds { get { return releaseSince; } }
     public double PreviousFirstReductionBar { get { return firstReduction; } }
+    public double LastAppliedUrBar { get { return lastAppliedUr; } }
     public TrainerTrainBrakeKind LastApplicationKind { get { return kind; } }
 
     public TrainerTrainBrakeCycleDecision Observe(TrainerTrainBrakeCycleInput input) {
@@ -70,6 +77,7 @@ public sealed class TrainerTrainBrakeCycle {
         if(i==null)return "Нет наблюдения тормозного цикла";
         if(!Finite(i.Seconds)||i.Seconds<0||lastSeconds>=0&&i.Seconds<lastSeconds)return "Неверное или обратное время тормозного цикла";
         if(!i.SensorsKnown)return "Показания тормозных датчиков не подтверждены";
+        if(i.WagonTcFeedbackKnown&&!Pressure(i.MinimumWagonTcBar))return "Неверное минимальное давление ТЦ вагонов";
         if(!Pressure(i.UrBar)||!Pressure(i.ChargeBar)||i.ChargeBar<=FirstReduction||!Pressure(i.ActualTmBar)||
            !Pressure(i.IndependentKvtPressureBar)||!Pressure(i.MinBogiePressureBar)||!Pressure(i.MaxBogiePressureBar)||i.MinBogiePressureBar>i.MaxBogiePressureBar)
             return "Неверное давление тормозного цикла";
@@ -111,7 +119,7 @@ public sealed class TrainerTrainBrakeCycle {
         if(!owns&&i.ObservedCommandsKnown&&(i.ObservedKm==5||i.ObservedKm==6)&&(!hadApplication||releaseSince>=0)) {
             // A new physical brake application invalidates the previous release.
             releaseSince=-1;releaseRequestedSince=-1;releaseWasStopped=false;restartApproved=false;
-            applicationUr=lastUr>0?lastUr:i.UrBar;firstReduction=0;firstReductionKnown=false;lastStep=0;passiveFirstPending=true;releaseColdFactor=1;
+            applicationUr=lastUr>0?lastUr:i.UrBar;firstReduction=0;firstReductionKnown=false;lastStep=0;passiveFirstPending=true;releaseColdFactor=1;lastAppliedUr=Double.NaN;
             kind=i.ObservedKm==6?TrainerTrainBrakeKind.Emergency:i.ApplicationKind;
             hasApplication=true;state=TrainerTrainBrakeCycleState.Holding;holdSince=-1;
         }
@@ -120,6 +128,10 @@ public sealed class TrainerTrainBrakeCycle {
             if(measured>0){firstReduction=measured;firstReductionKnown=true;}
             if(i.ObservedKm==4)holdSince=i.Seconds;passiveFirstPending=false;
         }
+        // Retain the actual applied pressure through I/II. A temporary boost can
+        // make a larger relative first step end at virtually the old brake UR.
+        if(hasApplication&&releaseSince<0&&i.ObservedCommandsKnown&&(i.ObservedKm==4||i.ObservedKm==5))
+            lastAppliedUr=Finite(lastAppliedUr)?Math.Min(lastAppliedUr,i.UrBar):i.UrBar;
         if(hasApplication&&i.ObservedCommandsKnown&&i.ObservedKm==1)RecordRelease(i);
         // If an effective-position sample is unavailable, complete release gives
         // a conservative later anchor. It must never grant an earlier interval.
@@ -141,6 +153,11 @@ public sealed class TrainerTrainBrakeCycle {
         if(!additional&&!i.HoldRecoveryOnDescent&&i.IsDownhill&&hasApplication&&(releaseSince<0||i.Seconds-releaseSince<RechargeSeconds)) {
             if(!firstReductionKnown){error="Первая ступень предыдущего торможения неизвестна; обычное повторное торможение требует подтверждённой истории";return false;}
             reduction=Math.Max(reduction,firstReduction+.3);
+            // Rules83 specifies a minimum. During incomplete recharge also
+            // deepen below the previous actual applied UR by at least0.3, so a
+            // retained native VR release reference cannot cancel reapplication.
+            // This changes only the requested real KM V target, never pressure.
+            if(Finite(lastAppliedUr))reduction=Math.Max(reduction,i.UrBar-lastAppliedUr+.3);
         }
         if(i.UrBar-reduction<=0) { error="Недозарядка: требуемая ступень торможения недостижима";return false; }
         double cumulative=additional&&applicationUr>0?applicationUr-(i.UrBar-reduction):reduction;
@@ -150,7 +167,7 @@ public sealed class TrainerTrainBrakeCycle {
         }
         if(!additional)stoppedLatch=Stopped(i);
         if(!additional) {
-            firstReduction=reduction;firstReductionKnown=true;applicationUr=i.UrBar;firstStage=true;passiveFirstPending=false;
+            firstReduction=reduction;firstReductionKnown=true;applicationUr=i.UrBar;firstStage=true;passiveFirstPending=false;lastAppliedUr=Double.NaN;
             kind=i.ApplicationKind==TrainerTrainBrakeKind.Unknown?TrainerTrainBrakeKind.Service:i.ApplicationKind;
         } else firstStage=false;
         lastStep=reduction;targetUr=i.UrBar-reduction;hasApplication=true;
@@ -247,12 +264,15 @@ public sealed class TrainerTrainBrakeCycle {
             return Result(i,true,4,6,"Полное КВТ и перекрыша после остановки; нужен явный запуск",false);
         }
         if(state==TrainerTrainBrakeCycleState.Holding) {
-            if(additional||demand&&!Stopped(i)&&holdSince>=0&&i.Seconds-holdSince>=ContinuousHoldSeconds) {
+            bool responseMissing=i.WagonTcFeedbackKnown&&i.MinimumWagonTcBar<RequiredWagonTcFloorBar-PressureSlack;
+            bool responseExpired=responseMissing&&applicationStarted>=0&&i.Seconds-applicationStarted>=ResponseQualificationSeconds;
+            if(additional||responseExpired||demand&&!Stopped(i)&&holdSince>=0&&i.Seconds-holdSince>=ContinuousHoldSeconds) {
                 if(holdSince<0||i.Seconds-holdSince<MinimumLapSeconds)return Result(i,true,4,stoppedLatch?6:2,"Минимальная выдержка перекрыши6с",false);
                 if(!BeginBrake(i,true,out error))return BrakeRefused(i,error);
                 return Result(i,true,5,stoppedLatch?6:2,"Добавочная ступень торможения",false);
             }
             if(holdSince<0||i.Seconds-holdSince<MinimumLapSeconds)return Result(i,true,4,stoppedLatch?6:2,"Минимальная выдержка перекрыши6с",false);
+            if(responseMissing)return Result(i,true,4,stoppedLatch?6:2,"Подтвердить отклик всех вагонов до отпуска; при задержке добавить штатную ступень",false);
             if(demand)return Result(i,true,4,stoppedLatch?6:2,"Сохраняется требование торможения/остановки",false);
             state=TrainerTrainBrakeCycleState.PreparingRelease;
         }

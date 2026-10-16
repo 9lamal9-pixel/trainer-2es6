@@ -218,6 +218,8 @@ partial class TrainerIntegrationHost {
         if (ready.Length==0 && signedVelocity<-(.3/3.6) && ReadAutovedenieConsistVelocity()<-(.3/3.6))
             ready="Движение назад не поддержано автоведением";
         bool brakesReleased, automaticBrakesReleased; string brakeState=ReadAutovedenieBrakeState(out brakesReleased,out automaticBrakesReleased);
+        double minWagonTc=Double.PositiveInfinity;
+        for(int n=1;n<=75;n++)minWagonTc=Math.Min(minWagonTc,FloatAt(cars[n],4));
         double minBogie=Double.NaN,maxBogie=Double.NaN;
         if (avpBogiePressures!=null && avpBogiePressures.Length==4) {
             minBogie=Double.PositiveInfinity;maxBogie=Double.NegativeInfinity;
@@ -233,7 +235,7 @@ partial class TrainerIntegrationHost {
             SettingsValid=settings.Valid && avpUi!=null && avpUi.Fault.Length==0,
             NotReadyReason=ready, ManualOverride=manual.Length!=0, SafetyIntervention=safety.Length!=0,
             BrakesReleased=brakesReleased, AutomaticBrakesReleased=automaticBrakesReleased, CanApplyTraction=Marshal.ReadByte(mem["TLocParam"],0x11)==0,
-            HasBrakeFeedback=true, EqualizingReservoirPressure=FloatAt(mem["TLocParam"],9),
+            HasBrakeFeedback=true, HasWagonTcFeedback=AvpFinite(minWagonTc),MinimumWagonTcBar=minWagonTc,EqualizingReservoirPressure=FloatAt(mem["TLocParam"],9),
             ChargingPressureBar=DoubleAt(mem["TLocParam"],0x13),BrakePipePressureBar=FloatAt(cars[0],0),
             MaximumConsistSpeedKmh=maximumConsistSpeedKmh,IndependentKvtPressureBar=DoubleAt(mem["TLocParam"],0xec),
             MinBogiePressureBar=minBogie,MaxBogiePressureBar=maxBogie,WagonAxles=75*4,
