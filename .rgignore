@@ -1,0 +1,16 @@
+# Keep default searches focused; explicit file paths remain available.
+dev/builds/
+dev/runs/
+dev/archives/
+dev/checkpoints/
+dev/history/
+work/native_distribution/
+**/vendor/
+**/pydeps/
+**/__pycache__/
+*.csv
+*.pdb
+*.zip
+*.asm
+*.wav
+outputs/*_log.txt

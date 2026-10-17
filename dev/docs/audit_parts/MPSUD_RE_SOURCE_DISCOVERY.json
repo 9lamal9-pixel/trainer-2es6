@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "utc": "2026-10-11T13:14:38.887010+00:00",
+  "purpose": "Fresh original-source discovery for all MPSUID screen illustrations",
+  "primary_full_pdf_received": false,
+  "secondary_pdf_received": true,
+  "secondary_sha256": "26972a1d4cac81f35f940b6cb9313f1c55027871cc8f802dad76382c08cfaa9e",
+  "source_check": "dev/docs/audit_parts/MPSUD_RE_SOURCE_CHECK.json",
+  "control_manifest": "work/mpsud_manual_discovery/control/manifest.json",
+  "display_manifest": "work/mpsud_manual_discovery/display/MPSUD_original_figures_manifest.json",
+  "functional_manifest": "work/mpsud_manual_discovery/functions/source_manifest.json",
+  "illustrations_manifest": "work/mpsud_manual_discovery/illustrations/illustrations.json",
+  "yandex_attempts": [
+    {
+      "report": "work/mpsud_manual_discovery/yandex_curl_result.json",
+      "result": {
+        "time_utc": "2026-10-11T12:55:13.684355+00:00",
+        "source_public_key": "https://yadi.sk/d/BgsyV7dp3KwbS4",
+        "size": 482427311,
+        "download_host": "downloader.disk.yandex.ru",
+        "curl_exit": 28,
+        "http_code": "302",
+        "stderr": "curl: (28) Operation timed out after 12502 milliseconds with 0 bytes received\n"
+      }
+    },
+    {
+      "report": "work/mpsud_manual_discovery/yandex_redirect_result.json",
+      "result": {
+        "time_utc": "2026-10-11T12:56:00.206870+00:00",
+        "meta_file": {
+          "curl_exit": 28,
+          "http_code": "000",
+          "stderr": "curl: (28) Connection timed out after 5013 milliseconds\n"
+        },
+        "download_api_host": "downloader.disk.yandex.ru"
+      }
+    },
+    {
+      "report": "work/mpsud_manual_discovery/yandex_pinned_result.json",
+      "result": {
+        "time_utc": "2026-10-11T12:58:51.115797+00:00",
+        "attempts": [
+          {
+            "host": "downloader.disk.yandex.ru",
+            "ip": "77.88.21.127",
+            "curl_exit": 0,
+            "http_code": "302",
+            "stderr": "",
+            "bytes": 0,
+            "redirect_host": "s416klg.storage.yandex.net"
+          },
+          {
+            "host": "s416klg.storage.yandex.net",
+            "ip": "77.88.0.160",
+            "curl_exit": 28,
+            "http_code": "206",
+            "stderr": "curl: (28) Operation timed out after 7009 milliseconds with 0 out of 65536 bytes received\n"
+          }
+        ]
+      }
+    },
+    {
+      "report": "work/mpsud_manual_discovery/yandex_body_result.json",
+      "result": {
+        "time_utc": "2026-10-11T13:00:21.185812+00:00",
+        "host": "s416klg.storage.yandex.net",
+        "range": "230611830-230677365",
+        "curl_exit": 28,
+        "http_code": "206",
+        "stderr": "curl: (28) Operation timed out after 30008 milliseconds with 0 out of 65536 bytes received\n"
+      }
+    },
+    {
+      "report": "work/mpsud_manual_discovery/yandex_variants_result.json",
+      "result": {
+        "time_utc": "2026-10-11T13:02:04.875473+00:00",
+        "attempts": [
+          {
+            "variant": "cachequery",
+            "host": "s416klg.storage.yandex.net",
+            "curl_exit": 28,
+            "http_code": "206",
+            "stderr": "curl: (28) Operation timed out after 16013 milliseconds with 0 out of 65536 bytes received\n"
+          },
+          {
+            "variant": "http",
+            "host": "s416klg.storage.yandex.net",
+            "curl_exit": 28,
+            "http_code": "206",
+            "stderr": "curl: (28) Operation timed out after 16003 milliseconds with 0 out of 65536 bytes received\n"
+          }
+        ]
+      }
+    }
+  ],
+  "limits": "Source HTTP status/HEAD does not prove receipt of bytes. Primary PDF/image authenticity remains unaccepted; secondary images and source integrity are accepted only for this local reference package."
+}

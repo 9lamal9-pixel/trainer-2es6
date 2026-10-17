@@ -1,0 +1,24 @@
+{
+  "created_at": "2026-10-11T12:44:23.227799+00:00",
+  "status": "PASS",
+  "kind": "document_and_published_map_consistency_only",
+  "native_run_executed": false,
+  "runtime_screen_accepted": false,
+  "production_modified": false,
+  "document": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\docs\\audit_parts\\MPSUD_SCREEN_COMPARISON.md",
+  "document_sha256": "7F821EF28050BB8A62214F485A59C6878C5AFBC6318725607A27C24E7856791B",
+  "prior_check_attempt": {
+    "status": "FAIL",
+    "cause": "validator initially included the Markdown header SR as a data row",
+    "resolution": "restricted selection to SR followed by digits; no document or production change required"
+  },
+  "checks": {
+    "all_22_normative_ids": true,
+    "all_15_findings_present": true,
+    "factory_null_19_20_21": true,
+    "clock_digit5_saut": true,
+    "stpr_has_four_published_grids": true,
+    "source_and_runtime_limits_explicit": true,
+    "source_files_exist": true
+  }
+}

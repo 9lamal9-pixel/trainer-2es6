@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "compiler": "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\csc.exe",
+  "framework": "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\System.Windows.Forms.dll",
+  "python": "C:\\Users\\sibir\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "profiles": {
+    "candidate": {
+      "sources": [
+        "outputs/TrainerIntegrationHost.cs",
+        "outputs/TrainerNativeSystems.cs",
+        "outputs/TrainerAuxSystems.cs",
+        "outputs/TrainerRouteDOS.cs",
+        "outputs/TrainerAutovedenieController.cs",
+        "outputs/TrainerTrainBrakeCycle.cs",
+        "outputs/TrainerAutovedenieInterface.cs",
+        "outputs/TrainerAutovedenieNativeBridge.cs",
+        "outputs/TrainerAutovedenieHost.cs",
+        "outputs/TrainerSautOperatorControls.cs",
+        "outputs/TrainerStandaloneSautBinding.cs",
+        "outputs/TrainerRouteView.cs",
+        "outputs/TrainerNativeFixes.cs",
+        "outputs/TrainerPneumaticTiming.cs",
+        "outputs/TrainerSessionLogging.cs",
+        "outputs/TrainerAirNetwork.cs",
+        "outputs/TrainerControlAir.cs",
+        "outputs/TrainerBtoNetwork.cs",
+        "outputs/TrainerAirSelector.cs",
+        "outputs/TrainerKvtProfile.cs",
+        "outputs/TrainerTwoSectionAirChain.cs",
+        "outputs/TrainerPneumaticNetworkCandidate.cs",
+        "outputs/TrainerTrainPressureView.cs",
+        "outputs/TrainerSafetyInputContext.cs",
+        "outputs/TrainerSafetyContexts.cs",
+        "outputs/TrainerNativeSafetyAdapter.cs",
+        "outputs/TrainerSafetyHost.cs",
+        "outputs/TrainerVigilanceOperatorControls.cs",
+        "outputs/TrainerMarkupSignalSource.cs",
+        "outputs/TrainerMarkupHost.cs",
+        "outputs/TrainerKlubSafetyBinding.cs",
+        "outputs/TrainerNativeVirtualPult.cs",
+        "outputs/TrainerSandAirInput.cs"
+      ]
+    },
+    "integration": {
+      "sources": [
+        "outputs/TrainerIntegrationHost.cs",
+        "outputs/TrainerNativeSystems.cs",
+        "outputs/TrainerAuxSystems.cs",
+        "outputs/TrainerRouteDOS.cs",
+        "outputs/TrainerAutovedenieController.cs",
+        "outputs/TrainerTrainBrakeCycle.cs",
+        "outputs/TrainerAutovedenieInterface.cs",
+        "outputs/TrainerAutovedenieNativeBridge.cs",
+        "outputs/TrainerAutovedenieHost.cs",
+        "outputs/TrainerSautOperatorControls.cs",
+        "outputs/TrainerStandaloneSautBinding.cs",
+        "outputs/TrainerRouteView.cs",
+        "outputs/TrainerNativeFixes.cs",
+        "outputs/TrainerPneumaticTiming.cs",
+        "outputs/TrainerSessionLogging.cs",
+        "outputs/TrainerTrainPressureView.cs",
+        "outputs/TrainerSafetyInputContext.cs",
+        "outputs/TrainerSafetyContexts.cs",
+        "outputs/TrainerNativeSafetyAdapter.cs",
+        "outputs/TrainerSafetyHost.cs",
+        "outputs/TrainerVigilanceOperatorControls.cs",
+        "outputs/TrainerMarkupSignalSource.cs",
+        "outputs/TrainerMarkupHost.cs",
+        "outputs/TrainerKlubSafetyBinding.cs",
+        "outputs/TrainerNativeVirtualPult.cs",
+        "outputs/TrainerSandAirInput.cs"
+      ]
+    }
+  },
+  "required_files": [
+    "outputs/Voynovka_Koshkarovsky_route.json",
+    "work/msul_emulator/native_record_schema.json",
+    "dev/config/probes.json"
+  ],
+  "suites": {
+    "regression": [
+      "ColdNoSource",
+      "SectionPantographPressure",
+      "CandidateAirHost",
+      "ColdTrainAuxiliary",
+      "VcuAirSequence",
+      "CompressorPrepared"
+    ],
+    "smoke": [
+      "ColdNoSource",
+      "SectionPantographPressure",
+      "CandidateAirHost"
+    ]
+  }
+}

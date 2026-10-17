@@ -1,0 +1,1744 @@
+{
+  "schema_version": 1,
+  "path_base": "workspace_root",
+  "assembly_references": [
+    "System.Windows.Forms.dll",
+    "System.Drawing.dll",
+    "System.Web.Extensions.dll"
+  ],
+  "suites": {
+    "smoke": [
+      "ColdNoSource",
+      "SectionPantographPressure",
+      "CandidateAirHost"
+    ],
+    "regression": [
+      "ColdNoSource",
+      "SectionPantographPressure",
+      "CandidateAirHost",
+      "ColdTrainAuxiliary",
+      "VcuAirSequence",
+      "CompressorPrepared"
+    ]
+  },
+  "execution_contract": "Build sources directly using the selected profile; legacy build scripts may also execute probes. Run sequentially in separate processes, require exit code 0 and fresh expected artifacts. Do not require a universal passed JSON field. Obsolete and unsafe entries are disabled.",
+  "probes": [
+    {
+      "id": "AutovedenieNativeBridgeGuard",
+      "main_class": "AutovedenieCommandPathProbe",
+      "title": "АВП: guarded native мост, отказ готовности и отмена владения",
+      "source": "work/pneumatic_live_fix/analysis/AutovedenieCommandPathProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "bridge_guard"
+      ],
+      "result_files": [
+        "outputs/Autovedenie_command_path.json"
+      ],
+      "kind": "candidate",
+      "scope": "Production bridge pointer guards, readiness refusal and cancellation latch with loaded-pointer restoration; not closed-loop acceptance.",
+      "timeout_seconds": 180,
+      "enabled": true
+    },
+    {
+      "id": "AutovedenieBrakeCalibration",
+      "main_class": "AutovedenieCommandPathProbe",
+      "title": "АВП: калибровка штатного торможения после native разгона",
+      "source": "work/pneumatic_live_fix/analysis/AutovedenieCommandPathProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "brake_calibration"
+      ],
+      "result_files": [
+        "outputs/Autovedenie_command_path.json"
+      ],
+      "kind": "candidate",
+      "scope": "Native acceleration without synthetic speed, service braking and whole-train settled calibration. Model-specific, not closed-loop AVP acceptance.",
+      "timeout_seconds": 180,
+      "enabled": true
+    },
+    {
+      "id": "AutovedenieInterface",
+      "main_class": "AutovedenieInterfaceProbe",
+      "title": "АВП: native Enter, клавиша5 и индикация обоих мониторов",
+      "source": "work/pneumatic_live_fix/analysis/AutovedenieInterfaceProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Autovedenie_interface_validation.json"
+      ],
+      "kind": "candidate",
+      "scope": "Native settings commit/validation, both-monitor mode requests and render, guarded hook restoration. No closed-loop acceptance.",
+      "timeout_seconds": 180,
+      "enabled": true
+    },
+    {
+      "id": "AutovedenieController",
+      "main_class": "AutovedenieControllerProbe",
+      "title": "АВП: планирование и приоритет ручного управления",
+      "source": "work/pneumatic_live_fix/analysis/AutovedenieControllerProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Autovedenie_controller_probe.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Pure managed planner and ownership contract. Does not accept native AVP implementation or braking calibration.",
+      "timeout_seconds": 30,
+      "enabled": true,
+      "requires_native_initialization": false
+    },
+    {
+      "id": "AirControlIsolation",
+      "main_class": "AirControlIsolationProbe",
+      "title": "Изоляция общей ИМ при выключенной блокировке тормозов",
+      "source": "work/pneumatic_live_fix/analysis/AirControlIsolationProbe.cs",
+      "profile": "candidate",
+      "requires_native_initialization": false,
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_air_control_isolation_validation.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "1500 вызовов настоящего managed air bridge с mock packed records; constructor-only host без StartNative и загрузки DLL. Проверяет удержание ИМ при ВЦУ1/block0 и ВЦУ2/3, штатный отпуск при block1, работу автоматического БТО, восстановление запросов компрессора и баланс. Внешний сигнал БВР задан явно; native startup, электрический привод и калибровка РЭ не проверяются.",
+      "timeout_seconds": 60,
+      "enabled": true
+    },
+    {
+      "id": "AuxiliaryAirNative",
+      "main_class": "AuxiliaryAirNativeProbe",
+      "title": "Старый тест связи вспомогательного воздуха с ПМ",
+      "source": "work/pneumatic_live_fix/analysis/AuxiliaryAirNativeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_auxiliary_native_air_alias.json"
+      ],
+      "kind": "obsolete",
+      "scope": "Устаревшие предположения об additive-алгоритме и сохранении байтов старого hook. После физической РС6/РС7 и удаления старого алгоритма тест не является приемкой текущего кандидата.",
+      "timeout_seconds": 180,
+      "enabled": false,
+      "legacy_build_script": "outputs/BuildAuxiliaryAirNativeProbe.ps1"
+    },
+    {
+      "id": "AuxiliaryColdElectrical",
+      "main_class": "AuxiliaryColdElectricalProbe",
+      "title": "РС6/РС7 с непрогретыми нативными контактами",
+      "source": "work/pneumatic_live_fix/analysis/AuxiliaryColdElectricalProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_auxiliary_cold_electrical_validation.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "5000 native electrical шагов и отдельно StepHostControlAir; без native pneumatic шага. КМ10/11 не прогреты, источники и отключение проверены, но вся нативная тормозная сеть не становится холодной.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildAuxiliaryColdElectricalProbe.ps1"
+    },
+    {
+      "id": "AuxiliaryColdPressure",
+      "main_class": "AuxiliaryColdPressureProbe",
+      "title": "Холодный контур управления с прогретыми контактами",
+      "source": "work/pneumatic_live_fix/analysis/AuxiliaryColdPressureProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_auxiliary_cold_pressure_validation.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Перед тестом прогревается native electrical/pneumatic. Затем холодным заменяется только управляющий контур; зарядка/отключение проверены. Не проверяет полный холодный поезд.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildAuxiliaryColdPressureProbe.ps1"
+    },
+    {
+      "id": "AuxiliaryColdSf3",
+      "main_class": "AuxiliaryColdSf3Probe",
+      "title": "Отключение SF3 при холодной зарядке управления",
+      "source": "work/pneumatic_live_fix/analysis/AuxiliaryColdSf3Probe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_auxiliary_cold_sf3_validation.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Контур РС6/РС7 с native electrical шагами, событие CheckBox SF3, сохранение РС7 при отключении и потребитель 1 мм. Без native pneumatic шага и полной холодной сети.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildAuxiliaryColdSf3Probe.ps1"
+    },
+    {
+      "id": "AuxiliaryCommandPanel",
+      "main_class": "AuxiliaryCommandPanelProbe",
+      "title": "Три режима SB1: включено, выключено, оборудование",
+      "source": "work/pneumatic_live_fix/analysis/AuxiliaryCommandPanelProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_auxiliary_command_panel_validation.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Проверяет CheckState WinForms, физический источник и TPult.BC с SF3; hardware mode сохраняет native command. Мышь/пиксели/внешний приемник оборудования не проверены.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildAuxiliaryCommandPanelProbe.ps1"
+    },
+    {
+      "id": "CandidateAirHost",
+      "main_class": "CandidateAirHostProbe",
+      "title": "Два БТО, автоматическое/независимое торможение, отпуск и движение",
+      "source": "work/pneumatic_live_fix/analysis/CandidateAirHostProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_air_candidate_host_validation.json"
+      ],
+      "kind": "regression",
+      "scope": "4923 шага electrical/pneumatic/motion/route/aux/KLUB; проверяет приборные объекты ПМ/ТЦ, отпуск, отключение тележки и нативный вход тормозной силы. КМ/КВТ заданы стендом, компрессоры выключены; пиксели, внешнее железо, абсолютные единицы силы и калибровка РЭ не приняты.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildCandidateAirHostProbe.ps1"
+    },
+    {
+      "id": "ColdControlAirNative",
+      "main_class": "ColdControlAirNativeProbe",
+      "title": "Старый холодный тест управляющего воздуха",
+      "source": "work/pneumatic_live_fix/analysis/ColdControlAirNativeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_cold_control_native_validation.json"
+      ],
+      "kind": "obsolete",
+      "scope": "Ожидает старые инструкции и прежний обход алгоритма вспомогательной зарядки; заменен ColdNoSource и ColdTrainAuxiliary.",
+      "timeout_seconds": 180,
+      "enabled": false,
+      "legacy_build_script": "outputs/BuildColdControlAirNativeProbe.ps1"
+    },
+    {
+      "id": "ColdMainCommand",
+      "main_class": "ColdMainCommandProbe",
+      "title": "Команда основных компрессоров без питания",
+      "source": "work/pneumatic_live_fix/analysis/ColdMainCommandProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_cold_main_command_findings.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "После сухой сети и вспомогательной зарядки включает native main switch/KN7 и наблюдает нефорсированные запросы. Отсутствие питания оставляет ПМ=0; это отрицательная диагностика, не успешная зарядка ПМ. Ограничение выявлено при аудите поезда: tempPzar0 InitSostavClass перекалибровывает Dut; результат подтверждает только заявленные dry/control/PM assertions, не штатную вагонную геометрию или зарядку полного состава. Использовать TrainPneumatic для сохранённой геометрии.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildColdMainCommandProbe.ps1"
+    },
+    {
+      "id": "ColdNativeInitialization",
+      "main_class": "ColdNativeInitializationProbe",
+      "title": "Повторная нативная инициализация InitNew",
+      "source": "work/pneumatic_live_fix/analysis/ColdNativeInitializationProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "fresh"
+      ],
+      "result_files": [
+        "outputs/Trainer_cold_native_initialization_fresh_five.json"
+      ],
+      "kind": "unsafe",
+      "scope": "Режим fresh повторно вызывает InitNew и ранее завершался AccessViolation в финализаторе GDI/StringFormat, даже после записи JSON. Отключен целиком для обычных запусков; диагностика reuse не заменяет холодные проверки.",
+      "timeout_seconds": 180,
+      "enabled": false,
+      "legacy_build_script": "outputs/BuildColdNativeInitializationProbe.ps1"
+    },
+    {
+      "id": "ColdNoSource",
+      "main_class": "ColdNoSourceProbe",
+      "title": "Холодная тормозная сеть без источника воздуха",
+      "source": "work/pneumatic_live_fix/analysis/ColdNoSourceProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_cold_no_source_validation.json"
+      ],
+      "kind": "regression",
+      "scope": "77 узлов, временный Pzar=0 при InitSostavClass, затем уставка 5; 1000 электрических/пневматических шагов. Каждый шаг проверяет абсолютное давление ТМ/ТЦ/ЗР и ПМ/УР <=1e-5 при выключенных компрессорах/SF3/KN7. Повторный InitNew не вызывается. Полный запуск электровоза не принят. Ограничение выявлено при аудите поезда: tempPzar0 InitSostavClass перекалибровывает Dut; результат подтверждает только заявленные dry/control/PM assertions, не штатную вагонную геометрию или зарядку полного состава. Использовать TrainPneumatic для сохранённой геометрии.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildColdNoSourceProbe.ps1"
+    },
+    {
+      "id": "ColdPoweredMain",
+      "main_class": "ColdPoweredMainProbe",
+      "title": "Холодная последовательность токоприемник — БВ — компрессоры",
+      "source": "work/pneumatic_live_fix/analysis/ColdPoweredMainProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_cold_powered_main_findings.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Диагностическая холодная сеть из 77 узлов: безопасный InitSostavClass с Pzar=0, затем 5; сухая фаза, КМ2 и изоляция, первый токоприёмник и 3100 В, БВ со штатным возвратом. Команда основных компрессоров OFF до готовности ПСН, затем ON и зарядка ПМ >=7. Выходы компрессоров в положительной фазе не форсируются. Свежий PASS: test-20261011T100043250Z-630309b8. Полная подготовка электровоза, расход приводов и комплектация №137+ не проверяются. Ограничение выявлено при аудите поезда: tempPzar0 InitSostavClass перекалибровывает Dut; результат подтверждает только заявленные dry/control/PM assertions, не штатную вагонную геометрию или зарядку полного состава. Использовать TrainPneumatic для сохранённой геометрии.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildColdPoweredMainProbe.ps1"
+    },
+    {
+      "id": "ColdTrainAuxiliary",
+      "main_class": "ColdTrainAuxiliaryProbe",
+      "title": "Холодная сеть: зарядка вспомогательным компрессором",
+      "source": "work/pneumatic_live_fix/analysis/ColdTrainAuxiliaryProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_cold_train_auxiliary_validation.json"
+      ],
+      "kind": "regression",
+      "scope": "1000 сухих +5000 зарядных шагов, 77 узлов. Assertions: РС6/РС7 достигают 3.5, тормозная сеть и ПМ/УР остаются сухими, вторую секцию источник не заряжает, баланс <1e-8. Модель SF3 и SB1 WinForms; 105 л/мин постоянная номинальная подача, расход приводов не учтен. Ограничение выявлено при аудите поезда: tempPzar0 InitSostavClass перекалибровывает Dut; результат подтверждает только заявленные dry/control/PM assertions, не штатную вагонную геометрию или зарядку полного состава. Использовать TrainPneumatic для сохранённой геометрии.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildColdTrainAuxiliaryProbe.ps1"
+    },
+    {
+      "id": "CompressorPrepared",
+      "main_class": "CompressorPreparedProbe",
+      "title": "Подготовленная электрическая схема и основные компрессоры",
+      "source": "work/pneumatic_live_fix/analysis/CompressorPreparedProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_compressor_prepared_observations.json"
+      ],
+      "kind": "regression",
+      "scope": "Нативная команда компрессоров, последовательность токоприемники/БВ с импульсом возврата, разрешения ПСН; два цикла 7.5/9, отсутствие подачи до 12 секунд разгрузки BB, снятие разрешений при отключении БВ, ноль electricalFaults. Начальное ПМ и сбросы — учтенные диагностические границы массы. Профиль DEN и полный холодный пуск не приняты.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildCompressorPreparedProbe.ps1"
+    },
+    {
+      "id": "ControlAir",
+      "main_class": "ControlAirProbe",
+      "title": "Изолированный физический контур РС6/РС7",
+      "source": "work/pneumatic_live_fix/analysis/ControlAirProbe.cs",
+      "profile": "standalone",
+      "dependencies": [
+        "outputs/TrainerAirNetwork.cs",
+        "outputs/TrainerControlAir.cs",
+        "outputs/TrainerSessionLogging.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_control_air_validation.json",
+        "outputs/Trainer_control_air_shared_pm_validation.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Стенд CSharp: finite PM, 5-редуктор, КЕП11/РС7, relief7.5, КМ2 номинально105л/мин, общая масса двух секций. Без native электрических связей; проходы6мм/Cd.7/потребитель1мм — допущения.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildControlAirProbe.ps1"
+    },
+    {
+      "id": "EmergencyDrain",
+      "main_class": "EmergencyDrainProbe",
+      "title": "Разрядка ТМ до условий смены кабины",
+      "source": "work/pneumatic_live_fix/analysis/EmergencyDrainProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_emergency_drain_sequence.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Полная цепь 77 узлов, трасса головы/хвоста, удержание торможения при ВЦУ II/III. Время до почти нулевого давления не является временем распространения тормозной волны; абсолютная скорость разрядки не откалибрована.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildEmergencyDrainProbe.ps1"
+    },
+    {
+      "id": "EmergencyLength",
+      "main_class": "EmergencyLengthProbe",
+      "title": "Длина состава и разрядка ТМ",
+      "source": "work/pneumatic_live_fix/analysis/EmergencyLengthProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_emergency_length_full.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Варианты full/short/novr, default full. Изменяет диагностический состав/ВР; времена разрядки до почти нуля не подтверждают норматив тормозного действия.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildEmergencyLengthProbe.ps1"
+    },
+    {
+      "id": "FourPantographPressure",
+      "main_class": "FourPantographPressureProbe",
+      "title": "Старый тест четырех каналов токоприемников",
+      "source": "work/pneumatic_live_fix/analysis/FourPantographPressureProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_four_pantograph_pressure_probe.json"
+      ],
+      "kind": "obsolete",
+      "scope": "Прямая запись общего TPult.BD не соответствует текущему раздельному источнику РС6. Для состава из двух секций активны первые два канала; заменен SectionPantographPressure.",
+      "timeout_seconds": 180,
+      "enabled": false,
+      "legacy_build_script": "outputs/BuildFourPantographPressureProbe.ps1"
+    },
+    {
+      "id": "KmLeakHold",
+      "main_class": "KmLeakHoldProbe",
+      "title": "КМ II/III/IV с искусственной утечкой",
+      "source": "work/pneumatic_live_fix/analysis/KmLeakHoldProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_km_leak_hold_4.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Трехузловая цепь, явный параметр Dut=.2, компрессоры выключены; default R2, 80 т, КМ IV. Абсолютная калибровка утечек не принята.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildKmLeakHoldProbe.ps1"
+    },
+    {
+      "id": "PantographPressure",
+      "main_class": "PantographPressureProbe",
+      "title": "Старый одиночный тест давления токоприемника",
+      "source": "work/pneumatic_live_fix/analysis/PantographPressureProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_pantograph_pressure_probe.json"
+      ],
+      "kind": "obsolete",
+      "scope": "Пишет TPult.BD непосредственно. Источник текущих native сравнений перенесен в отдельные физические РС6 секций; заменен SectionPantographPressure.",
+      "timeout_seconds": 180,
+      "enabled": false,
+      "legacy_build_script": "outputs/BuildPantographPressureProbe.ps1"
+    },
+    {
+      "id": "PerPadNative",
+      "main_class": "PerPadNativeProbe",
+      "title": "Нативная сила по давлениям тележек",
+      "source": "work/pneumatic_live_fix/analysis/PerPadNativeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_per_pad_native_validation.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "25 сочетаний давлений/скоростей, сохранение сил 75 вагонов и восстановление hook. Проверяет связь с текущей формулой, а не физическую правильность абсолютных единиц/закона трения или РЭ.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildPerPadNativeProbe.ps1"
+    },
+    {
+      "id": "SectionPantographPressure",
+      "main_class": "SectionPantographPressureProbe",
+      "title": "Независимое давление РС6 двух секций и токоприемники",
+      "source": "work/pneumatic_live_fix/analysis/SectionPantographPressureProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_section_pantograph_pressure_probe.json"
+      ],
+      "kind": "regression",
+      "scope": "Прямой вызов native UpdateButton с физическими фикстурами РС6, опубликованными BeforeElectricalAirCycle. 7 фаз падения/гистерезиса проверяются assertions; 4 комбинации подъема только записываются в rows и требуют проверки runner. Состояния кнопок/контактов диагностические; расход приводов и полный холодный пуск не проверены.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildSectionPantographPressureProbe.ps1"
+    },
+    {
+      "id": "Sf3ControlAirHost",
+      "main_class": "Sf3ControlAirHostProbe",
+      "title": "Связь SF3, команды КМ2 и контуров РС6/РС7",
+      "source": "work/pneumatic_live_fix/analysis/Sf3ControlAirHostProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_sf3_native_power_observations.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Нативные КМ10/11 после прогрева; проверяет TPult.BC, SF3, SB1, сохранение РС7 и переход источника. Потребитель — стендовое отверстие, часть шагов только StepHostControlAir.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildSf3ControlAirHostProbe.ps1"
+    },
+    {
+      "id": "TwoSectionPneumatic",
+      "main_class": "NativeTwoBvrBtoProbe",
+      "title": "Старый мост двух БВР и БТО",
+      "source": "work/pneumatic_live_fix/analysis/NativeTwoBvrBtoProbe.cs",
+      "profile": "integration",
+      "dependencies": [
+        "outputs/TrainerAirNetwork.cs",
+        "outputs/TrainerControlAir.cs",
+        "outputs/TrainerBtoNetwork.cs",
+        "outputs/TrainerAirSelector.cs",
+        "outputs/TrainerKvtProfile.cs",
+        "outputs/TrainerTwoSectionAirChain.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_native_two_BVR_BTO_validation.json"
+      ],
+      "kind": "obsolete",
+      "scope": "Сборка исключает TrainerPneumaticNetworkCandidate и реализует прежний диагностический мост в самом probe. Не проверяет нынешнюю интеграцию, заменен CandidateAirHost.",
+      "timeout_seconds": 180,
+      "enabled": false,
+      "legacy_build_script": "outputs/BuildTwoSectionPneumaticProbe.ps1"
+    },
+    {
+      "id": "UnifiedAir",
+      "main_class": "UnifiedAirProbe",
+      "title": "Общий конечный запас воздуха двух секций",
+      "source": "work/pneumatic_live_fix/analysis/UnifiedAirProbe.cs",
+      "profile": "standalone",
+      "dependencies": [
+        "outputs/TrainerAirNetwork.cs",
+        "outputs/TrainerControlAir.cs",
+        "outputs/TrainerBtoNetwork.cs",
+        "outputs/TrainerAirSelector.cs",
+        "outputs/TrainerKvtProfile.cs",
+        "outputs/TrainerTwoSectionAirChain.cs",
+        "outputs/TrainerSessionLogging.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_unified_air_validation.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "4000 стендовых CSharp шагов: тормоза, два контура управления, boundary PM, один KM2, сохранение резервов и баланс. Электрические состояния — заданные стендовые входы.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildUnifiedAirProbe.ps1"
+    },
+    {
+      "id": "VcuAirSequence",
+      "main_class": "VcuAirSequenceProbe",
+      "title": "Нативные события ВЦУ и сохранение независимого торможения",
+      "source": "work/pneumatic_live_fix/analysis/VcuAirSequenceProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_vcu_air_sequence.json"
+      ],
+      "kind": "regression",
+      "scope": "Проверяет блокировку снятия ключа до разрядки головы и хвоста ТМ, режим R1 всех 75 загруженных вагонов/ТЦ 4..4.5, ВЦУ II/III сохраняет ИМ и торможение, возврат I разрешает отпуск. Native SetPosition/event; КМ/КВТ задаются диагностически. JSON без passed; успешность определяется exit code и assertions.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildVcuAirSequenceProbe.ps1"
+    },
+    {
+      "id": "VcuPowerCab",
+      "main_class": "VcuPowerCabProbe",
+      "title": "Питание управления при позициях ВЦУ",
+      "source": "work/pneumatic_live_fix/analysis/VcuPowerCabProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_vcu_native_power_positions.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Native SetPosition/event, 100 электрических шагов на фазу; III разрешается фикстурами ТМ=.7 и ИМ=3.5 без пневматического шага. Полная смена кабины не проверяется.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildVcuPowerCabProbe.ps1"
+    },
+    {
+      "id": "NativeInitializationCapture",
+      "main_class": "NativeInitializationCaptureProbe",
+      "title": "Отладочный захват исключений инициализации native DLL",
+      "source": "dev/tools/NativeInitializationCaptureProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_native_initialization_capture_result.json"
+      ],
+      "kind": "unsafe",
+      "scope": "Отключена после захвата первого EInOutError в unit initialization Communication1.dll: SaveLocoType, RewriteText DATA\\LIB\\ENGINE\\TypeLoc.klub через HKCU\\Software\\SPECTR\\TRENAGER\\Path\\WorkPath. Debugger изменил failure path: затем повторные C0000025 и CLR80131506. Не повторять для приемки. Helper теперь отсоединяется после первого Delphi exception и ограничивает повторы/число событий; это диагностические меры, не подтвержденное исправление модели.",
+      "timeout_seconds": 60,
+      "enabled": false
+    },
+    {
+      "id": "VrCrack",
+      "main_class": "VrCrackProbe",
+      "title": "Эксперимент порога зарядки ВР",
+      "source": "work/pneumatic_live_fix/analysis/VrCrackProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_vr_crack_2_80.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "В процессе временно меняет порог native ВР на .001; трехузловой стенд, default R2/80 т. Производственная модель не меняется; объемы и точный стенд Р008 не воспроизведены.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildVrCrackProbe.ps1"
+    },
+    {
+      "id": "VrLeak",
+      "main_class": "VrLeakProbe",
+      "title": "Утечки и отпуск ВР",
+      "source": "work/pneumatic_live_fix/analysis/VrLeakProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_vr_leak_2_80.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Трехузловая native цепь, варианты отключения утечек; default R2 без АР/80 т. Уставка КМ 5.4, фактический стенд и объемы Р008 не воспроизведены.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildVrLeakProbe.ps1"
+    },
+    {
+      "id": "VrLoadMode",
+      "main_class": "VrLoadModeProbe",
+      "title": "Груженый/средний/порожний режим ВР",
+      "source": "work/pneumatic_live_fix/analysis/VrLoadModeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_vr_load_mode_2_80.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "R1/R2/R3 и optional ar; default R2 без АР/80 т. Подтверждает значение переключателя и реакцию native алгоритма; контракт массы АР и оборудование точной ревизии не приняты.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildVrLoadModeProbe.ps1"
+    },
+    {
+      "id": "VrService",
+      "main_class": "VrServiceProbe",
+      "title": "Служебное торможение и отпуск ВР",
+      "source": "work/pneumatic_live_fix/analysis/VrServiceProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_vr_service_2_80.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Трехузловая цепь, КМ II зарядка с уставкой 5.4, V до УР3.5, IV 100с, II отпуск. Default R2 без АР/80 т. Фактическое давление/объемы стенда Р008 не совпадают, нормативная приемка запрещена.",
+      "timeout_seconds": 180,
+      "enabled": true,
+      "legacy_build_script": "outputs/BuildVrServiceProbe.ps1"
+    },
+    {
+      "id": "TrainPneumatic",
+      "main_class": "TrainPneumaticProbe",
+      "title": "Пневматика всех 75 вагонов: зарядка, торможение, отпуск и волна",
+      "source": "work/pneumatic_live_fix/analysis/TrainPneumaticProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_train_pneumatic_validation.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "All75wagons composite FTk0/R2/AR1/Ro0 read-only guards; candidate77airnodes/native geometry retained. Actual locomotive TM5.0–5.2 and head-to-wagon spread<=0.3 for300wagonaxles, cold charge; measured UR0.6–0.7→IV120s, service/emergency release. Pneumatic only (noMotionCycle); noAR3.4clamp. ExactARloadresponse, nativeforce, fullnormativebraketest, rod/pad/density/tailintegrity/wavebench remain unaccepted.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "TrainIsolation",
+      "main_class": "TrainIsolationProbe",
+      "title": "Разобщение полного поезда кранами и рукавами",
+      "source": "work/pneumatic_live_fix/analysis/TrainIsolationProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_train_isolation_validation.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "75 вагонов: закрытые краны 37/38, разъединение рукавов и открытые краны с обрывом, измеренное сравнение утечки, all-wagon pressure bounds. Не нормативный стенд.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "TrainPressureView",
+      "main_class": "TrainPressureViewProbe",
+      "title": "Режим давления всех вагонов: таблица и графики",
+      "source": "work/pneumatic_live_fix/analysis/TrainPressureViewProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_train_pressure_view_validation.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "225 actual native wagon readings; read-only UI mapping for75 wagons; spatial/time graphs rendered to PNG; selection, bounded history, invalid gaps, pause/reopen. No brake dynamics/norm certification.",
+      "timeout_seconds": 180,
+      "enabled": true
+    },
+    {
+      "id": "KmOvercharge",
+      "main_class": "KmOverchargeProbe",
+      "title": "Стабилизатор КМ и ликвидация сверхзарядного давления",
+      "source": "work/pneumatic_live_fix/analysis/KmOverchargeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_km_overcharge_validation.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Rules83 §3.2.8: I toUR6.4 thenII, timeUR5.8–5.6 80–120s and separate100–120 flag; actualPzar return, all75TC monitor. FinitePM,compressors off,no pressure fixtures/reinit. Visual TM pressure sensor indication not verified.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudAuditSnapshot",
+      "main_class": "MpsudAuditSnapshotProbe",
+      "title": "МПСУиД: фактически загруженные DLL",
+      "source": "work/pneumatic_live_fix/analysis/MpsudAuditSnapshotProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/MPSUD_audit_snapshot.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Assertions: four actual loaded module paths/SHA,100 warm idle native cycles,electricalFaults=0. Frame copies optional observations only; no protection/navigation/SME/link/diagnostics/rendering acceptance.",
+      "timeout_seconds": 180,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreenRuntime",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД: переходы и новые кадры экранов",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "0"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen02",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 1",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "1"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen03",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 2",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "2"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen04",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 3",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "3"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen05",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 4",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "4"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen06",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 5",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "5"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen07",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 6",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "6"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen08",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 7",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "7"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen09",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 8",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "8"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen10",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 9",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "9"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen11",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 10",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "10"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen12",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 11",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "11"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen13",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 12",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "12"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen14",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 13",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "13"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen15",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 14",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "14"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen16",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 15",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "15"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen17",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 16",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "16"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen18",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 17",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "17"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen19",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 18",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "18"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen20",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 19",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "19"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen21",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД штатный маршрут 20",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "20"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudValuesDriver",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД фактические показания Driver",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "1",
+        "driver"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Guarded native current-window widget observations; controlled input bytes restored, no physics between fixture write/render. PASS reproduces observed defects, does not accept RE conformity.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudValuesCi",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД фактические показания Ci",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "7",
+        "ci"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Guarded native current-window widget observations; controlled input bytes restored, no physics between fixture write/render. PASS reproduces observed defects, does not accept RE conformity.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudValuesAv",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД фактические показания Av",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "9",
+        "av"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "SC09 preview-binding acceptance alias: same both-monitor fixture as MpsudWagonInput; count preview 77, mass 6000 preserved and controlled editor bytes restored. Native Enter/Cancel commit and full MPSUID/RE conformity are not verified.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudValuesSme",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД фактические показания Sme",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "13",
+        "sme"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Guarded native current-window widget observations; controlled input bytes restored, no physics between fixture write/render. PASS reproduces observed defects, does not accept RE conformity.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudValuesDiag",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД диагностика: недоступный БУК",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "8",
+        "diag"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Only ordinary digit2; arrow recreation excluded after timeout test-20261011T123239410Z-8361b221. No normative BUK diagnostics acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen22",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД недоступные меню 21",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "21"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen23",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД недоступные меню 22",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "22"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen24",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД недоступные меню 23",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "23"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen25",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД недоступные меню 24",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "24"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen26",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД недоступные меню 25",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "25"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudScreen27",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД недоступные меню 26",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "26"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Fresh process Clock route; guarded native producer frames and widget values. Owned subclass pauses async WMUPDATE; no normative timing/conformance acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "MpsudDiagnosticArrows",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД стрелки: неприемочный захват",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "8",
+        "diag_arrows"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Disabled: native same-window recreation hung inside synchronous guarded capture; root cause unresolved. Not an acceptance probe.",
+      "timeout_seconds": 240,
+      "enabled": false,
+      "unsafe": true
+    },
+    {
+      "id": "MpsudWagonInput",
+      "main_class": "MpsudScreenRuntimeProbe",
+      "title": "МПСУиД SC09: ввод вагонов сохраняет поле массы",
+      "source": "work/pneumatic_live_fix/analysis/MpsudScreenRuntimeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "9",
+        "av_wagons"
+      ],
+      "result_files": [
+        "outputs/MPSUD_screens_runtime.json"
+      ],
+      "kind": "regression",
+      "scope": "Fresh x86 host: actual native AV editor on both monitors, preview 77 wagons in wagon-count label while mass remains 6000 t. Tests preview binding only; controlled editor bytes restored. Native Enter/Cancel commit, physics train reconfiguration, full MPSUID/RE conformity and diagnostic arrows are outside scope.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "AutovedenieCommandPath",
+      "main_class": "AutovedenieCommandPathProbe",
+      "title": "АВП: проверка штатной командной цепи тяги",
+      "source": "work/pneumatic_live_fix/analysis/AutovedenieCommandPathProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Autovedenie_command_path.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Guarded native operator command acceptance with independent excitation, positive native force and POEZD motion; provider/input restoration. Does not accept closed-loop AVP controller.",
+      "timeout_seconds": 180,
+      "enabled": true
+    },
+    {
+      "id": "AutovedenieJourney",
+      "main_class": "AutovedenieJourneyProbe",
+      "title": "АВП: автоматический проезд, ограничение всего состава и остановка",
+      "source": "work/pneumatic_live_fix/analysis/AutovedenieJourneyProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Autovedenie_journey.json"
+      ],
+      "kind": "candidate",
+      "scope": "Closed-loop prepared native journey on a declared 6500 m educational route scenario: actual acceleration, speed tracking, temporary limit, whole-train release, terminal stop, manual cancellation and explicit rearm. Not factory AVP certification or full cold-start acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "AutovedenieGraduatedBrake",
+      "main_class": "AutovedenieGraduatedBrakeProbe",
+      "title": "АВП: native ступень УР0.7, перекрыша IV и отпуск",
+      "source": "work/pneumatic_live_fix/analysis/AutovedenieGraduatedBrakeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Autovedenie_graduated_brake.json"
+      ],
+      "kind": "candidate",
+      "scope": "Measured native V to UR reduction0.7 then IV, settled head/tail deceleration and II release, guarded input restoration. Model-specific educational calibration, no closed-loop acceptance.",
+      "timeout_seconds": 180,
+      "enabled": true
+    },
+    {
+      "id": "AutovedenieOverride",
+      "main_class": "AutovedenieOverrideProbe",
+      "title": "АВП: штатный ручной перехват, разрешение, ЭПК и САУТ",
+      "source": "work/pneumatic_live_fix/analysis/AutovedenieOverrideProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Autovedenie_override.json"
+      ],
+      "kind": "candidate",
+      "scope": "Prepared native production host: permission loss, manual KM/KVT, EPK key and native SAUT from a declared restriction, explicit rearm and input/API restoration. No protection/force/speed output writes, no full cold-start or factory conformity acceptance.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "VigilanceOperator",
+      "main_class": "TrainerVigilanceProbe",
+      "title": "РБ, РБС и РБП: ввод, отпускание и длительное удержание",
+      "source": "outputs/TrainerVigilanceProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_vigilance_operator.json"
+      ],
+      "kind": "candidate",
+      "scope": "Fresh x86 real cab RB/RBS and explicit alternative RBP consumer input; native holding warning, scoped/deferred restoration and WinForms release events. No physical RBP hardware or EPK acceptance.",
+      "timeout_seconds": 180,
+      "enabled": true
+    },
+    {
+      "id": "NativeSafetyAdapter",
+      "main_class": "TrainerNativeSafetyProbe",
+      "title": "Нативные КЛУБ/РБ — катушка, камера и срыв ЭПК",
+      "source": "outputs/TrainerNativeSafetyProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_native_safety.json"
+      ],
+      "kind": "candidate",
+      "scope": "Prepared native host composite75/charge5.1, production AVP disabled; explicit genuine operator8kmh +1/coast via guarded original bridge. Original TGeneralPB: RB holding warning, actual KLUB request, timelyRBS vs missedACK, real chamber drop/trip and TM/TC. Scoped WhiteCodeWay5 only toKLUB; notmarkup/liveoccupancy/fullcoldstart/factory acceptance; no output assignments.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "MarkupSafety",
+      "main_class": "TrainerMarkupSafetyProbe",
+      "title": "Исходная разметка: КЛУБ, САУТ и локомотивный светофор",
+      "source": "outputs/TrainerMarkupSafetyProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Markup_safety.json"
+      ],
+      "kind": "candidate",
+      "scope": "Original native-axis route,181lights/224profiles/177curves; actual source fields, private consumer contexts and native KLUB/ALSN publication. Declared initial states and measured motion through stop boundary; no live occupancy or output injection.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "AutovedenieAdverseBrake",
+      "main_class": "TrainerAutovedenieAdverseBrakeProbe",
+      "title": "АВП: штатное торможение на исходном спуске−8‰",
+      "source": "outputs/TrainerAutovedenieAdverseBrakeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Autovedenie_adverse_brake.json"
+      ],
+      "kind": "candidate",
+      "scope": "Full333033m source; all75compositeFTk0/R2/AR1; legacy AVP refused. Guarded original native operator start before prepared20kmh on−8; actual0.7UR V→IV, fullKVT6+IV securedhold60s; separate release observation and real0.7 reapplication if movement. ActualCOM/allvehicle speeds/pressures; VI-only release hold not assumed. Not80kmh/fullAVP acceptance.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "TrainBrakeCycle",
+      "main_class": "TrainBrakeCycleProbe",
+      "title": "Нормативный цикл торможения и выдержки до тяги",
+      "source": "work/pneumatic_live_fix/analysis/TrainBrakeCycleProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_train_brake_cycle.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Pure observed-command state machine: IV6s; I release anchor; KVT actualtarget35s+automaticrelease; moving60/stopped90-120-360 withcold1.5; subsequentsteps/recharge150s/sand/sensorfail/passivehistory. No native acceptance.",
+      "timeout_seconds": 30,
+      "requires_native_initialization": false,
+      "enabled": true
+    },
+    {
+      "id": "NativeSand",
+      "main_class": "TrainerNativeSandProbe",
+      "title": "Песок: штатный вход, подтверждение и восстановление",
+      "source": "outputs/TrainerNativeSandProbe.cs",
+      "profile": "candidate",
+      "dependencies": [
+        "outputs/TrainerAutovedenieAdverseBrakeProbe.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_native_sand.json"
+      ],
+      "kind": "candidate",
+      "scope": "Original Communication/Pult TPult40→nativeAF+A5; scoped input and recovery, physicalCab3D4/manualsourcepreservation. AVP disabled; acceptedcommand only, notairflow/adhesion or forcecredit.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "TrainBrakeNative",
+      "main_class": "TrainerTrainBrakeNativeProbe",
+      "title": "Нативный регламент: IV, I→II и выдержка до тяги",
+      "source": "outputs/TrainerTrainBrakeNativeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [
+        "outputs/TrainerAutovedenieAdverseBrakeProbe.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_train_brake_native.json"
+      ],
+      "kind": "candidate",
+      "scope": "Original full native route/prepared60kmh; productionbrakecycle commandsrealKM/KVT. ObservedIV6,Ianchor,KVT35+actualautoTC,moving60+allTCrelease. No syntheticphysics or fullAVP acceptance.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "NativeBrakeBound",
+      "main_class": "TrainerNativeBrakeBoundProbe",
+      "title": "Композиционные колодки: сила и задержка торможения с80км/ч",
+      "source": "outputs/TrainerNativeBrakeBoundProbe.cs",
+      "profile": "candidate",
+      "dependencies": [
+        "outputs/TrainerAutovedenieAdverseBrakeProbe.cs",
+        "outputs/TrainerNativeBrakeObserver.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Autovedenie_native_brake_bound.json"
+      ],
+      "kind": "candidate",
+      "scope": "Declaredprepared80aftergenuineoperatorstart; fulloriginalprofile/teachinggreen/SAUTOFF diagnostic. GuardedoriginalFSTP observer, all75actualpressures andpredictorforces, firstUR.7 V→IV. Conditionalwagon-onlybound; noAVPcalibrationorfullrouteacceptance.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "StoppedBrakeService",
+      "main_class": "TrainerStoppedBrakeNativeProbe",
+      "title": "Остановочный отпуск: service/warm",
+      "source": "outputs/TrainerStoppedBrakeNativeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [
+        "outputs/TrainerAutovedenieAdverseBrakeProbe.cs"
+      ],
+      "arguments": [
+        "service",
+        "warm"
+      ],
+      "result_files": [
+        "outputs/Trainer_stopped_brake_native.json"
+      ],
+      "kind": "candidate",
+      "scope": "Prepared stopped initial state at originalflat16000m aftergenuineorigin; realphysicalbrake andproductionreleasepolicy. ActualI anchor, stopped90/120/360, winter/unknown1.5 policy only; allTC/fullKVT. No native thermal or fullAVP acceptance.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "StoppedBrakeFullService",
+      "main_class": "TrainerStoppedBrakeNativeProbe",
+      "title": "Остановочный отпуск: fullservice/warm",
+      "source": "outputs/TrainerStoppedBrakeNativeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [
+        "outputs/TrainerAutovedenieAdverseBrakeProbe.cs"
+      ],
+      "arguments": [
+        "fullservice",
+        "warm"
+      ],
+      "result_files": [
+        "outputs/Trainer_stopped_brake_native.json"
+      ],
+      "kind": "candidate",
+      "scope": "Prepared stopped initial state at originalflat16000m aftergenuineorigin; realphysicalbrake andproductionreleasepolicy. ActualI anchor, stopped90/120/360, winter/unknown1.5 policy only; allTC/fullKVT. No native thermal or fullAVP acceptance.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "StoppedBrakeEmergency",
+      "main_class": "TrainerStoppedBrakeNativeProbe",
+      "title": "Остановочный отпуск: emergency/warm",
+      "source": "outputs/TrainerStoppedBrakeNativeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [
+        "outputs/TrainerAutovedenieAdverseBrakeProbe.cs"
+      ],
+      "arguments": [
+        "emergency",
+        "warm"
+      ],
+      "result_files": [
+        "outputs/Trainer_stopped_brake_native.json"
+      ],
+      "kind": "candidate",
+      "scope": "Prepared stopped initial state at originalflat16000m aftergenuineorigin; realphysicalbrake andproductionreleasepolicy. ActualI anchor, stopped90/120/360, winter/unknown1.5 policy only; allTC/fullKVT. No native thermal or fullAVP acceptance.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "StoppedBrakeServiceCold",
+      "main_class": "TrainerStoppedBrakeNativeProbe",
+      "title": "Остановочный отпуск: service/cold",
+      "source": "outputs/TrainerStoppedBrakeNativeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [
+        "outputs/TrainerAutovedenieAdverseBrakeProbe.cs"
+      ],
+      "arguments": [
+        "service",
+        "cold"
+      ],
+      "result_files": [
+        "outputs/Trainer_stopped_brake_native.json"
+      ],
+      "kind": "candidate",
+      "scope": "Prepared stopped initial state at originalflat16000m aftergenuineorigin; realphysicalbrake andproductionreleasepolicy. ActualI anchor, stopped90/120/360, winter/unknown1.5 policy only; allTC/fullKVT. No native thermal or fullAVP acceptance.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "StoppedBrakeFullServiceCold",
+      "main_class": "TrainerStoppedBrakeNativeProbe",
+      "title": "Остановочный отпуск: fullservice/cold",
+      "source": "outputs/TrainerStoppedBrakeNativeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [
+        "outputs/TrainerAutovedenieAdverseBrakeProbe.cs"
+      ],
+      "arguments": [
+        "fullservice",
+        "cold"
+      ],
+      "result_files": [
+        "outputs/Trainer_stopped_brake_native.json"
+      ],
+      "kind": "candidate",
+      "scope": "Prepared stopped initial state at originalflat16000m aftergenuineorigin; realphysicalbrake andproductionreleasepolicy. ActualI anchor, stopped90/120/360, winter/unknown1.5 policy only; allTC/fullKVT. No native thermal or fullAVP acceptance.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "StoppedBrakeEmergencyCold",
+      "main_class": "TrainerStoppedBrakeNativeProbe",
+      "title": "Остановочный отпуск: emergency/cold",
+      "source": "outputs/TrainerStoppedBrakeNativeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [
+        "outputs/TrainerAutovedenieAdverseBrakeProbe.cs"
+      ],
+      "arguments": [
+        "emergency",
+        "cold"
+      ],
+      "result_files": [
+        "outputs/Trainer_stopped_brake_native.json"
+      ],
+      "kind": "candidate",
+      "scope": "Prepared stopped initial state at originalflat16000m aftergenuineorigin; realphysicalbrake andproductionreleasepolicy. ActualI anchor, stopped90/120/360, winter/unknown1.5 policy only; allTC/fullKVT. No native thermal or fullAVP acceptance.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "StoppedBrakeServiceUnknown",
+      "main_class": "TrainerStoppedBrakeNativeProbe",
+      "title": "Остановочный отпуск: service/unknown",
+      "source": "outputs/TrainerStoppedBrakeNativeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [
+        "outputs/TrainerAutovedenieAdverseBrakeProbe.cs"
+      ],
+      "arguments": [
+        "service",
+        "unknown"
+      ],
+      "result_files": [
+        "outputs/Trainer_stopped_brake_native.json"
+      ],
+      "kind": "candidate",
+      "scope": "Prepared stopped initial state at originalflat16000m aftergenuineorigin; realphysicalbrake andproductionreleasepolicy. ActualI anchor, stopped90/120/360, winter/unknown1.5 policy only; allTC/fullKVT. No native thermal or fullAVP acceptance.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "NativeSandAir",
+      "main_class": "TrainerNativeSandAirProbe",
+      "title": "Пескоподача: штатный расход конечной ПМ",
+      "source": "outputs/TrainerNativeSandAirProbe.cs",
+      "profile": "candidate",
+      "dependencies": [
+        "outputs/TrainerAutovedenieAdverseBrakeProbe.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_native_sand_air.json"
+      ],
+      "kind": "candidate",
+      "scope": "Reconstructed virtualAF→native7Finput; originalTorm4*actualDP consumer inKMIV/KMII, realfinitePM. OriginalcabSand/mainOFF, freshness andrestoration. No pressure/force/outputsubstitution, noadhesioncredit.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "RepeatedBrakeNative",
+      "main_class": "TrainerRepeatedBrakeNativeProbe",
+      "title": "Повторное торможение до60с подзарядки",
+      "source": "outputs/TrainerRepeatedBrakeNativeProbe.cs",
+      "profile": "candidate",
+      "dependencies": [
+        "outputs/TrainerAutovedenieAdverseBrakeProbe.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_repeated_brake_native.json"
+      ],
+      "kind": "candidate",
+      "scope": "Originalwholeconsist-6/full333033/prepared80 aftergenuineorigin; productionpolicy choosesrealhandles. EarlyrepeatI+30, measuredFIRST+.3, originalAF/sandair andsecondIV/allTC. Teachinggreen/SAUTOFF/scriptedRBS; no fullAVPacceptance.",
+      "timeout_seconds": 300,
+      "enabled": true
+    }
+  ]
+}

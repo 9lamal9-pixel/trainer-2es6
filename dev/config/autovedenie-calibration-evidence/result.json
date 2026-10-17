@@ -1,0 +1,22 @@
+{
+    "id":  "AutovedenieGraduatedBrake",
+    "scope":  "Measured native V to UR reduction0.7 then IV, settled head/tail deceleration and II release, guarded input restoration. Model-specific educational calibration, no closed-loop acceptance.",
+    "status":  "passed",
+    "artifacts":  [
+                      {
+                          "path":  "Autovedenie_graduated_brake.json",
+                          "sha256":  "F42F304E42E3169ADC100183A01252D5FDFB79A380927869E023A5F5FFE4B90B"
+                      }
+                  ],
+    "build_id":  "build-20261013T101423874Z-595661d5",
+    "pid":  1872,
+    "exit_code":  0,
+    "session":  {
+                    "id":  "20261013T101426435Z_p1872_5848103d4b0d490fa767acdc97ce7fcc",
+                    "state":  "closed",
+                    "exceptions":  0,
+                    "logging_failures":  0,
+                    "source_build_id":  "build-20261013T101423874Z-595661d5"
+                },
+    "finished_utc":  "2026-10-13T10:14:30.3536702Z"
+}

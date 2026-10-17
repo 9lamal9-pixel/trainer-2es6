@@ -1,0 +1,31 @@
+{
+  "utc": "2026-10-11T12:06:37.063722+00:00",
+  "passed": true,
+  "documents": [
+    {
+      "path": "dev/docs/MPSUID_2ES6_AUDIT.md",
+      "sha256": "9810b376a81d15fbbee7a632335e85e070b6b15b7dce10b15a9a79d6b76ffc06"
+    },
+    {
+      "path": "dev/docs/audit_parts/MPSUD_CONTROL.md",
+      "sha256": "950b3903fdaca695afc3b153996e388872ce1b59f5839bae72c69f75bc11f377"
+    },
+    {
+      "path": "dev/docs/audit_parts/MPSUD_DISPLAY.md",
+      "sha256": "4e7219c4d96fb1130b3f7fcf45f10ae31bfa5f7d8fbca58c047709b1be2a74f3"
+    },
+    {
+      "path": "dev/docs/audit_parts/MPSUD_TRACTION.md",
+      "sha256": "12b526602c3f387fb427c74cea96f29f27572d86ad2314f4f341313cdf7724ec"
+    }
+  ],
+  "local_links_checked": 78,
+  "missing_links": [],
+  "json_syntax": true,
+  "diagnostic_scope_consistent": true,
+  "production_code_modified": false,
+  "unchanged_production_sources": 16,
+  "final_candidate_build": "build-20261011T120409744Z-3a4a1dc0",
+  "final_candidate_sha256": "7FDF0BB09056522D1A64FCDD3E24438444F17D84413A8D7BFFED303492324F7F",
+  "note": "Document integrity and diagnostic scope only. Source/code semantics independently reviewed by three agents; not functional acceptance of MPSUID."
+}

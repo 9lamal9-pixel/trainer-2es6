@@ -1,0 +1,2951 @@
+{
+  "TwtAutovedFrame": {
+    "resource": "work/msul_emulator/display_reference/TWTAUTOVEDFRAME.json",
+    "vmt_rva": "0x1e39ac",
+    "instance_size": "0x31c",
+    "field_table_rva": "0x1e3ab0",
+    "published_fields": [
+      {
+        "offset": "0x298",
+        "type_index": 0,
+        "name": "Panel1",
+        "class": "TPanel",
+        "props": {}
+      },
+      {
+        "offset": "0x29c",
+        "type_index": 1,
+        "name": "Label1",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Режим автоведения:"
+        }
+      },
+      {
+        "offset": "0x2a0",
+        "type_index": 1,
+        "name": "Label2",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Номер поезда:"
+        }
+      },
+      {
+        "offset": "0x2a4",
+        "type_index": 1,
+        "name": "Label3",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Интенсивность нагона:"
+        }
+      },
+      {
+        "offset": "0x2a8",
+        "type_index": 1,
+        "name": "Label4",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Вес состава, т:"
+        }
+      },
+      {
+        "offset": "0x2ac",
+        "type_index": 1,
+        "name": "Label5",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Число вагонов:"
+        }
+      },
+      {
+        "offset": "0x2b0",
+        "type_index": 1,
+        "name": "Label6",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Порожние вагоны:"
+        }
+      },
+      {
+        "offset": "0x2b4",
+        "type_index": 0,
+        "name": "Panel2",
+        "class": "TPanel",
+        "props": {}
+      },
+      {
+        "offset": "0x2b8",
+        "type_index": 2,
+        "name": "Shape1",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2bc",
+        "type_index": 1,
+        "name": "Label_11",
+        "class": "TLabel",
+        "props": {
+          "Caption": "0 - обычный"
+        }
+      },
+      {
+        "offset": "0x2c0",
+        "type_index": 1,
+        "name": "Label_12",
+        "class": "TLabel",
+        "props": {
+          "Caption": "1 - по удалению"
+        }
+      },
+      {
+        "offset": "0x2c4",
+        "type_index": 1,
+        "name": "Label_13",
+        "class": "TLabel",
+        "props": {
+          "Caption": "2 - нагон"
+        }
+      },
+      {
+        "offset": "0x2c8",
+        "type_index": 0,
+        "name": "Panel3",
+        "class": "TPanel",
+        "props": {}
+      },
+      {
+        "offset": "0x2cc",
+        "type_index": 2,
+        "name": "Shape2",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2d0",
+        "type_index": 1,
+        "name": "Label8",
+        "class": "TLabel",
+        "props": {
+          "Caption": "0"
+        }
+      },
+      {
+        "offset": "0x2d4",
+        "type_index": 0,
+        "name": "Panel4",
+        "class": "TPanel",
+        "props": {}
+      },
+      {
+        "offset": "0x2d8",
+        "type_index": 2,
+        "name": "Shape3",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2dc",
+        "type_index": 1,
+        "name": "Label9",
+        "class": "TLabel",
+        "props": {
+          "Caption": "0"
+        }
+      },
+      {
+        "offset": "0x2e0",
+        "type_index": 0,
+        "name": "Panel5",
+        "class": "TPanel",
+        "props": {}
+      },
+      {
+        "offset": "0x2e4",
+        "type_index": 2,
+        "name": "Shape4",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2e8",
+        "type_index": 1,
+        "name": "Label10",
+        "class": "TLabel",
+        "props": {
+          "Caption": "0"
+        }
+      },
+      {
+        "offset": "0x2ec",
+        "type_index": 0,
+        "name": "Panel6",
+        "class": "TPanel",
+        "props": {}
+      },
+      {
+        "offset": "0x2f0",
+        "type_index": 2,
+        "name": "Shape5",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2f4",
+        "type_index": 1,
+        "name": "Label12",
+        "class": "TLabel",
+        "props": {
+          "Caption": "0"
+        }
+      },
+      {
+        "offset": "0x2f8",
+        "type_index": 0,
+        "name": "Panel7",
+        "class": "TPanel",
+        "props": {}
+      },
+      {
+        "offset": "0x2fc",
+        "type_index": 2,
+        "name": "Shape6",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x300",
+        "type_index": 1,
+        "name": "Label_111",
+        "class": "TLabel",
+        "props": {
+          "Caption": "0 - нет"
+        }
+      },
+      {
+        "offset": "0x304",
+        "type_index": 1,
+        "name": "Label_112",
+        "class": "TLabel",
+        "props": {
+          "Caption": "1 - да"
+        }
+      },
+      {
+        "offset": "0x308",
+        "type_index": 1,
+        "name": "Label7",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Режим ввода и редактирования данных для автоведения"
+        }
+      }
+    ]
+  },
+  "TwtCIFrame": {
+    "resource": "work/msul_emulator/display_reference/TWTCIFRAME.json",
+    "vmt_rva": "0x1dcd08",
+    "instance_size": "0x494",
+    "field_table_rva": "0x1dce36",
+    "published_fields": [
+      {
+        "offset": "0x298",
+        "type_index": 0,
+        "name": "Label1",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Система измерений"
+        }
+      },
+      {
+        "offset": "0x29c",
+        "type_index": 1,
+        "name": "Shape3",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2a0",
+        "type_index": 1,
+        "name": "Shape4",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2a4",
+        "type_index": 1,
+        "name": "Shape5",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2a8",
+        "type_index": 1,
+        "name": "Shape6",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2ac",
+        "type_index": 1,
+        "name": "Shape7",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2b0",
+        "type_index": 0,
+        "name": "Label3",
+        "class": "TLabel",
+        "props": {
+          "Caption": "БС-СИ"
+        }
+      },
+      {
+        "offset": "0x2b4",
+        "type_index": 0,
+        "name": "Label2",
+        "class": "TLabel",
+        "props": {
+          "Caption": "БС-СИ, БЗС"
+        }
+      },
+      {
+        "offset": "0x2b8",
+        "type_index": 0,
+        "name": "Label4",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Счетчик электроэнергии"
+        }
+      },
+      {
+        "offset": "0x2bc",
+        "type_index": 0,
+        "name": "Label5",
+        "class": "TLabel",
+        "props": {
+          "Caption": "БЦВ"
+        }
+      },
+      {
+        "offset": "0x2c0",
+        "type_index": 0,
+        "name": "Label6",
+        "class": "TLabel",
+        "props": {
+          "Caption": "БС-СИ (мегоомметр)"
+        }
+      },
+      {
+        "offset": "0x2c4",
+        "type_index": 2,
+        "name": "DrawGrid1",
+        "class": "TDrawGrid",
+        "props": {}
+      },
+      {
+        "offset": "0x2c8",
+        "type_index": 2,
+        "name": "DrawGrid2",
+        "class": "TDrawGrid",
+        "props": {}
+      },
+      {
+        "offset": "0x2cc",
+        "type_index": 2,
+        "name": "DrawGrid3",
+        "class": "TDrawGrid",
+        "props": {}
+      },
+      {
+        "offset": "0x2d0",
+        "type_index": 2,
+        "name": "DrawGrid4",
+        "class": "TDrawGrid",
+        "props": {}
+      },
+      {
+        "offset": "0x2d4",
+        "type_index": 2,
+        "name": "DrawGrid5",
+        "class": "TDrawGrid",
+        "props": {}
+      },
+      {
+        "offset": "0x2d8",
+        "type_index": 2,
+        "name": "DrawGrid6",
+        "class": "TDrawGrid",
+        "props": {}
+      }
+    ]
+  },
+  "TwtClockFrame": {
+    "resource": "work/msul_emulator/display_reference/TWTCLOCKFRAME.json",
+    "vmt_rva": "0x199838",
+    "instance_size": "0x2ac",
+    "field_table_rva": "0x19993c",
+    "published_fields": [
+      {
+        "offset": "0x298",
+        "type_index": 0,
+        "name": "PaintBox1",
+        "class": "TPaintBox",
+        "props": {
+          "OnPaint": "PaintBox1Paint"
+        }
+      },
+      {
+        "offset": "0x29c",
+        "type_index": 1,
+        "name": "Image1",
+        "class": "TImage",
+        "props": {
+          "Visible": false
+        }
+      }
+    ]
+  },
+  "TwtContactorsFrame": {
+    "resource": "work/msul_emulator/display_reference/TWTCONTACTORSFRAME.json",
+    "vmt_rva": "0x1daafc",
+    "instance_size": "0xf0c",
+    "field_table_rva": "0x1dac12",
+    "published_fields": [
+      {
+        "offset": "0x298",
+        "type_index": 0,
+        "name": "Label1",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Реостатные контакторы силовой схемы"
+        }
+      },
+      {
+        "offset": "0x29c",
+        "type_index": 1,
+        "name": "Shape6",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2a0",
+        "type_index": 2,
+        "name": "PaintBox1",
+        "class": "TPaintBox",
+        "props": {
+          "OnPaint": "PaintBox1Paint"
+        }
+      },
+      {
+        "offset": "0x2a4",
+        "type_index": 1,
+        "name": "Shape7",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2a8",
+        "type_index": 2,
+        "name": "PaintBox2",
+        "class": "TPaintBox",
+        "props": {
+          "OnPaint": "PaintBox2Paint"
+        }
+      },
+      {
+        "offset": "0x2ac",
+        "type_index": 1,
+        "name": "Shape4",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2b0",
+        "type_index": 1,
+        "name": "Shape5",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2b4",
+        "type_index": 1,
+        "name": "Shape3",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2b8",
+        "type_index": 0,
+        "name": "Label2",
+        "class": "TLabel",
+        "props": {
+          "Caption": "БС-РН, БИ"
+        }
+      },
+      {
+        "offset": "0x2bc",
+        "type_index": 0,
+        "name": "Label3",
+        "class": "TLabel",
+        "props": {
+          "Caption": "БУК (К)"
+        }
+      },
+      {
+        "offset": "0x2c0",
+        "type_index": 0,
+        "name": "Label4",
+        "class": "TLabel",
+        "props": {
+          "Caption": "БУК (К)"
+        }
+      },
+      {
+        "offset": "0x2c4",
+        "type_index": 3,
+        "name": "DrawGrid1",
+        "class": "TDrawGrid",
+        "props": {}
+      },
+      {
+        "offset": "0x2c8",
+        "type_index": 3,
+        "name": "DrawGrid2",
+        "class": "TDrawGrid",
+        "props": {}
+      },
+      {
+        "offset": "0x2cc",
+        "type_index": 3,
+        "name": "DrawGrid3",
+        "class": "TDrawGrid",
+        "props": {}
+      }
+    ]
+  },
+  "TwtDiagnostFrame": {
+    "resource": "work/msul_emulator/display_reference/TWTDIAGNOSTFRAME.json",
+    "vmt_rva": "0x1d5698",
+    "instance_size": "0x2d4",
+    "field_table_rva": "0x1d579c",
+    "published_fields": [
+      {
+        "offset": "0x298",
+        "type_index": 0,
+        "name": "Panel_Sviaz1",
+        "class": "TPanel",
+        "props": {}
+      },
+      {
+        "offset": "0x29c",
+        "type_index": 1,
+        "name": "PaintBox1",
+        "class": "TPaintBox",
+        "props": {
+          "OnPaint": "PaintBox1Paint"
+        }
+      },
+      {
+        "offset": "0x2a0",
+        "type_index": 2,
+        "name": "StringGrid1",
+        "class": "TStringGrid",
+        "props": {}
+      },
+      {
+        "offset": "0x2a4",
+        "type_index": 0,
+        "name": "Panel_Sviaz2",
+        "class": "TPanel",
+        "props": {}
+      },
+      {
+        "offset": "0x2a8",
+        "type_index": 1,
+        "name": "PaintBox2",
+        "class": "TPaintBox",
+        "props": {
+          "OnPaint": "PaintBox2Paint"
+        }
+      },
+      {
+        "offset": "0x2ac",
+        "type_index": 2,
+        "name": "StringGrid2",
+        "class": "TStringGrid",
+        "props": {}
+      },
+      {
+        "offset": "0x2b0",
+        "type_index": 0,
+        "name": "Panel_Neispr",
+        "class": "TPanel",
+        "props": {}
+      },
+      {
+        "offset": "0x2b4",
+        "type_index": 1,
+        "name": "PaintBox3",
+        "class": "TPaintBox",
+        "props": {
+          "OnPaint": "PaintBox3Paint"
+        }
+      },
+      {
+        "offset": "0x2b8",
+        "type_index": 2,
+        "name": "StringGrid3",
+        "class": "TStringGrid",
+        "props": {}
+      },
+      {
+        "offset": "0x2bc",
+        "type_index": 3,
+        "name": "Label1",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Диагностика"
+        }
+      },
+      {
+        "offset": "0x2c0",
+        "type_index": 4,
+        "name": "DataCaption1",
+        "class": "TDataCaption",
+        "props": {
+          "DataStr": "Связь 1"
+        }
+      },
+      {
+        "offset": "0x2c4",
+        "type_index": 4,
+        "name": "DataCaption2",
+        "class": "TDataCaption",
+        "props": {
+          "DataStr": "Связь 2"
+        }
+      },
+      {
+        "offset": "0x2c8",
+        "type_index": 4,
+        "name": "DataCaption3",
+        "class": "TDataCaption",
+        "props": {
+          "DataStr": "Неисправности"
+        }
+      }
+    ]
+  },
+  "TwtMashinistFrame": {
+    "resource": "work/msul_emulator/display_reference/TWTMASHINISTFRAME.json",
+    "vmt_rva": "0x1c9dfc",
+    "instance_size": "0x49c",
+    "field_table_rva": "0x1c9f00",
+    "published_fields": [
+      {
+        "offset": "0x298",
+        "type_index": 0,
+        "name": "Panel1",
+        "class": "TPanel",
+        "props": {}
+      },
+      {
+        "offset": "0x29c",
+        "type_index": 0,
+        "name": "Panel2",
+        "class": "TPanel",
+        "props": {}
+      },
+      {
+        "offset": "0x2a0",
+        "type_index": 0,
+        "name": "Panel3",
+        "class": "TPanel",
+        "props": {}
+      },
+      {
+        "offset": "0x2a4",
+        "type_index": 0,
+        "name": "Panel4",
+        "class": "TPanel",
+        "props": {}
+      },
+      {
+        "offset": "0x2a8",
+        "type_index": 1,
+        "name": "Uks",
+        "class": "TIndicatorPribor",
+        "props": {
+          "Caption": "ТМ"
+        }
+      },
+      {
+        "offset": "0x2ac",
+        "type_index": 1,
+        "name": "Ija1_12",
+        "class": "TIndicatorPribor",
+        "props": {
+          "Caption": "ТМ"
+        }
+      },
+      {
+        "offset": "0x2b0",
+        "type_index": 1,
+        "name": "Ija1_34",
+        "class": "TIndicatorPribor",
+        "props": {
+          "Caption": "ТМ"
+        }
+      },
+      {
+        "offset": "0x2b4",
+        "type_index": 1,
+        "name": "Iv1_12",
+        "class": "TIndicatorPribor",
+        "props": {
+          "Caption": "ТМ"
+        }
+      },
+      {
+        "offset": "0x2b8",
+        "type_index": 1,
+        "name": "Iv1_34",
+        "class": "TIndicatorPribor",
+        "props": {
+          "Caption": "ТМ"
+        }
+      },
+      {
+        "offset": "0x2bc",
+        "type_index": 1,
+        "name": "Ija2",
+        "class": "TIndicatorPribor",
+        "props": {
+          "Caption": "ТМ"
+        }
+      },
+      {
+        "offset": "0x2c0",
+        "type_index": 1,
+        "name": "Iv2",
+        "class": "TIndicatorPribor",
+        "props": {
+          "Caption": "ТМ"
+        }
+      },
+      {
+        "offset": "0x2c4",
+        "type_index": 1,
+        "name": "Ija3",
+        "class": "TIndicatorPribor",
+        "props": {
+          "Caption": "ТМ"
+        }
+      },
+      {
+        "offset": "0x2c8",
+        "type_index": 1,
+        "name": "Iv3",
+        "class": "TIndicatorPribor",
+        "props": {
+          "Caption": "ТМ"
+        }
+      },
+      {
+        "offset": "0x2cc",
+        "type_index": 2,
+        "name": "BV1",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x2d0",
+        "type_index": 2,
+        "name": "BV2",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x2d4",
+        "type_index": 2,
+        "name": "BV3",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x2d8",
+        "type_index": 2,
+        "name": "BV4",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x2dc",
+        "type_index": 2,
+        "name": "PSN1",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x2e0",
+        "type_index": 2,
+        "name": "PSN2",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x2e4",
+        "type_index": 2,
+        "name": "PSN3",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x2e8",
+        "type_index": 2,
+        "name": "PSN4",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x2ec",
+        "type_index": 2,
+        "name": "MV1",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x2f0",
+        "type_index": 2,
+        "name": "MV2",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x2f4",
+        "type_index": 2,
+        "name": "MV3",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x2f8",
+        "type_index": 2,
+        "name": "MV4",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x2fc",
+        "type_index": 2,
+        "name": "MK1",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x300",
+        "type_index": 2,
+        "name": "MK2",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x304",
+        "type_index": 2,
+        "name": "MK3",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x308",
+        "type_index": 2,
+        "name": "MK4",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x30c",
+        "type_index": 2,
+        "name": "DataCaption17",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x310",
+        "type_index": 2,
+        "name": "DataCaption18",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x314",
+        "type_index": 2,
+        "name": "DataCaption19",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x318",
+        "type_index": 2,
+        "name": "DataCaption20",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x31c",
+        "type_index": 2,
+        "name": "DR1",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x320",
+        "type_index": 2,
+        "name": "DR2",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x324",
+        "type_index": 2,
+        "name": "DR3",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x328",
+        "type_index": 2,
+        "name": "DR4",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x32c",
+        "type_index": 2,
+        "name": "BK1",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x330",
+        "type_index": 2,
+        "name": "BK2",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x334",
+        "type_index": 2,
+        "name": "BK3",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x338",
+        "type_index": 2,
+        "name": "BK4",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x33c",
+        "type_index": 2,
+        "name": "TM1",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x340",
+        "type_index": 2,
+        "name": "TM2",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x344",
+        "type_index": 2,
+        "name": "TM3",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x348",
+        "type_index": 2,
+        "name": "TM4",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x34c",
+        "type_index": 2,
+        "name": "TC1",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x350",
+        "type_index": 2,
+        "name": "TC2",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x354",
+        "type_index": 2,
+        "name": "TC3",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x358",
+        "type_index": 2,
+        "name": "TC4",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x35c",
+        "type_index": 2,
+        "name": "DataCaption38",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x360",
+        "type_index": 2,
+        "name": "DataCaption40",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x364",
+        "type_index": 2,
+        "name": "DataCaption41",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x368",
+        "type_index": 1,
+        "name": "Ija4",
+        "class": "TIndicatorPribor",
+        "props": {
+          "Caption": "ТМ"
+        }
+      },
+      {
+        "offset": "0x36c",
+        "type_index": 1,
+        "name": "Iv4",
+        "class": "TIndicatorPribor",
+        "props": {
+          "Caption": "ТМ"
+        }
+      },
+      {
+        "offset": "0x370",
+        "type_index": 2,
+        "name": "DataCaption37",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x374",
+        "type_index": 2,
+        "name": "DCCCC",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x378",
+        "type_index": 2,
+        "name": "DataCaption42",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x37c",
+        "type_index": 2,
+        "name": "DataCaption43",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x380",
+        "type_index": 2,
+        "name": "DataCaption44",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x384",
+        "type_index": 2,
+        "name": "DataCaption45",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x388",
+        "type_index": 2,
+        "name": "DataCaption46",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x38c",
+        "type_index": 2,
+        "name": "DataCaption47",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x390",
+        "type_index": 2,
+        "name": "DataCaption48",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x394",
+        "type_index": 2,
+        "name": "DataCaption49",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x398",
+        "type_index": 2,
+        "name": "DataCaption50",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x39c",
+        "type_index": 2,
+        "name": "DataCaption51",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x3a0",
+        "type_index": 2,
+        "name": "DataCaption52",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x3a4",
+        "type_index": 2,
+        "name": "Ija1_12DC",
+        "class": "TDataCaption",
+        "props": {
+          "DataStr": "0"
+        }
+      },
+      {
+        "offset": "0x3a8",
+        "type_index": 2,
+        "name": "Ija1_34DC",
+        "class": "TDataCaption",
+        "props": {
+          "DataStr": "0"
+        }
+      },
+      {
+        "offset": "0x3ac",
+        "type_index": 2,
+        "name": "Iv1_12DC",
+        "class": "TDataCaption",
+        "props": {
+          "DataStr": "0"
+        }
+      },
+      {
+        "offset": "0x3b0",
+        "type_index": 2,
+        "name": "Iv1_34DC",
+        "class": "TDataCaption",
+        "props": {
+          "DataStr": "0"
+        }
+      },
+      {
+        "offset": "0x3b4",
+        "type_index": 2,
+        "name": "Ija2DC",
+        "class": "TDataCaption",
+        "props": {
+          "DataStr": "0"
+        }
+      },
+      {
+        "offset": "0x3b8",
+        "type_index": 2,
+        "name": "Iv2DC",
+        "class": "TDataCaption",
+        "props": {
+          "DataStr": "0"
+        }
+      },
+      {
+        "offset": "0x3bc",
+        "type_index": 2,
+        "name": "Ija3DC",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x3c0",
+        "type_index": 2,
+        "name": "Iv3DC",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x3c4",
+        "type_index": 2,
+        "name": "Ija4DC",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x3c8",
+        "type_index": 2,
+        "name": "Iv4DC",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x3cc",
+        "type_index": 2,
+        "name": "UksDC",
+        "class": "TDataCaption",
+        "props": {
+          "DataStr": "0"
+        }
+      },
+      {
+        "offset": "0x3d0",
+        "type_index": 2,
+        "name": "DataCaption64",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x3d4",
+        "type_index": 2,
+        "name": "DataCaption65",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x3d8",
+        "type_index": 2,
+        "name": "DataCaption66",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x3dc",
+        "type_index": 2,
+        "name": "DataCaption67",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x3e0",
+        "type_index": 2,
+        "name": "DataCaption68",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x3e4",
+        "type_index": 2,
+        "name": "DataCaption69",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x3e8",
+        "type_index": 2,
+        "name": "DataCaption1",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x3ec",
+        "type_index": 2,
+        "name": "DataCaption2",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x3f0",
+        "type_index": 2,
+        "name": "DataCaption3",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x3f4",
+        "type_index": 2,
+        "name": "DataCaption4",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x3f8",
+        "type_index": 2,
+        "name": "DataCaption5",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x3fc",
+        "type_index": 2,
+        "name": "DataCaption6",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x400",
+        "type_index": 2,
+        "name": "DataCaption7",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x404",
+        "type_index": 2,
+        "name": "DataCaption8",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x408",
+        "type_index": 2,
+        "name": "DataCaption9",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x40c",
+        "type_index": 2,
+        "name": "DataCaption10",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x410",
+        "type_index": 2,
+        "name": "DataCaption11",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x414",
+        "type_index": 2,
+        "name": "RezhFDC",
+        "class": "TDataCaption",
+        "props": {
+          "DataStr": "Рекуперация"
+        }
+      },
+      {
+        "offset": "0x418",
+        "type_index": 2,
+        "name": "PosDC",
+        "class": "TDataCaption",
+        "props": {
+          "DataStr": "0"
+        }
+      },
+      {
+        "offset": "0x41c",
+        "type_index": 2,
+        "name": "CurProcRealDC",
+        "class": "TDataCaption",
+        "props": {
+          "DataStr": "0"
+        }
+      },
+      {
+        "offset": "0x420",
+        "type_index": 2,
+        "name": "MVDC",
+        "class": "TDataCaption",
+        "props": {
+          "DataStr": "0"
+        }
+      },
+      {
+        "offset": "0x424",
+        "type_index": 2,
+        "name": "DataCaption16",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x428",
+        "type_index": 2,
+        "name": "DataCaption21",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x42c",
+        "type_index": 2,
+        "name": "DataCaption22",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x430",
+        "type_index": 2,
+        "name": "DataCaption23",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x434",
+        "type_index": 2,
+        "name": "ProcTygaUstDC",
+        "class": "TDataCaption",
+        "props": {
+          "DataStr": "0"
+        }
+      },
+      {
+        "offset": "0x438",
+        "type_index": 2,
+        "name": "BoxCaptionDC",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x43c",
+        "type_index": 2,
+        "name": "BoxSec1DC",
+        "class": "TDataCaption",
+        "props": {
+          "DataStr": "0"
+        }
+      },
+      {
+        "offset": "0x440",
+        "type_index": 2,
+        "name": "BoxOsi1DC",
+        "class": "TDataCaption",
+        "props": {
+          "DataStr": "0"
+        }
+      },
+      {
+        "offset": "0x444",
+        "type_index": 2,
+        "name": "BoxSec2DC",
+        "class": "TDataCaption",
+        "props": {
+          "DataStr": "0"
+        }
+      },
+      {
+        "offset": "0x448",
+        "type_index": 2,
+        "name": "BoxOsi2DC",
+        "class": "TDataCaption",
+        "props": {
+          "DataStr": "0"
+        }
+      },
+      {
+        "offset": "0x44c",
+        "type_index": 3,
+        "name": "Shape1",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x450",
+        "type_index": 4,
+        "name": "Label1",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Сообщение"
+        }
+      },
+      {
+        "offset": "0x454",
+        "type_index": 0,
+        "name": "Panel5",
+        "class": "TPanel",
+        "props": {
+          "Visible": false
+        }
+      },
+      {
+        "offset": "0x458",
+        "type_index": 4,
+        "name": "Label3",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Список сообщений"
+        }
+      },
+      {
+        "offset": "0x45c",
+        "type_index": 4,
+        "name": "Label2",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Сообщение"
+        }
+      }
+    ]
+  },
+  "TwtOborudovanieFrame": {
+    "resource": "work/msul_emulator/display_reference/TWTOBORUDOVANIEFRAME.json",
+    "vmt_rva": "0x1d41c4",
+    "instance_size": "0x34c",
+    "field_table_rva": "0x1d42c8",
+    "published_fields": [
+      {
+        "offset": "0x298",
+        "type_index": 0,
+        "name": "Shape1",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x29c",
+        "type_index": 1,
+        "name": "PaintBox_TM",
+        "class": "TPaintBox",
+        "props": {
+          "OnPaint": "PaintBox_TMPaint"
+        }
+      },
+      {
+        "offset": "0x2a0",
+        "type_index": 1,
+        "name": "PaintBox_HM",
+        "class": "TPaintBox",
+        "props": {
+          "OnPaint": "PaintBox_HMPaint"
+        }
+      },
+      {
+        "offset": "0x2a4",
+        "type_index": 2,
+        "name": "PriborStates_T4_s2",
+        "class": "TPriborStates",
+        "props": {}
+      },
+      {
+        "offset": "0x2a8",
+        "type_index": 2,
+        "name": "PriborStates_T4_s1",
+        "class": "TPriborStates",
+        "props": {}
+      },
+      {
+        "offset": "0x2ac",
+        "type_index": 2,
+        "name": "PriborStates_T3_s2",
+        "class": "TPriborStates",
+        "props": {}
+      },
+      {
+        "offset": "0x2b0",
+        "type_index": 2,
+        "name": "PriborStates_T3_s1",
+        "class": "TPriborStates",
+        "props": {}
+      },
+      {
+        "offset": "0x2b4",
+        "type_index": 2,
+        "name": "PriborStates_T2_s2",
+        "class": "TPriborStates",
+        "props": {}
+      },
+      {
+        "offset": "0x2b8",
+        "type_index": 2,
+        "name": "PriborStates_T2_s1",
+        "class": "TPriborStates",
+        "props": {}
+      },
+      {
+        "offset": "0x2bc",
+        "type_index": 2,
+        "name": "PriborStates_T1_s2",
+        "class": "TPriborStates",
+        "props": {}
+      },
+      {
+        "offset": "0x2c0",
+        "type_index": 2,
+        "name": "PriborStates_T1_s1",
+        "class": "TPriborStates",
+        "props": {}
+      },
+      {
+        "offset": "0x2c4",
+        "type_index": 2,
+        "name": "PriborStates_RightAr",
+        "class": "TPriborStates",
+        "props": {}
+      },
+      {
+        "offset": "0x2c8",
+        "type_index": 2,
+        "name": "PriborStates_Pult_s2",
+        "class": "TPriborStates",
+        "props": {}
+      },
+      {
+        "offset": "0x2cc",
+        "type_index": 2,
+        "name": "PriborStates_Pult_s1",
+        "class": "TPriborStates",
+        "props": {}
+      },
+      {
+        "offset": "0x2d0",
+        "type_index": 2,
+        "name": "PriborStates_PSN_s2",
+        "class": "TPriborStates",
+        "props": {}
+      },
+      {
+        "offset": "0x2d4",
+        "type_index": 2,
+        "name": "PriborStates_PSN_s1",
+        "class": "TPriborStates",
+        "props": {}
+      },
+      {
+        "offset": "0x2d8",
+        "type_index": 2,
+        "name": "PriborStates_MV2_s2",
+        "class": "TPriborStates",
+        "props": {}
+      },
+      {
+        "offset": "0x2dc",
+        "type_index": 2,
+        "name": "PriborStates_MV2_s1",
+        "class": "TPriborStates",
+        "props": {}
+      },
+      {
+        "offset": "0x2e0",
+        "type_index": 2,
+        "name": "PriborStates_MV1_s2",
+        "class": "TPriborStates",
+        "props": {}
+      },
+      {
+        "offset": "0x2e4",
+        "type_index": 2,
+        "name": "PriborStates_MV1_s1",
+        "class": "TPriborStates",
+        "props": {}
+      },
+      {
+        "offset": "0x2e8",
+        "type_index": 2,
+        "name": "PriborStates_MK_s2",
+        "class": "TPriborStates",
+        "props": {}
+      },
+      {
+        "offset": "0x2ec",
+        "type_index": 2,
+        "name": "PriborStates_MK_s1",
+        "class": "TPriborStates",
+        "props": {}
+      },
+      {
+        "offset": "0x2f0",
+        "type_index": 2,
+        "name": "PriborStates_LeftAr",
+        "class": "TPriborStates",
+        "props": {}
+      },
+      {
+        "offset": "0x2f4",
+        "type_index": 2,
+        "name": "PriborStates_BV_s2",
+        "class": "TPriborStates",
+        "props": {}
+      },
+      {
+        "offset": "0x2f8",
+        "type_index": 2,
+        "name": "PriborStates_BV_s1",
+        "class": "TPriborStates",
+        "props": {}
+      },
+      {
+        "offset": "0x2fc",
+        "type_index": 2,
+        "name": "PriborStates_BPTR_S2",
+        "class": "TPriborStates",
+        "props": {}
+      },
+      {
+        "offset": "0x300",
+        "type_index": 2,
+        "name": "PriborStates_BPTR_S1",
+        "class": "TPriborStates",
+        "props": {}
+      },
+      {
+        "offset": "0x304",
+        "type_index": 2,
+        "name": "PriborStates_AB_s2",
+        "class": "TPriborStates",
+        "props": {}
+      },
+      {
+        "offset": "0x308",
+        "type_index": 2,
+        "name": "PriborStates_AB_s1",
+        "class": "TPriborStates",
+        "props": {}
+      },
+      {
+        "offset": "0x30c",
+        "type_index": 3,
+        "name": "Image1",
+        "class": "TImage",
+        "props": {}
+      },
+      {
+        "offset": "0x310",
+        "type_index": 4,
+        "name": "Label1",
+        "class": "TLabel",
+        "props": {
+          "Caption": "СЕКЦИЯ 1"
+        }
+      },
+      {
+        "offset": "0x314",
+        "type_index": 4,
+        "name": "Label2",
+        "class": "TLabel",
+        "props": {
+          "Caption": "СЕКЦИЯ 2"
+        }
+      },
+      {
+        "offset": "0x318",
+        "type_index": 4,
+        "name": "Label3",
+        "class": "TLabel",
+        "props": {
+          "Caption": "ТМ"
+        }
+      },
+      {
+        "offset": "0x31c",
+        "type_index": 4,
+        "name": "Label4",
+        "class": "TLabel",
+        "props": {
+          "Caption": "НМ"
+        }
+      },
+      {
+        "offset": "0x320",
+        "type_index": 4,
+        "name": "StaticText1",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Сообщение"
+        }
+      },
+      {
+        "offset": "0x324",
+        "type_index": 5,
+        "name": "PicturesContainer1",
+        "class": "TPicturesContainer",
+        "props": {}
+      },
+      {
+        "offset": "0x328",
+        "type_index": 6,
+        "name": "LI_Tokopr_Forvard",
+        "class": "TLighterIndicator",
+        "props": {}
+      },
+      {
+        "offset": "0x32c",
+        "type_index": 6,
+        "name": "LI_Tokopr_Back",
+        "class": "TLighterIndicator",
+        "props": {}
+      },
+      {
+        "offset": "0x330",
+        "type_index": 7,
+        "name": "DC_KLUB",
+        "class": "TDataCaption",
+        "props": {
+          "DataStr": "КЛУБ"
+        }
+      },
+      {
+        "offset": "0x334",
+        "type_index": 7,
+        "name": "DC_SAUT",
+        "class": "TDataCaption",
+        "props": {
+          "DataStr": "САУТ"
+        }
+      },
+      {
+        "offset": "0x338",
+        "type_index": 7,
+        "name": "DC_TSKBM",
+        "class": "TDataCaption",
+        "props": {
+          "DataStr": "ТСКБМ"
+        }
+      },
+      {
+        "offset": "0x33c",
+        "type_index": 7,
+        "name": "DC_MPSU",
+        "class": "TDataCaption",
+        "props": {
+          "DataStr": "МПСУиД"
+        }
+      }
+    ]
+  },
+  "TwtOgranFrame": {
+    "resource": "work/msul_emulator/display_reference/TWTOGRANFRAME.json",
+    "vmt_rva": "0x1e46b4",
+    "instance_size": "0x39c",
+    "field_table_rva": "0x1e47b8",
+    "published_fields": [
+      {
+        "offset": "0x298",
+        "type_index": 0,
+        "name": "Label7",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Режим ввода и редактирования предупреждений"
+        }
+      },
+      {
+        "offset": "0x29c",
+        "type_index": 1,
+        "name": "StaticText1",
+        "class": "TStaticText",
+        "props": {
+          "Caption": "Режим ввода и редактирования предупреждений"
+        }
+      },
+      {
+        "offset": "0x2a0",
+        "type_index": 2,
+        "name": "Panel1",
+        "class": "TPanel",
+        "props": {}
+      },
+      {
+        "offset": "0x2a4",
+        "type_index": 0,
+        "name": "Label1",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Режим автоведения:"
+        }
+      },
+      {
+        "offset": "0x2a8",
+        "type_index": 2,
+        "name": "Panel2",
+        "class": "TPanel",
+        "props": {}
+      },
+      {
+        "offset": "0x2ac",
+        "type_index": 3,
+        "name": "Shape_1",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2b0",
+        "type_index": 0,
+        "name": "Label_0",
+        "class": "TLabel",
+        "props": {
+          "Caption": "0 - добавить новое"
+        }
+      },
+      {
+        "offset": "0x2b4",
+        "type_index": 0,
+        "name": "Label_1",
+        "class": "TLabel",
+        "props": {
+          "Caption": "1 - исправить текущее"
+        }
+      },
+      {
+        "offset": "0x2b8",
+        "type_index": 0,
+        "name": "Label_2",
+        "class": "TLabel",
+        "props": {
+          "Caption": "2 - удалить текущее"
+        }
+      },
+      {
+        "offset": "0x2bc",
+        "type_index": 0,
+        "name": "Label_3",
+        "class": "TLabel",
+        "props": {
+          "Caption": "3 - удалить все"
+        }
+      },
+      {
+        "offset": "0x2c0",
+        "type_index": 0,
+        "name": "Label_4",
+        "class": "TLabel",
+        "props": {
+          "Caption": "4 - применить"
+        }
+      },
+      {
+        "offset": "0x2c4",
+        "type_index": 0,
+        "name": "Label_5",
+        "class": "TLabel",
+        "props": {
+          "Caption": "5 - отмена"
+        }
+      },
+      {
+        "offset": "0x2c8",
+        "type_index": 2,
+        "name": "Panel8",
+        "class": "TPanel",
+        "props": {}
+      },
+      {
+        "offset": "0x2cc",
+        "type_index": 0,
+        "name": "Label2",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Параметры:"
+        }
+      },
+      {
+        "offset": "0x2d0",
+        "type_index": 2,
+        "name": "Panel10",
+        "class": "TPanel",
+        "props": {}
+      },
+      {
+        "offset": "0x2d4",
+        "type_index": 3,
+        "name": "Shape_2464646",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2d8",
+        "type_index": 0,
+        "name": "Label20",
+        "class": "TLabel",
+        "props": {
+          "Caption": "99999"
+        }
+      },
+      {
+        "offset": "0x2dc",
+        "type_index": 0,
+        "name": "Label21",
+        "class": "TLabel",
+        "props": {
+          "Caption": "99999"
+        }
+      },
+      {
+        "offset": "0x2e0",
+        "type_index": 0,
+        "name": "Label13",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Предупреждений:"
+        }
+      },
+      {
+        "offset": "0x2e4",
+        "type_index": 0,
+        "name": "Label11",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Номер поезда:"
+        }
+      },
+      {
+        "offset": "0x2e8",
+        "type_index": 2,
+        "name": "Panel15",
+        "class": "TPanel",
+        "props": {}
+      },
+      {
+        "offset": "0x2ec",
+        "type_index": 0,
+        "name": "Label26",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Список предупреждений:"
+        }
+      },
+      {
+        "offset": "0x2f0",
+        "type_index": 0,
+        "name": "Label17",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Для перемещения по списку используйте клавиши:"
+        }
+      },
+      {
+        "offset": "0x2f4",
+        "type_index": 4,
+        "name": "Image1",
+        "class": "TImage",
+        "props": {}
+      },
+      {
+        "offset": "0x2f8",
+        "type_index": 4,
+        "name": "Image2",
+        "class": "TImage",
+        "props": {}
+      },
+      {
+        "offset": "0x2fc",
+        "type_index": 4,
+        "name": "Image3",
+        "class": "TImage",
+        "props": {}
+      },
+      {
+        "offset": "0x300",
+        "type_index": 4,
+        "name": "Image4",
+        "class": "TImage",
+        "props": {}
+      },
+      {
+        "offset": "0x304",
+        "type_index": 2,
+        "name": "Panel17",
+        "class": "TPanel",
+        "props": {}
+      },
+      {
+        "offset": "0x308",
+        "type_index": 3,
+        "name": "Shape_7",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x30c",
+        "type_index": 5,
+        "name": "ListBox1",
+        "class": "TListBox",
+        "props": {}
+      },
+      {
+        "offset": "0x310",
+        "type_index": 2,
+        "name": "Panel3",
+        "class": "TPanel",
+        "props": {}
+      },
+      {
+        "offset": "0x314",
+        "type_index": 0,
+        "name": "Label5",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Начало ограничения:"
+        }
+      },
+      {
+        "offset": "0x318",
+        "type_index": 0,
+        "name": "Label12",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Конец ограничения:"
+        }
+      },
+      {
+        "offset": "0x31c",
+        "type_index": 0,
+        "name": "Label16",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Ограничение скорости, км/ч:"
+        }
+      },
+      {
+        "offset": "0x320",
+        "type_index": 2,
+        "name": "Panel5",
+        "class": "TPanel",
+        "props": {}
+      },
+      {
+        "offset": "0x324",
+        "type_index": 3,
+        "name": "Shape3",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x328",
+        "type_index": 0,
+        "name": "Label3",
+        "class": "TLabel",
+        "props": {
+          "Caption": "КМ:"
+        }
+      },
+      {
+        "offset": "0x32c",
+        "type_index": 0,
+        "name": "Label9",
+        "class": "TLabel",
+        "props": {
+          "Caption": "ПК:"
+        }
+      },
+      {
+        "offset": "0x330",
+        "type_index": 2,
+        "name": "Panel4",
+        "class": "TPanel",
+        "props": {}
+      },
+      {
+        "offset": "0x334",
+        "type_index": 3,
+        "name": "Shape_2",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x338",
+        "type_index": 1,
+        "name": "StaticText_FKM",
+        "class": "TStaticText",
+        "props": {
+          "Caption": "9999"
+        }
+      },
+      {
+        "offset": "0x33c",
+        "type_index": 2,
+        "name": "Panel6",
+        "class": "TPanel",
+        "props": {
+          "Caption": "99"
+        }
+      },
+      {
+        "offset": "0x340",
+        "type_index": 3,
+        "name": "Shape_3",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x344",
+        "type_index": 1,
+        "name": "StaticText_FPK",
+        "class": "TStaticText",
+        "props": {
+          "Caption": "99"
+        }
+      },
+      {
+        "offset": "0x348",
+        "type_index": 2,
+        "name": "Panel7",
+        "class": "TPanel",
+        "props": {}
+      },
+      {
+        "offset": "0x34c",
+        "type_index": 3,
+        "name": "Shape5",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x350",
+        "type_index": 0,
+        "name": "Label8",
+        "class": "TLabel",
+        "props": {
+          "Caption": "КМ:"
+        }
+      },
+      {
+        "offset": "0x354",
+        "type_index": 0,
+        "name": "Label10",
+        "class": "TLabel",
+        "props": {
+          "Caption": "ПК:"
+        }
+      },
+      {
+        "offset": "0x358",
+        "type_index": 2,
+        "name": "Panel9",
+        "class": "TPanel",
+        "props": {}
+      },
+      {
+        "offset": "0x35c",
+        "type_index": 3,
+        "name": "Shape_4",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x360",
+        "type_index": 1,
+        "name": "StaticText_LKM",
+        "class": "TStaticText",
+        "props": {
+          "Caption": "9999"
+        }
+      },
+      {
+        "offset": "0x364",
+        "type_index": 2,
+        "name": "Panel11",
+        "class": "TPanel",
+        "props": {
+          "Caption": "99"
+        }
+      },
+      {
+        "offset": "0x368",
+        "type_index": 3,
+        "name": "Shape_5",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x36c",
+        "type_index": 1,
+        "name": "StaticText_LPK",
+        "class": "TStaticText",
+        "props": {
+          "Caption": "99"
+        }
+      },
+      {
+        "offset": "0x370",
+        "type_index": 2,
+        "name": "Panel12",
+        "class": "TPanel",
+        "props": {}
+      },
+      {
+        "offset": "0x374",
+        "type_index": 3,
+        "name": "Shape9",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x378",
+        "type_index": 0,
+        "name": "Label14",
+        "class": "TLabel",
+        "props": {
+          "Caption": "ОС:"
+        }
+      },
+      {
+        "offset": "0x37c",
+        "type_index": 2,
+        "name": "Panel13",
+        "class": "TPanel",
+        "props": {}
+      },
+      {
+        "offset": "0x380",
+        "type_index": 3,
+        "name": "Shape_6",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x384",
+        "type_index": 1,
+        "name": "StaticText_OS",
+        "class": "TStaticText",
+        "props": {
+          "Caption": "9999"
+        }
+      }
+    ]
+  },
+  "TwtPCConnectFrame": {
+    "resource": "work/msul_emulator/display_reference/TWTPCCONNECTFRAME.json",
+    "vmt_rva": "0x1e0c60",
+    "instance_size": "0x2dc",
+    "field_table_rva": "0x1e0d64",
+    "published_fields": [
+      {
+        "offset": "0x298",
+        "type_index": 0,
+        "name": "Label1",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Связь ПСН"
+        }
+      },
+      {
+        "offset": "0x29c",
+        "type_index": 1,
+        "name": "Shape3",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2a0",
+        "type_index": 1,
+        "name": "Shape1",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2a4",
+        "type_index": 1,
+        "name": "Shape2",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2a8",
+        "type_index": 1,
+        "name": "Shape4",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2ac",
+        "type_index": 0,
+        "name": "Label3",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Статус БС-ПС"
+        }
+      },
+      {
+        "offset": "0x2b0",
+        "type_index": 0,
+        "name": "Label2",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Статус БС-УВ"
+        }
+      },
+      {
+        "offset": "0x2b4",
+        "type_index": 0,
+        "name": "Label4",
+        "class": "TLabel",
+        "props": {
+          "Caption": "PH3000"
+        }
+      },
+      {
+        "offset": "0x2b8",
+        "type_index": 0,
+        "name": "Label5",
+        "class": "TLabel",
+        "props": {
+          "Caption": "ПЧ ВО, ТК"
+        }
+      },
+      {
+        "offset": "0x2bc",
+        "type_index": 2,
+        "name": "DrawGrid2",
+        "class": "TDrawGrid",
+        "props": {}
+      },
+      {
+        "offset": "0x2c0",
+        "type_index": 2,
+        "name": "DrawGrid1",
+        "class": "TDrawGrid",
+        "props": {}
+      },
+      {
+        "offset": "0x2c4",
+        "type_index": 2,
+        "name": "DrawGrid3",
+        "class": "TDrawGrid",
+        "props": {}
+      },
+      {
+        "offset": "0x2c8",
+        "type_index": 2,
+        "name": "DrawGrid4",
+        "class": "TDrawGrid",
+        "props": {}
+      }
+    ]
+  },
+  "TwtRN3000Frame": {
+    "resource": "work/msul_emulator/display_reference/TWTRN3000FRAME.json",
+    "vmt_rva": "0x1e1b30",
+    "instance_size": "0xf84",
+    "field_table_rva": "0x1e1c34",
+    "published_fields": [
+      {
+        "offset": "0x298",
+        "type_index": 0,
+        "name": "Label1",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Состояние PH3000"
+        }
+      },
+      {
+        "offset": "0x29c",
+        "type_index": 1,
+        "name": "Shape3",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2a0",
+        "type_index": 1,
+        "name": "Shape1",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2a4",
+        "type_index": 0,
+        "name": "Label3",
+        "class": "TLabel",
+        "props": {
+          "Caption": "PH3000 N1"
+        }
+      },
+      {
+        "offset": "0x2a8",
+        "type_index": 0,
+        "name": "Label2",
+        "class": "TLabel",
+        "props": {
+          "Caption": "PH3000 N2"
+        }
+      },
+      {
+        "offset": "0x2ac",
+        "type_index": 2,
+        "name": "DrawGrid2",
+        "class": "TDrawGrid",
+        "props": {}
+      },
+      {
+        "offset": "0x2b0",
+        "type_index": 2,
+        "name": "DrawGrid1",
+        "class": "TDrawGrid",
+        "props": {}
+      }
+    ]
+  },
+  "TwtSautFrame": {
+    "resource": "work/msul_emulator/display_reference/TWTSAUTFRAME.json",
+    "vmt_rva": "0x1d16d8",
+    "instance_size": "0x2e4",
+    "field_table_rva": "0x1d17dc",
+    "published_fields": [
+      {
+        "offset": "0x298",
+        "type_index": 0,
+        "name": "ArrowPribor_SAUT",
+        "class": "TSAUTArrowPribor",
+        "props": {
+          "MaxValue": "00000000000000a00640"
+        }
+      },
+      {
+        "offset": "0x29c",
+        "type_index": 1,
+        "name": "Label6",
+        "class": "TLabel",
+        "props": {
+          "Caption": "САУТ-ЦМ/485 (П/К1)"
+        }
+      },
+      {
+        "offset": "0x2a0",
+        "type_index": 2,
+        "name": "Panel",
+        "class": "TPanel",
+        "props": {
+          "Caption": "Panel"
+        }
+      },
+      {
+        "offset": "0x2a4",
+        "type_index": 1,
+        "name": "Label1",
+        "class": "TLabel",
+        "props": {
+          "Caption": "1000"
+        }
+      },
+      {
+        "offset": "0x2a8",
+        "type_index": 1,
+        "name": "Label2",
+        "class": "TLabel",
+        "props": {
+          "Caption": "2000"
+        }
+      },
+      {
+        "offset": "0x2ac",
+        "type_index": 1,
+        "name": "Label3",
+        "class": "TLabel",
+        "props": {
+          "Caption": "3000"
+        }
+      },
+      {
+        "offset": "0x2b0",
+        "type_index": 1,
+        "name": "Label4",
+        "class": "TLabel",
+        "props": {
+          "Caption": "0"
+        }
+      },
+      {
+        "offset": "0x2b4",
+        "type_index": 2,
+        "name": "Panel1",
+        "class": "TPanel",
+        "props": {}
+      },
+      {
+        "offset": "0x2b8",
+        "type_index": 1,
+        "name": "Label7",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Расстояние до точки прицельной остановки, м"
+        }
+      },
+      {
+        "offset": "0x2bc",
+        "type_index": 1,
+        "name": "Label_Ogr",
+        "class": "TLabel",
+        "props": {
+          "Caption": "999"
+        }
+      },
+      {
+        "offset": "0x2c0",
+        "type_index": 3,
+        "name": "DistToLightIP",
+        "class": "TIndicatorPribor",
+        "props": {}
+      },
+      {
+        "offset": "0x2c4",
+        "type_index": 4,
+        "name": "DistToLightDC",
+        "class": "TDataCaption",
+        "props": {
+          "DataStr": "0"
+        }
+      },
+      {
+        "offset": "0x2c8",
+        "type_index": 4,
+        "name": "SautDC",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x2cc",
+        "type_index": 4,
+        "name": "EPKDC",
+        "class": "TDataCaption",
+        "props": {}
+      },
+      {
+        "offset": "0x2d0",
+        "type_index": 4,
+        "name": "TetaRDC",
+        "class": "TDataCaption",
+        "props": {
+          "DataStr": "0.00"
+        }
+      },
+      {
+        "offset": "0x2d4",
+        "type_index": 4,
+        "name": "DataCaption2",
+        "class": "TDataCaption",
+        "props": {
+          "DataStr": "3.0."
+        }
+      },
+      {
+        "offset": "0x2d8",
+        "type_index": 1,
+        "name": "Label5",
+        "class": "TLabel",
+        "props": {
+          "Caption": "ТК:"
+        }
+      }
+    ]
+  },
+  "TwtSMErame": {
+    "resource": "work/msul_emulator/display_reference/TWTSMERAME.json",
+    "vmt_rva": "0x1df398",
+    "instance_size": "0x3ac",
+    "field_table_rva": "0x1df49c",
+    "published_fields": [
+      {
+        "offset": "0x298",
+        "type_index": 0,
+        "name": "Label1",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Межсекционный обмен"
+        }
+      },
+      {
+        "offset": "0x29c",
+        "type_index": 1,
+        "name": "Shape3",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2a0",
+        "type_index": 1,
+        "name": "Shape1",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2a4",
+        "type_index": 2,
+        "name": "PaintBox1",
+        "class": "TPaintBox",
+        "props": {
+          "OnPaint": "PaintBox1Paint"
+        }
+      },
+      {
+        "offset": "0x2a8",
+        "type_index": 2,
+        "name": "PaintBox2",
+        "class": "TPaintBox",
+        "props": {
+          "OnPaint": "PaintBox2Paint"
+        }
+      },
+      {
+        "offset": "0x2ac",
+        "type_index": 0,
+        "name": "Label3",
+        "class": "TLabel",
+        "props": {
+          "Caption": "С1 С2 С3 С4"
+        }
+      },
+      {
+        "offset": "0x2b0",
+        "type_index": 0,
+        "name": "Label2",
+        "class": "TLabel",
+        "props": {
+          "Caption": "С1 С2 С3 С4"
+        }
+      },
+      {
+        "offset": "0x2b4",
+        "type_index": 3,
+        "name": "DrawGrid2",
+        "class": "TDrawGrid",
+        "props": {}
+      },
+      {
+        "offset": "0x2b8",
+        "type_index": 3,
+        "name": "DrawGrid1",
+        "class": "TDrawGrid",
+        "props": {}
+      }
+    ]
+  },
+  "TwtSTPRFrame": {
+    "resource": "work/msul_emulator/display_reference/TWTSTPRFRAME.json",
+    "vmt_rva": "0x1e29c8",
+    "instance_size": "0xe4c",
+    "field_table_rva": "0x1e2acc",
+    "published_fields": [
+      {
+        "offset": "0x298",
+        "type_index": 0,
+        "name": "Label1",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Состояние СТПР"
+        }
+      },
+      {
+        "offset": "0x29c",
+        "type_index": 1,
+        "name": "Shape3",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2a0",
+        "type_index": 1,
+        "name": "Shape1",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2a4",
+        "type_index": 1,
+        "name": "Shape2",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2a8",
+        "type_index": 1,
+        "name": "Shape4",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2ac",
+        "type_index": 0,
+        "name": "Label3",
+        "class": "TLabel",
+        "props": {
+          "Caption": "БС-УВ (БЦВ)"
+        }
+      },
+      {
+        "offset": "0x2b0",
+        "type_index": 0,
+        "name": "Label2",
+        "class": "TLabel",
+        "props": {
+          "Caption": "БС-УВ (БС-ПСН)"
+        }
+      },
+      {
+        "offset": "0x2b4",
+        "type_index": 0,
+        "name": "Label4",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Статус БС-УВ N1"
+        }
+      },
+      {
+        "offset": "0x2b8",
+        "type_index": 0,
+        "name": "Label5",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Статус БС-УВ N2"
+        }
+      },
+      {
+        "offset": "0x2bc",
+        "type_index": 2,
+        "name": "DrawGrid2",
+        "class": "TDrawGrid",
+        "props": {}
+      },
+      {
+        "offset": "0x2c0",
+        "type_index": 2,
+        "name": "DrawGrid1",
+        "class": "TDrawGrid",
+        "props": {}
+      },
+      {
+        "offset": "0x2c4",
+        "type_index": 2,
+        "name": "DrawGrid3",
+        "class": "TDrawGrid",
+        "props": {}
+      },
+      {
+        "offset": "0x2c8",
+        "type_index": 2,
+        "name": "DrawGrid4",
+        "class": "TDrawGrid",
+        "props": {}
+      }
+    ]
+  },
+  "TwtVspomMashineFrame": {
+    "resource": "work/msul_emulator/display_reference/TWTVSPOMMASHINEFRAME.json",
+    "vmt_rva": "0x1d6a4c",
+    "instance_size": "0x29fc",
+    "field_table_rva": "0x1d6b50",
+    "published_fields": [
+      {
+        "offset": "0x298",
+        "type_index": 0,
+        "name": "PaintBox1",
+        "class": "TPaintBox",
+        "props": {
+          "OnPaint": "PaintBox1Paint"
+        }
+      },
+      {
+        "offset": "0x29c",
+        "type_index": 0,
+        "name": "PaintBox2",
+        "class": "TPaintBox",
+        "props": {
+          "OnPaint": "PaintBox2Paint"
+        }
+      },
+      {
+        "offset": "0x2a0",
+        "type_index": 0,
+        "name": "PaintBox3",
+        "class": "TPaintBox",
+        "props": {
+          "OnPaint": "PaintBox3Paint"
+        }
+      },
+      {
+        "offset": "0x2a4",
+        "type_index": 1,
+        "name": "Shape3",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2a8",
+        "type_index": 1,
+        "name": "Shape4",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2ac",
+        "type_index": 1,
+        "name": "Shape5",
+        "class": "TShape",
+        "props": {}
+      },
+      {
+        "offset": "0x2b0",
+        "type_index": 2,
+        "name": "Label1",
+        "class": "TLabel",
+        "props": {
+          "Caption": "Вспомогательные машины и защита"
+        }
+      },
+      {
+        "offset": "0x2b4",
+        "type_index": 2,
+        "name": "Label2",
+        "class": "TLabel",
+        "props": {
+          "Caption": "БУК"
+        }
+      },
+      {
+        "offset": "0x2b8",
+        "type_index": 2,
+        "name": "Label3",
+        "class": "TLabel",
+        "props": {
+          "Caption": "БСП"
+        }
+      },
+      {
+        "offset": "0x2bc",
+        "type_index": 2,
+        "name": "Label4",
+        "class": "TLabel",
+        "props": {
+          "Caption": "БВС"
+        }
+      },
+      {
+        "offset": "0x2c0",
+        "type_index": 3,
+        "name": "DrawGrid1",
+        "class": "TDrawGrid",
+        "props": {}
+      },
+      {
+        "offset": "0x2c4",
+        "type_index": 3,
+        "name": "DrawGrid2",
+        "class": "TDrawGrid",
+        "props": {}
+      },
+      {
+        "offset": "0x2c8",
+        "type_index": 3,
+        "name": "DrawGrid3",
+        "class": "TDrawGrid",
+        "props": {}
+      }
+    ]
+  }
+}

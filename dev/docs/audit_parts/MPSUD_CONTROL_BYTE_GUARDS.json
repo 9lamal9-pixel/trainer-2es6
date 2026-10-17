@@ -1,0 +1,622 @@
+{
+  "checked_utc": "2026-10-11T12:02:16.510173+00:00",
+  "module_path": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\work\\trenager_static\\WORK_TRENAGER_3D\\RESOURCES\\LOCOMOTIVES\\1\\Pult1.dll",
+  "expected_module_sha256": "7DAC59BF94276309E012A6EB72602C08A921FE1910A4169F9F0EC27008F0F8F5",
+  "actual_module_sha256": "7DAC59BF94276309E012A6EB72602C08A921FE1910A4169F9F0EC27008F0F8F5",
+  "identity_passed": true,
+  "all_byte_guards_passed": true,
+  "functional_acceptance": false,
+  "mode": "read-only on-disk PE bytes; loaded identity independently verified by MPSUD_BASELINE.json",
+  "guards": [
+    {
+      "id": "C07/native_discrete_58",
+      "rva": "0x18e982",
+      "file_offset": "0x18dd82",
+      "expected_hex": "80785800",
+      "actual_hex": "80785800",
+      "passed": true
+    },
+    {
+      "id": "C07/constant_voltage_3100",
+      "rva": "0x18e9ba",
+      "file_offset": "0x18ddba",
+      "expected_hex": "c780250100001c0c0000",
+      "actual_hex": "c780250100001c0c0000",
+      "passed": true
+    },
+    {
+      "id": "C07/otherwise_voltage_zero_from_edx",
+      "rva": "0x18e9d0",
+      "file_offset": "0x18ddd0",
+      "expected_hex": "899025010000",
+      "actual_hex": "899025010000",
+      "passed": true
+    },
+    {
+      "id": "C21/read_raw_position_8c",
+      "rva": "0x18c676",
+      "file_offset": "0x18ba76",
+      "expected_hex": "0fb6928c000000",
+      "actual_hex": "0fb6928c000000",
+      "passed": true
+    },
+    {
+      "id": "C21/store_position_104",
+      "rva": "0x18c67d",
+      "file_offset": "0x18ba7d",
+      "expected_hex": "899004010000",
+      "actual_hex": "899004010000",
+      "passed": true
+    },
+    {
+      "id": "C21/clear_latch_108",
+      "rva": "0x18c6e7",
+      "file_offset": "0x18bae7",
+      "expected_hex": "c6800801000000",
+      "actual_hex": "c6800801000000",
+      "passed": true
+    },
+    {
+      "id": "C21/position1_branch",
+      "rva": "0x18c701",
+      "file_offset": "0x18bb01",
+      "expected_hex": "7425",
+      "actual_hex": "7425",
+      "passed": true
+    },
+    {
+      "id": "C21/position2_branch",
+      "rva": "0x18c703",
+      "file_offset": "0x18bb03",
+      "expected_hex": "487442",
+      "actual_hex": "487442",
+      "passed": true
+    },
+    {
+      "id": "C21/set_latch_108",
+      "rva": "0x18c76e",
+      "file_offset": "0x18bb6e",
+      "expected_hex": "c6800801000001",
+      "actual_hex": "c6800801000001",
+      "passed": true
+    }
+  ],
+  "ranges": [
+    {
+      "id": "C07",
+      "start_rva": "0x18e97a",
+      "end_rva_exclusive": "0x18e9d6",
+      "range_sha256": "9D4D20362BB7D6E7F181492E5C36A08A5BC67A0A4FC7793413B175C5715046F2",
+      "instructions": [
+        {
+          "rva": "0x18e97a",
+          "hex": "8b45fc",
+          "instruction": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18e97d",
+          "hex": "e8aacfffff",
+          "instruction": "call 0x18b92c"
+        },
+        {
+          "rva": "0x18e982",
+          "hex": "80785800",
+          "instruction": "cmp byte ptr [eax + 0x58], 0"
+        },
+        {
+          "rva": "0x18e986",
+          "hex": "752a",
+          "instruction": "jne 0x18e9b2"
+        },
+        {
+          "rva": "0x18e988",
+          "hex": "8b45fc",
+          "instruction": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18e98b",
+          "hex": "e89ccfffff",
+          "instruction": "call 0x18b92c"
+        },
+        {
+          "rva": "0x18e990",
+          "hex": "80785900",
+          "instruction": "cmp byte ptr [eax + 0x59], 0"
+        },
+        {
+          "rva": "0x18e994",
+          "hex": "751c",
+          "instruction": "jne 0x18e9b2"
+        },
+        {
+          "rva": "0x18e996",
+          "hex": "8b45fc",
+          "instruction": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18e999",
+          "hex": "e88ecfffff",
+          "instruction": "call 0x18b92c"
+        },
+        {
+          "rva": "0x18e99e",
+          "hex": "80785a00",
+          "instruction": "cmp byte ptr [eax + 0x5a], 0"
+        },
+        {
+          "rva": "0x18e9a2",
+          "hex": "750e",
+          "instruction": "jne 0x18e9b2"
+        },
+        {
+          "rva": "0x18e9a4",
+          "hex": "8b45fc",
+          "instruction": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18e9a7",
+          "hex": "e880cfffff",
+          "instruction": "call 0x18b92c"
+        },
+        {
+          "rva": "0x18e9ac",
+          "hex": "80785b00",
+          "instruction": "cmp byte ptr [eax + 0x5b], 0"
+        },
+        {
+          "rva": "0x18e9b0",
+          "hex": "7414",
+          "instruction": "je 0x18e9c6"
+        },
+        {
+          "rva": "0x18e9b2",
+          "hex": "8b45fc",
+          "instruction": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18e9b5",
+          "hex": "e872cfffff",
+          "instruction": "call 0x18b92c"
+        },
+        {
+          "rva": "0x18e9ba",
+          "hex": "c780250100001c0c0000",
+          "instruction": "mov dword ptr [eax + 0x125], 0xc1c"
+        },
+        {
+          "rva": "0x18e9c4",
+          "hex": "eb10",
+          "instruction": "jmp 0x18e9d6"
+        },
+        {
+          "rva": "0x18e9c6",
+          "hex": "8b45fc",
+          "instruction": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18e9c9",
+          "hex": "e85ecfffff",
+          "instruction": "call 0x18b92c"
+        },
+        {
+          "rva": "0x18e9ce",
+          "hex": "33d2",
+          "instruction": "xor edx, edx"
+        },
+        {
+          "rva": "0x18e9d0",
+          "hex": "899025010000",
+          "instruction": "mov dword ptr [eax + 0x125], edx"
+        }
+      ]
+    },
+    {
+      "id": "C21",
+      "start_rva": "0x18c665",
+      "end_rva_exclusive": "0x18c7a6",
+      "range_sha256": "A804BB9F91CD979600B7B1CD68FF6A0F17F84C3D8B048331BF2BA51484D9EB0F",
+      "instructions": [
+        {
+          "rva": "0x18c665",
+          "hex": "8b45fc",
+          "instruction": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c668",
+          "hex": "e8bff2ffff",
+          "instruction": "call 0x18b92c"
+        },
+        {
+          "rva": "0x18c66d",
+          "hex": "8b55fc",
+          "instruction": "mov edx, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c670",
+          "hex": "8b5204",
+          "instruction": "mov edx, dword ptr [edx + 4]"
+        },
+        {
+          "rva": "0x18c673",
+          "hex": "8b5204",
+          "instruction": "mov edx, dword ptr [edx + 4]"
+        },
+        {
+          "rva": "0x18c676",
+          "hex": "0fb6928c000000",
+          "instruction": "movzx edx, byte ptr [edx + 0x8c]"
+        },
+        {
+          "rva": "0x18c67d",
+          "hex": "899004010000",
+          "instruction": "mov dword ptr [eax + 0x104], edx"
+        },
+        {
+          "rva": "0x18c683",
+          "hex": "8b45fc",
+          "instruction": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c686",
+          "hex": "e8a1f2ffff",
+          "instruction": "call 0x18b92c"
+        },
+        {
+          "rva": "0x18c68b",
+          "hex": "83b80401000000",
+          "instruction": "cmp dword ptr [eax + 0x104], 0"
+        },
+        {
+          "rva": "0x18c692",
+          "hex": "7e2d",
+          "instruction": "jle 0x18c6c1"
+        },
+        {
+          "rva": "0x18c694",
+          "hex": "8b45fc",
+          "instruction": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c697",
+          "hex": "8b4004",
+          "instruction": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x18c69a",
+          "hex": "8b4004",
+          "instruction": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x18c69d",
+          "hex": "80787d04",
+          "instruction": "cmp byte ptr [eax + 0x7d], 4"
+        },
+        {
+          "rva": "0x18c6a1",
+          "hex": "771e",
+          "instruction": "ja 0x18c6c1"
+        },
+        {
+          "rva": "0x18c6a3",
+          "hex": "8b45fc",
+          "instruction": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c6a6",
+          "hex": "8b4004",
+          "instruction": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x18c6a9",
+          "hex": "8b4004",
+          "instruction": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x18c6ac",
+          "hex": "80787e02",
+          "instruction": "cmp byte ptr [eax + 0x7e], 2"
+        },
+        {
+          "rva": "0x18c6b0",
+          "hex": "770f",
+          "instruction": "ja 0x18c6c1"
+        },
+        {
+          "rva": "0x18c6b2",
+          "hex": "8b45fc",
+          "instruction": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c6b5",
+          "hex": "e872f2ffff",
+          "instruction": "call 0x18b92c"
+        },
+        {
+          "rva": "0x18c6ba",
+          "hex": "c6800301000001",
+          "instruction": "mov byte ptr [eax + 0x103], 1"
+        },
+        {
+          "rva": "0x18c6c1",
+          "hex": "8b45fc",
+          "instruction": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c6c4",
+          "hex": "8b4004",
+          "instruction": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x18c6c7",
+          "hex": "8b4004",
+          "instruction": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x18c6ca",
+          "hex": "80787d05",
+          "instruction": "cmp byte ptr [eax + 0x7d], 5"
+        },
+        {
+          "rva": "0x18c6ce",
+          "hex": "730f",
+          "instruction": "jae 0x18c6df"
+        },
+        {
+          "rva": "0x18c6d0",
+          "hex": "8b45fc",
+          "instruction": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c6d3",
+          "hex": "8b4004",
+          "instruction": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x18c6d6",
+          "hex": "8b4004",
+          "instruction": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x18c6d9",
+          "hex": "80787e03",
+          "instruction": "cmp byte ptr [eax + 0x7e], 3"
+        },
+        {
+          "rva": "0x18c6dd",
+          "hex": "760f",
+          "instruction": "jbe 0x18c6ee"
+        },
+        {
+          "rva": "0x18c6df",
+          "hex": "8b45fc",
+          "instruction": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c6e2",
+          "hex": "e845f2ffff",
+          "instruction": "call 0x18b92c"
+        },
+        {
+          "rva": "0x18c6e7",
+          "hex": "c6800801000000",
+          "instruction": "mov byte ptr [eax + 0x108], 0"
+        },
+        {
+          "rva": "0x18c6ee",
+          "hex": "8b45fc",
+          "instruction": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c6f1",
+          "hex": "e836f2ffff",
+          "instruction": "call 0x18b92c"
+        },
+        {
+          "rva": "0x18c6f6",
+          "hex": "8b8004010000",
+          "instruction": "mov eax, dword ptr [eax + 0x104]"
+        },
+        {
+          "rva": "0x18c6fc",
+          "hex": "83e801",
+          "instruction": "sub eax, 1"
+        },
+        {
+          "rva": "0x18c6ff",
+          "hex": "7207",
+          "instruction": "jb 0x18c708"
+        },
+        {
+          "rva": "0x18c701",
+          "hex": "7425",
+          "instruction": "je 0x18c728"
+        },
+        {
+          "rva": "0x18c703",
+          "hex": "48",
+          "instruction": "dec eax"
+        },
+        {
+          "rva": "0x18c704",
+          "hex": "7442",
+          "instruction": "je 0x18c748"
+        },
+        {
+          "rva": "0x18c706",
+          "hex": "eb6d",
+          "instruction": "jmp 0x18c775"
+        },
+        {
+          "rva": "0x18c708",
+          "hex": "8b45fc",
+          "instruction": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c70b",
+          "hex": "e81cf2ffff",
+          "instruction": "call 0x18b92c"
+        },
+        {
+          "rva": "0x18c710",
+          "hex": "c6800901000000",
+          "instruction": "mov byte ptr [eax + 0x109], 0"
+        },
+        {
+          "rva": "0x18c717",
+          "hex": "8b45fc",
+          "instruction": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c71a",
+          "hex": "e80df2ffff",
+          "instruction": "call 0x18b92c"
+        },
+        {
+          "rva": "0x18c71f",
+          "hex": "c6800a01000000",
+          "instruction": "mov byte ptr [eax + 0x10a], 0"
+        },
+        {
+          "rva": "0x18c726",
+          "hex": "eb4d",
+          "instruction": "jmp 0x18c775"
+        },
+        {
+          "rva": "0x18c728",
+          "hex": "8b45fc",
+          "instruction": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c72b",
+          "hex": "e8fcf1ffff",
+          "instruction": "call 0x18b92c"
+        },
+        {
+          "rva": "0x18c730",
+          "hex": "c6800901000001",
+          "instruction": "mov byte ptr [eax + 0x109], 1"
+        },
+        {
+          "rva": "0x18c737",
+          "hex": "8b45fc",
+          "instruction": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c73a",
+          "hex": "e8edf1ffff",
+          "instruction": "call 0x18b92c"
+        },
+        {
+          "rva": "0x18c73f",
+          "hex": "c6800a01000000",
+          "instruction": "mov byte ptr [eax + 0x10a], 0"
+        },
+        {
+          "rva": "0x18c746",
+          "hex": "eb2d",
+          "instruction": "jmp 0x18c775"
+        },
+        {
+          "rva": "0x18c748",
+          "hex": "8b45fc",
+          "instruction": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c74b",
+          "hex": "e8dcf1ffff",
+          "instruction": "call 0x18b92c"
+        },
+        {
+          "rva": "0x18c750",
+          "hex": "c6800901000001",
+          "instruction": "mov byte ptr [eax + 0x109], 1"
+        },
+        {
+          "rva": "0x18c757",
+          "hex": "8b45fc",
+          "instruction": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c75a",
+          "hex": "e8cdf1ffff",
+          "instruction": "call 0x18b92c"
+        },
+        {
+          "rva": "0x18c75f",
+          "hex": "c6800a01000001",
+          "instruction": "mov byte ptr [eax + 0x10a], 1"
+        },
+        {
+          "rva": "0x18c766",
+          "hex": "8b45fc",
+          "instruction": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c769",
+          "hex": "e8bef1ffff",
+          "instruction": "call 0x18b92c"
+        },
+        {
+          "rva": "0x18c76e",
+          "hex": "c6800801000001",
+          "instruction": "mov byte ptr [eax + 0x108], 1"
+        },
+        {
+          "rva": "0x18c775",
+          "hex": "8b45fc",
+          "instruction": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c778",
+          "hex": "e8aff1ffff",
+          "instruction": "call 0x18b92c"
+        },
+        {
+          "rva": "0x18c77d",
+          "hex": "80b80801000000",
+          "instruction": "cmp byte ptr [eax + 0x108], 0"
+        },
+        {
+          "rva": "0x18c784",
+          "hex": "7411",
+          "instruction": "je 0x18c797"
+        },
+        {
+          "rva": "0x18c786",
+          "hex": "8b45fc",
+          "instruction": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c789",
+          "hex": "e89ef1ffff",
+          "instruction": "call 0x18b92c"
+        },
+        {
+          "rva": "0x18c78e",
+          "hex": "80b80901000000",
+          "instruction": "cmp byte ptr [eax + 0x109], 0"
+        },
+        {
+          "rva": "0x18c795",
+          "hex": "750f",
+          "instruction": "jne 0x18c7a6"
+        },
+        {
+          "rva": "0x18c797",
+          "hex": "8b45fc",
+          "instruction": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c79a",
+          "hex": "e88df1ffff",
+          "instruction": "call 0x18b92c"
+        },
+        {
+          "rva": "0x18c79f",
+          "hex": "c6800301000000",
+          "instruction": "mov byte ptr [eax + 0x103], 0"
+        }
+      ]
+    }
+  ]
+}

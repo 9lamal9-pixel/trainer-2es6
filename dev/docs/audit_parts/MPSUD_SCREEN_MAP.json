@@ -1,0 +1,748 @@
+{
+  "created": "2026-10-11",
+  "kind": "static_binary_contract_not_runtime_acceptance",
+  "msul_sha256": "95E3FB14CBC7FF2B5E9C61DC2215CFA7C2F23161FE21D075ADF04F45907B653B",
+  "imagebase_file": "0x400000",
+  "rva_are_module_relative": true,
+  "unique_frame_count": 14,
+  "supported_enum_count": 17,
+  "buttons": {
+    "0": "None",
+    "1": "Enter",
+    "2": "Clear",
+    "3": "Minus",
+    "4": "Plus",
+    "5": "Down",
+    "6": "Up",
+    "7": "Digit9",
+    "8": "Digit8",
+    "9": "Digit7",
+    "10": "Digit6",
+    "11": "Digit5",
+    "12": "Digit4",
+    "13": "Digit3",
+    "14": "Digit2",
+    "15": "Digit1",
+    "16": "Digit0"
+  },
+  "global_class_pointer_indirect_rva": "0x20bb9c",
+  "class_monitor_offsets": [
+    "0x20",
+    "0x24"
+  ],
+  "monitor_offsets": {
+    "current_enum": "0x14",
+    "last_button": "0x15",
+    "number": "0x18",
+    "form": "0x1c",
+    "wizard": "0x20",
+    "old_enum": "0x24"
+  },
+  "wizard_frame_offset": "0xc",
+  "form_hwnd_offset": "0x260",
+  "form_monitor_offset": "0x39c",
+  "keyboard_slots": [
+    "0x53",
+    "0x54"
+  ],
+  "bitmap_slots": [
+    "0x105",
+    "0x109"
+  ],
+  "wm_set_new_frame": {
+    "id": 1636,
+    "wParam": "enum",
+    "lParam": 0,
+    "posted_by_set_wind_type": true,
+    "do_not_duplicate_toggle_message": true
+  },
+  "wm_update": {
+    "id": 1637,
+    "wParam": 0,
+    "lParam": 0,
+    "producer_handler_rva": "0x1eef10"
+  },
+  "set_wind_type": {
+    "rva": "0x1f1ae4",
+    "abi": "Delphi register: EAX=self, DL=enum; returns void",
+    "first16_hex": "558bec83c4f88855fb8945fc807dfb00"
+  },
+  "get_handle_msul_export_stub": true,
+  "windows": [
+    {
+      "enum": 0,
+      "enum_name": "wt_None",
+      "path_digits_from_clock": null,
+      "path_key_bytes": null,
+      "factory_supported": false,
+      "frame_class": null,
+      "view": "default"
+    },
+    {
+      "enum": 1,
+      "enum_name": "wt_Clock",
+      "path_digits_from_clock": [],
+      "path_key_bytes": [],
+      "factory_supported": true,
+      "frame_class": "TwtClockFrame",
+      "view": "default",
+      "frame_vmt_rva": "0x199838",
+      "frame_instance_size": "0x2ac",
+      "proceed_frame_rva": "0x19a378",
+      "window_class": "TwtClockWindow",
+      "window_vmt_rva": "0x199afc",
+      "window_class_reference_rva": "0x199aa4"
+    },
+    {
+      "enum": 2,
+      "enum_name": "wt_Mash",
+      "path_digits_from_clock": [
+        2
+      ],
+      "path_key_bytes": [
+        14
+      ],
+      "factory_supported": true,
+      "frame_class": "TwtMashinistFrame",
+      "view": "default",
+      "frame_vmt_rva": "0x1c9dfc",
+      "frame_instance_size": "0x49c",
+      "proceed_frame_rva": "0x1cbfb8",
+      "window_class": "TwtMashinistWindow",
+      "window_vmt_rva": "0x1cb5cc",
+      "window_class_reference_rva": "0x1cb574"
+    },
+    {
+      "enum": 3,
+      "enum_name": "wt_VspomMash",
+      "path_digits_from_clock": [
+        3
+      ],
+      "path_key_bytes": [
+        13
+      ],
+      "factory_supported": true,
+      "frame_class": "TwtVspomMashineFrame",
+      "view": "default",
+      "frame_vmt_rva": "0x1d6a4c",
+      "frame_instance_size": "0x29fc",
+      "proceed_frame_rva": "0x1d84c4",
+      "window_class": "TwtVspomMashineWindow",
+      "window_vmt_rva": "0x1d7404",
+      "window_class_reference_rva": "0x1d73ac"
+    },
+    {
+      "enum": 4,
+      "enum_name": "wt_VspomMashTwo",
+      "path_digits_from_clock": [
+        3,
+        2
+      ],
+      "path_key_bytes": [
+        13,
+        14
+      ],
+      "factory_supported": true,
+      "frame_class": "TwtVspomMashineFrame",
+      "view": "toggle_alternate_existing_vspom_or_contactors",
+      "frame_vmt_rva": "0x1d6a4c",
+      "frame_instance_size": "0x29fc",
+      "proceed_frame_rva": "0x1d84c4",
+      "window_class": "TwtVspomMashineWindow",
+      "window_vmt_rva": "0x1d7404",
+      "window_class_reference_rva": "0x1d73ac"
+    },
+    {
+      "enum": 5,
+      "enum_name": "wt_RezimPowerCepi",
+      "path_digits_from_clock": [
+        3,
+        4
+      ],
+      "path_key_bytes": [
+        13,
+        12
+      ],
+      "factory_supported": true,
+      "frame_class": "TwtVspomMashineFrame",
+      "view": "power_mode",
+      "frame_vmt_rva": "0x1d6a4c",
+      "frame_instance_size": "0x29fc",
+      "proceed_frame_rva": "0x1d84c4",
+      "window_class": "TwtVspomMashineWindow",
+      "window_vmt_rva": "0x1d7404",
+      "window_class_reference_rva": "0x1d73ac"
+    },
+    {
+      "enum": 6,
+      "enum_name": "wt_ControlPowerCepi",
+      "path_digits_from_clock": [
+        3,
+        5
+      ],
+      "path_key_bytes": [
+        13,
+        11
+      ],
+      "factory_supported": true,
+      "frame_class": "TwtVspomMashineFrame",
+      "view": "power_control",
+      "frame_vmt_rva": "0x1d6a4c",
+      "frame_instance_size": "0x29fc",
+      "proceed_frame_rva": "0x1d84c4",
+      "window_class": "TwtVspomMashineWindow",
+      "window_vmt_rva": "0x1d7404",
+      "window_class_reference_rva": "0x1d73ac"
+    },
+    {
+      "enum": 7,
+      "enum_name": "wt_Contactors",
+      "path_digits_from_clock": [
+        3,
+        6
+      ],
+      "path_key_bytes": [
+        13,
+        10
+      ],
+      "factory_supported": true,
+      "frame_class": "TwtContactorsFrame",
+      "view": "default",
+      "frame_vmt_rva": "0x1daafc",
+      "frame_instance_size": "0xf0c",
+      "proceed_frame_rva": "0x1dcb6c",
+      "window_class": "TwtContactorsWindow",
+      "window_vmt_rva": "0x1db228",
+      "window_class_reference_rva": "0x1db1d0"
+    },
+    {
+      "enum": 8,
+      "enum_name": "wt_CI",
+      "path_digits_from_clock": [
+        3,
+        7
+      ],
+      "path_key_bytes": [
+        13,
+        9
+      ],
+      "factory_supported": true,
+      "frame_class": "TwtCIFrame",
+      "view": "default",
+      "frame_vmt_rva": "0x1dcd08",
+      "frame_instance_size": "0x494",
+      "proceed_frame_rva": "0x1de968",
+      "window_class": "TwtCIWindow",
+      "window_vmt_rva": "0x1dd614",
+      "window_class_reference_rva": "0x1dd5bc"
+    },
+    {
+      "enum": 9,
+      "enum_name": "wt_Diagnostic",
+      "path_digits_from_clock": [
+        4
+      ],
+      "path_key_bytes": [
+        12
+      ],
+      "factory_supported": true,
+      "frame_class": "TwtDiagnostFrame",
+      "view": "default",
+      "frame_vmt_rva": "0x1d5698",
+      "frame_instance_size": "0x2d4",
+      "proceed_frame_rva": "0x1d6834",
+      "window_class": "TwtDiagnostWindow",
+      "window_vmt_rva": "0x1d5dc8",
+      "window_class_reference_rva": "0x1d5d70"
+    },
+    {
+      "enum": 10,
+      "enum_name": "wt_SettingAV",
+      "path_digits_from_clock": [
+        2,
+        3
+      ],
+      "path_key_bytes": [
+        14,
+        13
+      ],
+      "factory_supported": true,
+      "frame_class": "TwtAutovedFrame",
+      "view": "default",
+      "frame_vmt_rva": "0x1e39ac",
+      "frame_instance_size": "0x31c",
+      "proceed_frame_rva": "0x1e420c",
+      "window_class": "TwtAutovedWindow",
+      "window_vmt_rva": "0x1e3fbc",
+      "window_class_reference_rva": "0x1e3f64"
+    },
+    {
+      "enum": 11,
+      "enum_name": "wt_Ogranich",
+      "path_digits_from_clock": [
+        2,
+        4
+      ],
+      "path_key_bytes": [
+        14,
+        12
+      ],
+      "factory_supported": true,
+      "frame_class": "TwtOgranFrame",
+      "view": "default",
+      "frame_vmt_rva": "0x1e46b4",
+      "frame_instance_size": "0x39c",
+      "proceed_frame_rva": "0x1e5a70",
+      "window_class": "TwtOgranWindow",
+      "window_vmt_rva": "0x1e51c4",
+      "window_class_reference_rva": "0x1e516c"
+    },
+    {
+      "enum": 12,
+      "enum_name": "wt_Messages",
+      "path_digits_from_clock": null,
+      "path_key_bytes": null,
+      "factory_supported": false,
+      "frame_class": null,
+      "view": "default",
+      "expected_dispatch": "no_key_path_found; factory_null"
+    },
+    {
+      "enum": 13,
+      "enum_name": "wt_SAUT",
+      "path_digits_from_clock": [
+        5
+      ],
+      "path_key_bytes": [
+        11
+      ],
+      "factory_supported": true,
+      "frame_class": "TwtSautFrame",
+      "view": "default",
+      "frame_vmt_rva": "0x1d16d8",
+      "frame_instance_size": "0x2e4",
+      "proceed_frame_rva": "0x1d1d70",
+      "window_class": "TwtSAUTWindow",
+      "window_vmt_rva": "0x1d1b58",
+      "window_class_reference_rva": "0x1d1b00"
+    },
+    {
+      "enum": 14,
+      "enum_name": "wt_Oborudovanie",
+      "path_digits_from_clock": [
+        6
+      ],
+      "path_key_bytes": [
+        10
+      ],
+      "factory_supported": true,
+      "frame_class": "TwtOborudovanieFrame",
+      "view": "default",
+      "frame_vmt_rva": "0x1d41c4",
+      "frame_instance_size": "0x34c",
+      "proceed_frame_rva": "0x1d50cc",
+      "window_class": "TwtOborudovanieWindow",
+      "window_vmt_rva": "0x1d4d4c",
+      "window_class_reference_rva": "0x1d4cf4"
+    },
+    {
+      "enum": 15,
+      "enum_name": "wt_SME",
+      "path_digits_from_clock": [
+        3,
+        8
+      ],
+      "path_key_bytes": [
+        13,
+        8
+      ],
+      "factory_supported": true,
+      "frame_class": "TwtSMErame",
+      "view": "default",
+      "frame_vmt_rva": "0x1df398",
+      "frame_instance_size": "0x3ac",
+      "proceed_frame_rva": "0x1e0148",
+      "window_class": "TwtSMEindow",
+      "window_vmt_rva": "0x1df9c4",
+      "window_class_reference_rva": "0x1df96c"
+    },
+    {
+      "enum": 16,
+      "enum_name": "wt_PSMConnect",
+      "path_digits_from_clock": [
+        3,
+        9
+      ],
+      "path_key_bytes": [
+        13,
+        7
+      ],
+      "factory_supported": true,
+      "frame_class": "TwtPCConnectFrame",
+      "view": "default",
+      "frame_vmt_rva": "0x1e0c60",
+      "frame_instance_size": "0x2dc",
+      "proceed_frame_rva": "0x1e1a60",
+      "window_class": "TwtPSConnectWindow",
+      "window_vmt_rva": "0x1e1340",
+      "window_class_reference_rva": "0x1e12e8"
+    },
+    {
+      "enum": 17,
+      "enum_name": "wt_RN3000",
+      "path_digits_from_clock": [
+        3,
+        9,
+        3
+      ],
+      "path_key_bytes": [
+        13,
+        7,
+        13
+      ],
+      "factory_supported": true,
+      "frame_class": "TwtRN3000Frame",
+      "view": "default",
+      "frame_vmt_rva": "0x1e1b30",
+      "frame_instance_size": "0xf84",
+      "proceed_frame_rva": "0x1e291c",
+      "window_class": "TwtRN3000Window",
+      "window_vmt_rva": "0x1e2030",
+      "window_class_reference_rva": "0x1e1fd8"
+    },
+    {
+      "enum": 18,
+      "enum_name": "wt_STPR",
+      "path_digits_from_clock": [
+        3,
+        9,
+        4
+      ],
+      "path_key_bytes": [
+        13,
+        7,
+        12
+      ],
+      "factory_supported": true,
+      "frame_class": "TwtSTPRFrame",
+      "view": "default",
+      "frame_vmt_rva": "0x1e29c8",
+      "frame_instance_size": "0xe4c",
+      "proceed_frame_rva": "0x1e38dc",
+      "window_class": "TwtSTPRWindow",
+      "window_vmt_rva": "0x1e2f2c",
+      "window_class_reference_rva": "0x1e2ed4"
+    },
+    {
+      "enum": 19,
+      "enum_name": "wt_PCH",
+      "path_digits_from_clock": [
+        3,
+        9,
+        5
+      ],
+      "path_key_bytes": [
+        13,
+        7,
+        11
+      ],
+      "factory_supported": false,
+      "frame_class": null,
+      "view": "default",
+      "expected_dispatch": "request_then_rollback_previous_enum_and_frame"
+    },
+    {
+      "enum": 20,
+      "enum_name": "wt_Caloriffer",
+      "path_digits_from_clock": [
+        3,
+        9,
+        6
+      ],
+      "path_key_bytes": [
+        13,
+        7,
+        10
+      ],
+      "factory_supported": false,
+      "frame_class": null,
+      "view": "default",
+      "expected_dispatch": "request_then_rollback_previous_enum_and_frame"
+    },
+    {
+      "enum": 21,
+      "enum_name": "wt_PU",
+      "path_digits_from_clock": [
+        3,
+        9,
+        7
+      ],
+      "path_key_bytes": [
+        13,
+        7,
+        9
+      ],
+      "factory_supported": false,
+      "frame_class": null,
+      "view": "default",
+      "expected_dispatch": "request_then_rollback_previous_enum_and_frame"
+    },
+    {
+      "enum": 22,
+      "enum_name": "wt_Marshrut",
+      "path_digits_from_clock": null,
+      "path_key_bytes": null,
+      "factory_supported": false,
+      "frame_class": null,
+      "view": "default",
+      "expected_dispatch": "no_key_path_found; factory_null"
+    },
+    {
+      "enum": 23,
+      "enum_name": "wt_Archive",
+      "path_digits_from_clock": [
+        9
+      ],
+      "path_key_bytes": [
+        7
+      ],
+      "factory_supported": false,
+      "frame_class": null,
+      "view": "default",
+      "expected_dispatch": "request_then_rollback_previous_enum_and_frame"
+    }
+  ],
+  "extra_views": [
+    {
+      "enum_after": 4,
+      "path_digits_from_clock": [
+        3,
+        6,
+        2
+      ],
+      "path_key_bytes": [
+        13,
+        10,
+        14
+      ],
+      "frame_class": "TwtContactorsFrame",
+      "expected_frame_type": null,
+      "expected_frame_view": 1
+    },
+    {
+      "enum_after": 4,
+      "path_digits_from_clock": [
+        3,
+        4,
+        2
+      ],
+      "path_key_bytes": [
+        13,
+        12,
+        14
+      ],
+      "frame_class": "TwtVspomMashineFrame",
+      "expected_frame_type": 5,
+      "expected_frame_view": 1
+    },
+    {
+      "enum_after": 4,
+      "path_digits_from_clock": [
+        3,
+        5,
+        2
+      ],
+      "path_key_bytes": [
+        13,
+        11,
+        14
+      ],
+      "frame_class": "TwtVspomMashineFrame",
+      "expected_frame_type": 6,
+      "expected_frame_view": 1
+    },
+    {
+      "enum_after": 2,
+      "path_digits_from_clock": [
+        2,
+        2
+      ],
+      "path_key_bytes": [
+        14,
+        14
+      ],
+      "frame_class": "TwtMashinistFrame",
+      "view": "ShowSpisok_toggled",
+      "expected_difference": "ShowSpisok for target monitor toggles; UpdateMessages sets Panel5.Visible; exact new PNG required",
+      "separating_zero_cycle_required": true
+    }
+  ],
+  "capture_contract": "process only own monitor messages 0x664..0x665 in order; copy newly produced handle before native cab consumer; never free original handle; no general DoEvents before copying",
+  "fields_map": "dev/docs/audit_parts/MPSUD_SCREEN_FIELDS.json",
+  "normative_revision_established": false,
+  "internal_views": {
+    "Vspom": {
+      "wizard_type_offset": "0x10",
+      "wizard_view_offset": "0x11",
+      "frame_type_offset": "0x29f1",
+      "frame_view_offset": "0x29f2",
+      "types": [
+        3,
+        5,
+        6
+      ],
+      "views": [
+        0,
+        1
+      ],
+      "toggle_path_key_byte": 14
+    },
+    "Contactors": {
+      "wizard_view_offset": "0x10",
+      "frame_view_offset": "0xf04",
+      "views": [
+        0,
+        1
+      ],
+      "toggle_path_key_byte": 14
+    },
+    "Mash": {
+      "flag_field": "TShema.ShowSpisok",
+      "flag_offsets": [
+        "0x322",
+        "0x323"
+      ],
+      "path_digits_from_clock": [
+        2,
+        2
+      ],
+      "path_key_bytes": [
+        14,
+        14
+      ],
+      "separating_zero_cycle_required": true,
+      "assertion": "second2 toggles flag for its monitor; confirm rendered effect separately",
+      "panel_offset": "0x454",
+      "panel_name": "Panel5",
+      "default_visible": false,
+      "visual_effect_static_source": "TwtMashinistFrame.UpdateMessages RVA1CC3C9..1CC402 reads ShowSpisok then SetVisible",
+      "runtime_visual_accepted_by_this_map": false
+    },
+    "Diagnostic": {
+      "keys_Up_Down": [
+        6,
+        5
+      ],
+      "return_enum": 9,
+      "page_index_write_found": false,
+      "effect": "recreates same diagnosticframe; not proven distinctpage"
+    },
+    "CI": {
+      "simultaneous_grids": 6,
+      "independent_native_keyboard_subview_found": false
+    },
+    "SME": {
+      "simultaneous_grids": 2,
+      "independent_native_keyboard_subview_found": false
+    },
+    "PCConnect": {
+      "simultaneous_grids": 4,
+      "independent_native_keyboard_subview_found": false
+    },
+    "RN3000": {
+      "simultaneous_grids": 2,
+      "independent_native_keyboard_subview_found": false
+    },
+    "STPR": {
+      "independent_native_keyboard_subview_found": false,
+      "published_grid_count": 4,
+      "published_grid_offsets": [
+        "0x2bc",
+        "0x2c0",
+        "0x2c4",
+        "0x2c8"
+      ],
+      "dfm_draw_cell_event_count": 1,
+      "grid_visibility_accepted": false
+    },
+    "Oborudovanie": {
+      "independent_native_keyboard_subview_found": false,
+      "handled_keys": [
+        15
+      ]
+    },
+    "Autoved": {
+      "record": "TShema+0x324",
+      "curPos_relative_offset": "0x0",
+      "curPos_absolute_offset": "0x324",
+      "selection_range": [
+        0,
+        5
+      ],
+      "editing_flag_absolute_offset": "0x328",
+      "edit_string_absolute_offset": "0x329",
+      "selection_keys": {
+        "Down": 5,
+        "Up": 6
+      },
+      "editing_has_side_effects": true
+    },
+    "Ogran": {
+      "record": "TShema+0x346",
+      "curField_relative_offset": "0x61add",
+      "selection_navigation_clamp": [
+        1,
+        6
+      ],
+      "get_window_type_switch_cases": [
+        0,
+        5
+      ],
+      "case_range_navigation_difference_requires_runtime_check": true,
+      "add_predup_relative_offset": "0x620e1",
+      "selection_keys": {
+        "Down": 5,
+        "Plus": 4,
+        "Up": 6,
+        "Minus": 3
+      },
+      "editing_has_side_effects": true
+    }
+  },
+  "edition_difference": {
+    "source": "РЭ2§1.7.17 печатныйлист79 (сообщено основным агентом по сверенному источнику)",
+    "manual_claim": "Clockdigit5 date/time settings",
+    "current_binary_claim": "Clockdigit5 ->wt_SAUT13",
+    "normative_revision_established": false,
+    "source_url": "https://zinref.ru/000_uchebniki/04600_raznie_6/358_Elektrovoz_2ES6_rukovodstvo/023.htm"
+  },
+  "planned_basic_states_per_monitor": 21,
+  "negative_comparisons": [
+    {
+      "path_digits_from_clock": [
+        4,
+        2
+      ],
+      "expected_binary": "staysDiagnostic; no byte2 handler",
+      "manual_reference": "РЭ2§1.7.16 printed77–78 fig1.38 BUKdiagnostics",
+      "edition_established": false
+    },
+    {
+      "path_digits_from_clock": [
+        5
+      ],
+      "expected_binary": "SAUT13",
+      "manual_reference": "РЭ2§1.7.17 printed78–79 fig1.39 date/time settings",
+      "edition_established": false
+    },
+    {
+      "path_digits_from_clock": [
+        2,
+        5
+      ],
+      "expected_binary": "staysMash; no digit5 handler",
+      "manual_reference": "РЭ2§1.7.3.2 advisor/autoved; activeAVP context required",
+      "edition_established": false
+    }
+  ]
+}

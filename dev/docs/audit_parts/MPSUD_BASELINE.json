@@ -1,0 +1,78 @@
+{
+  "passed": true,
+  "module_identity_accepted": true,
+  "functional_mpsuid_accepted": false,
+  "screen_rendering_accepted": false,
+  "native_cycles": 100,
+  "modules": [
+    {
+      "name": "Communication1.dll",
+      "path": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\work\\trenager_static\\WORK_TRENAGER_3D\\RESOURCES\\LOCOMOTIVES\\1\\Communication1.dll",
+      "base_address": "0xAF30000",
+      "sha256": "27178A089EF33692D16B1D46AE0DD7567135B327A24BE9D7D0CA84AF8DF3DB7F"
+    },
+    {
+      "name": "Pult1.dll",
+      "path": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\work\\trenager_static\\WORK_TRENAGER_3D\\RESOURCES\\LOCOMOTIVES\\1\\Pult1.dll",
+      "base_address": "0x7D60000",
+      "sha256": "7DAC59BF94276309E012A6EB72602C08A921FE1910A4169F9F0EC27008F0F8F5"
+    },
+    {
+      "name": "Tyga1.dll",
+      "path": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\work\\trenager_static\\WORK_TRENAGER_3D\\RESOURCES\\LOCOMOTIVES\\1\\Tyga1.dll",
+      "base_address": "0xE7F0000",
+      "sha256": "8EC6A82E618A1D75CBB31242784084B530BB87308E601DEFC5263D5279270491"
+    },
+    {
+      "name": "MSUL_MON.dll",
+      "path": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\work\\trenager_static\\WORK_TRENAGER_3D\\RESOURCES\\LOCOMOTIVES\\1\\MSUL_MON.dll",
+      "base_address": "0xF050000",
+      "sha256": "95E3FB14CBC7FF2B5E9C61DC2215CFA7C2F23161FE21D075ADF04F45907B653B"
+    },
+    {
+      "name": "KLUB_U_LCD_XE2.dll",
+      "path": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\work\\trenager_static\\WORK_TRENAGER_3D\\RESOURCES\\KLUB_U_LCD_XE2.dll",
+      "base_address": "0x13530000",
+      "sha256": "671D3BDB1AD57BD8EA7AFC714B11BC14141A5B2750D72E8B5598C7BB0CFAF20F"
+    },
+    {
+      "name": "Saut_Dll.dll",
+      "path": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\work\\trenager_static\\WORK_TRENAGER_3D\\RESOURCES\\Saut_Dll.dll",
+      "base_address": "0x15740000",
+      "sha256": "977B4B8BD3D3EB98BF9E2F08A8C413525D85F42085D34ABBE842F2BB79384A92"
+    },
+    {
+      "name": "AVP.dll",
+      "path": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\work\\trenager_static\\WORK_TRENAGER_3D\\RESOURCES\\AVP.dll",
+      "base_address": "0x177C0000",
+      "sha256": "EC3C2A59340E6054BBF65FA357A58E682B9552ADBBC3C4360EA4EB9E2E425255"
+    },
+    {
+      "name": "KPD_3PV.dll",
+      "path": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\work\\trenager_static\\WORK_TRENAGER_3D\\RESOURCES\\KPD_3PV.dll",
+      "base_address": "0x18370000",
+      "sha256": "A7C6A36E355777238041BF2443BBD8B3467FD1DD5438C3E8578DB73C9353240C"
+    }
+  ],
+  "left_frame_observation": {
+    "saved": false,
+    "handle": "0xFFFFFFFFAF052B44",
+    "gdi_object_type": 7,
+    "reason": "System.Runtime.InteropServices.ExternalException: В GDI+ возникла ошибка общего вида."
+  },
+  "right_frame_observation": {
+    "saved": false,
+    "handle": "0x6D052E8D",
+    "gdi_object_type": 7,
+    "reason": "System.Runtime.InteropServices.ExternalException: В GDI+ возникла ошибка общего вида."
+  },
+  "left_keyboard_byte": 0,
+  "right_keyboard_byte": 0,
+  "electrical_faults": 0,
+  "scope": "Assertions: four actual loaded module paths/SHA,100 warm idle native cycles,electricalFaults=0. Frame copies optional observations only; no protection/navigation/SME/link/diagnostics/rendering acceptance.",
+  "source_run": "test-20261011T115345530Z-bc12f052",
+  "exit_code": 0,
+  "pre_audit_production_sha256": "5E809BA6EDEBEA7F3C5F9EA840AAA16C18DAE3CA64B033E904DC859ED3A69A6F",
+  "final_candidate_build": "build-20261011T120409744Z-3a4a1dc0",
+  "final_candidate_sha256": "7FDF0BB09056522D1A64FCDD3E24438444F17D84413A8D7BFFED303492324F7F"
+}

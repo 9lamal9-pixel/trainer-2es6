@@ -1,0 +1,396 @@
+{
+  "schema_version": 1,
+  "utc": "2026-10-11T13:14:38.030268+00:00",
+  "status": "PASS",
+  "source_pdf": "dev/docs/assets/mpsuid_monitor_reprint/source.pdf",
+  "source_pdf_sha256": "26972A1D4CAC81F35F940B6CB9313F1C55027871CC8F802DAD76382C08CFAA9E",
+  "source_pdf_pages": 46,
+  "source_kind": "SECONDARY_REPRINT",
+  "factory_original_received": false,
+  "factory_image_authentication_accepted": false,
+  "normative_complete_conformity_accepted": false,
+  "source_integrity_checks": 22,
+  "functional_cards": 22,
+  "visually_checked_illustrations": 22,
+  "guide": "dev/docs/MPSUID_RE_SCREENS_GUIDE.md",
+  "guide_sha256": "52667FCE75B48D0EEADC3B8DEC784C46187CE6296C756B355951D3CC6DB7C5FE",
+  "gallery": "dev/docs/MPSUID_RE_SCREENS_GALLERY.html",
+  "gallery_sha256": "2619AC81696D895D4CE891C2B1AAE40BA5021EE0EA06309FDD38FD93112A1098",
+  "self_contained_html_images": true,
+  "production_sources_unchanged": 16,
+  "executable_sha256": "7FDF0BB09056522D1A64FCDD3E24438444F17D84413A8D7BFFED303492324F7F",
+  "production_sources": [
+    {
+      "path": "outputs/TrainerIntegrationHost.cs",
+      "sha256": "74EB7E942C11EE4A605A1BBBB56175A327C6C3467029CDA8659C273B6A95B5B4",
+      "unchanged": true
+    },
+    {
+      "path": "outputs/TrainerNativeSystems.cs",
+      "sha256": "0287505D0CF868734374836018AADBE584FD335EDE9FE511E35B78CD53FE7269",
+      "unchanged": true
+    },
+    {
+      "path": "outputs/TrainerAuxSystems.cs",
+      "sha256": "40920CB71EF0B1FD3A7AC5B28A5D3DCB57C862EF6BE40FA761EA47BA62C65281",
+      "unchanged": true
+    },
+    {
+      "path": "outputs/TrainerRouteDOS.cs",
+      "sha256": "DA0BA68846269D97963D44F972D01D51538D3544A60838272228796197527E78",
+      "unchanged": true
+    },
+    {
+      "path": "outputs/TrainerRouteView.cs",
+      "sha256": "EE17F13F31810968193981B9013509752EE32AD72144A661EF9EC1664CEF0ECE",
+      "unchanged": true
+    },
+    {
+      "path": "outputs/TrainerNativeFixes.cs",
+      "sha256": "97D1FD318D27CEB1C1C2402A7F8A41398F7823DBB4BA72E463E861EFC4F01184",
+      "unchanged": true
+    },
+    {
+      "path": "outputs/TrainerPneumaticTiming.cs",
+      "sha256": "FAA88FB80BC132188A846AF2453265B2D54E7284D98C38AF881094AFB9D5B2E2",
+      "unchanged": true
+    },
+    {
+      "path": "outputs/TrainerSessionLogging.cs",
+      "sha256": "FC409229F2F44AEE2C97FC4633107DACD199C63CE73F6717633C900C8DCEF101",
+      "unchanged": true
+    },
+    {
+      "path": "outputs/TrainerAirNetwork.cs",
+      "sha256": "86D4BC73601012D7A4109BEEAA26360F8C476CC06D2FDDE61C3BB1B66F646B32",
+      "unchanged": true
+    },
+    {
+      "path": "outputs/TrainerControlAir.cs",
+      "sha256": "45F273528A4E83BB5FC166367646C1A234FDE578C20128AF2881E2A35EF0C4B6",
+      "unchanged": true
+    },
+    {
+      "path": "outputs/TrainerBtoNetwork.cs",
+      "sha256": "5E83C5F3BBB597757A8DCFB48881625AD398970A714E4710AFDBA9AD39E58027",
+      "unchanged": true
+    },
+    {
+      "path": "outputs/TrainerAirSelector.cs",
+      "sha256": "E4E86DE362E66D7A55C23968F52D1FE1EB64C631D07E18B7D9BACE142C6263FD",
+      "unchanged": true
+    },
+    {
+      "path": "outputs/TrainerKvtProfile.cs",
+      "sha256": "E80696785D2542FB5BE5920A87EE6A51368043B06E7FBB388992A9F19A0E17B7",
+      "unchanged": true
+    },
+    {
+      "path": "outputs/TrainerTwoSectionAirChain.cs",
+      "sha256": "C04801AB0DFCD7AF736D8069909EC4D8C07C71C1F14CAF393E30F5043F86BBBC",
+      "unchanged": true
+    },
+    {
+      "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+      "sha256": "DA64D52D5CF362A95EC7A499AB4F9D40AA40203E4158C0D2A4BA75E04336469E",
+      "unchanged": true
+    },
+    {
+      "path": "outputs/TrainerTrainPressureView.cs",
+      "sha256": "431EA70A22205EE44EDDB51D71CD2A816AE46912CD14C6DAD7C5F1C165BECD61",
+      "unchanged": true
+    }
+  ],
+  "snapshots": {
+    "dev/docs/audit_parts/MPSUD_RE_FUNCTIONS.json": "1C0ED22D47EEBA095841F33CB407A7349EDF2BD7907EFE19D741BBDAF939D246",
+    "dev/docs/audit_parts/MPSUD_RE_ILLUSTRATIONS.json": "B1928497D1773141216238C226BE95770D083DE740B81D4C939D19D7D06291A1"
+  },
+  "images": [
+    {
+      "id": "SR00",
+      "re_figure": "1.18",
+      "reprint_figure": 1,
+      "pdf_page": 15,
+      "path": "dev/docs/assets/mpsuid_monitor_reprint/SR00.png",
+      "sha256": "4D832FAA9BC8F2F5E5C1C023696A3AC39FBE237A867B88742426F84F27117E3B",
+      "original_sha256": "CD5FA9CC770809DD0272AD999743AB92E90B39105009BC538436926CA28CD784",
+      "preview_kind": "PDF_WHITE_BACKGROUND_COMPOSITE",
+      "width": 801,
+      "height": 599,
+      "visual_checked": true
+    },
+    {
+      "id": "SR01",
+      "re_figure": "1.19",
+      "reprint_figure": 2,
+      "pdf_page": 16,
+      "path": "dev/docs/assets/mpsuid_monitor_reprint/SR01.png",
+      "sha256": "B0FF2F9CA39726502B6D41FE0B5A5705AC2505B69CFDC2C502B45DBE78D982FC",
+      "original_sha256": "E494A304C36FD3FA82499D94A35B0EA67330462C048D54A71EE41DC0E2178997",
+      "preview_kind": "PDF_WHITE_BACKGROUND_COMPOSITE",
+      "width": 801,
+      "height": 599,
+      "visual_checked": true
+    },
+    {
+      "id": "SR02",
+      "re_figure": "1.20",
+      "reprint_figure": 3,
+      "pdf_page": 20,
+      "path": "dev/docs/assets/mpsuid_monitor_reprint/SR02.png",
+      "sha256": "D8D1381FF2DEE629EBB7D4D851BDE3D36F43C94314C0885958D9AAE21FC9B9A5",
+      "original_sha256": "78A0F1CDD74BB47D5F0A36BA792FBDEEA0D489769AD65A47BCBE8D4358E87B14",
+      "preview_kind": "PDF_WHITE_BACKGROUND_COMPOSITE",
+      "width": 801,
+      "height": 599,
+      "visual_checked": true
+    },
+    {
+      "id": "SR03",
+      "re_figure": "1.21",
+      "reprint_figure": 4,
+      "pdf_page": 21,
+      "path": "dev/docs/assets/mpsuid_monitor_reprint/SR03.png",
+      "sha256": "8F49312F3C521C1DD3C45C661B27659B7FA32F499F372ED5B36A3149CD20F6B9",
+      "original_sha256": "8608C64E84A54E7ADD1D5AD9DF48271CFAA0585DAFE677DA6B0C5DA22875CFA7",
+      "preview_kind": "PDF_WHITE_BACKGROUND_COMPOSITE",
+      "width": 801,
+      "height": 599,
+      "visual_checked": true
+    },
+    {
+      "id": "SR04",
+      "re_figure": "1.22",
+      "reprint_figure": 5,
+      "pdf_page": 21,
+      "path": "dev/docs/assets/mpsuid_monitor_reprint/SR04.png",
+      "sha256": "D7E82FCEBF2FA28D6E89460235478D847576815F5D04B663317C2E1F21A7F338",
+      "original_sha256": "4EBC956E01E0A4CEAB0FB8F309E783A3D0C7BACEB7F433E3D23EB15295273F42",
+      "preview_kind": "PDF_WHITE_BACKGROUND_COMPOSITE",
+      "width": 801,
+      "height": 599,
+      "visual_checked": true
+    },
+    {
+      "id": "SR05",
+      "re_figure": "1.23",
+      "reprint_figure": 6,
+      "pdf_page": 22,
+      "path": "dev/docs/assets/mpsuid_monitor_reprint/SR05.png",
+      "sha256": "8C90075BEB73FC03B3AA11F217C18C921BD3B58F431AC0B7DC7F87864044135B",
+      "original_sha256": "2CC0CBBBC4278040B201D2053FFAC091675021BBD59D020022AFD352EF066694",
+      "preview_kind": "PDF_WHITE_BACKGROUND_COMPOSITE",
+      "width": 801,
+      "height": 599,
+      "visual_checked": true
+    },
+    {
+      "id": "SR06",
+      "re_figure": "1.24",
+      "reprint_figure": 7,
+      "pdf_page": 25,
+      "path": "dev/docs/assets/mpsuid_monitor_reprint/SR06.png",
+      "sha256": "88DFE50A492F6A501917577134D40414C8EAE8149C6F8AC0583279CBD677353F",
+      "original_sha256": "1C766F96FB5F72609E01612672B34053D344DD8186600D3B71F7BECE8219DA77",
+      "preview_kind": "PDF_WHITE_BACKGROUND_COMPOSITE",
+      "width": 801,
+      "height": 599,
+      "visual_checked": true
+    },
+    {
+      "id": "SR07",
+      "re_figure": "1.25",
+      "reprint_figure": 8,
+      "pdf_page": 26,
+      "path": "dev/docs/assets/mpsuid_monitor_reprint/SR07.png",
+      "sha256": "5BEC6D4A58063E85D9CB655BBC15B3130A65EB4BA293FBABDDD6F978379224AF",
+      "original_sha256": "78C5689259E7104FCBD86A20F4602FFD4A9A8EED482D94A18DFEF59C137A1625",
+      "preview_kind": "PDF_WHITE_BACKGROUND_COMPOSITE",
+      "width": 801,
+      "height": 599,
+      "visual_checked": true
+    },
+    {
+      "id": "SR08",
+      "re_figure": "1.26",
+      "reprint_figure": 9,
+      "pdf_page": 27,
+      "path": "dev/docs/assets/mpsuid_monitor_reprint/SR08.png",
+      "sha256": "203616A5FD1A45A64FCC80C7B7DC0DFE805EAD6056AE90CA12057C6557D63DE6",
+      "original_sha256": "BE55B85F4AA7CD0D0C9D2CC03B8CC15E038EE252AA2C0C1CBF9FDCB04BC61A76",
+      "preview_kind": "PDF_WHITE_BACKGROUND_COMPOSITE",
+      "width": 801,
+      "height": 599,
+      "visual_checked": true
+    },
+    {
+      "id": "SR09",
+      "re_figure": "1.27",
+      "reprint_figure": 10,
+      "pdf_page": 29,
+      "path": "dev/docs/assets/mpsuid_monitor_reprint/SR09.png",
+      "sha256": "76099989F0D0963398BFC5444556CC3CF04E9F1B2F545CF505E3F06EB4E3899C",
+      "original_sha256": "DF81CCFCF8BF60B82B7C02346844FDAB5605174F10F393A2756B73E7FDECE7AF",
+      "preview_kind": "PDF_WHITE_BACKGROUND_COMPOSITE",
+      "width": 801,
+      "height": 599,
+      "visual_checked": true
+    },
+    {
+      "id": "SR10",
+      "re_figure": "1.28",
+      "reprint_figure": 11,
+      "pdf_page": 32,
+      "path": "dev/docs/assets/mpsuid_monitor_reprint/SR10.png",
+      "sha256": "DF0EED4A2D0F85ED3EA7151E6A65A739AD51472AC448AED866774E98682DD6C0",
+      "original_sha256": "DF0EED4A2D0F85ED3EA7151E6A65A739AD51472AC448AED866774E98682DD6C0",
+      "preview_kind": "PDF_WHITE_BACKGROUND_COMPOSITE",
+      "width": 640,
+      "height": 480,
+      "visual_checked": true
+    },
+    {
+      "id": "SR11",
+      "re_figure": "1.29",
+      "reprint_figure": 12,
+      "pdf_page": 34,
+      "path": "dev/docs/assets/mpsuid_monitor_reprint/SR11.png",
+      "sha256": "7040DE15B700A7245500DE6E46D2A378180C9BE7E714306854CA66845969730A",
+      "original_sha256": "F4EA8D3749D129FA5007D3AD8619527F46D819C246703BB7B6486F03A67AECF0",
+      "preview_kind": "PDF_WHITE_BACKGROUND_COMPOSITE",
+      "width": 801,
+      "height": 599,
+      "visual_checked": true
+    },
+    {
+      "id": "SR12",
+      "re_figure": "1.30",
+      "reprint_figure": 13,
+      "pdf_page": 36,
+      "path": "dev/docs/assets/mpsuid_monitor_reprint/SR12.png",
+      "sha256": "F0F6534957287257AC45356321F55C965A21A68D3C47F7F79B6C34806D7D29D7",
+      "original_sha256": "F0F6534957287257AC45356321F55C965A21A68D3C47F7F79B6C34806D7D29D7",
+      "preview_kind": "PDF_WHITE_BACKGROUND_COMPOSITE",
+      "width": 640,
+      "height": 480,
+      "visual_checked": true
+    },
+    {
+      "id": "SR13",
+      "re_figure": "1.31",
+      "reprint_figure": 14,
+      "pdf_page": 37,
+      "path": "dev/docs/assets/mpsuid_monitor_reprint/SR13.png",
+      "sha256": "8CDC8F60DA177FBC9CEDA794DDBF9EF5280858E6A3B8166A69EC5D3A334612A0",
+      "original_sha256": "49B63E5059C47BE55087C2B1D3EAFE127BA0FAF993B497A1CCF9CFC7C936F79C",
+      "preview_kind": "PDF_WHITE_BACKGROUND_COMPOSITE",
+      "width": 801,
+      "height": 599,
+      "visual_checked": true
+    },
+    {
+      "id": "SR14",
+      "re_figure": "1.32",
+      "reprint_figure": 15,
+      "pdf_page": 38,
+      "path": "dev/docs/assets/mpsuid_monitor_reprint/SR14.png",
+      "sha256": "6A149BE9AF1E7F4F05EB21BD071B21DF2C9EFC84DD5A005FC714BA9F3133FD5C",
+      "original_sha256": "5CB0F7CA835F5BE862B7C216C314A7190AA45914F173A610DD539FBF5FD5B528",
+      "preview_kind": "PDF_WHITE_BACKGROUND_COMPOSITE",
+      "width": 801,
+      "height": 599,
+      "visual_checked": true
+    },
+    {
+      "id": "SR15",
+      "re_figure": "1.33",
+      "reprint_figure": 16,
+      "pdf_page": 39,
+      "path": "dev/docs/assets/mpsuid_monitor_reprint/SR15.png",
+      "sha256": "CF973141AC46B7DABB7180187502E3EBFC360A04A1E226853952DBA5A6416978",
+      "original_sha256": "B907A65C3103E3BCE03EB968F719FBD869EA811FC4A14A5F6515B4FAF32351EE",
+      "preview_kind": "PDF_WHITE_BACKGROUND_COMPOSITE",
+      "width": 801,
+      "height": 599,
+      "visual_checked": true
+    },
+    {
+      "id": "SR16",
+      "re_figure": "1.34",
+      "reprint_figure": 17,
+      "pdf_page": 40,
+      "path": "dev/docs/assets/mpsuid_monitor_reprint/SR16.png",
+      "sha256": "E1B7E14417D2A0CA158850B2908E669B0F95B04CBB967F869B9B59D2AADA6F06",
+      "original_sha256": "0CB5414A9D113C3121D964DAD34AA4270313363F71C677F8185B0CE066714DFC",
+      "preview_kind": "PDF_WHITE_BACKGROUND_COMPOSITE",
+      "width": 801,
+      "height": 599,
+      "visual_checked": true
+    },
+    {
+      "id": "SR17",
+      "re_figure": "1.35",
+      "reprint_figure": 18,
+      "pdf_page": 42,
+      "path": "dev/docs/assets/mpsuid_monitor_reprint/SR17.png",
+      "sha256": "D0C70496DB75F433E0AF7FC41E51E4101638566BE66124143AA115792FAD46E3",
+      "original_sha256": "69D1A75A3081C842930B1C31D18CD10B93F48365F5DC79001D08157E0C9CBDBC",
+      "preview_kind": "PDF_WHITE_BACKGROUND_COMPOSITE",
+      "width": 801,
+      "height": 599,
+      "visual_checked": true
+    },
+    {
+      "id": "SR18",
+      "re_figure": "1.36",
+      "reprint_figure": 19,
+      "pdf_page": 43,
+      "path": "dev/docs/assets/mpsuid_monitor_reprint/SR18.png",
+      "sha256": "0603118604813E41943FFF9EE27EDA73BF1F6FD83CFFE7276BEBDAA74351B96F",
+      "original_sha256": "69BD6FE9E65895A14384B42033FE6357607CEC42CFC1985B708ACD31E667F3D0",
+      "preview_kind": "PDF_WHITE_BACKGROUND_COMPOSITE",
+      "width": 801,
+      "height": 599,
+      "visual_checked": true
+    },
+    {
+      "id": "SR19",
+      "re_figure": "1.37",
+      "reprint_figure": 20,
+      "pdf_page": 44,
+      "path": "dev/docs/assets/mpsuid_monitor_reprint/SR19.png",
+      "sha256": "11F6B5E6868198F0382868B240D652E5CB0AAC2BC0533BB32E3A01232477DB55",
+      "original_sha256": "B5377937DFB388073D51D8A778DC6BF9D32C029956C9CBEA8D5214A90A27522D",
+      "preview_kind": "PDF_WHITE_BACKGROUND_COMPOSITE",
+      "width": 801,
+      "height": 599,
+      "visual_checked": true
+    },
+    {
+      "id": "SR20",
+      "re_figure": "1.38",
+      "reprint_figure": 21,
+      "pdf_page": 45,
+      "path": "dev/docs/assets/mpsuid_monitor_reprint/SR20.png",
+      "sha256": "7F56F6781A8341490964D5BEAFE9417A462F210C9C4AE26843050AA503DC9957",
+      "original_sha256": "034FD4152875E56F885C272705C7B8D13BE777B39F4D5F024186D31DE1BB73A7",
+      "preview_kind": "PDF_WHITE_BACKGROUND_COMPOSITE",
+      "width": 801,
+      "height": 599,
+      "visual_checked": true
+    },
+    {
+      "id": "SR21",
+      "re_figure": "1.39",
+      "reprint_figure": 22,
+      "pdf_page": 46,
+      "path": "dev/docs/assets/mpsuid_monitor_reprint/SR21.png",
+      "sha256": "A306EF09ACC005679A6CFCAB1CA3D5AF297226B73AB9E4BFD0C27C74E5D5463E",
+      "original_sha256": "5022C1575A219069F568399CC0CDDB718CA2D78B5B423D89B78D5FE05FA81B2E",
+      "preview_kind": "PDF_WHITE_BACKGROUND_COMPOSITE",
+      "width": 801,
+      "height": 599,
+      "visual_checked": true
+    }
+  ]
+}

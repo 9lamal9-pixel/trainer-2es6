@@ -1,0 +1,92 @@
+# Разработка тренажёра 2ЭС6
+
+Все команды ниже выполняются из корня среды. Редактируемые C# файлы остаются в `outputs`: проект использует ссылки на них, поэтому сборка проекта и командная сборка работают с одним набором исходников.
+
+## Открыть проект
+
+`Trainer.code-workspace` открывает рабочую папку в VS Code, если он установлен. В меню **Терминал → Выполнить задачу** доступны проверка зависимостей, сборка, тесты, запуск, сохранение исправления и архивирование. `dev/Trainer.sln` и `dev/TrainerIntegrationHost.csproj` позволяют открыть те же исходники как классический C# проект.
+
+Проект предназначен для .NET Framework 4.0, WinForms, платформы **x86**. Нативные DLL тренажёра имеют 32-разрядный интерфейс. Ссылки проекта: System, System.Core, System.Windows.Forms, System.Drawing, System.Web.Extensions. Расширения редактора и отдельный SDK из сети автоматически не устанавливаются.
+
+## Командная работа
+
+```powershell
+# Проверить компилятор, нативные модули и структуру файлов
+.\dev\TrainerDev.ps1 -Action Doctor
+
+# Собрать исправляемый кандидат пневмосети
+.\dev\TrainerDev.ps1 -Action Build -Profile candidate
+
+# Быстрая проверка и затем полный выбранный набор проверок
+.\dev\TrainerDev.ps1 -Action Test -Suite smoke
+.\dev\TrainerDev.ps1 -Action Test -Suite regression
+
+# Запустить кандидат с отдельной сессией логирования
+.\dev\TrainerDev.ps1 -Action Run -Profile candidate
+
+# Сохранить конкретное исправление с пояснением
+.\dev\TrainerDev.ps1 -Action Checkpoint -Name "tm-charge" -Note "Исправлена зарядка ТМ; указать результат проверок"
+
+# Собрать, проверить и сохранить исправление одной командой
+.\dev\TrainerDev.ps1 -Action Fix -Name "tm-charge" -Note "Что исправлено и почему" -Suite regression
+
+# Сохранить контекст работы для следующего сеанса
+.\dev\TrainerDev.ps1 -Action Handoff
+
+# Просмотреть состояние среды и создать переносимый архив
+.\dev\TrainerDev.ps1 -Action Status
+.\dev\TrainerDev.ps1 -Action Archive
+```
+
+Если запуск `.ps1` запрещён локальной политикой, используйте установленный Windows PowerShell:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\dev\TrainerDev.ps1 -Action Doctor
+```
+
+`-Profile integration` выбирает базовую сборку без экспериментальной сети; `candidate` является профилем по умолчанию. Идентификаторы отдельных проб и их ограничения находятся в каталоге проверок среды. Для изменения модели сначала сохраните исходное состояние через `Checkpoint`, затем внесите правку, соберите, выполните нужные проверки и сохраните новое состояние с описанием результата.
+
+Обычный `Build` сохраняет новую версию без подмены рабочего EXE. `Build -Deploy` дополнительно устанавливает её в `outputs`, сохраняя прежний EXE/PDB/манифест в каталоге новой сборки. Старые `BuildTrainerIntegration.ps1` и `BuildPneumaticNetworkCandidate.ps1` теперь вызывают этот же путь; сессионное логирование будет работать и при прежнем запуске.
+
+## Сборка из редактора
+
+Классический проект можно проверить имеющимся MSBuild:
+
+```powershell
+& "$env:WINDIR\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe" .\dev\Trainer.sln /t:Build /p:Configuration=Debug /p:Platform=x86 /m:1 /nr:false
+& "$env:WINDIR\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe" .\dev\TrainerIntegrationHost.csproj /t:Build /p:Configuration=Release /p:Platform=x86 /p:TrainerProfile=integration /m:1 /nr:false
+```
+
+Редактор пишет двоичные файлы и PDB в `dev/builds/editor/<profile>/<configuration>`, промежуточные файлы — в отдельную папку `obj` под `dev/builds/editor`. Рабочий запуск выполняйте через `TrainerDev.ps1 -Action Run`: путь загрузки нативных ресурсов рассчитан на размещение запускаемого EXE в `outputs`. Файлы в `dev/builds/editor` нужны для компиляции и навигации по проекту; журналируемые версии создаёт основной CLI в `dev/builds/<id>`.
+
+На текущем компьютере проверены сборки `candidate Debug` и `integration Release`. MSBuild сообщает предупреждение MSB3644: отдельные справочные сборки SDK .NET Framework 4.0 отсутствуют, поэтому ссылки разрешаются из установленного GAC. Это позволяет собрать приложение здесь, но не подтверждает совместимость с чистой установкой исходного .NET 4.0. Основная сборка CLI использует уже имеющийся `csc.exe` и те же локальные библиотеки. Для переноса среды сверяйте результат `Doctor` на другом компьютере.
+
+Конфигурация F5 не добавлена: наличие редактора и подходящего отладчика .NET Framework не проверено. Для диагностики среды доступны сохранённые журналы, телеметрия, результаты проб и PDB сборки редактора. Ошибка нативной DLL требует проверки разрядности, пути ресурсов, контрольной суммы DLL и последней записи журнала.
+
+## Состав проекта
+
+Общие восемь файлов: `TrainerIntegrationHost`, `TrainerNativeSystems`, `TrainerAuxSystems`, `TrainerRouteDOS`, `TrainerRouteView`, `TrainerNativeFixes`, `TrainerPneumaticTiming`, `TrainerSessionLogging`.
+
+Кандидат добавляет семь файлов: `TrainerAirNetwork`, `TrainerControlAir`, `TrainerBtoNetwork`, `TrainerAirSelector`, `TrainerKvtProfile`, `TrainerTwoSectionAirChain`, `TrainerPneumaticNetworkCandidate`. Всего в кандидате **15 C# файлов**. `TrainerDebug.cs`, `TrainerStart.cs` и самостоятельные исходники диагностических проб не являются модулями этого приложения.
+
+Исправления оригинальных DLL выполняются в памяти с проверкой ожидаемых байтов/контрольных сумм. Не подменяйте оригинальные DLL непроверенными версиями. Текущий кандидат содержит проверочную геометрию пневмосети; успешная компиляция и прохождение проб подтверждают описанные сценарии, а точность всех характеристик по РЭ для электровоза №137 и выше ещё проверяется.
+
+## Python для анализа
+
+`dev/config/python-tools.json` выбирает уже имеющийся Python 3.12.14 из bundled runtime Codex и два локальных каталога библиотек: `work/traction6000/vendor` и `work/traction6000/electrobrake/pydeps`. В существующий vendor сохранены `pefile 2024.8.26`, `ordlookup` и metadata/license; `capstone 5.0.9` уже находился там. Остальные библиотеки используются из установленного bundled runtime. Установок из сети не выполнялось. `dev/tools/check_python.py` находит корень через собственный путь и работает из любой текущей папки.
+
+```powershell
+# Проверить библиотеки и сохранить вывод отдельной сессии анализа
+.\dev\scripts\Invoke-TrainerPython.ps1 -Script dev/tools/check_python.py
+
+# Запустить существующий анализатор с аргументами
+.\dev\scripts\Invoke-TrainerPython.ps1 -Script work/pneumatic_live_fix/analysis/disasm.py -Arguments @('0x1776a4','160')
+```
+
+Вывод `check_python.py` — одна JSON-строка с версией Python, версиями/путями пакетов и результатом проверки. Обёртка сохраняет её в `stdout.log` и показывает путь папки с журналами. `pefile` и `capstone` обязательны для анализа нативных DLL; проверка Capstone действительно декодирует x86-инструкцию. `Pillow`, `numpy`, `pypdf`, `pdfplumber` используются отдельными скриптами графики, численных расчётов и чтения PDF и отмечены как дополнительные. Проверка возвращает код 0, когда обязательные пакеты доступны, и код 1 при их отсутствии или неисправности; отсутствие дополнительного пакета только добавляет замечание.
+
+На выбранном Python доступны все шесть проверяемых библиотек: `pefile 2024.8.26`, `capstone 5.0.9`, `Pillow 12.2.0`, `numpy 2.4.6`, `pypdf 6.11.0`, `pdfplumber 0.11.9`. `Invoke-TrainerPython.ps1` запускает обычный `.py` внутри проекта без shell, устанавливает `PYTHONPATH` только дочернему процессу и использует корень проекта как рабочую папку. Каждому запуску создаётся `dev/runs/analysis-<UTC>-<GUID>` с UTF-8 `stdout.log`, `stderr.log`, `result.json`: путь/SHA-256 скрипта, Python, аргументы, время, PID и код завершения. Журналы сохраняются также при ошибке; ожидание закрытия потоков после завершения ограничено 5 секундами. Сам анализатор может создавать свои прежние файлы результата — они остаются в его штатных путях.
+
+Ни C# сборка, ни работа тренажёра не требуют Python. Проверка не устанавливает библиотеки из сети. Старый `work/compare137_configs/render_ocr_blok.py` использует отдельный `pypdfium2`; OCR и PDF-рендереры не включены в обязательные зависимости анализа DLL. Некоторые исторические Python-скрипты имеют пути от текущей папки: их запускайте из корня проекта, даже если сам проверяющий скрипт работает из любого места.
+
+Исторические `work/pneumatic_live_fix/analysis/create_vcu_air_sequence.py`, `create_vcu_power_probe.py` и `create_two_section_probe.py` являются генераторами исходников. Перед их ручным запуском сохраните `Checkpoint` и проверьте содержимое: генератор может записать устаревший вариант поверх уже исправленного файла. Обёртка сохраняет факт запуска, но не запрещает изменение файлов самим Python-скриптом.

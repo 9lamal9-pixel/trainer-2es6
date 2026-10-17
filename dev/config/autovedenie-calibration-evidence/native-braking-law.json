@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "source_dll": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/POEZD.DLL",
+  "source_sha256": "822B6D17CE45F80179A512EE6C70A35D5AE29BF187530BDA5EBD11446CFB3553",
+  "gravity": {
+    "rva": "218C",
+    "value": 9.81
+  },
+  "FTk1": {
+    "producer_rva": "1DBC..1EC4",
+    "numerator_constant_rva": "15200",
+    "numerator_constant": 27.780000686645508,
+    "denominator_constant_rva": "15208",
+    "denominator_constant": 5.559999942779541,
+    "formula": "(abs(v_m_s)+A)/(abs(v_m_s)+B)",
+    "ratio_80_to_20": 0.6001306353462865
+  },
+  "initial_speed": {
+    "input": "km/h",
+    "getter_velocity": "m/s",
+    "conversion_constant_rva": "27D8",
+    "conversion_constant_bytes": "3C8DE3388EE3388EFD3F",
+    "code2435": "db2dd8274000d84d0c8b4dfcd91c8d048f4100ff"
+  },
+  "direct_arrays": {
+    "brake_signed_force": "1D0AC",
+    "grade_curve_force": "1CE4C",
+    "rolling_force": "1D304",
+    "combined_external_force": "1CBF4",
+    "element_scaled_mass": "19ABC",
+    "group_scaled_mass": "19F6C",
+    "group_velocity": "18F04",
+    "brake_input": "1A674",
+    "FTk": "1AD7C"
+  },
+  "array_contract": {
+    "capacity": 150,
+    "current_model_counts": {
+      "elements": 76,
+      "groups": 76,
+      "elements_per_group": 1
+    },
+    "counter_rvas": [
+      "25658",
+      "2565C",
+      "25664"
+    ],
+    "mass_scale": 0.1,
+    "expected_scaled_total": 620,
+    "timing": "Last predictor after MotionCycle; corrected GetCurVal velocities can differ. Read-only; no native array assignment."
+  },
+  "open_validation": [
+    "Fresh80 steady brake force with stable all TC and per-tick source guards",
+    "Moving80 application delay; force/grade separate from useful resistance",
+    "Repeat brake after genuine II release and sufficient charging",
+    "Low-speed branch, full-consist stop and independent hold on adverse grade"
+  ],
+  "status": "abi_primary_evidence_only_not_calibration_approval",
+  "FTk0": {
+    "material": "composite by formula match",
+    "producer_rva": "1DBC..1EC4",
+    "phi_rva": "151E4",
+    "phi": 0.054999999701976776,
+    "load_c1_rva": "151EC",
+    "load_c1": 20,
+    "load_c2_rva": "151F4",
+    "load_c2": 5,
+    "numerator_constant_rva": "151FC",
+    "numerator_constant": 41.70000076293945,
+    "denominator_constant_rva": "15204",
+    "denominator_constant": 20.850000381469727,
+    "formula": "(abs(v_m_s)+A)/(abs(v_m_s)+B)",
+    "ratio_80_to_20": 0.829272038888825
+  },
+  "current_user_configuration": "All75wagon FTk0/R2/AR1; FTk1 historical wagon measurements cannot be reused."
+}

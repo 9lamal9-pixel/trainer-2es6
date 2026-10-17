@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "interpreter": "C:\\Users\\sibir\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "vendor_paths": [
+    "work/traction6000/vendor",
+    "work/traction6000/electrobrake/pydeps"
+  ],
+  "packages": [
+    {
+      "distribution": "pefile",
+      "import": "pefile",
+      "group": "required_for_native_analysis",
+      "usage": "Чтение PE, экспортов, секций и RTTI оригинальных DLL"
+    },
+    {
+      "distribution": "capstone",
+      "import": "capstone",
+      "group": "required_for_native_analysis",
+      "usage": "Дизассемблирование x86 в pneumatic_live_fix/analysis и traction6000"
+    },
+    {
+      "distribution": "Pillow",
+      "import": "PIL.Image",
+      "group": "optional",
+      "usage": "Декодирование старой графики: work/dos_route/reference/decode_pcc.py"
+    },
+    {
+      "distribution": "numpy",
+      "import": "numpy",
+      "group": "optional",
+      "usage": "Численный разбор: work/build_6000_analysis.py"
+    },
+    {
+      "distribution": "pypdf",
+      "import": "pypdf",
+      "group": "optional",
+      "usage": "Извлечение текста/страниц РЭ: read_blok.py и make_reference_excerpt.py"
+    },
+    {
+      "distribution": "pdfplumber",
+      "import": "pdfplumber",
+      "group": "optional",
+      "usage": "Извлечение таблиц режимной карты: work/modern_route/data/enrich_route.py"
+    }
+  ],
+  "notes": [
+    "Python нужен инструментам анализа; C# сборка и запуск тренажёра не зависят от Python.",
+    "Проверка использует уже установленные библиотеки и локальные vendor; установка из сети не выполняется.",
+    "Старый render_ocr_blok.py дополнительно использует pypdfium2; OCR и PDF-рендереры не входят в обязательный набор native analysis."
+  ]
+}
