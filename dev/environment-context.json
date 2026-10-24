@@ -74,7 +74,9 @@
     "world3d_architecture": "dev/docs/WORLD3D_ARCHITECTURE.md",
     "safety_markup_audit": "dev/docs/SAFETY_MARKUP_RB_AUDIT.md",
     "portable_setup": "dev/docs/PORTABLE_SETUP.md",
-    "portable_release": "dev/config/portable-release.json"
+    "portable_release": "dev/config/portable-release.json",
+    "re_part1_audit": "dev/docs/RE_PART1_AUDIT.md",
+    "re_part1_requirements": "dev/config/re-part1-audit.json"
   },
   "commands": {
     "entrypoint": ".\\trainer.cmd",

@@ -1,0 +1,83 @@
+{
+  "utc": "2026-10-24T15:38:35.264914+00:00",
+  "module": "work\\trenager_static\\WORK_TRENAGER_3D\\RESOURCES\\LOCOMOTIVES\\1\\Pult1.dll",
+  "sha256": "7dac59bf94276309e012a6eb72602c08a921fe1910a4169f9f0ec27008f0f8f5",
+  "identity_passed": true,
+  "checks": [
+    {
+      "id": "C07/native_discrete_58",
+      "rva": "0x18e982",
+      "file_offset": "0x18dd82",
+      "expected_hex": "80785800",
+      "actual_hex": "80785800",
+      "passed": true
+    },
+    {
+      "id": "C07/constant_voltage_3100",
+      "rva": "0x18e9ba",
+      "file_offset": "0x18ddba",
+      "expected_hex": "c780250100001c0c0000",
+      "actual_hex": "c780250100001c0c0000",
+      "passed": true
+    },
+    {
+      "id": "C07/otherwise_voltage_zero_from_edx",
+      "rva": "0x18e9d0",
+      "file_offset": "0x18ddd0",
+      "expected_hex": "899025010000",
+      "actual_hex": "899025010000",
+      "passed": true
+    },
+    {
+      "id": "C21/read_raw_position_8c",
+      "rva": "0x18c676",
+      "file_offset": "0x18ba76",
+      "expected_hex": "0fb6928c000000",
+      "actual_hex": "0fb6928c000000",
+      "passed": true
+    },
+    {
+      "id": "C21/store_position_104",
+      "rva": "0x18c67d",
+      "file_offset": "0x18ba7d",
+      "expected_hex": "899004010000",
+      "actual_hex": "899004010000",
+      "passed": true
+    },
+    {
+      "id": "C21/clear_latch_108",
+      "rva": "0x18c6e7",
+      "file_offset": "0x18bae7",
+      "expected_hex": "c6800801000000",
+      "actual_hex": "c6800801000000",
+      "passed": true
+    },
+    {
+      "id": "C21/position1_branch",
+      "rva": "0x18c701",
+      "file_offset": "0x18bb01",
+      "expected_hex": "7425",
+      "actual_hex": "7425",
+      "passed": true
+    },
+    {
+      "id": "C21/position2_branch",
+      "rva": "0x18c703",
+      "file_offset": "0x18bb03",
+      "expected_hex": "487442",
+      "actual_hex": "487442",
+      "passed": true
+    },
+    {
+      "id": "C21/set_latch_108",
+      "rva": "0x18c76e",
+      "file_offset": "0x18bb6e",
+      "expected_hex": "c6800801000001",
+      "actual_hex": "c6800801000001",
+      "passed": true
+    }
+  ],
+  "functional_acceptance": false,
+  "scope": "Fresh on-disk PE identity/RVA-mapped bytes only; no native execution or dynamic protection acceptance.",
+  "passed": true
+}

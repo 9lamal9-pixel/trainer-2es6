@@ -7,14 +7,19 @@
   "items": [
     {
       "id": "2es6-re-part1",
-      "title": "2ЭС6.00.000.000 РЭ, часть 1, утверждение 2008",
+      "title": "2ЭС6.00.000.000 РЭ, часть 1, утверждение 2008 и изменённые листы 2010–2013",
       "path": "work/public_2es6_part1.pdf",
       "bytes": 71288842,
       "sha256": "c381056881302e0a0ad743d36148cbd8abf18930fc6d756b99ec19b3431c61e6",
       "original_source": "C:/Users/sibir/Documents/Codex/2026-10-07/e-launch-cam/work/public_2es6_part1.pdf",
       "provenance_kind": "workspace_copy",
       "audit_note": "MPSUID2026-10-11: historical filename part1; examined stamps RE on printed77/86 and RE3 on106/119–122; amended sheets2012/2013. Cite SHA+section+printed/PDF page; exact compilation/RE137 applicability not established.",
-      "audit_ref": "dev/docs/MPSUID_2ES6_AUDIT.md"
+      "audit_ref": "dev/docs/MPSUID_2ES6_AUDIT.md",
+      "part1_audit_ref": "dev/docs/RE_PART1_AUDIT.md",
+      "part1_requirements_ref": "dev/config/re-part1-audit.json",
+      "pages": 171,
+      "printed_last_sheet": 166,
+      "part1_audit_note": "2026-10-24: complete contents crosswalk and 61 scoped work items. Five inserted sheets61а/61б/64а/64б/64в, amendment register atPDF171. Fresh static C#/PE evidence only; exact137+ equipment/revision and full functional conformity remain unresolved."
     },
     {
       "id": "2es6-characteristics-excerpt",

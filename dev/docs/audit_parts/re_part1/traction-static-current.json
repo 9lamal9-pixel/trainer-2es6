@@ -1,0 +1,243 @@
+{
+  "kind": "static_current_PE_read_only",
+  "dll": "work\\trenager_static\\WORK_TRENAGER_3D\\RESOURCES\\LOCOMOTIVES\\1\\Tyga1.dll",
+  "sha256": "8ec6a82e618a1d75cbb31242784084b530bb87308e601defc5263d5279270491",
+  "passed": true,
+  "guards": {
+    "get_cur_call": true,
+    "clamp_first": true,
+    "clamp_second": true,
+    "return_after_clamp": true,
+    "constant_Uset3200": true,
+    "zero_Uset_branch": true,
+    "Kper3_44_low": true,
+    "Kper3_44_high": true,
+    "Rkol0_625_high": true,
+    "Eset3200": true
+  },
+  "instructions": [
+    {
+      "rva": "0x177bd1",
+      "bytes": "6a00",
+      "mnemonic": "push",
+      "operands": "0"
+    },
+    {
+      "rva": "0x177bd3",
+      "bytes": "8b45fc",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x177bd6",
+      "bytes": "e861060000",
+      "mnemonic": "call",
+      "operands": "0x17823c"
+    },
+    {
+      "rva": "0x177bdb",
+      "bytes": "ddd8",
+      "mnemonic": "fstp",
+      "operands": "st(0)"
+    },
+    {
+      "rva": "0x177c29",
+      "bytes": "c745f801000000",
+      "mnemonic": "mov",
+      "operands": "dword ptr [ebp - 8], 1"
+    },
+    {
+      "rva": "0x177c30",
+      "bytes": "8b45fc",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x177c33",
+      "bytes": "8b4004",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x177c36",
+      "bytes": "8b55f8",
+      "mnemonic": "mov",
+      "operands": "edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x177c39",
+      "bytes": "d944d033",
+      "mnemonic": "fld",
+      "operands": "dword ptr [eax + edx*8 + 0x33]"
+    },
+    {
+      "rva": "0x177c3d",
+      "bytes": "d81dac7c5700",
+      "mnemonic": "fcomp",
+      "operands": "dword ptr [0x577cac]"
+    },
+    {
+      "rva": "0x177c43",
+      "bytes": "9b",
+      "mnemonic": "wait",
+      "operands": ""
+    },
+    {
+      "rva": "0x177c44",
+      "bytes": "dfe0",
+      "mnemonic": "fnstsw",
+      "operands": "ax"
+    },
+    {
+      "rva": "0x177c46",
+      "bytes": "9e",
+      "mnemonic": "sahf",
+      "operands": ""
+    },
+    {
+      "rva": "0x177c47",
+      "bytes": "7611",
+      "mnemonic": "jbe",
+      "operands": "0x177c5a"
+    },
+    {
+      "rva": "0x177c49",
+      "bytes": "8b45fc",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x177c4c",
+      "bytes": "8b4004",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x177c4f",
+      "bytes": "8b55f8",
+      "mnemonic": "mov",
+      "operands": "edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x177c52",
+      "bytes": "c744d03300803b44",
+      "mnemonic": "mov",
+      "operands": "dword ptr [eax + edx*8 + 0x33], 0x443b8000"
+    },
+    {
+      "rva": "0x177c5a",
+      "bytes": "8b45fc",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x177c5d",
+      "bytes": "8b4004",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x177c60",
+      "bytes": "8b55f8",
+      "mnemonic": "mov",
+      "operands": "edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x177c63",
+      "bytes": "d944d037",
+      "mnemonic": "fld",
+      "operands": "dword ptr [eax + edx*8 + 0x37]"
+    },
+    {
+      "rva": "0x177c67",
+      "bytes": "d81dac7c5700",
+      "mnemonic": "fcomp",
+      "operands": "dword ptr [0x577cac]"
+    },
+    {
+      "rva": "0x177c6d",
+      "bytes": "9b",
+      "mnemonic": "wait",
+      "operands": ""
+    },
+    {
+      "rva": "0x177c6e",
+      "bytes": "dfe0",
+      "mnemonic": "fnstsw",
+      "operands": "ax"
+    },
+    {
+      "rva": "0x177c70",
+      "bytes": "9e",
+      "mnemonic": "sahf",
+      "operands": ""
+    },
+    {
+      "rva": "0x177c71",
+      "bytes": "7611",
+      "mnemonic": "jbe",
+      "operands": "0x177c84"
+    },
+    {
+      "rva": "0x177c73",
+      "bytes": "8b45fc",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x177c76",
+      "bytes": "8b4004",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x177c79",
+      "bytes": "8b55f8",
+      "mnemonic": "mov",
+      "operands": "edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x177c7c",
+      "bytes": "c744d03700803b44",
+      "mnemonic": "mov",
+      "operands": "dword ptr [eax + edx*8 + 0x37], 0x443b8000"
+    },
+    {
+      "rva": "0x177c84",
+      "bytes": "ff45f8",
+      "mnemonic": "inc",
+      "operands": "dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x177c87",
+      "bytes": "837df805",
+      "mnemonic": "cmp",
+      "operands": "dword ptr [ebp - 8], 5"
+    },
+    {
+      "rva": "0x177c8b",
+      "bytes": "75a3",
+      "mnemonic": "jne",
+      "operands": "0x177c30"
+    },
+    {
+      "rva": "0x177c8d",
+      "bytes": "8be5",
+      "mnemonic": "mov",
+      "operands": "esp, ebp"
+    },
+    {
+      "rva": "0x177c8f",
+      "bytes": "5d",
+      "mnemonic": "pop",
+      "operands": "ebp"
+    },
+    {
+      "rva": "0x177c90",
+      "bytes": "c3",
+      "mnemonic": "ret",
+      "operands": ""
+    }
+  ],
+  "probe_correction": "Initial new Uset guard read8 bytes for7-byte instruction and included next JMP byte; corrected endRVA176516. Initial analysis failure preserved in traction-static-current-guard-length-error.json; module was unchanged."
+}

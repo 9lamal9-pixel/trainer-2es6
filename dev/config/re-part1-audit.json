@@ -1,0 +1,3565 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-10-24",
+  "baseline_commit": "a04ed4b144d9ca49ef08018377566aec722a8204",
+  "report": "dev/docs/RE_PART1_AUDIT.md",
+  "source": {
+    "path": "work/public_2es6_part1.pdf",
+    "sha256": "c381056881302e0a0ad743d36148cbd8abf18930fc6d756b99ec19b3431c61e6",
+    "pdf_pages": 171,
+    "printed_last_sheet": 166,
+    "inserted_sheets": [
+      "61а",
+      "61б",
+      "64а",
+      "64б",
+      "64в"
+    ],
+    "title_approval_year": 2008,
+    "amendment_register_pdf_page": 171,
+    "amended_sheets_present_through": 2013,
+    "applicability": "The compilation starts from locomotive036 and contains several equipment/revision branches. Exact applicability to137+ is unresolved."
+  },
+  "method": {
+    "fresh": "Primary scanned pages/OCR locators, visual checks of critical numbers and tables, current C# sources, SHA and bounded PE checks.",
+    "native_run_test_performed": false,
+    "model_or_dll_changed": false,
+    "prior_dynamic_results": "Historical evidence only; not new acceptance of this model or of RE part1."
+  },
+  "status_definitions": {
+    "confirmed_static": "A specifically named parameter, table or code property is confirmed; broader function remains outside this status.",
+    "confirmed_mismatch": "The specified component/source difference is proven statically; reachability and whole-train impact require the stated scenario.",
+    "partial": "Implementation or part of the connection exists; full requirement/physical outcome is not accepted.",
+    "unverified": "The stated requirement has not been accepted; this is not evidence that native code lacks it.",
+    "revision_dependent": "The governing equipment/revision or conflicting source passage must be settled before choosing constants."
+  },
+  "summary": {
+    "requirements": 61,
+    "toc_entries": 46,
+    "counts": {
+      "confirmed_static": 5,
+      "unverified": 20,
+      "confirmed_mismatch": 7,
+      "revision_dependent": 7,
+      "partial": 22
+    },
+    "code_references_checked": 157,
+    "parts": [
+      {
+        "run_report": "dev/runs/re-part1-20261024/parameters-power.json",
+        "requirements": 18,
+        "status_counts": {
+          "confirmed_static": 3,
+          "unverified": 5,
+          "confirmed_mismatch": 2,
+          "revision_dependent": 3,
+          "partial": 5
+        }
+      },
+      {
+        "run_report": "dev/runs/re-part1-20261024/control-aux.json",
+        "requirements": 22,
+        "status_counts": {
+          "unverified": 11,
+          "confirmed_mismatch": 1,
+          "partial": 8,
+          "revision_dependent": 2
+        }
+      },
+      {
+        "run_report": "dev/runs/re-part1-20261024/traction-brakes.json",
+        "requirements": 20,
+        "status_counts": {
+          "partial": 8,
+          "confirmed_static": 2,
+          "confirmed_mismatch": 4,
+          "unverified": 4,
+          "revision_dependent": 2
+        }
+      }
+    ]
+  },
+  "evidence_files": [
+    "dev/docs/audit_parts/re_part1/control-native-guards.json",
+    "dev/docs/audit_parts/re_part1/traction-static-current.json",
+    "dev/docs/audit_parts/re_part1/rheostat-reference-check.json",
+    "dev/docs/audit_parts/re_part1/traction-native-static.json"
+  ],
+  "current_native_identity": [
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Tyga1.dll",
+      "sha256": "8ec6a82e618a1d75cbb31242784084b530bb87308e601defc5263d5279270491",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Pult1.dll",
+      "sha256": "7dac59bf94276309e012a6eb72602c08a921fe1910a4169f9f0ec27008f0f8f5",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/MSUL_MON.dll",
+      "sha256": "95e3fb14cbc7ff2b5e9c61dc2215cfa7c2f23161fe21d075adf04f45907b653b",
+      "matches": true
+    }
+  ],
+  "equipment_variants": [
+    {
+      "reference": "§2.6.1, лист 58/PDF 58",
+      "variant": "№ 1–26: ПСН-200; исключение № 15, а также № 27 и далее: ПСН-210-3",
+      "effect": "Различаются шкафы, обозначения и резервирование; один generic набор переключателей не доказывает выбранное исполнение."
+    },
+    {
+      "reference": "§2.6.2, лист 61 а/PDF 62",
+      "variant": "№ 114 и с № 178: СТПР-1000 М4; отдельное описание исходного ПСН-210-3",
+      "effect": "Не переносить алгоритм общего канала 600 В/возбуждения на № 137 автоматически."
+    },
+    {
+      "reference": "§2.6.2–2.6.3, листы 62–64 а/PDF 64–67",
+      "variant": "№ 192, 193, 217–245: модернизация ПЧ и ЗУ при сохранённых QR3–QR5; с № 246: другая комплектация без этих ножей",
+      "effect": "Разные схемы резервирования МВ/МК, наличие ножей и последовательность действий."
+    },
+    {
+      "reference": "§2.6.5, лист 64 в/PDF 69; таблицы 1.2/1.3",
+      "variant": "Компрессоры ДЭН-30 МО и ВВ-3,5/10 имеют различающиеся электрические цепи и обогрев осушки",
+      "effect": "Выбранный в candidate профиль ВВ нельзя одновременно принимать по частотному алгоритму ДЭН."
+    },
+    {
+      "reference": "§1.3.9, лист 21/PDF 21",
+      "variant": "ЭДП810, ДТП810, СТК-810, ЭК-810; разнотипные ТЭД в одной тележке не допускаются",
+      "effect": "Нужна идентификация конкретного моделируемого ТЭД и его характеристик до калибровки."
+    },
+    {
+      "reference": "§1.5, листы 24–31/PDF 24–31",
+      "variant": "Разные номера принципиальных схем и ведомостей элементов",
+      "effect": "Паспорт профиля должен закреплять электрические схемы, дату изменений, ПСН, компрессор и ТЭД."
+    }
+  ],
+  "priority_order": [
+    {
+      "order": 1,
+      "work": "Record the supported locomotive/equipment/revision profile and signal ownership.",
+      "requirements": [
+        "RP1-POWER-09",
+        "RP1-POWER-15",
+        "CA10",
+        "CA13",
+        "RP1-SIGNALS-01"
+      ]
+    },
+    {
+      "order": 2,
+      "work": "Correct the SA47 processed-command/actuation boundary, then verify both sections and KVT preservation.",
+      "requirements": [
+        "TB-14",
+        "CA22"
+      ]
+    },
+    {
+      "order": 3,
+      "work": "Introduce a coherent measured voltage per section; verify current/force consistency and the C-to-SP current boundary.",
+      "requirements": [
+        "CA02",
+        "RP1-POWER-05",
+        "RP1-POWER-06",
+        "TB-03"
+      ]
+    },
+    {
+      "order": 4,
+      "work": "Bind insulation indication to actual measured channels and their validity.",
+      "requirements": [
+        "TB-20"
+      ]
+    },
+    {
+      "order": 5,
+      "work": "Accept complete cold preparation, negative interlocks, PSN/compressor timing and real actuator demand.",
+      "requirements": [
+        "CA01",
+        "CA03",
+        "CA05",
+        "CA06",
+        "CA07",
+        "CA08",
+        "CA09",
+        "CA11",
+        "CA12"
+      ]
+    },
+    {
+      "order": 6,
+      "work": "Accept electrical braking transitions/replacement, overload and timing paths, then physical slip/sanding.",
+      "requirements": [
+        "TB-04",
+        "TB-05",
+        "TB-06",
+        "TB-08",
+        "TB-09",
+        "TB-10",
+        "TB-13",
+        "TB-15",
+        "TB-17",
+        "TB-18",
+        "TB-19"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "section": "1.1",
+      "title": "Назначение",
+      "printed_start": 8,
+      "pdf_start": 8,
+      "requirements": [
+        "RP1-POWER-05"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "1.2",
+      "title": "Технические характеристики",
+      "printed_start": 8,
+      "pdf_start": 8,
+      "requirements": [
+        "RP1-POWER-01",
+        "RP1-POWER-02",
+        "RP1-POWER-03",
+        "RP1-POWER-05",
+        "RP1-POWER-10",
+        "RP1-POWER-17"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "1.3",
+      "title": "Размещение оборудования",
+      "printed_start": 15,
+      "pdf_start": 15,
+      "requirements": [
+        "RP1-POWER-09",
+        "RP1-POWER-17",
+        "RP1-POWER-18"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "1.4",
+      "title": "Тяговые характеристики",
+      "printed_start": 21,
+      "pdf_start": 21,
+      "requirements": [
+        "RP1-POWER-04",
+        "RP1-POWER-06"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "1.5",
+      "title": "Принципиальные схемы",
+      "printed_start": 24,
+      "pdf_start": 24,
+      "requirements": [
+        "RP1-POWER-09",
+        "RP1-POWER-18"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "2.1",
+      "title": "Общие сведения о силовых цепях",
+      "printed_start": 32,
+      "pdf_start": 32,
+      "requirements": [
+        "RP1-POWER-06",
+        "RP1-POWER-07",
+        "RP1-POWER-08",
+        "RP1-POWER-10",
+        "RP1-POWER-18"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "2.2",
+      "title": "Силовые цепи тяги",
+      "printed_start": 42,
+      "pdf_start": 42,
+      "requirements": [
+        "RP1-POWER-07",
+        "RP1-POWER-08",
+        "RP1-POWER-10",
+        "RP1-POWER-12"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "2.3",
+      "title": "Силовые цепи электрического торможения",
+      "printed_start": 49,
+      "pdf_start": 49,
+      "requirements": [
+        "RP1-POWER-05",
+        "RP1-POWER-11"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "2.4",
+      "title": "Возбуждение ТЭД",
+      "printed_start": 52,
+      "pdf_start": 52,
+      "requirements": [
+        "RP1-POWER-07",
+        "RP1-POWER-12"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "2.5",
+      "title": "Питание вентиляторов ПТР",
+      "printed_start": 56,
+      "pdf_start": 56,
+      "requirements": [
+        "RP1-POWER-13"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "2.6",
+      "title": "Питание вспомогательных машин",
+      "printed_start": 58,
+      "pdf_start": 58,
+      "requirements": [
+        "RP1-POWER-05",
+        "RP1-POWER-14",
+        "RP1-POWER-15",
+        "RP1-POWER-16",
+        "RP1-POWER-17"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "3.1",
+      "title": "Бортовая сеть 110 В",
+      "printed_start": 65,
+      "pdf_start": 70,
+      "requirements": [
+        "CA01"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "3.2",
+      "title": "Электропневматическое управление",
+      "printed_start": 71,
+      "pdf_start": 76,
+      "requirements": [
+        "CA08",
+        "RP1-SIGNALS-01"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "3.3",
+      "title": "МПСУиД и каналы сигналов",
+      "printed_start": 73,
+      "pdf_start": 78,
+      "requirements": [
+        "CA02",
+        "CA07",
+        "RP1-SIGNALS-01"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "3.4",
+      "title": "Включение цепей управления",
+      "printed_start": 77,
+      "pdf_start": 82,
+      "requirements": [
+        "CA03",
+        "CA04",
+        "CA05"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "3.5",
+      "title": "Токоприёмник, разъединитель, заземлитель",
+      "printed_start": 79,
+      "pdf_start": 84,
+      "requirements": [
+        "CA06",
+        "CA08"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "3.6",
+      "title": "БВ и ПСН",
+      "printed_start": 81,
+      "pdf_start": 86,
+      "requirements": [
+        "CA02",
+        "CA09",
+        "CA12",
+        "TB-11"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "3.7",
+      "title": "Вспомогательный компрессор",
+      "printed_start": 83,
+      "pdf_start": 88,
+      "requirements": [
+        "CA07",
+        "CA08"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "3.8",
+      "title": "Тормозной компрессор ДЭН",
+      "printed_start": 84,
+      "pdf_start": 89,
+      "requirements": [
+        "CA10",
+        "CA11"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "3.9",
+      "title": "Продувка и обогрев кранов",
+      "printed_start": 88,
+      "pdf_start": 93,
+      "requirements": [
+        "CA12"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "3.10",
+      "title": "Вентиляторы ТЭД",
+      "printed_start": 89,
+      "pdf_start": 94,
+      "requirements": [
+        "CA13"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "3.11",
+      "title": "Управление ТЭД и режимами",
+      "printed_start": 90,
+      "pdf_start": 95,
+      "requirements": [
+        "TB-01",
+        "TB-02",
+        "TB-03",
+        "TB-04",
+        "TB-05",
+        "TB-06",
+        "TB-07",
+        "TB-08",
+        "TB-09",
+        "TB-10",
+        "TB-17"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "3.12",
+      "title": "Вентиляторы ПТР",
+      "printed_start": 112,
+      "pdf_start": 117,
+      "requirements": [
+        "TB-11"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "3.13",
+      "title": "Жалюзи ПТР",
+      "printed_start": 114,
+      "pdf_start": 119,
+      "requirements": [
+        "TB-12"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "3.14",
+      "title": "Песок",
+      "printed_start": 114,
+      "pdf_start": 119,
+      "requirements": [
+        "TB-13"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "3.15",
+      "title": "Боксование и юз",
+      "printed_start": 116,
+      "pdf_start": 121,
+      "requirements": [
+        "TB-10"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "3.16",
+      "title": "Управление тормозами",
+      "printed_start": 117,
+      "pdf_start": 122,
+      "requirements": [
+        "CA22",
+        "TB-14",
+        "TB-15",
+        "TB-16",
+        "TB-17",
+        "TB-18",
+        "TB-19"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "3.17",
+      "title": "Измерение изоляции",
+      "printed_start": 121,
+      "pdf_start": 126,
+      "requirements": [
+        "TB-20"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "3.18",
+      "title": "Освещение",
+      "printed_start": 122,
+      "pdf_start": 127,
+      "requirements": [
+        "CA14"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "3.19",
+      "title": "Тифон и свисток",
+      "printed_start": 123,
+      "pdf_start": 128,
+      "requirements": [
+        "CA14"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "3.20",
+      "title": "Быстродействующие контакторы",
+      "printed_start": 124,
+      "pdf_start": 129,
+      "requirements": [
+        "CA15"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "3.21",
+      "title": "УЗПС",
+      "printed_start": 125,
+      "pdf_start": 130,
+      "requirements": [
+        "CA15"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "3.22",
+      "title": "Стеклоочиститель, омыватель, шторка",
+      "printed_start": 125,
+      "pdf_start": 130,
+      "requirements": [
+        "CA14"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "3.23",
+      "title": "Обогрев и микроклимат",
+      "printed_start": 127,
+      "pdf_start": 132,
+      "requirements": [
+        "CA14"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "4.1",
+      "title": "УКТОЛ: состав",
+      "printed_start": 128,
+      "pdf_start": 133,
+      "requirements": [
+        "CA16"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "4.2",
+      "title": "УКТОЛ: питание",
+      "printed_start": 129,
+      "pdf_start": 134,
+      "requirements": [
+        "CA16"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "4.3",
+      "title": "ВЦУ",
+      "printed_start": 130,
+      "pdf_start": 135,
+      "requirements": [
+        "CA17"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "4.4",
+      "title": "ККМ",
+      "printed_start": 131,
+      "pdf_start": 136,
+      "requirements": [
+        "CA18"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "4.5",
+      "title": "Аварийные клапаны",
+      "printed_start": 131,
+      "pdf_start": 136,
+      "requirements": [
+        "CA18"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "4.6",
+      "title": "Сигнализаторы давления",
+      "printed_start": 132,
+      "pdf_start": 137,
+      "requirements": [
+        "CA19"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "4.7",
+      "title": "БЭПП",
+      "printed_start": 132,
+      "pdf_start": 137,
+      "requirements": [
+        "CA20"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "4.8",
+      "title": "БВР",
+      "printed_start": 133,
+      "pdf_start": 138,
+      "requirements": [
+        "CA21"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "4.9",
+      "title": "БТО",
+      "printed_start": 133,
+      "pdf_start": 138,
+      "requirements": [
+        "CA22"
+      ],
+      "depth": "Targeted requirements crosswalk; full functional compliance not accepted."
+    },
+    {
+      "section": "Приложение А",
+      "title": "2ЭС6.00.000.000-02 Э3",
+      "printed_start": 134,
+      "pdf_start": 139,
+      "requirements": [
+        "RP1-POWER-08",
+        "RP1-POWER-18"
+      ],
+      "depth": "Identity and topology located; complete contact/wire-to-model mapping remains unverified."
+    },
+    {
+      "section": "Приложение Б",
+      "title": "2ЭС6.00.000.000-09 Э3.1",
+      "printed_start": 144,
+      "pdf_start": 149,
+      "requirements": [
+        "CA03",
+        "CA06",
+        "CA09",
+        "RP1-SIGNALS-01"
+      ],
+      "depth": "Identity and topology located; complete contact/wire-to-model mapping remains unverified."
+    },
+    {
+      "section": "Приложение В",
+      "title": "2ЭС6.22.300.000 Э3",
+      "printed_start": 164,
+      "pdf_start": 169,
+      "requirements": [
+        "CA16",
+        "CA22",
+        "TB-14",
+        "TB-19"
+      ],
+      "depth": "Identity and topology located; complete contact/wire-to-model mapping remains unverified."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "RP1-POWER-01",
+      "printed_pages": [
+        8,
+        9
+      ],
+      "pdf_pages": [
+        8,
+        9
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "line": 121
+        },
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "line": 43
+        }
+      ],
+      "observed": "Хост явно задаёт две секции и локомотив 200 т. Состав фиксирован 75×80 т; масса вагонов 6000 т не является массой электровоза.",
+      "status": "confirmed_static",
+      "priority": "P2",
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "В новом процессе проверить число реально активных секций и 8 ТЭД, суммарную массу 6200 т и отдельные показатели секций; статическая запись 2 не заменяет такую проверку."
+        ]
+      },
+      "expected": "Двухсекционное исполнение: две головные секции, осевая формула 2(2о–2о), масса 200±2 т.",
+      "proposed_change": "Сохранить базовый двухсекционный профиль; отделить паспорт локомотива от параметров состава и от будущих вариантов 3/4 секции.",
+      "sections": [
+        "1.2.1–1.2.2, таблица 1"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/parameters-power.json"
+    },
+    {
+      "id": "RP1-POWER-02",
+      "printed_pages": [
+        9
+      ],
+      "pdf_pages": [
+        9
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "line": 43
+        },
+        {
+          "path": "work/traction6000/TConst.json",
+          "line": 570
+        }
+      ],
+      "observed": "POEZD получает длину 31.93 м; native Tyga1 инициализирует Kper3.44 и Rkol0.625 м. Свежие byte guards этих констант прошли.31.93 м не нарушает верхний предел 34 м, но точная геометрия исполнения этим не установлена.",
+      "status": "confirmed_static",
+      "priority": "P2",
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Проверить общий масштаб колеса/датчиков скорости/тягового момента и продольной длины для выбранной комплектации."
+        ]
+      },
+      "expected": "Номинальный диаметр колеса 1250 мм, передаточное отношение 3.44; для двухсекционного исполнения длина не более 34 м.",
+      "proposed_change": "Не менять геометрию по одному предельному размеру. Вынести номинальный и фактический диаметры в паспорт согласованного профиля.",
+      "sections": [
+        "1.2.2, таблица 1"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/parameters-power.json",
+      "fresh_static_evidence": [
+        "dev/docs/audit_parts/re_part1/traction-static-current.json"
+      ]
+    },
+    {
+      "id": "RP1-POWER-03",
+      "printed_pages": [
+        10,
+        11,
+        12
+      ],
+      "pdf_pages": [
+        10,
+        11,
+        12
+      ],
+      "code": [
+        {
+          "path": "work/traction6000/TConst.json",
+          "line": 571
+        },
+        {
+          "path": "work/traction6000/evidence.md",
+          "line": 47
+        },
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "line": 82
+        }
+      ],
+      "observed": "Тяговая модель использует номинальное колесо 1250 мм и внутренние 3200 В. Свежих замеров паспортных точек в условиях примечаний РЭ нет. Сравнивать только силы при одинаковом токе недостаточно.",
+      "status": "unverified",
+      "priority": "P1",
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Свежие замеры установившихся точек 49.2/51 км/ч при 3.0 и 2.9 кВ и ниже 2.9 кВ; мощность на валу и на ободе учитывать раздельно."
+        ]
+      },
+      "expected": "Для двух секций: часовой режим 6440 кВт, 464 кН, 49.2 км/ч; продолжительный 6000 кВт, 418 кН, 51 км/ч. Точки заданы при колесе 1210 мм, Uкс 3 кВ, КПД передачи 0.98 и независимом возбуждении. До 2.9 кВ параметры сохраняются, ниже мощность уменьшается.",
+      "proposed_change": "Создать согласованный стенд F(v), Ia, Iв и мощности с закреплёнными Uкс/диаметром/ТЭД; не исправлять общим коэффициентом до измерений.",
+      "sections": [
+        "1.2.2, таблица 1 и примечания 1, 3–5"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/parameters-power.json"
+    },
+    {
+      "id": "RP1-POWER-04",
+      "printed_pages": [
+        21,
+        22,
+        23,
+        24
+      ],
+      "pdf_pages": [
+        21,
+        22,
+        23,
+        24
+      ],
+      "code": [
+        {
+          "path": "work/traction6000/evidence.md",
+          "line": 23
+        },
+        {
+          "path": "work/traction6000/evidence.md",
+          "line": 68
+        },
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "line": 82
+        }
+      ],
+      "observed": "Native имеет нелинейный закон потока и силы, отдельный процентный ориентир и признаки боксования. Коэффициент в GetMaxTyga не доказан как жёсткий предел силы. Свежая сетка кривых по рисунку не принята.",
+      "status": "unverified",
+      "priority": "P1",
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Сетка скоростей/токов/соединений с явным допуском; реальный выход TResTyga и сила, полученная POEZD, должны совпадать по единицам и знаку."
+        ]
+      },
+      "expected": "Семейства F(v) для С23, СП44, П65 и разных токов независимого возбуждения; зоны сцепления и тормозных характеристик ; 120 км/ч — конструкционная граница.",
+      "proposed_change": "Оцифровать применимый рисунок и сверить кривые по режимам при одинаковых условиях; отдельно проверять сцепление, задание процента и реально выдаваемую силу.",
+      "sections": [
+        "1.4, рисунок 1.4"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/parameters-power.json"
+    },
+    {
+      "id": "RP1-POWER-05",
+      "printed_pages": [
+        8,
+        12,
+        49,
+        50,
+        61
+      ],
+      "pdf_pages": [
+        8,
+        12,
+        49,
+        50,
+        61
+      ],
+      "code": [
+        {
+          "path": "work/traction6000/evidence.md",
+          "line": 47
+        },
+        {
+          "path": "dev/docs/audit_parts/MPSUD_CONTROL.md",
+          "line": 45
+        },
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124
+        }
+      ],
+      "observed": "Свежая проверка байтов Tyga1 подтверждает запись 3200/0 в ResT.Uset по дискретному признаку. Текущий Pult1 имеет тот же SHA, что прежняя статическая проверка записи 3100/0 в Useti. В обычном пути нет согласованного изменяемого аналогового канала между этими моделями.",
+      "status": "confirmed_mismatch",
+      "priority": "P1",
+      "basis": "Подтверждённое упрощение канала, а не доказательство отсутствия всех отдельных аварийных защит.",
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Нормальное значение и ступени Uкс 0/2.2/2.9/3.0/3.4/3.8/4.0 кВ с проверкой выходов. Раздельно испытать существующую аварийную инъекцию перед добавлением дублирующей защиты."
+        ]
+      },
+      "expected": "Электрическая модель должна различать фактическое аналоговое Uкс и признаки наличия питания: от него зависят мощность, пуск ПСН и выбор рекуперативно-реостатного режима.",
+      "proposed_change": "Ввести единый источник Uкс по секциям и раздельное наличие контакта; согласовать тягу, измерения, ПСН и защитные входы. Правки native — только с SHA/byte guards в памяти.",
+      "sections": [
+        "1.1;1.2.2 примечание 3;2.3.2;2.6.2"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/parameters-power.json",
+      "fresh_static_evidence": [
+        "dev/docs/audit_parts/re_part1/traction-static-current.json"
+      ]
+    },
+    {
+      "id": "RP1-POWER-06",
+      "printed_pages": [
+        21,
+        22,
+        32
+      ],
+      "pdf_pages": [
+        21,
+        22,
+        32
+      ],
+      "code": [
+        {
+          "path": "work/traction6000/evidence.md",
+          "line": 74
+        },
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "line": 82
+        },
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124
+        }
+      ],
+      "observed": "Текущие байты подтверждают ветвь GetCur до ограничения сохранённых токов 750 А и возврат после clamp без перерасчёта силы/момента. При расчётном токе выше 750 записанная сила и публикуемый ток могут относиться к разным значениям. Динамическая достижимость и масштаб эффекта в текущем профиле не измерены.",
+      "status": "confirmed_mismatch",
+      "priority": "P1",
+      "basis": "Статический дефект согласованности компонента; не утверждение о любом штатном цикле и не норма ограничения токов из РЭ.",
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Контролируемый сценарий входа/выхода из области ограничения: Ia/Iв/момент/сила до и после должны согласовываться; затем паспортные точки и регрессия нормального диапазона."
+        ]
+      },
+      "expected": "Тяговая сила, токи и момент должны описывать одно физическое состояние двигателя; это инженерное следствие модели по РЭ, а не отдельная норма 750 А из части 1.",
+      "proposed_change": "Сначала воспроизвести на native выходах и определить физический контракт ограничения. Затем согласовать вычисление силы и токов; не назначать 750 А нормативным пределом без применимого источника.",
+      "sections": [
+        "1.4;2.1.1"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/parameters-power.json",
+      "fresh_static_evidence": [
+        "dev/docs/audit_parts/re_part1/traction-static-current.json"
+      ]
+    },
+    {
+      "id": "RP1-POWER-07",
+      "printed_pages": [
+        34,
+        35,
+        36
+      ],
+      "pdf_pages": [
+        34,
+        35,
+        36
+      ],
+      "code": [
+        {
+          "path": "work/traction6000/TConst.json",
+          "line": 209
+        },
+        {
+          "path": "work/traction6000/evidence.md",
+          "line": 61
+        }
+      ],
+      "observed": "Визуально переписанные независимые 65 значений таблиц 2.2–2.4 совпали с TConst.Rpusk с учётом Single. Текущий SHA Tyga1 совпал с исходным статическим извлечением.",
+      "status": "confirmed_static",
+      "priority": "P2",
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Новый нативный проход 1→65→0 с измерением фактического соединения, эффективного сопротивления и трёх ходовых состояний; отдельные обрывы/отключённые пары ТЭД."
+        ]
+      },
+      "expected": "65 номиналов пусковых сопротивлений, нулевые сопротивления ходовых позиций 23, 44, 65; группы С1–23/СП24–44/П45–65.",
+      "proposed_change": "Номиналы сохранять. Не считать совпадение таблицы доказательством включения правильных контакторов и физических переходов.",
+      "sections": [
+        "2.1.3, таблицы 2.2–2.4"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/parameters-power.json",
+      "fresh_static_evidence": [
+        "dev/docs/audit_parts/re_part1/rheostat-reference-check.json"
+      ]
+    },
+    {
+      "id": "RP1-POWER-08",
+      "printed_pages": [
+        33,
+        34,
+        35,
+        36,
+        42,
+        43
+      ],
+      "pdf_pages": [
+        33,
+        34,
+        35,
+        36,
+        42,
+        43
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "line": 126
+        },
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124
+        }
+      ],
+      "observed": "Хост вызывает штатный ExecuteCommunication, часть функций и таблиц есть в native. Полная сверка его выходных K1…K40 с применимыми таблицами и переходами не выполнена. Отсутствие дубля контакторов в C# не является дефектом.",
+      "status": "unverified",
+      "priority": "P1",
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Обычный набор/сброс, переходы С↔СП↔П, отключение каждой пары и отказ обратной связи; проверять недопустимые сочетания и снятие тяги."
+        ]
+      },
+      "expected": "Контакторные комбинации задаются таблицами 2.1–2.8, выбранными соединениями, отключёнными парами ТЭД и ведущей/прицепной секцией; обратные переходы имеют обратную последовательность.",
+      "proposed_change": "Добавить наблюдение выходов/обратной связи контакторов и матрицу состояний по выбранной схеме, сохраняя штатный владеющий алгоритм.",
+      "sections": [
+        "2.1.2–2.1.4;2.2"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/parameters-power.json"
+    },
+    {
+      "id": "RP1-POWER-09",
+      "printed_pages": [
+        21,
+        24,
+        25,
+        26,
+        27
+      ],
+      "pdf_pages": [
+        21,
+        24,
+        25,
+        26,
+        27
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "line": 121
+        },
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "line": 128
+        },
+        {
+          "path": "work/traction6000/TConst.json",
+          "line": 557
+        }
+      ],
+      "observed": "Хост выбирает штатную библиотеку локомотива 1, но тип ТЭД, номерэлектровоза и ревизии схем не закреплены в едином проверяемом профиле. Численная модель сама по себе не идентифицирует конкретный ТЭД.",
+      "status": "revision_dependent",
+      "priority": "P1",
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Проверка совместимости паспортов перед запуском и воспроизводимая запись профиля в каждой сессии; запрет случайного смешения взаимоисключающих вариантов."
+        ]
+      },
+      "expected": "Применяются разные типы ТЭД и разные редакции схем; запрет разнотипных ТЭД в одной тележке. Сравнение возможно только при закреплённой комплектации.",
+      "proposed_change": "Зафиксировать паспорт профиля: номер/исполнение, ТЭД каждой тележки, схемы силовых/управления, ревизии, фактические диаметры и ограничения применимости.",
+      "sections": [
+        "1.3.9;1.5"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/parameters-power.json"
+    },
+    {
+      "id": "RP1-POWER-10",
+      "printed_pages": [
+        8,
+        32,
+        42,
+        43
+      ],
+      "pdf_pages": [
+        8,
+        32,
+        42,
+        43
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "line": 121
+        },
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "line": 128
+        },
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "line": 43
+        },
+        {
+          "path": "work/traction6000/evidence.md",
+          "line": 13
+        }
+      ],
+      "observed": "Рабочий хост фиксирует 2 секции/200 т; native массивы поддерживают до 4 секций и попарные ТЭД, но единый изменяемый сценарий секций/масс/кабин и матрица отключений не приняты.",
+      "status": "partial",
+      "priority": "P2",
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Для базовых 2 секций проверить все варианты отключения ТЭД и переноса ведущей секции; дополнительные исполнения принимать отдельно."
+        ]
+      },
+      "expected": "Управление секциями, выбор ведущей/прицепной и отключение пар 1–2, 3–4 или всех ТЭД; предусмотрены исполнения 3/4 секции.",
+      "proposed_change": "Сначала явно объявить границу двухсекционного профиля. Расширение до 3/4 секции выполнять как отдельный профиль с согласованными массой, силой, пневматикой и кабинами.",
+      "sections": [
+        "1.2.1;2.1.1;2.2.1"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/parameters-power.json"
+    },
+    {
+      "id": "RP1-POWER-11",
+      "printed_pages": [
+        49,
+        50,
+        52
+      ],
+      "pdf_pages": [
+        49,
+        50,
+        52
+      ],
+      "code": [
+        {
+          "path": "work/traction6000/evidence.md",
+          "line": 13
+        },
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "line": 82
+        },
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124
+        }
+      ],
+      "observed": "Есть native CalcRecup и отрицательный выход силы, но сквозной переход режимов с фактическим Uкс, током в сеть, тепловыделением ПТР и одинаковым тормозным заданием не принят. Фиксированное Uset ограничивает проверку.",
+      "status": "partial",
+      "priority": "P1",
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Скорость/ЭДС и Uкс ниже 3.4, между 3.4–3.8 кВ и по обе стороны низкоскоростного порога; сверять ток, силу, контакторы и переданную энергию."
+        ]
+      },
+      "expected": "Электрическое торможение 3–120 км/ч; рекуперация при достаточной ЭДС и Uкс до 3.4 кВ, добавление реостатов 3.4–3.8 кВ, чисто реостатный режим на низких скоростях; автоматический выбор соединений.",
+      "proposed_change": "После единого аналогового Uкс проверить силовые и энергетические пути, переходные процессы и согласование ЭДТ/пневматики; не подменять это простым знаком силы.",
+      "sections": [
+        "2.3.1–2.3.4"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/parameters-power.json"
+    },
+    {
+      "id": "RP1-POWER-12",
+      "printed_pages": [
+        43,
+        52,
+        54
+      ],
+      "pdf_pages": [
+        43,
+        52,
+        54
+      ],
+      "code": [
+        {
+          "path": "work/traction6000/evidence.md",
+          "line": 13
+        },
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124
+        }
+      ],
+      "observed": "NativeVozbType имеет отдельные ветви GetCurPosl/CalkNezav/CalcRecup. Это наличие ветвей, а не приёмка блокировок ЭДТ в последовательном режиме и правильного состояния QP3/QP4/K31/K32.",
+      "status": "unverified",
+      "priority": "P1",
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Последовательное/независимое возбуждение, переход при нулевом задании, отказ СТПР и отключённая пара ТЭД; сверять не только экран, но отрицательнуюсилу и контакторы."
+        ]
+      },
+      "expected": "Независимое возбуждение через СТПР; при последовательном возбуждении отсутствует независимое регулирование поля и электрическое торможение невозможно.",
+      "proposed_change": "Принять отдельные контракты возбуждения и аппаратных обратных связей; исключить разрешение ЭДТ при последовательном возбуждении в применимом профиле.",
+      "sections": [
+        "2.2.1;2.4.1–2.4.2"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/parameters-power.json"
+    },
+    {
+      "id": "RP1-POWER-13",
+      "printed_pages": [
+        56,
+        57
+      ],
+      "pdf_pages": [
+        56,
+        57
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124
+        },
+        {
+          "path": "dev/docs/audit_parts/MPSUD_CONTROL.md",
+          "line": 54
+        }
+      ],
+      "observed": "Управление делегировано native; наличие модели не доказывает частоту, питание, защиту и временную логику. Прежняя аудиторская формулировка задержки>2 с не должна автоматически заменять буквальный текст§2.5.",
+      "status": "unverified",
+      "priority": "P1",
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Измерить K5…K8, токи, питание и задержки при реостатной/ходовой позиции, ЭДТ, тестовом режиме безUкс и токе>300 А."
+        ]
+      },
+      "expected": "Вентиляторы ПТР питаются от участков ПТР; варианты K7/K8 и K5/K6, переход 1→2 с задержкой не более 2 с и обратно без задержки; авария при токе вентиляторов >300 А; на ходовых позициях цепь шунтирована.",
+      "proposed_change": "Свести§2.5 и§3.12 выбранной редакции в непротиворечивый контракт; затем проверять вентиляторы ПТР отдельно от МВ ТЭД и вентиляции кабин.",
+      "sections": [
+        "2.5"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/parameters-power.json"
+    },
+    {
+      "id": "RP1-POWER-14",
+      "printed_pages": [
+        58,
+        61
+      ],
+      "pdf_pages": [
+        58,
+        61
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "line": 126
+        },
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124
+        }
+      ],
+      "observed": "Native электрическая цепь вызывается; исторический положительный запуск компрессора доказывает только свой сценарий. Нет новой приёмки диапазона, самодиагностики, отказов КА2/QS6 и задержки R11 по каждой секции.",
+      "status": "partial",
+      "priority": "P1",
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Нормальный пуск и по одному снятому условию; граничныеUкс, самодиагностика, 3 с на R11, авария КА2→БВ, отключённый QS6, отказ только одной секции."
+        ]
+      },
+      "expected": "ПСН каждой секции получает высокое напряжение после БВ через КА2/QS6; нужны низковольтное питание, самодиагностика и входной диапазон (2200±50)…(4000±50) В; R11 шунтируется через 3 с.",
+      "proposed_change": "Разделить команду ПСН, готовность каналов и измерения; добавить наблюдаемость зависимостей и негативные сценарии до калибровки частных потребителей.",
+      "sections": [
+        "2.6.1–2.6.2"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/parameters-power.json"
+    },
+    {
+      "id": "RP1-POWER-15",
+      "printed_pages": [
+        "61 а",
+        "61 б",
+        62,
+        63,
+        64,
+        "64 а",
+        "64 б"
+      ],
+      "pdf_pages": [
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "line": 121
+        },
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124
+        }
+      ],
+      "observed": "Явного закреплённого паспорта исполнения ПСН/модернизации в хосте не предъявлено. Нельзя считать все найденные в PDF переключатели и алгоритмы одновременно обязательными для № 137.",
+      "status": "revision_dependent",
+      "priority": "P1",
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Матрица каждого доступного переключателя: нормальный/резервный/аварийный режим, питание реальных потребителей, запрет преждевременного переключения только если он применим к профилю."
+        ]
+      },
+      "expected": "Комплект ПСН и схемы резервирования QR/МВ/МК различаются по номеру и модернизации; для части ПЧ переключение после отключения потребителей не ранее 1.5 мин, аварийный совместный режим 35 Гц.",
+      "proposed_change": "Выбрать применимую ветвь из equipment_variants, закрепить состав ПСН и резервирование, затем реализовать/проверить её вместо усреднённой схемы.",
+      "sections": [
+        "2.6.2–2.6.3"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/parameters-power.json"
+    },
+    {
+      "id": "RP1-POWER-16",
+      "printed_pages": [
+        63,
+        64,
+        "64 а",
+        "64 б",
+        "64 в"
+      ],
+      "pdf_pages": [
+        65,
+        66,
+        67,
+        68,
+        69
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124
+        },
+        {
+          "path": "dev/docs/audit_parts/MPSUD_CONTROL.md",
+          "line": 53
+        }
+      ],
+      "observed": "Хост не задаёт частоту вентиляции сам, вызывает native цепи. Корректность питания, совместного включения и отдельной изоляции каждого двигателя не принята; прежние зависимости частоты по току зависят от заменённого листа.",
+      "status": "partial",
+      "priority": "P2",
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Включение/отключение МВ, авария ПЧ, раздельное SF31/SF32 и связь с температурой/током по применимому алгоритму§3.10."
+        ]
+      },
+      "expected": "Охлаждение ТЭД — два асинхронных вентилятора на секцию; конкретные каналы ПЧ зависят от исполнения. Вентиляторы очистки воздуха работают совместно с МВ ТЭД, имеют отдельные SF31/SF32.",
+      "proposed_change": "Привязать двигатель/канал/автомат к выбранной схеме, затем проверить обратную связь и отказ одного канала; не объявлять отсутствие C# дубля отсутствием native функции.",
+      "sections": [
+        "2.6.3–2.6.4"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/parameters-power.json"
+    },
+    {
+      "id": "RP1-POWER-17",
+      "printed_pages": [
+        25,
+        27,
+        "64 в"
+      ],
+      "pdf_pages": [
+        25,
+        27,
+        69
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "line": 38
+        },
+        {
+          "path": "dev/docs/PNEUMATICS_RE_AUDIT.md",
+          "line": 9
+        }
+      ],
+      "observed": "Candidate объявляет профиль ВВ с порогами 7.5/9 бар и разгрузкой 12 с; часть РЭ описывает ДЭН и меняющиеся варианты резервирования. Это нерешённая применимость, а не доказанная ошибка всех компрессоров.",
+      "status": "revision_dependent",
+      "priority": "P1",
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Пуск/останов/нагрузка/резервирование выбранного агрегата через электрическую цепь и давление конечных ГР; запрещено принимать частотную таблицу ДЭН на сценарии ВВ."
+        ]
+      },
+      "expected": "Питание тормозного компрессора и обогрева осушки зависит от компрессорного агрегата и номера; ВВ-3,5/10 отличается от ДЭН. В §2.6.5 указан отдельный канал ТК 28 кВт, 3×(380±19) В, 16–70 Гц.",
+      "proposed_change": "Закрепить агрегат и схему ПСН в одном профиле; для ДЭН отдельно проверять частоту и осушку, для ВВ сохранять собственные условия разгрузки.",
+      "sections": [
+        "2.6.5; таблицы 1.2/1.3"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/parameters-power.json"
+    },
+    {
+      "id": "RP1-POWER-18",
+      "printed_pages": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        24,
+        42
+      ],
+      "pdf_pages": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        24,
+        42
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "line": 24
+        },
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "line": 135
+        },
+        {
+          "path": "dev/docs/WORLD3D_ARCHITECTURE.md",
+          "line": 1
+        }
+      ],
+      "observed": "Текущая управляемая среда — штатные окна пульта и отдельная карта, наличие исходного 3D комплекта не доказывает связь обхода с электрическими аппаратами. Деповское питание от X21/X22 отдельно не принято.",
+      "status": "partial",
+      "priority": "P2",
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Изменение доступного аппаратного состояния при осмотре отражается в тойже native модели; деповский режим не создаётUкс/ЭДТ и не обходит блокировки выбранной схемы."
+        ]
+      },
+      "expected": "Размещение оборудования и принципиальные схемы задают, где находятся аппараты, ручные отключатели и деповские розетки X21/X22/Q1. Для учебных осмотров нужна связь обозначения с объектом и состоянием.",
+      "proposed_change": "Явно объявить учебный объём: для осмотра добавить схему/объекты с маркировкой и состоянием; для деповского режима — отдельный ограниченный источник и блокировки, если он входит в задачу. Геометрические/санитарные сертификаты реальной машины не подменять программными тестами.",
+      "sections": [
+        "1.3;1.5;2.1.18"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/parameters-power.json"
+    },
+    {
+      "id": "CA01",
+      "sections": [
+        "3.1.1",
+        "3.1.2"
+      ],
+      "printed_pages": [
+        65
+      ],
+      "pdf_pages": [
+        70
+      ],
+      "source": "work/public_2es6_part1.pdf",
+      "source_verification": {
+        "ocr_full_pages_read": true,
+        "visually_checked_pdf_pages": [
+          70
+        ],
+        "note": "Relevant OCR pages were read in full. Listed PNG pages were visually checked for stated values and labels. Appendix coverage does not mean wire-by-wire verification."
+      },
+      "expected": "В каждой секции источниками бортовой сети являются ПСН и АБ. Канал заряда АБ имеет диапазон 90–130 В; отдельный канал питания выдаёт 110±5 В. Нагрузки распределяются через автоматы.",
+      "observed": "Электрические цепи выполняет ExecuteCommunication. В C# не принято независимое состояние источников АБ и ПСН, их отказов и энергетики АБ. Возможности закрытой DLL в этой части отдельно не проверены.",
+      "status": "unverified",
+      "priority": "P1",
+      "acceptance": [
+        "АБ без ПСН; ПСН без АБ; потеря каждого источника в отдельной секции.",
+        "Отключение SF/QF снимает только соответствующих потребителей. Проверить напряжение, команду и обратную связь."
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "line": 126,
+          "anchor": "commStep=Export<StepFn>",
+          "sha256": "cba44ba9072d9911fc63cb5837eb55bec88de23b90df3b2b62219133c3fd5351"
+        },
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124,
+          "anchor": "void ElectricalCycle()",
+          "sha256": "ef0f934069aea0c54dcea4856a5f0f23b4eae806aac7bc33925d38ebb3cbdcc3"
+        }
+      ],
+      "proposed_change": "Установить нативные источники напряжения и разрывов цепей. Для отсутствующих возможностей добавить сценарные входы, разделив питание АБ, заряд и нагрузку.",
+      "origin_report": "dev/runs/re-part1-20261024/control-aux.json"
+    },
+    {
+      "id": "CA02",
+      "sections": [
+        "3.3.7 таблица 3.3",
+        "3.6.5"
+      ],
+      "printed_pages": [
+        77,
+        82
+      ],
+      "pdf_pages": [
+        82,
+        87
+      ],
+      "source": "work/public_2es6_part1.pdf",
+      "source_verification": {
+        "ocr_full_pages_read": true,
+        "visually_checked_pdf_pages": [
+          82,
+          87
+        ],
+        "note": "Relevant OCR pages were read in full. Listed PNG pages were visually checked for stated values and labels. Appendix coverage does not mean wire-by-wire verification."
+      },
+      "expected": "Uks — аналоговый вход; верхнее значение канала в таблице составляет 5040 В. При Uks более 4100 В дольше 0,3 с должно происходить защитное отключение БВ.",
+      "observed": "Свежая проверка SHA Pult1 и девяти PE byte guards подтвердила: UpdateButton записывает Useti=3100 В по дискретным состояниям TShema+58…5B, иначе 0. Аналоговая зависимость этого поля теряется. Это не доказывает отсутствие всех дискретных защит DLL.",
+      "status": "confirmed_mismatch",
+      "priority": "P1",
+      "acceptance": [
+        "4090/4110 В на 0,2/0,4 с в каждой секции: сравнить Uks, сообщение, БВ и тягу.",
+        "Снять и восстановить напряжение сети. Убедиться, что дискретный флаг контактора не подменяет показание."
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124,
+          "anchor": "void ElectricalCycle()",
+          "sha256": "ef0f934069aea0c54dcea4856a5f0f23b4eae806aac7bc33925d38ebb3cbdcc3"
+        },
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "line": 126,
+          "anchor": "commStep=Export<StepFn>",
+          "sha256": "cba44ba9072d9911fc63cb5837eb55bec88de23b90df3b2b62219133c3fd5351"
+        }
+      ],
+      "native_evidence": {
+        "module": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Pult1.dll",
+        "sha256": "7dac59bf94276309e012a6eb72602c08a921fe1910a4169f9f0ec27008f0f8f5",
+        "rva": "0x18e97a–0x18e9d6; constant store 0x18e9ba",
+        "fresh_report": "dev/docs/audit_parts/re_part1/control-native-guards.json",
+        "mode": "Fresh read-only PE bytes; no dynamic native execution."
+      },
+      "proposed_change": "Разделить измеренное напряжение сети, наличие питания и состояния контакторов. Найти канонический вход ABI. Не ограничиваться записью в выходное поле, которое DLL затем перезаписывает.",
+      "origin_report": "dev/runs/re-part1-20261024/control-aux.json",
+      "fresh_static_evidence": [
+        "dev/docs/audit_parts/re_part1/control-native-guards.json"
+      ]
+    },
+    {
+      "id": "CA03",
+      "sections": [
+        "3.4.1"
+      ],
+      "printed_pages": [
+        77,
+        78
+      ],
+      "pdf_pages": [
+        82,
+        83
+      ],
+      "source": "work/public_2es6_part1.pdf",
+      "source_verification": {
+        "ocr_full_pages_read": true,
+        "visually_checked_pdf_pages": [
+          82,
+          83
+        ],
+        "note": "Relevant OCR pages were read in full. Listed PNG pages were visually checked for stated values and labels. Appendix coverage does not mean wire-by-wire verification."
+      },
+      "expected": "Команды ТП, БВ, МК, МВ, продувки, отпуска тормоза и песка, удержанные до включения S1, блокируются до выключения и повторного включения соответствующей кнопки.",
+      "observed": "Команды передаются штатному Pult1. Наличие скрытой блокировки предварительно удержанной команды не исключено. Полная матрица OFF→ON текущим статическим просмотром не принята.",
+      "status": "unverified",
+      "priority": "P1",
+      "acceptance": [
+        "Включить каждую команду до S1: после S1 действия нет; выключение и повторное включение разрешают действие.",
+        "Повторить при потере питания и смене ведущей секции. Наблюдать фактическое состояние аппарата."
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124,
+          "anchor": "void ElectricalCycle()",
+          "sha256": "ef0f934069aea0c54dcea4856a5f0f23b4eae806aac7bc33925d38ebb3cbdcc3"
+        },
+        {
+          "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+          "line": 156,
+          "anchor": "void ConnectControlPowerCommands",
+          "sha256": "ce07ea15687aa2e0aff30db6201d0834390b6a77306a366479a5f81e95a9ea77"
+        }
+      ],
+      "proposed_change": "Сначала проследить разрешение и защёлку каждой команды. Исправлять только воспроизведённые самопуски после включения S1.",
+      "origin_report": "dev/runs/re-part1-20261024/control-aux.json"
+    },
+    {
+      "id": "CA04",
+      "sections": [
+        "3.4.2",
+        "3.4.3"
+      ],
+      "printed_pages": [
+        78
+      ],
+      "pdf_pages": [
+        83
+      ],
+      "source": "work/public_2es6_part1.pdf",
+      "source_verification": {
+        "ocr_full_pages_read": true,
+        "visually_checked_pdf_pages": [
+          83
+        ],
+        "note": "Relevant OCR pages were read in full. Listed PNG pages were visually checked for stated values and labels. Appendix coverage does not mean wire-by-wire verification."
+      },
+      "expected": "При включении управления определяется состав и ориентация секций. Ведущая получает номер 0, ведомые — номера 1–3. Повторное включение S1 ведомой блокируется до отключения всех S1.",
+      "observed": "Хост задаёт две секции и имеет один активный нативный owner и пульт. Идентификация трёх или четырёх секций и одновременное включение двух S1 не подтверждены. Сам двухсекционный режим не является дефектом.",
+      "status": "partial",
+      "priority": "P2",
+      "acceptance": [
+        "Ведущая секция 1↔2, одновременный S1 и обрыв связи.",
+        "Для заявленных трёх или четырёх секций проверить команды, обратные связи и адресацию отдельно."
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "line": 121,
+          "anchor": "I(mem[\"TLocParam\"],0,1);",
+          "sha256": "cba44ba9072d9911fc63cb5837eb55bec88de23b90df3b2b62219133c3fd5351"
+        },
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "line": 128,
+          "anchor": "mem[\"TPult\"]=IntPtr.Add(owner,0x24)",
+          "sha256": "cba44ba9072d9911fc63cb5837eb55bec88de23b90df3b2b62219133c3fd5351"
+        }
+      ],
+      "proposed_change": "Зафиксировать поддерживаемый двухсекционный профиль. Для заявленной СМЕ добавить конфигурацию секций и ориентации, затем сценарии смены ведущей.",
+      "origin_report": "dev/runs/re-part1-20261024/control-aux.json"
+    },
+    {
+      "id": "CA05",
+      "sections": [
+        "3.4.4",
+        "3.4.5"
+      ],
+      "printed_pages": [
+        78,
+        79
+      ],
+      "pdf_pages": [
+        83,
+        84
+      ],
+      "source": "work/public_2es6_part1.pdf",
+      "source_verification": {
+        "ocr_full_pages_read": true,
+        "visually_checked_pdf_pages": [
+          83
+        ],
+        "note": "Relevant OCR pages were read in full. Listed PNG pages were visually checked for stated values and labels. Appendix coverage does not mean wire-by-wire verification."
+      },
+      "expected": "КМ10 и КМ11 формируют каналы БУК. Выключение управления последовательно снимает тягу/ЭДТ, МВ/МК/ПСН, БВ, токоприёмники и затем КМ10/КМ11.",
+      "observed": "Рабочий commStep делегирован DLL. C# не подтверждает порядок конечных контакторов. FormClosed освобождает ресурсы приложения и не заменяет эксплуатационное выключение S1.",
+      "status": "unverified",
+      "priority": "P1",
+      "acceptance": [
+        "Выключить S1 под тягой и при ЭДТ: проверить порядок разбора контура по всем секциям.",
+        "Отказ одного канала БУК должен отличаться от закрытия программы и общего снятия питания."
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "line": 30,
+          "anchor": "FormClosed+=",
+          "sha256": "cba44ba9072d9911fc63cb5837eb55bec88de23b90df3b2b62219133c3fd5351"
+        },
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124,
+          "anchor": "void ElectricalCycle()",
+          "sha256": "ef0f934069aea0c54dcea4856a5f0f23b4eae806aac7bc33925d38ebb3cbdcc3"
+        }
+      ],
+      "proposed_change": "Сделать наблюдаемую трассу S1 → команды → контакторы. Разделить отказ одного БУК, штатное выключение локомотива и закрытие оболочки.",
+      "origin_report": "dev/runs/re-part1-20261024/control-aux.json"
+    },
+    {
+      "id": "CA06",
+      "sections": [
+        "3.5.1–3.5.5"
+      ],
+      "printed_pages": [
+        79,
+        80,
+        81
+      ],
+      "pdf_pages": [
+        84,
+        85,
+        86
+      ],
+      "source": "work/public_2es6_part1.pdf",
+      "source_verification": {
+        "ocr_full_pages_read": true,
+        "visually_checked_pdf_pages": [
+          85,
+          86
+        ],
+        "note": "Relevant OCR pages were read in full. Listed PNG pages were visually checked for stated values and labels. Appendix coverage does not mean wire-by-wire verification."
+      },
+      "expected": "Подъём ТП требует закрытых ВВК и люков, разрешений БВ, деповского ввода, пожарной системы, заземлителя и разъединителя, а также достаточного давления. Количество поднятых ТП ограничено.",
+      "observed": "Штатный пульт сохранён. Хост подключает отдельные давления секций с SHA и byte guards, но этим не принимает полную блокировочную цепь. Правильное давление само по себе не доказывает аппаратную последовательность.",
+      "status": "partial",
+      "priority": "P1",
+      "acceptance": [
+        "Поочерёдно открыть ВВК и люк, включить пожарный или деповский режим, нарушить обратную связь QS1/QS2.",
+        "Проверить низкое давление, запросы двух и трёх ТП и смену ведущей секции."
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+          "line": 172,
+          "anchor": "void ConnectSectionPantographPressure",
+          "sha256": "ce07ea15687aa2e0aff30db6201d0834390b6a77306a366479a5f81e95a9ea77"
+        },
+        {
+          "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+          "line": 174,
+          "anchor": "// Hardware contract: Tokopr_1..4",
+          "sha256": "ce07ea15687aa2e0aff30db6201d0834390b6a77306a366479a5f81e95a9ea77"
+        }
+      ],
+      "proposed_change": "Принять таблицу условий выбранной редакции и испытать каждое разрешение и отказ отдельно. Не заменять все блокировки одним PressureReady.",
+      "origin_report": "dev/runs/re-part1-20261024/control-aux.json"
+    },
+    {
+      "id": "CA07",
+      "sections": [
+        "3.7.1–3.7.4",
+        "рис. 3.3"
+      ],
+      "printed_pages": [
+        83,
+        84
+      ],
+      "pdf_pages": [
+        88,
+        89
+      ],
+      "source": "work/public_2es6_part1.pdf",
+      "source_verification": {
+        "ocr_full_pages_read": true,
+        "visually_checked_pdf_pages": [
+          88,
+          89
+        ],
+        "note": "Relevant OCR pages were read in full. Listed PNG pages were visually checked for stated values and labels. Appendix coverage does not mean wire-by-wire verification."
+      },
+      "expected": "SF3 открывает КР11 резервного резервуара 150 л. SB1 включает КМ16 и двигатель М8; питание 110 В возможно от АБ, бортовой сети или внешней розетки. КМ2 питает РС6 объёмом 55 л.",
+      "observed": "Есть конечные РС6=55 л и РС7=150 л, а также клапан по SF3. Но обычный candidate начинает с ПМ=8 и РС6/РС7=5 кгс/см². Подача КМ2 задана как 0,105 м³/мин только в первую секцию; полный путь постоянного тока и размещение М8 не приняты.",
+      "status": "partial",
+      "priority": "P1",
+      "acceptance": [
+        "ПМ=0; заряженный и пустой РС7; SF3 OFF/ON; SB1 OFF/ON.",
+        "Питание от АБ, борта и внешнего источника 110 В; отказ КМ16; смена кабины. Наблюдать оба РС6 и РС7."
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+          "line": 31,
+          "anchor": "new TwoSectionAirParameters",
+          "sha256": "ce07ea15687aa2e0aff30db6201d0834390b6a77306a366479a5f81e95a9ea77"
+        },
+        {
+          "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+          "line": 32,
+          "anchor": "airCircuit.InitializeControlAir(5,5)",
+          "sha256": "ce07ea15687aa2e0aff30db6201d0834390b6a77306a366479a5f81e95a9ea77"
+        },
+        {
+          "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+          "line": 184,
+          "anchor": "bool auxiliaryRunning=valves[0]&&command;",
+          "sha256": "ce07ea15687aa2e0aff30db6201d0834390b6a77306a366479a5f81e95a9ea77"
+        },
+        {
+          "path": "outputs/TrainerControlAir.cs",
+          "line": 24,
+          "anchor": "Rs6=new Reservoir(55",
+          "sha256": "45f273528a4e83bb5fc166367646c1a234fde578c20128af2881e2a35ef0c4b6"
+        }
+      ],
+      "proposed_change": "Добавить явные профили «подготовлен» и «холодный», проверить схему источников питания и М8. Запасённый воздух допустим в подготовленном сценарии, но такой старт не доказывает холодную подготовку.",
+      "origin_report": "dev/runs/re-part1-20261024/control-aux.json"
+    },
+    {
+      "id": "CA08",
+      "sections": [
+        "3.2",
+        "3.5",
+        "3.7"
+      ],
+      "printed_pages": [
+        71,
+        79,
+        80,
+        83,
+        84
+      ],
+      "pdf_pages": [
+        76,
+        84,
+        85,
+        88,
+        89
+      ],
+      "source": "work/public_2es6_part1.pdf",
+      "source_verification": {
+        "ocr_full_pages_read": true,
+        "visually_checked_pdf_pages": [
+          85,
+          88,
+          89
+        ],
+        "note": "Relevant OCR pages were read in full. Listed PNG pages were visually checked for stated values and labels. Appendix coverage does not mean wire-by-wire verification."
+      },
+      "expected": "Электропневматические аппараты требуют питания и воздуха. Поданная электрическая команда и фактическое действие привода должны различаться.",
+      "observed": "РС6 и РС7 конечны, но controlConsumers={0,0}: StepHostControlAir получает нулевые расходы приводов. Давление передаётся в native для разрешений; расход и объёмы конкретных приводов пока не приняты.",
+      "status": "partial",
+      "priority": "P1",
+      "acceptance": [
+        "Повторные подъёмы и опускания при отключённом источнике должны расходовать конечный запас воздуха.",
+        "Команда без питания или давления не должна выдаваться за факт срабатывания."
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+          "line": 8,
+          "anchor": "readonly bool[] controlSf3=",
+          "sha256": "ce07ea15687aa2e0aff30db6201d0834390b6a77306a366479a5f81e95a9ea77"
+        },
+        {
+          "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+          "line": 185,
+          "anchor": "airCircuit.StepControlAir(.1",
+          "sha256": "ce07ea15687aa2e0aff30db6201d0834390b6a77306a366479a5f81e95a9ea77"
+        }
+      ],
+      "proposed_change": "После подтверждения портов и объёмов добавить потребителей приводов, ход, концевики и задержки. Не выбирать расход произвольным коэффициентом.",
+      "origin_report": "dev/runs/re-part1-20261024/control-aux.json"
+    },
+    {
+      "id": "CA09",
+      "sections": [
+        "3.6.1–3.6.4"
+      ],
+      "printed_pages": [
+        81,
+        82
+      ],
+      "pdf_pages": [
+        86,
+        87
+      ],
+      "source": "work/public_2es6_part1.pdf",
+      "source_verification": {
+        "ocr_full_pages_read": true,
+        "visually_checked_pdf_pages": [
+          86,
+          87
+        ],
+        "note": "Relevant OCR pages were read in full. Listed PNG pages were visually checked for stated values and labels. Appendix coverage does not mean wire-by-wire verification."
+      },
+      "expected": "КМ17 включается на 2 с; КМ1 — через 3 с после его отключения; КМ2 — ещё через 2 с. Если через 1 с после КМ2 нет «Контроль ПСН», контакторы выключаются, повтор разрешён только после отключения БВ.",
+      "observed": "БВ и ПСН остаются нативными. NativeControlPowerReady читает несколько канальных флагов. Это не доказывает точные задержки, обратные связи и фиксацию отказа всей последовательности.",
+      "status": "unverified",
+      "priority": "P1",
+      "acceptance": [
+        "Позитивная последовательность 2/3/2/1 с и отсутствие каждой обратной связи.",
+        "Без снятия БВ повтор запрещён; после снятия БВ правильный повтор разрешён."
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+          "line": 181,
+          "anchor": "bool NativeControlPowerReady()",
+          "sha256": "ce07ea15687aa2e0aff30db6201d0834390b6a77306a366479a5f81e95a9ea77"
+        },
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124,
+          "anchor": "void ElectricalCycle()",
+          "sha256": "ef0f934069aea0c54dcea4856a5f0f23b4eae806aac7bc33925d38ebb3cbdcc3"
+        }
+      ],
+      "proposed_change": "Протрассировать автомат пуска и запрет повторного пуска. Сделать входы готовности и отказа независимыми от запросов команд.",
+      "origin_report": "dev/runs/re-part1-20261024/control-aux.json"
+    },
+    {
+      "id": "CA10",
+      "sections": [
+        "3.8.1–3.8.3"
+      ],
+      "printed_pages": [
+        84,
+        85,
+        87
+      ],
+      "pdf_pages": [
+        89,
+        90,
+        92
+      ],
+      "source": "work/public_2es6_part1.pdf",
+      "source_verification": {
+        "ocr_full_pages_read": true,
+        "visually_checked_pdf_pages": [
+          89,
+          90,
+          92
+        ],
+        "note": "Relevant OCR pages were read in full. Listed PNG pages were visually checked for stated values and labels. Appendix coverage does not mean wire-by-wire verification."
+      },
+      "expected": "Для ДЭН-300 описаны пороги 7,6/9,2 кгс/см², частота 25–55 Гц, раздельная работа ведущего и ведомых по порогам 8,2/8,8 и специальные циклы плавного останова и прогрева.",
+      "observed": "Candidate явно выбирает ВВ-3,5/10: по 3,5 м³/мин на источник, общие пороги 7,5/9 кгс/см² и 12 с разгрузки. Профили различаются, но установка ДЭН на целевом локомотиве не подтверждена.",
+      "status": "revision_dependent",
+      "priority": "P1",
+      "acceptance": [
+        "ВВ проверить по его паспорту; ДЭН — по ступеням частоты, давления и работе ведущей/ведомой секций.",
+        "Прогрев и плавный останов измерять в сценарном времени, не подменяя их числом кадров."
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+          "line": 12,
+          "anchor": "// RE6 table2.1 BB-3.5/10",
+          "sha256": "ce07ea15687aa2e0aff30db6201d0834390b6a77306a366479a5f81e95a9ea77"
+        },
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "line": 38,
+          "anchor": "Dbl(loc,0x3f,9)",
+          "sha256": "2f35ddf1f779daead4c7e95038cd537768b2872e6bfb4e951a4b26331038c248"
+        },
+        {
+          "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+          "line": 143,
+          "anchor": "compressorUnloadRemaining[i]=12",
+          "sha256": "ce07ea15687aa2e0aff30db6201d0834390b6a77306a366479a5f81e95a9ea77"
+        }
+      ],
+      "proposed_change": "Сначала выбрать оборудование и редакцию. Если требуется ДЭН, создать отдельный профиль частоты, подачи и межсекционной логики. Не переписывать ВВ по неподходящему листу.",
+      "origin_report": "dev/runs/re-part1-20261024/control-aux.json"
+    },
+    {
+      "id": "CA11",
+      "sections": [
+        "3.8.4(оба одноимённых пункта)"
+      ],
+      "printed_pages": [
+        87
+      ],
+      "pdf_pages": [
+        92
+      ],
+      "source": "work/public_2es6_part1.pdf",
+      "source_verification": {
+        "ocr_full_pages_read": true,
+        "visually_checked_pdf_pages": [
+          92
+        ],
+        "note": "Relevant OCR pages were read in full. Listed PNG pages were visually checked for stated values and labels. Appendix coverage does not mean wire-by-wire verification."
+      },
+      "expected": "Принудительная команда МК отличается от автоматического требования. Отсутствие Ready при пуске в интервале 1–10 с и потеря Ready работающего МК более 0,2 с обрабатываются различно; предусмотрены блокировка и сброс монитором.",
+      "observed": "Хост сохраняет нативные электрические запросы и маскирует их лишь на период физической разгрузки ВВ. Функциональная матрица Ready, ошибки и квитирования в этом аудите не выполнялась.",
+      "status": "unverified",
+      "priority": "P1",
+      "acceptance": [
+        "Ready пропадает на 0,1/0,3 с после пуска либо не появляется при первичном пуске.",
+        "Удержание SB11, снятие общей команды и сброс монитором: сравнить работу МК и фактическую подачу."
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+          "line": 124,
+          "anchor": "partial void BeforeNativeAirStep()",
+          "sha256": "ce07ea15687aa2e0aff30db6201d0834390b6a77306a366479a5f81e95a9ea77"
+        },
+        {
+          "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+          "line": 187,
+          "anchor": "partial void RestoreNativeAirCompressorRequests()",
+          "sha256": "ce07ea15687aa2e0aff30db6201d0834390b6a77306a366479a5f81e95a9ea77"
+        }
+      ],
+      "proposed_change": "Разделить запрос, частоту, Ready, ошибку и накачку. Проверить существующие нативные защёлки и сброс до их дублирования в C#.",
+      "origin_report": "dev/runs/re-part1-20261024/control-aux.json"
+    },
+    {
+      "id": "CA12",
+      "sections": [
+        "3.9",
+        "рис. 3.6"
+      ],
+      "printed_pages": [
+        88,
+        89
+      ],
+      "pdf_pages": [
+        93,
+        94
+      ],
+      "source": "work/public_2es6_part1.pdf",
+      "source_verification": {
+        "ocr_full_pages_read": true,
+        "visually_checked_pdf_pages": [
+          93,
+          94
+        ],
+        "note": "Relevant OCR pages were read in full. Listed PNG pages were visually checked for stated values and labels. Appendix coverage does not mean wire-by-wire verification."
+      },
+      "expected": "Автопродувка начинается через 5 с после команды МК и длится 1–2 с. Ручная команда SB13 согласованно включает КР6–КР9 по секциям; обогрев управляется SB25/KL18. Ручные 10 с и температура ≤5°C являются эксплуатационными ограничениями.",
+      "observed": "Команды остаются нативными. Общий резервуар ПМ 2000 л и граничная масса не доказывают работу конкретных клапанов и поток через них. Тайминг и расход не приняты.",
+      "status": "unverified",
+      "priority": "P2",
+      "acceptance": [
+        "Автоматический и принудительный пуск МК: проверить 5 с до продувки и 1–2 с выпуска массы.",
+        "Ручные SB13 и SB25, разрыв SF16. Падение давления без доказанной команды клапана не засчитывать."
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+          "line": 145,
+          "anchor": "airCircuit.ApplyNativePressureChanges(",
+          "sha256": "ce07ea15687aa2e0aff30db6201d0834390b6a77306a366479a5f81e95a9ea77"
+        },
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124,
+          "anchor": "void ElectricalCycle()",
+          "sha256": "ef0f934069aea0c54dcea4856a5f0f23b4eae806aac7bc33925d38ebb3cbdcc3"
+        }
+      ],
+      "proposed_change": "Проследить команду, контактор и клапаны; связать выпуск с конечным запасом. Для обучения контролировать действия машиниста, не выдумывая автоматическое отсечение по 10 с или +5°C.",
+      "origin_report": "dev/runs/re-part1-20261024/control-aux.json"
+    },
+    {
+      "id": "CA13",
+      "sections": [
+        "3.10.1–3.10.4"
+      ],
+      "printed_pages": [
+        89,
+        90
+      ],
+      "pdf_pages": [
+        94,
+        95
+      ],
+      "source": "work/public_2es6_part1.pdf",
+      "source_verification": {
+        "ocr_full_pages_read": true,
+        "visually_checked_pdf_pages": [
+          94,
+          95
+        ],
+        "note": "Relevant OCR pages were read in full. Listed PNG pages were visually checked for stated values and labels. Appendix coverage does not mean wire-by-wire verification."
+      },
+      "expected": "МВ разрешены при включённых БВ и ПСН и отсутствии возврата защиты. Изменённый §3.10.3 задаёт 12–50 Гц летом с 7 апреля по 20 октября и 25–50 Гц зимой независимо от Ia; М16/М17 включаются параллельно М14/М15.",
+      "observed": "Частота МВ в хосте не рассчитывается — используется native. Соседний лист сохраняет текст о зависимости от Ia, поэтому применимую редакцию и приоритет заменённых пунктов нельзя выбирать механически.",
+      "status": "revision_dependent",
+      "priority": "P2",
+      "acceptance": [
+        "Границы дат 20/21 октября и 6/7 апреля; несимметричный Ia при неизменной команде.",
+        "БВ OFF, ПСН не готов, КМ17 ON и отключённая группа ТЭД: проверить частоту, контактор и ошибку."
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124,
+          "anchor": "void ElectricalCycle()",
+          "sha256": "ef0f934069aea0c54dcea4856a5f0f23b4eae806aac7bc33925d38ebb3cbdcc3"
+        },
+        {
+          "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+          "line": 181,
+          "anchor": "bool NativeControlPowerReady()",
+          "sha256": "ce07ea15687aa2e0aff30db6201d0834390b6a77306a366479a5f81e95a9ea77"
+        }
+      ],
+      "proposed_change": "Зафиксировать принятый лист и алгоритм. При отсутствии источника сезона сделать его явным входом. Сверить реальные частоты каждого ПСН, не только положение кнопки МВ.",
+      "origin_report": "dev/runs/re-part1-20261024/control-aux.json"
+    },
+    {
+      "id": "CA14",
+      "sections": [
+        "3.18",
+        "3.19",
+        "3.22",
+        "3.23"
+      ],
+      "printed_pages": [
+        122,
+        123,
+        124,
+        125,
+        126,
+        127
+      ],
+      "pdf_pages": [
+        127,
+        128,
+        129,
+        130,
+        131,
+        132
+      ],
+      "source": "work/public_2es6_part1.pdf",
+      "source_verification": {
+        "ocr_full_pages_read": true,
+        "visually_checked_pdf_pages": [
+          129,
+          132
+        ],
+        "note": "Relevant OCR pages were read in full. Listed PNG pages were visually checked for stated values and labels. Appendix coverage does not mean wire-by-wire verification."
+      },
+      "expected": "Должны различаться режимы освещения, прожектора и буферных огней, команды тифона и свистка, две скорости и доводчик стеклоочистителя, нефиксируемые шторка и омыватель, отдельные SF и питания 110/24 В.",
+      "observed": "Штатный виртуальный пульт и звуковые DLL подключены. Кнопки и звук не принимают силовые цепи, потерю питания, крайние положения приводов и правильных потребителей. Сквозная проверка не проводилась.",
+      "status": "unverified",
+      "priority": "P2",
+      "acceptance": [
+        "Тифон с места машиниста, помощника и педали; потеря SF17.",
+        "Ярко/тускло/выкл, красный/белый, доводчик дворника, отпускание шторки и омыватель: проверить вход и конечный выход."
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "line": 126,
+          "anchor": "InitializeVirtualPultSource(ch)",
+          "sha256": "cba44ba9072d9911fc63cb5837eb55bec88de23b90df3b2b62219133c3fd5351"
+        },
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 90,
+          "anchor": "var sound=Library(\"SoundsTren.dll\")",
+          "sha256": "ef0f934069aea0c54dcea4856a5f0f23b4eae806aac7bc33925d38ebb3cbdcc3"
+        }
+      ],
+      "proposed_change": "Составить перечень поддерживаемых сервисных органов и проверить выходы. Добавлять отсутствующие состояния по одному, отделив аудиоканал от факта питания и давления.",
+      "origin_report": "dev/runs/re-part1-20261024/control-aux.json"
+    },
+    {
+      "id": "CA15",
+      "sections": [
+        "3.20",
+        "3.21"
+      ],
+      "printed_pages": [
+        124,
+        125
+      ],
+      "pdf_pages": [
+        129,
+        130
+      ],
+      "source": "work/public_2es6_part1.pdf",
+      "source_verification": {
+        "ocr_full_pages_read": true,
+        "visually_checked_pdf_pages": [
+          129
+        ],
+        "note": "Relevant OCR pages were read in full. Listed PNG pages were visually checked for stated values and labels. Appendix coverage does not mean wire-by-wire verification."
+      },
+      "expected": "УУБК реагирует на нарастание Ia более 300 А/мс: К41/К42 размыкаются и снимают БВ. УЗПС шунтирует выход СТПР для быстрого снижения тока возбуждения.",
+      "observed": "Общий цикл хоста составляет 100 мс, электрическая динамика делегирована DLL. Флаги отказов не принимают условия быстрых защит. ArithmeticException обнуляет силу и не эквивалентен штатному УУБК или УЗПС.",
+      "status": "unverified",
+      "priority": "P1",
+      "acceptance": [
+        "Инициировать штатный вход защиты: К41/К42, БВ, Iv, разбор тяги/ЭДТ и сообщение.",
+        "Проверить фиксацию и сброс. Численная ошибка не должна скрывать неопределённое состояние токов и контакторов."
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "line": 135,
+          "anchor": "timer=new Timer{Interval=100}",
+          "sha256": "cba44ba9072d9911fc63cb5837eb55bec88de23b90df3b2b62219133c3fd5351"
+        },
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124,
+          "anchor": "catch(ArithmeticException ex)",
+          "sha256": "ef0f934069aea0c54dcea4856a5f0f23b4eae806aac7bc33925d38ebb3cbdcc3"
+        }
+      ],
+      "proposed_change": "Установить представление быстрых событий в native: события или внутренний шаг. Проверить полную цепь защиты. Не вычислять 300 А/мс по одним кадрам длительностью 100 мс.",
+      "origin_report": "dev/runs/re-part1-20261024/control-aux.json"
+    },
+    {
+      "id": "CA16",
+      "sections": [
+        "4.1",
+        "4.2",
+        "Приложение В"
+      ],
+      "printed_pages": [
+        128,
+        129,
+        164,
+        165
+      ],
+      "pdf_pages": [
+        133,
+        134,
+        169,
+        170
+      ],
+      "source": "work/public_2es6_part1.pdf",
+      "source_verification": {
+        "ocr_full_pages_read": true,
+        "visually_checked_pdf_pages": [
+          134
+        ],
+        "note": "Relevant OCR pages were read in full. Listed PNG pages were visually checked for stated values and labels. Appendix coverage does not mean wire-by-wire verification.",
+        "appendix_diagram_limit": "PDF169 appendix title located; PDF170 is a drawing with inadequate OCR. Its wiring was not traced or accepted."
+      },
+      "expected": "УКТОЛ питается от G4 по проводам +50/−50 В. Отдельные цепи 110 В формируют блокировки; общий провод 600, минус 110 В, в шкаф УКТОЛ не поступает.",
+      "observed": "C# связывает структуры ККМ, ВЦУ и БТО, но раздельные источники G4 и 110 В и отказы проводов не приняты. Схемы имеются; полной проверки провод за проводом не было.",
+      "status": "unverified",
+      "priority": "P1",
+      "acceptance": [
+        "Отказ G4 при сохранённых 110 В и потеря 110 В при сохранении G4 должны давать разные последствия.",
+        "Сверить ВЦУ, ККМ, БЭПП/БТО и сообщения с проводами приложения В."
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "line": 41,
+          "anchor": "mem[\"TLocParam\"]=Alloc(",
+          "sha256": "cba44ba9072d9911fc63cb5837eb55bec88de23b90df3b2b62219133c3fd5351"
+        },
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 111,
+          "anchor": "void ApplyBrakeInput()",
+          "sha256": "ef0f934069aea0c54dcea4856a5f0f23b4eae806aac7bc33925d38ebb3cbdcc3"
+        }
+      ],
+      "proposed_change": "Построить таблицу электрических портов и контактов. Проверить раздельное питание до реализации отказных упражнений. Не сводить G4 к общему булеву признаку управления.",
+      "origin_report": "dev/runs/re-part1-20261024/control-aux.json"
+    },
+    {
+      "id": "CA17",
+      "sections": [
+        "4.3"
+      ],
+      "printed_pages": [
+        130,
+        131
+      ],
+      "pdf_pages": [
+        135,
+        136
+      ],
+      "source": "work/public_2es6_part1.pdf",
+      "source_verification": {
+        "ocr_full_pages_read": true,
+        "visually_checked_pdf_pages": [
+          135,
+          136
+        ],
+        "note": "Relevant OCR pages were read in full. Listed PNG pages were visually checked for stated values and labels. Appendix coverage does not mean wire-by-wire verification."
+      },
+      "expected": "ВЦУ I — рабочее положение; II — блокировка выключена, цепь 584 разорвана, а 591 питается; остальные цепи сохраняются. В положении III все цепи разомкнуты.",
+      "observed": "UpdateVcuInterlock сохраняет допустимую позицию и синхронизирует нативный пульт. Независимый КВТ в airCircuit разрешён только при VCU=1 и Blocked367=1. Это частичная привязка, а не приёмка всех контактных групп.",
+      "status": "partial",
+      "priority": "P1",
+      "acceptance": [
+        "Переход I→II при существующем давлении ТЦ: удержание сохраняется, новый КВТ не подпитывает и не опорожняет его.",
+        "Положение III, съём ключа, возврат I и смена кабин: проверить ККМ, БЭПП, тягу и сигналы."
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "line": 57,
+          "anchor": "void UpdateVcuInterlock()",
+          "sha256": "2f35ddf1f779daead4c7e95038cd537768b2872e6bfb4e951a4b26331038c248"
+        },
+        {
+          "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+          "line": 149,
+          "anchor": "airCircuit.StepControls(kvt",
+          "sha256": "ce07ea15687aa2e0aff30db6201d0834390b6a77306a366479a5f81e95a9ea77"
+        }
+      ],
+      "proposed_change": "Дополнить таблицу фактических контактных групп и проверить потребителей в I/II/III. Не заменять II или III понятием «КРУ» либо одним глобальным выключателем.",
+      "origin_report": "dev/runs/re-part1-20261024/control-aux.json"
+    },
+    {
+      "id": "CA18",
+      "sections": [
+        "4.4",
+        "4.5"
+      ],
+      "printed_pages": [
+        131,
+        132
+      ],
+      "pdf_pages": [
+        136,
+        137
+      ],
+      "source": "work/public_2es6_part1.pdf",
+      "source_verification": {
+        "ocr_full_pages_read": true,
+        "visually_checked_pdf_pages": [
+          136,
+          137
+        ],
+        "note": "Relevant OCR pages were read in full. Listed PNG pages were visually checked for stated values and labels. Appendix coverage does not mean wire-by-wire verification."
+      },
+      "expected": "ККМ формирует семь сигналов по 15 В. Нормально замкнутые контакты S2/S3 соединены последовательно, нормально разомкнутые — параллельно; цепь 584 питается в ВЦУ I.",
+      "observed": "ApplyBrakeInput не переписывает нативную аварийную команду при S2/S3. Кнопка I имеет возврат во II. Эти свойства C# подтверждены статически; отказы контактов, питания и нетипичные положения ВЦУ не приняты.",
+      "status": "partial",
+      "priority": "P1",
+      "acceptance": [
+        "Каждый клапан отдельно, оба вместе, залипание и обрыв контакта, ВЦУ I/II/III и потеря G4.",
+        "Совместные ККМ V/VI, САУТ/АВП: проверять конечные давления и силы, не только байт команды."
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 111,
+          "anchor": "void ApplyBrakeInput()",
+          "sha256": "ef0f934069aea0c54dcea4856a5f0f23b4eae806aac7bc33925d38ebb3cbdcc3"
+        },
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 114,
+          "anchor": "if(Marshal.ReadByte(mem[\"TPult\"],0x23)==1",
+          "sha256": "ef0f934069aea0c54dcea4856a5f0f23b4eae806aac7bc33925d38ebb3cbdcc3"
+        },
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 118,
+          "anchor": "void EndCharge()",
+          "sha256": "ef0f934069aea0c54dcea4856a5f0f23b4eae806aac7bc33925d38ebb3cbdcc3"
+        }
+      ],
+      "proposed_change": "Сохранить исправленный приоритет аварийного воздействия. Для отказных сценариев разделить НЗ/НО контакты, питание и адресацию двух клапанов.",
+      "origin_report": "dev/runs/re-part1-20261024/control-aux.json"
+    },
+    {
+      "id": "CA19",
+      "sections": [
+        "4.6"
+      ],
+      "printed_pages": [
+        132
+      ],
+      "pdf_pages": [
+        137
+      ],
+      "source": "work/public_2es6_part1.pdf",
+      "source_verification": {
+        "ocr_full_pages_read": true,
+        "visually_checked_pdf_pages": [
+          137
+        ],
+        "note": "Relevant OCR pages were read in full. Listed PNG pages were visually checked for stated values and labels. Appendix coverage does not mean wire-by-wire verification."
+      },
+      "expected": "СД1 имеет нормально замкнутый контакт и размыкается при ТМ≥0,08 МПа. СД2 имеет нормально разомкнутый контакт и замыкается при давлении вспомогательного тормоза≥0,3 МПа.",
+      "observed": "UpdateVcuInterlock использует ТМ<0,8 и импульс>3 в нативных единицах. Это не полная модель двух контактов, их НЗ/НО состояний, порогов и гистерезиса. Равенство порогу нельзя принимать по одному разрешению ключа.",
+      "status": "unverified",
+      "priority": "P1",
+      "acceptance": [
+        "Точки ниже порога, ровно на пороге и выше него при росте и снижении давления.",
+        "Обрыв и замыкание датчика должны отличаться от физического изменения давления."
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "line": 57,
+          "anchor": "void UpdateVcuInterlock()",
+          "sha256": "2f35ddf1f779daead4c7e95038cd537768b2872e6bfb4e951a4b26331038c248"
+        },
+        {
+          "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+          "line": 152,
+          "anchor": "Dbl(loc,0xec,airCircuit.Independent.Gauge)",
+          "sha256": "ce07ea15687aa2e0aff30db6201d0834390b6a77306a366479a5f81e95a9ea77"
+        }
+      ],
+      "proposed_change": "Установить источники и единицы обоих сигналов; наблюдать контакты явно и проверить преобразование МПа↔кгс/см².",
+      "origin_report": "dev/runs/re-part1-20261024/control-aux.json"
+    },
+    {
+      "id": "CA20",
+      "sections": [
+        "4.7"
+      ],
+      "printed_pages": [
+        132
+      ],
+      "pdf_pages": [
+        137
+      ],
+      "source": "work/public_2es6_part1.pdf",
+      "source_verification": {
+        "ocr_full_pages_read": true,
+        "visually_checked_pdf_pages": [
+          137
+        ],
+        "note": "Relevant OCR pages were read in full. Listed PNG pages were visually checked for stated values and labels. Appendix coverage does not mean wire-by-wire verification."
+      },
+      "expected": "БЭПП имеет отдельные входы автоведения X1, САУТ X3 и диагностики X27. Связь входов сама по себе не принимает их совместный арбитраж.",
+      "observed": "Есть отдельный standalone САУТ с собственными выходами, арбитраж САУТ, экстренного воздействия, срыва ЭПК и АВП; нативные команды восстанавливаются в finally. Полная электрическая матрица отказов этим аудитом не проверялась.",
+      "status": "partial",
+      "priority": "P1",
+      "acceptance": [
+        "САУТ — торможение/перекрыша совместно с ККМ I/II/V/VI, АВП и ЭПК.",
+        "Отключение и отказ каждого источника не освобождают экстренное торможение и не сохраняют устаревшую команду."
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 18,
+          "anchor": "void AllocateStandaloneSautRecords",
+          "sha256": "ef0f934069aea0c54dcea4856a5f0f23b4eae806aac7bc33925d38ebb3cbdcc3"
+        },
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "line": 62,
+          "anchor": "bool nativeBrakePriority=",
+          "sha256": "2f35ddf1f779daead4c7e95038cd537768b2872e6bfb4e951a4b26331038c248"
+        },
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "line": 75,
+          "anchor": "}finally{try{RestoreNativeAirCompressorRequests();}",
+          "sha256": "2f35ddf1f779daead4c7e95038cd537768b2872e6bfb4e951a4b26331038c248"
+        }
+      ],
+      "proposed_change": "Сохранить разделение производителей. Построить полную матрицу приоритетов и потери связи; исправлять по измеренному выходу БЭПП и пневматики.",
+      "origin_report": "dev/runs/re-part1-20261024/control-aux.json"
+    },
+    {
+      "id": "CA21",
+      "sections": [
+        "4.8"
+      ],
+      "printed_pages": [
+        133
+      ],
+      "pdf_pages": [
+        138
+      ],
+      "source": "work/public_2es6_part1.pdf",
+      "source_verification": {
+        "ocr_full_pages_read": true,
+        "visually_checked_pdf_pages": [
+          138
+        ],
+        "note": "Relevant OCR pages were read in full. Listed PNG pages were visually checked for stated values and labels. Appendix coverage does not mean wire-by-wire verification."
+      },
+      "expected": "При обрыве ТМ датчик 418.000, обозначенный КР21, включает реле КЛ10 и формирует цепь «Выбег».",
+      "observed": "Пневматика и измерения связаны, но свежая сквозная приёмка КР21 → КЛ10 → разбор тяги/ЭДТ при физическом обрыве ТМ не выполнена. Одно условие малой ТМ в АВП не принимает реальный сигнал датчика 418.",
+      "status": "unverified",
+      "priority": "P1",
+      "acceptance": [
+        "Обрыв ТМ под тягой и при ЭДТ с включёнными и отключёнными САУТ/АВП.",
+        "Наблюдать КР21, КЛ10, команду «Выбег», силу, токи, давления и сообщение."
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124,
+          "anchor": "void ElectricalCycle()",
+          "sha256": "ef0f934069aea0c54dcea4856a5f0f23b4eae806aac7bc33925d38ebb3cbdcc3"
+        },
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "line": 57,
+          "anchor": "void PneumaticCycle()",
+          "sha256": "2f35ddf1f779daead4c7e95038cd537768b2872e6bfb4e951a4b26331038c248"
+        }
+      ],
+      "proposed_change": "Установить нативный путь датчика 418 и отличить обрыв от обычного малого давления ТМ. Добавить физический сценарий обрыва и сверить обратную связь.",
+      "origin_report": "dev/runs/re-part1-20261024/control-aux.json"
+    },
+    {
+      "id": "CA22",
+      "sections": [
+        "4.9",
+        "см. 3.16"
+      ],
+      "printed_pages": [
+        133
+      ],
+      "pdf_pages": [
+        138
+      ],
+      "source": "work/public_2es6_part1.pdf",
+      "source_verification": {
+        "ocr_full_pages_read": true,
+        "visually_checked_pdf_pages": [
+          138
+        ],
+        "note": "Relevant OCR pages were read in full. Listed PNG pages were visually checked for stated values and labels. Appendix coverage does not mean wire-by-wire verification."
+      },
+      "expected": "В БТО имеются отдельные вентили КР22 отпуска тормоза, КР23 блокировки тормоза и КР24 срыва рекуперации. Детальный алгоритм отнесён к части 7.",
+      "observed": "Ветвь C# использует loc+8C!=0, а свежий guard C21 подтверждает нативный OtpuskType=0/1/2 и защёлку. Привод КЭБ2, его расход и минимальное давление прямо помечены как некалиброванные. Вывод нужно согласовать с разбором §3.16.",
+      "status": "partial",
+      "priority": "P1",
+      "acceptance": [
+        "Все три положения отпуска, самовозврат, защёлка и ВЦУ I/II/III.",
+        "КР24 при срыве ЭДТ и КР22 при недостаточном воздухе: проверить раздельные выходы."
+      ],
+      "code": [
+        {
+          "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+          "line": 148,
+          "anchor": "// KEB2 actuator air consumption",
+          "sha256": "ce07ea15687aa2e0aff30db6201d0834390b6a77306a366479a5f81e95a9ea77"
+        },
+        {
+          "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+          "line": 149,
+          "anchor": "airCircuit.StepControls(kvt",
+          "sha256": "ce07ea15687aa2e0aff30db6201d0834390b6a77306a366479a5f81e95a9ea77"
+        },
+        {
+          "path": "outputs/TrainerTwoSectionAirChain.cs",
+          "line": 80,
+          "anchor": "// Actuated KEB2 blocks BVR supply",
+          "sha256": "c04801ab0dfcd7af736d8069909ec4d8c07c71c1f14caf393e30f5043f86bbbc"
+        }
+      ],
+      "native_evidence": {
+        "fresh_guard_report": "dev/docs/audit_parts/re_part1/control-native-guards.json",
+        "rva": "0x18c665–0x18c7a6",
+        "scope": "Raw input 0/1/2 and latch byte branches remain in current on-disk Pult1."
+      },
+      "proposed_change": "Не сводить разные вентили и режимы к общему «отпуск». Принять состояния и условия части 7; разделить сигнал катушки, срабатывание привода и пневматический результат.",
+      "origin_report": "dev/runs/re-part1-20261024/control-aux.json",
+      "fresh_static_evidence": [
+        "dev/docs/audit_parts/re_part1/control-native-guards.json"
+      ]
+    },
+    {
+      "id": "TB-01",
+      "title": "Выбор режимов, возбуждение и отключение групп ТЭД",
+      "printed_pages": [
+        90,
+        93
+      ],
+      "pdf_pages": [
+        95,
+        98
+      ],
+      "expected": "Выбор режима допускается при нулевых позициях обоих джойстиков. При независимом возбуждении отключённой группе не подаётся возбуждение и не включается её контактор; переход на последовательное возбуждение требует нулевой позиции и нулевой уставки.",
+      "observed": "Хост подключает действительные записи пульта и тяги владельца Communication1 и вызывает нативный электрический цикл. ReadinessReason моста АВП проверяет независимое возбуждение и включённые ТЭД, но это условие допуска АВП, а не доказательство всех ручных блокировок. АВП сейчас отключено.",
+      "status": "partial",
+      "code": [
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "line": 128
+        },
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124
+        },
+        {
+          "path": "outputs/TrainerAutovedenieNativeBridge.cs",
+          "line": 290
+        }
+      ],
+      "evidence": [
+        "Свежая проверка C# подтверждает делегирование штатным DLL. Последовательность и результат ручных переключений в этом аудите не запускались."
+      ],
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "При ненулевой позиции и ненулевой уставке возбуждения изменение режима должно отклоняться.",
+          "Повторить с отключённой группой каждой тележки, сменой головной секции и обоими направлениями; наблюдать контакторы и фактические токи."
+        ]
+      },
+      "priority": "P2",
+      "proposed_change": "Сначала проследить обработанные положения контакторов и независимые состояния каждой группы. Исправлять только доказанную неверную связь или блокировку.",
+      "sections": [
+        "3.11.1–3.11.6"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/traction-brakes.json"
+    },
+    {
+      "id": "TB-02",
+      "title": "Знак силы и обратная связь скорости в тяге и ЭДТ",
+      "printed_pages": [
+        108,
+        109
+      ],
+      "pdf_pages": [
+        113,
+        114
+      ],
+      "expected": "Сила тяги положительна, сила электрического торможения отрицательна. Для сравнения сил тележки с выходом всего электровоза необходимо учитывать единицы и число активных тележек.",
+      "observed": "ElectricalCycle передаёт signedVelocity в TTygaParam. MotionCycle передаёт TResTyga+0 в POEZD без взятия модуля; пульт получает модуль скорости. Существующая коррекция знаковой скорости ограничена SHA и байтами и восстанавливается при закрытии.",
+      "status": "confirmed_static",
+      "code": [
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124
+        },
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "line": 82
+        },
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "line": 86
+        },
+        {
+          "path": "outputs/TrainerNativeFixes.cs",
+          "line": 15
+        }
+      ],
+      "evidence": [
+        "Подтверждён интерфейс знаковой силы и скорости, а не полная калибровка тяги или торможения."
+      ],
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "В обоих направлениях проверить тягу, выбег и ЭДТ, а также несогласованный реверсор. Сопоставлять силу одной тележки и сумму активных тележек отдельно."
+        ]
+      },
+      "priority": "P2",
+      "proposed_change": "Сохранить знаковые величины и проверять согласованность направления реверсора, скорости и силы; не заменять физическую силу модулем или готовым требуемым значением.",
+      "sections": [
+        "3.11.11.5; 3.11.12.1"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/traction-brakes.json"
+    },
+    {
+      "id": "TB-03",
+      "title": "Переход С → СП: граница 400 А вместо 410 А и способ сравнения токов",
+      "printed_pages": [
+        98
+      ],
+      "pdf_pages": [
+        103
+      ],
+      "expected": "На позиции 23 целевая позиция СП выбирается по среднему току якоря. Для интервала от 360 до 410 А указана позиция 27, далее до 450 А — позиция 28. Область усреднения прямо не названа ведущей секцией.",
+      "observed": "В текущем Tyga1 по RVA 0x17E3B4 перед вызовом GetCurMen передаётся Single 400 А: push 0x43C80000. Следующая ветвь содержит 450 А. GetCurMen сравнивает отдельные активные каналы с одним порогом; арифметического усреднения в этой функции нет. При одинаковых активных токах 405 А статический выбор компонента отличается от таблицы, независимо от спорной области среднего.",
+      "status": "confirmed_mismatch",
+      "code": [
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124
+        },
+        {
+          "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Tyga1.dll",
+          "line": null,
+          "rva": "0x17E3B4–0x17E3DA; GetCurMen 0x17995C–0x179BE2"
+        }
+      ],
+      "evidence": [
+        "dev/docs/audit_parts/re_part1/traction-native-static.json#/modules/0/ranges: SetSoedTED_boundary, GetCurMen_active_current_predicate. SHA текущего Tyga1 совпадает с зафиксированным снимком.",
+        "Это статическое несоответствие алгоритма компонента; фактический переход поезда и контакторов заново не измерялся."
+      ],
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Сначала проверить равные токи 399, 405 и 411 А на всех активных каналах.",
+          "Затем проверить неравные токи, отключённые группы и смену ведущей секции; фиксировать команду, позицию, соединение и контакторы."
+        ]
+      },
+      "priority": "P2",
+      "status_scope": "Статический выбор позиции компонентом Tyga1 при одинаковых активных токах 405 А; реальный переход контакторов не измерялся.",
+      "proposed_change": "Уточнить состав среднего по принятой редакции и таблице отключённых групп. Исправлять именно границу этой ветви и способ агрегирования токов, не заменяя все встречающиеся 400 А.",
+      "sections": [
+        "3.11.9.5"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/traction-brakes.json",
+      "fresh_static_evidence": [
+        "dev/docs/audit_parts/re_part1/traction-native-static.json"
+      ]
+    },
+    {
+      "id": "TB-04",
+      "title": "Переход СП → П и работа с отключённой группой",
+      "printed_pages": [
+        99
+      ],
+      "pdf_pages": [
+        104
+      ],
+      "expected": "На позиции 44 переход определяется средним Ia: менее 410 А → 45; от 410 до менее 500 А → 46; от 500 до 570 А включительно → 47; более 570 А запрещает переход. Для секции с отключёнными ТЭД предусмотрены отдельная таблица соединения и переход за 0,6 с.",
+      "observed": "Тяговой расчёт делегирован Tyga1. Свежая статическая проверка GetCurMen подтверждает поканальные сравнения, но вся ветвь СП → П, её временная база и последствия отключения групп в этом аудите не исследованы полностью.",
+      "status": "partial",
+      "code": [
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124
+        },
+        {
+          "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Tyga1.dll",
+          "line": null,
+          "rva": "GetCurMen 0x17995C–0x179BE2"
+        }
+      ],
+      "evidence": [
+        "dev/docs/audit_parts/re_part1/traction-native-static.json#/modules/0/ranges: GetCurMen_active_current_predicate. Нельзя объявлять результат для неравных токов без определения области среднего."
+      ],
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Проверить 409, 410, 499, 500, 570 и 571 А, затем отключение одной группы и смену головной секции.",
+          "Измерять 0,6 с по времени модели и отдельно по Windows; записывать фактические контакторы."
+        ]
+      },
+      "priority": "P2",
+      "proposed_change": "Дополнить трассировку выбора соединения и отключённых групп. Не переносить правило о токе ведущей секции из алгоритма +А на этот пункт без основания.",
+      "sections": [
+        "3.11.9.6"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/traction-brakes.json"
+    },
+    {
+      "id": "TB-05",
+      "title": "Ограничение тока: 700 А и 750 А не подтверждают защиту 800 А / 10 с",
+      "printed_pages": [
+        106,
+        108
+      ],
+      "pdf_pages": [
+        111,
+        113
+      ],
+      "expected": "При Ia любого ТЭД более 800 А блокируются +1 и +А, выдаётся сообщение и команда +ОВ; при сохранении перегрузки 10 с выполняется −А. Отдельно для регулирования установлены пределы 650 А на С/СП и 570 А на П.",
+      "observed": "В SetPos текущего Tyga1 передаётся порог Single 700 А: push 0x442F0000 по RVA 0x17DF17; дальнейшая ветвь запрещает повышение позиции. В блоке CalkNezavVozb по RVA 0x177C52 и 0x177C7C сохраняемые токи ограничиваются Single 750 А, 0x443B8000. Это другие операции; ими нельзя подтверждать всю защиту 800 А / 10 с. Наличие дополнительных защит в вызывающих DLL не опровергнуто.",
+      "status": "partial",
+      "code": [
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124
+        },
+        {
+          "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Tyga1.dll",
+          "line": null,
+          "rva": "0x17DF17–0x17DF33; 0x177C29–0x177C84"
+        }
+      ],
+      "evidence": [
+        "dev/docs/audit_parts/re_part1/traction-native-static.json#/modules/0/ranges: SetPos_Ia_gate, Ia_clamp_after_force. Числа декодированы из свежих байтов текущей DLL.",
+        "Доказано отличие операций компонента, а не отсутствие всей аппаратной защиты или новое прохождение испытания."
+      ],
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Проверить токи 690, 710, 750 и 810 А раздельно по группам и секциям.",
+          "При перегрузке проверить 9,9 и 10,1 с, сообщения, +ОВ, −А и сохранение физической согласованности тока и силы."
+        ]
+      },
+      "priority": "P1",
+      "assessment_note": "Наличие 700 А и 750 А в других операциях само по себе не доказывает дефект всей защиты 800 А / 10 с. Полнота защитной цепи остаётся неподтверждённой.",
+      "proposed_change": "Проследить измеренный Ia, его ограничения, силу и все защитные ветви. Разделить регулирование и аварийную защиту; не исправлять проблему единственной заменой 700 на 800.",
+      "sections": [
+        "3.11.10.2; 3.11.11.8"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/traction-brakes.json",
+      "fresh_static_evidence": [
+        "dev/docs/audit_parts/re_part1/traction-native-static.json"
+      ]
+    },
+    {
+      "id": "TB-06",
+      "title": "Время реостатной позиции: счётчики 200 / 300 / 120",
+      "printed_pages": [
+        106,
+        107
+      ],
+      "pdf_pages": [
+        111,
+        112
+      ],
+      "expected": "При Ia более 500 А предельное время на реостатных позициях С/СП/П составляет 20 с, кроме позиций 62–64, для которых указано 12 с. По превышении выполняется переход в направлении последней команды.",
+      "observed": "Свежие байты GetTimeReost показывают возврат целочисленных порогов 200, 300 и 120 по номеру позиции; для 24–43 выбирается 300. Сама функция не читает Ia. Это количества учитываемых вызовов, а не значения в секундах. Номинальное сопоставление с 20 / 30 / 12 с возможно лишь при одном таком счёте на шаг 0,1 с; реальная частота и полный вызывающий путь сейчас не измерялись.",
+      "status": "partial",
+      "code": [
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "line": 135
+        },
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "line": 83
+        },
+        {
+          "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Tyga1.dll",
+          "line": null,
+          "rva": "GetTimeReost 0x17B774–0x17B7EF"
+        }
+      ],
+      "evidence": [
+        "dev/docs/audit_parts/re_part1/traction-native-static.json#/modules/0/ranges: GetTimeReost. Инструкции 0x17B7C7, 0x17B7D0, 0x17B7D9 возвращают 0xC8, 0x12C, 0x78.",
+        "Подтверждены иной порог для СП и отсутствие проверки тока внутри этой функции. Отсутствие такой проверки во всех вызывающих функциях и фактические 30 с заново не доказаны."
+      ],
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "На позициях 10, 30, 50 и 62 проверить Ia 490 и 510 А, набор и сброс.",
+          "Записать число вызовов, время модели, время Windows, попытку перехода и фактическую позицию; отдельно учитывать запрет SetPos."
+        ]
+      },
+      "priority": "P1",
+      "assessment_note": "Для порога 300 вызовов не доказаны полная вызывающая цепь и временная база, поэтому несоответствие фактической выдержки 20 с не объявляется подтверждённым.",
+      "proposed_change": "Сначала установить, когда и сколько раз увеличивается счётчик и где учитывается Ia. Затем реализовать предел в доказанной временной базе; не выдавать число 300 за миллисекунды или секунды.",
+      "sections": [
+        "3.11.10.4"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/traction-brakes.json",
+      "fresh_static_evidence": [
+        "dev/docs/audit_parts/re_part1/traction-native-static.json"
+      ]
+    },
+    {
+      "id": "TB-07",
+      "title": "Независимое возбуждение и регулирование силы тележки",
+      "printed_pages": [
+        107,
+        108
+      ],
+      "pdf_pages": [
+        112,
+        113
+      ],
+      "expected": "Регулирование Iv = Iv0 + k × Ia выполняется раздельно для тележек. У отключённой группы Iv = 0. Задание силы одной тележки передаётся секциям; для С/СП и П предусмотрены разные направления регулирования и пределы Ia 650 / 570 А.",
+      "observed": "Хост использует общие записи штатной тяговой DLL и передаёт её силу в движение. По выбранным C# источникам нет отдельной реализации этого регулятора; отсутствие C# регулятора не означает отсутствие нативного. Свежая проверка отдельных ограничителей не подтверждает весь закон, магнитную характеристику и калибровку.",
+      "status": "partial",
+      "code": [
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "line": 128
+        },
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124
+        },
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "line": 82
+        }
+      ],
+      "evidence": [
+        "Исторический MPSUD_TRACTION.md использован как указатель архитектуры, не как новое испытание."
+      ],
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Сопоставить Iv0, Ia, Iv, поток и силу каждой тележки при одинаковых и неравных нагрузках, с отключённой группой, на С/СП/П."
+        ]
+      },
+      "priority": "P2",
+      "proposed_change": "Проверить отдельные измерения и задания тележек, активные группы и единицы силы. Исправлять расхождения после трассировки регулятора и ограничений.",
+      "sections": [
+        "3.11.11.1–3.11.11.8"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/traction-brakes.json"
+    },
+    {
+      "id": "TB-08",
+      "title": "Предварительное электрическое торможение",
+      "printed_pages": [
+        108,
+        109
+      ],
+      "pdf_pages": [
+        113,
+        114
+      ],
+      "expected": "Из выбега предварительная сила 30 кН выдерживается 5–10 с; при переходе на имеющемся соединении — 30 кН на 15–20 с, затем допускается заданная сила.",
+      "observed": "Существование нативного электрического расчёта и отрицательной силы подтверждено интерфейсом. Раздельное выполнение двух подготовительных выдержек и фактические 30 кН в этом аудите не измерялись. Историческое упоминание PodgotElTorm_cnt не заменяет нового подтверждения.",
+      "status": "unverified",
+      "code": [
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124
+        },
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "line": 82
+        }
+      ],
+      "evidence": [
+        "Нормативные числа визуально проверены на p114.png, штамп 109. Нового нативного сценария нет."
+      ],
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "При одинаковой скорости сравнить вход из выбега и вход из тяги на действующем соединении. Записать силу тележки/электровоза, контакторы и обе временные шкалы."
+        ]
+      },
+      "priority": "P1",
+      "proposed_change": "Разделить два случая входа, определить смысл счётчика и фактическую силу на период подготовки.",
+      "sections": [
+        "3.11.12.1–3.11.12.2"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/traction-brakes.json"
+    },
+    {
+      "id": "TB-09",
+      "title": "Рекуперация, реостат и электрические ограничения",
+      "printed_pages": [
+        109,
+        110
+      ],
+      "pdf_pages": [
+        114,
+        115
+      ],
+      "expected": "При отсутствии приёма энергии подключаются резисторы; при ограничении сети переход в реостатное торможение идёт через выбег. Ia ограничен 550 А, Iv — 600 А, напряжение ТЭД — 3900 В. Подключение резисторов при сети более 3800 В, отключение при 3400 В.",
+      "observed": "ElectricalCycle вызывает штатную модель, но принятый аналоговый вход напряжения и приёма энергии по выбранным источникам не доказан. Исторические пороги Iv 520 / 420 А относятся к иным ветвям и не доказывают указанные пределы Ia/Iv или гистерезис напряжения.",
+      "status": "unverified",
+      "code": [
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124
+        },
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "line": 128
+        },
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "line": 82
+        }
+      ],
+      "evidence": [
+        "Числа и переходы проверены по p114–p115. Старый отчёт рассматривается только как план трассировки."
+      ],
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Проверить сеть 3390 / 3410 / 3790 / 3810 В, границу 3900 В на ТЭД, наличие и отсутствие приёмника энергии, отключение группы. Фиксировать силу, Ia/Iv, контакторы и переход через выбег."
+        ]
+      },
+      "priority": "P1",
+      "proposed_change": "Установить доказанный вход напряжения/энергообмена, затем связать переходы с физическими условиями сети, ТЭД и резисторов.",
+      "sections": [
+        "3.11.12.2; 3.11.13.1–3.11.13.3"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/traction-brakes.json"
+    },
+    {
+      "id": "TB-10",
+      "title": "Синтетический источник события скольжения",
+      "printed_pages": [
+        111,
+        116,
+        117
+      ],
+      "pdf_pages": [
+        116,
+        121,
+        122
+      ],
+      "expected": "Защита использует датчики каждой оси, различает боксование и юз, сообщает ось/секцию и воздействует на соответствующие режимы. Повтор сильного скольжения через 6 с требует повторной коррекции; повтор потери сцепления тележки менее чем через 15 с снижает её задание на 5 % за минуту.",
+      "observed": "В текущем Tyga1 CheckBox формирует событие по расчётной силе/сцеплению и содержит mov eax, 2; call 0x4918 (генератор System.Random из исторической идентификации). Свежие байты подтверждают синтетический выбор группы, а C# движение передаёт скорость элемента поезда, не независимые угловые скорости осей. Это ограничение генератора события, а не доказательство отсутствия обработчиков ПБЗ в Pult1.",
+      "status": "confirmed_mismatch",
+      "code": [
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "line": 86
+        },
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124
+        },
+        {
+          "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Tyga1.dll",
+          "line": null,
+          "rva": "CheckBox 0x177D68–0x177EE7; 0x177E35–0x177E3A"
+        }
+      ],
+      "evidence": [
+        "dev/docs/audit_parts/re_part1/traction-native-static.json#/modules/0/ranges: CheckBox_detector. Статус относится к физической идентификации оси в данном генераторе.",
+        "Таймеры 6 с, 15 с и снижение 5 % в минуту не объявляются проверенными."
+      ],
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Задать независимое скольжение одной оси, проверить её номер и секцию, слабый/сильный режим, повтор через 6 с и повтор менее чем через 15 с. При отключённой ПБЗ проверить все автоматические воздействия."
+        ]
+      },
+      "priority": "P1",
+      "status_scope": "Только источник и идентификация события в исследованном генераторе. Работоспособность всей ПБЗ, её обработчиков и защитных таймеров этим статусом не оценивается.",
+      "proposed_change": "Отделить физический источник скольжения конкретной оси от учебного генератора события; проследить его подключение к штатным защитным алгоритмам.",
+      "sections": [
+        "3.11.13.5; 3.15.1–3.15.4"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/traction-brakes.json",
+      "fresh_static_evidence": [
+        "dev/docs/audit_parts/re_part1/traction-native-static.json"
+      ]
+    },
+    {
+      "id": "TB-11",
+      "title": "Вентиляторы ПТР: выдержки и неоднозначная строка таблицы",
+      "printed_pages": [
+        112,
+        113
+      ],
+      "pdf_pages": [
+        117,
+        118
+      ],
+      "expected": "Вариант 1 использует К7/К8, вариант 2 — К5/К6. Переключение схем имеет сдвиг 2 с; условие перехода 1 → 2 должно сохраняться более 2 с, обратное выполняется без задержки. Позиционные диапазоны и токовые границы заданы таблицей.",
+      "observed": "Управление делегировано штатным DLL, отдельная приёмка К5–К8 не проведена. В самой визуально проверенной таблице для позиции 58 указано Ia ≤ 650 А при переходе 1 → 2 и Ia > 550 А при обратном переходе: условия перекрываются. Это реальная неоднозначность источника, не ошибка OCR.",
+      "status": "revision_dependent",
+      "code": [
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124
+        },
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "line": 128
+        }
+      ],
+      "evidence": [
+        "p118.png, штамп 113, строка 58 таблицы 3.6. Для других позиций возможен отдельный функциональный тест без назначения произвольной исправленной границы."
+      ],
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Проверить переходы схем по подтверждённым строкам и выдержкам, затем отдельно позицию 58 после разрешения неоднозначности документа."
+        ]
+      },
+      "priority": "P2",
+      "proposed_change": "Согласовать принятую редакцию таблицы или порядок приоритетов при перекрытии; не подбирать пороги по предположению. Проверить реальные выходы контакторов.",
+      "sections": [
+        "3.12; таблица 3.6"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/traction-brakes.json"
+    },
+    {
+      "id": "TB-12",
+      "title": "Жалюзи ПТР должны открываться до вентиляции",
+      "printed_pages": [
+        114
+      ],
+      "pdf_pages": [
+        119
+      ],
+      "expected": "МПСУиД открывает жалюзи до включения вентиляторов ПТР. KR10 включается на реостатных позициях тяги и в ЭДТ; на прицепной секции в С-соединении тяги жалюзи не открываются. SQ4–SQ7 контролируют их положение.",
+      "observed": "В управляемом цикле отсутствует самостоятельная проверенная модель механики жалюзи и их конечных выключателей; команды могут рассчитываться штатной DLL. Проверка разрешения вентиляторов мостом АВП не доказывает исполнение KR10 или SQ4–SQ7.",
+      "status": "unverified",
+      "code": [
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124
+        },
+        {
+          "path": "outputs/TrainerAutovedenieNativeBridge.cs",
+          "line": 299
+        }
+      ],
+      "evidence": [
+        "Нормативный текст и штамп 114 просмотрены на p119.png. Состояние жалюзи в старом экранном аудите не считается новым измерением механики."
+      ],
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Проверить ведущую/прицепную секции, С/СП/П, реостатную и ходовую позиции, ЭДТ, задержку открытия и отказ одного SQ."
+        ]
+      },
+      "priority": "P2",
+      "proposed_change": "Проследить команду, исполнительный привод и обратную связь положения для каждой секции отдельно.",
+      "sections": [
+        "3.13"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/traction-brakes.json"
+    },
+    {
+      "id": "TB-13",
+      "title": "Песок: штатная команда и воздушный расход не равны полной приёмке алгоритма",
+      "printed_pages": [
+        114,
+        115,
+        116
+      ],
+      "pdf_pages": [
+        119,
+        120,
+        121
+      ],
+      "expected": "При слабом скольжении более 5–7 км/ч требуется сообщение ось/секция, сначала 2 с подачи, затем импульсы и паузы по 1 с. При экстренном торможении/срыве ЭПК и скорости более 10 км/ч предусмотрена подача по направлению движения. ТМ менее 0,3 МПа запускает аварийную команду; ПБЗ OFF отменяет автоматические воздействия при скольжении.",
+      "observed": "В текущем хосте только свежий принятый AF+A5 после успешного электрического шага временно публикуется в Loc+0x7F; оригинальный Torm вычисляет расход воздуха. Guard-код проверяет источник, SHA, байты и владельца; предыдущая команда не повторяется после ошибки. Свежего испытания таймеров 2/1/1 с, ориентации KR16–KR19 и сцепления песка нет.",
+      "status": "partial",
+      "code": [
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 123
+        },
+        {
+          "path": "outputs/TrainerSandAirInput.cs",
+          "line": 71
+        },
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "line": 73
+        },
+        {
+          "path": "dev/config/brake-rules-compliance.json",
+          "line": 93
+        }
+      ],
+      "evidence": [
+        "Исторический NativeSandAir PASS 2026-10-14 подтверждал только описанные входы и воздушный расход. Он не является новым запуском и не сертифицирует все пункты §3.14."
+      ],
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Проверить 2 с непрерывно и 1 с ON / 1 с OFF, скорости 9,9 / 10,1 км/ч, оба направления, ТМ вокруг 0,3 МПа, ПБЗ OFF и ручную педаль. Наблюдать клапаны, воздух и ось/секцию."
+        ]
+      },
+      "priority": "P2",
+      "proposed_change": "Сохранить реконструированный вход и guards, отдельно принять временной/осевой алгоритм и физическое влияние песка. Не добавлять вымышленную прибавку сцепления.",
+      "sections": [
+        "3.14.1–3.14.6"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/traction-brakes.json"
+    },
+    {
+      "id": "TB-14",
+      "title": "SA47: положение переключателя подменяет обработанный отпуск",
+      "printed_pages": [
+        117,
+        118,
+        119
+      ],
+      "pdf_pages": [
+        122,
+        123,
+        124
+      ],
+      "expected": "При заторможенном составе положения 0 и переход 0 → 1 не питают KR22. Импульс 1 → 2 включает отпуск; команда сохраняется после возврата в 1 и отменяется положением 0 либо повышением ТМ выше указанной в листе границы 0,48 МПа.",
+      "observed": "Pult1 читает Loc+0x8C как OtpuskType+0x104 и отдельно хранит обработанные состояния +0x108/+0x109/+0x10A и итог +0x103. Между тем TrainerPneumaticNetworkCandidate.cs:149 передаёт непосредственно Loc+0x8C != 0 в automaticReleaseActuated. TwoSectionAirChain.cs:93 по этому bool выбирает атмосферный release-port вместо автоматического источника. Доказана подмена смысла входа и выбора порта; фактическое питание KR22 и изменение ТЦ в этом аудите не измерены.",
+      "status": "confirmed_mismatch",
+      "code": [
+        {
+          "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+          "line": 149
+        },
+        {
+          "path": "outputs/TrainerTwoSectionAirChain.cs",
+          "line": 83
+        },
+        {
+          "path": "outputs/TrainerTwoSectionAirChain.cs",
+          "line": 93
+        },
+        {
+          "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Pult1.dll",
+          "line": null,
+          "rva": "0x18C665–0x18C7A6"
+        }
+      ],
+      "evidence": [
+        "dev/docs/audit_parts/re_part1/traction-native-static.json#/modules/1/ranges: SA47_edge_latch.",
+        "Важно различать автоматический отпуск при отпущенных управляющих кранах, ручную память SA47 и выбор физического порта. Не предлагается просто подключить +0x103 без проверки его смешанной логики."
+      ],
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "При действующем автоматическом торможении и исходном latch = 0 проверить 0 → 1 без 2: атмосферный путь не должен подменяться только из-за положения 1.",
+          "Проверить 1 → 2 → 1, 2 → 0, восстановление ТМ и отдельный КВТ; наблюдать команду, реальное питание KR22, управляющие полости и ТЦ обеих секций."
+        ]
+      },
+      "priority": "P1",
+      "status_scope": "Подмена обработанного сигнала отпуска необработанным положением и выбор атмосферного порта; фактическое снижение ТЦ не измерялось.",
+      "proposed_change": "Установить точный обработанный исполнительный сигнал и его условия. Передавать доказанное срабатывание клапана, сохраняя ручной latch, автоматические условия, независимый КВТ и пневматическое разрешение.",
+      "sections": [
+        "3.16.2"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/traction-brakes.json",
+      "fresh_static_evidence": [
+        "dev/docs/audit_parts/re_part1/control-native-guards.json",
+        "dev/docs/audit_parts/re_part1/traction-native-static.json"
+      ]
+    },
+    {
+      "id": "TB-15",
+      "title": "Блокировка автотормоза в ЭДТ и замещение при срыве",
+      "printed_pages": [
+        119
+      ],
+      "pdf_pages": [
+        124
+      ],
+      "expected": "В ЭДТ KR23 блокирует импульсный трубопровод БВР и сообщает РД с атмосферой; в выбеге блокировка отменяется. Срыв ЭДТ включает KR24 и пневматическое замещение: 0,13–0,14 МПа (1,3–1,4 кгс/см²) при отпущенном составе либо давление ТЦ вагона при заторможенном. KR22/KR23 теряют питание.",
+      "observed": "Хост связывает нативную пневматику с отдельными автоматическими и независимыми источниками, но полная цепь KR22/KR23/KR24, величина замещения и момент отмены блокировки в этом аудите не приняты. Значение силы 0 само по себе не подтверждает замещение.",
+      "status": "partial",
+      "code": [
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "line": 73
+        },
+        {
+          "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+          "line": 145
+        },
+        {
+          "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+          "line": 149
+        },
+        {
+          "path": "outputs/TrainerTwoSectionAirChain.cs",
+          "line": 93
+        }
+      ],
+      "evidence": [
+        "Порог 1,3–1,4 кгс/см² и команды визуально прочитаны на p124.png, штамп 119."
+      ],
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Прервать ЭДТ при отпущенном и заторможенном составе; с конечным запасом ПМ записывать клапаны, импульс РД и ТЦ обеих секций до восстановления."
+        ]
+      },
+      "priority": "P1",
+      "proposed_change": "Проследить выходы KR22/KR23/KR24 и физические пути воздуха, затем восстановить недостающую связь при подтверждённом дефекте.",
+      "sections": [
+        "3.16.3–3.16.4"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/traction-brakes.json"
+    },
+    {
+      "id": "TB-16",
+      "title": "Численная ошибка электрического расчёта: сила обнуляется, замещение не подтверждено",
+      "printed_pages": [
+        119
+      ],
+      "pdf_pages": [
+        124
+      ],
+      "expected": "Если электрическое торможение фактически сорвано, необходимо подтверждённое пневматическое замещение и отмена его блокировки. РЭ не описывает исключение C# как отдельный аппаратный отказ; соответствие здесь является требованием к интеграции.",
+      "observed": "В catch ArithmeticException ElectricalCycle присваивает TResTyga+0 = 0 и продолжает остальные контуры. В catch нет явного запроса срыва ЭДТ/замещения или подтверждения KR24. Следующий успешный электрический шаг очищает строку electricalFault. Это подтверждённая структура обработки ошибки; отсутствие любой последующей нативной реакции и реальная потеря суммарного тормоза не доказаны.",
+      "status": "confirmed_static",
+      "code": [
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124
+        },
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "line": 135
+        },
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "line": 82
+        }
+      ],
+      "evidence": [
+        "Проверен текущий C# catch. Свежего сценария ошибки в ЭДТ нет; статус не обозначает новое подтверждение физического отказа."
+      ],
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Управляемая ошибка внутри электрического шага в тяге, выбеге и ЭДТ. Записать силу, KR22–KR24, ТЦ, состояние после успешного следующего шага и сохранённую диагностику."
+        ]
+      },
+      "priority": "P1",
+      "proposed_change": "Разделить вычислительный сбой и аппаратный срыв, удерживать диагностику и обеспечить доказанный безопасный путь тормозного замещения при потере ЭДТ.",
+      "sections": [
+        "3.16.4; функциональный вывод для интеграции"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/traction-brakes.json"
+    },
+    {
+      "id": "TB-17",
+      "title": "Подтормаживание при смене соединений: конфликт давления в самом комплекте",
+      "printed_pages": [
+        109,
+        110,
+        119
+      ],
+      "pdf_pages": [
+        114,
+        115,
+        124
+      ],
+      "expected": "В §3.11.12.2 указано наполнение ТЦ до 0,15–0,18 МПа при переключении соединений в ЭДТ; §3.16.5 того же файла задаёт 0,25 МПа. После переключения ЭПВ выключается и блокировка автотормоза возвращается.",
+      "observed": "Оба различающихся значения визуально подтверждены на сканах со штампами 109 и 119. Единую уставку модели по этому смешанному комплекту назначить нельзя. Переключение физического канала и давление во время смены соединения заново не измерялись.",
+      "status": "revision_dependent",
+      "code": [
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124
+        },
+        {
+          "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+          "line": 149
+        },
+        {
+          "path": "outputs/TrainerTwoSectionAirChain.cs",
+          "line": 93
+        }
+      ],
+      "evidence": [
+        "p114.png / печатная 109 и p124.png / печатная 119. Это конфликт источника, а не разрешение произвольной калибровки."
+      ],
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "На принятой редакции выполнить смены соединения в ЭДТ, записать фактические ТЦ, контакторы, питание клапанов и возврат блокировки."
+        ]
+      },
+      "priority": "P1",
+      "proposed_change": "Установить принятую редакцию и комплектацию, сопоставить КЭБ1/ЭПВ и KR23/KR24, затем утвердить одну проверяемую уставку.",
+      "sections": [
+        "3.11.12.2; 3.16.5"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/traction-brakes.json"
+    },
+    {
+      "id": "TB-18",
+      "title": "Совместное ЭДТ и КВТ: не путать пороги с предотпускной выдержкой",
+      "printed_pages": [
+        120
+      ],
+      "pdf_pages": [
+        125
+      ],
+      "expected": "Совместное электрическое и вспомогательное торможение допускается до давления ТЦ 0,13–0,15 МПа (1,3–1,5 кгс/см²); дальнейший рост ТЦ отключает ЭДТ. Это порог фактического ТЦ, не давления отдельной пилотной ветви.",
+      "observed": "Хост хранит независимый управляющий канал Loc+0xEC отдельно от итогового Loc.TC и физических цилиндров. Уставка 1,0–2,2 в brake-rules-compliance.json относится к удержанию КВТ перед отпуском поезда и не является доказательством порога отключения ЭДТ. Свежий нативный порог 1,3 или 2,2 для этой ветви здесь не установлен.",
+      "status": "unverified",
+      "code": [
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "line": 53
+        },
+        {
+          "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+          "line": 152
+        },
+        {
+          "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+          "line": 154
+        },
+        {
+          "path": "dev/config/brake-rules-compliance.json",
+          "line": 85
+        }
+      ],
+      "evidence": [
+        "p125.png, штамп 120, визуально подтверждает 1,3–1,5 кгс/см². Не объявляется ошибкой сам диапазон предотпускной выдержки из другого документа."
+      ],
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "При действующем ЭДТ ступенями КВТ пройти 1,2 / 1,3 / 1,5 / 1,6 / 2,2 кгс/см². Измерять пилот, цилиндры обеих тележек, силу и состояние схемы; границы окончательно принять по редакции."
+        ]
+      },
+      "priority": "P1",
+      "proposed_change": "Найти фактический датчик и нативную ветвь разрыва ЭДТ, сопоставить её с реальным ТЦ и отдельно сохранить политику предотпускного удержания.",
+      "sections": [
+        "3.16.5; 3.16.7"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/traction-brakes.json"
+    },
+    {
+      "id": "TB-19",
+      "title": "Приоритет экстренного торможения и контроль разрыва ТМ",
+      "printed_pages": [
+        120,
+        121
+      ],
+      "pdf_pages": [
+        125,
+        126
+      ],
+      "expected": "КМ VI и снижение ТМ до 0,35 МПа вызывают разбор схемы; экстренное торможение в ЭДТ подчиняется тому же принципу. Разрыв ТМ через датчик 418 и KL10 разрывает цепь выбега с памятью сигнала; канал ДТЦ участвует в снятии памяти.",
+      "observed": "ApplyBrakeInput не переопределяет КМ при аварийных кнопках. PneumaticCycle даёт аварийным и защитным запросам приоритет над АВП; native safety adapter передаёт фактический firmware envelope и не назначает выходы защиты вручную. Точная реакция на 0,35 МПа и latch датчика 418 не проверена новым сценарием.",
+      "status": "partial",
+      "code": [
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 111
+        },
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "line": 62
+        },
+        {
+          "path": "outputs/TrainerNativeSafetyAdapter.cs",
+          "line": 152
+        },
+        {
+          "path": "outputs/TrainerNativeSafetyAdapter.cs",
+          "line": 166
+        },
+        {
+          "path": "outputs/TrainerAutovedenieNativeBridge.cs",
+          "line": 199
+        }
+      ],
+      "evidence": [
+        "Код приоритетов подтверждён статически. Старые PASS КЛУБ/САУТ и пневматики не доказывают все переходы §3.16.6–3.16.8."
+      ],
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Проверить КМ VI, ТМ вокруг 0,35 МПа, короткий сигнал ДДР и последующее ДТЦ в тяге/ЭДТ; наблюдать разбор схемы, KL10, индикацию и тормозные давления."
+        ]
+      },
+      "priority": "P1",
+      "proposed_change": "Сохранить защитный приоритет и отдельно принять физический источник разрыва ТМ, его память и снятие по ДТЦ.",
+      "sections": [
+        "3.16.6–3.16.8"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/traction-brakes.json"
+    },
+    {
+      "id": "TB-20",
+      "title": "Сопротивление изоляции: отображаются константы вместо измерений",
+      "printed_pages": [
+        121
+      ],
+      "pdf_pages": [
+        126
+      ],
+      "expected": "Мегомметры МГМ-1 UZ3/UZ4 обеспечивают отображение сопротивления между обмотками якоря и корпусом ТЭД. В листе критичным назван уровень менее 1 МОм. Измерение включается цепью SB33/KL6 и питанием +50 В.",
+      "observed": "В текущем MSUL_MON TwtCIFrame.UpdateData использует адреса фиксированных чисел: 33,3; 33,1; 0,46, последнее форматируется примерно как 0,5. Свежие чтения PE по RVA 0x1DF300, 0x1DF328 и 0x1DF334 декодируют эти x87 Extended80. Подтверждён дефект источника отображаемых значений. Отсутствие нативной защиты или отдельного обработчика критичной изоляции из этого не следует.",
+      "status": "confirmed_mismatch",
+      "code": [
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "line": 128
+        },
+        {
+          "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/MSUL_MON.dll",
+          "line": null,
+          "rva": "TwtCIFrame.UpdateData 0x1DEF80–0x1DF03D; литералы 0x1DF300 / 0x1DF328 / 0x1DF334"
+        }
+      ],
+      "evidence": [
+        "dev/docs/audit_parts/re_part1/traction-native-static.json#/modules/2/ranges. SHA текущего MSUL_MON совпадает с 95E3FB14…907B653B.",
+        "Видимый показатель и механизм контроля/защиты учитываются отдельно; динамической приёмки здесь нет."
+      ],
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Изменять независимые каналы UZ3/UZ4 вокруг 1 МОм, проверять выключенный мегомметр, отказ/недостоверность измерения, отображение и отдельную реакцию защиты без подмены одного другим."
+        ]
+      },
+      "priority": "P2",
+      "status_scope": "Источник отображаемых значений Riso. Наличие или отсутствие отдельной нативной защиты не установлено.",
+      "proposed_change": "Подключить реальные значения и достоверность каждого канала мегомметра к экрану; отдельно исследовать цепь включения и механизм реакции на критичный уровень.",
+      "sections": [
+        "3.17.1"
+      ],
+      "origin_report": "dev/runs/re-part1-20261024/traction-brakes.json",
+      "fresh_static_evidence": [
+        "dev/docs/audit_parts/re_part1/traction-native-static.json"
+      ]
+    },
+    {
+      "id": "RP1-SIGNALS-01",
+      "sections": [
+        "3.3.1–3.3.7",
+        "таблица 3.2"
+      ],
+      "printed_pages": [
+        73,
+        74,
+        75,
+        76,
+        77
+      ],
+      "pdf_pages": [
+        78,
+        79,
+        80,
+        81,
+        82
+      ],
+      "expected": "МПСУиД связывает измерения, ПБЗ, ПСН и микроклимат первого уровня с МСУЛ-А, пультом, цепями управления и межсекционным обменом. Команды и реальные состояния аппаратов имеют отдельные источники.",
+      "observed": "Хост получает записи настоящего владельца Communication1 и вызывает ExecuteCommunication. Полный реестр соответствия входов SA/SB, выходов БУК, обратной связи аппаратов и каналов отображения по секциям пока не принят. Наличие нативного обработчика не заменяет сквозной проверки сигнала.",
+      "status": "partial",
+      "priority": "P1",
+      "code": [
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "line": 128
+        },
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "line": 124
+        }
+      ],
+      "proposed_change": "Составить единый реестр сигналов с обозначением схемы, секцией, командой, конечным аппаратом, обратной связью, полем ABI и экраном. Проверять физический выход до признания режима готовым.",
+      "acceptance": {
+        "executed": false,
+        "required": [
+          "Для выбранного аппарата отделить команду ON от отказавшего исполнения и неверного датчика. Индикация и разрешения должны отражать действительное состояние той же секции."
+        ]
+      },
+      "source_verification": "Relevant text read at PDF78–82; overall interface and loop inspected statically."
+    }
+  ],
+  "limitations": [
+    "Exact RE/equipment137+ revision unresolved.",
+    "All61 work items are scoped assessments, not exhaustive certification of all clauses/wires.",
+    "AVP remains disabled; the last root RepeatedBrakeNative result dated2026-10-14 failed, and subsequent work is not accepted by that scenario.",
+    "Native changes must be reversible memory hooks with SHA/byte guards; stock and original installation DLL files remain untouched."
+  ]
+}
