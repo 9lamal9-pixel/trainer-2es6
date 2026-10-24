@@ -8,6 +8,7 @@
       "sources": [
         "outputs/TrainerIntegrationHost.cs",
         "outputs/TrainerNativeSystems.cs",
+        "outputs/TrainerNativeBrakeRelease.cs",
         "outputs/TrainerAuxSystems.cs",
         "outputs/TrainerRouteDOS.cs",
         "outputs/TrainerAutovedenieController.cs",
@@ -45,6 +46,7 @@
       "sources": [
         "outputs/TrainerIntegrationHost.cs",
         "outputs/TrainerNativeSystems.cs",
+        "outputs/TrainerNativeBrakeRelease.cs",
         "outputs/TrainerAuxSystems.cs",
         "outputs/TrainerRouteDOS.cs",
         "outputs/TrainerAutovedenieController.cs",
@@ -84,7 +86,10 @@
       "CandidateAirHost",
       "ColdTrainAuxiliary",
       "VcuAirSequence",
-      "CompressorPrepared"
+      "CompressorPrepared",
+      "Sa47Release",
+      "Sa47ReleaseFault",
+      "Sa47NativeButton"
     ],
     "smoke": [
       "ColdNoSource",

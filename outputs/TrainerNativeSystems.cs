@@ -19,6 +19,7 @@ partial class TrainerIntegrationHost {
  static void Dbl(IntPtr p,int o,double v){Marshal.Copy(BitConverter.GetBytes(v),0,IntPtr.Add(p,o),8);}
  static double DoubleAt(IntPtr p,int o){byte[] b=new byte[8];Marshal.Copy(IntPtr.Add(p,o),b,0,8);return BitConverter.ToDouble(b,0);}
  partial void SelectNativeLocomotiveBrakeInput(ref float input); partial void BeforeElectricalAirCycle(); partial void CloseNativeAirCircuit(); partial void PrepareNativeAirCircuit(); partial void BeforeNativeAirStep(); partial void AfterNativeAirStep(); partial void RestoreNativeAirCompressorRequests();
+ partial void BeforeReleaseElectricalCycle(); partial void AfterReleaseElectricalCycle(); partial void EndReleaseElectricalCycle(); partial void BorrowNativeReleaseInput(bool inhibit,ref IDisposable scope);
  void InitializePhysics(){
   // TTrainParamTM, recovered from native RTTI: packed 70-byte record, not a Delphi object.
   trainData=Alloc(70);I(trainData,0,76);I(trainData,0x37,80);var array=Alloc(76*8);Ptr(trainData,0x42,array);
@@ -70,7 +71,8 @@ void SyncVcuNative(IntPtr tumba){var module=GetModuleHandle("Communication1.dll"
    int effectiveKm=Marshal.ReadByte(loc,0x7d),effectiveKvt=Marshal.ReadByte(loc,0x93)!=0?4:Marshal.ReadByte(loc,0x7e);
    bool directlyObserved=effectiveKm>=6 || Marshal.ReadByte(loc,0x9b)==0 && !softwareSaut && !(saut==1&&(Marshal.ReadByte(loc,0x8a)!=0||Marshal.ReadByte(loc,0x8b)!=0));
    observedPneumaticCommandsKnown=false;
-   using(BorrowNativeSandAirInput()){pneumoStep(trainData);AfterNativeAirStep();}
+   IDisposable releaseInput=null;BorrowNativeReleaseInput(nativeBrakePriority,ref releaseInput);
+   using(releaseInput)using(BorrowNativeSandAirInput()){pneumoStep(trainData);AfterNativeAirStep();}
    observedPneumaticKm=effectiveKm;observedPneumaticKvt=effectiveKvt;observedPneumaticCommandSeconds=ticks*.1;observedPneumaticCommandsKnown=directlyObserved;
   }finally{try{RestoreNativeAirCompressorRequests();}finally{B(loc,0x7d,selected);B(loc,0x7e,selectedKvt);B(loc,0x89,saut);B(loc,0x90,savedBlock);}}
  }

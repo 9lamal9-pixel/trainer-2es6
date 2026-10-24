@@ -144,9 +144,10 @@ partial class TrainerIntegrationHost {
   }
   airCircuit.ApplyNativePressureChanges(FloatAt(loc,5)-beforeAirPm,FloatAt(cars[0],4)-beforeAirAuto1,FloatAt(secondBvr,4)-beforeAirAuto2);
   int kvt=Marshal.ReadByte(loc,0x93)!=0?4:Marshal.ReadByte(loc,0x7e);
-  // OtpTorm is produced by the native cab's release button; the normal independent path remains available.
+  // Use the processed Pult1 command, also borrowed as a Boolean by TormModel.
+  // Raw SA47 position1 merely arms manual release; it is not a release request.
   // KEB2 actuator air consumption and minimum operating pressure remain uncalibrated.
-  airCircuit.StepControls(kvt,.1,Marshal.ReadByte(loc,0x90)==1,Marshal.ReadByte(loc,0x8c)!=0,Marshal.ReadByte(loc,0x8f)==1&&Marshal.ReadByte(loc,0x90)==1);
+  airCircuit.StepControls(kvt,.1,Marshal.ReadByte(loc,0x90)==1,nativeAutomaticReleaseForStep,Marshal.ReadByte(loc,0x8f)==1&&Marshal.ReadByte(loc,0x90)==1);
   StepHostControlAir();
   F(loc,5,(float)airCircuit.Pm.Gauge);F(cars[0],4,(float)airCircuit.Automatic[0].Gauge);F(secondBvr,4,(float)airCircuit.Automatic[1].Gauge);
   Dbl(loc,0xec,airCircuit.Independent.Gauge);

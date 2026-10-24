@@ -18,11 +18,32 @@
       "CandidateAirHost",
       "ColdTrainAuxiliary",
       "VcuAirSequence",
-      "CompressorPrepared"
+      "CompressorPrepared",
+      "Sa47Release",
+      "Sa47ReleaseFault",
+      "Sa47NativeButton"
     ]
   },
   "execution_contract": "Build sources directly using the selected profile; legacy build scripts may also execute probes. Run sequentially in separate processes, require exit code 0 and fresh expected artifacts. Do not require a universal passed JSON field. Obsolete and unsafe entries are disabled.",
   "probes": [
+    {
+      "id": "Sa47NativeButton",
+      "main_class": "Sa47ReleaseProbe",
+      "title": "SA47: настоящие нативные DwnButton/UpBtn и физические ТЦ",
+      "source": "work/pneumatic_live_fix/analysis/Sa47ReleaseProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "native-button"
+      ],
+      "result_files": [
+        "outputs/Trainer_sa47_native_button_validation.json"
+      ],
+      "kind": "regression",
+      "scope": "Настоящие native DwnButton/UpBtn, SHA/байтовые/VMT guards и Borland register ABI. Физические1/0 кнопки согласуются с enum2/0 Pult1, затем настоящие электрические и пневматические циклы. Не проверка экранных пикселей, аппаратуры или полной нормативной цепи KR22.",
+      "timeout_seconds": 180,
+      "enabled": true
+    },
     {
       "id": "AutovedenieNativeBridgeGuard",
       "main_class": "AutovedenieCommandPathProbe",
@@ -193,6 +214,40 @@
       "timeout_seconds": 180,
       "enabled": true,
       "legacy_build_script": "outputs/BuildAuxiliaryCommandPanelProbe.ps1"
+    },
+    {
+      "id": "Sa47ReleaseFault",
+      "main_class": "Sa47ReleaseProbe",
+      "title": "SA47: первая электрическая ошибка и восстановление входа при исключении",
+      "source": "work/pneumatic_live_fix/analysis/Sa47ReleaseProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "first-fault"
+      ],
+      "result_files": [
+        "outputs/Trainer_sa47_release_fault_validation.json"
+      ],
+      "kind": "regression",
+      "scope": "Инъекция ArithmeticException в первый commStep, затем настоящий native пневморасчёт с наблюдением входа и искусственным исключением после него. Проверяет neutral input0 и finally-восстановление raw1, не аппаратный отказ или нормативный тормозной результат.",
+      "timeout_seconds": 90,
+      "enabled": true
+    },
+    {
+      "id": "Sa47Release",
+      "main_class": "Sa47ReleaseProbe",
+      "title": "SA47: обработанная команда и физический отпуск локомотива",
+      "source": "work/pneumatic_live_fix/analysis/Sa47ReleaseProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_sa47_release_validation.json"
+      ],
+      "kind": "regression",
+      "scope": "Подготовленная тёплая пневмосеть, штатные электрические циклы и три положения управляемого SA47; физические ТЦ обеих секций, сохранение/восстановление входов, обработчики мыши и Space. Диагностические входы не подтверждают физический привод KR22. Полная отмена защёлки0/по ТМ, расход и минимальное давление требуют отдельной приёмки.",
+      "timeout_seconds": 180,
+      "enabled": true
     },
     {
       "id": "CandidateAirHost",
@@ -551,7 +606,7 @@
         "outputs/Trainer_vcu_air_sequence.json"
       ],
       "kind": "regression",
-      "scope": "Проверяет блокировку снятия ключа до разрядки головы и хвоста ТМ, режим R1 всех 75 загруженных вагонов/ТЦ 4..4.5, ВЦУ II/III сохраняет ИМ и торможение, возврат I разрешает отпуск. Native SetPosition/event; КМ/КВТ задаются диагностически. JSON без passed; успешность определяется exit code и assertions.",
+      "scope": "Проверяет блокировку снятия ключа до разрядки головы и хвоста ТМ; текущие 75 загруженных вагонов FTk0/R2/AR1, диагностический факт торможения, ВЦУ II/III сохраняет ИМ и торможение, возврат I разрешает отпуск. Native SetPosition/event; КМ/КВТ задаются диагностически. Диапазон ТЦ не принимает нормативную калибровку АР по загрузке. JSON без passed; успех определяется exit code и assertions.",
       "timeout_seconds": 180,
       "enabled": true,
       "legacy_build_script": "outputs/BuildVcuAirSequenceProbe.ps1"

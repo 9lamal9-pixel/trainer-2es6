@@ -1,0 +1,405 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-24",
+  "passed": true,
+  "checks": [
+    {
+      "name": "61_unique_requirements",
+      "passed": true
+    },
+    {
+      "name": "status_counts",
+      "passed": true
+    },
+    {
+      "name": "all_171_pages",
+      "passed": true
+    },
+    {
+      "name": "all_171_review_images",
+      "passed": true
+    },
+    {
+      "name": "all_matrix_links",
+      "passed": true
+    },
+    {
+      "name": "source_pdf_identity",
+      "passed": true
+    },
+    {
+      "name": "candidate_profile",
+      "passed": true
+    },
+    {
+      "name": "integration_profile",
+      "passed": true
+    },
+    {
+      "name": "sa47_probes_registered",
+      "passed": true
+    },
+    {
+      "name": "regression_suites_agree",
+      "passed": true
+    },
+    {
+      "name": "build-20261024T171205322Z-66a169c1_success",
+      "passed": true
+    },
+    {
+      "name": "build-20261024T171205322Z-66a169c1_current_sources",
+      "passed": true
+    },
+    {
+      "name": "build-20261024T171205322Z-66a169c1_native_identity",
+      "passed": true
+    },
+    {
+      "name": "build-20261024T171111109Z-a03f87f9_success",
+      "passed": true
+    },
+    {
+      "name": "build-20261024T171111109Z-a03f87f9_current_sources",
+      "passed": true
+    },
+    {
+      "name": "build-20261024T171111109Z-a03f87f9_native_identity",
+      "passed": true
+    },
+    {
+      "name": "candidate_deployed",
+      "passed": true
+    },
+    {
+      "name": "test-20261024T170541219Z-a4aa1d3a_tested_production_sources_match_deployment",
+      "passed": true
+    },
+    {
+      "name": "test-20261024T170654333Z-9ed54e71_tested_production_sources_match_deployment",
+      "passed": true
+    },
+    {
+      "name": "test-20261024T171739039Z-b9c0a0b5_tested_production_sources_match_deployment",
+      "passed": true
+    },
+    {
+      "name": "final_regression_nine_passed",
+      "passed": true
+    }
+  ],
+  "builds": [
+    {
+      "build_id": "build-20261024T171205322Z-66a169c1",
+      "profile": "candidate",
+      "compiler_exit_code": 0,
+      "executable": "TrainerIntegrationHost.pneumatic_candidate.exe",
+      "executable_sha256": "9E702DF6B5B933A0C8E1920C4949F1FC32D36AFF73E0B444CA20CA728A978FBD",
+      "sources": [
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "sha256": "1286CED6097BA137D46B47F9F6FEAC26952D525CF5F1C70C6D375DA56FDB9839"
+        },
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "sha256": "85EE79A1261FC4E346CEC1D933FAB83280526243EE2A8091747334E629FA7C3D"
+        },
+        {
+          "path": "outputs/TrainerNativeBrakeRelease.cs",
+          "sha256": "3C8A7DEAF700075166DBEF2E6A44911E16A48FA554781360398269B894FB99CB"
+        },
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "sha256": "E9DC02F6C7AF2B7407048E595BB93346BB8BED265D77408E8ED8C4A1067BF72F"
+        },
+        {
+          "path": "outputs/TrainerRouteDOS.cs",
+          "sha256": "A6833BDFDD042E47A5570F0BB7C39AD823FED3024C03713129D33AC6ABE8F4BE"
+        },
+        {
+          "path": "outputs/TrainerAutovedenieController.cs",
+          "sha256": "EF6CE777859B0D84847A648E1C29111D4F5BCDF2DA107660FD2EDCFEBCA4DCFB"
+        },
+        {
+          "path": "outputs/TrainerTrainBrakeCycle.cs",
+          "sha256": "783FFD1DF4546C99FB131A3A88D71211CBCD67226D002BA254AFF7C9E20E9A8B"
+        },
+        {
+          "path": "outputs/TrainerAutovedenieInterface.cs",
+          "sha256": "EE116B7847A4B946F56EA84DD4F1E8713541E2C0EB3494DCC7085555C384FDCE"
+        },
+        {
+          "path": "outputs/TrainerAutovedenieNativeBridge.cs",
+          "sha256": "EC5C8CB86162319E2AD2030B313EDDB820D2D4F4EC8ACFBF702072846C4D9341"
+        },
+        {
+          "path": "outputs/TrainerAutovedenieHost.cs",
+          "sha256": "A9F657408E91A5731E25381D662241FD8047479E877D8CEEDCB24CA7CB57567B"
+        },
+        {
+          "path": "outputs/TrainerSautOperatorControls.cs",
+          "sha256": "B78D647440FB4521B97728131A3DF16EC4CDA56D19912C484AEF8AF16FD2E9F8"
+        },
+        {
+          "path": "outputs/TrainerStandaloneSautBinding.cs",
+          "sha256": "7480B65A77C0883BF1FD8EAD8402970355C56BDF1765D011D720052DAFA71145"
+        },
+        {
+          "path": "outputs/TrainerRouteView.cs",
+          "sha256": "CD86F938C78FB0E3A2F49441050D3965BEACDDA1AB861B8F6C59D4B45CF27204"
+        },
+        {
+          "path": "outputs/TrainerNativeFixes.cs",
+          "sha256": "E8D47DAC13D7D1152DEE2206CA5F77A0D4B307313CFBBC506067343495250B4D"
+        },
+        {
+          "path": "outputs/TrainerPneumaticTiming.cs",
+          "sha256": "FAA88FB80BC132188A846AF2453265B2D54E7284D98C38AF881094AFB9D5B2E2"
+        },
+        {
+          "path": "outputs/TrainerSessionLogging.cs",
+          "sha256": "FC409229F2F44AEE2C97FC4633107DACD199C63CE73F6717633C900C8DCEF101"
+        },
+        {
+          "path": "outputs/TrainerAirNetwork.cs",
+          "sha256": "86D4BC73601012D7A4109BEEAA26360F8C476CC06D2FDDE61C3BB1B66F646B32"
+        },
+        {
+          "path": "outputs/TrainerControlAir.cs",
+          "sha256": "45F273528A4E83BB5FC166367646C1A234FDE578C20128AF2881E2A35EF0C4B6"
+        },
+        {
+          "path": "outputs/TrainerBtoNetwork.cs",
+          "sha256": "5E83C5F3BBB597757A8DCFB48881625AD398970A714E4710AFDBA9AD39E58027"
+        },
+        {
+          "path": "outputs/TrainerAirSelector.cs",
+          "sha256": "E4E86DE362E66D7A55C23968F52D1FE1EB64C631D07E18B7D9BACE142C6263FD"
+        },
+        {
+          "path": "outputs/TrainerKvtProfile.cs",
+          "sha256": "E80696785D2542FB5BE5920A87EE6A51368043B06E7FBB388992A9F19A0E17B7"
+        },
+        {
+          "path": "outputs/TrainerTwoSectionAirChain.cs",
+          "sha256": "C04801AB0DFCD7AF736D8069909EC4D8C07C71C1F14CAF393E30F5043F86BBBC"
+        },
+        {
+          "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+          "sha256": "3C388354ADAC36B8D0FFF3AD4422EFB79DEA88524EC784D02E85A159B1A336CF"
+        },
+        {
+          "path": "outputs/TrainerTrainPressureView.cs",
+          "sha256": "431EA70A22205EE44EDDB51D71CD2A816AE46912CD14C6DAD7C5F1C165BECD61"
+        },
+        {
+          "path": "outputs/TrainerSafetyInputContext.cs",
+          "sha256": "71883123E6C657A5A62355EA673DC7BB4E10646320141002BE81ABFC57FD5D84"
+        },
+        {
+          "path": "outputs/TrainerSafetyContexts.cs",
+          "sha256": "EFDAFA1202F26FF507A242FF6F2AD7971D2D169619ECAA4FA35B81FD533CF0B4"
+        },
+        {
+          "path": "outputs/TrainerNativeSafetyAdapter.cs",
+          "sha256": "50CFD589AB74F667DF336ABCF157225B5F6BE8CD6F50DB369B828BA58D4E58AA"
+        },
+        {
+          "path": "outputs/TrainerSafetyHost.cs",
+          "sha256": "05ABACF21249C5EF6B7C45C965CDCF94CC3FAFDCF2645FF55D9E8BC28B2BD7B9"
+        },
+        {
+          "path": "outputs/TrainerVigilanceOperatorControls.cs",
+          "sha256": "5A93EC26F39341D0E6632A275BBE1177FB7966E85854C47A32F3658EA178957F"
+        },
+        {
+          "path": "outputs/TrainerMarkupSignalSource.cs",
+          "sha256": "0C927B8BBE2B6A2B444623A83F3C2FEC38577DDBB1E85F8172BE61174CB036A6"
+        },
+        {
+          "path": "outputs/TrainerMarkupHost.cs",
+          "sha256": "BE9D9F6744F80BA327D46392641C3D4240B3D7A7ABC09E12D4BE43FCA83E0266"
+        },
+        {
+          "path": "outputs/TrainerKlubSafetyBinding.cs",
+          "sha256": "942ACF68C73403CE35B833322E85274ED11C37CDB879140C0B3BA5E224F95006"
+        },
+        {
+          "path": "outputs/TrainerNativeVirtualPult.cs",
+          "sha256": "F54E569EB6C9F0B72541E5D08C90999FA572656B06138FBDB7B5EC7EEDC7CE24"
+        },
+        {
+          "path": "outputs/TrainerSandAirInput.cs",
+          "sha256": "C9BA33F9E2ABCBAAE0F3284B20B63A8880B50C4B0DF8B139ABB04E3EAE258C89"
+        }
+      ]
+    },
+    {
+      "build_id": "build-20261024T171111109Z-a03f87f9",
+      "profile": "integration",
+      "compiler_exit_code": 0,
+      "executable": "TrainerIntegrationHost.exe",
+      "executable_sha256": "47E01485D206463CB6F9DC12450B74F3524512776B0E385E723B29FE0C4D1C8A",
+      "sources": [
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "sha256": "1286CED6097BA137D46B47F9F6FEAC26952D525CF5F1C70C6D375DA56FDB9839"
+        },
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "sha256": "85EE79A1261FC4E346CEC1D933FAB83280526243EE2A8091747334E629FA7C3D"
+        },
+        {
+          "path": "outputs/TrainerNativeBrakeRelease.cs",
+          "sha256": "3C8A7DEAF700075166DBEF2E6A44911E16A48FA554781360398269B894FB99CB"
+        },
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "sha256": "E9DC02F6C7AF2B7407048E595BB93346BB8BED265D77408E8ED8C4A1067BF72F"
+        },
+        {
+          "path": "outputs/TrainerRouteDOS.cs",
+          "sha256": "A6833BDFDD042E47A5570F0BB7C39AD823FED3024C03713129D33AC6ABE8F4BE"
+        },
+        {
+          "path": "outputs/TrainerAutovedenieController.cs",
+          "sha256": "EF6CE777859B0D84847A648E1C29111D4F5BCDF2DA107660FD2EDCFEBCA4DCFB"
+        },
+        {
+          "path": "outputs/TrainerTrainBrakeCycle.cs",
+          "sha256": "783FFD1DF4546C99FB131A3A88D71211CBCD67226D002BA254AFF7C9E20E9A8B"
+        },
+        {
+          "path": "outputs/TrainerAutovedenieInterface.cs",
+          "sha256": "EE116B7847A4B946F56EA84DD4F1E8713541E2C0EB3494DCC7085555C384FDCE"
+        },
+        {
+          "path": "outputs/TrainerAutovedenieNativeBridge.cs",
+          "sha256": "EC5C8CB86162319E2AD2030B313EDDB820D2D4F4EC8ACFBF702072846C4D9341"
+        },
+        {
+          "path": "outputs/TrainerAutovedenieHost.cs",
+          "sha256": "A9F657408E91A5731E25381D662241FD8047479E877D8CEEDCB24CA7CB57567B"
+        },
+        {
+          "path": "outputs/TrainerSautOperatorControls.cs",
+          "sha256": "B78D647440FB4521B97728131A3DF16EC4CDA56D19912C484AEF8AF16FD2E9F8"
+        },
+        {
+          "path": "outputs/TrainerStandaloneSautBinding.cs",
+          "sha256": "7480B65A77C0883BF1FD8EAD8402970355C56BDF1765D011D720052DAFA71145"
+        },
+        {
+          "path": "outputs/TrainerRouteView.cs",
+          "sha256": "CD86F938C78FB0E3A2F49441050D3965BEACDDA1AB861B8F6C59D4B45CF27204"
+        },
+        {
+          "path": "outputs/TrainerNativeFixes.cs",
+          "sha256": "E8D47DAC13D7D1152DEE2206CA5F77A0D4B307313CFBBC506067343495250B4D"
+        },
+        {
+          "path": "outputs/TrainerPneumaticTiming.cs",
+          "sha256": "FAA88FB80BC132188A846AF2453265B2D54E7284D98C38AF881094AFB9D5B2E2"
+        },
+        {
+          "path": "outputs/TrainerSessionLogging.cs",
+          "sha256": "FC409229F2F44AEE2C97FC4633107DACD199C63CE73F6717633C900C8DCEF101"
+        },
+        {
+          "path": "outputs/TrainerTrainPressureView.cs",
+          "sha256": "431EA70A22205EE44EDDB51D71CD2A816AE46912CD14C6DAD7C5F1C165BECD61"
+        },
+        {
+          "path": "outputs/TrainerSafetyInputContext.cs",
+          "sha256": "71883123E6C657A5A62355EA673DC7BB4E10646320141002BE81ABFC57FD5D84"
+        },
+        {
+          "path": "outputs/TrainerSafetyContexts.cs",
+          "sha256": "EFDAFA1202F26FF507A242FF6F2AD7971D2D169619ECAA4FA35B81FD533CF0B4"
+        },
+        {
+          "path": "outputs/TrainerNativeSafetyAdapter.cs",
+          "sha256": "50CFD589AB74F667DF336ABCF157225B5F6BE8CD6F50DB369B828BA58D4E58AA"
+        },
+        {
+          "path": "outputs/TrainerSafetyHost.cs",
+          "sha256": "05ABACF21249C5EF6B7C45C965CDCF94CC3FAFDCF2645FF55D9E8BC28B2BD7B9"
+        },
+        {
+          "path": "outputs/TrainerVigilanceOperatorControls.cs",
+          "sha256": "5A93EC26F39341D0E6632A275BBE1177FB7966E85854C47A32F3658EA178957F"
+        },
+        {
+          "path": "outputs/TrainerMarkupSignalSource.cs",
+          "sha256": "0C927B8BBE2B6A2B444623A83F3C2FEC38577DDBB1E85F8172BE61174CB036A6"
+        },
+        {
+          "path": "outputs/TrainerMarkupHost.cs",
+          "sha256": "BE9D9F6744F80BA327D46392641C3D4240B3D7A7ABC09E12D4BE43FCA83E0266"
+        },
+        {
+          "path": "outputs/TrainerKlubSafetyBinding.cs",
+          "sha256": "942ACF68C73403CE35B833322E85274ED11C37CDB879140C0B3BA5E224F95006"
+        },
+        {
+          "path": "outputs/TrainerNativeVirtualPult.cs",
+          "sha256": "F54E569EB6C9F0B72541E5D08C90999FA572656B06138FBDB7B5EC7EEDC7CE24"
+        },
+        {
+          "path": "outputs/TrainerSandAirInput.cs",
+          "sha256": "C9BA33F9E2ABCBAAE0F3284B20B63A8880B50C4B0DF8B139ABB04E3EAE258C89"
+        }
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "run_id": "test-20261024T170541219Z-a4aa1d3a",
+      "status": "passed",
+      "passed": [
+        "Sa47Release",
+        "Sa47ReleaseFault",
+        "Sa47NativeButton"
+      ],
+      "failed": []
+    },
+    {
+      "run_id": "test-20261024T170654333Z-9ed54e71",
+      "status": "failed",
+      "passed": [
+        "ColdNoSource",
+        "SectionPantographPressure",
+        "CandidateAirHost",
+        "ColdTrainAuxiliary",
+        "VcuAirSequence",
+        "CompressorPrepared",
+        "AirControlIsolation",
+        "NativeSandAir",
+        "MarkupSafety",
+        "NativeSafetyAdapter",
+        "VigilanceOperator"
+      ],
+      "failed": [
+        "AutovedenieOverride"
+      ]
+    },
+    {
+      "run_id": "test-20261024T171739039Z-b9c0a0b5",
+      "status": "passed",
+      "passed": [
+        "ColdNoSource",
+        "SectionPantographPressure",
+        "CandidateAirHost",
+        "ColdTrainAuxiliary",
+        "VcuAirSequence",
+        "CompressorPrepared",
+        "Sa47Release",
+        "Sa47ReleaseFault",
+        "Sa47NativeButton"
+      ],
+      "failed": []
+    }
+  ],
+  "scope": "Current metadata and source/build/test/deployment identity only. Native scenario results and their limits are separate; full RE and SA47 reset acceptance remain false.",
+  "full_model_conformity_accepted": false
+}

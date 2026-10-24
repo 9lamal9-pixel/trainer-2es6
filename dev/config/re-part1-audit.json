@@ -18,13 +18,38 @@
     "title_approval_year": 2008,
     "amendment_register_pdf_page": 171,
     "amended_sheets_present_through": 2013,
-    "applicability": "The compilation starts from locomotive036 and contains several equipment/revision branches. Exact applicability to137+ is unresolved."
+    "applicability": "The compilation starts from locomotive036 and contains several equipment/revision branches. Exact applicability to137+ is unresolved.",
+    "page_review_ledger": "dev/config/re-part1-page-review.json",
+    "full_images_personally_reviewed": 171
   },
   "method": {
-    "fresh": "Primary scanned pages/OCR locators, visual checks of critical numbers and tables, current C# sources, SHA and bounded PE checks.",
+    "fresh": "Все 171 полное изображение PDF, OCR как указатель, текущие для baseline C# и ограниченные SHA/PE проверки. Последующие изменения SA47 отмечены отдельно.",
     "native_run_test_performed": false,
     "model_or_dll_changed": false,
-    "prior_dynamic_results": "Historical evidence only; not new acceptance of this model or of RE part1."
+    "prior_dynamic_results": "Historical evidence only; not new acceptance of this model or of RE part1.",
+    "scope": "model_or_dll_changed и native_run_test_performed описывают исходный аудит baseline, а не запрещают последующую отдельную разработку.",
+    "full_page_visual_review": {
+      "date": "2026-10-24",
+      "ledger": "dev/config/re-part1-page-review.json",
+      "validation": "dev/runs/re-part1-20261024/page-review-validation.json",
+      "journals": [
+        "dev/runs/re-part1-20261024/page-review-001-030.json",
+        "dev/runs/re-part1-20261024/page-review-031-069.json",
+        "dev/runs/re-part1-20261024/page-review-070-110.json",
+        "dev/runs/re-part1-20261024/page-review-111-171.json"
+      ],
+      "reviewed": 171,
+      "total": 171,
+      "reviewers": 2,
+      "functional_conformity_accepted": false,
+      "readability_limits": [
+        "Просмотрены 171 из 171 полных изображений двумя исполнителями; OCR использован как указатель. Это не приёмка исполнения требований моделью.",
+        "На PDF 14 часть размерных цифр остаётся неразборчивой даже при увеличении. На PDF 44, 46 и 59 часть мелких обозначений схем бледная.",
+        "На PDF 73 печатный номер повреждён: 68 предполагается только по соседним листам и не считается прочитанным штампом.",
+        "На PDF 140–148, 150–168 и 170 часть номеров проводов, контактов, чертежей и исполнений малоконтрастна. Полная распиновка и побитная транскрипция всех таблиц не заявляются.",
+        "На PDF 171 часть рукописных номеров извещений и дат неразборчива. Регистр изменений не определяет комплектацию конкретного электровоза."
+      ]
+    }
   },
   "status_definitions": {
     "confirmed_static": "A specifically named parameter, table or code property is confirmed; broader function remains outside this status.",
@@ -39,9 +64,9 @@
     "counts": {
       "confirmed_static": 5,
       "unverified": 20,
-      "confirmed_mismatch": 7,
+      "confirmed_mismatch": 6,
       "revision_dependent": 7,
-      "partial": 22
+      "partial": 23
     },
     "code_references_checked": 157,
     "parts": [
@@ -77,13 +102,27 @@
           "revision_dependent": 2
         }
       }
-    ]
+    ],
+    "parts_scope": "Числа parts относятся к сохранённым исходным run_report baseline; counts выше отражают текущие статусы сводной матрицы.",
+    "visual_review": {
+      "reviewed": 171,
+      "total": 171,
+      "ledger": "dev/config/re-part1-page-review.json",
+      "functional_conformity_accepted": false
+    }
   },
   "evidence_files": [
     "dev/docs/audit_parts/re_part1/control-native-guards.json",
     "dev/docs/audit_parts/re_part1/traction-static-current.json",
     "dev/docs/audit_parts/re_part1/rheostat-reference-check.json",
-    "dev/docs/audit_parts/re_part1/traction-native-static.json"
+    "dev/docs/audit_parts/re_part1/traction-native-static.json",
+    "dev/docs/audit_parts/re_part1/sa47-release-20261024.json",
+    "dev/docs/audit_parts/re_part1/sa47-release-fault-20261024.json",
+    "dev/docs/audit_parts/re_part1/sa47-native-button-20261024.json",
+    "dev/docs/audit_parts/re_part1/sa47-followup-validation-20261024.json",
+    "dev/docs/audit_parts/re_part1/sa47-reset-contract-review-20261024.json",
+    "dev/docs/audit_parts/re_part1/current-build-review-validation-20261024.json",
+    "dev/docs/audit_parts/re_part1/sa47-adapter-review-20261024.json"
   ],
   "current_native_identity": [
     {
@@ -148,7 +187,7 @@
     },
     {
       "order": 2,
-      "work": "Correct the SA47 processed-command/actuation boundary, then verify both sections and KVT preservation.",
+      "work": "Завершить отмену памяти SA47, принять 0 → 1 после отмены, реализовать отмену по ТМ и проверить focus/capture. Свежие Mouse/Space/native-button и часть физических переходов приняты в узком scope; полный статус partial.",
       "requirements": [
         "TB-14",
         "CA22"
@@ -1302,12 +1341,13 @@
           "Нормальный пуск и по одному снятому условию; граничныеUкс, самодиагностика, 3 с на R11, авария КА2→БВ, отключённый QS6, отказ только одной секции."
         ]
       },
-      "expected": "ПСН каждой секции получает высокое напряжение после БВ через КА2/QS6; нужны низковольтное питание, самодиагностика и входной диапазон (2200±50)…(4000±50) В; R11 шунтируется через 3 с.",
-      "proposed_change": "Разделить команду ПСН, готовность каналов и измерения; добавить наблюдаемость зависимостей и негативные сценарии до калибровки частных потребителей.",
+      "expected": "ПСН каждой секции получает высокое напряжение после БВ через КА2/QS6; нужны низковольтное питание, самодиагностика и входной диапазон от (2200 +50) В до (4000 +50) В; R11 шунтируется через 3 с.",
+      "proposed_change": "Сначала установить применимую редакцию и толкование буквального диапазона +50; затем разделить команду ПСН, готовность каналов и измерения, добавить наблюдаемость зависимостей и отрицательные сценарии.",
       "sections": [
         "2.6.1–2.6.2"
       ],
-      "origin_report": "dev/runs/re-part1-20261024/parameters-power.json"
+      "origin_report": "dev/runs/re-part1-20261024/parameters-power.json",
+      "source_interpretation": "В PDF 61, печатный лист 61, виден буквальный +50. Это не запись ±50. Трактовка границ, допуска и применимость редакции остаются открытыми; новая уставка не назначается."
     },
     {
       "id": "RP1-POWER-15",
@@ -2556,7 +2596,7 @@
         "note": "Relevant OCR pages were read in full. Listed PNG pages were visually checked for stated values and labels. Appendix coverage does not mean wire-by-wire verification."
       },
       "expected": "В БТО имеются отдельные вентили КР22 отпуска тормоза, КР23 блокировки тормоза и КР24 срыва рекуперации. Детальный алгоритм отнесён к части 7.",
-      "observed": "Ветвь C# использует loc+8C!=0, а свежий guard C21 подтверждает нативный OtpuskType=0/1/2 и защёлку. Привод КЭБ2, его расход и минимальное давление прямо помечены как некалиброванные. Вывод нужно согласовать с разбором §3.16.",
+      "observed": "Исходное расхождение baseline сохранено отдельно. Динамическое дополнение 2026-10-24: Sa47Release PASS 33 assertions / 3455 cycles; Sa47ReleaseFault PASS 7; Sa47NativeButton PASS 12 / 2232 cycles. При исходной очищенной памяти 1 удерживает ТЦ, 2 отпускает, 2 → 1 сохраняет отпуск; 0 повторно тормозит. Однако latch108 после 0 остаётся 1, поэтому последующее 0 → 1 и полная отмена памяти не приняты. Отмена по ТМ не реализована; focus/capture отдельно не проверены. Физическая калибровка KR22 и полная приёмка остаются открытыми.",
       "status": "partial",
       "priority": "P1",
       "acceptance": [
@@ -2592,7 +2632,30 @@
       "origin_report": "dev/runs/re-part1-20261024/control-aux.json",
       "fresh_static_evidence": [
         "dev/docs/audit_parts/re_part1/control-native-guards.json"
-      ]
+      ],
+      "baseline_observed": {
+        "commit": "a04ed4b144d9ca49ef08018377566aec722a8204",
+        "observed": "Ветвь C# использует loc+8C!=0, а свежий guard C21 подтверждает нативный OtpuskType=0/1/2 и защёлку. Привод КЭБ2, его расход и минимальное давление прямо помечены как некалиброванные. Вывод нужно согласовать с разбором §3.16."
+      },
+      "current_acceptance_pending": [
+        "Принять 0 → 1 после отмены и доказать нужное состояние памяти: в свежем сценарии после 0 latch108 остаётся 1, хотя текущий выход снят и ТЦ повторно заторможены.",
+        "Реализовать и принять отмену по ТМ, включая native ТМ > 5, явные единицы и соответствие порогу РЭ 0,48 МПа.",
+        "Отдельно проверить потерю фокуса и захвата; MouseDown/Up и SpaceDown/Up уже прошли узкие полные циклы.",
+        "Принять расход и минимальное давление привода KR22, положения ВЦУ, независимый КВТ и оставшуюся физическую матрицу обеих секций.",
+        "Согласовать физический idle кнопки и логическую отмену0, затем разрешить конфликт native KM ≥ V/KVT > III с перечнем «только0/ТМ». Вариант idle1/press2/up1 пока не принят."
+      ],
+      "code_scope": "Сохранённые code anchors и SHA относятся к baseline-аудиту; последующая правка SA47 описана отдельно.",
+      "dynamic_followup_ids": [
+        "SA47-DYNAMIC-20261024-170541"
+      ],
+      "acceptance_state": {
+        "partial_executed": true,
+        "complete_requirement_accepted": false,
+        "dynamic_followup_ids": [
+          "SA47-DYNAMIC-20261024-170541"
+        ]
+      },
+      "reset_contract_review_ref": "dev/docs/audit_parts/re_part1/sa47-reset-contract-review-20261024.json"
     },
     {
       "id": "TB-01",
@@ -3180,7 +3243,7 @@
     },
     {
       "id": "TB-14",
-      "title": "SA47: положение переключателя подменяет обработанный отпуск",
+      "title": "SA47: исправление границы обработанной команды в работе",
       "printed_pages": [
         117,
         118,
@@ -3192,8 +3255,8 @@
         124
       ],
       "expected": "При заторможенном составе положения 0 и переход 0 → 1 не питают KR22. Импульс 1 → 2 включает отпуск; команда сохраняется после возврата в 1 и отменяется положением 0 либо повышением ТМ выше указанной в листе границы 0,48 МПа.",
-      "observed": "Pult1 читает Loc+0x8C как OtpuskType+0x104 и отдельно хранит обработанные состояния +0x108/+0x109/+0x10A и итог +0x103. Между тем TrainerPneumaticNetworkCandidate.cs:149 передаёт непосредственно Loc+0x8C != 0 в automaticReleaseActuated. TwoSectionAirChain.cs:93 по этому bool выбирает атмосферный release-port вместо автоматического источника. Доказана подмена смысла входа и выбора порта; фактическое питание KR22 и изменение ТЦ в этом аудите не измерены.",
-      "status": "confirmed_mismatch",
+      "observed": "Исходное расхождение baseline сохранено отдельно. Динамическое дополнение 2026-10-24: Sa47Release PASS 33 assertions / 3455 cycles; Sa47ReleaseFault PASS 7; Sa47NativeButton PASS 12 / 2232 cycles. При исходной очищенной памяти 1 удерживает ТЦ, 2 отпускает, 2 → 1 сохраняет отпуск; 0 повторно тормозит. Однако latch108 после 0 остаётся 1, поэтому последующее 0 → 1 и полная отмена памяти не приняты. Отмена по ТМ не реализована; focus/capture отдельно не проверены. Физическая калибровка KR22 и полная приёмка остаются открытыми.",
+      "status": "partial",
       "code": [
         {
           "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
@@ -3219,14 +3282,22 @@
       ],
       "acceptance": {
         "executed": false,
+        "partial_executed": true,
+        "complete_requirement_accepted": false,
+        "dynamic_followup_ids": [
+          "SA47-DYNAMIC-20261024-170541"
+        ],
         "required": [
-          "При действующем автоматическом торможении и исходном latch = 0 проверить 0 → 1 без 2: атмосферный путь не должен подменяться только из-за положения 1.",
-          "Проверить 1 → 2 → 1, 2 → 0, восстановление ТМ и отдельный КВТ; наблюдать команду, реальное питание KR22, управляющие полости и ТЦ обеих секций."
+          "Принять 0 → 1 после отмены и доказать нужное состояние памяти: в свежем сценарии после 0 latch108 остаётся 1, хотя текущий выход снят и ТЦ повторно заторможены.",
+          "Реализовать и принять отмену по ТМ, включая native ТМ > 5, явные единицы и соответствие порогу РЭ 0,48 МПа.",
+          "Отдельно проверить потерю фокуса и захвата; MouseDown/Up и SpaceDown/Up уже прошли узкие полные циклы.",
+          "Принять расход и минимальное давление привода KR22, положения ВЦУ, независимый КВТ и оставшуюся физическую матрицу обеих секций.",
+          "Согласовать физический idle кнопки и логическую отмену0, затем разрешить конфликт native KM ≥ V/KVT > III с перечнем «только0/ТМ». Вариант idle1/press2/up1 пока не принят."
         ]
       },
       "priority": "P1",
-      "status_scope": "Подмена обработанного сигнала отпуска необработанным положением и выбор атмосферного порта; фактическое снижение ТЦ не измерялось.",
-      "proposed_change": "Установить точный обработанный исполнительный сигнал и его условия. Передавать доказанное срабатывание клапана, сохраняя ручной latch, автоматические условия, независимый КВТ и пневматическое разрешение.",
+      "status_scope": "Три свежих сценария приняли только явно перечисленные переходы, входные guards, native кнопку и обработчики Mouse/Space. Baseline-расхождение сохранено; отмена памяти и ТМ ещё не приняты.",
+      "proposed_change": "Завершить семантику отмены памяти SA47 и отмены по ТМ, затем принять 0 → 1 после отмены и focus/capture. Сохранить доказанные переходы, native widget, восстановление входов, независимый КВТ и пневматическое разрешение.",
       "sections": [
         "3.16.2"
       ],
@@ -3234,7 +3305,59 @@
       "fresh_static_evidence": [
         "dev/docs/audit_parts/re_part1/control-native-guards.json",
         "dev/docs/audit_parts/re_part1/traction-native-static.json"
-      ]
+      ],
+      "baseline_discrepancy": {
+        "commit": "a04ed4b144d9ca49ef08018377566aec722a8204",
+        "status": "confirmed_mismatch",
+        "observed": "Pult1 читает Loc+0x8C как OtpuskType+0x104 и отдельно хранит обработанные состояния +0x108/+0x109/+0x10A и итог +0x103. Между тем TrainerPneumaticNetworkCandidate.cs:149 передаёт непосредственно Loc+0x8C != 0 в automaticReleaseActuated. TwoSectionAirChain.cs:93 по этому bool выбирает атмосферный release-port вместо автоматического источника. Доказана подмена смысла входа и выбора порта; фактическое питание KR22 и изменение ТЦ в этом аудите не измерены.",
+        "code": [
+          {
+            "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+            "line": 149
+          },
+          {
+            "path": "outputs/TrainerTwoSectionAirChain.cs",
+            "line": 83
+          },
+          {
+            "path": "outputs/TrainerTwoSectionAirChain.cs",
+            "line": 93
+          },
+          {
+            "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Pult1.dll",
+            "line": null,
+            "rva": "0x18C665–0x18C7A6"
+          }
+        ],
+        "status_scope": "Подмена обработанного сигнала отпуска необработанным положением и выбор атмосферного порта; фактическое снижение ТЦ не измерялось."
+      },
+      "code_scope": "Ссылки code сохраняют baseline-доказательство; текущая реализация меняется и не объявляется принятой по этим старым строкам.",
+      "current_implementation": {
+        "path": "outputs/TrainerNativeBrakeRelease.cs",
+        "status": "partial",
+        "complete_acceptance_executed": false,
+        "pending": [
+          "Принять 0 → 1 после отмены и доказать нужное состояние памяти: в свежем сценарии после 0 latch108 остаётся 1, хотя текущий выход снят и ТЦ повторно заторможены.",
+          "Реализовать и принять отмену по ТМ, включая native ТМ > 5, явные единицы и соответствие порогу РЭ 0,48 МПа.",
+          "Отдельно проверить потерю фокуса и захвата; MouseDown/Up и SpaceDown/Up уже прошли узкие полные циклы.",
+          "Принять расход и минимальное давление привода KR22, положения ВЦУ, независимый КВТ и оставшуюся физическую матрицу обеих секций.",
+          "Согласовать физический idle кнопки и логическую отмену0, затем разрешить конфликт native KM ≥ V/KVT > III с перечнем «только0/ТМ». Вариант idle1/press2/up1 пока не принят."
+        ],
+        "dynamic_followup_ids": [
+          "SA47-DYNAMIC-20261024-170541"
+        ]
+      },
+      "dynamic_followup_ids": [
+        "SA47-DYNAMIC-20261024-170541"
+      ],
+      "current_acceptance_pending": [
+        "Принять 0 → 1 после отмены и доказать нужное состояние памяти: в свежем сценарии после 0 latch108 остаётся 1, хотя текущий выход снят и ТЦ повторно заторможены.",
+        "Реализовать и принять отмену по ТМ, включая native ТМ > 5, явные единицы и соответствие порогу РЭ 0,48 МПа.",
+        "Отдельно проверить потерю фокуса и захвата; MouseDown/Up и SpaceDown/Up уже прошли узкие полные циклы.",
+        "Принять расход и минимальное давление привода KR22, положения ВЦУ, независимый КВТ и оставшуюся физическую матрицу обеих секций.",
+        "Согласовать физический idle кнопки и логическую отмену0, затем разрешить конфликт native KM ≥ V/KVT > III с перечнем «только0/ТМ». Вариант idle1/press2/up1 пока не принят."
+      ],
+      "reset_contract_review_ref": "dev/docs/audit_parts/re_part1/sa47-reset-contract-review-20261024.json"
     },
     {
       "id": "TB-15",
@@ -3560,6 +3683,355 @@
     "Exact RE/equipment137+ revision unresolved.",
     "All61 work items are scoped assessments, not exhaustive certification of all clauses/wires.",
     "AVP remains disabled; the last root RepeatedBrakeNative result dated2026-10-14 failed, and subsequent work is not accepted by that scenario.",
-    "Native changes must be reversible memory hooks with SHA/byte guards; stock and original installation DLL files remain untouched."
-  ]
+    "Native changes must be reversible memory hooks with SHA/byte guards; stock and original installation DLL files remain untouched.",
+    "Полный визуальный просмотр 171/171 не означает читаемость каждой мелкой надписи и не принимает все провода или функции.",
+    "Исходные статические выводы baseline a04ed4b и последующие изменения SA47 разделены; новые динамические результаты этим обновлением документации не заявляются."
+  ],
+  "baseline_summary": {
+    "requirements": 61,
+    "toc_entries": 46,
+    "counts": {
+      "confirmed_static": 5,
+      "unverified": 20,
+      "confirmed_mismatch": 7,
+      "revision_dependent": 7,
+      "partial": 22
+    },
+    "code_references_checked": 157,
+    "parts": [
+      {
+        "run_report": "dev/runs/re-part1-20261024/parameters-power.json",
+        "requirements": 18,
+        "status_counts": {
+          "confirmed_static": 3,
+          "unverified": 5,
+          "confirmed_mismatch": 2,
+          "revision_dependent": 3,
+          "partial": 5
+        }
+      },
+      {
+        "run_report": "dev/runs/re-part1-20261024/control-aux.json",
+        "requirements": 22,
+        "status_counts": {
+          "unverified": 11,
+          "confirmed_mismatch": 1,
+          "partial": 8,
+          "revision_dependent": 2
+        }
+      },
+      {
+        "run_report": "dev/runs/re-part1-20261024/traction-brakes.json",
+        "requirements": 20,
+        "status_counts": {
+          "partial": 8,
+          "confirmed_static": 2,
+          "confirmed_mismatch": 4,
+          "unverified": 4,
+          "revision_dependent": 2
+        }
+      }
+    ]
+  },
+  "revision_scope": {
+    "baseline_commit": "a04ed4b144d9ca49ef08018377566aec722a8204",
+    "baseline_assessment": "Исходный статический аудит и исходные журналы требований относятся к a04ed4b; сохранённые anchors и SHA не объявляются повторно проверенными после последующих изменений.",
+    "post_baseline_changes": {
+      "SA47": "Свежие Sa47Release, Sa47ReleaseFault и Sa47NativeButton прошли узкие сценарии 2026-10-24; полная отмена памяти, отмена по ТМ и focus/capture ещё не приняты. Текущий статус partial.",
+      "complete_acceptance_executed": false,
+      "latest_dynamic_followup": "SA47-DYNAMIC-20261024-170541",
+      "broader_regression": {
+        "status": "failed",
+        "passed_probes": 11,
+        "failed_probe": "AutovedenieOverride",
+        "cycles": 0,
+        "validation": "dev/docs/audit_parts/re_part1/sa47-followup-validation-20261024.json"
+      }
+    },
+    "page_review": "Полный просмотр документа завершён отдельно от функциональной приёмки модели."
+  },
+  "source_ambiguities": [
+    {
+      "pdf_pages": [
+        7,
+        24,
+        150
+      ],
+      "topic": "Приложение Б обозначено −09 Э3.1 в содержании и фактическом приложении, но −08 Э3.1 в § 1.5.3. Сохранять обозначение конкретной схемы."
+    },
+    {
+      "pdf_pages": [
+        27,
+        29
+      ],
+      "topic": "SF28 аннулирован в ранней редакции и введён позднее для измерения температуры ПТР. Обозначение требует редакции схемы."
+    },
+    {
+      "pdf_pages": [
+        11,
+        12,
+        23,
+        24
+      ],
+      "topic": "Минимум сцепления 0,26 и расчётная огибающая при 0,28 относятся к разным условиям; единый универсальный коэффициент из них не выбирается."
+    },
+    {
+      "pdf_pages": [
+        43,
+        97,
+        121,
+        164
+      ],
+      "topic": "SB14 назван возбуждением и отдельно отключением ПБЗ. Сопоставление ABI требует выбранной аппаратной редакции."
+    },
+    {
+      "pdf_pages": [
+        50
+      ],
+      "topic": "Общая ссылка на таблицы ЭДТ 2.5/2.6 не отменяет отдельных таблиц 2.7/2.8 для № 027+."
+    },
+    {
+      "pdf_pages": [
+        56,
+        118
+      ],
+      "topic": "Время коммутации вентиляторов не более 2 с следует отличать от выдержки токового условия более 2 с."
+    },
+    {
+      "pdf_pages": [
+        61
+      ],
+      "topic": "Диапазон входа ПСН напечатан от (2200 +50) В до (4000 +50) В. Буквальный плюс не заменяется на ±; толкование границ и допуска не выбрано."
+    },
+    {
+      "pdf_pages": [
+        67
+      ],
+      "topic": "Подпись рисунка 2.10 и соседний текст по-разному перечисляют № 192/193; применимость требует комплекта схем."
+    },
+    {
+      "pdf_pages": [
+        2,
+        78
+      ],
+      "topic": "Подробное описание МПСУиД отнесено к пятой части, хотя содержание относит управление и измерения к части 3."
+    },
+    {
+      "pdf_pages": [
+        79,
+        99
+      ],
+      "topic": "В таблице 3.2 обеим противоположным командам SA46 присвоено +ОВ; § 3.11.7 различает +ОВ и −ОВ."
+    },
+    {
+      "pdf_pages": [
+        81,
+        83,
+        84,
+        85,
+        87,
+        88,
+        96,
+        97,
+        98,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110
+      ],
+      "topic": "Штампы РЭ3 встречаются внутри комплекта части 1; происхождение заменённых листов и точная применимость № 137+ не установлены."
+    },
+    {
+      "pdf_pages": [
+        99
+      ],
+      "topic": "Фраза о «3» положении ВЦУ не сопоставлена с текущим native VCUPos. Автоматически назначать VCUPos=3 нельзя."
+    },
+    {
+      "pdf_pages": [
+        92,
+        94
+      ],
+      "topic": "Предупреждения о длительном SB11, продувке не более 10 с и обогреве при температуре не выше 5 °C не устанавливают автоматические отсекатели."
+    },
+    {
+      "pdf_pages": [
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111
+      ],
+      "topic": "5 А за такт не определяет длительность такта. Для пуска без информации о скорости нужен самостоятельный признак достоверности, а не значение скорости 0."
+    },
+    {
+      "pdf_pages": [
+        114,
+        124
+      ],
+      "topic": "При переключениях ЭДТ указаны 0,15–0,18 МПа и 0,25 МПа. Применимая редакция и соответствие клапанов не выбраны."
+    },
+    {
+      "pdf_pages": [
+        117
+      ],
+      "topic": "Интервалы Iv < 200 и 200 < Iv ≤ 350 не включают ровно 200 А; «50 В» в описании уставки тока требует уточнения единиц."
+    },
+    {
+      "pdf_pages": [
+        118
+      ],
+      "topic": "На позиции 58 таблицы 3.6 перекрывается интервал 550–650 А. Это видимая неоднозначность источника, не ошибка OCR."
+    },
+    {
+      "pdf_pages": [
+        122,
+        123,
+        124,
+        163
+      ],
+      "topic": "SA47 документально является кнопкой без фиксации. Порог отмены РЭ 0,48 МПа и проверяемый native ТМ > 5 требуют явных единиц и принятого сопоставления."
+    }
+  ],
+  "dynamic_followups": [
+    {
+      "id": "SA47-DYNAMIC-20261024-170541",
+      "date": "2026-10-24",
+      "run_id": "test-20261024T170541219Z-a4aa1d3a",
+      "report": "dev/runs/test-20261024T170541219Z-a4aa1d3a/report.json",
+      "reported_git_head": "3aaad482c80bb50e6912c47e42807f0736e4bbe6",
+      "scope": "Отдельная динамическая проверка после статического baseline a04ed4b: подготовленная тёплая сеть, штатные электрические и пневматические циклы, диагностические входы KM/KVT и физические ТЦ четырёх тележек двух секций.",
+      "baseline_replaced": false,
+      "complete_sa47_accepted": false,
+      "status": "partial",
+      "tests": [
+        {
+          "probe": "Sa47Release",
+          "status": "passed",
+          "assertions": 33,
+          "cycles": 3455,
+          "exit_code": 0,
+          "session_state": "closed",
+          "exception_count": 0,
+          "logging_failure_count": 0,
+          "build_id": "build-20261024T170541308Z-813cf0f1",
+          "finished_utc": "2026-10-24T17:06:01.1932014Z",
+          "source": "dev/runs/test-20261024T170541219Z-a4aa1d3a/Sa47Release/Trainer_sa47_release_validation.json",
+          "versioned_evidence": "dev/docs/audit_parts/re_part1/sa47-release-20261024.json",
+          "evidence_sha256": "bd3e13ec3e7d808b743ea39841e96018272ba7b0cf4bf7287eb1afb9f8d66d1b"
+        },
+        {
+          "probe": "Sa47ReleaseFault",
+          "status": "passed",
+          "assertions": 7,
+          "cycles": 0,
+          "exit_code": 0,
+          "session_state": "closed",
+          "exception_count": 0,
+          "logging_failure_count": 0,
+          "build_id": "build-20261024T170601211Z-30de2b94",
+          "finished_utc": "2026-10-24T17:06:07.5578838Z",
+          "source": "dev/runs/test-20261024T170541219Z-a4aa1d3a/Sa47ReleaseFault/Trainer_sa47_release_fault_validation.json",
+          "versioned_evidence": "dev/docs/audit_parts/re_part1/sa47-release-fault-20261024.json",
+          "evidence_sha256": "ab2aaf06aacaa2bb6e5f884bbdedb58e654309ece07147934133af8e85033c24"
+        },
+        {
+          "probe": "Sa47NativeButton",
+          "status": "passed",
+          "assertions": 12,
+          "cycles": 2232,
+          "exit_code": 0,
+          "session_state": "closed",
+          "exception_count": 0,
+          "logging_failure_count": 0,
+          "build_id": "build-20261024T170607570Z-65a3d2d3",
+          "finished_utc": "2026-10-24T17:06:23.7301519Z",
+          "source": "dev/runs/test-20261024T170541219Z-a4aa1d3a/Sa47NativeButton/Trainer_sa47_native_button_validation.json",
+          "versioned_evidence": "dev/docs/audit_parts/re_part1/sa47-native-button-20261024.json",
+          "evidence_sha256": "7d67306ea2142f3a71f1652d5b9b901375eeb71c7783544ce51fa2d4efebad46"
+        }
+      ],
+      "accepted_within_scope": [
+        "При исходной очищенной памяти логическое положение 1 удерживает четыре ТЦ около 1,406; положение 2 снижает их примерно до 0,001; возврат 2 → 1 сохраняет отпуск. Это значения телеметрии, без расширения нормативной приёмки единиц.",
+        "Положение 0 снимает текущий запрос и восстанавливает автоматическое торможение четырёх ТЦ примерно до 1,43. Это подтверждает текущий выход, но не очистку памяти.",
+        "Проверены свежесть и однократность снимка, нейтральный вход при несовпадении такта или приоритете торможения, восстановление после исключения, запрет чужого owner и потока, сохранение чужой записи.",
+        "Инъекция ArithmeticException первого электрического шага и исключения после настоящего native пневмовызова подтверждают нейтральный вход и finally-восстановление; аппаратный отказ этим не моделируется.",
+        "Настоящие native DwnButton и UpBtn меняют widget на 1 и 0; ограниченный адаптер публикует enum 2 и 0, восстанавливает widget, а физические ТЦ отпускаются и повторно тормозят.",
+        "Managed OnMouseDown, OnMouseUp, SpaceDown и SpaceUp проверены с полными циклами. Это приёмка конкретных обработчиков и реакции, не всех экранных пикселей или физической аппаратуры."
+      ],
+      "open_observations": [
+        "После положения 0 native latch по смещению 0x108 остаётся равным 1. Последовательность 0 → 1 после отмены ещё не принята; полная отмена памяти не заявляется.",
+        "Отмена по ТМ не реализована. Сценарий native ТМ > 5 и соответствие порогу РЭ 0,48 МПа с явными единицами остаются открытыми.",
+        "Обработчики потери фокуса и захвата добавлены, но отдельное действие этих событий не проверено.",
+        "Расход привода KR22, минимальное давление, все положения ВЦУ, полная матрица КВТ и нормативная приёмка остаются за пределами этих трёх сценариев.",
+        "Расширенный запуск test-20261024T170654333Z-9ed54e71 завершён со статусом failed: 11 PASS, AutovedenieOverride FAIL при 0 cycles из-за отсутствия новой калибровки FTk0/R2; guards восстановлены.",
+        "Reset-контракт остаётся предложением: физический idle 0 не должен автоматически отождествляться с логической отменой 0; приоритеты KM ≥ V/KVT > III требуют согласования с формулировкой «только 0/ТМ»."
+      ],
+      "pressure_or_processed_outputs_forced": false,
+      "source_sha_scope": "SHA текущих исходников, сборок обоих профилей и совпадение production sources со сценариями фиксируются отдельно в dev/docs/audit_parts/re_part1/current-build-review-validation-20261024.json. Сохранённые SHA baseline остаются историческими статическими доказательствами.",
+      "broader_regression": {
+        "run_id": "test-20261024T170654333Z-9ed54e71",
+        "status": "failed",
+        "passed": 11,
+        "failed": 1,
+        "passed_ids": [
+          "ColdNoSource",
+          "SectionPantographPressure",
+          "CandidateAirHost",
+          "ColdTrainAuxiliary",
+          "VcuAirSequence",
+          "CompressorPrepared",
+          "AirControlIsolation",
+          "NativeSandAir",
+          "MarkupSafety",
+          "NativeSafetyAdapter",
+          "VigilanceOperator"
+        ],
+        "failure": {
+          "probe": "AutovedenieOverride",
+          "exit_code": 1,
+          "cycles": 0,
+          "guards_restored": true,
+          "reason": "LoadCalibration: требуется новая калибровка FTk0/R2; защиту не отключали."
+        },
+        "validation": "dev/docs/audit_parts/re_part1/sa47-followup-validation-20261024.json"
+      },
+      "followup_validation": "dev/docs/audit_parts/re_part1/sa47-followup-validation-20261024.json",
+      "reset_contract_review": {
+        "source": "dev/runs/sa47-20261024/reset-contract-review.json",
+        "versioned_evidence": "dev/docs/audit_parts/re_part1/sa47-reset-contract-review-20261024.json",
+        "sha256": "2ee308f0eab2edd9f82fe4dd641473b6781ab5d70d5f334e0f085228c4f567fd",
+        "status": "proposal_not_accepted",
+        "current_mapping": "Физическое нажатие widget1 преобразуется в enum2, отпускание widget0 — в enum0.",
+        "unresolved": "Физический idle и логическая отмена0 должны различаться. Очистка latch на каждом raw0 немедленно изменит семантику отпускания кнопки. idle 1 / press 2 / up 1 является только вариантом до согласования многофункционального переключателя § 3.16.2 с кнопкой без фиксации перечня.",
+        "priority_conflict": "Native очищает latch при KM ≥ V или KVT > III, тогда как текст перечисляет только 0/ТМ. Разделить память, арбитраж и физическое обесточивание; итоговая трактовка не выбрана.",
+        "source_snapshot_scope": "SHA и строки C# внутри копируемого обзора — датированный снимок автора обзора, не новая проверка текущего меняющегося файла."
+      },
+      "baseline_raw1_reproduction_ref": "dev/docs/audit_parts/re_part1/sa47-followup-validation-20261024.json#/baseline_raw1_reproduction",
+      "vcu_probe_alignment_ref": "dev/docs/audit_parts/re_part1/sa47-followup-validation-20261024.json#/vcu_probe_alignment"
+    }
+  ],
+  "final_verification": {
+    "date": "2026-10-24",
+    "regression_run": "dev/runs/test-20261024T171739039Z-b9c0a0b5/report.json",
+    "status": "passed",
+    "probes": 9,
+    "candidate_build": "build-20261024T171205322Z-66a169c1",
+    "integration_build": "build-20261024T171111109Z-a03f87f9",
+    "candidate_deployed": true,
+    "source_build_review": "dev/docs/audit_parts/re_part1/current-build-review-validation-20261024.json",
+    "independent_review": "dev/docs/audit_parts/re_part1/sa47-adapter-review-20261024.json",
+    "full_sa47_accepted": false,
+    "full_RE_accepted": false,
+    "AVP_override_broader_run_remains_failed": "dev/runs/test-20261024T170654333Z-9ed54e71/AutovedenieOverride/result.json"
+  }
 }

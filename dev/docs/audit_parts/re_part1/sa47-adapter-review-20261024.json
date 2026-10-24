@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-24",
+  "review_type": "Независимый статический обзор текущего кода SA47",
+  "status": "PASS_WITH_NONBLOCKING_LIMITS",
+  "blockers": 0,
+  "source_files": [
+    {"path": "outputs/TrainerNativeBrakeRelease.cs", "sha256": "3c8a7deaf700075166dbef2e6a44911e16a48fa554781360398269b894fb99cb"},
+    {"path": "outputs/TrainerAuxSystems.cs", "sha256": "e9dc02f6c7af2b7407048e595bb93346bb8bed265d77408e8ed8c4a1067bf72f"},
+    {"path": "outputs/TrainerNativeSystems.cs", "sha256": "85ee79a1261fc4e346cec1d933fab83280526243ee2a8091747334e629fa7c3d"}
+  ],
+  "scope": {
+    "runtime_code_changed": false,
+    "native_executed": false,
+    "tests_executed": false,
+    "checked": [
+      "Связь экземпляров Pult1, TormModel и Communication1 с ожидаемыми путями и SHA DLL.",
+      "Поток, жизненный цикл, доступность и возможность записи полей, граф владельцев и класс TTumbler.",
+      "Свежесть снимка после электрического цикла, запрет повторного использования и нейтральный вход после ArithmeticException.",
+      "Восстановление входов через finally и using, отказ от перезаписи чужих значений.",
+      "Доступные оператору положения 0/1/2 и возврат импульса при потере захвата мыши или фокуса."
+    ],
+    "supporting_code": [
+      "outputs/TrainerIntegrationHost.cs:135 — последовательность электрического и пневматического циклов и останов при исключении.",
+      "outputs/TrainerAutovedenieNativeBridge.cs:208 — существующее распознавание ручного вмешательства в АВП."
+    ],
+    "supporting_evidence": "dev/runs/sa47-20261024/widget-call-abi.json"
+  },
+  "resolved": [
+    {
+      "id": "CAPTURE_LOSS",
+      "code": "outputs/TrainerNativeBrakeRelease.cs:136",
+      "result": "Добавлен MouseCaptureChanged: потеря захвата завершает импульс 2 и возвращает готовность 1."
+    },
+    {
+      "id": "CAB_GRAPH_RESTORE",
+      "code": "outputs/TrainerNativeBrakeRelease.cs:80",
+      "result": "ValidateCab проверяет полный граф владельца, кабины, формы и TTumbler при входе и восстановлении. Проверены ожидаемый путь Communication1 и атомарная фиксация ленивого связывания."
+    },
+    {
+      "id": "CAPTURE_AFTER_RESTORE",
+      "code": "outputs/TrainerAuxSystems.cs:124",
+      "result": "Снимок SA47 создаётся после успешного завершения обоих finally. После ArithmeticException completed остаётся false; новый снимок не публикуется."
+    },
+    {
+      "id": "INITIAL_ARITHMETIC_FAILURE",
+      "code": "outputs/TrainerNativeBrakeRelease.cs:149",
+      "result": "Связывание выполняется до commStep. Инвалидация предшествует native вызову; пневматический вход после первого арифметического отказа остаётся нейтральным. Отсутствующая привязка вызывает явный отказ вместо использования сырого enum."
+    }
+  ],
+  "nonblocking_boundaries": [
+    {
+      "id": "EQUAL_VALUE_REENTRANT_EVENT",
+      "priority": "P2",
+      "code": "outputs/TrainerNativeBrakeRelease.cs:89",
+      "observation": "В режиме кнопки пульта временное значение 2 отличается от физических 0/1, поэтому новое физическое событие сохраняется. При явно выбранном 0 или 1 новое физическое событие с тем же значением, что assigned, нельзя отличить от отсутствия события по одному байту State.",
+      "consequence": "При таком совпадении восстановление может вернуть прежнее состояние физического виджета. Принятый явный источник команды продолжает определять вход; динамическое воспроизведение совпадения не выполнено.",
+      "recommendation": "Для будущей поддержки конкурентного физического ввода добавить счётчик событий либо явно определить владение физической кнопкой при выбранном программном источнике.",
+      "suggested_check": "Оригинальное физическое State=1, явное положение 0, настоящий UpBtn внутри scope; проверить конечный State и последующее переключение на кнопку пульта."
+    },
+    {
+      "id": "AVP_MANUAL_RELEASE_HANDOFF",
+      "priority": "P2",
+      "code": "outputs/TrainerNativeBrakeRelease.cs:132",
+      "observation": "CancelAutovedenie вызывается при изменении SelectedIndex. При уже выбранной готовности 1 нажатие импульса 2 оставляет тот же индекс и не вызывает это событие. Существующее распознавание ручного вмешательства в АВП не включает Loc+0x8C.",
+      "consequence": "Для будущего включённого АВП переход 1→2 сам по себе не гарантирует передачу управления машинисту. Текущая калибровочная блокировка АВП ограничивает практическую проверку этого сценария.",
+      "recommendation": "Перед приёмкой совместной работы с АВП явно согласовать правило передачи управления при SA47 и добавить проверку импульса из уже выбранной готовности 1.",
+      "suggested_check": "При разрешённом АВП выбрать готовность 1, снова разрешить АВП, затем нажать импульс 2 без изменения списка; проверить прекращение команд АВП согласно принятому правилу."
+    }
+  ],
+  "abi": {
+    "module": "Communication1.dll",
+    "module_sha256": "27178a089ef33692d16b1d46ae0dd7567135b327a24be9d7d0ca84af8df3db7f",
+    "fixed_offset": "0x1d8",
+    "state_offset": "0x1d9",
+    "convention": "Borland register: EAX=Self; DwnButton принимает Boolean в DL; UpBtn не имеет явных аргументов; оба завершаются C3 без стековых аргументов.",
+    "methods": [
+      {
+        "name": "DwnButton",
+        "rva": "0x2a1960",
+        "bytes": 87,
+        "sha256": "8ad3a68f19cd828c5ac5e553b6ffb079c27769cf46e9f3cdcf470aeea5226142",
+        "guard_hex": "558bec83c4f88855fb8945fc8b45fc80b8d001000000753b807dfb0074358b45fc8a80d90100002c01730fb2018b45fc8b08ff91b0000000eb198b45fc83b814020000ff750d33d28b45fc8b08ff91b000000059595dc3"
+      },
+      {
+        "name": "UpBtn",
+        "rva": "0x2a2674",
+        "bytes": 35,
+        "sha256": "23710ef6646db9d3486a525f680baf0596733360f83f2f17a63def3dac7f9566",
+        "guard_hex": "558bec518945fc8b45fc80b8d801000000750d33d28b45fc8b08ff91b0000000595dc3"
+      }
+    ]
+  },
+  "runtime_validation": {
+    "provenance": "Сводка root, не самостоятельный запуск обозревателя.",
+    "reported_pass": 11,
+    "total_reported": 12,
+    "limited_probe": "AutovedenieOverride",
+    "limited_reason": "Отказ до выполнения циклов из-за ранее отключённой калибровки FTk0/R2. Это известная граница, проверку не ослабляли."
+  },
+  "limits": [
+    "Статический обзор не заменяет свежую динамическую приёмку.",
+    "Вывод относится к интерфейсу команды отпуска и восстановлению входов, а не к полной физике приводов КР22/КЭБ и расходу воздуха.",
+    "Соответствие всей модели РЭ и точная комплектация 2ЭС6 начиная с №137 этим обзором не подтверждаются."
+  ]
+}

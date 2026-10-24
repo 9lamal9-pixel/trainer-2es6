@@ -1,0 +1,459 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-24",
+  "mode": "Проверка сохранённых компактных result/session и артефактов; новые runtime-сценарии не запускались при составлении этой сводки.",
+  "evidence_consistency_passed": true,
+  "sa47_full_accepted": false,
+  "overall_broader_regression_status": "failed",
+  "baseline_commit": "a04ed4b144d9ca49ef08018377566aec722a8204",
+  "sa47_selected": {
+    "run_id": "test-20261024T170541219Z-a4aa1d3a",
+    "report": "dev/runs/test-20261024T170541219Z-a4aa1d3a/report.json",
+    "report_sha256": "cc3394550245d6ce23203211c098890e2416486c2d3db3b2b6d40bea65479182",
+    "status": "passed",
+    "passed_probes": 3,
+    "assertions": 52,
+    "full_sa47_accepted": false
+  },
+  "broader_regression": {
+    "run_id": "test-20261024T170654333Z-9ed54e71",
+    "report": "dev/runs/test-20261024T170654333Z-9ed54e71/report.json",
+    "report_sha256": "f2d0b1ea6596cb5ec1d2e9694e49a723b906a820e77abb730f92c6dad7e177b6",
+    "status": "failed",
+    "passed_probes": 11,
+    "failed_probes": 1,
+    "passed_ids": [
+      "ColdNoSource",
+      "SectionPantographPressure",
+      "CandidateAirHost",
+      "ColdTrainAuxiliary",
+      "VcuAirSequence",
+      "CompressorPrepared",
+      "AirControlIsolation",
+      "NativeSandAir",
+      "MarkupSafety",
+      "NativeSafetyAdapter",
+      "VigilanceOperator"
+    ],
+    "scope_limit": "11 успешных результатов сохраняют свои области и диагностические ограничения. Это не 12/12 PASS и не полное соответствие модели РЭ."
+  },
+  "passed_result_sessions": [
+    {
+      "run_id": "test-20261024T170541219Z-a4aa1d3a",
+      "probe": "Sa47Release",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261024T170541308Z-813cf0f1",
+      "result_ref": "dev/runs/test-20261024T170541219Z-a4aa1d3a/Sa47Release/result.json",
+      "session_ref": "dev/runs/test-20261024T170541219Z-a4aa1d3a/Sa47Release/sessions/20261024T170545202Z_p9920_424ec7b893df4b9c85c0690894cad494/session.json",
+      "session": {
+        "id": "20261024T170545202Z_p9920_424ec7b893df4b9c85c0690894cad494",
+        "state": "closed",
+        "exit_code": 0,
+        "exception_count": 0,
+        "logging_failure_count": 0
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261024T170541219Z-a4aa1d3a/Sa47Release/Trainer_sa47_release_validation.json",
+          "sha256": "bd3e13ec3e7d808b743ea39841e96018272ba7b0cf4bf7287eb1afb9f8d66d1b"
+        }
+      ],
+      "result_sha256": "294e7005077009cd37bf89a2735aa9dd9ea49a68f727baf894d9626a06a30598",
+      "session_sha256": "320e63e03c5f6dc277c5439a8ab0d23a0328560f5388e631d4f8ca09cd17b168"
+    },
+    {
+      "run_id": "test-20261024T170541219Z-a4aa1d3a",
+      "probe": "Sa47ReleaseFault",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261024T170601211Z-30de2b94",
+      "result_ref": "dev/runs/test-20261024T170541219Z-a4aa1d3a/Sa47ReleaseFault/result.json",
+      "session_ref": "dev/runs/test-20261024T170541219Z-a4aa1d3a/Sa47ReleaseFault/sessions/20261024T170604494Z_p17280_518986ddc71b4402b94a9aaec103a878/session.json",
+      "session": {
+        "id": "20261024T170604494Z_p17280_518986ddc71b4402b94a9aaec103a878",
+        "state": "closed",
+        "exit_code": 0,
+        "exception_count": 0,
+        "logging_failure_count": 0
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261024T170541219Z-a4aa1d3a/Sa47ReleaseFault/Trainer_sa47_release_fault_validation.json",
+          "sha256": "ab2aaf06aacaa2bb6e5f884bbdedb58e654309ece07147934133af8e85033c24"
+        }
+      ],
+      "result_sha256": "8f2f491b0fe5cfe1354a460a314ad9c0b985f1d4cee83fce6d4465ff00590313",
+      "session_sha256": "7f632cb2aa0b07595dcf38939a2747f3f807aa6bfc83337b1496ba3ae6623cbd"
+    },
+    {
+      "run_id": "test-20261024T170541219Z-a4aa1d3a",
+      "probe": "Sa47NativeButton",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261024T170607570Z-65a3d2d3",
+      "result_ref": "dev/runs/test-20261024T170541219Z-a4aa1d3a/Sa47NativeButton/result.json",
+      "session_ref": "dev/runs/test-20261024T170541219Z-a4aa1d3a/Sa47NativeButton/sessions/20261024T170611217Z_p32516_b2ccb7aebedc41efaf92972fda320e57/session.json",
+      "session": {
+        "id": "20261024T170611217Z_p32516_b2ccb7aebedc41efaf92972fda320e57",
+        "state": "closed",
+        "exit_code": 0,
+        "exception_count": 0,
+        "logging_failure_count": 0
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261024T170541219Z-a4aa1d3a/Sa47NativeButton/Trainer_sa47_native_button_validation.json",
+          "sha256": "7d67306ea2142f3a71f1652d5b9b901375eeb71c7783544ce51fa2d4efebad46"
+        }
+      ],
+      "result_sha256": "febae61318ee671d72c55119f059c240c86f075777d83b04e82d1ebd72d5c665",
+      "session_sha256": "aa8302c1c470dead84ed3f0beb6a10c85fde92da95eb5d7df82a217c7798e65e"
+    },
+    {
+      "run_id": "test-20261024T170654333Z-9ed54e71",
+      "probe": "ColdNoSource",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261024T170654425Z-bf6283ac",
+      "result_ref": "dev/runs/test-20261024T170654333Z-9ed54e71/ColdNoSource/result.json",
+      "session_ref": "dev/runs/test-20261024T170654333Z-9ed54e71/ColdNoSource/sessions/20261024T170658321Z_p40748_193430316771456db62e0866bba5d759/session.json",
+      "session": {
+        "id": "20261024T170658321Z_p40748_193430316771456db62e0866bba5d759",
+        "state": "closed",
+        "exit_code": 0,
+        "exception_count": 0,
+        "logging_failure_count": 0
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261024T170654333Z-9ed54e71/ColdNoSource/Trainer_cold_no_source_validation.json",
+          "sha256": "38f7d1b5bb4f5a8dbbbecb374d8fd753af2bbc5a85a64c7dcfa0fcee4871682b"
+        }
+      ],
+      "result_sha256": "164ea66b4a669bbc274dd168333a87b8de76872cd76788442c52a06d0d39d075",
+      "session_sha256": "e285eef14ca57381ea388e4c9d4bd3ad3561d9f0bc139877033dbec5985f7791"
+    },
+    {
+      "run_id": "test-20261024T170654333Z-9ed54e71",
+      "probe": "SectionPantographPressure",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261024T170703576Z-c9f9a833",
+      "result_ref": "dev/runs/test-20261024T170654333Z-9ed54e71/SectionPantographPressure/result.json",
+      "session_ref": "dev/runs/test-20261024T170654333Z-9ed54e71/SectionPantographPressure/sessions/20261024T170707148Z_p31296_fe3aabdaa4fa422091e987fe13505a53/session.json",
+      "session": {
+        "id": "20261024T170707148Z_p31296_fe3aabdaa4fa422091e987fe13505a53",
+        "state": "closed",
+        "exit_code": 0,
+        "exception_count": 0,
+        "logging_failure_count": 0
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261024T170654333Z-9ed54e71/SectionPantographPressure/Trainer_section_pantograph_pressure_probe.json",
+          "sha256": "2357a5ca35761567ca04d479521ba2659a56c8a1f5db7adaa32f882284413c25"
+        }
+      ],
+      "result_sha256": "f3d9af0e6b68fbc0ff7ea3eb81dde66f1644e01828fc6f2cccbb10dd807afedb",
+      "session_sha256": "4aad24b9f804a9d7ba7e8f560a6bb0ecefb157fdf5d6815168a5a171f8a7331c"
+    },
+    {
+      "run_id": "test-20261024T170654333Z-9ed54e71",
+      "probe": "CandidateAirHost",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261024T170710441Z-6875b15e",
+      "result_ref": "dev/runs/test-20261024T170654333Z-9ed54e71/CandidateAirHost/result.json",
+      "session_ref": "dev/runs/test-20261024T170654333Z-9ed54e71/CandidateAirHost/sessions/20261024T170714003Z_p1620_d8fdecf1e370429793315b6120dfbaba/session.json",
+      "session": {
+        "id": "20261024T170714003Z_p1620_d8fdecf1e370429793315b6120dfbaba",
+        "state": "closed",
+        "exit_code": 0,
+        "exception_count": 0,
+        "logging_failure_count": 0
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261024T170654333Z-9ed54e71/CandidateAirHost/Trainer_air_candidate_host_validation.json",
+          "sha256": "1fc03ed568d16fbfa3630f2022baaeda02302437c6ec9ebd6bbaf1cc6c69e42d"
+        }
+      ],
+      "result_sha256": "1a7467d5f22e48652252bc5378c2606665b9f08bb025acff400d2d3b9011fe62",
+      "session_sha256": "69d136481aef527fc09a6176ec01823195ce6ed21ca7093d157e234a653ea397"
+    },
+    {
+      "run_id": "test-20261024T170654333Z-9ed54e71",
+      "probe": "ColdTrainAuxiliary",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261024T170740028Z-7163ec55",
+      "result_ref": "dev/runs/test-20261024T170654333Z-9ed54e71/ColdTrainAuxiliary/result.json",
+      "session_ref": "dev/runs/test-20261024T170654333Z-9ed54e71/ColdTrainAuxiliary/sessions/20261024T170743243Z_p41348_38cf6a64be364ed69003eda6e74ad2f8/session.json",
+      "session": {
+        "id": "20261024T170743243Z_p41348_38cf6a64be364ed69003eda6e74ad2f8",
+        "state": "closed",
+        "exit_code": 0,
+        "exception_count": 0,
+        "logging_failure_count": 0
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261024T170654333Z-9ed54e71/ColdTrainAuxiliary/Trainer_cold_train_auxiliary_validation.json",
+          "sha256": "ce5776288498f3ad517c60c57bd3ee90c4216dab127ea07686eb136f65831bfb"
+        }
+      ],
+      "result_sha256": "62525796df701907e29a7a678f8f5464ce5a5c11e3c843e5807c9a689cdd20c7",
+      "session_sha256": "8589fe1cf6a644e20ca2b58c06fe5d1a56b78da7d1f8b3bf52ff921a799091ed"
+    },
+    {
+      "run_id": "test-20261024T170654333Z-9ed54e71",
+      "probe": "VcuAirSequence",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261024T170753446Z-aa29e23c",
+      "result_ref": "dev/runs/test-20261024T170654333Z-9ed54e71/VcuAirSequence/result.json",
+      "session_ref": "dev/runs/test-20261024T170654333Z-9ed54e71/VcuAirSequence/sessions/20261024T170756744Z_p36208_b718c829cc81457fa3853bf79493d02e/session.json",
+      "session": {
+        "id": "20261024T170756744Z_p36208_b718c829cc81457fa3853bf79493d02e",
+        "state": "closed",
+        "exit_code": 0,
+        "exception_count": 0,
+        "logging_failure_count": 0
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261024T170654333Z-9ed54e71/VcuAirSequence/Trainer_vcu_air_sequence.json",
+          "sha256": "b02b9f08045ba2e6b5b280dba4f0c79533ce35cd61150bb40631a09a77dce8e0"
+        }
+      ],
+      "result_sha256": "8038ee3bad760e5e654d6e1e5f01eeea585e7f3bb4133017539d9ee84e45211f",
+      "session_sha256": "fab0ec8f6cfcd6a8dab1306f1d67090f154c6171caa73e788cebed24bae5ef23"
+    },
+    {
+      "run_id": "test-20261024T170654333Z-9ed54e71",
+      "probe": "CompressorPrepared",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261024T170806211Z-67b52106",
+      "result_ref": "dev/runs/test-20261024T170654333Z-9ed54e71/CompressorPrepared/result.json",
+      "session_ref": "dev/runs/test-20261024T170654333Z-9ed54e71/CompressorPrepared/sessions/20261024T170810172Z_p44684_9241e04bbd3046b2a00e04af27cccbe5/session.json",
+      "session": {
+        "id": "20261024T170810172Z_p44684_9241e04bbd3046b2a00e04af27cccbe5",
+        "state": "closed",
+        "exit_code": 0,
+        "exception_count": 0,
+        "logging_failure_count": 0
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261024T170654333Z-9ed54e71/CompressorPrepared/Trainer_compressor_prepared_observations.json",
+          "sha256": "8c121a1c672d2cae067b1acf174d826fdbf902b54d6b1da6f4df9628d8c2d25d"
+        }
+      ],
+      "result_sha256": "d4a1b92ee8dcf4408aa90d9de0d393f03530817f81a8490ae86bbad2d79b6bca",
+      "session_sha256": "f313f8111e97b4e8604d388759f00b1d5bded792f05f383184052d58c049cbd6"
+    },
+    {
+      "run_id": "test-20261024T170654333Z-9ed54e71",
+      "probe": "AirControlIsolation",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261024T170819435Z-6fd64b8e",
+      "result_ref": "dev/runs/test-20261024T170654333Z-9ed54e71/AirControlIsolation/result.json",
+      "session_ref": "dev/runs/test-20261024T170654333Z-9ed54e71/AirControlIsolation/sessions/20261024T170823031Z_p2632_c0c50d05e24e457299362f10a90a7013/session.json",
+      "session": {
+        "id": "20261024T170823031Z_p2632_c0c50d05e24e457299362f10a90a7013",
+        "state": "closed",
+        "exit_code": 0,
+        "exception_count": 0,
+        "logging_failure_count": 0
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261024T170654333Z-9ed54e71/AirControlIsolation/Trainer_air_control_isolation_validation.json",
+          "sha256": "fc371bc3767ff8cfea7611dddddaeb80cac6b95e687906c0e7388f95f4c6f3fe"
+        }
+      ],
+      "result_sha256": "2e88194f31bf7a45e7834c5b22c01c1d632f29e8eb544680d65453bc08a4007a",
+      "session_sha256": "0351bf96370120701b000b315307ec43d3c50c31e8e29e9e82aaa369cf7ec144"
+    },
+    {
+      "run_id": "test-20261024T170654333Z-9ed54e71",
+      "probe": "NativeSandAir",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261024T170823303Z-2d6cc06b",
+      "result_ref": "dev/runs/test-20261024T170654333Z-9ed54e71/NativeSandAir/result.json",
+      "session_ref": "dev/runs/test-20261024T170654333Z-9ed54e71/NativeSandAir/sessions/20261024T170826830Z_p3840_c5f1131f22ba4337b4d88c22c0ef829b/session.json",
+      "session": {
+        "id": "20261024T170826830Z_p3840_c5f1131f22ba4337b4d88c22c0ef829b",
+        "state": "closed",
+        "exit_code": 0,
+        "exception_count": 0,
+        "logging_failure_count": 0
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261024T170654333Z-9ed54e71/NativeSandAir/Trainer_native_sand_air.json",
+          "sha256": "c512da87969c07df675cfd7127e465bf89b372bc99adcfd099370c95c8431302"
+        }
+      ],
+      "result_sha256": "daf68b95cf1d3be6db22a9ecae389d0601e7c3fdc37e8c5653719d9fc695a925",
+      "session_sha256": "94c8dc715b5227ffea118f3bc779aa1867718e584daa83ab9da87ad3b8e2c468"
+    },
+    {
+      "run_id": "test-20261024T170654333Z-9ed54e71",
+      "probe": "MarkupSafety",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261024T170838750Z-3ad4de44",
+      "result_ref": "dev/runs/test-20261024T170654333Z-9ed54e71/MarkupSafety/result.json",
+      "session_ref": "dev/runs/test-20261024T170654333Z-9ed54e71/MarkupSafety/sessions/20261024T170842329Z_p42340_420053ff6a9c425181a9139f305a30a5/session.json",
+      "session": {
+        "id": "20261024T170842329Z_p42340_420053ff6a9c425181a9139f305a30a5",
+        "state": "closed",
+        "exit_code": 0,
+        "exception_count": 0,
+        "logging_failure_count": 0
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261024T170654333Z-9ed54e71/MarkupSafety/Markup_safety.json",
+          "sha256": "7dd72b561c21d43dfc764d6b6dc93efe1ff42956b4723d5ea06fdd128f8956d7"
+        }
+      ],
+      "result_sha256": "7b19bd55d1b338bc7ce87c43142b61a506063159395577c5b5894d12a686ad29",
+      "session_sha256": "82798da66d0e23d5961bd4ebcf7d23e66ce22456ba1e66258f7a779da5810a4a"
+    },
+    {
+      "run_id": "test-20261024T170654333Z-9ed54e71",
+      "probe": "NativeSafetyAdapter",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261024T170847655Z-52cddcd0",
+      "result_ref": "dev/runs/test-20261024T170654333Z-9ed54e71/NativeSafetyAdapter/result.json",
+      "session_ref": "dev/runs/test-20261024T170654333Z-9ed54e71/NativeSafetyAdapter/sessions/20261024T170851283Z_p30624_7fa86a83d1bf470d9c92114641359a72/session.json",
+      "session": {
+        "id": "20261024T170851283Z_p30624_7fa86a83d1bf470d9c92114641359a72",
+        "state": "closed",
+        "exit_code": 0,
+        "exception_count": 0,
+        "logging_failure_count": 0
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261024T170654333Z-9ed54e71/NativeSafetyAdapter/Trainer_native_safety.json",
+          "sha256": "062ddbd59099619fcca89126225455f44096aaf5769574495c807a166caeb78d"
+        }
+      ],
+      "result_sha256": "a867b876e2299c5bc5689a6fe188958d2fa80f874e756ec01b3ef931d73a062e",
+      "session_sha256": "3d22ec83d5453c505a296e66e5f00f5a04d9ec0b68026b340c746246e461e8ca"
+    },
+    {
+      "run_id": "test-20261024T170654333Z-9ed54e71",
+      "probe": "VigilanceOperator",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261024T170913951Z-19d6a5b5",
+      "result_ref": "dev/runs/test-20261024T170654333Z-9ed54e71/VigilanceOperator/result.json",
+      "session_ref": "dev/runs/test-20261024T170654333Z-9ed54e71/VigilanceOperator/sessions/20261024T170917262Z_p12804_5bb7963dc2184cdabaaa98d990ac324e/session.json",
+      "session": {
+        "id": "20261024T170917262Z_p12804_5bb7963dc2184cdabaaa98d990ac324e",
+        "state": "closed",
+        "exit_code": 0,
+        "exception_count": 0,
+        "logging_failure_count": 0
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261024T170654333Z-9ed54e71/VigilanceOperator/Trainer_vigilance_operator.json",
+          "sha256": "480608b9a960f6242e65bf5e8c369c25ab39360b0fafaefa672926de4818a5ce"
+        }
+      ],
+      "result_sha256": "049e9a3eab3264d60401ee763f93ce19a70a625b0fb93c7e45c6dd4b53225ac2",
+      "session_sha256": "fd0c1e9bda28e243ba9e6f502c5ad343773ff2ef0e96786c987745e6864bc34f"
+    }
+  ],
+  "failure": {
+    "run_id": "test-20261024T170654333Z-9ed54e71",
+    "probe": "AutovedenieOverride",
+    "status": "failed",
+    "exit_code": 1,
+    "cycles": 0,
+    "artifact": "dev/runs/test-20261024T170654333Z-9ed54e71/AutovedenieOverride/Autovedenie_override.json",
+    "artifact_sha256": "48156b72f2b8346c4dc091761dee1f8b27a9c50ad4c90b5683c0cac8a81592ab",
+    "session_ref": "dev/runs/test-20261024T170654333Z-9ed54e71/AutovedenieOverride/sessions/20261024T170924345Z_p27508_e4d5efb3dcc74cac8a06b871ab69171c/session.json",
+    "session": {
+      "state": "closed-with-errors",
+      "exit_code": 1,
+      "exception_count": 0,
+      "logging_failure_count": 0
+    },
+    "failed_check": "Calibration available",
+    "guards_restored": true,
+    "cause": "LoadCalibration отклоняет состав FTk0/R2: калибровка имеет status invalidated_by_consist_change; после перехода на композиционные колодки и средний режим требуется новая тормозная калибровка.",
+    "scenario_override_executed": false,
+    "protection_disabled": false,
+    "avp_source_or_calibration_changed_to_bypass": false,
+    "diff_check": "git diff --quiet по TrainerAutovedenieHost.cs, TrainerAutovedenieController.cs и autovedenie-brake-calibration.json вернул 0; соответствующие изменения отсутствуют."
+  },
+  "baseline_raw1_reproduction": {
+    "run_id": "test-20261024T161912739Z-953c5b38",
+    "report": "dev/runs/test-20261024T161912739Z-953c5b38/report.json",
+    "artifact": "dev/runs/test-20261024T161912739Z-953c5b38/Sa47Release/Trainer_sa47_release_validation.json",
+    "artifact_sha256": "da30f76867a9af698d136f6589b97b720ff57d1df00f2d4498165eb6e450021c",
+    "status": "failed",
+    "exit_code": 1,
+    "cycles": 1932,
+    "failed_assertions": 1,
+    "failed_assertion": "position1_retains_four_cylinders",
+    "observed_four_tc": [
+      0.0009941775166962736,
+      0.0009649874442987404,
+      0.0009240159836768333,
+      0.000971574072267831
+    ],
+    "native_request_in_raw1": 0,
+    "native_latch_in_raw1": 0,
+    "raw_position": 1,
+    "relation": "Повтор исходного поведения до исправления: raw1 отпускает физические ТЦ при обработанном запросе 0. Report указывает HEAD 3aaad482; это не утверждение запуска checkout a04ed4b. Статический baseline и его доказательство сохраняются отдельно."
+  },
+  "vcu_probe_alignment": {
+    "old_run_id": "test-20261024T164245297Z-84fcaaf4",
+    "old_report": "dev/runs/test-20261024T164245297Z-84fcaaf4/report.json",
+    "old_probe_status": "failed",
+    "old_exit_code": 1,
+    "old_validation_artifact_created": false,
+    "old_stdout_ref": "dev/runs/test-20261024T164245297Z-84fcaaf4/VcuAirSequence/stdout.log",
+    "old_error": "Loaded wagon mode mismatch",
+    "reason": "Старая проба ожидала R1 у всех 75 загруженных вагонов, а текущая конфигурация — композиционные колодки FTk0/R2/AR1. Проба приведена к текущему составу; нормативная калибровка АР не выполнялась.",
+    "current_artifact": "dev/runs/test-20261024T170654333Z-9ed54e71/VcuAirSequence/Trainer_vcu_air_sequence.json",
+    "current_probe_status": "passed",
+    "verified_wagons": 75,
+    "diagnostic_tc_bound": [
+      0.5,
+      4.5
+    ],
+    "observed_tc_min": 4.100000381469727,
+    "observed_tc_max": 4.100812911987305,
+    "normative_AR_pressure_accepted": false,
+    "scope": "Широкий диапазон 0,5–4,5 подтверждает факт торможения и последовательность ВЦУ, а не нормативное давление АР по загрузке."
+  },
+  "reset_contract_review": {
+    "source": "dev/runs/sa47-20261024/reset-contract-review.json",
+    "versioned_evidence": "dev/docs/audit_parts/re_part1/sa47-reset-contract-review-20261024.json",
+    "sha256": "2ee308f0eab2edd9f82fe4dd641473b6781ab5d70d5f334e0f085228c4f567fd",
+    "status": "proposal_not_accepted",
+    "current_mapping": "Физическое нажатие widget1 преобразуется в enum2, отпускание widget0 — в enum0.",
+    "unresolved": "Физический idle и логическая отмена0 должны различаться. Очистка latch на каждом raw0 немедленно изменит семантику отпускания кнопки. idle 1 / press 2 / up 1 является только вариантом до согласования многофункционального переключателя § 3.16.2 с кнопкой без фиксации перечня.",
+    "priority_conflict": "Native очищает latch при KM ≥ V или KVT > III, тогда как текст перечисляет только 0/ТМ. Разделить память, арбитраж и физическое обесточивание; итоговая трактовка не выбрана.",
+    "source_snapshot_scope": "SHA и строки C# внутри копируемого обзора — датированный снимок автора обзора, не новая проверка текущего меняющегося файла."
+  },
+  "limitations": [
+    "SA47 остаётся partial: 0→1 после отмены, отмена по ТМ и отдельные события focus/capture не приняты.",
+    "Точный порог ТМ, единицы, отображение физической кнопки и логической отмены пока не согласованы.",
+    "Не отключались проверки калибровки или защиты ради прохождения АВП. Failure сохранён как failure с 0 cycles.",
+    "Холодный полный пуск, расход и минимальное давление KR22, полная нормативная модель и АВП не приняты."
+  ]
+}

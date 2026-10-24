@@ -23,13 +23,13 @@ class CandidateAirHostProbe {
  static void Cycle(int km,int kvt){
   typeof(TrainerIntegrationHost).GetField("commandedKm",flags).SetValue(host,(int?)km);
   // Set the native control's state as a diagnostic input, then let Communication produce OtpTorm itself.
-  Marshal.WriteByte(releaseControl,0x1d9,(byte)(releaseButton?1:0));
+  Marshal.WriteByte(releaseControl,0x1d9,(byte)(releaseButton?2:0));
   double expectedPm=Read(loc,5);double expectedTc1=circuit.Sections[0].Cylinder[0].Gauge,expectedTc2=circuit.Sections[0].Cylinder[1].Gauge;
   Call("ElectricalCycle");Call("ApplyTestInputs");
   maximumGaugeError=Math.Max(maximumGaugeError,Math.Max(Math.Abs(ReadDouble(tc1Arrow,0x28)-expectedTc1),Math.Abs(ReadDouble(tc2Arrow,0x28)-expectedTc2)));
   if(Math.Abs(ReadDouble(pmArrow,0x28)-expectedPm)>1e-5)throw new Exception("Native PM gauge differs from physical PM");
   if(maximumGaugeError>1e-5)throw new Exception("Native TC gauge source mismatch: "+maximumGaugeError);
-  if(Marshal.ReadByte(loc,0x8c)!=(releaseButton?1:0))throw new Exception("Native release-button output mismatch");releaseSignalChecks++;
+  if(Marshal.ReadByte(loc,0x8c)!=(releaseButton?2:0))throw new Exception("Native release-button output mismatch");releaseSignalChecks++;
   // Explicit test inputs after electrical processing; these do not validate the native handle widgets.
   Marshal.WriteByte(loc,0x7e,(byte)kvt);for(int i=0x80;i<=0x87;i++)Marshal.WriteByte(loc,i,0);
   Call("PneumaticCycle");Call("MotionCycle");double pressureSum=0;for(int s=0;s<2;s++)for(int b=0;b<2;b++)pressureSum+=Math.Max(0,circuit.Sections[s].Cylinder[b].Gauge);if(Math.Abs(Read(poezdModule,0x1a674)-pressureSum*4)>1e-5)throw new Exception("Native motion brake input ignores bogie pressure");Call("RouteInputCycle");Call("AuxCycle");Call("KlubCoordinateCycle");

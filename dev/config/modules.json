@@ -13,9 +13,11 @@
       "sources": [
         "outputs/TrainerIntegrationHost.cs",
         "outputs/TrainerNativeSystems.cs",
+        "outputs/TrainerNativeBrakeRelease.cs",
         "outputs/TrainerAuxSystems.cs",
         "outputs/TrainerRouteDOS.cs",
         "outputs/TrainerAutovedenieController.cs",
+        "outputs/TrainerTrainBrakeCycle.cs",
         "outputs/TrainerAutovedenieInterface.cs",
         "outputs/TrainerAutovedenieNativeBridge.cs",
         "outputs/TrainerAutovedenieHost.cs",
@@ -41,16 +43,19 @@
         "outputs/TrainerMarkupSignalSource.cs",
         "outputs/TrainerMarkupHost.cs",
         "outputs/TrainerKlubSafetyBinding.cs",
-        "outputs/TrainerNativeVirtualPult.cs"
+        "outputs/TrainerNativeVirtualPult.cs",
+        "outputs/TrainerSandAirInput.cs"
       ]
     },
     "integration": {
       "sources": [
         "outputs/TrainerIntegrationHost.cs",
         "outputs/TrainerNativeSystems.cs",
+        "outputs/TrainerNativeBrakeRelease.cs",
         "outputs/TrainerAuxSystems.cs",
         "outputs/TrainerRouteDOS.cs",
         "outputs/TrainerAutovedenieController.cs",
+        "outputs/TrainerTrainBrakeCycle.cs",
         "outputs/TrainerAutovedenieInterface.cs",
         "outputs/TrainerAutovedenieNativeBridge.cs",
         "outputs/TrainerAutovedenieHost.cs",
@@ -69,7 +74,8 @@
         "outputs/TrainerMarkupSignalSource.cs",
         "outputs/TrainerMarkupHost.cs",
         "outputs/TrainerKlubSafetyBinding.cs",
-        "outputs/TrainerNativeVirtualPult.cs"
+        "outputs/TrainerNativeVirtualPult.cs",
+        "outputs/TrainerSandAirInput.cs"
       ]
     }
   },
@@ -723,8 +729,51 @@
         "vigilance"
       ],
       "limitations": "Memory-only configuration, actual native hardware pointers and registry are not assigned."
+    },
+    {
+      "id": "TrainerNativeBrakeRelease",
+      "type": "csharp",
+      "path": "outputs/TrainerNativeBrakeRelease.cs",
+      "role": "Связывание обработанного состояния SA47 с native потребителем в ограниченной области вызова, восстановление входа и орган управления без фиксации",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [
+        "TrainerIntegrationHost",
+        "TrainerNativeVirtualPult"
+      ],
+      "limitations": "Реализация после baseline a04ed4b ещё дорабатывается. Полная приёмка partial: отмена в 0, native ТМ > 5 и UI pending; пневматический расход и минимальное давление KR22 не откалиброваны. SHA, byte, owner и lifetime guards ограничивают применимость конкретными DLL.",
+      "documentation": "dev/docs/RE_PART1_AUDIT.md"
+    },
+    {
+      "id": "TrainerTrainBrakeCycle",
+      "type": "csharp",
+      "path": "outputs/TrainerTrainBrakeCycle.cs",
+      "role": "Автомат состояний цикла поездного тормоза по наблюдениям и явным запросам; без записи native давления и силы",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [],
+      "limitations": "Функциональные сценарии и полная приёмка АВП имеют отдельную область доказательства; исходный файл не заменяет нормативную приёмку всей модели."
+    },
+    {
+      "id": "TrainerSandAirInput",
+      "type": "csharp",
+      "path": "outputs/TrainerSandAirInput.cs",
+      "role": "Ограниченная публикация команды песка штатному потребителю воздуха с восстановлением входа и guards",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [
+        "TrainerIntegrationHost"
+      ],
+      "limitations": "Реконструированная связь виртуального хоста AF.Pesok → Pos.Pesok. Это не обнаруженный исходный publisher штатного main; сцепление и весь алгоритм песка не приняты по одной связи."
     }
   ],
   "manual_applicability": "Точная ревизия РЭ/комплектация 2ЭС6 начиная с №137 не установлена; кандидатные проверки не являются полной нормативной приемкой.",
-  "documentation": "dev/docs/MODULES.md"
+  "documentation": "dev/docs/MODULES.md",
+  "profiles_source": "dev/config/environment.json#/profiles"
 }

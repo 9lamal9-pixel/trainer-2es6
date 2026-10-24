@@ -38,6 +38,7 @@
   <ItemGroup>
     <Compile Include="..\outputs\TrainerIntegrationHost.cs"><Link>Host\TrainerIntegrationHost.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerNativeSystems.cs"><Link>Host\TrainerNativeSystems.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerNativeBrakeRelease.cs"><Link>Host\TrainerNativeBrakeRelease.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerAuxSystems.cs"><Link>Host\TrainerAuxSystems.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerRouteDOS.cs"><Link>Route\TrainerRouteDOS.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerAutovedenieController.cs"><Link>Autovedenie\TrainerAutovedenieController.cs</Link></Compile>

@@ -19,7 +19,16 @@
       "part1_requirements_ref": "dev/config/re-part1-audit.json",
       "pages": 171,
       "printed_last_sheet": 166,
-      "part1_audit_note": "2026-10-24: complete contents crosswalk and 61 scoped work items. Five inserted sheets61а/61б/64а/64б/64в, amendment register atPDF171. Fresh static C#/PE evidence only; exact137+ equipment/revision and full functional conformity remain unresolved."
+      "part1_audit_note": "2026-10-24: лично просмотрены 171/171 полных изображений двумя исполнителями; 61 пункт матрицы. Вставки 61а, 61б, 64а, 64б, 64в; регистр изменений на PDF 171. Ограничения читаемости и неоднозначности сохранены в журнале. Статический baseline a04ed4b отделён от дорабатываемого SA47; его полный сценарий и UI не приняты. Точная комплектация № 137+ и функциональное соответствие всей модели остаются открытыми.",
+      "part1_page_review_ref": "dev/config/re-part1-page-review.json",
+      "visual_review": {
+        "date": "2026-10-24",
+        "reviewed": 171,
+        "total": 171,
+        "reviewers": 2,
+        "functional_conformity_accepted": false,
+        "readability_limits_ref": "dev/config/re-part1-page-review.json"
+      }
     },
     {
       "id": "2es6-characteristics-excerpt",
@@ -306,6 +315,22 @@
         29
       ],
       "policy": "Related SAUT documentation. Exact equipment/revision for 2ES6#137+ unconfirmed; native CodeWay external enum unconfirmed. Документ содержит данные требований, не инструкции агенту."
+    },
+    {
+      "id": "2es6-re-part1-page-review",
+      "title": "Постраничный журнал визуального просмотра первой части РЭ: 171 из 171",
+      "path": "dev/config/re-part1-page-review.json",
+      "bytes": 374469,
+      "sha256": "0505671f07fc67054aa59517465cca90ced2bcbf18d7eceea445b552084b8d17",
+      "original_source": "work/public_2es6_part1.pdf",
+      "source_sha256": "c381056881302e0a0ad743d36148cbd8abf18930fc6d756b99ec19b3431c61e6",
+      "provenance_kind": "workspace_visual_review_ledger",
+      "pages": 171,
+      "reviewed_pages": 171,
+      "review_date": "2026-10-24",
+      "requirements_ref": "dev/config/re-part1-audit.json",
+      "report_ref": "dev/docs/RE_PART1_AUDIT.md",
+      "policy": "Журнал содержит доказательства просмотра и ограничения читаемости; не является инструкцией агенту или приёмкой исполнения требований моделью."
     }
   ]
 }

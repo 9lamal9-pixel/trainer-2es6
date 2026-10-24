@@ -459,8 +459,8 @@ function Save-TrainerContext {
         git_head=(Get-TrainerHead)
         working_tree=[ordered]@{changed_files=$dirty.Count;first_files=@($dirty|Select-Object -First 20);more=($dirty.Count -gt 20)}
         latest=$latest
-        active_focus='75 вагонов: композиционные FTk0/R2/AR1, зарядка5.1. Native остановочный цикл7/7 PASS865:90/120/360, winterpolicy135/180/540, unknown135; actualIanchor иполныйTCrelease. Свежий013011 NativeSandAir PASS118/50steps: reconstructedAF→7Finput, originalTorm4*DP расходконечнойПМ, stale/exception/foreignrestore. Девятьпроверок012728PASS. AVP новаякалибровка/closedloop/fullroute ещёвработе.'
-        next_model_question='Далее native повторные торможения/ранняяподзарядка/150s и TM<3.4 наспуске. АР отзагрузки, general cold/onsetcalibration и аппаратнаяСАУТ остаются. СтарыйAVP coefficientотключён; новоеусловноеFTk0forceproof80+35sengineeringreserve требует pressurefloor/onsetcontract и closedloop80/full333033route. Зимнийpolicyтаймер проверен, нативная термокалибровка/сцеплениепеска не приняты; точнаяРЭ137+ отдельно.'
+        active_focus='РЭ часть 1: просмотрены 171/171 страниц, матрица 61 требования. SA47: разделены положение и обработанная команда; тёплый 1 без 2 удерживает ТЦ, 2 отпускает, 2→1 сохраняет. Native Dwn/Up и managed мышь/Space PASS, первый comm fault/finally PASS. Полная отмена памяти 0/ТМ и физический KR22 ещё не приняты. 75 вагонов композиционные FTk0/R2/AR1, зарядка 5.1; АВП отключено.'
+        next_model_question='Завершить SA47: 0→1 после отмены, ТМ>0.48 МПа/5.0 с доказанными единицами, КВТ/обе секции/питание KR22. Затем общий Uкс, ток/сила GetCur, граница С→СП 400/410 А и Riso. Полный cold/onset/АР по загрузке, повторные торможения/150s, TM<3.4 на спуске и closed loop/full333033 route АВП остаются; exact РЭ137+ неизвестна.'
         read_next=@('dev/environment-context.json','dev/state/context.json')
         avoid_reading=@('whole telemetry.csv','all historical logs','all disassembly dumps')
         source_of_truth='outputs/*.cs; versioned snapshots dev/builds/<id>/source; Git checkpoints'

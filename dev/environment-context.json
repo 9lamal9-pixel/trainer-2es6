@@ -36,11 +36,11 @@
   },
   "source_profiles": {
     "integration": {
-      "count": 26,
+      "count": 27,
       "sources_ref": "dev/config/environment.json#/profiles/integration/sources"
     },
     "candidate": {
-      "count": 33,
+      "count": 34,
       "sources_ref": "dev/config/environment.json#/profiles/candidate/sources"
     },
     "default": "candidate"
@@ -76,7 +76,8 @@
     "portable_setup": "dev/docs/PORTABLE_SETUP.md",
     "portable_release": "dev/config/portable-release.json",
     "re_part1_audit": "dev/docs/RE_PART1_AUDIT.md",
-    "re_part1_requirements": "dev/config/re-part1-audit.json"
+    "re_part1_requirements": "dev/config/re-part1-audit.json",
+    "re_part1_page_review": "dev/config/re-part1-page-review.json"
   },
   "commands": {
     "entrypoint": ".\\trainer.cmd",
@@ -212,6 +213,18 @@
       "report": "dev/docs/SAFETY_MARKUP_RB_AUDIT.md",
       "limit": "Real RB/RBS cab and alternative RBP consumer input; physical RBP hardware excluded."
     },
+    "locomotive_brake_release": {
+      "probes": [
+        "Sa47Release",
+        "Sa47ReleaseFault",
+        "Sa47NativeButton",
+        "CandidateAirHost",
+        "AirControlIsolation",
+        "VcuAirSequence"
+      ],
+      "report": "dev/docs/RE_PART1_AUDIT.md",
+      "limit": "Prepared warm SA47 enum/processed Boolean, actual native Dwn/Up and managed mouse/Space; original widget/raw input restored. Full latch cancellation0/TM, independent KVT matrix, KR22 actuator supply/consumption and minimum pressure remain unaccepted."
+    },
     "autovedenie": {
       "probes": [
         "AutovedenieController",
@@ -275,7 +288,32 @@
     },
     "three_d_evidence": "dev/runs/world3d-investigation-20261013/result.json",
     "current_brake_configuration": "dev/config/brake-rules-compliance.json",
-    "autovedenie_calibration_status": "LegacyFTk1/R1 calibration remains invalid. CurrentFTk0/R2 prepared80 directforce and16.5s warmonset passed; new35s delayplanner accounts forcoast acceleration. Cold/repeated onset, pressurefloorguardcontract, closed-loop80/fullroute pending. Native stoppedcycle matrix andoriginal sandairconsumer nowverified; new calibration/closedloop/AR/lowTMprocedure stillpending."
+    "autovedenie_calibration_status": "LegacyFTk1/R1 calibration remains invalid. CurrentFTk0/R2 prepared80 directforce and16.5s warmonset passed; new35s delayplanner accounts forcoast acceleration. Cold/repeated onset, pressurefloorguardcontract, closed-loop80/fullroute pending. Native stoppedcycle matrix andoriginal sandairconsumer nowverified; new calibration/closedloop/AR/lowTMprocedure stillpending.",
+    "re_part1_audit": {
+      "report": "dev/docs/RE_PART1_AUDIT.md",
+      "requirements": "dev/config/re-part1-audit.json",
+      "page_review": "dev/config/re-part1-page-review.json",
+      "baseline_commit": "a04ed4b144d9ca49ef08018377566aec722a8204",
+      "visual_review": {
+        "date": "2026-10-24",
+        "reviewed": 171,
+        "total": 171,
+        "reviewers": 2
+      },
+      "functional_conformity_accepted": false,
+      "source_limits": "Мелкие надписи и распиновки местами не читаются; смешанные редакции и точная комплектация № 137+ не установлены. Буквальный +50 диапазона ПСН не трактуется как ±50.",
+      "SA47": {
+        "status": "partial",
+        "implementation": "outputs/TrainerNativeBrakeRelease.cs",
+        "baseline_discrepancy_preserved": true,
+        "pending": [
+          "cancellation to position 0",
+          "native TM > 5 cancellation with explicit units and RE mapping",
+          "momentary operator UI test",
+          "both sections, KVT preservation and pneumatic actuation"
+        ]
+      }
+    }
   },
   "backlog": {
     "priority": "Complete locomotive cold preparation remains unverified: diagnostic cold pneumatic chain now charges PM successfully, but actuator demand, exact equipment and calibration remain unresolved.",
