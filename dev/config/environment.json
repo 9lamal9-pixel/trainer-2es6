@@ -32,6 +32,7 @@
         "outputs/TrainerKvtProfile.cs",
         "outputs/TrainerTwoSectionAirChain.cs",
         "outputs/TrainerPneumaticNetworkCandidate.cs",
+        "outputs/TrainerConsistSeparationNative.cs",
         "outputs/TrainerTrainPressureView.cs",
         "outputs/TrainerSafetyInputContext.cs",
         "outputs/TrainerSafetyContexts.cs",

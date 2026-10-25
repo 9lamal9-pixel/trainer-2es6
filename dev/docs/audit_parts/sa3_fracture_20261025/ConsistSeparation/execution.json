@@ -1,0 +1,22 @@
+{
+  "id": "ConsistSeparation",
+  "scope": "Prepared40km/h/prestrain overload exceeds unchanged4MN profile. Actual native sleeves/pressures/VR, two-sided vent/brake, link0 BVR2 mapping, cocks preserved, read-only render, foreign-input refusal and close restoration. No genuine cab rupture/fullroute/derailment or universal SA3 ultimate acceptance.",
+  "status": "passed",
+  "artifacts": [
+    {
+      "path": "Trainer_consist_separation_validation.json",
+      "sha256": "E2CF9A32902774C13536CAE2B42741DC6AE78B0FAFBD342A2DCB2B815F793B3D"
+    }
+  ],
+  "build_id": "build-20261025T123343593Z-14fb3eef",
+  "pid": 10820,
+  "exit_code": 0,
+  "session": {
+    "id": "20261025T123348349Z_p10820_e0671e0d2d1e40cca48debc0a71839dc",
+    "state": "closed",
+    "exceptions": 0,
+    "logging_failures": 0,
+    "source_build_id": "build-20261025T123343593Z-14fb3eef"
+  },
+  "finished_utc": "2026-10-25T12:34:25.9446695Z"
+}

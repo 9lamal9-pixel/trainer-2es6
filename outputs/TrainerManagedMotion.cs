@@ -24,6 +24,20 @@ partial class TrainerIntegrationHost {
     double[][] managedGradeSegments, managedCurveSegments;
     partial void DescribeManagedBrakeOracleOverlay(ref IntPtr cave, ref IntPtr source);
     partial void ReadScientificBogiePressures(double[] gaugeKgfCm2,ref bool complete);
+    partial void SupportsNativeConsistSeparation(ref bool supported);
+    partial void ApplyNativeConsistSeparation(int linkIndex,ref bool applied);
+    partial void ValidateNativeConsistSeparation();
+    partial void RestoreNativeConsistSeparation();
+    readonly bool[] managedSeparatedAirLinks=new bool[75];
+    void SyncManagedConsistSeparation() {
+        ValidateNativeConsistSeparation();
+        for(int i=0;i<managedSeparatedAirLinks.Length;i++)if(managedMotion.IsCouplerBroken(i)&&!managedSeparatedAirLinks[i]) {
+            bool applied=false;ApplyNativeConsistSeparation(i,ref applied);
+            if(!applied)throw new InvalidOperationException("Broken SA-3 has no pneumatic separation adapter");
+            managedSeparatedAirLinks[i]=true;
+            Log("SA-3 fracture link="+(i+1)+" demanded_tension_N="+managedMotion.GetCouplerFailureTensionNewtons(i).ToString("R",System.Globalization.CultureInfo.InvariantCulture)+" mechanical_t="+managedMotion.GetCouplerFailureTimeSeconds(i).ToString("R",System.Globalization.CultureInfo.InvariantCulture)+"; hoses separated; actual cocks retained; parts="+managedMotion.ComponentCount);
+        }
+    }
 
     void InitializeManagedMotion(IntPtr module) { using(TrainerManagedFloatingScope.Enter()) InitializeManagedMotionCore(module); }
     void InitializeManagedMotionCore(IntPtr module) {
@@ -36,6 +50,11 @@ partial class TrainerIntegrationHost {
         var vehicles=scientificMechanics.CreateVehicles();managedEffectiveMassKg=0;
         foreach(var vehicle in vehicles)managedEffectiveMassKg+=vehicle.MassKg*(1+vehicle.RotaryInertiaGamma);
         managedMotion = new LongitudinalTrainDynamicsSolver(vehicles,scientificMechanics.CreateCouplers());
+        bool separationSupported=false;SupportsNativeConsistSeparation(ref separationSupported);
+        if(scientificMechanics.coupler_integrity.enabled&&separationSupported)
+            managedMotion.ConfigureCouplerIntegrity(scientificMechanics.coupler_integrity.nominal_tensile_fracture_N,scientificMechanics.coupler_integrity.design_compression_N);
+        else if(scientificMechanics.coupler_integrity.enabled)
+            Log("SA-3 fracture disabled in integration-only profile: native hose separation adapter unavailable");
         Log("LTD init: providers");
         managedMotion.SetBrakeForceProvider(delegate(int i, double v) {
             return scientificBrakeFrame.CapacityNewtons(i,v);
@@ -111,6 +130,7 @@ partial class TrainerIntegrationHost {
         managedMotion.SetVehicleForce(0,electricalBrake ? 0 : force*10000.0);
         managedMotion.SetVehicleDynamicBrakeForceMagnitude(0,electricalBrake ? Math.Abs(force)*10000.0 : 0);
         managedMotion.Step(dt);
+        SyncManagedConsistSeparation();
         managedMotionFrames++;
     }
 
@@ -174,6 +194,7 @@ partial class TrainerIntegrationHost {
     }
     void CloseManagedMotion() {
         CloseTrainForceMode();
+        RestoreNativeConsistSeparation();
         TrainerManagedFloatingScope.DisposeRetainedOwners();
         if(TrainerManagedFloatingScope.HasRetainedOwners)throw new InvalidOperationException("Native close refused while a floating-point environment remains owned");
         TrainerNativeBrakeForceProvider.DisposeRetainedOwners();

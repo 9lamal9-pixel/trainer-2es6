@@ -126,6 +126,25 @@ namespace RailwayDynamics.Simulation {
         private double _time, _externalWork, _dissipated;
         private bool _legacyUsed;
         private bool _stepping, _runningResistanceEnabled;
+        // Irreversible tensile fracture. Compression overload is a warning,
+        // not a command to pull contacting vehicles apart.
+        private readonly bool[] _broken, _trialBroken;
+        private readonly double[] _failureDemand, _failureTime, _trialFailureDemand;
+        private readonly bool[] _compressionOverload;
+        private double _fractureTensionLimitN, _designCompressionLimitN;
+        public int BrokenCouplerCount { get { int n=0;foreach(bool b in _broken)if(b)n++;return n; } }
+        public int ComponentCount { get { return BrokenCouplerCount+1; } }
+        public double FractureTensionLimitN { get { return _fractureTensionLimitN; } }
+        public void ConfigureCouplerIntegrity(double tensileFailureN,double compressionDesignN) {
+            EnsureInputsMutable();Nonnegative(tensileFailureN,"tensileFailureN");Nonnegative(compressionDesignN,"compressionDesignN");
+            _fractureTensionLimitN=tensileFailureN;_designCompressionLimitN=compressionDesignN;
+        }
+        public bool IsCouplerBroken(int index) { CheckLink(index);return _broken[index]; }
+        public bool HasCompressionOverload(int index) { CheckLink(index);return _compressionOverload[index]; }
+        public double GetCouplerFailureTensionNewtons(int index) { CheckLink(index);return _failureDemand[index]; }
+        public double GetCouplerFailureTimeSeconds(int index) { CheckLink(index);return _failureTime[index]; }
+        public int GetVehicleComponentIndex(int index) { CheckIndex(index);int n=0;for(int i=0;i<index;i++)if(_broken[i])n++;return n; }
+        private void CheckLink(int i) { if(i<0||i>=_couplerForces.Length)throw new ArgumentOutOfRangeException("index"); }
         // Observation only: freeze the last accepted force endpoint, because
         // input setters may change live node fields before the next Step.
         private readonly VehicleDynamicsNode[] _lastAcceptedForceVehicles;
@@ -152,6 +171,9 @@ namespace RailwayDynamics.Simulation {
             _waveSpeedAirMps = waveSpeedAirMps;
             _couplerStates = new CouplerState[vehicles.Length - 1];
             _couplerForces = new double[vehicles.Length - 1];
+            _broken=new bool[vehicles.Length-1];_trialBroken=new bool[vehicles.Length-1];
+            _compressionOverload=new bool[vehicles.Length-1];
+            _failureDemand=new double[vehicles.Length-1];_failureTime=new double[vehicles.Length-1];_trialFailureDemand=new double[vehicles.Length-1];
             int n = vehicles.Length;
             _lastAcceptedForceVehicles = new VehicleDynamicsNode[n];
             _lastAcceptedForceCouplers = new double[n - 1];
@@ -232,6 +254,9 @@ namespace RailwayDynamics.Simulation {
                 front -= _vehicles[i].LengthM;
             }
             _time = _externalWork = _dissipated = 0;
+            // Existing damage is an initial condition of the new time epoch,
+            // not a future event stamped with the previous epoch's clock.
+            for(int i=0;i<_broken.Length;i++)if(_broken[i])_failureTime[i]=0;
             LastSubstepCount = LastRejectedSubstepCount = 0;
             _legacyUsed = false; _legacyCommands.Clear(); _legacyCommands.Add(new LegacyCommand { Time = 0, Reduction = 0 });
             InitializeCouplers();
@@ -288,6 +313,8 @@ namespace RailwayDynamics.Simulation {
             var savedVehicles = (VehicleDynamicsNode[])_vehicles.Clone();
             var savedStates = (CouplerState[])_couplerStates.Clone();
             var savedForces = (double[])_couplerForces.Clone();
+            var savedBroken=(bool[])_broken.Clone();var savedCompression=(bool[])_compressionOverload.Clone();
+            var savedFailureDemand=(double[])_failureDemand.Clone();var savedFailureTime=(double[])_failureTime.Clone();
             double savedTime = _time, savedWork = _externalWork, savedDissipation = _dissipated;
             bool savedForceAvailable = _lastAcceptedForceAvailable;
             double savedForceDt = _lastAcceptedForceDt, savedForceTime = _lastAcceptedForceTime;
@@ -312,6 +339,8 @@ namespace RailwayDynamics.Simulation {
             } catch {
                 Array.Copy(savedVehicles, _vehicles, VehicleCount); Array.Copy(savedStates, _couplerStates, _couplerStates.Length);
                 Array.Copy(savedForces, _couplerForces, _couplerForces.Length);
+                Array.Copy(savedBroken,_broken,_broken.Length);Array.Copy(savedCompression,_compressionOverload,_broken.Length);
+                Array.Copy(savedFailureDemand,_failureDemand,_broken.Length);Array.Copy(savedFailureTime,_failureTime,_broken.Length);
                 _time = savedTime; _externalWork = savedWork; _dissipated = savedDissipation;
                 _lastAcceptedForceAvailable = savedForceAvailable; _lastAcceptedForceDt = savedForceDt; _lastAcceptedForceTime = savedForceTime;
                 if (savedForceAvailable) {
@@ -336,6 +365,10 @@ namespace RailwayDynamics.Simulation {
         }
 
         private bool TrySubstep(double h, bool legacy) {
+            Array.Copy(_broken,_trialBroken,_broken.Length);Array.Copy(_failureDemand,_trialFailureDemand,_broken.Length);
+            return TryIntegritySubstep(h,legacy,0);
+        }
+        private bool TryIntegritySubstep(double h, bool legacy,int fracturePass) {
             int n = VehicleCount;
             double[] oldPressures = legacy ? new double[n] : null;
             for (int i = 0; i < n; i++) {
@@ -391,6 +424,20 @@ namespace RailwayDynamics.Simulation {
                 if (legacy) for (int i = 0; i < n; i++) _vehicles[i].BrakeCylinderPressurePa = oldPressures[i];
                 return false;
             }
+            bool fracture=false;
+            if(_fractureTensionLimitN>0)for(int i=0;i<_trialForces.Length;i++) {
+                if(!_trialBroken[i]&&-_trialForces[i]>_fractureTensionLimitN) {
+                    _trialBroken[i]=true;_trialFailureDemand[i]=-_trialForces[i];fracture=true;
+                }
+            }
+            if(fracture) {
+                // Re-solve this substep with the failed tensile constraints
+                // removed. A rejected Newton/adaptive attempt never breaks a
+                // real link. Event timing is resolved to the mechanical h.
+                if(fracturePass>=_broken.Length)throw new InvalidOperationException("Fracture topology solve bound");
+                if(legacy)for(int i=0;i<n;i++)_vehicles[i].BrakeCylinderPressurePa=oldPressures[i];
+                return TryIntegritySubstep(h,legacy,fracturePass+1);
+            }
             for (int i = 0; i < n; i++) {
                 double drag = Clamp(External(i) + _couplerNet[i] - _effectiveMass[i] * (_solution[i] - _velocity[i]) / h, -_passiveCapacity[i], _passiveCapacity[i]);
                 double sign = Math.Sign(drag), amount = Math.Abs(drag);
@@ -406,6 +453,11 @@ namespace RailwayDynamics.Simulation {
             }
             Array.Copy(_trialStates, _couplerStates, _trialStates.Length);
             Array.Copy(_trialForces, _couplerForces, _trialForces.Length);
+            for(int i=0;i<_broken.Length;i++) {
+                if(!_broken[i]&&_trialBroken[i]){_failureDemand[i]=_trialFailureDemand[i];_failureTime[i]=_time+h;}
+                _broken[i]=_trialBroken[i];
+                if(_designCompressionLimitN>0&&_trialForces[i]>_designCompressionLimitN)_compressionOverload[i]=true;
+            }
             _externalWork += work; _dissipated += Math.Max(0, oldEnergy + work - energy);
             Array.Copy(_vehicles, _lastAcceptedForceVehicles, VehicleCount);
             Array.Copy(_couplerForces, _lastAcceptedForceCouplers, _couplerForces.Length);
@@ -428,6 +480,13 @@ namespace RailwayDynamics.Simulation {
             for (int i = 0; i < _couplerForces.Length; i++) {
                 double dx = Deflection(i) + h * (velocity[i + 1] - velocity[i]);
                 CouplerState state = _couplerStates[i];
+                if(_trialBroken[i]) {
+                    // A broken coupling cannot carry tension or relatch. Keep
+                    // only unilateral compressive contact to prevent vehicles
+                    // passing through one another on subsequent recontact.
+                    dx=Math.Max(0,dx);
+                    if(!_broken[i])state=_draftGearModel.InitializeState(0);
+                }
                 double force = _draftGearModel.ComputeCouplerForce(dx, velocity[i + 1] - velocity[i], ref state);
                 RequireFinite(force, "coupler force");
                 _trialStates[i] = state; _trialForces[i] = force;
@@ -452,7 +511,7 @@ namespace RailwayDynamics.Simulation {
         private double External(int i) { return _externalTrial[i]; }
         private double Deflection(int i) { return .5 * (_vehicles[i].LengthM + _vehicles[i + 1].LengthM) - (_vehicles[i].PositionX - _vehicles[i + 1].PositionX); }
         private void InitializeCouplers() {
-            for (int i = 0; i < _couplerStates.Length; i++) { _couplerStates[i] = _draftGearModel.InitializeState(Deflection(i)); _couplerForces[i] = 0; }
+            for (int i = 0; i < _couplerStates.Length; i++) { _couplerStates[i] = _draftGearModel.InitializeState(_broken[i]?Math.Max(0,Deflection(i)):Deflection(i)); _couplerForces[i] = 0; }
             RequireFinite(TotalEnergyJ, "initial total energy");
         }
         private double StoredCouplerEnergy(CouplerState[] states) { double sum = 0; foreach (var state in states) sum += _draftGearModel.GetStoredEnergy(state); return sum; }

@@ -1,0 +1,15 @@
+{
+  "id": "CouplerFracture",
+  "scope": "Explicit nominal4MN scenario, not universal SA3 ultimate. Strict threshold, irreversible topology, independent components, unilateral recontact, impulse/energy, accepted-step rollback, timestep event convergence.",
+  "status": "passed",
+  "artifacts": [
+    {
+      "path": "Trainer_coupler_fracture_validation.json",
+      "sha256": "5D5B96668127A036B964505BB649890E42778F5FDC79FB9C55E74BCEFFFCF7A3"
+    }
+  ],
+  "build_id": "build-20261025T123425968Z-66dbf37e",
+  "pid": 28200,
+  "exit_code": 0,
+  "finished_utc": "2026-10-25T12:34:27.5758266Z"
+}

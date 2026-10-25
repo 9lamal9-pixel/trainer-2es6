@@ -1,0 +1,15 @@
+{
+  "id": "TrainForceData",
+  "scope": "Immutable actual last-substep force balance; coupler action/reaction signs, brake impulses, reset, pending input isolation, failed-step rollback and bounded epoch history. No native equipment or wave speed calibration.",
+  "status": "passed",
+  "artifacts": [
+    {
+      "path": "Trainer_train_force_data_validation.json",
+      "sha256": "96C302C07D8B0BEBFDDF3064F5C3CEDF6297DFE3F1480D27198F0139ACC20288"
+    }
+  ],
+  "build_id": "build-20261025T123427587Z-a7960480",
+  "pid": 3532,
+  "exit_code": 0,
+  "finished_utc": "2026-10-25T12:34:29.1438550Z"
+}

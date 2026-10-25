@@ -1,0 +1,22 @@
+{
+  "id": "TrainForceLive",
+  "scope": "Real electrical/pneumatic start and physical KM V/IV service feed76body/75link force snapshots. Applied balance and read-only UI/replay/pause/render/reset. Teaching green/software RBS declared; no release/stop, factory force/wave calibration or complete RE acceptance.",
+  "status": "passed",
+  "artifacts": [
+    {
+      "path": "Trainer_train_force_live_validation.json",
+      "sha256": "652261F0D949484C38F25BDBAAFDD084F89A9E35A18FE2C58EE499D986318A83"
+    }
+  ],
+  "build_id": "build-20261025T123443719Z-2b79aa6d",
+  "pid": 36504,
+  "exit_code": 0,
+  "session": {
+    "id": "20261025T123447548Z_p36504_a0081163cbb54752bd817c56f106373c",
+    "state": "closed",
+    "exceptions": 0,
+    "logging_failures": 0,
+    "source_build_id": "build-20261025T123443719Z-2b79aa6d"
+  },
+  "finished_utc": "2026-10-25T12:35:21.6292703Z"
+}

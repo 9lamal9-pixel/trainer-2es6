@@ -9,6 +9,7 @@ using RailwayDynamics.Braking;
 // Explicit literature/standard reference scenario, selected by the user.
 // Equipment identity is not inferred from a vehicle's mass or the native AR bit.
 internal sealed class TrainerScientificMechanicsProfile {
+    public ScientificCouplerIntegrity coupler_integrity {get;set;}
     public TrainerScientificMechanicsProfile() {}
     public int schema_version {get;set;}
     public int wagon_count {get;set;}
@@ -33,6 +34,8 @@ internal sealed class TrainerScientificMechanicsProfile {
             profile.wagon_reference_gamma<.03 || profile.wagon_reference_gamma>.04)
             throw new InvalidOperationException("Rotating inertia is outside the documented reference scenario");
         profile.wagon_brakes.CreateRigging();profile.locomotive_bogie_brakes.CreateRigging();
+        if(profile.coupler_integrity==null)throw new InvalidOperationException("Missing explicit SA-3 integrity profile");
+        profile.coupler_integrity.Validate();
         if(profile.wagon_brakes.ParsedShoeType!=BrakeShoeType.Composite || profile.wagon_brakes.cylinders!=2 ||
             profile.wagon_brakes.shoes!=8 || profile.locomotive_bogie_brakes.cylinders!=4 ||
             profile.locomotive_bogie_brakes.shoes!=8)
@@ -52,6 +55,22 @@ internal sealed class TrainerScientificMechanicsProfile {
     }
     public FrictionDraftGearModel CreateCouplers() { return FrictionDraftGearModel.CreateScientificSh2VPairProfile(); }
     static void PositiveFinite(double value,string name) {if(Double.IsNaN(value)||Double.IsInfinity(value)||value<=0)throw new ArgumentOutOfRangeException(name);}
+}
+
+internal sealed class ScientificCouplerIntegrity {
+    public bool enabled {get;set;}
+    public string id {get;set;}
+    public double design_tension_N {get;set;}
+    public double design_compression_N {get;set;}
+    public double nominal_tensile_fracture_N {get;set;}
+    public string fracture_basis {get;set;}
+    public void Validate() {
+        if(id!="sa3-freight-assumed-integrity-v1"||fracture_basis!="explicit_engineering_scenario_not_normative_ultimate")throw new InvalidOperationException("Unidentified SA-3 fracture scenario");
+        foreach(double x in new[]{design_tension_N,design_compression_N,nominal_tensile_fracture_N})
+            if(Double.IsNaN(x)||Double.IsInfinity(x)||x<=0)throw new InvalidOperationException("Invalid SA-3 load limit");
+        if(design_tension_N!=2000000||design_compression_N!=2500000||nominal_tensile_fracture_N<design_tension_N)
+            throw new InvalidOperationException("SA-3 design/fracture limits confused");
+    }
 }
 
 internal sealed class ScientificBrakeEquipment {

@@ -83,6 +83,7 @@
     <Compile Include="..\outputs\TrainerSessionLogging.cs"><Link>Diagnostics\TrainerSessionLogging.cs</Link></Compile>
   </ItemGroup>
   <ItemGroup Condition=" '$(TrainerProfile)' == 'candidate' ">
+    <Compile Include="..\outputs\TrainerConsistSeparationNative.cs"><Link>Pneumatics\TrainerConsistSeparationNative.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerAirNetwork.cs"><Link>Pneumatics\TrainerAirNetwork.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerControlAir.cs"><Link>Pneumatics\TrainerControlAir.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerBtoNetwork.cs"><Link>Pneumatics\TrainerBtoNetwork.cs</Link></Compile>

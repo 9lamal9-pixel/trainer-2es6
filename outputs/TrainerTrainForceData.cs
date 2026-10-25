@@ -7,6 +7,7 @@ using RailwayDynamics.Simulation;
 public sealed class VehicleForceSample {
     public int Index { get; private set; }
     public bool IsLocomotive { get; private set; }
+    public int ComponentIndex { get; private set; }
     public double PhysicalMassKg { get; private set; }
     public double EffectiveMassKg { get; private set; }
     public double LengthM { get; private set; }
@@ -30,8 +31,8 @@ public sealed class VehicleForceSample {
     public double BalanceToleranceN { get; private set; }
 
     internal VehicleForceSample(int index, VehicleDynamicsNode node, double headFront,
-        double frontCoupler, double rearCoupler, bool actual, double stepSeconds, double velocityScale) {
-        Index = index; IsLocomotive = node.IsLocomotive; PhysicalMassKg = node.MassKg;
+        double frontCoupler, double rearCoupler, bool actual, double stepSeconds, double velocityScale, int componentIndex) {
+        Index = index; IsLocomotive = node.IsLocomotive; ComponentIndex = componentIndex; PhysicalMassKg = node.MassKg;
         EffectiveMassKg = node.MassKg * (1 + node.RotaryInertiaGamma);
         LengthM = node.LengthM; CentrePositionM = node.PositionX;
         FrontPositionM = node.PositionX + node.LengthM * .5;
@@ -71,6 +72,18 @@ public sealed class VehicleForceSample {
 public sealed class TrainForceSample {
     readonly VehicleForceSample[] vehicles;
     readonly double[] linkTension;
+    readonly bool[] brokenCouplers, compressionOverloads;
+    readonly double[] failureTension, failureTimes;
+    readonly int[] componentIndices;
+    public int BrokenCouplerCount { get; private set; }
+    public int ComponentCount { get; private set; }
+    public int CompressionOverloadCount { get; private set; }
+    public double FractureTensionLimitN { get; private set; }
+    public bool[] BrokenCouplers { get { return (bool[])brokenCouplers.Clone(); } }
+    public bool[] CompressionOverloads { get { return (bool[])compressionOverloads.Clone(); } }
+    public double[] CouplerFailureTensionN { get { return (double[])failureTension.Clone(); } }
+    public double[] CouplerFailureTimeSeconds { get { return (double[])failureTimes.Clone(); } }
+    public int[] VehicleComponentIndices { get { return (int[])componentIndices.Clone(); } }
     public long Epoch { get; private set; }
     public double TimeSeconds { get; private set; }
     public double AcceptedSubstepSeconds { get; private set; }
@@ -105,12 +118,29 @@ public sealed class TrainForceSample {
         if (nodes.Length == 0 || rear.Length != nodes.Length - 1 || h < 0 || HasAcceptedStep && h <= 0)
             throw new InvalidOperationException("Inconsistent accepted force endpoint.");
         vehicles = new VehicleForceSample[nodes.Length]; linkTension = new double[rear.Length];
+        brokenCouplers = new bool[rear.Length]; compressionOverloads = new bool[rear.Length];
+        failureTension = new double[rear.Length]; failureTimes = new double[rear.Length];
+        componentIndices = new int[nodes.Length]; FractureTensionLimitN = kernel.FractureTensionLimitN;
+        RequireFinite(FractureTensionLimitN);
+        for (int i = 0; i < rear.Length; i++) {
+            brokenCouplers[i] = kernel.IsCouplerBroken(i);
+            compressionOverloads[i] = kernel.HasCompressionOverload(i);
+            failureTension[i] = kernel.GetCouplerFailureTensionNewtons(i);
+            failureTimes[i] = kernel.GetCouplerFailureTimeSeconds(i);
+            RequireFinite(failureTension[i]); RequireFinite(failureTimes[i]);
+            if (brokenCouplers[i]) BrokenCouplerCount++;
+            if (compressionOverloads[i]) CompressionOverloadCount++;
+        }
+        ComponentCount = BrokenCouplerCount + 1;
+        for (int i = 0; i < nodes.Length; i++) componentIndices[i] = kernel.GetVehicleComponentIndex(i);
+        if (ComponentCount != kernel.ComponentCount || BrokenCouplerCount != kernel.BrokenCouplerCount)
+            throw new InvalidOperationException("Inconsistent coupler topology observation.");
         double headFront = nodes[0].PositionX + nodes[0].LengthM * .5, velocityScale = 1;
         foreach (var node in nodes) velocityScale = Math.Max(velocityScale, Math.Abs(node.VelocityV));
         for (int i = 0; i < rear.Length; i++) { RequireFinite(rear[i]); linkTension[i] = HasAcceptedStep ? -rear[i] : 0; }
         for (int i = 0; i < nodes.Length; i++) {
             double front = i == 0 ? 0 : -rear[i - 1], back = i == rear.Length ? 0 : rear[i];
-            vehicles[i] = new VehicleForceSample(i, nodes[i], headFront, front, back, HasAcceptedStep, h, velocityScale);
+            vehicles[i] = new VehicleForceSample(i, nodes[i], headFront, front, back, HasAcceptedStep, h, velocityScale, componentIndices[i]);
             TotalPhysicalMassKg += vehicles[i].PhysicalMassKg; TotalEffectiveMassKg += vehicles[i].EffectiveMassKg;
             MaximumBalanceResidualN = Math.Max(MaximumBalanceResidualN, Math.Abs(vehicles[i].BalanceResidualN));
         }
@@ -126,6 +156,15 @@ public sealed class TrainForceSample {
     public double GetLinkTensionN(int index) {
         if (index < 0 || index >= linkTension.Length) throw new ArgumentOutOfRangeException("index");
         return linkTension[index];
+    }
+    void CheckLink(int index) { if (index < 0 || index >= linkTension.Length) throw new ArgumentOutOfRangeException("index"); }
+    public bool IsCouplerBroken(int index) { CheckLink(index); return brokenCouplers[index]; }
+    public bool HasCompressionOverload(int index) { CheckLink(index); return compressionOverloads[index]; }
+    public double GetCouplerFailureTensionNewtons(int index) { CheckLink(index); return failureTension[index]; }
+    public double GetCouplerFailureTimeSeconds(int index) { CheckLink(index); return failureTimes[index]; }
+    public int GetVehicleComponentIndex(int index) {
+        if (index < 0 || index >= vehicles.Length) throw new ArgumentOutOfRangeException("index");
+        return componentIndices[index];
     }
     public double GetLinkDistanceBehindHeadM(int index) {
         if (index < 0 || index >= linkTension.Length) throw new ArgumentOutOfRangeException("index");

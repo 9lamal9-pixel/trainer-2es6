@@ -1,0 +1,404 @@
+{
+  "schema_version": 1,
+  "build_id": "build-20261025T123429154Z-d0f6f355",
+  "utc": "2026-10-25T12:34:29.1554295Z",
+  "profile": "standalone",
+  "main_class": "TrainDynamicsKernelValidationProbe",
+  "git_head": "a7ef8c4f602c4966b6a00e36eb58e258e79a36c6",
+  "compiler": "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\csc.exe",
+  "compiler_sha256": "012E8CD8ADFF0C439A90FFD22C0E33EFEB6FBC8CF660D52B4858D310649382FA",
+  "sources": [
+    {
+      "path": "outputs/TrainerLongitudinalDynamics.cs",
+      "sha256": "740812E813E26EB5DF26E08F89CB73DF0AD30FA6E1D296196BB526421B8EE492"
+    },
+    {
+      "path": "outputs/TrainerFrictionDraftGear.cs",
+      "sha256": "043F9151C0BFE79E2D1FEDF3361007C53B2FA92E67313F7728BB38F698E03720"
+    },
+    {
+      "path": "work/pneumatic_live_fix/analysis/TrainDynamicsKernelValidationProbe.cs",
+      "sha256": "23BF48A7AC3AD2A527B627FC0F0A275A4F680FF50B137E27C5293250AC72B02F"
+    }
+  ],
+  "native_modules": [
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/AVP.dll",
+      "exists": true,
+      "expected": "EC3C2A59340E6054BBF65FA357A58E682B9552ADBBC3C4360EA4EB9E2E425255",
+      "actual": "EC3C2A59340E6054BBF65FA357A58E682B9552ADBBC3C4360EA4EB9E2E425255",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/BLOK.dll",
+      "exists": true,
+      "expected": "26712B37084B51814462C039ED7EC91E31670351ABFD8BC1C209FF9298CF3D7C",
+      "actual": "26712B37084B51814462C039ED7EC91E31670351ABFD8BC1C209FF9298CF3D7C",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/CalcOgr.dll",
+      "exists": true,
+      "expected": "1AD8E4F1D323D334B4E0D09F8A75159EFD3FB1ABE297F507C73073CB627E081E",
+      "actual": "1AD8E4F1D323D334B4E0D09F8A75159EFD3FB1ABE297F507C73073CB627E081E",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/Cbndll.dll",
+      "exists": true,
+      "expected": "8F2CE18A6839C9A0D13F49705206CDDF9E6AEA91DD88C797B7ECC4E1ADD24F58",
+      "actual": "8F2CE18A6839C9A0D13F49705206CDDF9E6AEA91DD88C797B7ECC4E1ADD24F58",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/D3DX8ab.dll",
+      "exists": true,
+      "expected": "E9C9D124582A1B1F2F5B0EAB0C5B4E11FD5F54DC3CB045A7E828FD4593042010",
+      "actual": "E9C9D124582A1B1F2F5B0EAB0C5B4E11FD5F54DC3CB045A7E828FD4593042010",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/da10.dll",
+      "exists": true,
+      "expected": "66D607FBCEF8F1D89748A9C2FAC2AFE98BD5C6A77C8E9DB18C59E5AB6589B52D",
+      "actual": "66D607FBCEF8F1D89748A9C2FAC2AFE98BD5C6A77C8E9DB18C59E5AB6589B52D",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/DATAKLUB/SOUNDSKLUB/SoundsKLUB.dll",
+      "exists": true,
+      "expected": "7ABF3029027B5BF5F41BB5914685A7554329E907566D05B74BA7FD3D07E0BD89",
+      "actual": "7ABF3029027B5BF5F41BB5914685A7554329E907566D05B74BA7FD3D07E0BD89",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/DATASAUT/SOUNDSSAUT/SoundsSAUT.dll",
+      "exists": true,
+      "expected": "7ABF3029027B5BF5F41BB5914685A7554329E907566D05B74BA7FD3D07E0BD89",
+      "actual": "7ABF3029027B5BF5F41BB5914685A7554329E907566D05B74BA7FD3D07E0BD89",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/DLL_BBT.dll",
+      "exists": true,
+      "expected": "C3DF17C2456662D87324FE775AA73227DC333946424FEE6C5A0EA7328A45DC1C",
+      "actual": "C3DF17C2456662D87324FE775AA73227DC333946424FEE6C5A0EA7328A45DC1C",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/InfoDisplay.dll",
+      "exists": true,
+      "expected": "B784CAD795AAEE0B307C3A9AA849AED27482710E0672950E64EC26C46CCD876C",
+      "actual": "B784CAD795AAEE0B307C3A9AA849AED27482710E0672950E64EC26C46CCD876C",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/JoyLib.dll",
+      "exists": true,
+      "expected": "A6EE074FEE2616B0E716446F14E442E3FFA966A54170884DE884014DCECF0F34",
+      "actual": "A6EE074FEE2616B0E716446F14E442E3FFA966A54170884DE884014DCECF0F34",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/KLUB_U_LCD_XE2.dll",
+      "exists": true,
+      "expected": "671D3BDB1AD57BD8EA7AFC714B11BC14141A5B2750D72E8B5598C7BB0CFAF20F",
+      "actual": "671D3BDB1AD57BD8EA7AFC714B11BC14141A5B2750D72E8B5598C7BB0CFAF20F",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/KPD_3PV.dll",
+      "exists": true,
+      "expected": "A7C6A36E355777238041BF2443BBD8B3467FD1DD5438C3E8578DB73C9353240C",
+      "actual": "A7C6A36E355777238041BF2443BBD8B3467FD1DD5438C3E8578DB73C9353240C",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/0/Communication0.dll",
+      "exists": true,
+      "expected": "D3B0513C95DC1BD56F35A086613C6C752B683408D9C16469A2997340C0A12766",
+      "actual": "D3B0513C95DC1BD56F35A086613C6C752B683408D9C16469A2997340C0A12766",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/0/Pult0.dll",
+      "exists": true,
+      "expected": "C95CABF93AA999A4CE280D6EEC562CFBEF922AED6A7B4EF47895769D0B0996D6",
+      "actual": "C95CABF93AA999A4CE280D6EEC562CFBEF922AED6A7B4EF47895769D0B0996D6",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/0/Tyga0.dll",
+      "exists": true,
+      "expected": "734DAECE00E51ACB9834A0FC6E788CC6DC58DB6E8B422C2DBEC9BE4C220372F8",
+      "actual": "734DAECE00E51ACB9834A0FC6E788CC6DC58DB6E8B422C2DBEC9BE4C220372F8",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/1/Communication1.dll",
+      "exists": true,
+      "expected": "495B21E98C19B80B4A555199AD09A958AF69E35BAB267E2DC765B0E4A97682FB",
+      "actual": "495B21E98C19B80B4A555199AD09A958AF69E35BAB267E2DC765B0E4A97682FB",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/1/MSUL_MON.dll",
+      "exists": true,
+      "expected": "3E355CE7D7E6425B8E1ECA217FC1C2C002BFF915409C21388AF53578240EE16D",
+      "actual": "3E355CE7D7E6425B8E1ECA217FC1C2C002BFF915409C21388AF53578240EE16D",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/1/Pult1.dll",
+      "exists": true,
+      "expected": "F66665DC52361BF7ADCD0F2E6DAB9947CCB2945117168DBEB15CF2F029CE8CC9",
+      "actual": "F66665DC52361BF7ADCD0F2E6DAB9947CCB2945117168DBEB15CF2F029CE8CC9",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/1/SoundsMSUL.dll",
+      "exists": true,
+      "expected": "42A82A3F41B711CC450CF4BE9012CF23C0D7EC5E473702F0E145802780B89098",
+      "actual": "42A82A3F41B711CC450CF4BE9012CF23C0D7EC5E473702F0E145802780B89098",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/1/Tyga1.dll",
+      "exists": true,
+      "expected": "AD3D8DDDC32E739E43C24FA088EBF012EE24C245B1A1B005709185ED94491EE8",
+      "actual": "AD3D8DDDC32E739E43C24FA088EBF012EE24C245B1A1B005709185ED94491EE8",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/2ES6/1/Communication1.dll",
+      "exists": true,
+      "expected": "27178A089EF33692D16B1D46AE0DD7567135B327A24BE9D7D0CA84AF8DF3DB7F",
+      "actual": "27178A089EF33692D16B1D46AE0DD7567135B327A24BE9D7D0CA84AF8DF3DB7F",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/2ES6/1/MSUL_MON.dll",
+      "exists": true,
+      "expected": "95E3FB14CBC7FF2B5E9C61DC2215CFA7C2F23161FE21D075ADF04F45907B653B",
+      "actual": "95E3FB14CBC7FF2B5E9C61DC2215CFA7C2F23161FE21D075ADF04F45907B653B",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/2ES6/1/Pult1.dll",
+      "exists": true,
+      "expected": "7DAC59BF94276309E012A6EB72602C08A921FE1910A4169F9F0EC27008F0F8F5",
+      "actual": "7DAC59BF94276309E012A6EB72602C08A921FE1910A4169F9F0EC27008F0F8F5",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/2ES6/1/SoundsMSUL.dll",
+      "exists": true,
+      "expected": "42A82A3F41B711CC450CF4BE9012CF23C0D7EC5E473702F0E145802780B89098",
+      "actual": "42A82A3F41B711CC450CF4BE9012CF23C0D7EC5E473702F0E145802780B89098",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/2ES6/1/Tyga1.dll",
+      "exists": true,
+      "expected": "C56D401D7D0E38C137A0FD70604F416E1A9B1ADDC9776A585E0E6D4397D588ED",
+      "actual": "C56D401D7D0E38C137A0FD70604F416E1A9B1ADDC9776A585E0E6D4397D588ED",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Communication1.dll",
+      "exists": true,
+      "expected": "27178A089EF33692D16B1D46AE0DD7567135B327A24BE9D7D0CA84AF8DF3DB7F",
+      "actual": "27178A089EF33692D16B1D46AE0DD7567135B327A24BE9D7D0CA84AF8DF3DB7F",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/MSUL_MON.dll",
+      "exists": true,
+      "expected": "95E3FB14CBC7FF2B5E9C61DC2215CFA7C2F23161FE21D075ADF04F45907B653B",
+      "actual": "95E3FB14CBC7FF2B5E9C61DC2215CFA7C2F23161FE21D075ADF04F45907B653B",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Pult1.dll",
+      "exists": true,
+      "expected": "7DAC59BF94276309E012A6EB72602C08A921FE1910A4169F9F0EC27008F0F8F5",
+      "actual": "7DAC59BF94276309E012A6EB72602C08A921FE1910A4169F9F0EC27008F0F8F5",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/SoundsMSUL.dll",
+      "exists": true,
+      "expected": "42A82A3F41B711CC450CF4BE9012CF23C0D7EC5E473702F0E145802780B89098",
+      "actual": "42A82A3F41B711CC450CF4BE9012CF23C0D7EC5E473702F0E145802780B89098",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Tyga1.dll",
+      "exists": true,
+      "expected": "8EC6A82E618A1D75CBB31242784084B530BB87308E601DEFC5263D5279270491",
+      "actual": "8EC6A82E618A1D75CBB31242784084B530BB87308E601DEFC5263D5279270491",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/SoundsLoc.dll",
+      "exists": true,
+      "expected": "7ABF3029027B5BF5F41BB5914685A7554329E907566D05B74BA7FD3D07E0BD89",
+      "actual": "7ABF3029027B5BF5F41BB5914685A7554329E907566D05B74BA7FD3D07E0BD89",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/MVCONTROL_DLL_.dll",
+      "exists": true,
+      "expected": "2BF32C43D1DA4E8D6CBB070A6343592B3D8DBD194A66E2D0F2C85F93939D6403",
+      "actual": "2BF32C43D1DA4E8D6CBB070A6343592B3D8DBD194A66E2D0F2C85F93939D6403",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/MVCONTROL_DLL.dll",
+      "exists": true,
+      "expected": "2BF32C43D1DA4E8D6CBB070A6343592B3D8DBD194A66E2D0F2C85F93939D6403",
+      "actual": "2BF32C43D1DA4E8D6CBB070A6343592B3D8DBD194A66E2D0F2C85F93939D6403",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/PlayerVideo.dll",
+      "exists": true,
+      "expected": "7858DE5238730F1A4F0F5852F3423A55EE5C89E964C8DF3BFF4E77B42712F173",
+      "actual": "7858DE5238730F1A4F0F5852F3423A55EE5C89E964C8DF3BFF4E77B42712F173",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/PlayVideo.dll",
+      "exists": true,
+      "expected": "D207D6C22A2E92E7A6A1CE007ACA4699F0B900765ABC730ED0EE6F4E0227035B",
+      "actual": "D207D6C22A2E92E7A6A1CE007ACA4699F0B900765ABC730ED0EE6F4E0227035B",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/POEZD.DLL",
+      "exists": true,
+      "expected": "822B6D17CE45F80179A512EE6C70A35D5AE29BF187530BDA5EBD11446CFB3553",
+      "actual": "822B6D17CE45F80179A512EE6C70A35D5AE29BF187530BDA5EBD11446CFB3553",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/Saut_Dll.dll",
+      "exists": true,
+      "expected": "977B4B8BD3D3EB98BF9E2F08A8C413525D85F42085D34ABBE842F2BB79384A92",
+      "actual": "977B4B8BD3D3EB98BF9E2F08A8C413525D85F42085D34ABBE842F2BB79384A92",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/SaveParam.dll",
+      "exists": true,
+      "expected": "2FF69345EAF6ED2A790B8E3AB7D4943A51D4E09975B06C113105E86AFD8B52B3",
+      "actual": "2FF69345EAF6ED2A790B8E3AB7D4943A51D4E09975B06C113105E86AFD8B52B3",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/SoundsTren.dll",
+      "exists": true,
+      "expected": "7ABF3029027B5BF5F41BB5914685A7554329E907566D05B74BA7FD3D07E0BD89",
+      "actual": "7ABF3029027B5BF5F41BB5914685A7554329E907566D05B74BA7FD3D07E0BD89",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/SoundsVideo.dll",
+      "exists": true,
+      "expected": "7ABF3029027B5BF5F41BB5914685A7554329E907566D05B74BA7FD3D07E0BD89",
+      "actual": "7ABF3029027B5BF5F41BB5914685A7554329E907566D05B74BA7FD3D07E0BD89",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/SpeedMeterEM.dll",
+      "exists": true,
+      "expected": "13B766D724CA8CB32490E6F486178167A504F240E88B961E4FDBA40A20AC342D",
+      "actual": "13B766D724CA8CB32490E6F486178167A504F240E88B961E4FDBA40A20AC342D",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/TalkSound.dll",
+      "exists": true,
+      "expected": "7ABF3029027B5BF5F41BB5914685A7554329E907566D05B74BA7FD3D07E0BD89",
+      "actual": "7ABF3029027B5BF5F41BB5914685A7554329E907566D05B74BA7FD3D07E0BD89",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/Torm_Pass_Dll.dll",
+      "exists": true,
+      "expected": "B6B91DA78088E96D36816C294E1529C4ABB247CB994F0D0D639CE4F54AB966F0",
+      "actual": "B6B91DA78088E96D36816C294E1529C4ABB247CB994F0D0D639CE4F54AB966F0",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/TormModel.dll",
+      "exists": true,
+      "expected": "F871640C5B7699901E3AFBF755BB2B797B659524C29BAA046B311CA6ECC875B9",
+      "actual": "F871640C5B7699901E3AFBF755BB2B797B659524C29BAA046B311CA6ECC875B9",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/TormModelGruz.dll",
+      "exists": true,
+      "expected": "5704818B49C5C6E16947BDFE3A834C3DA1AD053FEBB57BABFE705B719C821BD9",
+      "actual": "5704818B49C5C6E16947BDFE3A834C3DA1AD053FEBB57BABFE705B719C821BD9",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/TormModelPrig.dll",
+      "exists": true,
+      "expected": "331B93FE9FD260AF2D3070299ABE9F032CAE339A2EB40097610066D8AD4BEFCB",
+      "actual": "331B93FE9FD260AF2D3070299ABE9F032CAE339A2EB40097610066D8AD4BEFCB",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/VideoHandle.dll",
+      "exists": true,
+      "expected": "253C1A3E9EF7115DA99BB3CB30AEE9718045A2F8084333198C9000898BD1EBE8",
+      "actual": "253C1A3E9EF7115DA99BB3CB30AEE9718045A2F8084333198C9000898BD1EBE8",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/VideoModul.dll",
+      "exists": true,
+      "expected": "8E75CCBF3F809092E41AFC95450FDB8DB10BAC481FED0263B86813DD7326573A",
+      "actual": "8E75CCBF3F809092E41AFC95450FDB8DB10BAC481FED0263B86813DD7326573A",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/VideoModulScen.dll",
+      "exists": true,
+      "expected": "31D69803D533F68DBEDB947D6357F61C16564793EB0541F735E0C1359BDD16B8",
+      "actual": "31D69803D533F68DBEDB947D6357F61C16564793EB0541F735E0C1359BDD16B8",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/VideoStream.dll",
+      "exists": true,
+      "expected": "F0800A941ACB26C0517F2DDF826DA92FFF4FE3A650FA08A52D36D55D45B4DF05",
+      "actual": "F0800A941ACB26C0517F2DDF826DA92FFF4FE3A650FA08A52D36D55D45B4DF05",
+      "matches": true
+    }
+  ],
+  "status": "built",
+  "compiler_arguments": [
+    "/nologo",
+    "/codepage:65001",
+    "/platform:x86",
+    "/target:exe",
+    "/main:TrainDynamicsKernelValidationProbe",
+    "/debug:pdbonly",
+    "/optimize+",
+    "/r:System.Windows.Forms.dll",
+    "/r:System.Drawing.dll",
+    "/r:System.Web.Extensions.dll",
+    "/out:C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T123429154Z-d0f6f355\\TrainDynamicsKernelValidationProbe.exe",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T123429154Z-d0f6f355\\source\\outputs\\TrainerLongitudinalDynamics.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T123429154Z-d0f6f355\\source\\outputs\\TrainerFrictionDraftGear.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T123429154Z-d0f6f355\\source\\work\\pneumatic_live_fix\\analysis\\TrainDynamicsKernelValidationProbe.cs"
+  ],
+  "compiler_exit_code": 0,
+  "executable": "TrainDynamicsKernelValidationProbe.exe",
+  "executable_sha256": "7B3D2BFE0103B2AC293AC90EE18AD10F0F19582F2175B4A10C621FC675FDE727",
+  "finished_utc": "2026-10-25T12:34:30.4163863Z"
+}

@@ -8,6 +8,16 @@
   "locomotive_reference_gamma": 0.25,
   "wagon_reference_gamma": 0.035,
   "coupler_profile": "sh2v-pair-published-2023",
+  "coupler_integrity": {
+    "enabled": true,
+    "id": "sa3-freight-assumed-integrity-v1",
+    "design_tension_N": 2000000,
+    "design_compression_N": 2500000,
+    "nominal_tensile_fracture_N": 4000000,
+    "fracture_basis": "explicit_engineering_scenario_not_normative_ultimate",
+    "sensitivity_tensile_fracture_N": [3000000, 5000000],
+    "notes": "2/2.5MN are GOST33434 design minima, NOT fracture. 4MN is an explicit nominal engineering scenario, not a measured universal SA-3 breaking force. Actual fracture depends on steel, defects, age, temperature and geometry. Compression overload warns; broken pieces retain unilateral compression contact without recoupling."
+  },
   "wagon_brakes": {
     "id": "gost34434-appendix-g-effectiveness-2x254",
     "material": "composite",

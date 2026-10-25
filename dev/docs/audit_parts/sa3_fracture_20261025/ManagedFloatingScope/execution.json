@@ -1,0 +1,15 @@
+{
+  "id": "ManagedFloatingScope",
+  "scope": "x86 component: raw x87/MXCSR preservation, nested scopes and native callback environment, exceptions/restoration. No trainer DLL initialization or factory physics acceptance.",
+  "status": "passed",
+  "artifacts": [
+    {
+      "path": "Trainer_managed_floating_scope_validation.json",
+      "sha256": "A7CC4BD829AD592508839CBD6D17137A2F4C2D7FBD9D87E229778BC12B3EA3CB"
+    }
+  ],
+  "build_id": "build-20261025T123433398Z-ab26b049",
+  "pid": 22828,
+  "exit_code": 0,
+  "finished_utc": "2026-10-25T12:34:34.8721850Z"
+}

@@ -2045,6 +2045,34 @@
       "enabled": true
     },
     {
+      "id": "ConsistSeparation",
+      "main_class": "TrainerConsistSeparationProbe",
+      "title": "Обрыв состава: механика и торможение обеих частей",
+      "source": "outputs/TrainerConsistSeparationProbe.cs",
+      "profile": "candidate",
+      "dependencies": ["outputs/TrainerManagedMotionProbe.cs", "outputs/TrainerAutovedenieAdverseBrakeProbe.cs"],
+      "arguments": [],
+      "result_files": ["outputs/Trainer_consist_separation_validation.json"],
+      "kind": "regression",
+      "scope": "Prepared40km/h/prestrain overload exceeds unchanged4MN profile. Actual native sleeves/pressures/VR, two-sided vent/brake, link0 BVR2 mapping, cocks preserved, read-only render, foreign-input refusal and close restoration. No genuine cab rupture/fullroute/derailment or universal SA3 ultimate acceptance.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "CouplerFracture",
+      "main_class": "TrainerCouplerFractureProbe",
+      "title": "СА-3: разрыв, отдельные части и контакт",
+      "source": "outputs/TrainerCouplerFractureProbe.cs",
+      "profile": "standalone",
+      "dependencies": ["outputs/TrainerTrainForceData.cs", "outputs/TrainerLongitudinalDynamics.cs", "outputs/TrainerFrictionDraftGear.cs"],
+      "arguments": [],
+      "result_files": ["outputs/Trainer_coupler_fracture_validation.json"],
+      "kind": "regression",
+      "scope": "Explicit nominal4MN scenario, not universal SA3 ultimate. Strict threshold, irreversible topology, independent components, unilateral recontact, impulse/energy, accepted-step rollback, timestep event convergence.",
+      "timeout_seconds": 120,
+      "enabled": true
+    },
+    {
       "id": "TrainForceData",
       "main_class": "TrainerTrainForceDataProbe",
       "title": "Силы состава: снимок принятого шага и баланс",

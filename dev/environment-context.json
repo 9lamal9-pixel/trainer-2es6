@@ -40,7 +40,7 @@
       "sources_ref": "dev/config/environment.json#/profiles/integration/sources"
     },
     "candidate": {
-      "count": 52,
+      "count": 53,
       "sources_ref": "dev/config/environment.json#/profiles/candidate/sources"
     },
     "default": "candidate"
@@ -291,10 +291,13 @@
         "ContactAndCoupler",
         "ManagedMotion",
         "TrainForceData",
-        "TrainForceLive"
+        "TrainForceLive",
+        "CouplerFracture",
+        "ConsistSeparation"
       ],
       "report": "dev/docs/SCIENTIFIC_MECHANICS_PROFILE.md",
       "force_view_report": "dev/docs/TRAIN_FORCE_VIEW.md",
+      "fracture_report": "dev/docs/SA3_FRACTURE_MODEL.md",
       "limit": "User-selected typical scientific reference: physical6200t/effective6460t; published calculated Sh2Vpair; GOST one-shoe SI braking from actual pressures. Factory identity, thermal/wet/wheel-slide, fulltrain normative calibration and AVP unaccepted."
     }
   },

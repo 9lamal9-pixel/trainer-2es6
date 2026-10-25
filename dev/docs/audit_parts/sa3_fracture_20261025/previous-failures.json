@@ -1,0 +1,91 @@
+[
+  {
+    "run": "test-20261025T121621146Z-7efd3ad8",
+    "probe": "CouplerFracture",
+    "status": "failed",
+    "error": "System.ArgumentOutOfRangeException: Заданный аргумент находится вне диапазона допустимых значений.\r\nИмя параметра: type\r\n   в RailwayDynamics.Simulation.BrakeTribologyPtr.ComputeBrakeShoeFriction(BrakeShoeType type, Double speedMps, Double forcePerShoeNewton)\r\n   в RailwayDynamics.Simulation.LongitudinalTrainDynamicsSolver.BrakeCapacity(Int32 i, Double velocity)\r\n   в RailwayDynamics.Simulation.LongitudinalTrainDynamicsSolver.EvaluateCouplers(Double[] velocity, Double h)\r\n   в RailwayDynamics.Simulation.LongitudinalTrainDynamicsSolver.TryIntegritySubstep(Double h, Boolean legacy, Int32 fracturePass)\r\n   в RailwayDynamics.Simulation.LongitudinalTrainDynamicsSolver.StepCore(Double dt, Boolean legacy)\r\n   в TrainerCouplerFractureProbe.Main()",
+    "failed_checks": []
+  },
+  {
+    "run": "test-20261025T121646462Z-14d30e4b",
+    "probe": "CouplerFracture",
+    "status": "failed",
+    "error": "System.Exception: Detached tail cannot receive locomotive pull actual=5,59186780522996E-11\r\n   в TrainerCouplerFractureProbe.Check(String name, Boolean pass, Object actual)\r\n   в TrainerCouplerFractureProbe.Main()",
+    "failed_checks": [
+      {
+        "name": "Detached tail cannot receive locomotive pull",
+        "passed": false,
+        "actual": 5.5918678052299585E-11
+      }
+    ]
+  },
+  {
+    "run": "test-20261025T122101827Z-961535e1",
+    "probe": "ConsistSeparation",
+    "status": "failed",
+    "error": "Ошибка компиляции (1), см. C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T122101985Z-8386683e",
+    "failed_checks": []
+  },
+  {
+    "run": "test-20261025T122120381Z-3f51cf37",
+    "probe": "ConsistSeparation",
+    "status": "failed",
+    "error": "System.Exception: PublishManagedMotion: System.InvalidOperationException: A time reset requires a new train-force epoch.\r\n   в TrainForceHistory.Push(TrainForceSample sample)\r\n   в TrainerIntegrationHost.CaptureTrainForces()\r\n   в TrainerIntegrationHost.PublishManagedMotionCore()\r\n   в TrainerIntegrationHost.PublishManagedMotion() ---> System.InvalidOperationException: A time reset requires a new train-force epoch.\r\n   в TrainForceHistory.Push(TrainForceSample sample)\r\n   в TrainerIntegrationHost.CaptureTrainForces()\r\n   в TrainerIntegrationHost.PublishManagedMotionCore()\r\n   в TrainerIntegrationHost.PublishManagedMotion()\r\n   --- Конец трассировки внутреннего стека исключений ---\r\n   в TrainerAutovedenieAdverseBrakeProbe.Fixture.Call(String name, Object[] args)\r\n   в TrainerAutovedenieAdverseBrakeProbe.Fixture.MeasureConsistSeparation()\r\n   в TrainerAutovedenieAdverseBrakeProbe.RunConsistSeparation()",
+    "failed_checks": []
+  },
+  {
+    "run": "test-20261025T122308491Z-13fafab0",
+    "probe": "ConsistSeparation",
+    "status": "failed",
+    "error": "System.Exception: MotionCycle: System.InvalidOperationException: Separation module path guard failed: Communication1.dll\r\n   в TrainerIntegrationHost.GuardSeparationModule(String name, String expectedSha)\r\n   в TrainerIntegrationHost.CheckNativeSeparationReady()\r\n   в TrainerIntegrationHost.ApplyNativeConsistSeparation(Int32 linkIndex, Boolean& applied)\r\n   в TrainerIntegrationHost.SyncManagedConsistSeparation()\r\n   в TrainerIntegrationHost.StepManagedMotionCore(Single force, Single dt, Int32 locomotive, Single otherForce)\r\n   в TrainerIntegrationHost.StepManagedMotion(Single force, Single dt, Int32 locomotive, Single otherForce)\r\n   в TrainerIntegrationHost.MotionCycleCore()\r\n   в TrainerIntegrationHost.MotionCycle() ---> System.InvalidOperationException: Separation module path guard failed: Communication1.dll\r\n   в TrainerIntegrationHost.GuardSeparationModule(String name, String expectedSha)\r\n   в TrainerIntegrationHost.CheckNativeSeparationReady()\r\n   в TrainerIntegrationHost.ApplyNativeConsistSeparation(Int32 linkIndex, Boolean& applied)\r\n   в TrainerIntegrationHost.SyncManagedConsistSeparation()\r\n   в TrainerIntegrationHost.StepManagedMotionCore(Single force, Single dt, Int32 locomotive, Single otherForce)\r\n   в TrainerIntegrationHost.StepManagedMotion(Single force, Single dt, Int32 locomotive, Single otherForce)\r\n   в TrainerIntegrationHost.MotionCycleCore()\r\n   в TrainerIntegrationHost.MotionCycle()\r\n   --- Конец трассировки внутреннего стека исключений ---\r\n   в TrainerAutovedenieAdverseBrakeProbe.Fixture.Call(String name, Object[] args)\r\n   в TrainerAutovedenieAdverseBrakeProbe.Fixture.MeasureConsistSeparation()\r\n   в TrainerAutovedenieAdverseBrakeProbe.RunConsistSeparation()",
+    "failed_checks": []
+  },
+  {
+    "run": "test-20261025T122440189Z-f820d4b6",
+    "probe": "ConsistSeparation",
+    "status": "failed",
+    "error": "System.Exception: Loco and detached tail automatically apply brakes expected=TC>.1 loco/tail actual=System.Single[]\r\n   в TrainerAutovedenieAdverseBrakeProbe.Check(String name, Boolean passed, Object expected, Object actual)\r\n   в TrainerAutovedenieAdverseBrakeProbe.Fixture.MeasureConsistSeparation()\r\n   в TrainerAutovedenieAdverseBrakeProbe.RunConsistSeparation()",
+    "failed_checks": [
+      {
+        "name": "Loco and detached tail automatically apply brakes",
+        "passed": false,
+        "expected": "TC>.1 loco/tail",
+        "actual": [
+          0.00185774,
+          3.611067
+        ]
+      }
+    ]
+  },
+  {
+    "run": "test-20261025T122814591Z-e9d4a340",
+    "probe": "ConsistSeparation",
+    "status": "failed",
+    "error": "System.Exception: Loco and detached tail automatically apply brakes expected=TC>.1 loco/tail actual=System.Single[]\r\n   в TrainerAutovedenieAdverseBrakeProbe.Check(String name, Boolean passed, Object expected, Object actual)\r\n   в TrainerAutovedenieAdverseBrakeProbe.Fixture.MeasureConsistSeparation()\r\n   в TrainerAutovedenieAdverseBrakeProbe.RunConsistSeparation()",
+    "failed_checks": [
+      {
+        "name": "Loco and detached tail automatically apply brakes",
+        "passed": false,
+        "expected": "TC>.1 loco/tail",
+        "actual": [
+          0.00185774,
+          4.100474
+        ]
+      }
+    ]
+  },
+  {
+    "run": "test-20261025T123112418Z-9c4b1d80",
+    "probe": "ConsistSeparation",
+    "status": "failed",
+    "error": "System.Exception: Locomotive automatic brake reacts after operator stops KMII feed expected=TC>.1 after explicit KMIV actual=0,00185774\r\n   в TrainerAutovedenieAdverseBrakeProbe.Check(String name, Boolean passed, Object expected, Object actual)\r\n   в TrainerAutovedenieAdverseBrakeProbe.Fixture.MeasureConsistSeparation()\r\n   в TrainerAutovedenieAdverseBrakeProbe.RunConsistSeparation()",
+    "failed_checks": [
+      {
+        "name": "Locomotive automatic brake reacts after operator stops KMII feed",
+        "passed": false,
+        "expected": "TC>.1 after explicit KMIV",
+        "actual": 0.00185774
+      }
+    ]
+  }
+]
