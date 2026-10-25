@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-25",
+  "scope": "Переносимые копии отдельных обзоров, исходных шкал native и страниц первичного РЭ 215-1. Старые доказательства и исходные absolute origin сохранены.",
+  "files": [
+    {
+      "origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\sa47-reset-20261024\\pressure-units-review.json",
+      "origin_relative": "dev/runs/sa47-reset-20261024/pressure-units-review.json",
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-pressure-units-review-20261025.json",
+      "portable_link": "sa47-pressure-units-review-20261025.json",
+      "sha256": "755e70e8a9aa344fc88ecbe70625b0d9fa2ff5fa551798ab9ada6ef6193d7aba",
+      "copied_without_byte_changes": true
+    },
+    {
+      "origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\sa47-reset-20261024\\operator-semantics-review.json",
+      "origin_relative": "dev/runs/sa47-reset-20261024/operator-semantics-review.json",
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-operator-semantics-review-20261025.json",
+      "portable_link": "sa47-operator-semantics-review-20261025.json",
+      "sha256": "eceac2d954e84b79358c189d5a5dd00c7b646230f2f5a67ed536600cbc9dbd78",
+      "copied_without_byte_changes": true
+    },
+    {
+      "origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\sa47-reset-20261024\\independent-review.json",
+      "origin_relative": "dev/runs/sa47-reset-20261024/independent-review.json",
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-producer-independent-review-20261025.json",
+      "portable_link": "sa47-producer-independent-review-20261025.json",
+      "sha256": "666e9e3694b4b5ce14dbf65d55415e9a32638337d87ba1d6d56cc01e4fab341c",
+      "copied_without_byte_changes": true
+    },
+    {
+      "origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\sa47-reset-20261024\\producer-fix-design.json",
+      "origin_relative": "dev/runs/sa47-reset-20261024/producer-fix-design.json",
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-producer-fix-design-20261025.json",
+      "portable_link": "sa47-producer-fix-design-20261025.json",
+      "sha256": "23114ee1079133a4cf3e35704c2d5e6bcebb58964710974d40b9a46d256d23de",
+      "copied_without_byte_changes": true
+    },
+    {
+      "origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\sa47-reset-20261024\\kvt-position-source-review.json",
+      "origin_relative": "dev/runs/sa47-reset-20261024/kvt-position-source-review.json",
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-kvt-primary-review-20261025.json",
+      "portable_link": "sa47-kvt-primary-review-20261025.json",
+      "sha256": "cb284a2170d56b5bf35935a8a6cc8a1167937d7385e3e46d45e46f377f998029",
+      "copied_without_byte_changes": true
+    },
+    {
+      "origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\sa47-reset-20261024\\gauge-assets\\tdm-042.png",
+      "origin_relative": "dev/runs/sa47-reset-20261024/gauge-assets/tdm-042.png",
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-native-gauge-042.png",
+      "portable_link": "sa47-native-gauge-042.png",
+      "sha256": "ecdb181b4cb7ddff4f00989a17887d242c1f08abeb9b1a9ba08db7f82848d5b9",
+      "copied_without_byte_changes": true
+    },
+    {
+      "origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\sa47-reset-20261024\\gauge-assets\\tdm-043.png",
+      "origin_relative": "dev/runs/sa47-reset-20261024/gauge-assets/tdm-043.png",
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-native-gauge-043.png",
+      "portable_link": "sa47-native-gauge-043.png",
+      "sha256": "fd48a889681772ad05f6588fd7fdb7147a45003bcb87b1c06b98d0e72ed5dd61",
+      "copied_without_byte_changes": true
+    },
+    {
+      "origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\sa47-reset-20261024\\kvt-source-images\\p005.png",
+      "origin_relative": "dev/runs/sa47-reset-20261024/kvt-source-images/p005.png",
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-kvt-215-p005.png",
+      "portable_link": "sa47-kvt-215-p005.png",
+      "sha256": "3a8c98f4b4aa06dd0461412765daf626bec9be1bdbdc4196a62609bf798c8575",
+      "copied_without_byte_changes": true
+    },
+    {
+      "origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\sa47-reset-20261024\\kvt-source-images\\p012.png",
+      "origin_relative": "dev/runs/sa47-reset-20261024/kvt-source-images/p012.png",
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-kvt-215-p012.png",
+      "portable_link": "sa47-kvt-215-p012.png",
+      "sha256": "ff35998bb5d2b376d79fc07afa820aba6bc9b45bb4f56ee728f78ed2855b55fc",
+      "copied_without_byte_changes": true
+    },
+    {
+      "origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\sa47-reset-20261024\\kvt-source-images\\p005-pressure-stages.png",
+      "origin_relative": "dev/runs/sa47-reset-20261024/kvt-source-images/p005-pressure-stages.png",
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-kvt-215-p005-pressure-stages.png",
+      "portable_link": "sa47-kvt-215-p005-pressure-stages.png",
+      "sha256": "3ea68307913ca684e16f68e6b20c5f9596dfa4faab0f67f6dcf992f93cb09731",
+      "copied_without_byte_changes": true
+    },
+    {
+      "origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\Sa47Release\\Trainer_sa47_release_validation.json",
+      "origin_relative": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47Release/Trainer_sa47_release_validation.json",
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-reset-release-20261025.json",
+      "portable_link": "sa47-reset-release-20261025.json",
+      "sha256": "0e1d3849c884eb8963e576b5614954be484d4670b55ee09ad99107cb667da7c5",
+      "copied_without_byte_changes": true
+    },
+    {
+      "origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\Sa47ReleaseFault\\Trainer_sa47_release_fault_validation.json",
+      "origin_relative": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47ReleaseFault/Trainer_sa47_release_fault_validation.json",
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-reset-release-fault-20261025.json",
+      "portable_link": "sa47-reset-release-fault-20261025.json",
+      "sha256": "0954f4bc62a44f19ef1996d6d19de9924db3bea97cb22c487951cea83482820c",
+      "copied_without_byte_changes": true
+    },
+    {
+      "origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\Sa47NativeButton\\Trainer_sa47_native_button_validation.json",
+      "origin_relative": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47NativeButton/Trainer_sa47_native_button_validation.json",
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-reset-native-button-20261025.json",
+      "portable_link": "sa47-reset-native-button-20261025.json",
+      "sha256": "82d3ecc9daa4d8c1f52c630a98d3265e7a9a322856194b962aa1c14a29e1d3f5",
+      "copied_without_byte_changes": true
+    },
+    {
+      "origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\Sa47ResetZero\\Trainer_sa47_zero_reset_validation.json",
+      "origin_relative": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47ResetZero/Trainer_sa47_zero_reset_validation.json",
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-reset-zero-20261025.json",
+      "portable_link": "sa47-reset-zero-20261025.json",
+      "sha256": "cc0797f5da66c814cd3146935d200f84d182336d168c89ffa984e47b9c948a90",
+      "copied_without_byte_changes": true
+    },
+    {
+      "origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\Sa47ResetTm\\Trainer_sa47_tm_reset_validation.json",
+      "origin_relative": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47ResetTm/Trainer_sa47_tm_reset_validation.json",
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-reset-tm-20261025.json",
+      "portable_link": "sa47-reset-tm-20261025.json",
+      "sha256": "bea0f47d499b2de3df2a08fb64032b8a22c96d882f9f8789d88e79607cf6342a",
+      "copied_without_byte_changes": true
+    },
+    {
+      "origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\Sa47Priorities\\Trainer_sa47_priority_validation.json",
+      "origin_relative": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47Priorities/Trainer_sa47_priority_validation.json",
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-reset-priorities-20261025.json",
+      "portable_link": "sa47-reset-priorities-20261025.json",
+      "sha256": "c3835bc88b426b63dc6d1b3f9d74a088dfb1374f5b6a29f7c741e881738e76b1",
+      "copied_without_byte_changes": true
+    },
+    {
+      "origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\Sa47OperatorReset\\Trainer_sa47_operator_reset_validation.json",
+      "origin_relative": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47OperatorReset/Trainer_sa47_operator_reset_validation.json",
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-reset-operator-20261025.json",
+      "portable_link": "sa47-reset-operator-20261025.json",
+      "sha256": "271c034d84c7cbec1ea3c2cae7ea43d2126754654e84522ee87a413b05f5a9e9",
+      "copied_without_byte_changes": true
+    },
+    {
+      "origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\Sa47ProducerFault\\Trainer_sa47_producer_fault_validation.json",
+      "origin_relative": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47ProducerFault/Trainer_sa47_producer_fault_validation.json",
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-reset-producer-fault-20261025.json",
+      "portable_link": "sa47-reset-producer-fault-20261025.json",
+      "sha256": "9e59a961e4605ada96a28f342101afe7bfd6bbd5de9da12806ee0c8598067369",
+      "copied_without_byte_changes": true
+    }
+  ],
+  "interpretation": [
+    "Текст внутри неизменённых обзоров описывает датированные snapshots. Его старые pending и code SHA не являются текущим статусом: текущая область приёмки записана в sa47-reset-followup-20261025.json.",
+    "Подробные дополнительные дизассемблировки и промежуточные журналы по старым dev/runs ссылкам не копировались. Табличные исходные шкалы и выбранные первичные страницы доступны через portable_path.",
+    "Ни один обзор не устанавливает точную комплектацию №137+ или полное нормативное соответствие."
+  ],
+  "derived_receipt": {
+    "portable_path": "dev/docs/audit_parts/re_part1/sa47-reset-final-receipt-20261025.json",
+    "sha256": "5ca1b4c6cccad132f61ae23710d997f99932855b20a90fe60d89956ede0fb68e",
+    "note": "Производная компактная сводка report/result/session. Восемь первичных validation JSON скопированы без изменения байтов."
+  },
+  "current_validation": {
+    "path": "dev/docs/audit_parts/re_part1/sa47-reset-current-validation-20261025.json",
+    "sha256": "7b4e49af3ce6443d14500034234a9a7d1b2a9efac0030d3a3c0c8cda7ebd41a3",
+    "passed": true,
+    "checks": 56,
+    "scope": "Идентичность текущих исходников, сборок, 19 productionSourceSHA и развёрнутого EXE. Исходный PDF и 171 изображение также проверены. Нормативная приёмка всей модели не расширяется."
+  }
+}

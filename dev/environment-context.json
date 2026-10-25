@@ -36,11 +36,11 @@
   },
   "source_profiles": {
     "integration": {
-      "count": 27,
+      "count": 28,
       "sources_ref": "dev/config/environment.json#/profiles/integration/sources"
     },
     "candidate": {
-      "count": 34,
+      "count": 35,
       "sources_ref": "dev/config/environment.json#/profiles/candidate/sources"
     },
     "default": "candidate"
@@ -77,7 +77,8 @@
     "portable_release": "dev/config/portable-release.json",
     "re_part1_audit": "dev/docs/RE_PART1_AUDIT.md",
     "re_part1_requirements": "dev/config/re-part1-audit.json",
-    "re_part1_page_review": "dev/config/re-part1-page-review.json"
+    "re_part1_page_review": "dev/config/re-part1-page-review.json",
+    "sa47_release_policy": "dev/config/sa47-release-policy.json"
   },
   "commands": {
     "entrypoint": ".\\trainer.cmd",
@@ -218,12 +219,17 @@
         "Sa47Release",
         "Sa47ReleaseFault",
         "Sa47NativeButton",
+        "Sa47ResetZero",
+        "Sa47ResetTm",
+        "Sa47Priorities",
+        "Sa47OperatorReset",
+        "Sa47ProducerFault",
         "CandidateAirHost",
         "AirControlIsolation",
         "VcuAirSequence"
       ],
       "report": "dev/docs/RE_PART1_AUDIT.md",
-      "limit": "Prepared warm SA47 enum/processed Boolean, actual native Dwn/Up and managed mouse/Space; original widget/raw input restored. Full latch cancellation0/TM, independent KVT matrix, KR22 actuator supply/consumption and minimum pressure remain unaccepted."
+      "limit": "Fresh20261025 warm memory/cancel0/headTM>5.0kgf/cm2/held2, real KM/KVT and nativebutton/managedhandlers, no-op stale refusal and code/input restoration verified. KR22 supply/actuator consumption/minimum pressure, fastbetween-tick clicks and exact equipment remain unaccepted."
     },
     "autovedenie": {
       "probes": [

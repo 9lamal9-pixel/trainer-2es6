@@ -459,8 +459,8 @@ function Save-TrainerContext {
         git_head=(Get-TrainerHead)
         working_tree=[ordered]@{changed_files=$dirty.Count;first_files=@($dirty|Select-Object -First 20);more=($dirty.Count -gt 20)}
         latest=$latest
-        active_focus='РЭ часть 1: просмотрены 171/171 страниц, матрица 61 требования. SA47: разделены положение и обработанная команда; тёплый 1 без 2 удерживает ТЦ, 2 отпускает, 2→1 сохраняет. Native Dwn/Up и managed мышь/Space PASS, первый comm fault/finally PASS. Полная отмена памяти 0/ТМ и физический KR22 ещё не приняты. 75 вагонов композиционные FTk0/R2/AR1, зарядка 5.1; АВП отключено.'
-        next_model_question='Завершить SA47: 0→1 после отмены, ТМ>0.48 МПа/5.0 с доказанными единицами, КВТ/обе секции/питание KR22. Затем общий Uкс, ток/сила GetCur, граница С→СП 400/410 А и Riso. Полный cold/onset/АР по загрузке, повторные торможения/150s, TM<3.4 на спуске и closed loop/full333033 route АВП остаются; exact РЭ137+ неизвестна.'
+        active_focus='РЭ1: просмотрены171/171страниц, матрица61требование. SA47 nativeproducer исправлен: память отменяется0/головнойТМ>5.0кгс/см2, oldheld2 не реармит; отпускание→1сохраняет память. Реальные органыКВТ/КМ, sourcehandover, UIcapture/focus, Entryepoch/no-op, faultcleanupиrestorecode проверены. Свежийtest20261025T031217357Z-bebbc4ff19/19PASS, SA47 213assertions/23701cycles. 75вагонов FTk0/R2/AR1, зарядка5.1; АВП отключено.'
+        next_model_question='Далее SA47 fast native/managedclick полностью между100msциклами: нужна очередь импульсов безвозобновлениястарого после0/ТМ; затем supply/расход/минимумKR22 и холодныйпуск. СледующиерасхожденияРЭ1: общийUкс, ток/силаGetCur, границаС→СП400/410А и Riso. АРпозагрузке, повторноеторможение/150s, TM<3.4наспуске, АВПclosedloop/full333033m и exactРЭ137+ остаются.'
         read_next=@('dev/environment-context.json','dev/state/context.json')
         avoid_reading=@('whole telemetry.csv','all historical logs','all disassembly dumps')
         source_of_truth='outputs/*.cs; versioned snapshots dev/builds/<id>/source; Git checkpoints'

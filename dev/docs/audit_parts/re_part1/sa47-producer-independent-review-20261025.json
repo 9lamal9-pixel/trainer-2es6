@@ -1,0 +1,491 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-25",
+  "reviewer": "/root/re1_parameters_power",
+  "scope": "Независимый статический разбор текущих исходников и сохранённых собранных cave bytes. Native тесты, constructor, функции DLL и CPU cave не исполнялись. Код/каталоги не менялись.",
+  "overall_status": "static_review_complete_scoped_native_results_recorded",
+  "native_accepted": false,
+  "full_sa47_accepted": false,
+  "open_proven_static_blockers": [],
+  "identity": {
+    "memory_patch": {
+      "path": "outputs/TrainerSa47MemoryPatch.cs",
+      "sha256": "08af53f738c8adb72192d5928fef4dfda415ccb2513cc49499e67fc7655feb7e"
+    },
+    "reader_integration": {
+      "path": "outputs/TrainerNativeBrakeRelease.cs",
+      "sha256": "43bc878addc72999bd44517284aa6cca71f3dacda9847d0c6f2d95588f1c1ef1"
+    },
+    "pult_module": {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Pult1.dll",
+      "sha256": "7dac59bf94276309e012a6eb72602c08a921fe1910a4169f9f0ec27008f0f8f5"
+    },
+    "saved_cave": {
+      "path": "dev/runs/sa47-reset-20261024/cave-static.bin",
+      "sha256": "1044dfd7b955d6e6f68a5540b0ab33f023b4d5661b983c257ce10f16ae05a281",
+      "bytes": 756
+    },
+    "compile_only_assembly": {
+      "path": "dev/runs/sa47-reset-20261024/TrainerSa47MemoryPatch.compile-only.dll",
+      "sha256": "e6733d9ea1c10688f0049ec22c2d6ce589c28f6f25b5329cb40666a091ddf909",
+      "origin": "Артефакт автора producer-fix-design. Записанный source SHA совпадает с текущим patch. Независимо декодированы сохранённые bytes; constructor не запускался."
+    }
+  },
+  "checks": [
+    {
+      "id": "IR-ARCH-01",
+      "status": "confirmed_static",
+      "finding": "Cave сохраняет EFLAGS и GP-регистры через pushfd/pushad и восстанавливает popad/popfd. Стек возвращается к исходному ESP. После этого повторяются два украденных MOV; EAX меняется ровно как в оригинале, затем выполняется переход на module+18C7AC.",
+      "code": [
+        {
+          "path": "outputs/TrainerSa47MemoryPatch.cs",
+          "line": 301,
+          "anchor": "b.B(0x61, 0x9d); b.B(OriginalEntry);"
+        }
+      ]
+    },
+    {
+      "id": "IR-ARCH-02",
+      "status": "confirmed_saved_byte_analysis",
+      "finding": "756 сохранённых байтов декодированы как 158 инструкций. CALL и x87/FPU-инструкций нет. Все переходы направлены на границы инструкций, единственный внешний target — оригинальное продолжение. Сохранение GP/flags/стека проверено интерпретацией этих же байтов на искусственной памяти.",
+      "limit": "Это не выполнение на CPU; реальное FPU control/status, native объекты и исключения Windows не проверялись."
+    },
+    {
+      "id": "IR-ENTRY-01",
+      "status": "confirmed_static",
+      "finding": "ProducerHex совпадает с 321 текущим байтом Pult1, RVA18C665…18C7A6. Entry18C7A6 имеет исходные байты 8B45FC8B4004, continuation18C7AC. Внутренние ветви ограниченного блока сходятся до/на общем выходе. В исследованном диапазоне не найден вход в середину украденных шести байтов.",
+      "code": [
+        {
+          "path": "outputs/TrainerSa47MemoryPatch.cs",
+          "line": 8,
+          "anchor": "const int ProducerRva ="
+        },
+        {
+          "path": "outputs/TrainerSa47MemoryPatch.cs",
+          "line": 58,
+          "anchor": "CheckBytes(IntPtr.Add(module, ProducerRva), ProducerBytes);",
+          "additional_matching_lines": [
+            105
+          ]
+        }
+      ],
+      "limit": "Общий выход блока SA47 находится внутри producer; полный межмодульный граф этим не восстановлен."
+    },
+    {
+      "id": "IR-MEM-01",
+      "status": "confirmed_static",
+      "finding": "State выделяется RW. Cave сначала RW, затем RX с FlushInstructionCache. Entry изменяется временно под RWX с возвратом прежней защиты; bytes проверяются до и после записи. installed=true устанавливается до потенциально частичной записи.",
+      "code": [
+        {
+          "path": "outputs/TrainerSa47MemoryPatch.cs",
+          "line": 61,
+          "anchor": "state = VirtualAlloc("
+        },
+        {
+          "path": "outputs/TrainerSa47MemoryPatch.cs",
+          "line": 72,
+          "anchor": "if (!VirtualProtect(cave,"
+        },
+        {
+          "path": "outputs/TrainerSa47MemoryPatch.cs",
+          "line": 183,
+          "anchor": "void WriteEntry("
+        }
+      ],
+      "limit": "Фактические PAGE_* и отказы VirtualProtect/Flush требуют runtime проверки."
+    },
+    {
+      "id": "IR-MEM-02",
+      "status": "confirmed_static",
+      "finding": "Dispose восстанавливает только собственный entry jump. При чужом entry/сменившемся модуле отказывается перезаписывать и сохраняет allocations. Перед VirtualFree повторно проверяет все шесть оригинальных байтов, в том числе после прерванного восстановления защиты/cache. Cave не освобождается по одному installed=false.",
+      "code": [
+        {
+          "path": "outputs/TrainerSa47MemoryPatch.cs",
+          "line": 201,
+          "anchor": "public void Dispose()"
+        },
+        {
+          "path": "outputs/TrainerSa47MemoryPatch.cs",
+          "line": 59,
+          "anchor": "CheckBytes(entry, OriginalEntry);",
+          "additional_matching_lines": [
+            223
+          ]
+        }
+      ],
+      "limit": "Реальные освобождение, восстановление защиты и ошибки OS этим разбором не исполнялись."
+    },
+    {
+      "id": "IR-OWNER-01",
+      "status": "confirmed_with_lifetime_precondition",
+      "finding": "Проверяются x86, OS/UI поток, owner из [EBP−4], global cell, VMT, TPult, TLocParam и headTM. Для подтверждённого owner доменные/pressure faults гасят память и запрос. При чужом owner/потоке schema не записывается; sticky fault должен остановить managed публикацию до потребления.",
+      "code": [
+        {
+          "path": "outputs/TrainerSa47MemoryPatch.cs",
+          "line": 135,
+          "anchor": "void GuardGraph()"
+        },
+        {
+          "path": "outputs/TrainerSa47MemoryPatch.cs",
+          "line": 152,
+          "anchor": "static void CheckMemory("
+        }
+      ],
+      "limit": "Идентичность указателей не доказывает отсутствие конкурентного free/reuse по тому же адресу. Срок жизни графа и единственный native/UI поток остаются предусловием."
+    },
+    {
+      "id": "IR-STATE-01",
+      "status": "confirmed_saved_byte_interpretation",
+      "finding": "Сам машинный cave реализует reset при логическом 0 и строго TM>5; отмена имеет приоритет над edge. Нет rearm от held2 или от первого уже наблюдаемого 2. Новый импульс принимается только при 1→2.",
+      "code": [
+        {
+          "path": "outputs/TrainerSa47MemoryPatch.cs",
+          "line": 277,
+          "anchor": "b.Label(\"rememberRaw\");"
+        },
+        {
+          "path": "outputs/TrainerSa47MemoryPatch.cs",
+          "line": 281,
+          "anchor": "b.Label(\"cancelTm\");"
+        }
+      ],
+      "limit": "Проверены искусственные последовательности; реальный отпуск ТЦ не исполнялся."
+    },
+    {
+      "id": "IR-STATE-02",
+      "status": "confirmed_saved_byte_interpretation",
+      "finding": "NativeCandidate=false не повышается до true. Gates KM<=IV/KVT<=II подавляют исполнение, сохраняя ручную память выбранного профиля. KVTIII не наследует старый true исходного блока.",
+      "code": [
+        {
+          "path": "outputs/TrainerSa47MemoryPatch.cs",
+          "line": 286,
+          "anchor": "b.B(0x80, 0x7e, 0x7e, 2);"
+        }
+      ],
+      "limit": "Сохранение памяти при KM/KVT — явная текущая политика; заводское исполнение по смешанному РЭ не принято."
+    },
+    {
+      "id": "IR-PRESSURE-01",
+      "status": "confirmed_saved_byte_interpretation",
+      "finding": "Целочисленное сравнение положительных конечных IEEE754 Single корректно: ровно 5.0 не отменяет, следующий Single выше 5.0 отменяет. NaN/±Infinity дают sticky fault4; ниже−0.001 — fault5; от−0.001 до0 трактуется как инициализационный шум без записи в headTM.",
+      "code": [
+        {
+          "path": "outputs/TrainerSa47MemoryPatch.cs",
+          "line": 267,
+          "anchor": "b.D(0x7f800000);"
+        },
+        {
+          "path": "outputs/TrainerSa47MemoryPatch.cs",
+          "line": 269,
+          "anchor": "BitConverter.GetBytes(0.001f)"
+        }
+      ],
+      "limit": "Используется явный RE1_PRINTED_KGF_5_0_CURRENT_HYBRID, а не точное равенство 0,48 МПа и 5,0 кгс/см²."
+    },
+    {
+      "id": "IR-MAPPING-01",
+      "status": "confirmed_static",
+      "finding": "Текущий bridge после явного логического 0 публикует одну промежуточную готовность 1 перед удерживаемым операторским импульсом 2. Native handover отдельно игнорирует уже удержанную физическую кнопку до отпускания. Это выбранная операторская семантика, а не восстановленная безусловная заводская редакция.",
+      "code": [
+        {
+          "path": "outputs/TrainerNativeBrakeRelease.cs",
+          "line": 96,
+          "anchor": "if(assigned==2&&snapshotRaw==0)assigned=1;"
+        }
+      ]
+    }
+  ],
+  "resolved_during_review": [
+    {
+      "id": "IR-FIX-01",
+      "priority": "P1",
+      "initial_reader_sha256": "bc7dc53b728ea823a4a7d4461c300e00f42a23ca28f163cc6daa1a9b33cd1239",
+      "finding": "В начале review Borrow разрешал KVT<=III, а producer — только KVT<=II. Поздний переход II→III после Capture мог пропустить stale=true.",
+      "resolution": "Родитель исправил gate на <=2 во время review; статически исправлено, late-KVTIII native сценарий ещё требуется.",
+      "current_code": {
+        "path": "outputs/TrainerNativeBrakeRelease.cs",
+        "line": 127,
+        "anchor": "Marshal.ReadByte(loc,0x7d)<5&&Marshal.ReadByte(loc,0x7e)<=2&&"
+      },
+      "subsequent_guard_artifact_observed": "Sa47Release: late_KVTIII_is_neutral_native_input"
+    },
+    {
+      "id": "IR-FIX-02",
+      "priority": "P1",
+      "finding": "Исходный Capture принимал старую +103 за свежую при нормально вернувшемся commStep без входа в producer.",
+      "resolution": "Родитель добавил pending epoch, Entries-before, сравнение Entries и однократное потребление эпохи. Статически исправлено; no-op comm отрицательная проба нужна.",
+      "current_code": [
+        {
+          "path": "outputs/TrainerNativeBrakeRelease.cs",
+          "line": 97,
+          "anchor": "producerEntriesBefore=(uint)memoryPatch.Snapshot()[\"Entries\"];"
+        },
+        {
+          "path": "outputs/TrainerNativeBrakeRelease.cs",
+          "line": 118,
+          "anchor": "if(!pending||(uint)memoryPatch.Snapshot()[\"Entries\"]==producerEntriesBefore)"
+        }
+      ],
+      "subsequent_guard_artifact_observed": "Sa47Release: no_op_electrical_rejected_without_producer_entry"
+    },
+    {
+      "id": "IR-FIX-03",
+      "priority": "P1",
+      "reported_by": "/root",
+      "finding": "Producer fault мешал Dispose одолженных widget/raw входов, поскольку operational Validate бросал до восстановления.",
+      "resolution": "Родитель отделил structural Validate(false) в CabInputScope.Dispose и InputScope.Dispose. Owner/thread/module/UI графы сохраняются; native private-state Error cleanup fixture ещё требуется.",
+      "current_code": [
+        {
+          "path": "outputs/TrainerNativeBrakeRelease.cs",
+          "line": 107,
+          "anchor": "parent.ValidateCab(false);"
+        },
+        {
+          "path": "outputs/TrainerNativeBrakeRelease.cs",
+          "line": 134,
+          "anchor": "public void Dispose(){if(done)return;parent.Validate(false);"
+        }
+      ],
+      "subsequent_guard_artifact_observed": "Sa47ProducerFault"
+    }
+  ],
+  "saved_byte_interpretation": {
+    "report": "dev/runs/sa47-reset-20261024/independent-cave-static.json",
+    "cases": 17,
+    "case_names": [
+      "zero_cancel_and_no_old_rearm",
+      "first_held_two_then_new_edge",
+      "strict_equal_and_above_5",
+      "held_two_does_not_rearm",
+      "candidate_false_is_not_promoted",
+      "KVT_III_IV_execution_gate_preserves_memory",
+      "KM_V_execution_gate_preserves_memory",
+      "cold_tiny_negative",
+      "large_negative_fault",
+      "nonfinite_nan",
+      "nonfinite_inf",
+      "nonfinite_-inf",
+      "invalid_raw_fault",
+      "invalid_boolean_fault",
+      "invalid_private_domain_fault",
+      "wrong_thread_does_not_write_schema",
+      "foreign_frame_does_not_write_schema"
+    ],
+    "instruction_count": 158,
+    "fpu_instructions": 0,
+    "call_instructions": 0,
+    "all_cases_match_expected": true,
+    "method": "Ограниченный Python интерпретатор реальных x86 bytes на искусственной памяти. Это проверка control-flow и регистров, не замена native сценариям."
+  },
+  "required_native_acceptance": [
+    {
+      "id": "NATIVE-ZERO-REARM",
+      "scenario": "Реальный 1→2→1, явный 0, затем 0→1 без 2: память и 103 остаются0, физические ТЦ обеих секций повторно тормозят и не отпускаются без нового 2.",
+      "observed_status": "passed_in_scoped_run",
+      "evidence_probe": "Sa47ResetZero"
+    },
+    {
+      "id": "NATIVE-TM-HELD2",
+      "scenario": "Штатно поднять измеренную голову ТМ выше 5.0 при 1 и held2, затем снизить без нового нажатия. Память не возвращается; новый1→2 после отмены снова разрешён. Ровно5.0 проверять отдельно при достижимости, не присваивать выходные давления ради физического PASS.",
+      "observed_status": "passed_in_scoped_run_exact_boundary_interpreter_only",
+      "evidence_probe": "Sa47ResetTm"
+    },
+    {
+      "id": "NATIVE-FIRST-HELD2",
+      "scenario": "Первый held2 и уже удержанная native кнопка при handover не создают импульс. После отпускания и нового нажатия команда появляется.",
+      "observed_status": "handover_native_passed_first_observed2_static_only",
+      "evidence_probe": "Sa47OperatorReset"
+    },
+    {
+      "id": "NATIVE-KVT-LATE",
+      "scenario": "КВТII→III→IV→II через настоящий handle и отдельно II→III между Capture и Borrow. Записать candidate,108,103, scoped Boolean, управляемую сеть и все 4 ТЦ; память сохраняется, исполнение подавлено.",
+      "observed_status": "late_guard_passed_full_priorities_probe_still_failed",
+      "evidence_probe": "Sa47Release; Sa47Priorities"
+    },
+    {
+      "id": "NATIVE-NO-PRODUCER",
+      "scenario": "Нормально вернувшийся commStep без нового Entries должен отклонять Capture; повторный Capture той же эпохи запрещён, Borrow не выдаёт true.",
+      "observed_status": "passed_in_native_guard_fixture",
+      "evidence_probe": "Sa47Release: no_op_electrical_rejected_without_producer_entry"
+    },
+    {
+      "id": "NATIVE-FAULT-CLEANUP",
+      "scenario": "Fixture только privateState Error при активных CabInputScope/InputScope: свой widget/raw восстановлен; будущий operational request запрещён. Чужая запись и структурная смена owner по-прежнему не перезаписываются.",
+      "observed_status": "passed_in_private_state_fault_fixture",
+      "evidence_probe": "Sa47ProducerFault"
+    },
+    {
+      "id": "NATIVE-RESTORE-WX",
+      "scenario": "Проверить state RW, cave RX, возврат исходной защиты entry, exact original bytes после Dispose до CloseNativeCommunication, отсутствие jump в новой сессии. Чужой entry не перезаписывать; его возможный target не освобождать.",
+      "observed_status": "entry_restore_and_free_passed_OS_failure_matrix_unverified",
+      "evidence_probe": "Sa47ProducerFault"
+    },
+    {
+      "id": "NATIVE-UI-PHYSICAL",
+      "scenario": "Native DwnButton/UpBtn и managed mouse/Space; focus/capture loss, handover и возврат2→1. Реальные электрические/пневматические циклы и ТЦ без подмены давления.",
+      "observed_status": "passed_in_scoped_run_fast_between_tick_clicks_excluded",
+      "evidence_probe": "Sa47OperatorReset; Sa47NativeButton"
+    }
+  ],
+  "open_limits": [
+    "Новые runtime-сценарии этим reviewer не запускались. Ниже явно отделены прочитанные свежие результаты родителя и их физические/диагностические границы.",
+    "Указатели проверяются при условии сохранения lifetime и отсутствия параллельного free/reuse объектов во время producer.",
+    "Inbound scan ограничен исследованным producer; полный межмодульный граф не принят.",
+    "Изменения после записанных SHA требуют повторного просмотра соответствующей части.",
+    "Быстрые клики между электрическими циклами остаются вне полной приёмки event queue.",
+    "KR22: катушка, расход/минимальное давление привода, точная комплектация №137+ и полное соответствие РЭ не приняты этим review."
+  ],
+  "observed_native_followups": {
+    "executed_by_this_reviewer": false,
+    "runs": [
+      {
+        "run_id": "test-20261024T174836422Z-1b5145bb",
+        "report": "dev/runs/test-20261024T174836422Z-1b5145bb/report.json",
+        "status": "failed",
+        "results": [
+          {
+            "id": "Sa47ResetZero",
+            "status": "passed",
+            "exit_code": 0,
+            "build_id": "build-20261024T174836514Z-44f51838",
+            "reviewed_patch_and_reader_sha_match_build": true,
+            "build_manifest": "dev/runs/test-20261024T174836422Z-1b5145bb/Sa47ResetZero/sessions/20261024T174840415Z_p43372_1c8b632b419741b1ac8449ffd220609c/build.json",
+            "session": {
+              "state": "closed",
+              "exceptions": 0,
+              "logging_failures": 0
+            }
+          },
+          {
+            "id": "Sa47ResetTm",
+            "status": "passed",
+            "exit_code": 0,
+            "build_id": "build-20261024T174853824Z-e476d843",
+            "reviewed_patch_and_reader_sha_match_build": true,
+            "build_manifest": "dev/runs/test-20261024T174836422Z-1b5145bb/Sa47ResetTm/sessions/20261024T174857286Z_p39516_fd6f2d70523d407794404b8a794cbb7a/build.json",
+            "session": {
+              "state": "closed",
+              "exceptions": 0,
+              "logging_failures": 0
+            }
+          },
+          {
+            "id": "Sa47Priorities",
+            "status": "failed",
+            "exit_code": 1,
+            "build_id": "build-20261024T174916631Z-6b562877",
+            "reviewed_patch_and_reader_sha_match_build": true,
+            "build_manifest": "dev/runs/test-20261024T174836422Z-1b5145bb/Sa47Priorities/sessions/20261024T174919980Z_p14304_414b32df154f4fdc9620a2811f1756a0/build.json"
+          },
+          {
+            "id": "Sa47Release",
+            "status": "passed",
+            "exit_code": 0,
+            "build_id": "build-20261024T174935748Z-09bb1e2e",
+            "reviewed_patch_and_reader_sha_match_build": true,
+            "build_manifest": "dev/runs/test-20261024T174836422Z-1b5145bb/Sa47Release/sessions/20261024T174939213Z_p12560_aa8713db62854b46a61b1639a7f364c8/build.json",
+            "session": {
+              "state": "closed",
+              "exceptions": 0,
+              "logging_failures": 0
+            }
+          },
+          {
+            "id": "Sa47NativeButton",
+            "status": "passed",
+            "exit_code": 0,
+            "build_id": "build-20261024T174955236Z-8a8c8118",
+            "reviewed_patch_and_reader_sha_match_build": true,
+            "build_manifest": "dev/runs/test-20261024T174836422Z-1b5145bb/Sa47NativeButton/sessions/20261024T174958675Z_p36352_13350658b0234af8810042da05cc9b9a/build.json",
+            "session": {
+              "state": "closed",
+              "exceptions": 0,
+              "logging_failures": 0
+            }
+          },
+          {
+            "id": "Sa47ReleaseFault",
+            "status": "passed",
+            "exit_code": 0,
+            "build_id": "build-20261024T175011519Z-fc5235e9",
+            "reviewed_patch_and_reader_sha_match_build": true,
+            "build_manifest": "dev/runs/test-20261024T174836422Z-1b5145bb/Sa47ReleaseFault/sessions/20261024T175015149Z_p43340_8e7672b8475f4f4fbdc99780ac16c1a6/build.json",
+            "session": {
+              "state": "closed",
+              "exceptions": 0,
+              "logging_failures": 0
+            }
+          },
+          {
+            "id": "Sa47OperatorReset",
+            "status": "passed",
+            "exit_code": 0,
+            "build_id": "build-20261024T175018303Z-728eb19d",
+            "reviewed_patch_and_reader_sha_match_build": true,
+            "build_manifest": "dev/runs/test-20261024T174836422Z-1b5145bb/Sa47OperatorReset/sessions/20261024T175021716Z_p38684_f741ad528bdb4046ad4ac2f706d1b018/build.json",
+            "session": {
+              "state": "closed",
+              "exceptions": 0,
+              "logging_failures": 0
+            }
+          }
+        ]
+      },
+      {
+        "run_id": "test-20261025T030831473Z-3d669547",
+        "report": "dev/runs/test-20261025T030831473Z-3d669547/report.json",
+        "status": "passed",
+        "results": [
+          {
+            "id": "Sa47ProducerFault",
+            "status": "passed",
+            "exit_code": 0,
+            "build_id": "build-20261025T030831561Z-9bf4f889",
+            "reviewed_patch_and_reader_sha_match_build": true,
+            "build_manifest": "dev/runs/test-20261025T030831473Z-3d669547/Sa47ProducerFault/sessions/20261025T030836070Z_p14268_96f465b31de44534884dbc65938bee8d/build.json",
+            "session": {
+              "state": "closed",
+              "exceptions": 0,
+              "logging_failures": 0
+            }
+          },
+          {
+            "id": "CandidateAirHost",
+            "status": "passed",
+            "exit_code": 0,
+            "build_id": "build-20261025T030840767Z-2f7e329f",
+            "reviewed_patch_and_reader_sha_match_build": true,
+            "build_manifest": "dev/runs/test-20261025T030831473Z-3d669547/CandidateAirHost/sessions/20261025T030843937Z_p19928_ca9f618a8b334b088195b05acb5cb727/build.json",
+            "session": {
+              "state": "closed",
+              "exceptions": 0,
+              "logging_failures": 0
+            }
+          }
+        ]
+      }
+    ],
+    "scope": "Подготовленная тёплая сеть и явно указанные логические/реальные органы управления. Это узкие физические результаты и отдельный fault-cleanup fixture; полная модель/заводская ревизия не принимаются.",
+    "priorities_failure_preserved": {
+      "path": "dev/runs/test-20261024T174836422Z-1b5145bb/Sa47Priorities/Trainer_sa47_priority_validation.json",
+      "status": "failed",
+      "cycles": 3395,
+      "failed_assertion": {
+        "name": "KVT_III_retains_independent_pressure",
+        "passed": false,
+        "actual": {
+          "before": 1.8491995920241813,
+          "after": 1.1500000000000001,
+          "tc": [
+            1.4288058476624788,
+            1.4288067383806045,
+            1.4411771204716561,
+            1.441178032143847
+          ]
+        }
+      },
+      "interpretation": "Проверка ожидала сохранения давления в КВТ III как при перекрыше; этот вывод нельзя переносить в модель. Факт 103=0/108=1 в КВТ III прошёл. Родитель отдельно сверяет назначение III с профилем КВТ и РЭ 215; полный Sa47Priorities не переобъявляется PASS."
+    },
+    "producer_fault_cleanup": "В test-20261025T030831473Z-3d669547 Sa47ProducerFault PASS: fixture Error4 только в собственном RW state. Свои widget/raw восстановлены, Capture отказал, OriginalEntry восстановлен и owned cave/state освобождены до native close. Это не физический отказ датчика ТМ."
+  }
+}

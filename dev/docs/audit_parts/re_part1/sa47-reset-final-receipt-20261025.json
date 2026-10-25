@@ -1,0 +1,424 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-25",
+  "run_id": "test-20261025T031217357Z-bebbc4ff",
+  "status": "passed",
+  "suite": "selected",
+  "report_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\report.json",
+  "report_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/report.json",
+  "report_sha256": "fb666e0ab3f89cb4a8ef5c5d93d14d515b0de76f108c4958a9b503fb82b3f756",
+  "finished_utc": "2026-10-25T03:17:15.7633479Z",
+  "reported_git_head": "2e84617eb1c31011f120e80dc91365636050b44a",
+  "probes": 19,
+  "passed_probes": 19,
+  "failed_probes": 0,
+  "receipt_checks": {
+    "all_exit_zero": true,
+    "all_sessions_closed": true,
+    "all_exception_counters_zero": true,
+    "all_logging_failure_counters_zero": true
+  },
+  "sa47": {
+    "probes": 8,
+    "assertions": 213,
+    "cycles": 23701,
+    "scope": "Только подготовленная тёплая сеть явного профиля RE1_PRINTED_KGF_5_0_CURRENT_HYBRID и перечисленные fault/UI fixtures.",
+    "physical_or_processed_outputs_forced_in_reset_physics": false,
+    "fault_fixture_limit": "Sa47ProducerFault задаёт fault 4 только в собственном RW state. Это проверка operational cleanup, не аппаратного отказа датчика."
+  },
+  "results": [
+    {
+      "id": "ColdNoSource",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261025T031217446Z-10a16011",
+      "session": {
+        "id": "20261025T031222390Z_p23280_8556cccaa28b454daca37012bbb81c38",
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T031217446Z-10a16011"
+      },
+      "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\ColdNoSource\\Trainer_cold_no_source_validation.json",
+      "result_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/ColdNoSource/Trainer_cold_no_source_validation.json",
+      "result_sha256": "38f7d1b5bb4f5a8dbbbecb374d8fd753af2bbc5a85a64c7dcfa0fcee4871682b",
+      "cycles": null,
+      "passed": true
+    },
+    {
+      "id": "SectionPantographPressure",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261025T031226724Z-d3b9d4b2",
+      "session": {
+        "id": "20261025T031229884Z_p10440_7fd8c03f265747a9a4b171a1251a1a4b",
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T031226724Z-d3b9d4b2"
+      },
+      "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\SectionPantographPressure\\Trainer_section_pantograph_pressure_probe.json",
+      "result_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/SectionPantographPressure/Trainer_section_pantograph_pressure_probe.json",
+      "result_sha256": "2357a5ca35761567ca04d479521ba2659a56c8a1f5db7adaa32f882284413c25",
+      "cycles": null,
+      "passed": true
+    },
+    {
+      "id": "CandidateAirHost",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261025T031233142Z-ac0b5478",
+      "session": {
+        "id": "20261025T031236479Z_p3952_2599109cd86d41e6901c4ac86afd612d",
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T031233142Z-ac0b5478"
+      },
+      "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\CandidateAirHost\\Trainer_air_candidate_host_validation.json",
+      "result_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/CandidateAirHost/Trainer_air_candidate_host_validation.json",
+      "result_sha256": "b276459ea17387dc19edf5694e6b7357c0732fc3e828caad860e64aa49962b71",
+      "cycles": 4927,
+      "passed": true
+    },
+    {
+      "id": "ColdTrainAuxiliary",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261025T031256182Z-f2a42956",
+      "session": {
+        "id": "20261025T031259515Z_p1132_06a19f9507fd40599f0cbc79a95ca8e2",
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T031256182Z-f2a42956"
+      },
+      "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\ColdTrainAuxiliary\\Trainer_cold_train_auxiliary_validation.json",
+      "result_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/ColdTrainAuxiliary/Trainer_cold_train_auxiliary_validation.json",
+      "result_sha256": "ce5776288498f3ad517c60c57bd3ee90c4216dab127ea07686eb136f65831bfb",
+      "cycles": null,
+      "passed": true
+    },
+    {
+      "id": "VcuAirSequence",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261025T031314550Z-7bd2e0b4",
+      "session": {
+        "id": "20261025T031318180Z_p20120_02abca0c0fa34624b80adcb3ac157cde",
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T031314550Z-7bd2e0b4"
+      },
+      "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\VcuAirSequence\\Trainer_vcu_air_sequence.json",
+      "result_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/VcuAirSequence/Trainer_vcu_air_sequence.json",
+      "result_sha256": "b02b9f08045ba2e6b5b280dba4f0c79533ce35cd61150bb40631a09a77dce8e0",
+      "cycles": null,
+      "passed": null
+    },
+    {
+      "id": "CompressorPrepared",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261025T031328376Z-2f7d1bba",
+      "session": {
+        "id": "20261025T031331769Z_p22488_a59edfac55ac4edfb1f573240accd902",
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T031328376Z-2f7d1bba"
+      },
+      "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\CompressorPrepared\\Trainer_compressor_prepared_observations.json",
+      "result_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/CompressorPrepared/Trainer_compressor_prepared_observations.json",
+      "result_sha256": "8c121a1c672d2cae067b1acf174d826fdbf902b54d6b1da6f4df9628d8c2d25d",
+      "cycles": 3473,
+      "passed": true
+    },
+    {
+      "id": "Sa47Release",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261025T031339545Z-90652c6d",
+      "session": {
+        "id": "20261025T031342854Z_p13612_e1ca6cc79bbe437f951e998553c0e0f1",
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T031339545Z-90652c6d"
+      },
+      "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\Sa47Release\\Trainer_sa47_release_validation.json",
+      "result_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47Release/Trainer_sa47_release_validation.json",
+      "result_sha256": "0e1d3849c884eb8963e576b5614954be484d4670b55ee09ad99107cb667da7c5",
+      "cycles": 3455,
+      "passed": true,
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-reset-release-20261025.json",
+      "portable_link": "sa47-reset-release-20261025.json",
+      "assertion_count": 43
+    },
+    {
+      "id": "Sa47ReleaseFault",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261025T031359570Z-d1fc3a5f",
+      "session": {
+        "id": "20261025T031403157Z_p35200_50c28a40ef8f4c3289f98509249b8ec7",
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T031359570Z-d1fc3a5f"
+      },
+      "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\Sa47ReleaseFault\\Trainer_sa47_release_fault_validation.json",
+      "result_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47ReleaseFault/Trainer_sa47_release_fault_validation.json",
+      "result_sha256": "0954f4bc62a44f19ef1996d6d19de9924db3bea97cb22c487951cea83482820c",
+      "cycles": 0,
+      "passed": true,
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-reset-release-fault-20261025.json",
+      "portable_link": "sa47-reset-release-fault-20261025.json",
+      "assertion_count": 7
+    },
+    {
+      "id": "Sa47NativeButton",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261025T031407654Z-29448201",
+      "session": {
+        "id": "20261025T031411390Z_p25420_90f247c8220d446792f9f9e473abaf01",
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T031407654Z-29448201"
+      },
+      "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\Sa47NativeButton\\Trainer_sa47_native_button_validation.json",
+      "result_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47NativeButton/Trainer_sa47_native_button_validation.json",
+      "result_sha256": "82d3ecc9daa4d8c1f52c630a98d3265e7a9a322856194b962aa1c14a29e1d3f5",
+      "cycles": 2552,
+      "passed": true,
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-reset-native-button-20261025.json",
+      "portable_link": "sa47-reset-native-button-20261025.json",
+      "assertion_count": 14
+    },
+    {
+      "id": "Sa47ResetZero",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261025T031425906Z-a395befe",
+      "session": {
+        "id": "20261025T031430249Z_p34836_64a214f585f74e02b92939f3be06a5b7",
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T031425906Z-a395befe"
+      },
+      "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\Sa47ResetZero\\Trainer_sa47_zero_reset_validation.json",
+      "result_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47ResetZero/Trainer_sa47_zero_reset_validation.json",
+      "result_sha256": "cc0797f5da66c814cd3146935d200f84d182336d168c89ffa984e47b9c948a90",
+      "cycles": 2872,
+      "passed": true,
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-reset-zero-20261025.json",
+      "portable_link": "sa47-reset-zero-20261025.json",
+      "assertion_count": 13
+    },
+    {
+      "id": "Sa47ResetTm",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261025T031447790Z-9077846d",
+      "session": {
+        "id": "20261025T031451656Z_p28944_b2dc4d05c2054955aa7dae36ee636c85",
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T031447790Z-9077846d"
+      },
+      "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\Sa47ResetTm\\Trainer_sa47_tm_reset_validation.json",
+      "result_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47ResetTm/Trainer_sa47_tm_reset_validation.json",
+      "result_sha256": "bea0f47d499b2de3df2a08fb64032b8a22c96d882f9f8789d88e79607cf6342a",
+      "cycles": 4152,
+      "passed": true,
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-reset-tm-20261025.json",
+      "portable_link": "sa47-reset-tm-20261025.json",
+      "assertion_count": 16
+    },
+    {
+      "id": "Sa47Priorities",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261025T031511459Z-982f625b",
+      "session": {
+        "id": "20261025T031515176Z_p8508_fc62610f2b864fb39ef201b8bd2946ee",
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T031511459Z-982f625b"
+      },
+      "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\Sa47Priorities\\Trainer_sa47_priority_validation.json",
+      "result_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47Priorities/Trainer_sa47_priority_validation.json",
+      "result_sha256": "c3835bc88b426b63dc6d1b3f9d74a088dfb1374f5b6a29f7c741e881738e76b1",
+      "cycles": 3395,
+      "passed": true,
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-reset-priorities-20261025.json",
+      "portable_link": "sa47-reset-priorities-20261025.json",
+      "assertion_count": 13
+    },
+    {
+      "id": "Sa47OperatorReset",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261025T031532873Z-a358608c",
+      "session": {
+        "id": "20261025T031536587Z_p41764_941a5a694f014199a35331d3a989e354",
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T031532873Z-a358608c"
+      },
+      "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\Sa47OperatorReset\\Trainer_sa47_operator_reset_validation.json",
+      "result_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47OperatorReset/Trainer_sa47_operator_reset_validation.json",
+      "result_sha256": "271c034d84c7cbec1ea3c2cae7ea43d2126754654e84522ee87a413b05f5a9e9",
+      "cycles": 7275,
+      "passed": true,
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-reset-operator-20261025.json",
+      "portable_link": "sa47-reset-operator-20261025.json",
+      "assertion_count": 101
+    },
+    {
+      "id": "Sa47ProducerFault",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261025T031611064Z-4ee58015",
+      "session": {
+        "id": "20261025T031614461Z_p26836_47dbf35186344c48a3030d8b3c118927",
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T031611064Z-4ee58015"
+      },
+      "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\Sa47ProducerFault\\Trainer_sa47_producer_fault_validation.json",
+      "result_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47ProducerFault/Trainer_sa47_producer_fault_validation.json",
+      "result_sha256": "9e59a961e4605ada96a28f342101afe7bfd6bbd5de9da12806ee0c8598067369",
+      "cycles": 0,
+      "passed": true,
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-reset-producer-fault-20261025.json",
+      "portable_link": "sa47-reset-producer-fault-20261025.json",
+      "assertion_count": 6
+    },
+    {
+      "id": "AirControlIsolation",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261025T031617585Z-5a7cc729",
+      "session": {
+        "id": "20261025T031621007Z_p35624_95cc518040164c619da5aab200402252",
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T031617585Z-5a7cc729"
+      },
+      "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\AirControlIsolation\\Trainer_air_control_isolation_validation.json",
+      "result_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/AirControlIsolation/Trainer_air_control_isolation_validation.json",
+      "result_sha256": "fc371bc3767ff8cfea7611dddddaeb80cac6b95e687906c0e7388f95f4c6f3fe",
+      "cycles": null,
+      "passed": true
+    },
+    {
+      "id": "NativeSandAir",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261025T031621292Z-59ff0e8a",
+      "session": {
+        "id": "20261025T031624716Z_p33400_f86c2a0f35e948d9837053a1b0ee2479",
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T031621292Z-59ff0e8a"
+      },
+      "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\NativeSandAir\\Trainer_native_sand_air.json",
+      "result_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/NativeSandAir/Trainer_native_sand_air.json",
+      "result_sha256": "ad6e369bcfcc543f0901c46a5d195cab713ec1b68c43c045dfa5d47a121a30f3",
+      "cycles": null,
+      "passed": true
+    },
+    {
+      "id": "MarkupSafety",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261025T031636431Z-d8ddcf9f",
+      "session": {
+        "id": "20261025T031639736Z_p11192_ddbddba077a442dfb4f5d4535a711ea9",
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T031636431Z-d8ddcf9f"
+      },
+      "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\MarkupSafety\\Markup_safety.json",
+      "result_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/MarkupSafety/Markup_safety.json",
+      "result_sha256": "2a2c9680e88120440f53b47b3cc8beff63865994cf4538b035c70f0113e049b5",
+      "cycles": 71,
+      "passed": true
+    },
+    {
+      "id": "NativeSafetyAdapter",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261025T031643964Z-d27fb19f",
+      "session": {
+        "id": "20261025T031647363Z_p29656_d1bd9f0f59f74d9886ded81ea64883bd",
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T031643964Z-d27fb19f"
+      },
+      "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\NativeSafetyAdapter\\Trainer_native_safety.json",
+      "result_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/NativeSafetyAdapter/Trainer_native_safety.json",
+      "result_sha256": "33ebc783b6ff479837bf9efd6e3f873c42f40ed1c2cecd9704392045b705278d",
+      "cycles": 1996,
+      "passed": true
+    },
+    {
+      "id": "VigilanceOperator",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261025T031709432Z-30621f1d",
+      "session": {
+        "id": "20261025T031712530Z_p33184_129b6ac845df4a8482c201ceb3b927f2",
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T031709432Z-30621f1d"
+      },
+      "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\VigilanceOperator\\Trainer_vigilance_operator.json",
+      "result_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/VigilanceOperator/Trainer_vigilance_operator.json",
+      "result_sha256": "11a16ad969d60f8ec1ecf6deb172e1ccf660d69fc808130b0e6358230af15ff2",
+      "cycles": null,
+      "passed": true
+    }
+  ],
+  "unrelated_probes": {
+    "air": 6,
+    "safety": 5,
+    "status": "passed",
+    "scope": "Сохраняют собственные ограничения сценариев. Сухие/подготовленные пробы не принимают полный холодный пуск."
+  },
+  "builds_reported_by_root": {
+    "integration": "build-20261025T031746463Z-18a48dbb",
+    "candidate": "build-20261025T031759359Z-fc9f8821",
+    "candidate_deployed": true,
+    "verification_scope": "Идентичность источников, сборок, результатов и deployment проверена отдельно в sa47-reset-current-validation-20261025.json; passed, 56 проверок."
+  },
+  "history_not_overwritten": [
+    "test-20261024T174836422Z-1b5145bb остаётся failed: 6 PASS / 1 FAIL ошибочного ожидания КВТ.",
+    "Первичное воспроизведение подмены raw 1 сохранено в старом follow-up.",
+    "AutovedenieOverride в новом selected не запускался; предыдущий отказ калибровки FTk0/R2 при 0 cycles сохраняется."
+  ],
+  "full_sa47_accepted": false,
+  "full_RE_accepted": false,
+  "documentary_native_tests_executed": false,
+  "current_source_build_validation": {
+    "path": "dev/docs/audit_parts/re_part1/sa47-reset-current-validation-20261025.json",
+    "sha256": "7b4e49af3ce6443d14500034234a9a7d1b2a9efac0030d3a3c0c8cda7ebd41a3",
+    "passed": true,
+    "checks": 56,
+    "scope": "Идентичность текущих исходников, сборок, 19 productionSourceSHA и развёрнутого EXE. Исходный PDF и 171 изображение также проверены. Нормативная приёмка всей модели не расширяется."
+  }
+}

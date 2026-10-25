@@ -1,0 +1,1080 @@
+{
+  "schema_version": 1,
+  "date_utc": "2026-10-25T03:25:09.977052+00:00",
+  "passed": true,
+  "native_tests_executed": false,
+  "runtime_code_changed": false,
+  "scope": "Документационная целостность: JSON, SHA переносимых копий и текущих anchors, receipt/report/results, ссылки, границы приёмки и сохранённая история. Не новый native прогон.",
+  "targets": [
+    {
+      "path": "dev/docs/RE_PART1_AUDIT.md",
+      "sha256": "2fc51bd03b7241df4bbb2dff332857f9ddf4387900def0a0d12537ccd5cccf0c"
+    },
+    {
+      "path": "dev/config/re-part1-audit.json",
+      "sha256": "54721c9ef57af75f26c11982e2a41c32c855107ab0c5e82e68c502c7823cd1f5"
+    }
+  ],
+  "checks": [
+    {
+      "name": "requirements_and_unique_ids",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "coverage_46",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "status_counts_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "portable_sha:sa47-pressure-units-review-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy_matches_origin:sa47-pressure-units-review-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "portable_sha:sa47-operator-semantics-review-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy_matches_origin:sa47-operator-semantics-review-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "portable_sha:sa47-producer-independent-review-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy_matches_origin:sa47-producer-independent-review-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "portable_sha:sa47-producer-fix-design-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy_matches_origin:sa47-producer-fix-design-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "portable_sha:sa47-kvt-primary-review-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy_matches_origin:sa47-kvt-primary-review-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "portable_sha:sa47-native-gauge-042.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy_matches_origin:sa47-native-gauge-042.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "portable_sha:sa47-native-gauge-043.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy_matches_origin:sa47-native-gauge-043.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "portable_sha:sa47-kvt-215-p005.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy_matches_origin:sa47-kvt-215-p005.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "portable_sha:sa47-kvt-215-p012.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy_matches_origin:sa47-kvt-215-p012.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "portable_sha:sa47-kvt-215-p005-pressure-stages.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy_matches_origin:sa47-kvt-215-p005-pressure-stages.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "portable_sha:sa47-reset-release-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy_matches_origin:sa47-reset-release-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "portable_sha:sa47-reset-release-fault-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy_matches_origin:sa47-reset-release-fault-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "portable_sha:sa47-reset-native-button-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy_matches_origin:sa47-reset-native-button-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "portable_sha:sa47-reset-zero-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy_matches_origin:sa47-reset-zero-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "portable_sha:sa47-reset-tm-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy_matches_origin:sa47-reset-tm-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "portable_sha:sa47-reset-priorities-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy_matches_origin:sa47-reset-priorities-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "portable_sha:sa47-reset-operator-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy_matches_origin:sa47-reset-operator-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "portable_sha:sa47-reset-producer-fault-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "copy_matches_origin:sa47-reset-producer-fault-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "derived_receipt_sha",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_identity:outputs/TrainerNativeBrakeRelease.cs",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchor:outputs/TrainerNativeBrakeRelease.cs:16",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchor:outputs/TrainerNativeBrakeRelease.cs:96",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchor:outputs/TrainerNativeBrakeRelease.cs:97",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchor:outputs/TrainerNativeBrakeRelease.cs:115",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchor:outputs/TrainerNativeBrakeRelease.cs:118",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchor:outputs/TrainerNativeBrakeRelease.cs:126",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchor:outputs/TrainerNativeBrakeRelease.cs:107",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchor:outputs/TrainerNativeBrakeRelease.cs:134",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchor:outputs/TrainerNativeBrakeRelease.cs:158",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchor:outputs/TrainerNativeBrakeRelease.cs:180",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_identity:outputs/TrainerSa47MemoryPatch.cs",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchor:outputs/TrainerSa47MemoryPatch.cs:8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchor:outputs/TrainerSa47MemoryPatch.cs:16",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchor:outputs/TrainerSa47MemoryPatch.cs:97",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchor:outputs/TrainerSa47MemoryPatch.cs:114",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchor:outputs/TrainerSa47MemoryPatch.cs:183",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchor:outputs/TrainerSa47MemoryPatch.cs:201",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchor:outputs/TrainerSa47MemoryPatch.cs:277",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchor:outputs/TrainerSa47MemoryPatch.cs:281",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchor:outputs/TrainerSa47MemoryPatch.cs:286",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchor:outputs/TrainerSa47MemoryPatch.cs:301",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_identity:outputs/TrainerAuxSystems.cs",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchor:outputs/TrainerAuxSystems.cs:124",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_identity:outputs/TrainerNativeSystems.cs",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchor:outputs/TrainerNativeSystems.cs:58",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchor:outputs/TrainerNativeSystems.cs:74",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchor:outputs/TrainerNativeSystems.cs:75",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_identity:work/pneumatic_live_fix/analysis/Sa47ReleaseProbe.cs",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchor:work/pneumatic_live_fix/analysis/Sa47ReleaseProbe.cs:133",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchor:work/pneumatic_live_fix/analysis/Sa47ReleaseProbe.cs:159",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchor:work/pneumatic_live_fix/analysis/Sa47ReleaseProbe.cs:206",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "anchor:work/pneumatic_live_fix/analysis/Sa47ReleaseProbe.cs:181",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_identity:work/pneumatic_live_fix/analysis/CandidateAirHostProbe.cs",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_identity:dev/config/sa47-release-policy.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "partial:CA22",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reset_followup:CA22",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "partial:TB-14",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reset_followup:TB-14",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "full_conformity_not_accepted",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "final19_receipt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "report_sha",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_session:ColdNoSource",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_sha:ColdNoSource",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_session:SectionPantographPressure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_sha:SectionPantographPressure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_session:CandidateAirHost",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_sha:CandidateAirHost",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_session:ColdTrainAuxiliary",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_sha:ColdTrainAuxiliary",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_session:VcuAirSequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_sha:VcuAirSequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_session:CompressorPrepared",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_sha:CompressorPrepared",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_session:Sa47Release",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_sha:Sa47Release",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "proof:Sa47Release",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_session:Sa47ReleaseFault",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_sha:Sa47ReleaseFault",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "proof:Sa47ReleaseFault",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_session:Sa47NativeButton",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_sha:Sa47NativeButton",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "proof:Sa47NativeButton",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_session:Sa47ResetZero",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_sha:Sa47ResetZero",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "proof:Sa47ResetZero",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_session:Sa47ResetTm",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_sha:Sa47ResetTm",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "proof:Sa47ResetTm",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_session:Sa47Priorities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_sha:Sa47Priorities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "proof:Sa47Priorities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_session:Sa47OperatorReset",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_sha:Sa47OperatorReset",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "proof:Sa47OperatorReset",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_session:Sa47ProducerFault",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_sha:Sa47ProducerFault",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "proof:Sa47ProducerFault",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_session:AirControlIsolation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_sha:AirControlIsolation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_session:NativeSandAir",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_sha:NativeSandAir",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_session:MarkupSafety",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_sha:MarkupSafety",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_session:NativeSafetyAdapter",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_sha:NativeSafetyAdapter",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_session:VigilanceOperator",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "result_sha:VigilanceOperator",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "sa47_totals",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "old_failure_not_relabelled",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "old_source_contract_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "AVP_not_rerun",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "current_validation56",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:../config/re-part1-audit.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:../config/re-part1-page-review.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:../runs/re-part1-20261024/page-review-validation.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:../runs/re-part1-20261024/page-review-001-030.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:../runs/re-part1-20261024/page-review-031-069.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:../runs/re-part1-20261024/page-review-070-110.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:../runs/re-part1-20261024/page-review-111-171.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:../runs/test-20261024T170541219Z-a4aa1d3a/report.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/sa47-release-20261024.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/sa47-release-fault-20261024.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/sa47-native-button-20261024.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:../runs/test-20261024T170654333Z-9ed54e71/report.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/sa47-followup-validation-20261024.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:../runs/test-20261024T161912739Z-953c5b38/report.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:../runs/test-20261024T164245297Z-84fcaaf4/report.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/sa47-reset-contract-review-20261024.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/sa47-reset-followup-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/sa47-reset-final-receipt-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/sa47-reset-evidence-index-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/sa47-pressure-units-review-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/sa47-native-gauge-042.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/sa47-native-gauge-043.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/sa47-producer-fix-design-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/sa47-producer-independent-review-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/sa47-operator-semantics-review-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:../runs/test-20261025T031217357Z-bebbc4ff/report.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/sa47-reset-release-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/sa47-reset-release-fault-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/sa47-reset-native-button-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/sa47-reset-zero-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/sa47-reset-tm-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/sa47-reset-priorities-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/sa47-reset-operator-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/sa47-reset-producer-fault-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:../runs/test-20261024T174836422Z-1b5145bb/report.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/sa47-kvt-primary-review-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/sa47-kvt-215-p005.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/sa47-kvt-215-p005-pressure-stages.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/sa47-kvt-215-p012.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:../runs/test-20261025T030831473Z-3d669547/report.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/sa47-reset-current-validation-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:../runs/test-20261024T171739039Z-b9c0a0b5/report.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/current-build-review-validation-20261024.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "markdown_link:audit_parts/re_part1/sa47-adapter-review-20261024.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "current_and_historical_sections",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_pending_final19",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/control-native-guards.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/traction-static-current.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/rheostat-reference-check.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/traction-native-static.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/sa47-release-20261024.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/sa47-release-fault-20261024.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/sa47-native-button-20261024.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/sa47-followup-validation-20261024.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/sa47-reset-contract-review-20261024.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/current-build-review-validation-20261024.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/sa47-adapter-review-20261024.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/sa47-pressure-units-review-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/sa47-operator-semantics-review-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/sa47-producer-independent-review-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/sa47-producer-fix-design-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/sa47-kvt-primary-review-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/sa47-native-gauge-042.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/sa47-native-gauge-043.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/sa47-kvt-215-p005.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/sa47-kvt-215-p012.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/sa47-kvt-215-p005-pressure-stages.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/sa47-reset-evidence-index-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/sa47-reset-followup-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/sa47-reset-release-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/sa47-reset-release-fault-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/sa47-reset-native-button-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/sa47-reset-zero-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/sa47-reset-tm-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/sa47-reset-priorities-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/sa47-reset-operator-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/sa47-reset-producer-fault-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/sa47-reset-final-receipt-20261025.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "matrix_evidence:dev/docs/audit_parts/re_part1/sa47-reset-current-validation-20261025.json",
+      "passed": true,
+      "detail": null
+    }
+  ]
+}

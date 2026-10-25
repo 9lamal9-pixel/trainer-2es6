@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-24",
+  "native_executed": false,
+  "physical_dlls_changed": false,
+  "implementation": {
+    "source": "outputs/TrainerSa47MemoryPatch.cs",
+    "source_sha256": "08af53f738c8adb72192d5928fef4dfda415ccb2513cc49499e67fc7655feb7e",
+    "status": "Written as a separate file at root request; integration and native acceptance belong to root.",
+    "compile_only_exit_code": 0,
+    "compile_only_artifact": "dev/runs/sa47-reset-20261024/TrainerSa47MemoryPatch.compile-only.dll",
+    "static_cave_review": "dev/runs/sa47-reset-20261024/cave-static-review.json",
+    "static_cave_bytes": 756,
+    "constructor_executed": false,
+    "cave_executed": false,
+    "snapshot": "Snapshot() returns a copied Dictionary after Validate. Fault remains separately readable when Validate rejects a sticky fault."
+  },
+  "evidence": "dev/runs/sa47-reset-20261024/producer-native-evidence.json",
+  "module": {
+    "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Pult1.dll",
+    "sha256": "7dac59bf94276309e012a6eb72602c08a921fe1910a4169f9f0ec27008f0f8f5",
+    "producer_block": "0x18c665..0x18c7a6",
+    "producer_block_bytes": 321,
+    "producer_block_sha256": "a804bb9f91cd979600b7b1cd68ff6a0f17f84c3d8b048331bf2ba51484d9eb0f"
+  },
+  "selected_option": "Guarded memory-only native cave at the common exit of the SA47 producer block.",
+  "insertion": {
+    "rva": "0x18c7a6",
+    "original_hex": "8b45fc8b4004",
+    "decoded": ["mov eax,[ebp-4]", "mov eax,[eax+4]"],
+    "patch_template": "E9 <rel32 to cave> 90",
+    "continuation_rva": "0x18c7ac",
+    "inbound_branch": "0x18c795: jne 0x18c7a6; no branch into the interior of the six-byte window was found in the bounded producer range.",
+    "cave_contract": "Save flags and all integer registers, perform integer-only state reconciliation, restore integer registers and flags, replay both stolen MOV instructions, jump to 0x18c7ac. Do not call managed code and do not touch the x87 stack/control/status or floating-point outputs."
+  },
+  "caller_order": [
+    "ProceedPult at 0x18efc0 dispatches owner VMT+8.",
+    "Owner Proceed at 0x18ba1c calls the producer at 0x18be58 through call 0x18ba36.",
+    "After the producer returns, Proceed calls 0x18ed58, 0x18ee24 and 0x18ef44, then obtains schema through GetShema 0x18b92c and calls 0x188c50 and 0x189494.",
+    "The common-exit cave therefore publishes corrected schema+103/+108 before these subsequent native calls. The bounded inspection did not prove each downstream indirect table read of SA47 separately."
+  ],
+  "rejected_alternative": {
+    "option": "Managed reconciliation only after commStep",
+    "reason": "It can correct the final published fields but occurs after the native Proceed chain. It cannot by itself guarantee that the same electrical pass used the corrected request, and must not be described as a correction inside the native producer."
+  },
+  "memory_and_execution": {
+    "memory": "A separate owner-bound RW byte manualMemory is authoritative. Publish it to schema+108 after the original block. Do not use the original block's rewritten +108 as the persistent memory.",
+    "initialization": "The first observed logical input establishes previousLogicalRaw and initialized=true but cannot create a new edge, including when the first input is already 2. Initial manualMemory is false.",
+    "new_edge": "logicalRaw==2 && previousLogicalRaw==1; update previousLogicalRaw on every valid producer pass, including cancellation passes.",
+    "cancel": "logicalRaw==0 OR finite headTM strictly greater than the explicit threshold clears manualMemory. Cancellation wins over a simultaneous edge.",
+    "held2": "Keeping input 2 after TM cancellation cannot rearm memory. It must leave 2 and form a fresh 1→2 transition after the cancellation condition disappears.",
+    "execution": "schema103 = originalNativeCandidate103 && manualMemory && KM<=4 && KVT<=2. Preserve memory while a native brake eligibility condition inhibits execution.",
+    "stale_eligibility_fix": "The original block sets 103 only with KM<=4/KVT<=2 but does not unconditionally clear it before testing those conditions. The explicit final eligibility gate removes a previously inherited true when changing KVT II→III. This is an intentional additional fix; test II→III→IV→II while retaining memory.",
+    "physical_priority": "Keep the existing later SAUT/EPK/emergency arbitration in the pneumatic bridge. These requests do not cancel manualMemory. A priority change occurring after the electrical snapshot is a later input change; exact equality of all intermediate fields across that change is not established by this producer patch alone."
+  },
+  "input_contract": {
+    "constructor": "TrainerSa47MemoryPatch(IntPtr pultModule, IntPtr owner, IntPtr pult, IntPtr loc, IntPtr headTm, float threshold)",
+    "owner_graph": "module+1a2e60 points to module+1bc028; that cell contains owner; owner+4==pult; pult+4==loc; pult+8==headTm. The current producer frame [ebp-4] must equal owner.",
+    "pressure": "headTm points to a readable native float; threshold is supplied explicitly in the same units. The unit/boundary investigation belongs to a separate review. No conversion or pressure threshold is inferred by this patch.",
+    "finite_domain": "NaN and both infinities fault. Values from -0.001 through zero are tolerated as initialization noise and treated as below the positive threshold; values below -0.001 fault.",
+    "integer_comparison": "Use IEEE754 bit ordering for nonnegative finite float values and compare the absolute representation for the small negative tolerance. No x87 instruction or native/managed floating-point helper is needed in the cave.",
+    "logical_mapping_requirement": "Strict 1→2 requires the physical momentary-button source to publish logical idle 1 and pressed 2. The old normalized button path 0/2 cannot satisfy this edge contract. Explicit operator position 0 remains a real cancellation.",
+    "raw_consistency": "The produced schema+104 Int32 must be in 0..2 and equal Loc+8C. Schema+103/+108/+109/+10A must be Boolean bytes. Private initialized/manualMemory/previousLogicalRaw fields are guarded too."
+  },
+  "guards_and_lifetime": [
+    "The outer reader retains loaded path and full module SHA checks. The patch independently checks x86, thread, module identity, getter/owner graph, all 321 original producer bytes and the exact six stolen bytes before installation.",
+    "Allocate RW state and an initially RW code page; protect the completed code page RX. Entry writes temporarily change protection, restore the prior protection and flush the instruction cache.",
+    "The cave compares frame owner and the pinned graph before touching schema. On a foreign owner/graph fault, record a sticky fault in private state and do not write to the foreign schema. There is no safe way to both overwrite an unowned/freed schema and promise no foreign memory access.",
+    "The host must preserve native object lifetime on the captured thread during the call. Integer pointer identity checks cannot prove that memory was not freed and reused concurrently at the same address. Outer readable-range checks and the existing single-thread lifecycle are required preconditions.",
+    "For a confirmed owned graph, domain/pressure faults clear 103 and 108 and the private memory; the fault remains sticky and Validate/outer Capture must throw before pneumatic consumption.",
+    "On Dispose, restore entry bytes only if the installed jump is still exactly owned. Restore protection and flush before freeing executable memory. Recheck module lifetime and all six original entry bytes immediately before free, including a later Dispose after an interrupted restoration. Refuse to overwrite a foreign entry patch; retain allocations when the entry could still reference the cave.",
+    "Do not restore an old saved command/latch value on close: that could resurrect stale release memory. No pressure, cylinder, reservoir or relay output is written."
+  ],
+  "acceptance": [
+    "Compare Snapshot Entries before and after each accepted electrical pass; require a new producer entry before publishing its fresh command snapshot. Validate alone is a graph/byte/fault guard and does not prove that the producer ran during a particular tick.",
+    "First observed 2 cannot arm memory; 0→1 cannot arm memory; a new 1→2 can arm it.",
+    "1→2→1 keeps schema108 and request103 while eligible; explicit 0 clears both; later 0→1 alone cannot recover old memory.",
+    "A real head-TM rise strictly above threshold clears 108/103 with input1 and with held input2. Reducing TM while input2 remains held cannot rearm it; a fresh 1→2 after leaving2 can.",
+    "KVT II→III→IV inhibits request while memory remains; returning to eligible II permits the original candidate and retained memory to work. Check independent braking and all four physical cylinders without assigning their outputs.",
+    "SAUT/EPK/emergency priority remains effective in the existing arbitration. Log native103, memory108, the scoped native Boolean input, managed release selection and physical outputs with timing boundaries.",
+    "Reject invalid raw/Boolean/private-state domains, NaN/infinity, TM below tolerance, wrong owner/thread and foreign entry replacement. Verify no foreign schema write and safe restoration.",
+    "Record fresh runtime results. This static design and byte inspection execute no native functions and do not constitute acceptance."
+  ]
+}

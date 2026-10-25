@@ -122,7 +122,29 @@
     "dev/docs/audit_parts/re_part1/sa47-followup-validation-20261024.json",
     "dev/docs/audit_parts/re_part1/sa47-reset-contract-review-20261024.json",
     "dev/docs/audit_parts/re_part1/current-build-review-validation-20261024.json",
-    "dev/docs/audit_parts/re_part1/sa47-adapter-review-20261024.json"
+    "dev/docs/audit_parts/re_part1/sa47-adapter-review-20261024.json",
+    "dev/docs/audit_parts/re_part1/sa47-pressure-units-review-20261025.json",
+    "dev/docs/audit_parts/re_part1/sa47-operator-semantics-review-20261025.json",
+    "dev/docs/audit_parts/re_part1/sa47-producer-independent-review-20261025.json",
+    "dev/docs/audit_parts/re_part1/sa47-producer-fix-design-20261025.json",
+    "dev/docs/audit_parts/re_part1/sa47-kvt-primary-review-20261025.json",
+    "dev/docs/audit_parts/re_part1/sa47-native-gauge-042.png",
+    "dev/docs/audit_parts/re_part1/sa47-native-gauge-043.png",
+    "dev/docs/audit_parts/re_part1/sa47-kvt-215-p005.png",
+    "dev/docs/audit_parts/re_part1/sa47-kvt-215-p012.png",
+    "dev/docs/audit_parts/re_part1/sa47-kvt-215-p005-pressure-stages.png",
+    "dev/docs/audit_parts/re_part1/sa47-reset-evidence-index-20261025.json",
+    "dev/docs/audit_parts/re_part1/sa47-reset-followup-20261025.json",
+    "dev/docs/audit_parts/re_part1/sa47-reset-release-20261025.json",
+    "dev/docs/audit_parts/re_part1/sa47-reset-release-fault-20261025.json",
+    "dev/docs/audit_parts/re_part1/sa47-reset-native-button-20261025.json",
+    "dev/docs/audit_parts/re_part1/sa47-reset-zero-20261025.json",
+    "dev/docs/audit_parts/re_part1/sa47-reset-tm-20261025.json",
+    "dev/docs/audit_parts/re_part1/sa47-reset-priorities-20261025.json",
+    "dev/docs/audit_parts/re_part1/sa47-reset-operator-20261025.json",
+    "dev/docs/audit_parts/re_part1/sa47-reset-producer-fault-20261025.json",
+    "dev/docs/audit_parts/re_part1/sa47-reset-final-receipt-20261025.json",
+    "dev/docs/audit_parts/re_part1/sa47-reset-current-validation-20261025.json"
   ],
   "current_native_identity": [
     {
@@ -187,7 +209,7 @@
     },
     {
       "order": 2,
-      "work": "Завершить отмену памяти SA47, принять 0 → 1 после отмены, реализовать отмену по ТМ и проверить focus/capture. Свежие Mouse/Space/native-button и часть физических переходов приняты в узком scope; полный статус partial.",
+      "work": "Завершить физическую приёмку KR22 и событий между 100-мс циклами. Отмена 0/ТМ, held2, UI и lifetime приняты только в описанном тёплом профиле 5,0 кгс/см²; точная комплектация №137+ и общий статус остаются partial.",
       "requirements": [
         "TB-14",
         "CA22"
@@ -2596,7 +2618,7 @@
         "note": "Relevant OCR pages were read in full. Listed PNG pages were visually checked for stated values and labels. Appendix coverage does not mean wire-by-wire verification."
       },
       "expected": "В БТО имеются отдельные вентили КР22 отпуска тормоза, КР23 блокировки тормоза и КР24 срыва рекуперации. Детальный алгоритм отнесён к части 7.",
-      "observed": "Исходное расхождение baseline сохранено отдельно. Динамическое дополнение 2026-10-24: Sa47Release PASS 33 assertions / 3455 cycles; Sa47ReleaseFault PASS 7; Sa47NativeButton PASS 12 / 2232 cycles. При исходной очищенной памяти 1 удерживает ТЦ, 2 отпускает, 2 → 1 сохраняет отпуск; 0 повторно тормозит. Однако latch108 после 0 остаётся 1, поэтому последующее 0 → 1 и полная отмена памяти не приняты. Отмена по ТМ не реализована; focus/capture отдельно не проверены. Физическая калибровка KR22 и полная приёмка остаются открытыми.",
+      "observed": "Этап reset принят только в подготовленной тёплой сети профиля RE1_PRINTED_KGF_5_0_CURRENT_HYBRID: отмена памяти при логическом 0 или головной ТМ строго выше 5,0 кгс/см²; последующее 1 не возрождает отпуск. Удержанное 2 после отмены не реармит память, нужен новый переход 1 → 2. Приняты описанные native Up → logical 1, managed focus/capture/deactivate, handover, epoch/no-op, поздний gate КВТ и восстановление после operational fault. Новый selected test-20261025T031217357Z-bebbc4ff: 19/19 PASS; восемь SA47 сценариев — 213 assertions, 23701 cycles. Старый пакет 6 PASS / 1 FAIL ошибочного ожидания КВТ сохранён как неуспешный. Питание и расход KR22, быстрые события между циклами и точная ревизия остаются partial.",
       "status": "partial",
       "priority": "P1",
       "acceptance": [
@@ -2638,24 +2660,25 @@
         "observed": "Ветвь C# использует loc+8C!=0, а свежий guard C21 подтверждает нативный OtpuskType=0/1/2 и защёлку. Привод КЭБ2, его расход и минимальное давление прямо помечены как некалиброванные. Вывод нужно согласовать с разбором §3.16."
       },
       "current_acceptance_pending": [
-        "Принять 0 → 1 после отмены и доказать нужное состояние памяти: в свежем сценарии после 0 latch108 остаётся 1, хотя текущий выход снят и ТЦ повторно заторможены.",
-        "Реализовать и принять отмену по ТМ, включая native ТМ > 5, явные единицы и соответствие порогу РЭ 0,48 МПа.",
-        "Отдельно проверить потерю фокуса и захвата; MouseDown/Up и SpaceDown/Up уже прошли узкие полные циклы.",
-        "Принять расход и минимальное давление привода KR22, положения ВЦУ, независимый КВТ и оставшуюся физическую матрицу обеих секций.",
-        "Согласовать физический idle кнопки и логическую отмену0, затем разрешить конфликт native KM ≥ V/KVT > III с перечнем «только0/ТМ». Вариант idle1/press2/up1 пока не принят."
+        "KR22: принять питание, расход и минимальное рабочее давление привода, полную аппаратную матрицу KR22/KR23/KR24 и ВЦУ.",
+        "Отдельно принять быстрое нажатие/отпускание целиком между 100-мс электрическими циклами; текущая цикловая приёмка этого не покрывает.",
+        "Подтвердить точную редакцию/комплектацию №137+ и заводской выбор между 0,48 МПа и 5,0 кгс/см²; текущая приёмка ограничена явным kgf-профилем."
       ],
       "code_scope": "Сохранённые code anchors и SHA относятся к baseline-аудиту; последующая правка SA47 описана отдельно.",
       "dynamic_followup_ids": [
-        "SA47-DYNAMIC-20261024-170541"
+        "SA47-DYNAMIC-20261024-170541",
+        "SA47-RESET-20261025"
       ],
       "acceptance_state": {
         "partial_executed": true,
         "complete_requirement_accepted": false,
         "dynamic_followup_ids": [
-          "SA47-DYNAMIC-20261024-170541"
+          "SA47-DYNAMIC-20261024-170541",
+          "SA47-RESET-20261025"
         ]
       },
-      "reset_contract_review_ref": "dev/docs/audit_parts/re_part1/sa47-reset-contract-review-20261024.json"
+      "reset_contract_review_ref": "dev/docs/audit_parts/re_part1/sa47-reset-contract-review-20261024.json",
+      "reset_followup_ref": "dev/docs/audit_parts/re_part1/sa47-reset-followup-20261025.json"
     },
     {
       "id": "TB-01",
@@ -3243,7 +3266,7 @@
     },
     {
       "id": "TB-14",
-      "title": "SA47: исправление границы обработанной команды в работе",
+      "title": "SA47: память и reset приняты в узком тёплом kgf-профиле; полная физика partial",
       "printed_pages": [
         117,
         118,
@@ -3254,8 +3277,8 @@
         123,
         124
       ],
-      "expected": "При заторможенном составе положения 0 и переход 0 → 1 не питают KR22. Импульс 1 → 2 включает отпуск; команда сохраняется после возврата в 1 и отменяется положением 0 либо повышением ТМ выше указанной в листе границы 0,48 МПа.",
-      "observed": "Исходное расхождение baseline сохранено отдельно. Динамическое дополнение 2026-10-24: Sa47Release PASS 33 assertions / 3455 cycles; Sa47ReleaseFault PASS 7; Sa47NativeButton PASS 12 / 2232 cycles. При исходной очищенной памяти 1 удерживает ТЦ, 2 отпускает, 2 → 1 сохраняет отпуск; 0 повторно тормозит. Однако latch108 после 0 остаётся 1, поэтому последующее 0 → 1 и полная отмена памяти не приняты. Отмена по ТМ не реализована; focus/capture отдельно не проверены. Физическая калибровка KR22 и полная приёмка остаются открытыми.",
+      "expected": "При заторможенном составе положения 0 и переход 0 → 1 не питают KR22. Импульс 1 → 2 включает отпуск с памятью; возврат в 1 сохраняет команду. Отмена названа для 0 либо ТМ выше напечатанной границы 0,48 МПа (5,0 кгс/см²). Неэквивалентные числовые прочтения и выбор текущего явного kgf-профиля отмечены отдельно.",
+      "observed": "Этап reset принят только в подготовленной тёплой сети профиля RE1_PRINTED_KGF_5_0_CURRENT_HYBRID: отмена памяти при логическом 0 или головной ТМ строго выше 5,0 кгс/см²; последующее 1 не возрождает отпуск. Удержанное 2 после отмены не реармит память, нужен новый переход 1 → 2. Приняты описанные native Up → logical 1, managed focus/capture/deactivate, handover, epoch/no-op, поздний gate КВТ и восстановление после operational fault. Новый selected test-20261025T031217357Z-bebbc4ff: 19/19 PASS; восемь SA47 сценариев — 213 assertions, 23701 cycles. Старый пакет 6 PASS / 1 FAIL ошибочного ожидания КВТ сохранён как неуспешный. Питание и расход KR22, быстрые события между циклами и точная ревизия остаются partial.",
       "status": "partial",
       "code": [
         {
@@ -3285,19 +3308,18 @@
         "partial_executed": true,
         "complete_requirement_accepted": false,
         "dynamic_followup_ids": [
-          "SA47-DYNAMIC-20261024-170541"
+          "SA47-DYNAMIC-20261024-170541",
+          "SA47-RESET-20261025"
         ],
         "required": [
-          "Принять 0 → 1 после отмены и доказать нужное состояние памяти: в свежем сценарии после 0 latch108 остаётся 1, хотя текущий выход снят и ТЦ повторно заторможены.",
-          "Реализовать и принять отмену по ТМ, включая native ТМ > 5, явные единицы и соответствие порогу РЭ 0,48 МПа.",
-          "Отдельно проверить потерю фокуса и захвата; MouseDown/Up и SpaceDown/Up уже прошли узкие полные циклы.",
-          "Принять расход и минимальное давление привода KR22, положения ВЦУ, независимый КВТ и оставшуюся физическую матрицу обеих секций.",
-          "Согласовать физический idle кнопки и логическую отмену0, затем разрешить конфликт native KM ≥ V/KVT > III с перечнем «только0/ТМ». Вариант idle1/press2/up1 пока не принят."
+          "KR22: принять питание, расход и минимальное рабочее давление привода, полную аппаратную матрицу KR22/KR23/KR24 и ВЦУ.",
+          "Отдельно принять быстрое нажатие/отпускание целиком между 100-мс электрическими циклами; текущая цикловая приёмка этого не покрывает.",
+          "Подтвердить точную редакцию/комплектацию №137+ и заводской выбор между 0,48 МПа и 5,0 кгс/см²; текущая приёмка ограничена явным kgf-профилем."
         ]
       },
       "priority": "P1",
-      "status_scope": "Три свежих сценария приняли только явно перечисленные переходы, входные guards, native кнопку и обработчики Mouse/Space. Baseline-расхождение сохранено; отмена памяти и ТМ ещё не приняты.",
-      "proposed_change": "Завершить семантику отмены памяти SA47 и отмены по ТМ, затем принять 0 → 1 после отмены и focus/capture. Сохранить доказанные переходы, native widget, восстановление входов, независимый КВТ и пневматическое разрешение.",
+      "status_scope": "Warm/reset/UI/lifetime результаты относятся только к явному профилю 5,0 кгс/см². Исторический baseline сохранён; полная приёмка РЭ не объявляется.",
+      "proposed_change": "Завершить физическую цепь KR22 и быстрые события между циклами; сохранить принятые 0/TM/held2/UI/epoch/fault ограничения. Подтвердить заводское исполнение и порог.",
       "sections": [
         "3.16.2"
       ],
@@ -3337,27 +3359,32 @@
         "status": "partial",
         "complete_acceptance_executed": false,
         "pending": [
-          "Принять 0 → 1 после отмены и доказать нужное состояние памяти: в свежем сценарии после 0 latch108 остаётся 1, хотя текущий выход снят и ТЦ повторно заторможены.",
-          "Реализовать и принять отмену по ТМ, включая native ТМ > 5, явные единицы и соответствие порогу РЭ 0,48 МПа.",
-          "Отдельно проверить потерю фокуса и захвата; MouseDown/Up и SpaceDown/Up уже прошли узкие полные циклы.",
-          "Принять расход и минимальное давление привода KR22, положения ВЦУ, независимый КВТ и оставшуюся физическую матрицу обеих секций.",
-          "Согласовать физический idle кнопки и логическую отмену0, затем разрешить конфликт native KM ≥ V/KVT > III с перечнем «только0/ТМ». Вариант idle1/press2/up1 пока не принят."
+          "KR22: принять питание, расход и минимальное рабочее давление привода, полную аппаратную матрицу KR22/KR23/KR24 и ВЦУ.",
+          "Отдельно принять быстрое нажатие/отпускание целиком между 100-мс электрическими циклами; текущая цикловая приёмка этого не покрывает.",
+          "Подтвердить точную редакцию/комплектацию №137+ и заводской выбор между 0,48 МПа и 5,0 кгс/см²; текущая приёмка ограничена явным kgf-профилем."
         ],
         "dynamic_followup_ids": [
-          "SA47-DYNAMIC-20261024-170541"
-        ]
+          "SA47-DYNAMIC-20261024-170541",
+          "SA47-RESET-20261025"
+        ],
+        "paths": [
+          "outputs/TrainerNativeBrakeRelease.cs",
+          "outputs/TrainerSa47MemoryPatch.cs"
+        ],
+        "profile": "RE1_PRINTED_KGF_5_0_CURRENT_HYBRID",
+        "followup_ref": "dev/docs/audit_parts/re_part1/sa47-reset-followup-20261025.json"
       },
       "dynamic_followup_ids": [
-        "SA47-DYNAMIC-20261024-170541"
+        "SA47-DYNAMIC-20261024-170541",
+        "SA47-RESET-20261025"
       ],
       "current_acceptance_pending": [
-        "Принять 0 → 1 после отмены и доказать нужное состояние памяти: в свежем сценарии после 0 latch108 остаётся 1, хотя текущий выход снят и ТЦ повторно заторможены.",
-        "Реализовать и принять отмену по ТМ, включая native ТМ > 5, явные единицы и соответствие порогу РЭ 0,48 МПа.",
-        "Отдельно проверить потерю фокуса и захвата; MouseDown/Up и SpaceDown/Up уже прошли узкие полные циклы.",
-        "Принять расход и минимальное давление привода KR22, положения ВЦУ, независимый КВТ и оставшуюся физическую матрицу обеих секций.",
-        "Согласовать физический idle кнопки и логическую отмену0, затем разрешить конфликт native KM ≥ V/KVT > III с перечнем «только0/ТМ». Вариант idle1/press2/up1 пока не принят."
+        "KR22: принять питание, расход и минимальное рабочее давление привода, полную аппаратную матрицу KR22/KR23/KR24 и ВЦУ.",
+        "Отдельно принять быстрое нажатие/отпускание целиком между 100-мс электрическими циклами; текущая цикловая приёмка этого не покрывает.",
+        "Подтвердить точную редакцию/комплектацию №137+ и заводской выбор между 0,48 МПа и 5,0 кгс/см²; текущая приёмка ограничена явным kgf-профилем."
       ],
-      "reset_contract_review_ref": "dev/docs/audit_parts/re_part1/sa47-reset-contract-review-20261024.json"
+      "reset_contract_review_ref": "dev/docs/audit_parts/re_part1/sa47-reset-contract-review-20261024.json",
+      "reset_followup_ref": "dev/docs/audit_parts/re_part1/sa47-reset-followup-20261025.json"
     },
     {
       "id": "TB-15",
@@ -3737,15 +3764,22 @@
     "baseline_commit": "a04ed4b144d9ca49ef08018377566aec722a8204",
     "baseline_assessment": "Исходный статический аудит и исходные журналы требований относятся к a04ed4b; сохранённые anchors и SHA не объявляются повторно проверенными после последующих изменений.",
     "post_baseline_changes": {
-      "SA47": "Свежие Sa47Release, Sa47ReleaseFault и Sa47NativeButton прошли узкие сценарии 2026-10-24; полная отмена памяти, отмена по ТМ и focus/capture ещё не приняты. Текущий статус partial.",
+      "SA47": "Этап reset принят только в подготовленной тёплой сети профиля RE1_PRINTED_KGF_5_0_CURRENT_HYBRID: отмена памяти при логическом 0 или головной ТМ строго выше 5,0 кгс/см²; последующее 1 не возрождает отпуск. Удержанное 2 после отмены не реармит память, нужен новый переход 1 → 2. Приняты описанные native Up → logical 1, managed focus/capture/deactivate, handover, epoch/no-op, поздний gate КВТ и восстановление после operational fault. Новый selected test-20261025T031217357Z-bebbc4ff: 19/19 PASS; восемь SA47 сценариев — 213 assertions, 23701 cycles. Старый пакет 6 PASS / 1 FAIL ошибочного ожидания КВТ сохранён как неуспешный. Питание и расход KR22, быстрые события между циклами и точная ревизия остаются partial.",
       "complete_acceptance_executed": false,
-      "latest_dynamic_followup": "SA47-DYNAMIC-20261024-170541",
+      "latest_dynamic_followup": "SA47-RESET-20261025",
       "broader_regression": {
         "status": "failed",
         "passed_probes": 11,
         "failed_probe": "AutovedenieOverride",
         "cycles": 0,
         "validation": "dev/docs/audit_parts/re_part1/sa47-followup-validation-20261024.json"
+      },
+      "current_selected": {
+        "status": "passed",
+        "run_id": "test-20261025T031217357Z-bebbc4ff",
+        "probes": 19,
+        "scope": "Узкая приёмка; полный SA47/РЭ не приняты.",
+        "receipt": "dev/docs/audit_parts/re_part1/sa47-reset-final-receipt-20261025.json"
       }
     },
     "page_review": "Полный просмотр документа завершён отдельно от функциональной приёмки модели."
@@ -4017,21 +4051,113 @@
         "source_snapshot_scope": "SHA и строки C# внутри копируемого обзора — датированный снимок автора обзора, не новая проверка текущего меняющегося файла."
       },
       "baseline_raw1_reproduction_ref": "dev/docs/audit_parts/re_part1/sa47-followup-validation-20261024.json#/baseline_raw1_reproduction",
-      "vcu_probe_alignment_ref": "dev/docs/audit_parts/re_part1/sa47-followup-validation-20261024.json#/vcu_probe_alignment"
+      "vcu_probe_alignment_ref": "dev/docs/audit_parts/re_part1/sa47-followup-validation-20261024.json#/vcu_probe_alignment",
+      "historical_scope_note": "Сохранён без переобъявления новой приёмкой. Старое native Up → logical 0 и прежние reset pending относятся к этому snapshot; текущий ограниченный контракт см. SA47-RESET-20261025."
+    },
+    {
+      "id": "SA47-RESET-20261025",
+      "date": "2026-10-25",
+      "status": "partial",
+      "scope": "Только подготовленная тёплая сеть текущего гибридного профиля RE1_PRINTED_KGF_5_0_CURRENT_HYBRID; оба native pneumatic потребителя, выбранные реальные органы управления и четыре физических ТЦ.",
+      "complete_sa47_accepted": false,
+      "full_RE_accepted": false,
+      "followup_ref": "dev/docs/audit_parts/re_part1/sa47-reset-followup-20261025.json",
+      "evidence_index": "dev/docs/audit_parts/re_part1/sa47-reset-evidence-index-20261025.json",
+      "runs": [
+        {
+          "id": "test-20261024T174836422Z-1b5145bb",
+          "status": "failed",
+          "report": "dev/runs/test-20261024T174836422Z-1b5145bb/report.json"
+        },
+        {
+          "id": "test-20261025T030831473Z-3d669547",
+          "status": "passed",
+          "report": "dev/runs/test-20261025T030831473Z-3d669547/report.json"
+        }
+      ],
+      "accepted_within_scope": [
+        "2 → 1 → 0 → 1 без восстановления старой памяти; новый импульс после отмены.",
+        "Реальная перезарядка головной ТМ выше 5,0 кгс/см², отмена 103/108 и последующее автоматическое торможение. Удержанное 2 не реармит память после снижения ТМ.",
+        "Настоящие native DwnButton/UpBtn и управляемые Mouse/Space/Enter, capture loss, focus loss, deactivate, поздний Up и handover удержанной кнопки в описанных циклах.",
+        "Электрическая эпоха, Entries и no-op; отсутствие повторного использования snapshot, поздний native KVT code 3, первый ArithmeticException и восстановление входов через finally.",
+        "Fixture producer fault 4 только в собственном RW state: восстановление scope, отказ свежего запроса, восстановление entry и освобождение owned allocations до native close. Это не аппаратный отказ датчика."
+      ],
+      "pending": [
+        "KR22: принять питание, расход и минимальное рабочее давление привода, полную аппаратную матрицу KR22/KR23/KR24 и ВЦУ.",
+        "Отдельно принять быстрое нажатие/отпускание целиком между 100-мс электрическими циклами; текущая цикловая приёмка этого не покрывает.",
+        "Подтвердить точную редакцию/комплектацию №137+ и заводской выбор между 0,48 МПа и 5,0 кгс/см²; текущая приёмка ограничена явным kgf-профилем."
+      ],
+      "final_selected_receipt": {
+        "status": "passed",
+        "run_id": "test-20261025T031217357Z-bebbc4ff",
+        "probes": 19,
+        "sa47_probes": 8,
+        "sa47_assertions": 213,
+        "sa47_cycles": 23701,
+        "portable_ref": "dev/docs/audit_parts/re_part1/sa47-reset-final-receipt-20261025.json",
+        "report_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/report.json",
+        "full_sa47_accepted": false,
+        "full_RE_accepted": false
+      },
+      "current_source_build_validation": {
+        "path": "dev/docs/audit_parts/re_part1/sa47-reset-current-validation-20261025.json",
+        "sha256": "7b4e49af3ce6443d14500034234a9a7d1b2a9efac0030d3a3c0c8cda7ebd41a3",
+        "passed": true,
+        "checks": 56,
+        "scope": "Идентичность текущих исходников, сборок, 19 productionSourceSHA и развёрнутого EXE. Исходный PDF и 171 изображение также проверены. Нормативная приёмка всей модели не расширяется."
+      }
     }
   ],
   "final_verification": {
-    "date": "2026-10-24",
-    "regression_run": "dev/runs/test-20261024T171739039Z-b9c0a0b5/report.json",
+    "date": "2026-10-25",
+    "suite": "selected",
     "status": "passed",
-    "probes": 9,
-    "candidate_build": "build-20261024T171205322Z-66a169c1",
-    "integration_build": "build-20261024T171111109Z-a03f87f9",
+    "probes": 19,
+    "run_id": "test-20261025T031217357Z-bebbc4ff",
+    "report": "dev/runs/test-20261025T031217357Z-bebbc4ff/report.json",
+    "portable_receipt": "dev/docs/audit_parts/re_part1/sa47-reset-final-receipt-20261025.json",
+    "sa47_assertions": 213,
+    "sa47_cycles": 23701,
+    "integration_build": "build-20261025T031746463Z-18a48dbb",
+    "candidate_build": "build-20261025T031759359Z-fc9f8821",
     "candidate_deployed": true,
-    "source_build_review": "dev/docs/audit_parts/re_part1/current-build-review-validation-20261024.json",
-    "independent_review": "dev/docs/audit_parts/re_part1/sa47-adapter-review-20261024.json",
+    "source_build_state_verification": {
+      "path": "dev/docs/audit_parts/re_part1/sa47-reset-current-validation-20261025.json",
+      "sha256": "7b4e49af3ce6443d14500034234a9a7d1b2a9efac0030d3a3c0c8cda7ebd41a3",
+      "passed": true,
+      "checks": 56,
+      "scope": "Идентичность текущих исходников, сборок, 19 productionSourceSHA и развёрнутого EXE. Исходный PDF и 171 изображение также проверены. Нормативная приёмка всей модели не расширяется."
+    },
     "full_sa47_accepted": false,
     "full_RE_accepted": false,
-    "AVP_override_broader_run_remains_failed": "dev/runs/test-20261024T170654333Z-9ed54e71/AutovedenieOverride/result.json"
+    "AutovedenieOverride": {
+      "rerun": false,
+      "previous_failure": "dev/runs/test-20261024T170654333Z-9ed54e71/AutovedenieOverride/result.json",
+      "cycles": 0
+    },
+    "historical_20261024": {
+      "date": "2026-10-24",
+      "regression_run": "dev/runs/test-20261024T171739039Z-b9c0a0b5/report.json",
+      "status": "passed",
+      "probes": 9,
+      "candidate_build": "build-20261024T171205322Z-66a169c1",
+      "integration_build": "build-20261024T171111109Z-a03f87f9",
+      "candidate_deployed": true,
+      "source_build_review": "dev/docs/audit_parts/re_part1/current-build-review-validation-20261024.json",
+      "independent_review": "dev/docs/audit_parts/re_part1/sa47-adapter-review-20261024.json",
+      "full_sa47_accepted": false,
+      "full_RE_accepted": false,
+      "AVP_override_broader_run_remains_failed": "dev/runs/test-20261024T170654333Z-9ed54e71/AutovedenieOverride/result.json",
+      "scope_note": "Историческая регрессия 24 октября: её 9 PASS относятся к прежнему этапу, а не к новому reset-контракту. Текущая приёмка 19 selected описана отдельно."
+    },
+    "candidate_executable_sha256": "2aeb159e6aa3f1a837148e368ed86a15878026cdcc332fb530900006c2e215c5"
+  },
+  "last_followup_date": "2026-10-25",
+  "final_verification_current": {
+    "path": "dev/docs/audit_parts/re_part1/sa47-reset-current-validation-20261025.json",
+    "sha256": "7b4e49af3ce6443d14500034234a9a7d1b2a9efac0030d3a3c0c8cda7ebd41a3",
+    "passed": true,
+    "checks": 56,
+    "scope": "Идентичность текущих исходников, сборок, 19 productionSourceSHA и развёрнутого EXE. Исходный PDF и 171 изображение также проверены. Нормативная приёмка всей модели не расширяется."
   }
 }

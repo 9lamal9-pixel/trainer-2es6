@@ -1,0 +1,903 @@
+{
+  "schema_version": 1,
+  "id": "SA47-RESET-20261025",
+  "date": "2026-10-25",
+  "status": "partial",
+  "overall_requirement_status": "partial",
+  "full_sa47_accepted": false,
+  "full_RE_accepted": false,
+  "documentary_native_test_executed": false,
+  "scope": "Только подготовленная тёплая сеть текущего гибридного профиля RE1_PRINTED_KGF_5_0_CURRENT_HYBRID; оба native pneumatic потребителя, выбранные реальные органы управления и четыре физических ТЦ.",
+  "profile": {
+    "id": "RE1_PRINTED_KGF_5_0_CURRENT_HYBRID",
+    "threshold": 5.0,
+    "unit": "kgf/cm2 gauge",
+    "comparison": ">",
+    "signal": "TPult+8 -> TVagonParam.Ptm+0 == cars[0]+0, голова ТМ",
+    "exact_equivalent_MPa": 0.4903325,
+    "alternative_0_48_MPa_in_kgf_cm2": 4.894637822294055,
+    "alternative_selected": false,
+    "note": "Два напечатанных значения 0,48 МПа и 5,0 кгс/см² не являются точным переводом. Выбран буквальный kgf-профиль текущего native интерфейса; заводская ревизия не установлена."
+  },
+  "portable_evidence_index": "dev/docs/audit_parts/re_part1/sa47-reset-evidence-index-20261025.json",
+  "source_identity_scope": "SHA и anchors сняты с текущих файлов при обновлении документации. Это не замена baseline 157 anchors и не самостоятельное доказательство идентичности каждой более ранней сборки. Датированные обзоры сохраняют собственные source SHA.",
+  "source_identity": [
+    {
+      "path": "outputs/TrainerNativeBrakeRelease.cs",
+      "sha256": "43bc878addc72999bd44517284aa6cca71f3dacda9847d0c6f2d95588f1c1ef1",
+      "line_count": 194,
+      "anchors": [
+        {
+          "line": 16,
+          "anchor": "public const float TmCancelThresholdKgf",
+          "additional_matching_lines": []
+        },
+        {
+          "line": 96,
+          "anchor": "if(assigned==2&&snapshotRaw==0)",
+          "additional_matching_lines": []
+        },
+        {
+          "line": 97,
+          "anchor": "producerEntriesBefore=",
+          "additional_matching_lines": []
+        },
+        {
+          "line": 115,
+          "anchor": "public void Capture",
+          "additional_matching_lines": []
+        },
+        {
+          "line": 118,
+          "anchor": "if(!pending||",
+          "additional_matching_lines": []
+        },
+        {
+          "line": 126,
+          "anchor": "selected=wasFresh",
+          "additional_matching_lines": []
+        },
+        {
+          "line": 107,
+          "anchor": "parent.ValidateCab(false)",
+          "additional_matching_lines": []
+        },
+        {
+          "line": 134,
+          "anchor": "parent.Validate(false)",
+          "additional_matching_lines": []
+        },
+        {
+          "line": 158,
+          "anchor": "MouseCaptureChanged+=",
+          "additional_matching_lines": []
+        },
+        {
+          "line": 180,
+          "anchor": "partial void AfterReleaseElectricalCycle",
+          "additional_matching_lines": []
+        }
+      ]
+    },
+    {
+      "path": "outputs/TrainerSa47MemoryPatch.cs",
+      "sha256": "08af53f738c8adb72192d5928fef4dfda415ccb2513cc49499e67fc7655feb7e",
+      "line_count": 361,
+      "anchors": [
+        {
+          "line": 8,
+          "anchor": "const int ProducerRva",
+          "additional_matching_lines": []
+        },
+        {
+          "line": 16,
+          "anchor": "static readonly byte[] OriginalEntry",
+          "additional_matching_lines": []
+        },
+        {
+          "line": 97,
+          "anchor": "public void Validate",
+          "additional_matching_lines": []
+        },
+        {
+          "line": 114,
+          "anchor": "public Dictionary<string, object> Snapshot",
+          "additional_matching_lines": []
+        },
+        {
+          "line": 183,
+          "anchor": "void WriteEntry",
+          "additional_matching_lines": []
+        },
+        {
+          "line": 201,
+          "anchor": "public void Dispose",
+          "additional_matching_lines": []
+        },
+        {
+          "line": 277,
+          "anchor": "b.Label(\"rememberRaw\")",
+          "additional_matching_lines": []
+        },
+        {
+          "line": 281,
+          "anchor": "b.Label(\"cancelTm\")",
+          "additional_matching_lines": []
+        },
+        {
+          "line": 286,
+          "anchor": "b.B(0x80, 0x7e, 0x7e, 2)",
+          "additional_matching_lines": []
+        },
+        {
+          "line": 301,
+          "anchor": "b.Label(\"finish\")",
+          "additional_matching_lines": []
+        }
+      ]
+    },
+    {
+      "path": "outputs/TrainerAuxSystems.cs",
+      "sha256": "e9dc02f6c7af2b7407048e595bb93346bb8bed265d77408e8ed8c4a1067bf72f",
+      "line_count": 127,
+      "anchors": [
+        {
+          "line": 124,
+          "anchor": "void ElectricalCycle()",
+          "additional_matching_lines": []
+        }
+      ]
+    },
+    {
+      "path": "outputs/TrainerNativeSystems.cs",
+      "sha256": "85ee79a1261fc4e346cec1d933fab83280526243ee2a8091747334e629fa7c3d",
+      "line_count": 110,
+      "anchors": [
+        {
+          "line": 58,
+          "anchor": "void PneumaticCycle()",
+          "additional_matching_lines": []
+        },
+        {
+          "line": 74,
+          "anchor": "BorrowNativeReleaseInput(nativeBrakePriority",
+          "additional_matching_lines": []
+        },
+        {
+          "line": 75,
+          "anchor": "using(releaseInput)",
+          "additional_matching_lines": []
+        }
+      ]
+    },
+    {
+      "path": "work/pneumatic_live_fix/analysis/Sa47ReleaseProbe.cs",
+      "sha256": "30b69e130b650846e731e76041d8b93d19bd29e5c0051f5b9c0b3f8fa0bd0576",
+      "line_count": 416,
+      "anchors": [
+        {
+          "line": 133,
+          "anchor": "static void ZeroResetChecks",
+          "additional_matching_lines": []
+        },
+        {
+          "line": 159,
+          "anchor": "static void TmResetChecks",
+          "additional_matching_lines": []
+        },
+        {
+          "line": 206,
+          "anchor": "static void OperatorResetChecks",
+          "additional_matching_lines": []
+        },
+        {
+          "line": 181,
+          "anchor": "native_KVT_code3_selects_first_stage_without_SA47_release",
+          "additional_matching_lines": []
+        }
+      ]
+    },
+    {
+      "path": "work/pneumatic_live_fix/analysis/CandidateAirHostProbe.cs",
+      "sha256": "3e881f452b27501e21434eddf5a4a4345ea090b5fcfdbbca933431e25e8159a2",
+      "line_count": 83,
+      "anchors": []
+    },
+    {
+      "path": "dev/config/sa47-release-policy.json",
+      "sha256": "a4c9c1694d0f568b5687c0819f739cf930906217412dcbdf0fef044b7f475dd9",
+      "line_count": 56,
+      "anchors": []
+    }
+  ],
+  "implementation": [
+    "Memory-only hook на общем выходе producer Pult1, RVA 18C7A6: исходные 8B45FC8B4004, возврат 18C7AC. Guard всех 321 байта producer, owner/module/thread/range guards, отдельные RW state и RX cave. Исходные шесть байт проверяются после восстановления до free.",
+    "ManualMemory публикуется в schema+108; логический 0 или головная ТМ строго выше 5,0 кгс/см² сбрасывают память. Новый импульс принимается только при 1 → 2. Первое наблюдаемое 2 и удержанное 2 после отмены не создают новый фронт.",
+    "Native физические idle 0 / press 1 / up 0 отображаются в логические 1 / 2 / 1. После явного 0 перед новым 2 публикуется промежуточное 1; передача источника на уже удержанную кнопку ждёт отпускания.",
+    "Итоговый 103 = native candidate && manualMemory && KM <= 4 && native KVT code <= 2. Поздний Borrow повторяет исполнительный gate КВТ и сохраняет SAUT/EPK/emergency priority без очистки памяти.",
+    "Capture требует новую электрическую эпоху и увеличение Entries. No-op commStep не может повторно выдать прежний true.",
+    "Cleanup scope проверяет безопасное владение графом отдельно от operational fault. Sticky producer fault не мешает восстановить свои widget/raw inputs перед отказом Capture."
+  ],
+  "native_followups": [
+    {
+      "run_id": "test-20261024T174836422Z-1b5145bb",
+      "report_path": "dev/runs/test-20261024T174836422Z-1b5145bb/report.json",
+      "report_sha256": "9e191c2aba072db27e303853bd1338830d67cb0299a60f8b9576d3a4d6b5a343",
+      "status": "failed",
+      "finished_utc": "2026-10-24T17:50:54.0690497Z",
+      "receipts": [
+        {
+          "id": "Sa47ResetZero",
+          "status": "passed",
+          "exit_code": 0,
+          "build_id": "build-20261024T174836514Z-44f51838",
+          "session": {
+            "id": "20261024T174840415Z_p43372_1c8b632b419741b1ac8449ffd220609c",
+            "state": "closed",
+            "exceptions": 0,
+            "logging_failures": 0,
+            "source_build_id": "build-20261024T174836514Z-44f51838"
+          },
+          "source_report_scope": "Подготовленная сеть, настоящие native электрические/пневматические циклы и логические операторские входы. Проверяет2→1→0→1, отмену command latch и все4ТЦ, повторный новый импульс. Выходные давления иprocessed флаги не задаются стендом.",
+          "source_scope_warning": "Датированный scope каталога может описывать старое enum2/0 или прежние pending. Фактические assertions и текущий контракт рассматриваются отдельно.",
+          "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261024T174836422Z-1b5145bb\\Sa47ResetZero\\Trainer_sa47_zero_reset_validation.json",
+          "result_path": "dev/runs/test-20261024T174836422Z-1b5145bb/Sa47ResetZero/Trainer_sa47_zero_reset_validation.json",
+          "result_sha256": "7ac73e8d4f5a40ef008f10f0491ac4fef56387be7245bde11342c427573ba53d",
+          "passed": true,
+          "cycles": 2872,
+          "assertion_count": 13,
+          "assertion_names": [
+            "service_step_reached",
+            "four_cylinders_automatically_applied",
+            "initial_manual_latch_clear",
+            "initial1_has_no_manual_memory",
+            "impulse_latches_and_physically_releases",
+            "return1_retains_release_before_cancel",
+            "logical0_clears_manual_memory",
+            "logical0_reapplies_four_cylinders",
+            "ready1_after_cancel_does_not_revive_old_request",
+            "ready1_after_cancel_retains_four_cylinders",
+            "new_impulse_can_release_after_cancel",
+            "prepared_supply_remains_available",
+            "no_electrical_faults"
+          ],
+          "failed_assertions": []
+        },
+        {
+          "id": "Sa47ResetTm",
+          "status": "passed",
+          "exit_code": 0,
+          "build_id": "build-20261024T174853824Z-e476d843",
+          "session": {
+            "id": "20261024T174857286Z_p39516_fd6f2d70523d407794404b8a794cbb7a",
+            "state": "closed",
+            "exceptions": 0,
+            "logging_failures": 0,
+            "source_build_id": "build-20261024T174853824Z-e476d843"
+          },
+          "source_report_scope": "Подготовленная native сеть, реальные SetPosition KM/KVT до электрического производителя. Память SA47 и все4физическихТЦ; выходные давления/processed флаги не задаются стендом. Порог явно >5.0кгс/см2 по исходной шкале и выбранному профилю РЭ; точнаяfactoryревизия,расходKR22 остаются вне сценария.",
+          "source_scope_warning": "Датированный scope каталога может описывать старое enum2/0 или прежние pending. Фактические assertions и текущий контракт рассматриваются отдельно.",
+          "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261024T174836422Z-1b5145bb\\Sa47ResetTm\\Trainer_sa47_tm_reset_validation.json",
+          "result_path": "dev/runs/test-20261024T174836422Z-1b5145bb/Sa47ResetTm/Trainer_sa47_tm_reset_validation.json",
+          "result_sha256": "c9287ec2e251682ad8051fbe43c7221b3e50778e146da62bbfc042f98dd19c68",
+          "passed": true,
+          "cycles": 4152,
+          "assertion_count": 16,
+          "assertion_names": [
+            "service_step_reached",
+            "four_cylinders_automatically_applied",
+            "initial_manual_latch_clear",
+            "TM_test_initial_release_real",
+            "TM_in1_actual_head_TM_exceeds5",
+            "TM_in1_head_TM_cancels_memory_and_request",
+            "TM_in1_next_brake_actual_service_step",
+            "after_TM_cancel_no_release_without_new2",
+            "new2_after_TM_cancel_releases",
+            "TM_held2_actual_head_TM_exceeds5",
+            "TM_held2_head_TM_cancels_memory_and_request",
+            "TM_held2_next_brake_actual_service_step",
+            "held2_does_not_rearm_after_TM_cancel",
+            "release_then_new2_rearms_after_TM_cancel",
+            "prepared_supply_remains_available",
+            "no_electrical_faults"
+          ],
+          "failed_assertions": []
+        },
+        {
+          "id": "Sa47Priorities",
+          "status": "failed",
+          "exit_code": 1,
+          "build_id": "build-20261024T174916631Z-6b562877",
+          "session": null,
+          "source_report_scope": "Подготовленная native сеть, реальные SetPosition KM/KVT до электрического производителя. Память SA47 и все4физическихТЦ; выходные давления/processed флаги не задаются стендом. Порог явно >5.0кгс/см2 по исходной шкале и выбранному профилю РЭ; точнаяfactoryревизия,расходKR22 остаются вне сценария.",
+          "source_scope_warning": "Датированный scope каталога может описывать старое enum2/0 или прежние pending. Фактические assertions и текущий контракт рассматриваются отдельно.",
+          "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261024T174836422Z-1b5145bb\\Sa47Priorities\\Trainer_sa47_priority_validation.json",
+          "result_path": "dev/runs/test-20261024T174836422Z-1b5145bb/Sa47Priorities/Trainer_sa47_priority_validation.json",
+          "result_sha256": "e625cdcbb77dfdd33f553228642fb3fb3fb5c0efcc9aab8fdbe4177c75a62550",
+          "passed": false,
+          "cycles": 3395,
+          "assertion_count": 13,
+          "assertion_names": [
+            "service_step_reached",
+            "four_cylinders_automatically_applied",
+            "initial_manual_latch_clear",
+            "priority_initial_release",
+            "KVT_III_blocks_execution_preserves_memory",
+            "KVT_IV_applies_four_cylinders_despite_SA47_memory",
+            "KVT_III_retains_independent_pressure",
+            "KVT_II_returns_to_retained_manual_release",
+            "KM_V_blocks_execution_preserves_memory",
+            "KM_IV_returns_to_retained_manual_release",
+            "priority_memory_still_cancels_only_explicit0_or_TM",
+            "prepared_supply_remains_available",
+            "no_electrical_faults"
+          ],
+          "failed_assertions": [
+            {
+              "name": "KVT_III_retains_independent_pressure",
+              "passed": false,
+              "actual": {
+                "before": 1.8491995920241813,
+                "after": 1.1500000000000001,
+                "tc": [
+                  1.4288058476624788,
+                  1.4288067383806045,
+                  1.4411771204716561,
+                  1.441178032143847
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "Sa47Release",
+          "status": "passed",
+          "exit_code": 0,
+          "build_id": "build-20261024T174935748Z-09bb1e2e",
+          "session": {
+            "id": "20261024T174939213Z_p12560_aa8713db62854b46a61b1639a7f364c8",
+            "state": "closed",
+            "exceptions": 0,
+            "logging_failures": 0,
+            "source_build_id": "build-20261024T174935748Z-09bb1e2e"
+          },
+          "source_report_scope": "Подготовленная тёплая пневмосеть, штатные электрические циклы и три положения управляемого SA47; физические ТЦ обеих секций, сохранение/восстановление входов, обработчики мыши и Space. Диагностические входы не подтверждают физический привод KR22. Полная отмена защёлки0/по ТМ, расход и минимальное давление требуют отдельной приёмки.",
+          "source_scope_warning": "Датированный scope каталога может описывать старое enum2/0 или прежние pending. Фактические assertions и текущий контракт рассматриваются отдельно.",
+          "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261024T174836422Z-1b5145bb\\Sa47Release\\Trainer_sa47_release_validation.json",
+          "result_path": "dev/runs/test-20261024T174836422Z-1b5145bb/Sa47Release/Trainer_sa47_release_validation.json",
+          "result_sha256": "550ffca8324af05518d5ec5d13c0913e8a65caa8d05bc2c38b36282da7848a90",
+          "passed": true,
+          "cycles": 3455,
+          "assertion_count": 43,
+          "assertion_names": [
+            "service_step_reached",
+            "four_cylinders_automatically_applied",
+            "initial_manual_latch_clear",
+            "native_position1_does_not_request_release",
+            "position1_retains_four_cylinders",
+            "position2_native_request",
+            "position2_releases_four_cylinders",
+            "fresh_processed_request_is_native_boolean",
+            "borrow_restores_enum2",
+            "one_capture_not_reused",
+            "wrong_tick_is_neutral",
+            "invalidated_snapshot_is_neutral",
+            "capture_without_new_electrical_epoch_rejected",
+            "repeated_capture_invalidates_old_true",
+            "no_op_fixture_starts_with_real_true_request",
+            "no_op_electrical_rejected_without_producer_entry",
+            "no_op_electrical_restores_widget_scope",
+            "no_op_electrical_cannot_reuse_old_true",
+            "no_op_electrical_neutral_borrow_restores_raw2",
+            "invalid_position_capture_rejected",
+            "failed_capture_drops_previous_request",
+            "late_km5_is_neutral",
+            "late_KVTIII_fixture_starts_from_fresh_KVTII_request",
+            "late_KVTIII_is_neutral_native_input",
+            "late_KVTIII_restores_original_inputs",
+            "safety_priority_is_neutral",
+            "body_exception_restores_enum2",
+            "foreign_write_is_preserved",
+            "foreign_expected_owner_rejected_before_write",
+            "wrong_thread_rejected_before_write",
+            "return_to1_keeps_native_latch",
+            "return_to1_keeps_release",
+            "position0_native_request_off",
+            "position0_restores_automatic_brake",
+            "managed_mouse_down_selects2",
+            "managed_mouse_releases_four_cylinders",
+            "managed_mouse_up_returns1_with_latch",
+            "managed_space_down_selects2",
+            "managed_space_up_returns1",
+            "managed0_restores_automatic_brake",
+            "return_to_native_source_uses_readiness1_without_old_memory",
+            "prepared_supply_remains_available",
+            "no_electrical_faults"
+          ],
+          "failed_assertions": []
+        },
+        {
+          "id": "Sa47NativeButton",
+          "status": "passed",
+          "exit_code": 0,
+          "build_id": "build-20261024T174955236Z-8a8c8118",
+          "session": {
+            "id": "20261024T174958675Z_p36352_13350658b0234af8810042da05cc9b9a",
+            "state": "closed",
+            "exceptions": 0,
+            "logging_failures": 0,
+            "source_build_id": "build-20261024T174955236Z-8a8c8118"
+          },
+          "source_report_scope": "Настоящие native DwnButton/UpBtn, SHA/байтовые/VMT guards и Borland register ABI. Физические1/0 кнопки согласуются с enum2/0 Pult1, затем настоящие электрические и пневматические циклы. Не проверка экранных пикселей, аппаратуры или полной нормативной цепи KR22.",
+          "source_scope_warning": "Датированный scope каталога может описывать старое enum2/0 или прежние pending. Фактические assertions и текущий контракт рассматриваются отдельно.",
+          "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261024T174836422Z-1b5145bb\\Sa47NativeButton\\Trainer_sa47_native_button_validation.json",
+          "result_path": "dev/runs/test-20261024T174836422Z-1b5145bb/Sa47NativeButton/Trainer_sa47_native_button_validation.json",
+          "result_sha256": "753408b1107cd644e6c777cf03649420c229392ea0958a33d1540eb43591307d",
+          "passed": true,
+          "cycles": 2552,
+          "assertion_count": 14,
+          "assertion_names": [
+            "service_step_reached",
+            "four_cylinders_automatically_applied",
+            "initial_manual_latch_clear",
+            "native_release_button_is_momentary",
+            "native_DwnButton_sets_physical1",
+            "physical1_publishes_impulse2",
+            "native_button_releases_four_cylinders",
+            "native_UpBtn_restores_physical0",
+            "physical0_returns_to_readiness1_with_memory",
+            "native_button_up_retains_release",
+            "explicit0_cancels_native_button_memory",
+            "native_idle1_does_not_revive_cancelled_memory",
+            "prepared_supply_remains_available",
+            "no_electrical_faults"
+          ],
+          "failed_assertions": []
+        },
+        {
+          "id": "Sa47ReleaseFault",
+          "status": "passed",
+          "exit_code": 0,
+          "build_id": "build-20261024T175011519Z-fc5235e9",
+          "session": {
+            "id": "20261024T175015149Z_p43340_8e7672b8475f4f4fbdc99780ac16c1a6",
+            "state": "closed",
+            "exceptions": 0,
+            "logging_failures": 0,
+            "source_build_id": "build-20261024T175011519Z-fc5235e9"
+          },
+          "source_report_scope": "Инъекция ArithmeticException в первый commStep, затем настоящий native пневморасчёт с наблюдением входа и искусственным исключением после него. Проверяет neutral input0 и finally-восстановление raw1, не аппаратный отказ или нормативный тормозной результат.",
+          "source_scope_warning": "Датированный scope каталога может описывать старое enum2/0 или прежние pending. Фактические assertions и текущий контракт рассматриваются отдельно.",
+          "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261024T174836422Z-1b5145bb\\Sa47ReleaseFault\\Trainer_sa47_release_fault_validation.json",
+          "result_path": "dev/runs/test-20261024T174836422Z-1b5145bb/Sa47ReleaseFault/Trainer_sa47_release_fault_validation.json",
+          "result_sha256": "ab2aaf06aacaa2bb6e5f884bbdedb58e654309ece07147934133af8e85033c24",
+          "passed": true,
+          "cycles": 0,
+          "assertion_count": 7,
+          "assertion_names": [
+            "before_first_electrical_binding_absent",
+            "first_electrical_error_captured",
+            "binding_exists_despite_first_failure",
+            "first_failure_restores_cab_input",
+            "native_tail_exception_observed",
+            "first_failed_electrical_uses_neutral_native_input",
+            "native_exception_restores_original_raw1"
+          ],
+          "failed_assertions": []
+        },
+        {
+          "id": "Sa47OperatorReset",
+          "status": "passed",
+          "exit_code": 0,
+          "build_id": "build-20261024T175018303Z-728eb19d",
+          "session": {
+            "id": "20261024T175021716Z_p38684_f741ad528bdb4046ad4ac2f706d1b018",
+            "state": "closed",
+            "exceptions": 0,
+            "logging_failures": 0,
+            "source_build_id": "build-20261024T175018303Z-728eb19d"
+          },
+          "source_report_scope": "Настоящие KM/KVT SetPosition и nativeDwn/Up плюс managedмышь/Enter, capture/focus/deactivate. Проверяет готовность1 послеотпускания, cancel0, handoverнаужеудержаннуюкнопку и новыйимпульс; fastclick entirelybetween100msциклы отдельнонепринимается.",
+          "source_scope_warning": "Датированный scope каталога может описывать старое enum2/0 или прежние pending. Фактические assertions и текущий контракт рассматриваются отдельно.",
+          "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261024T174836422Z-1b5145bb\\Sa47OperatorReset\\Trainer_sa47_operator_reset_validation.json",
+          "result_path": "dev/runs/test-20261024T174836422Z-1b5145bb/Sa47OperatorReset/Trainer_sa47_operator_reset_validation.json",
+          "result_sha256": "271c034d84c7cbec1ea3c2cae7ea43d2126754654e84522ee87a413b05f5a9e9",
+          "passed": true,
+          "cycles": 7275,
+          "assertion_count": 101,
+          "assertion_names": [
+            "service_step_reached",
+            "four_cylinders_automatically_applied",
+            "initial_manual_latch_clear",
+            "operator_initial_cancel0_logical_position",
+            "operator_initial_cancel0_memory_and_request",
+            "operator_initial_cancel0_four_physical_cylinders",
+            "operator_initial_ready1_no_revive_logical_position",
+            "operator_initial_ready1_no_revive_memory_and_request",
+            "operator_initial_ready1_no_revive_four_physical_cylinders",
+            "operator_capture_down_logical_position",
+            "operator_capture_down_memory_and_request",
+            "operator_capture_down_four_physical_cylinders",
+            "operator_capture_returns1_logical_position",
+            "operator_capture_returns1_memory_and_request",
+            "operator_capture_returns1_four_physical_cylinders",
+            "operator_capture_late_up_idempotent_logical_position",
+            "operator_capture_late_up_idempotent_memory_and_request",
+            "operator_capture_late_up_idempotent_four_physical_cylinders",
+            "operator_after_capture_cancel0_logical_position",
+            "operator_after_capture_cancel0_memory_and_request",
+            "operator_after_capture_cancel0_four_physical_cylinders",
+            "operator_after_capture_ready1_no_revive_logical_position",
+            "operator_after_capture_ready1_no_revive_memory_and_request",
+            "operator_after_capture_ready1_no_revive_four_physical_cylinders",
+            "operator_focus_down_logical_position",
+            "operator_focus_down_memory_and_request",
+            "operator_focus_down_four_physical_cylinders",
+            "operator_focus_returns1_logical_position",
+            "operator_focus_returns1_memory_and_request",
+            "operator_focus_returns1_four_physical_cylinders",
+            "operator_focus_late_up_idempotent_logical_position",
+            "operator_focus_late_up_idempotent_memory_and_request",
+            "operator_focus_late_up_idempotent_four_physical_cylinders",
+            "operator_after_focus_cancel0_logical_position",
+            "operator_after_focus_cancel0_memory_and_request",
+            "operator_after_focus_cancel0_four_physical_cylinders",
+            "operator_after_focus_ready1_no_revive_logical_position",
+            "operator_after_focus_ready1_no_revive_memory_and_request",
+            "operator_after_focus_ready1_no_revive_four_physical_cylinders",
+            "operator_deactivate_down_logical_position",
+            "operator_deactivate_down_memory_and_request",
+            "operator_deactivate_down_four_physical_cylinders",
+            "operator_deactivate_returns1_logical_position",
+            "operator_deactivate_returns1_memory_and_request",
+            "operator_deactivate_returns1_four_physical_cylinders",
+            "operator_deactivate_late_up_idempotent_logical_position",
+            "operator_deactivate_late_up_idempotent_memory_and_request",
+            "operator_deactivate_late_up_idempotent_four_physical_cylinders",
+            "operator_after_deactivate_cancel0_logical_position",
+            "operator_after_deactivate_cancel0_memory_and_request",
+            "operator_after_deactivate_cancel0_four_physical_cylinders",
+            "operator_after_deactivate_ready1_no_revive_logical_position",
+            "operator_after_deactivate_ready1_no_revive_memory_and_request",
+            "operator_after_deactivate_ready1_no_revive_four_physical_cylinders",
+            "operator_enter_down_logical_position",
+            "operator_enter_down_memory_and_request",
+            "operator_enter_down_four_physical_cylinders",
+            "operator_enter_repeat_held_logical_position",
+            "operator_enter_repeat_held_memory_and_request",
+            "operator_enter_repeat_held_four_physical_cylinders",
+            "operator_enter_up_returns1_logical_position",
+            "operator_enter_up_returns1_memory_and_request",
+            "operator_enter_up_returns1_four_physical_cylinders",
+            "operator_enter_late_up_idempotent_logical_position",
+            "operator_enter_late_up_idempotent_memory_and_request",
+            "operator_enter_late_up_idempotent_four_physical_cylinders",
+            "operator_after_enter_cancel0_logical_position",
+            "operator_after_enter_cancel0_memory_and_request",
+            "operator_after_enter_cancel0_four_physical_cylinders",
+            "operator_after_enter_ready1_no_revive_logical_position",
+            "operator_after_enter_ready1_no_revive_memory_and_request",
+            "operator_after_enter_ready1_no_revive_four_physical_cylinders",
+            "operator_handover_physical_button_held",
+            "operator_explicit_ready_ignores_native_hold_logical_position",
+            "operator_explicit_ready_ignores_native_hold_memory_and_request",
+            "operator_explicit_ready_ignores_native_hold_four_physical_cylinders",
+            "operator_handover_does_not_issue_new2_logical_position",
+            "operator_handover_does_not_issue_new2_memory_and_request",
+            "operator_handover_does_not_issue_new2_four_physical_cylinders",
+            "operator_handover_preserves_physical_hold",
+            "operator_native_up_arms_without_release_logical_position",
+            "operator_native_up_arms_without_release_memory_and_request",
+            "operator_native_up_arms_without_release_four_physical_cylinders",
+            "operator_native_up_physical0",
+            "operator_native_new_press_releases_logical_position",
+            "operator_native_new_press_releases_memory_and_request",
+            "operator_native_new_press_releases_four_physical_cylinders",
+            "operator_native_new_up_retains_memory_logical_position",
+            "operator_native_new_up_retains_memory_memory_and_request",
+            "operator_native_new_up_retains_memory_four_physical_cylinders",
+            "operator_final_cancel0_logical_position",
+            "operator_final_cancel0_memory_and_request",
+            "operator_final_cancel0_four_physical_cylinders",
+            "operator_final_ready1_no_revive_logical_position",
+            "operator_final_ready1_no_revive_memory_and_request",
+            "operator_final_ready1_no_revive_four_physical_cylinders",
+            "operator_final_native_idle_no_revive_logical_position",
+            "operator_final_native_idle_no_revive_memory_and_request",
+            "operator_final_native_idle_no_revive_four_physical_cylinders",
+            "prepared_supply_remains_available",
+            "no_electrical_faults"
+          ],
+          "failed_assertions": []
+        }
+      ]
+    },
+    {
+      "run_id": "test-20261025T030831473Z-3d669547",
+      "report_path": "dev/runs/test-20261025T030831473Z-3d669547/report.json",
+      "report_sha256": "a0bfc0dd6013203f87373e739428d22d3fb6239ff6e092867899ece71057200c",
+      "status": "passed",
+      "finished_utc": "2026-10-25T03:09:04.8228262Z",
+      "receipts": [
+        {
+          "id": "Sa47ProducerFault",
+          "status": "passed",
+          "exit_code": 0,
+          "build_id": "build-20261025T030831561Z-9bf4f889",
+          "session": {
+            "id": "20261025T030836070Z_p14268_96f465b31de44534884dbc65938bee8d",
+            "state": "closed",
+            "exceptions": 0,
+            "logging_failures": 0,
+            "source_build_id": "build-20261025T030831561Z-9bf4f889"
+          },
+          "source_report_scope": "Инъекция fault4 в собственный RWstate адаптера, без записи давления/ТЦ/защит. Проверяет восстановление widget/raw scopes приoperationalfault, запретfreshrelease и байтыOriginalEntry/freeallocation доnativeclose. Это fixturecleanup, не физическийотказдатчикаТМ.",
+          "source_scope_warning": "Датированный scope каталога может описывать старое enum2/0 или прежние pending. Фактические assertions и текущий контракт рассматриваются отдельно.",
+          "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T030831473Z-3d669547\\Sa47ProducerFault\\Trainer_sa47_producer_fault_validation.json",
+          "result_path": "dev/runs/test-20261025T030831473Z-3d669547/Sa47ProducerFault/Trainer_sa47_producer_fault_validation.json",
+          "result_sha256": "33c3d1e4ab17c694d77fc3d6124349598c625a264d10f5e89d0ab7cdcfa1ca4d",
+          "passed": true,
+          "cycles": 0,
+          "assertion_count": 6,
+          "assertion_names": [
+            "fault_fixture_starts_with_borrowed_neutral0",
+            "producer_fault_restores_owned_raw_input",
+            "producer_fault_restores_owned_widget",
+            "producer_fault_cannot_publish_fresh_release",
+            "producer_fault_restores_original_entry_before_native_close",
+            "producer_fault_frees_owned_allocations_after_restoration"
+          ],
+          "failed_assertions": []
+        },
+        {
+          "id": "CandidateAirHost",
+          "status": "passed",
+          "exit_code": 0,
+          "build_id": "build-20261025T030840767Z-2f7e329f",
+          "session": {
+            "id": "20261025T030843937Z_p19928_ca9f618a8b334b088195b05acb5cb727",
+            "state": "closed",
+            "exceptions": 0,
+            "logging_failures": 0,
+            "source_build_id": "build-20261025T030840767Z-2f7e329f"
+          },
+          "source_report_scope": "4923 шага electrical/pneumatic/motion/route/aux/KLUB; проверяет приборные объекты ПМ/ТЦ, отпуск, отключение тележки и нативный вход тормозной силы. КМ/КВТ заданы стендом, компрессоры выключены; пиксели, внешнее железо, абсолютные единицы силы и калибровка РЭ не приняты.",
+          "source_scope_warning": "Датированный scope каталога может описывать старое enum2/0 или прежние pending. Фактические assertions и текущий контракт рассматриваются отдельно.",
+          "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T030831473Z-3d669547\\CandidateAirHost\\Trainer_air_candidate_host_validation.json",
+          "result_path": "dev/runs/test-20261025T030831473Z-3d669547/CandidateAirHost/Trainer_air_candidate_host_validation.json",
+          "result_sha256": "e8b1f79c3cb206686be0e788d65e08799857f92c40e91efa17a1fd66b9d046e6",
+          "passed": true,
+          "cycles": 4927,
+          "assertion_count": null,
+          "assertion_names": [],
+          "failed_assertions": []
+        }
+      ]
+    }
+  ],
+  "accepted_within_scope": [
+    "2 → 1 → 0 → 1 без восстановления старой памяти; новый импульс после отмены.",
+    "Реальная перезарядка головной ТМ выше 5,0 кгс/см², отмена 103/108 и последующее автоматическое торможение. Удержанное 2 не реармит память после снижения ТМ.",
+    "Настоящие native DwnButton/UpBtn и управляемые Mouse/Space/Enter, capture loss, focus loss, deactivate, поздний Up и handover удержанной кнопки в описанных циклах.",
+    "Электрическая эпоха, Entries и no-op; отсутствие повторного использования snapshot, поздний native KVT code 3, первый ArithmeticException и восстановление входов через finally.",
+    "Fixture producer fault 4 только в собственном RW state: восстановление scope, отказ свежего запроса, восстановление entry и освобождение owned allocations до native close. Это не аппаратный отказ датчика."
+  ],
+  "historical_semantics_preserved": {
+    "reference": "dev/docs/audit_parts/re_part1/sa47-native-button-20261024.json",
+    "old_contract": "Native Up 0 → logical 0 отменял текущий выход; прежняя фаза приёмки сохраняется как история.",
+    "new_contract": "Native Up 0 → logical 1 сохраняет ранее выданную память; явный logical 0 отменяет её. Старый PASS не принимается за проверку нового контракта."
+  },
+  "priorities_failure": {
+    "run_id": "test-20261024T174836422Z-1b5145bb",
+    "status": "failed",
+    "failed_assertion": "KVT_III_retains_independent_pressure",
+    "before_pilot": 1.8491995920241813,
+    "after_pilot": 1.1500000000000001,
+    "reason": "Стенд ошибочно принимал native code 3 за перекрышу. По первичному РЭ 215-1 первая ступень I имеет диапазон 1,0–1,3 кгс/см²; native code 3 выбирает 1,15. Code 4 выбирает вторую ступень II, около 1,85, при первичном диапазоне 1,7–2,0. Переход 4 → 3 должен уменьшать независимый пилот.",
+    "correction": "Исправлено только ожидание пробы на диапазон 1,0–1,3 для независимого пилота. Физические ТЦ около 1,43 определены большей автоматической ветвью, а не нормой РЭ 215-1.",
+    "primary_portable_review": "dev/docs/audit_parts/re_part1/sa47-kvt-primary-review-20261025.json",
+    "old_result_relabelled_pass": false,
+    "corrected_fresh_result": {
+      "status": "passed",
+      "run_id": "test-20261025T031217357Z-bebbc4ff",
+      "assertions": 13,
+      "cycles": 3395,
+      "portable_ref": "dev/docs/audit_parts/re_part1/sa47-reset-priorities-20261025.json"
+    }
+  },
+  "final_selected_receipt": {
+    "status": "passed",
+    "run_id": "test-20261025T031217357Z-bebbc4ff",
+    "probes": 19,
+    "sa47_probes": 8,
+    "sa47_assertions": 213,
+    "sa47_cycles": 23701,
+    "portable_ref": "dev/docs/audit_parts/re_part1/sa47-reset-final-receipt-20261025.json",
+    "report_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/report.json",
+    "full_sa47_accepted": false,
+    "full_RE_accepted": false
+  },
+  "remaining": [
+    "KR22: питание катушки, минимальное рабочее давление и расход привода; полная аппаратная матрица KR22/KR23/KR24 и ВЦУ.",
+    "Быстрое нажатие и отпускание целиком между 100-мс электрическими циклами требует отдельной очереди событий и приёмки.",
+    "Точная редакция/комплектация №137+, заводская калибровка и выбор между напечатанными порогами.",
+    "Полный холодный пуск и полное соответствие всей части 1 не принимаются."
+  ],
+  "final_results": [
+    {
+      "id": "Sa47Release",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261025T031339545Z-90652c6d",
+      "session": {
+        "id": "20261025T031342854Z_p13612_e1ca6cc79bbe437f951e998553c0e0f1",
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T031339545Z-90652c6d"
+      },
+      "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\Sa47Release\\Trainer_sa47_release_validation.json",
+      "result_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47Release/Trainer_sa47_release_validation.json",
+      "result_sha256": "0e1d3849c884eb8963e576b5614954be484d4670b55ee09ad99107cb667da7c5",
+      "cycles": 3455,
+      "passed": true,
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-reset-release-20261025.json",
+      "portable_link": "sa47-reset-release-20261025.json",
+      "assertion_count": 43
+    },
+    {
+      "id": "Sa47ReleaseFault",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261025T031359570Z-d1fc3a5f",
+      "session": {
+        "id": "20261025T031403157Z_p35200_50c28a40ef8f4c3289f98509249b8ec7",
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T031359570Z-d1fc3a5f"
+      },
+      "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\Sa47ReleaseFault\\Trainer_sa47_release_fault_validation.json",
+      "result_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47ReleaseFault/Trainer_sa47_release_fault_validation.json",
+      "result_sha256": "0954f4bc62a44f19ef1996d6d19de9924db3bea97cb22c487951cea83482820c",
+      "cycles": 0,
+      "passed": true,
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-reset-release-fault-20261025.json",
+      "portable_link": "sa47-reset-release-fault-20261025.json",
+      "assertion_count": 7
+    },
+    {
+      "id": "Sa47NativeButton",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261025T031407654Z-29448201",
+      "session": {
+        "id": "20261025T031411390Z_p25420_90f247c8220d446792f9f9e473abaf01",
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T031407654Z-29448201"
+      },
+      "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\Sa47NativeButton\\Trainer_sa47_native_button_validation.json",
+      "result_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47NativeButton/Trainer_sa47_native_button_validation.json",
+      "result_sha256": "82d3ecc9daa4d8c1f52c630a98d3265e7a9a322856194b962aa1c14a29e1d3f5",
+      "cycles": 2552,
+      "passed": true,
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-reset-native-button-20261025.json",
+      "portable_link": "sa47-reset-native-button-20261025.json",
+      "assertion_count": 14
+    },
+    {
+      "id": "Sa47ResetZero",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261025T031425906Z-a395befe",
+      "session": {
+        "id": "20261025T031430249Z_p34836_64a214f585f74e02b92939f3be06a5b7",
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T031425906Z-a395befe"
+      },
+      "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\Sa47ResetZero\\Trainer_sa47_zero_reset_validation.json",
+      "result_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47ResetZero/Trainer_sa47_zero_reset_validation.json",
+      "result_sha256": "cc0797f5da66c814cd3146935d200f84d182336d168c89ffa984e47b9c948a90",
+      "cycles": 2872,
+      "passed": true,
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-reset-zero-20261025.json",
+      "portable_link": "sa47-reset-zero-20261025.json",
+      "assertion_count": 13
+    },
+    {
+      "id": "Sa47ResetTm",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261025T031447790Z-9077846d",
+      "session": {
+        "id": "20261025T031451656Z_p28944_b2dc4d05c2054955aa7dae36ee636c85",
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T031447790Z-9077846d"
+      },
+      "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\Sa47ResetTm\\Trainer_sa47_tm_reset_validation.json",
+      "result_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47ResetTm/Trainer_sa47_tm_reset_validation.json",
+      "result_sha256": "bea0f47d499b2de3df2a08fb64032b8a22c96d882f9f8789d88e79607cf6342a",
+      "cycles": 4152,
+      "passed": true,
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-reset-tm-20261025.json",
+      "portable_link": "sa47-reset-tm-20261025.json",
+      "assertion_count": 16
+    },
+    {
+      "id": "Sa47Priorities",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261025T031511459Z-982f625b",
+      "session": {
+        "id": "20261025T031515176Z_p8508_fc62610f2b864fb39ef201b8bd2946ee",
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T031511459Z-982f625b"
+      },
+      "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\Sa47Priorities\\Trainer_sa47_priority_validation.json",
+      "result_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47Priorities/Trainer_sa47_priority_validation.json",
+      "result_sha256": "c3835bc88b426b63dc6d1b3f9d74a088dfb1374f5b6a29f7c741e881738e76b1",
+      "cycles": 3395,
+      "passed": true,
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-reset-priorities-20261025.json",
+      "portable_link": "sa47-reset-priorities-20261025.json",
+      "assertion_count": 13
+    },
+    {
+      "id": "Sa47OperatorReset",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261025T031532873Z-a358608c",
+      "session": {
+        "id": "20261025T031536587Z_p41764_941a5a694f014199a35331d3a989e354",
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T031532873Z-a358608c"
+      },
+      "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\Sa47OperatorReset\\Trainer_sa47_operator_reset_validation.json",
+      "result_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47OperatorReset/Trainer_sa47_operator_reset_validation.json",
+      "result_sha256": "271c034d84c7cbec1ea3c2cae7ea43d2126754654e84522ee87a413b05f5a9e9",
+      "cycles": 7275,
+      "passed": true,
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-reset-operator-20261025.json",
+      "portable_link": "sa47-reset-operator-20261025.json",
+      "assertion_count": 101
+    },
+    {
+      "id": "Sa47ProducerFault",
+      "status": "passed",
+      "exit_code": 0,
+      "build_id": "build-20261025T031611064Z-4ee58015",
+      "session": {
+        "id": "20261025T031614461Z_p26836_47dbf35186344c48a3030d8b3c118927",
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T031611064Z-4ee58015"
+      },
+      "result_origin": "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\runs\\test-20261025T031217357Z-bebbc4ff\\Sa47ProducerFault\\Trainer_sa47_producer_fault_validation.json",
+      "result_path": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47ProducerFault/Trainer_sa47_producer_fault_validation.json",
+      "result_sha256": "9e59a961e4605ada96a28f342101afe7bfd6bbd5de9da12806ee0c8598067369",
+      "cycles": 0,
+      "passed": true,
+      "portable_path": "dev/docs/audit_parts/re_part1/sa47-reset-producer-fault-20261025.json",
+      "portable_link": "sa47-reset-producer-fault-20261025.json",
+      "assertion_count": 6
+    }
+  ],
+  "current_source_build_validation": {
+    "path": "dev/docs/audit_parts/re_part1/sa47-reset-current-validation-20261025.json",
+    "sha256": "7b4e49af3ce6443d14500034234a9a7d1b2a9efac0030d3a3c0c8cda7ebd41a3",
+    "passed": true,
+    "checks": 56,
+    "scope": "Идентичность текущих исходников, сборок, 19 productionSourceSHA и развёрнутого EXE. Исходный PDF и 171 изображение также проверены. Нормативная приёмка всей модели не расширяется."
+  }
+}

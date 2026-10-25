@@ -14,6 +14,7 @@
         "outputs/TrainerIntegrationHost.cs",
         "outputs/TrainerNativeSystems.cs",
         "outputs/TrainerNativeBrakeRelease.cs",
+        "outputs/TrainerSa47MemoryPatch.cs",
         "outputs/TrainerAuxSystems.cs",
         "outputs/TrainerRouteDOS.cs",
         "outputs/TrainerAutovedenieController.cs",
@@ -52,6 +53,7 @@
         "outputs/TrainerIntegrationHost.cs",
         "outputs/TrainerNativeSystems.cs",
         "outputs/TrainerNativeBrakeRelease.cs",
+        "outputs/TrainerSa47MemoryPatch.cs",
         "outputs/TrainerAuxSystems.cs",
         "outputs/TrainerRouteDOS.cs",
         "outputs/TrainerAutovedenieController.cs",
@@ -743,7 +745,7 @@
         "TrainerIntegrationHost",
         "TrainerNativeVirtualPult"
       ],
-      "limitations": "Реализация после baseline a04ed4b ещё дорабатывается. Полная приёмка partial: отмена в 0, native ТМ > 5 и UI pending; пневматический расход и минимальное давление KR22 не откалиброваны. SHA, byte, owner и lifetime guards ограничивают применимость конкретными DLL.",
+      "limitations": "Fresh19/19native selected PASS20261025: память0/ТМ>5.0кгс/см2, удержанное2, fresh producer epoch, приоритет ступенейКВТ, операторскиеhandlers, ошибкавсвоёмstate и originalcode restore. Подготовленнаясеть; fastмеждуцикловыеclicks, supply/расход/минимумKR22 и exactРЭ137+ остаются внеприёмки.",
       "documentation": "dev/docs/RE_PART1_AUDIT.md"
     },
     {
@@ -771,6 +773,21 @@
         "TrainerIntegrationHost"
       ],
       "limitations": "Реконструированная связь виртуального хоста AF.Pesok → Pos.Pesok. Это не обнаруженный исходный publisher штатного main; сцепление и весь алгоритм песка не приняты по одной связи."
+    },
+    {
+      "id": "TrainerSa47MemoryPatch",
+      "type": "csharp",
+      "path": "outputs/TrainerSa47MemoryPatch.cs",
+      "role": "Обратимая guarded правка producer SA47: память команды отдельно от исполнительных приоритетов; отмена0/ТМ и новый фронт1→2",
+      "profiles": [
+        "integration",
+        "candidate"
+      ],
+      "dependencies": [
+        "TrainerNativeBrakeRelease"
+      ],
+      "limitations": "Fresh19/19native selected PASS20261025: память0/ТМ>5.0кгс/см2, удержанное2, fresh producer epoch, приоритет ступенейКВТ, операторскиеhandlers, ошибкавсвоёмstate и originalcode restore. Подготовленнаясеть; fastмеждуцикловыеclicks, supply/расход/минимумKR22 и exactРЭ137+ остаются внеприёмки.",
+      "documentation": "dev/docs/RE_PART1_AUDIT.md"
     }
   ],
   "manual_applicability": "Точная ревизия РЭ/комплектация 2ЭС6 начиная с №137 не установлена; кандидатные проверки не являются полной нормативной приемкой.",

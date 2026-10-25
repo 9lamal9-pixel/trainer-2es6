@@ -1,4 +1,4 @@
-﻿using System;using System.IO;using System.Reflection;using System.Runtime.InteropServices;using System.Collections.Generic;using System.Windows.Forms;using System.Web.Script.Serialization;using TrainerAir;
+using System;using System.IO;using System.Reflection;using System.Runtime.InteropServices;using System.Collections.Generic;using System.Windows.Forms;using System.Web.Script.Serialization;using TrainerAir;
 class CandidateAirHostProbe {
  [DllImport("kernel32.dll")]static extern IntPtr GetModuleHandle(string name);
  [DllImport("kernel32.dll")]static extern IntPtr VirtualAlloc(IntPtr address,UIntPtr size,uint allocation,uint protection);
@@ -22,14 +22,16 @@ class CandidateAirHostProbe {
  static float Read(IntPtr p,int offset){byte[] b=new byte[4];Marshal.Copy(IntPtr.Add(p,offset),b,0,4);return BitConverter.ToSingle(b,0);}
  static void Cycle(int km,int kvt){
   typeof(TrainerIntegrationHost).GetField("commandedKm",flags).SetValue(host,(int?)km);
-  // Set the native control's state as a diagnostic input, then let Communication produce OtpTorm itself.
-  Marshal.WriteByte(releaseControl,0x1d9,(byte)(releaseButton?2:0));
+  // Explicit logical impulse2/cancellation0. Physical button-up maps to
+  // readiness1 and is validated separately by Sa47NativeButton.
+  typeof(TrainerIntegrationHost).GetMethod("SetSa47OperatorPosition",flags).Invoke(host,new object[]{(int?)(releaseButton?2:0)});
+  int expectedRelease=releaseButton?(Marshal.ReadByte(loc,0x8c)==0?1:2):0;
   double expectedPm=Read(loc,5);double expectedTc1=circuit.Sections[0].Cylinder[0].Gauge,expectedTc2=circuit.Sections[0].Cylinder[1].Gauge;
   Call("ElectricalCycle");Call("ApplyTestInputs");
   maximumGaugeError=Math.Max(maximumGaugeError,Math.Max(Math.Abs(ReadDouble(tc1Arrow,0x28)-expectedTc1),Math.Abs(ReadDouble(tc2Arrow,0x28)-expectedTc2)));
   if(Math.Abs(ReadDouble(pmArrow,0x28)-expectedPm)>1e-5)throw new Exception("Native PM gauge differs from physical PM");
   if(maximumGaugeError>1e-5)throw new Exception("Native TC gauge source mismatch: "+maximumGaugeError);
-  if(Marshal.ReadByte(loc,0x8c)!=(releaseButton?2:0))throw new Exception("Native release-button output mismatch");releaseSignalChecks++;
+  if(Marshal.ReadByte(loc,0x8c)!=expectedRelease)throw new Exception("Native logical release input mismatch");releaseSignalChecks++;
   // Explicit test inputs after electrical processing; these do not validate the native handle widgets.
   Marshal.WriteByte(loc,0x7e,(byte)kvt);for(int i=0x80;i<=0x87;i++)Marshal.WriteByte(loc,i,0);
   Call("PneumaticCycle");Call("MotionCycle");double pressureSum=0;for(int s=0;s<2;s++)for(int b=0;b<2;b++)pressureSum+=Math.Max(0,circuit.Sections[s].Cylinder[b].Gauge);if(Math.Abs(Read(poezdModule,0x1a674)-pressureSum*4)>1e-5)throw new Exception("Native motion brake input ignores bogie pressure");Call("RouteInputCycle");Call("AuxCycle");Call("KlubCoordinateCycle");
@@ -67,7 +69,7 @@ class CandidateAirHostProbe {
   if(isolatedInput>=allBogiesInput||isolatedForce>=allBogiesForce)throw new Exception("Motion braking did not decrease after bogie isolation");
   Phase(300,2,2);
   int faults=(int)typeof(TrainerIntegrationHost).GetField("electricalFaults",flags).GetValue(host);if(faults!=0)throw new Exception("Electrical model faults");
-  var result=new{passed=true,baseline=baseline,candidate_host=true,default_host_updated=false,calibrated_to_RE=false,cycles=cycles,electrical_faults=faults,final_pm=circuit.Pm.Gauge,automatic_tc=automatic,second_automatic_tc=automatic2,combined_tc=combined,second_combined_tc=combined2,retained_tc=retained,second_retained_tc=retained2,released_tc=released,second_released_tc=released2,button_released_tc=buttonReleased,button_second_released_tc=buttonReleased2,button_independent_tc=buttonIndependent,button_restored_tc=buttonRestored,native_button_signal_checks=releaseSignalChecks,all_bogies_native_input=allBogiesInput,isolated_native_input=isolatedInput,all_bogies_native_brake=allBogiesForce,isolated_native_brake=isolatedForce,tc_gauge_max_error=maximumGaugeError,isolated_bogie_tc=isolated,working_bogie_tc=working,native_pm_gauge_checks=cycles,rendered_pixels_verified=false,max_boundary_mass_error=circuit.MaximumBalanceError,scope="Candidate host electrical/motion/route/aux/KLUB/pneumatic steps; native button state set through memory as diagnostic input, native output checked every cycle; stand KM/KVT inputs and compressors off. UI clicks, KEB actuator air/thresholds, TC gauge objects checked; rendered pixels, geometry, KRU/EPK flows not accepted.",rows=rows};
+  var result=new{passed=true,baseline=baseline,candidate_host=true,default_host_updated=false,calibrated_to_RE=false,cycles=cycles,electrical_faults=faults,final_pm=circuit.Pm.Gauge,automatic_tc=automatic,second_automatic_tc=automatic2,combined_tc=combined,second_combined_tc=combined2,retained_tc=retained,second_retained_tc=retained2,released_tc=released,second_released_tc=released2,button_released_tc=buttonReleased,button_second_released_tc=buttonReleased2,button_independent_tc=buttonIndependent,button_restored_tc=buttonRestored,native_button_signal_checks=releaseSignalChecks,all_bogies_native_input=allBogiesInput,isolated_native_input=isolatedInput,all_bogies_native_brake=allBogiesForce,isolated_native_brake=isolatedForce,tc_gauge_max_error=maximumGaugeError,isolated_bogie_tc=isolated,working_bogie_tc=working,native_pm_gauge_checks=cycles,rendered_pixels_verified=false,max_boundary_mass_error=circuit.MaximumBalanceError,scope="Candidate host electrical/motion/route/aux/KLUB/pneumatic steps; explicit logical SA47 impulse2/cancel0 selected through operator controls, logical native input checked every cycle (physical button-up is readiness1); stand KM/KVT inputs and compressors off. UI clicks, KEB actuator air/thresholds, TC gauge objects checked; rendered pixels, geometry, KRU/EPK flows not accepted.",rows=rows};
   File.WriteAllText(TrainerSession.ResultPath(baseline?"Trainer_air_candidate_host_baseline.json":"Trainer_air_candidate_host_validation.json"),new JavaScriptSerializer().Serialize(result));
   Console.WriteLine("PASS candidate host: "+cycles+" cycles,PM="+circuit.Pm.Gauge+", TC="+combined+"/"+combined2+", faults="+faults);return 0;
  }catch(Exception e){Console.WriteLine(e);return 1;}finally{host.Close();host.Dispose();}}

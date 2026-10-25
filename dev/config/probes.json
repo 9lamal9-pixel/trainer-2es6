@@ -21,11 +21,106 @@
       "CompressorPrepared",
       "Sa47Release",
       "Sa47ReleaseFault",
-      "Sa47NativeButton"
+      "Sa47NativeButton",
+      "Sa47ResetZero",
+      "Sa47ResetTm",
+      "Sa47Priorities",
+      "Sa47OperatorReset",
+      "Sa47ProducerFault"
     ]
   },
   "execution_contract": "Build sources directly using the selected profile; legacy build scripts may also execute probes. Run sequentially in separate processes, require exit code 0 and fresh expected artifacts. Do not require a universal passed JSON field. Obsolete and unsafe entries are disabled.",
   "probes": [
+    {
+      "id": "Sa47ProducerFault",
+      "main_class": "Sa47ReleaseProbe",
+      "title": "SA47: fault собственного состояния и восстановление входов/кода",
+      "source": "work/pneumatic_live_fix/analysis/Sa47ReleaseProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "producer-fault"
+      ],
+      "result_files": [
+        "outputs/Trainer_sa47_producer_fault_validation.json"
+      ],
+      "kind": "regression",
+      "scope": "Инъекция fault4 в собственный RWstate адаптера, без записи давления/ТЦ/защит. Проверяет восстановление widget/raw scopes приoperationalfault, запретfreshrelease и байтыOriginalEntry/freeallocation доnativeclose. Это fixturecleanup, не физическийотказдатчикаТМ.",
+      "timeout_seconds": 120,
+      "enabled": true
+    },
+    {
+      "id": "Sa47OperatorReset",
+      "main_class": "Sa47ReleaseProbe",
+      "title": "SA47: отпускание, потеря захвата/фокуса и смена источника",
+      "source": "work/pneumatic_live_fix/analysis/Sa47ReleaseProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "operator-reset"
+      ],
+      "result_files": [
+        "outputs/Trainer_sa47_operator_reset_validation.json"
+      ],
+      "kind": "regression",
+      "scope": "Настоящие KM/KVT SetPosition и nativeDwn/Up плюс managedмышь/Enter, capture/focus/deactivate. Проверяет готовность1 послеотпускания, cancel0, handoverнаужеудержаннуюкнопку и новыйимпульс; fastclick entirelybetween100msциклы отдельнонепринимается.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "Sa47Priorities",
+      "main_class": "Sa47ReleaseProbe",
+      "title": "SA47: тормозные ступени КВТ и КМV сохраняют приоритет",
+      "source": "work/pneumatic_live_fix/analysis/Sa47ReleaseProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "priorities"
+      ],
+      "result_files": [
+        "outputs/Trainer_sa47_priority_validation.json"
+      ],
+      "kind": "regression",
+      "scope": "Подготовленная native сеть, реальные SetPosition KM/KVT до электрического производителя. Память SA47 и все4физическихТЦ; выходные давления/processed флаги не задаются стендом. Порог явно >5.0кгс/см2 по исходной шкале и выбранному профилю РЭ; точнаяfactoryревизия,расходKR22 остаются вне сценария.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "Sa47ResetTm",
+      "main_class": "Sa47ReleaseProbe",
+      "title": "SA47: отмена по реальной ТМ и удержанное2",
+      "source": "work/pneumatic_live_fix/analysis/Sa47ReleaseProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "tm-reset"
+      ],
+      "result_files": [
+        "outputs/Trainer_sa47_tm_reset_validation.json"
+      ],
+      "kind": "regression",
+      "scope": "Подготовленная native сеть, реальные SetPosition KM/KVT до электрического производителя. Память SA47 и все4физическихТЦ; выходные давления/processed флаги не задаются стендом. Порог явно >5.0кгс/см2 по исходной шкале и выбранному профилю РЭ; точнаяfactoryревизия,расходKR22 остаются вне сценария.",
+      "timeout_seconds": 240,
+      "enabled": true
+    },
+    {
+      "id": "Sa47ResetZero",
+      "main_class": "Sa47ReleaseProbe",
+      "title": "SA47: отмена памяти0 и запрет повторного отпуска без нового импульса",
+      "source": "work/pneumatic_live_fix/analysis/Sa47ReleaseProbe.cs",
+      "profile": "candidate",
+      "dependencies": [],
+      "arguments": [
+        "zero-reset"
+      ],
+      "result_files": [
+        "outputs/Trainer_sa47_zero_reset_validation.json"
+      ],
+      "kind": "regression",
+      "scope": "Подготовленная сеть, настоящие native электрические/пневматические циклы и логические операторские входы. Проверяет2→1→0→1, отмену command latch и все4ТЦ, повторный новый импульс. Выходные давления иprocessed флаги не задаются стендом.",
+      "timeout_seconds": 180,
+      "enabled": true
+    },
     {
       "id": "Sa47NativeButton",
       "main_class": "Sa47ReleaseProbe",
@@ -40,7 +135,7 @@
         "outputs/Trainer_sa47_native_button_validation.json"
       ],
       "kind": "regression",
-      "scope": "Настоящие native DwnButton/UpBtn, SHA/байтовые/VMT guards и Borland register ABI. Физические1/0 кнопки согласуются с enum2/0 Pult1, затем настоящие электрические и пневматические циклы. Не проверка экранных пикселей, аппаратуры или полной нормативной цепи KR22.",
+      "scope": "Настоящие nativeDwnButton/UpBtn с SHA/байтовыми/VMT guards. Физическийidle0→логическаяготовность1, press1→impulse2, up0→1ссохранениемпамяти; отдельныйcancel0. Все4ТЦ/память и inputrestore. Неаппаратура,непиксели,неfastclickмежду100msциклами.",
       "timeout_seconds": 180,
       "enabled": true
     },
@@ -245,7 +340,7 @@
         "outputs/Trainer_sa47_release_validation.json"
       ],
       "kind": "regression",
-      "scope": "Подготовленная тёплая пневмосеть, штатные электрические циклы и три положения управляемого SA47; физические ТЦ обеих секций, сохранение/восстановление входов, обработчики мыши и Space. Диагностические входы не подтверждают физический привод KR22. Полная отмена защёлки0/по ТМ, расход и минимальное давление требуют отдельной приёмки.",
+      "scope": "Подготовленная тёплая сеть и реальные NativePosition KM/KVT до штатного producer; свежий Entryepoch, импульс/память, мышь/Space, lateКВТ, no-op и восстановление inputs. Отмена0/ТМ проверяется отдельнымиResetсценариями. KR22 supply/расход и точнаяревизия отдельно.",
       "timeout_seconds": 180,
       "enabled": true
     },

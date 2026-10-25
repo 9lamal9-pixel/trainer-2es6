@@ -1,0 +1,798 @@
+{
+  "schema_version": 1,
+  "date_utc": "2026-10-25",
+  "passed": true,
+  "checks": [
+    {
+      "name": "requirements61",
+      "passed": true
+    },
+    {
+      "name": "requirement_status_counts",
+      "passed": true
+    },
+    {
+      "name": "171_pages",
+      "passed": true
+    },
+    {
+      "name": "171_image_identities",
+      "passed": true
+    },
+    {
+      "name": "manual_identity",
+      "passed": true
+    },
+    {
+      "name": "candidate_source_catalog",
+      "passed": true
+    },
+    {
+      "name": "integration_source_catalog",
+      "passed": true
+    },
+    {
+      "name": "regression_catalogs14",
+      "passed": true
+    },
+    {
+      "name": "regression_subset_executed",
+      "passed": true
+    },
+    {
+      "name": "final19_passed",
+      "passed": true
+    },
+    {
+      "name": "19_closed_clean_sessions",
+      "passed": true
+    },
+    {
+      "name": "build-20261025T031759359Z-fc9f8821_built",
+      "passed": true
+    },
+    {
+      "name": "build-20261025T031759359Z-fc9f8821_current_sources",
+      "passed": true
+    },
+    {
+      "name": "build-20261025T031759359Z-fc9f8821_native_lock",
+      "passed": true
+    },
+    {
+      "name": "build-20261025T031746463Z-18a48dbb_built",
+      "passed": true
+    },
+    {
+      "name": "build-20261025T031746463Z-18a48dbb_current_sources",
+      "passed": true
+    },
+    {
+      "name": "build-20261025T031746463Z-18a48dbb_native_lock",
+      "passed": true
+    },
+    {
+      "name": "candidate_deployed_identity",
+      "passed": true
+    },
+    {
+      "name": "ColdNoSource_tested_production_matches_deployment",
+      "passed": true
+    },
+    {
+      "name": "SectionPantographPressure_tested_production_matches_deployment",
+      "passed": true
+    },
+    {
+      "name": "CandidateAirHost_tested_production_matches_deployment",
+      "passed": true
+    },
+    {
+      "name": "ColdTrainAuxiliary_tested_production_matches_deployment",
+      "passed": true
+    },
+    {
+      "name": "VcuAirSequence_tested_production_matches_deployment",
+      "passed": true
+    },
+    {
+      "name": "CompressorPrepared_tested_production_matches_deployment",
+      "passed": true
+    },
+    {
+      "name": "Sa47Release_tested_production_matches_deployment",
+      "passed": true
+    },
+    {
+      "name": "Sa47Release_artifact_identity",
+      "passed": true
+    },
+    {
+      "name": "Sa47Release_all_assertions",
+      "passed": true
+    },
+    {
+      "name": "Sa47ReleaseFault_tested_production_matches_deployment",
+      "passed": true
+    },
+    {
+      "name": "Sa47ReleaseFault_artifact_identity",
+      "passed": true
+    },
+    {
+      "name": "Sa47ReleaseFault_all_assertions",
+      "passed": true
+    },
+    {
+      "name": "Sa47NativeButton_tested_production_matches_deployment",
+      "passed": true
+    },
+    {
+      "name": "Sa47NativeButton_artifact_identity",
+      "passed": true
+    },
+    {
+      "name": "Sa47NativeButton_all_assertions",
+      "passed": true
+    },
+    {
+      "name": "Sa47ResetZero_tested_production_matches_deployment",
+      "passed": true
+    },
+    {
+      "name": "Sa47ResetZero_artifact_identity",
+      "passed": true
+    },
+    {
+      "name": "Sa47ResetZero_all_assertions",
+      "passed": true
+    },
+    {
+      "name": "Sa47ResetTm_tested_production_matches_deployment",
+      "passed": true
+    },
+    {
+      "name": "Sa47ResetTm_artifact_identity",
+      "passed": true
+    },
+    {
+      "name": "Sa47ResetTm_all_assertions",
+      "passed": true
+    },
+    {
+      "name": "Sa47Priorities_tested_production_matches_deployment",
+      "passed": true
+    },
+    {
+      "name": "Sa47Priorities_artifact_identity",
+      "passed": true
+    },
+    {
+      "name": "Sa47Priorities_all_assertions",
+      "passed": true
+    },
+    {
+      "name": "Sa47OperatorReset_tested_production_matches_deployment",
+      "passed": true
+    },
+    {
+      "name": "Sa47OperatorReset_artifact_identity",
+      "passed": true
+    },
+    {
+      "name": "Sa47OperatorReset_all_assertions",
+      "passed": true
+    },
+    {
+      "name": "Sa47ProducerFault_tested_production_matches_deployment",
+      "passed": true
+    },
+    {
+      "name": "Sa47ProducerFault_artifact_identity",
+      "passed": true
+    },
+    {
+      "name": "Sa47ProducerFault_all_assertions",
+      "passed": true
+    },
+    {
+      "name": "AirControlIsolation_tested_production_matches_deployment",
+      "passed": true
+    },
+    {
+      "name": "NativeSandAir_tested_production_matches_deployment",
+      "passed": true
+    },
+    {
+      "name": "MarkupSafety_tested_production_matches_deployment",
+      "passed": true
+    },
+    {
+      "name": "NativeSafetyAdapter_tested_production_matches_deployment",
+      "passed": true
+    },
+    {
+      "name": "VigilanceOperator_tested_production_matches_deployment",
+      "passed": true
+    },
+    {
+      "name": "8_sa47_modes_213_assertions",
+      "passed": true
+    },
+    {
+      "name": "explicit_kgf_policy",
+      "passed": true
+    },
+    {
+      "name": "policy_constant_matches",
+      "passed": true
+    }
+  ],
+  "run": {
+    "id": "test-20261025T031217357Z-bebbc4ff",
+    "report_sha256": "FB666E0AB3F89CB4A8EF5C5D93D14D515B0DE76F108C4958A9B503FB82B3F756",
+    "status": "passed",
+    "passed": 19
+  },
+  "builds": [
+    {
+      "build_id": "build-20261025T031759359Z-fc9f8821",
+      "profile": "candidate",
+      "executable": "TrainerIntegrationHost.pneumatic_candidate.exe",
+      "executable_sha256": "2AEB159E6AA3F1A837148E368ED86A15878026CDCC332FB530900006C2E215C5",
+      "sources": [
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "sha256": "1286CED6097BA137D46B47F9F6FEAC26952D525CF5F1C70C6D375DA56FDB9839"
+        },
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "sha256": "85EE79A1261FC4E346CEC1D933FAB83280526243EE2A8091747334E629FA7C3D"
+        },
+        {
+          "path": "outputs/TrainerNativeBrakeRelease.cs",
+          "sha256": "43BC878ADDC72999BD44517284AA6CCA71F3DACDA9847D0C6F2D95588F1C1EF1"
+        },
+        {
+          "path": "outputs/TrainerSa47MemoryPatch.cs",
+          "sha256": "08AF53F738C8ADB72192D5928FEF4DFDA415CCB2513CC49499E67FC7655FEB7E"
+        },
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "sha256": "E9DC02F6C7AF2B7407048E595BB93346BB8BED265D77408E8ED8C4A1067BF72F"
+        },
+        {
+          "path": "outputs/TrainerRouteDOS.cs",
+          "sha256": "A6833BDFDD042E47A5570F0BB7C39AD823FED3024C03713129D33AC6ABE8F4BE"
+        },
+        {
+          "path": "outputs/TrainerAutovedenieController.cs",
+          "sha256": "EF6CE777859B0D84847A648E1C29111D4F5BCDF2DA107660FD2EDCFEBCA4DCFB"
+        },
+        {
+          "path": "outputs/TrainerTrainBrakeCycle.cs",
+          "sha256": "783FFD1DF4546C99FB131A3A88D71211CBCD67226D002BA254AFF7C9E20E9A8B"
+        },
+        {
+          "path": "outputs/TrainerAutovedenieInterface.cs",
+          "sha256": "EE116B7847A4B946F56EA84DD4F1E8713541E2C0EB3494DCC7085555C384FDCE"
+        },
+        {
+          "path": "outputs/TrainerAutovedenieNativeBridge.cs",
+          "sha256": "EC5C8CB86162319E2AD2030B313EDDB820D2D4F4EC8ACFBF702072846C4D9341"
+        },
+        {
+          "path": "outputs/TrainerAutovedenieHost.cs",
+          "sha256": "A9F657408E91A5731E25381D662241FD8047479E877D8CEEDCB24CA7CB57567B"
+        },
+        {
+          "path": "outputs/TrainerSautOperatorControls.cs",
+          "sha256": "B78D647440FB4521B97728131A3DF16EC4CDA56D19912C484AEF8AF16FD2E9F8"
+        },
+        {
+          "path": "outputs/TrainerStandaloneSautBinding.cs",
+          "sha256": "7480B65A77C0883BF1FD8EAD8402970355C56BDF1765D011D720052DAFA71145"
+        },
+        {
+          "path": "outputs/TrainerRouteView.cs",
+          "sha256": "CD86F938C78FB0E3A2F49441050D3965BEACDDA1AB861B8F6C59D4B45CF27204"
+        },
+        {
+          "path": "outputs/TrainerNativeFixes.cs",
+          "sha256": "E8D47DAC13D7D1152DEE2206CA5F77A0D4B307313CFBBC506067343495250B4D"
+        },
+        {
+          "path": "outputs/TrainerPneumaticTiming.cs",
+          "sha256": "FAA88FB80BC132188A846AF2453265B2D54E7284D98C38AF881094AFB9D5B2E2"
+        },
+        {
+          "path": "outputs/TrainerSessionLogging.cs",
+          "sha256": "FC409229F2F44AEE2C97FC4633107DACD199C63CE73F6717633C900C8DCEF101"
+        },
+        {
+          "path": "outputs/TrainerAirNetwork.cs",
+          "sha256": "86D4BC73601012D7A4109BEEAA26360F8C476CC06D2FDDE61C3BB1B66F646B32"
+        },
+        {
+          "path": "outputs/TrainerControlAir.cs",
+          "sha256": "45F273528A4E83BB5FC166367646C1A234FDE578C20128AF2881E2A35EF0C4B6"
+        },
+        {
+          "path": "outputs/TrainerBtoNetwork.cs",
+          "sha256": "5E83C5F3BBB597757A8DCFB48881625AD398970A714E4710AFDBA9AD39E58027"
+        },
+        {
+          "path": "outputs/TrainerAirSelector.cs",
+          "sha256": "E4E86DE362E66D7A55C23968F52D1FE1EB64C631D07E18B7D9BACE142C6263FD"
+        },
+        {
+          "path": "outputs/TrainerKvtProfile.cs",
+          "sha256": "E80696785D2542FB5BE5920A87EE6A51368043B06E7FBB388992A9F19A0E17B7"
+        },
+        {
+          "path": "outputs/TrainerTwoSectionAirChain.cs",
+          "sha256": "C04801AB0DFCD7AF736D8069909EC4D8C07C71C1F14CAF393E30F5043F86BBBC"
+        },
+        {
+          "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+          "sha256": "3C388354ADAC36B8D0FFF3AD4422EFB79DEA88524EC784D02E85A159B1A336CF"
+        },
+        {
+          "path": "outputs/TrainerTrainPressureView.cs",
+          "sha256": "431EA70A22205EE44EDDB51D71CD2A816AE46912CD14C6DAD7C5F1C165BECD61"
+        },
+        {
+          "path": "outputs/TrainerSafetyInputContext.cs",
+          "sha256": "71883123E6C657A5A62355EA673DC7BB4E10646320141002BE81ABFC57FD5D84"
+        },
+        {
+          "path": "outputs/TrainerSafetyContexts.cs",
+          "sha256": "EFDAFA1202F26FF507A242FF6F2AD7971D2D169619ECAA4FA35B81FD533CF0B4"
+        },
+        {
+          "path": "outputs/TrainerNativeSafetyAdapter.cs",
+          "sha256": "50CFD589AB74F667DF336ABCF157225B5F6BE8CD6F50DB369B828BA58D4E58AA"
+        },
+        {
+          "path": "outputs/TrainerSafetyHost.cs",
+          "sha256": "05ABACF21249C5EF6B7C45C965CDCF94CC3FAFDCF2645FF55D9E8BC28B2BD7B9"
+        },
+        {
+          "path": "outputs/TrainerVigilanceOperatorControls.cs",
+          "sha256": "5A93EC26F39341D0E6632A275BBE1177FB7966E85854C47A32F3658EA178957F"
+        },
+        {
+          "path": "outputs/TrainerMarkupSignalSource.cs",
+          "sha256": "0C927B8BBE2B6A2B444623A83F3C2FEC38577DDBB1E85F8172BE61174CB036A6"
+        },
+        {
+          "path": "outputs/TrainerMarkupHost.cs",
+          "sha256": "BE9D9F6744F80BA327D46392641C3D4240B3D7A7ABC09E12D4BE43FCA83E0266"
+        },
+        {
+          "path": "outputs/TrainerKlubSafetyBinding.cs",
+          "sha256": "942ACF68C73403CE35B833322E85274ED11C37CDB879140C0B3BA5E224F95006"
+        },
+        {
+          "path": "outputs/TrainerNativeVirtualPult.cs",
+          "sha256": "F54E569EB6C9F0B72541E5D08C90999FA572656B06138FBDB7B5EC7EEDC7CE24"
+        },
+        {
+          "path": "outputs/TrainerSandAirInput.cs",
+          "sha256": "C9BA33F9E2ABCBAAE0F3284B20B63A8880B50C4B0DF8B139ABB04E3EAE258C89"
+        }
+      ]
+    },
+    {
+      "build_id": "build-20261025T031746463Z-18a48dbb",
+      "profile": "integration",
+      "executable": "TrainerIntegrationHost.exe",
+      "executable_sha256": "31F6602C117D39FF7B495B2CAC9CBF7DCE1C3554783419448DE48E1EB451A5D7",
+      "sources": [
+        {
+          "path": "outputs/TrainerIntegrationHost.cs",
+          "sha256": "1286CED6097BA137D46B47F9F6FEAC26952D525CF5F1C70C6D375DA56FDB9839"
+        },
+        {
+          "path": "outputs/TrainerNativeSystems.cs",
+          "sha256": "85EE79A1261FC4E346CEC1D933FAB83280526243EE2A8091747334E629FA7C3D"
+        },
+        {
+          "path": "outputs/TrainerNativeBrakeRelease.cs",
+          "sha256": "43BC878ADDC72999BD44517284AA6CCA71F3DACDA9847D0C6F2D95588F1C1EF1"
+        },
+        {
+          "path": "outputs/TrainerSa47MemoryPatch.cs",
+          "sha256": "08AF53F738C8ADB72192D5928FEF4DFDA415CCB2513CC49499E67FC7655FEB7E"
+        },
+        {
+          "path": "outputs/TrainerAuxSystems.cs",
+          "sha256": "E9DC02F6C7AF2B7407048E595BB93346BB8BED265D77408E8ED8C4A1067BF72F"
+        },
+        {
+          "path": "outputs/TrainerRouteDOS.cs",
+          "sha256": "A6833BDFDD042E47A5570F0BB7C39AD823FED3024C03713129D33AC6ABE8F4BE"
+        },
+        {
+          "path": "outputs/TrainerAutovedenieController.cs",
+          "sha256": "EF6CE777859B0D84847A648E1C29111D4F5BCDF2DA107660FD2EDCFEBCA4DCFB"
+        },
+        {
+          "path": "outputs/TrainerTrainBrakeCycle.cs",
+          "sha256": "783FFD1DF4546C99FB131A3A88D71211CBCD67226D002BA254AFF7C9E20E9A8B"
+        },
+        {
+          "path": "outputs/TrainerAutovedenieInterface.cs",
+          "sha256": "EE116B7847A4B946F56EA84DD4F1E8713541E2C0EB3494DCC7085555C384FDCE"
+        },
+        {
+          "path": "outputs/TrainerAutovedenieNativeBridge.cs",
+          "sha256": "EC5C8CB86162319E2AD2030B313EDDB820D2D4F4EC8ACFBF702072846C4D9341"
+        },
+        {
+          "path": "outputs/TrainerAutovedenieHost.cs",
+          "sha256": "A9F657408E91A5731E25381D662241FD8047479E877D8CEEDCB24CA7CB57567B"
+        },
+        {
+          "path": "outputs/TrainerSautOperatorControls.cs",
+          "sha256": "B78D647440FB4521B97728131A3DF16EC4CDA56D19912C484AEF8AF16FD2E9F8"
+        },
+        {
+          "path": "outputs/TrainerStandaloneSautBinding.cs",
+          "sha256": "7480B65A77C0883BF1FD8EAD8402970355C56BDF1765D011D720052DAFA71145"
+        },
+        {
+          "path": "outputs/TrainerRouteView.cs",
+          "sha256": "CD86F938C78FB0E3A2F49441050D3965BEACDDA1AB861B8F6C59D4B45CF27204"
+        },
+        {
+          "path": "outputs/TrainerNativeFixes.cs",
+          "sha256": "E8D47DAC13D7D1152DEE2206CA5F77A0D4B307313CFBBC506067343495250B4D"
+        },
+        {
+          "path": "outputs/TrainerPneumaticTiming.cs",
+          "sha256": "FAA88FB80BC132188A846AF2453265B2D54E7284D98C38AF881094AFB9D5B2E2"
+        },
+        {
+          "path": "outputs/TrainerSessionLogging.cs",
+          "sha256": "FC409229F2F44AEE2C97FC4633107DACD199C63CE73F6717633C900C8DCEF101"
+        },
+        {
+          "path": "outputs/TrainerTrainPressureView.cs",
+          "sha256": "431EA70A22205EE44EDDB51D71CD2A816AE46912CD14C6DAD7C5F1C165BECD61"
+        },
+        {
+          "path": "outputs/TrainerSafetyInputContext.cs",
+          "sha256": "71883123E6C657A5A62355EA673DC7BB4E10646320141002BE81ABFC57FD5D84"
+        },
+        {
+          "path": "outputs/TrainerSafetyContexts.cs",
+          "sha256": "EFDAFA1202F26FF507A242FF6F2AD7971D2D169619ECAA4FA35B81FD533CF0B4"
+        },
+        {
+          "path": "outputs/TrainerNativeSafetyAdapter.cs",
+          "sha256": "50CFD589AB74F667DF336ABCF157225B5F6BE8CD6F50DB369B828BA58D4E58AA"
+        },
+        {
+          "path": "outputs/TrainerSafetyHost.cs",
+          "sha256": "05ABACF21249C5EF6B7C45C965CDCF94CC3FAFDCF2645FF55D9E8BC28B2BD7B9"
+        },
+        {
+          "path": "outputs/TrainerVigilanceOperatorControls.cs",
+          "sha256": "5A93EC26F39341D0E6632A275BBE1177FB7966E85854C47A32F3658EA178957F"
+        },
+        {
+          "path": "outputs/TrainerMarkupSignalSource.cs",
+          "sha256": "0C927B8BBE2B6A2B444623A83F3C2FEC38577DDBB1E85F8172BE61174CB036A6"
+        },
+        {
+          "path": "outputs/TrainerMarkupHost.cs",
+          "sha256": "BE9D9F6744F80BA327D46392641C3D4240B3D7A7ABC09E12D4BE43FCA83E0266"
+        },
+        {
+          "path": "outputs/TrainerKlubSafetyBinding.cs",
+          "sha256": "942ACF68C73403CE35B833322E85274ED11C37CDB879140C0B3BA5E224F95006"
+        },
+        {
+          "path": "outputs/TrainerNativeVirtualPult.cs",
+          "sha256": "F54E569EB6C9F0B72541E5D08C90999FA572656B06138FBDB7B5EC7EEDC7CE24"
+        },
+        {
+          "path": "outputs/TrainerSandAirInput.cs",
+          "sha256": "C9BA33F9E2ABCBAAE0F3284B20B63A8880B50C4B0DF8B139ABB04E3EAE258C89"
+        }
+      ]
+    }
+  ],
+  "sa47_results": [
+    {
+      "probe": "Sa47Release",
+      "artifact": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47Release/Trainer_sa47_release_validation.json",
+      "sha256": "0E1D3849C884EB8963E576B5614954BE484D4670B55EE09AD99107CB667DA7C5",
+      "assertions": 43,
+      "cycles": 3455,
+      "names": [
+        "service_step_reached",
+        "four_cylinders_automatically_applied",
+        "initial_manual_latch_clear",
+        "native_position1_does_not_request_release",
+        "position1_retains_four_cylinders",
+        "position2_native_request",
+        "position2_releases_four_cylinders",
+        "fresh_processed_request_is_native_boolean",
+        "borrow_restores_enum2",
+        "one_capture_not_reused",
+        "wrong_tick_is_neutral",
+        "invalidated_snapshot_is_neutral",
+        "capture_without_new_electrical_epoch_rejected",
+        "repeated_capture_invalidates_old_true",
+        "no_op_fixture_starts_with_real_true_request",
+        "no_op_electrical_rejected_without_producer_entry",
+        "no_op_electrical_restores_widget_scope",
+        "no_op_electrical_cannot_reuse_old_true",
+        "no_op_electrical_neutral_borrow_restores_raw2",
+        "invalid_position_capture_rejected",
+        "failed_capture_drops_previous_request",
+        "late_km5_is_neutral",
+        "late_KVTIII_fixture_starts_from_fresh_KVTII_request",
+        "late_KVTIII_is_neutral_native_input",
+        "late_KVTIII_restores_original_inputs",
+        "safety_priority_is_neutral",
+        "body_exception_restores_enum2",
+        "foreign_write_is_preserved",
+        "foreign_expected_owner_rejected_before_write",
+        "wrong_thread_rejected_before_write",
+        "return_to1_keeps_native_latch",
+        "return_to1_keeps_release",
+        "position0_native_request_off",
+        "position0_restores_automatic_brake",
+        "managed_mouse_down_selects2",
+        "managed_mouse_releases_four_cylinders",
+        "managed_mouse_up_returns1_with_latch",
+        "managed_space_down_selects2",
+        "managed_space_up_returns1",
+        "managed0_restores_automatic_brake",
+        "return_to_native_source_uses_readiness1_without_old_memory",
+        "prepared_supply_remains_available",
+        "no_electrical_faults"
+      ]
+    },
+    {
+      "probe": "Sa47ReleaseFault",
+      "artifact": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47ReleaseFault/Trainer_sa47_release_fault_validation.json",
+      "sha256": "0954F4BC62A44F19EF1996D6D19DE9924DB3BEA97CB22C487951CEA83482820C",
+      "assertions": 7,
+      "cycles": 0,
+      "names": [
+        "before_first_electrical_binding_absent",
+        "first_electrical_error_captured",
+        "binding_exists_despite_first_failure",
+        "first_failure_restores_cab_input",
+        "native_tail_exception_observed",
+        "first_failed_electrical_uses_neutral_native_input",
+        "native_exception_restores_original_raw1"
+      ]
+    },
+    {
+      "probe": "Sa47NativeButton",
+      "artifact": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47NativeButton/Trainer_sa47_native_button_validation.json",
+      "sha256": "82D3ECC9DAA4D8C1F52C630A98D3265E7A9A322856194B962AA1C14A29E1D3F5",
+      "assertions": 14,
+      "cycles": 2552,
+      "names": [
+        "service_step_reached",
+        "four_cylinders_automatically_applied",
+        "initial_manual_latch_clear",
+        "native_release_button_is_momentary",
+        "native_DwnButton_sets_physical1",
+        "physical1_publishes_impulse2",
+        "native_button_releases_four_cylinders",
+        "native_UpBtn_restores_physical0",
+        "physical0_returns_to_readiness1_with_memory",
+        "native_button_up_retains_release",
+        "explicit0_cancels_native_button_memory",
+        "native_idle1_does_not_revive_cancelled_memory",
+        "prepared_supply_remains_available",
+        "no_electrical_faults"
+      ]
+    },
+    {
+      "probe": "Sa47ResetZero",
+      "artifact": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47ResetZero/Trainer_sa47_zero_reset_validation.json",
+      "sha256": "CC0797F5DA66C814CD3146935D200F84D182336D168C89FFA984E47B9C948A90",
+      "assertions": 13,
+      "cycles": 2872,
+      "names": [
+        "service_step_reached",
+        "four_cylinders_automatically_applied",
+        "initial_manual_latch_clear",
+        "initial1_has_no_manual_memory",
+        "impulse_latches_and_physically_releases",
+        "return1_retains_release_before_cancel",
+        "logical0_clears_manual_memory",
+        "logical0_reapplies_four_cylinders",
+        "ready1_after_cancel_does_not_revive_old_request",
+        "ready1_after_cancel_retains_four_cylinders",
+        "new_impulse_can_release_after_cancel",
+        "prepared_supply_remains_available",
+        "no_electrical_faults"
+      ]
+    },
+    {
+      "probe": "Sa47ResetTm",
+      "artifact": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47ResetTm/Trainer_sa47_tm_reset_validation.json",
+      "sha256": "BEA0F47D499B2DE3DF2A08FB64032B8A22C96D882F9F8789D88E79607CF6342A",
+      "assertions": 16,
+      "cycles": 4152,
+      "names": [
+        "service_step_reached",
+        "four_cylinders_automatically_applied",
+        "initial_manual_latch_clear",
+        "TM_test_initial_release_real",
+        "TM_in1_actual_head_TM_exceeds5",
+        "TM_in1_head_TM_cancels_memory_and_request",
+        "TM_in1_next_brake_actual_service_step",
+        "after_TM_cancel_no_release_without_new2",
+        "new2_after_TM_cancel_releases",
+        "TM_held2_actual_head_TM_exceeds5",
+        "TM_held2_head_TM_cancels_memory_and_request",
+        "TM_held2_next_brake_actual_service_step",
+        "held2_does_not_rearm_after_TM_cancel",
+        "release_then_new2_rearms_after_TM_cancel",
+        "prepared_supply_remains_available",
+        "no_electrical_faults"
+      ]
+    },
+    {
+      "probe": "Sa47Priorities",
+      "artifact": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47Priorities/Trainer_sa47_priority_validation.json",
+      "sha256": "C3835BC88B426B63DC6D1B3F9D74A088DFB1374F5B6A29F7C741E881738E76B1",
+      "assertions": 13,
+      "cycles": 3395,
+      "names": [
+        "service_step_reached",
+        "four_cylinders_automatically_applied",
+        "initial_manual_latch_clear",
+        "priority_initial_release",
+        "KVT_III_blocks_execution_preserves_memory",
+        "KVT_IV_applies_four_cylinders_despite_SA47_memory",
+        "native_KVT_code3_selects_first_stage_without_SA47_release",
+        "KVT_II_returns_to_retained_manual_release",
+        "KM_V_blocks_execution_preserves_memory",
+        "KM_IV_returns_to_retained_manual_release",
+        "priority_memory_still_cancels_only_explicit0_or_TM",
+        "prepared_supply_remains_available",
+        "no_electrical_faults"
+      ]
+    },
+    {
+      "probe": "Sa47OperatorReset",
+      "artifact": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47OperatorReset/Trainer_sa47_operator_reset_validation.json",
+      "sha256": "271C034D84C7CBEC1EA3C2CAE7EA43D2126754654E84522EE87A413B05F5A9E9",
+      "assertions": 101,
+      "cycles": 7275,
+      "names": [
+        "service_step_reached",
+        "four_cylinders_automatically_applied",
+        "initial_manual_latch_clear",
+        "operator_initial_cancel0_logical_position",
+        "operator_initial_cancel0_memory_and_request",
+        "operator_initial_cancel0_four_physical_cylinders",
+        "operator_initial_ready1_no_revive_logical_position",
+        "operator_initial_ready1_no_revive_memory_and_request",
+        "operator_initial_ready1_no_revive_four_physical_cylinders",
+        "operator_capture_down_logical_position",
+        "operator_capture_down_memory_and_request",
+        "operator_capture_down_four_physical_cylinders",
+        "operator_capture_returns1_logical_position",
+        "operator_capture_returns1_memory_and_request",
+        "operator_capture_returns1_four_physical_cylinders",
+        "operator_capture_late_up_idempotent_logical_position",
+        "operator_capture_late_up_idempotent_memory_and_request",
+        "operator_capture_late_up_idempotent_four_physical_cylinders",
+        "operator_after_capture_cancel0_logical_position",
+        "operator_after_capture_cancel0_memory_and_request",
+        "operator_after_capture_cancel0_four_physical_cylinders",
+        "operator_after_capture_ready1_no_revive_logical_position",
+        "operator_after_capture_ready1_no_revive_memory_and_request",
+        "operator_after_capture_ready1_no_revive_four_physical_cylinders",
+        "operator_focus_down_logical_position",
+        "operator_focus_down_memory_and_request",
+        "operator_focus_down_four_physical_cylinders",
+        "operator_focus_returns1_logical_position",
+        "operator_focus_returns1_memory_and_request",
+        "operator_focus_returns1_four_physical_cylinders",
+        "operator_focus_late_up_idempotent_logical_position",
+        "operator_focus_late_up_idempotent_memory_and_request",
+        "operator_focus_late_up_idempotent_four_physical_cylinders",
+        "operator_after_focus_cancel0_logical_position",
+        "operator_after_focus_cancel0_memory_and_request",
+        "operator_after_focus_cancel0_four_physical_cylinders",
+        "operator_after_focus_ready1_no_revive_logical_position",
+        "operator_after_focus_ready1_no_revive_memory_and_request",
+        "operator_after_focus_ready1_no_revive_four_physical_cylinders",
+        "operator_deactivate_down_logical_position",
+        "operator_deactivate_down_memory_and_request",
+        "operator_deactivate_down_four_physical_cylinders",
+        "operator_deactivate_returns1_logical_position",
+        "operator_deactivate_returns1_memory_and_request",
+        "operator_deactivate_returns1_four_physical_cylinders",
+        "operator_deactivate_late_up_idempotent_logical_position",
+        "operator_deactivate_late_up_idempotent_memory_and_request",
+        "operator_deactivate_late_up_idempotent_four_physical_cylinders",
+        "operator_after_deactivate_cancel0_logical_position",
+        "operator_after_deactivate_cancel0_memory_and_request",
+        "operator_after_deactivate_cancel0_four_physical_cylinders",
+        "operator_after_deactivate_ready1_no_revive_logical_position",
+        "operator_after_deactivate_ready1_no_revive_memory_and_request",
+        "operator_after_deactivate_ready1_no_revive_four_physical_cylinders",
+        "operator_enter_down_logical_position",
+        "operator_enter_down_memory_and_request",
+        "operator_enter_down_four_physical_cylinders",
+        "operator_enter_repeat_held_logical_position",
+        "operator_enter_repeat_held_memory_and_request",
+        "operator_enter_repeat_held_four_physical_cylinders",
+        "operator_enter_up_returns1_logical_position",
+        "operator_enter_up_returns1_memory_and_request",
+        "operator_enter_up_returns1_four_physical_cylinders",
+        "operator_enter_late_up_idempotent_logical_position",
+        "operator_enter_late_up_idempotent_memory_and_request",
+        "operator_enter_late_up_idempotent_four_physical_cylinders",
+        "operator_after_enter_cancel0_logical_position",
+        "operator_after_enter_cancel0_memory_and_request",
+        "operator_after_enter_cancel0_four_physical_cylinders",
+        "operator_after_enter_ready1_no_revive_logical_position",
+        "operator_after_enter_ready1_no_revive_memory_and_request",
+        "operator_after_enter_ready1_no_revive_four_physical_cylinders",
+        "operator_handover_physical_button_held",
+        "operator_explicit_ready_ignores_native_hold_logical_position",
+        "operator_explicit_ready_ignores_native_hold_memory_and_request",
+        "operator_explicit_ready_ignores_native_hold_four_physical_cylinders",
+        "operator_handover_does_not_issue_new2_logical_position",
+        "operator_handover_does_not_issue_new2_memory_and_request",
+        "operator_handover_does_not_issue_new2_four_physical_cylinders",
+        "operator_handover_preserves_physical_hold",
+        "operator_native_up_arms_without_release_logical_position",
+        "operator_native_up_arms_without_release_memory_and_request",
+        "operator_native_up_arms_without_release_four_physical_cylinders",
+        "operator_native_up_physical0",
+        "operator_native_new_press_releases_logical_position",
+        "operator_native_new_press_releases_memory_and_request",
+        "operator_native_new_press_releases_four_physical_cylinders",
+        "operator_native_new_up_retains_memory_logical_position",
+        "operator_native_new_up_retains_memory_memory_and_request",
+        "operator_native_new_up_retains_memory_four_physical_cylinders",
+        "operator_final_cancel0_logical_position",
+        "operator_final_cancel0_memory_and_request",
+        "operator_final_cancel0_four_physical_cylinders",
+        "operator_final_ready1_no_revive_logical_position",
+        "operator_final_ready1_no_revive_memory_and_request",
+        "operator_final_ready1_no_revive_four_physical_cylinders",
+        "operator_final_native_idle_no_revive_logical_position",
+        "operator_final_native_idle_no_revive_memory_and_request",
+        "operator_final_native_idle_no_revive_four_physical_cylinders",
+        "prepared_supply_remains_available",
+        "no_electrical_faults"
+      ]
+    },
+    {
+      "probe": "Sa47ProducerFault",
+      "artifact": "dev/runs/test-20261025T031217357Z-bebbc4ff/Sa47ProducerFault/Trainer_sa47_producer_fault_validation.json",
+      "sha256": "9E59A961E4605ADA96A28F342101AFE7BFD6BBD5DE9DA12806EE0C8598067369",
+      "assertions": 6,
+      "cycles": 0,
+      "names": [
+        "fault_fixture_starts_with_borrowed_neutral0",
+        "producer_fault_restores_owned_raw_input",
+        "producer_fault_restores_owned_widget",
+        "producer_fault_cannot_publish_fresh_release",
+        "producer_fault_restores_original_entry_before_native_close",
+        "producer_fault_frees_owned_allocations_after_restoration"
+      ]
+    }
+  ],
+  "scope": "Current model/source/build/test/deployment identity and named prepared scenarios only. Native input scopes, state/entry restoration, manual memory0/TM, held2 and KVT priority; no fast between-tick pulse queue or KR22 supply/air acceptance.",
+  "full_RE_conformity_accepted": false,
+  "full_SA47_actuator_accepted": false,
+  "AVP_calibration_accepted": false
+}

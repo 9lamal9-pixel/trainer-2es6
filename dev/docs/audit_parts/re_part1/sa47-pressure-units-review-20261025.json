@@ -1,0 +1,344 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-24",
+  "reviewer": "/root/re1_parameters_power",
+  "mode": "Только чтение исходников, RTTI, PE и исходных изображений. Native DLL не загружались и не вызывались; код и каталоги не менялись.",
+  "conclusion": {
+    "interface_numeric_unit": "kgf/cm² gauge",
+    "status": "confirmed_static_interface_and_current_hybrid_contract",
+    "basis": "Оригинальная Communication1 передаёт необработанное Ptm и локомотивные Single давления в приборы с исходной шкалой kgf/cm². Нынешний физический контур дополнительно задаёт ровно 98066,5 Па на единицу Gauge и связывает native изменения без множителя.",
+    "does_not_prove": "Точность всей внутренней термодинамики DLL, нормативную калибровку АР, исправность датчиков или универсальную применимость РЭ к № 137+."
+  },
+  "native_identity": [
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Communication1.dll",
+      "sha256": "27178a089ef33692d16b1d46ae0dd7567135b327a24be9d7d0ca84af8df3db7f"
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/TormModel.dll",
+      "sha256": "f871640c5b7699901e3afbf755bb2b797b659524c29baa046b311ca6ecc875b9"
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Pult1.dll",
+      "sha256": "7dac59bf94276309e012a6eb72602c08a921fe1910a4169f9f0ec27008f0f8f5"
+    }
+  ],
+  "rtti": {
+    "source": "work/msul_emulator/native_record_schema.json",
+    "schema_sha256": "54563357aed44d591ec4d8960f871c675b46d2b347ac5e2bfb8690b0914b3110",
+    "fields": [
+      {
+        "record": "TVagonParam.VSend.Ptm",
+        "absolute_offset": "0x0",
+        "type": "Single",
+        "unit_attribute": null
+      },
+      {
+        "record": "TLocParam.Pnevmo.PSend.Pgr",
+        "absolute_offset": "0x5",
+        "type": "Single",
+        "unit_attribute": null
+      },
+      {
+        "record": "TLocParam.Pnevmo.PSend.Pur",
+        "absolute_offset": "0x9",
+        "type": "Single",
+        "unit_attribute": null
+      },
+      {
+        "record": "TLocParam.Pnevmo.PSend.PtcLoc",
+        "absolute_offset": "0xd",
+        "type": "Single",
+        "unit_attribute": null
+      }
+    ],
+    "limit": "Имена и простой тип Single не кодируют физическую единицу. Название tm_bar в CSV является подписью хоста, а не доказательством бар."
+  },
+  "original_native_gauge": {
+    "source": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Communication1.dll",
+    "source_sha256": "27178a089ef33692d16b1d46ae0dd7567135b327a24be9d7d0ca84af8df3db7f",
+    "dfm_resource": "10/TPULTMASHINDEXFORM/0",
+    "picture_resource": "10/TDM/0",
+    "dfm_parse_complete": true,
+    "dfm_evidence": "C:/Users/sibir/Desktop/Макрос/Тренажер/dev/runs/sa47-reset-20261024/pressure-gauge-dfm.json",
+    "field_records": [
+      {
+        "name": "UR_Pribor",
+        "file_offset": "0x2aba19",
+        "rva": "0x2ac619",
+        "preceding_bytes": "940300000100",
+        "candidate_offset": "0x394"
+      },
+      {
+        "name": "GR_TM_Pribor",
+        "file_offset": "0x2aba29",
+        "rva": "0x2ac629",
+        "preceding_bytes": "980300000100",
+        "candidate_offset": "0x398"
+      },
+      {
+        "name": "TC_Pribor",
+        "file_offset": "0x2aba3c",
+        "rva": "0x2ac63c",
+        "preceding_bytes": "9c0300000100",
+        "candidate_offset": "0x39c"
+      }
+    ],
+    "picture_collection": {
+      "rva": "0x5da053",
+      "count": 55,
+      "bytes": 681534,
+      "sha256": "8a8560640873d1a002fae280369a6173a544b37f30ea1cf724f9076da040340a",
+      "format": "UInt32 count, затем UInt32 byte length и PNG каждого элемента. Все 55 элементов разобраны; индексы 42 и 43 совпадают по SHA с извлечёнными шкалами."
+    },
+    "gauges": [
+      {
+        "name": "UR_Pribor",
+        "form_field_offset": "0x394",
+        "pictures_container": "DM.PictCont_Pribors",
+        "pic_index": 42,
+        "max_value": 10,
+        "asset": "C:/Users/sibir/Desktop/Макрос/Тренажер/dev/runs/sa47-reset-20261024/gauge-assets/tdm-042.png",
+        "asset_sha256": "ecdb181b4cb7ddff4f00989a17887d242c1f08abeb9b1a9ba08db7f82848d5b9",
+        "visible_unit": "kgf/cm²",
+        "visually_viewed_original_pixels": true
+      },
+      {
+        "name": "GR_TM_Pribor",
+        "form_field_offset": "0x398",
+        "pictures_container": "DM.PictCont_Pribors",
+        "pic_index": 43,
+        "max_value": 16,
+        "asset": "C:/Users/sibir/Desktop/Макрос/Тренажер/dev/runs/sa47-reset-20261024/gauge-assets/tdm-043.png",
+        "asset_sha256": "fd48a889681772ad05f6588fd7fdb7147a45003bcb87b1c06b98d0e72ed5dd61",
+        "visible_unit": "kgf/cm²",
+        "visually_viewed_original_pixels": true
+      },
+      {
+        "name": "TC_Pribor",
+        "form_field_offset": "0x39c",
+        "pictures_container": "DM.PictCont_Pribors",
+        "pic_index": 42,
+        "max_value": 10,
+        "asset": "C:/Users/sibir/Desktop/Макрос/Тренажер/dev/runs/sa47-reset-20261024/gauge-assets/tdm-042.png",
+        "asset_sha256": "ecdb181b4cb7ddff4f00989a17887d242c1f08abeb9b1a9ba08db7f82848d5b9",
+        "visible_unit": "kgf/cm²",
+        "visually_viewed_original_pixels": true
+      }
+    ],
+    "raw_publication": {
+      "proc": "TPultMash2ES6.Proceed",
+      "rva": "0x2ae518",
+      "length": 804,
+      "range_sha256": "beeb75c548ae0f77eed7c3e3c4632b2cb54817e511c3a7bdaa6ed6c6a54d7d69",
+      "selected_instructions": [
+        {
+          "rva": "0x2ae64d",
+          "bytes": "d94009",
+          "asm": "fld dword ptr [eax + 9]"
+        },
+        {
+          "rva": "0x2ae677",
+          "bytes": "d900",
+          "asm": "fld dword ptr [eax]"
+        },
+        {
+          "rva": "0x2ae68f",
+          "bytes": "e89cdafeff",
+          "asm": "call 0x69c130"
+        },
+        {
+          "rva": "0x2ae6a0",
+          "bytes": "d94005",
+          "asm": "fld dword ptr [eax + 5]"
+        },
+        {
+          "rva": "0x2ae6ca",
+          "bytes": "d9400d",
+          "asm": "fld dword ptr [eax + 0xd]"
+        }
+      ],
+      "details": "C:/Users/sibir/Desktop/Макрос/Тренажер/dev/runs/sa47-reset-20261024/pressure-gauge-path.json",
+      "mapping": [
+        "TPult+8 → TVagonParam → Single Ptm+0 → GR_TM_Pribor.Arrow (form+0x398, arrow+0x1F8).",
+        "TPult+4 → TLocParam → Single Pur+9 → UR_Pribor.ArrowSecond.",
+        "TPult+4 → TLocParam → Single Pgr+5 → GR_TM_Pribor.ArrowSecond.",
+        "TPult+4 → TLocParam → Single PtcLoc+0xD → TC_Pribor.Arrow."
+      ],
+      "unit_transform": "На границе поля и SetValueAr отсутствует множитель пересчёта давления; Single расширяется до Double. Общий setter ограничивает диапазон и сохраняет значение, а не переводит бар в кгс/см²."
+    }
+  },
+  "current_producer_consumer_contract": {
+    "head_record": "cars[0] тождественен mem[TVagonParam] и соответствует головному локомотивному воздушному узлу; первый грузовой вагон — cars[1].",
+    "publication": [
+      "InitializePhysics формирует trainData с указателем на TLocParam и тем же cars[0]. InitSostavClass и ProceedTormClass получают trainData, а исходная native пневмомодель обновляет общие записи давления.",
+      "TVagonParam+0 — голова ТМ; это не loc+5 (ПМ), не loc+9 (УР), не cars[0]+4 (выход БВР) и не ТЦ.",
+      "Пневматический вызов выполняется после электрического в цикле. Для новой отмены по ТМ следует читать свежий конечный cars[0]+0 после предыдущего успешного пневмошага, до выдачи следующего запроса, и записать эту временную договорённость."
+    ],
+    "torm_pressure_producer_excerpt": "C:/Users/sibir/Desktop/Макрос/Тренажер/dev/runs/sa47-reset-20261024/pressure-torm-producer.json",
+    "hybrid_boundary": [
+      "Gauge = (absolutePressure − 101325 Па) / 98066,5 Па. Это избыточное давление, а не абсолютное.",
+      "BeforeNativeAirStep публикует Gauge напрямую в loc+5 и автоматические каналы. AfterNativeAirStep передаёт native разности без пересчёта в ApplyNativePressureChanges, где дельта умножается на Flow.Kgf.",
+      "Физические ТЦ публикуются в loc+13 напрямую из Gauge. Текущая голова ТМ читается напрямую из native TVagonParam+0; отдельный множитель бар/кгс между этими интерфейсами отсутствует."
+    ],
+    "code_anchors": [
+      {
+        "path": "outputs/TrainerIntegrationHost.cs",
+        "line": 102,
+        "anchor": "Ptr(mem[\"TPult\"],4,mem[\"TLocParam\"]);",
+        "scope": "Строка проверена при этом анализе; не обещает неизменность последующих правок."
+      },
+      {
+        "path": "outputs/TrainerIntegrationHost.cs",
+        "line": 103,
+        "anchor": "Ptr(mem[\"TPult\"],8,mem[\"TVagonParam\"]);",
+        "scope": "Строка проверена при этом анализе; не обещает неизменность последующих правок."
+      },
+      {
+        "path": "outputs/TrainerNativeSystems.cs",
+        "line": 26,
+        "anchor": "cars=new IntPtr[76];cars[0]=mem[\"TVagonParam\"];",
+        "scope": "Строка проверена при этом анализе; не обещает неизменность последующих правок."
+      },
+      {
+        "path": "outputs/TrainerNativeSystems.cs",
+        "line": 43,
+        "anchor": "pneumoStep=Export<TrainStepFn>(th,\"ProceedTormClass\")",
+        "scope": "Строка проверена при этом анализе; не обещает неизменность последующих правок."
+      },
+      {
+        "path": "outputs/TrainerNativeSystems.cs",
+        "line": 75,
+        "anchor": "using(releaseInput)using(BorrowNativeSandAirInput()){pneumoStep(trainData);AfterNativeAirStep();}",
+        "scope": "Строка проверена при этом анализе; не обещает неизменность последующих правок."
+      },
+      {
+        "path": "outputs/TrainerAirNetwork.cs",
+        "line": 9,
+        "anchor": "mass=(Flow.Atmosphere+gauge*Flow.Kgf)*Volume/(Flow.R*Temperature);",
+        "scope": "Строка проверена при этом анализе; не обещает неизменность последующих правок."
+      },
+      {
+        "path": "outputs/TrainerAirNetwork.cs",
+        "line": 13,
+        "anchor": "public double Gauge {get{return (Pressure-Flow.Atmosphere)/Flow.Kgf;}}",
+        "scope": "Строка проверена при этом анализе; не обещает неизменность последующих правок."
+      },
+      {
+        "path": "outputs/TrainerAirNetwork.cs",
+        "line": 21,
+        "anchor": "public const double Atmosphere=101325,Kgf=98066.5",
+        "scope": "Строка проверена при этом анализе; не обещает неизменность последующих правок."
+      },
+      {
+        "path": "outputs/TrainerTwoSectionAirChain.cs",
+        "line": 66,
+        "anchor": "public void ApplyNativePressureChanges(double pmDeltaKgf",
+        "scope": "Строка проверена при этом анализе; не обещает неизменность последующих правок."
+      },
+      {
+        "path": "outputs/TrainerTwoSectionAirChain.cs",
+        "line": 74,
+        "anchor": "return delta*Flow.Kgf*r.Volume/(Flow.R*r.Temperature);",
+        "scope": "Строка проверена при этом анализе; не обещает неизменность последующих правок."
+      },
+      {
+        "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+        "line": 135,
+        "anchor": "beforeAirPm=airCircuit.Pm.Gauge;",
+        "scope": "Строка проверена при этом анализе; не обещает неизменность последующих правок."
+      },
+      {
+        "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+        "line": 145,
+        "anchor": "airCircuit.ApplyNativePressureChanges(FloatAt(loc,5)-beforeAirPm",
+        "scope": "Строка проверена при этом анализе; не обещает неизменность последующих правок."
+      },
+      {
+        "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+        "line": 155,
+        "anchor": "F(loc,13,(float)airCircuit.Sections[0].Cylinder[0].Gauge);",
+        "scope": "Строка проверена при этом анализе; не обещает неизменность последующих правок."
+      },
+      {
+        "path": "outputs/TrainerTrainPressureView.cs",
+        "line": 28,
+        "anchor": "return new TrainPressureSample(ticks*.1,values,FloatAt(cars[0],0)",
+        "scope": "Строка проверена при этом анализе; не обещает неизменность последующих правок."
+      },
+      {
+        "path": "outputs/TrainerNativeBrakeRelease.cs",
+        "line": 168,
+        "anchor": "nativeBrakeRelease.Capture(ticks);",
+        "scope": "Строка проверена при этом анализе; не обещает неизменность последующих правок."
+      },
+      {
+        "path": "outputs/TrainerNativeBrakeRelease.cs",
+        "line": 174,
+        "anchor": "scope=nativeBrakeRelease.Borrow(ticks,inhibit,out nativeAutomaticReleaseForStep);",
+        "scope": "Строка проверена при этом анализе; не обещает неизменность последующих правок."
+      }
+    ]
+  },
+  "primary_requirement": {
+    "pdf": "work/public_2es6_part1.pdf",
+    "sha256": "c381056881302e0a0ad743d36148cbd8abf18930fc6d756b99ec19b3431c61e6",
+    "section": "3.16.2",
+    "pdf_page": 124,
+    "printed_sheet": "119",
+    "stamp": "РЭ3",
+    "full_image_reopened": true,
+    "image": "dev/runs/re-part1-20261024/source/p124.png",
+    "image_sha256": "cb899c4ef9aa1edb4fa0ed0357ef318abd057230dd311fb9705481e3aad73c71",
+    "literal_values": {
+      "MPa": 0.48,
+      "kgf_cm2": 5.0
+    },
+    "comparison": "строго выше",
+    "ambiguity": "Две напечатанные величины не являются точным переводом друг друга. Эта редакция использует и другие округлённые пары; обе исходные цифры должны сохраняться."
+  },
+  "exact_conversion": {
+    "Pa_per_kgf_cm2": "98066.5",
+    "Pa_per_bar": "100000",
+    "MPa_0_48_to_native_kgf_cm2": "4.894637822294055564336445167",
+    "kgf_cm2_5_to_MPa": "0.4903325",
+    "bar_4_8_to_MPa": "0.48",
+    "warning": "Порог 4,8 не является переводом 0,48 МПа в подтверждённую единицу kgf/cm²."
+  },
+  "recommended_profile": {
+    "id": "RE1_PRINTED_KGF_5_0_CURRENT_HYBRID",
+    "status": "recommended_explicit_engineering_profile",
+    "source_value": 5.0,
+    "source_unit": "kgf/cm²",
+    "native_unit": "kgf/cm² gauge",
+    "native_threshold": 5.0,
+    "comparison": ">",
+    "signal": "FloatAt(cars[0],0)",
+    "engineering_choice": "Выбрать буквально напечатанную ветвь кгс/см² для текущего интерфейса с той же единицей. Это позволяет реализовать отмену на head TM > 5,0 без утверждения, что 0,48 МПа точно равно 5,0 кгс/см².",
+    "factory_revision_accepted": false,
+    "runtime_reset_accepted": false
+  },
+  "alternative_profile": {
+    "id": "RE1_LITERAL_SI_0_48MPA",
+    "status": "revision_dependent_not_selected",
+    "source_value": 0.48,
+    "source_unit": "MPa",
+    "native_threshold": 4.894637822294055,
+    "native_unit": "kgf/cm² gauge",
+    "comparison": ">",
+    "reason": "Буквальное чтение SI-части источника даёт другой порог. Не включать одновременно и не переключать скрыто; выбор требует отдельной принятой редакции или явной задачи."
+  },
+  "acceptance_needed": [
+    "Для выбранного профиля проверить ниже 5,0, ровно 5,0 и выше 5,0; Single 5,0 представим точно. Сначала отдельно принять логику сравнения, затем реальный native переход без подстановки выходного давления.",
+    "Использовать конечное, не NaN и не Infinity значение головы ТМ с доказанным возрастом образца. Ошибка давления не разрешает отпуск и не должна создавать ложную команду.",
+    "После отмены по ТМ снижение давления и логическое 1 без нового импульса 2 не восстанавливают старый отпуск. Удерживаемое 2 не считать новым импульсом каждый кадр.",
+    "Согласовать физический idle кнопки и логическую отмену 0, а также приоритеты KM/KVT. Давление и память не следует исправлять записью в выходные ТЦ/БВР."
+  ],
+  "limits": [
+    "Нет нового нативного или динамического теста.",
+    "Признак kgf/cm² доказан на исходной шкале, пути публикации и текущем интерфейсе; это не сертификат физических калибровок DLL.",
+    "Совпадения строк kgf в VCL glyph enum и слово атм в сообщении о пробе тормозов отклонены как недостаточные доказательства.",
+    "Найденные произвольные числа 100000 в PE не использованы как доказательство единицы.",
+    "Код, конфигурация профилей и каталоги этим разбором не изменяются."
+  ]
+}

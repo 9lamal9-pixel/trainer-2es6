@@ -9,6 +9,7 @@
         "outputs/TrainerIntegrationHost.cs",
         "outputs/TrainerNativeSystems.cs",
         "outputs/TrainerNativeBrakeRelease.cs",
+        "outputs/TrainerSa47MemoryPatch.cs",
         "outputs/TrainerAuxSystems.cs",
         "outputs/TrainerRouteDOS.cs",
         "outputs/TrainerAutovedenieController.cs",
@@ -47,6 +48,7 @@
         "outputs/TrainerIntegrationHost.cs",
         "outputs/TrainerNativeSystems.cs",
         "outputs/TrainerNativeBrakeRelease.cs",
+        "outputs/TrainerSa47MemoryPatch.cs",
         "outputs/TrainerAuxSystems.cs",
         "outputs/TrainerRouteDOS.cs",
         "outputs/TrainerAutovedenieController.cs",
@@ -89,7 +91,12 @@
       "CompressorPrepared",
       "Sa47Release",
       "Sa47ReleaseFault",
-      "Sa47NativeButton"
+      "Sa47NativeButton",
+      "Sa47ResetZero",
+      "Sa47ResetTm",
+      "Sa47Priorities",
+      "Sa47OperatorReset",
+      "Sa47ProducerFault"
     ],
     "smoke": [
       "ColdNoSource",

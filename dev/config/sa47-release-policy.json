@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "profile": "RE1_PRINTED_KGF_5_0_CURRENT_HYBRID",
+  "source": {
+    "path": "work/public_2es6_part1.pdf",
+    "sha256": "c381056881302e0a0ad743d36148cbd8abf18930fc6d756b99ec19b3431c61e6",
+    "section": "3.16.2",
+    "pdf_pages": [122, 123, 124],
+    "printed_sheets": [117, 118, 119],
+    "pressure_text": "выше 0,48 МПа (5,0 кгс/см²)"
+  },
+  "selected_threshold": {
+    "comparison": ">",
+    "value": 5.0,
+    "unit": "kgf/cm2 gauge",
+    "signal": "TPult+8 -> TVagonParam.VSend.Ptm+0 = cars[0]+0, locomotive head TM",
+    "implementation": "outputs/TrainerNativeBrakeRelease.cs#TmCancelThresholdKgf",
+    "exact_SI_equivalent_MPa": 0.4903325,
+    "basis": "The original native gauge is labelled kgf/cm² and receives raw Ptm without a multiplier. Current Flow.Gauge uses98066.5Pa/unit and native pressure deltas retain that unit. This profile explicitly selects the printed kgf value."
+  },
+  "alternative_not_selected": {
+    "source_reading": "literal primary0.48MPa",
+    "threshold_native_kgf_cm2": 4.894637822294055,
+    "status": "revision_dependent_not_selected",
+    "note": "The two printed numbers are not exactly equivalent. Exact equipment/revision137+ remains unresolved."
+  },
+  "logical_input": {
+    "zero": "explicit cancellation",
+    "one": "fixed readiness; retains previous manual memory",
+    "two": "momentary impulse, accepted only on a new1->2 transition",
+    "native_button": "physical idle0 -> logical1; press1 -> logical2; up0 -> logical1",
+    "source_handover": "An already held native button is ignored until released and pressed again.",
+    "startup": "First observed2 is not a new impulse."
+  },
+  "memory": {
+    "set": "fresh logical1->2 below or at the selected TM threshold",
+    "clear": "logical0 or head TM strictly above threshold",
+    "held_two": "Cannot rearm after TM cancellation until released to1 and pressed again.",
+    "priority": "KM/KVT execution gates suppress release without erasing manual memory; existing late SAUT/EPK/emergency inhibition remains."
+  },
+  "native_patch": {
+    "module": "Pult1.dll",
+    "entry_rva": "0x18C7A6",
+    "return_rva": "0x18C7AC",
+    "original_entry_hex": "8B45FC8B4004",
+    "writes": ["TShema+108 manual command memory", "TShema+103 processed release request"],
+    "forbidden_test_outputs": ["TM", "independent pilot pressure", "BVR", "cylinder pressures"],
+    "restoration": "Process memory only; owner/thread/full-producer-byte guards, original code restored before native close."
+  },
+  "full_model_conformity_accepted": false,
+  "remaining": [
+    "Fast native clicks entirely between electrical cycles need a separately verified event queue.",
+    "KR22 supply voltage, actuator air consumption and minimum operating pressure.",
+    "Exact equipment/revision and factory threshold calibration."
+  ]
+}
