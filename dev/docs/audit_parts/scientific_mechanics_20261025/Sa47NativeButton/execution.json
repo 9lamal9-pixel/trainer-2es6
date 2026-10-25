@@ -1,0 +1,22 @@
+{
+  "id": "Sa47NativeButton",
+  "scope": "Настоящие nativeDwnButton/UpBtn с SHA/байтовыми/VMT guards. Физическийidle0→логическаяготовность1, press1→impulse2, up0→1ссохранениемпамяти; отдельныйcancel0. Все4ТЦ/память и inputrestore. Неаппаратура,непиксели,неfastclickмежду100msциклами.",
+  "status": "passed",
+  "artifacts": [
+    {
+      "path": "Trainer_sa47_native_button_validation.json",
+      "sha256": "82D3ECC9DAA4D8C1F52C630A98D3265E7A9A322856194B962AA1C14A29E1D3F5"
+    }
+  ],
+  "build_id": "build-20261025T112826009Z-6095eda7",
+  "pid": 6448,
+  "exit_code": 0,
+  "session": {
+    "id": "20261025T112830612Z_p6448_b28a6af6ff5f49b4a733ce34fe4a13f8",
+    "state": "closed",
+    "exceptions": 0,
+    "logging_failures": 0,
+    "source_build_id": "build-20261025T112826009Z-6095eda7"
+  },
+  "finished_utc": "2026-10-25T11:29:07.7752048Z"
+}

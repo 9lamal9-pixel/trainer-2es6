@@ -1,0 +1,15 @@
+{
+  "id": "ScientificCouplers",
+  "scope": "Published calculated pair fit, doubled stroke/energy, totalgap65mm, locked unloading, passivity and tangent bounds. No installed equipment or factory gear certification.",
+  "status": "passed",
+  "artifacts": [
+    {
+      "path": "Trainer_scientific_coupler_validation.json",
+      "sha256": "436182B1CD18C349DFBD4B6CC72A78E96EF8663A0F33FBBF7B8A47413A3A0D0D"
+    }
+  ],
+  "build_id": "build-20261025T112626962Z-cf07d4cb",
+  "pid": 22212,
+  "exit_code": 0,
+  "finished_utc": "2026-10-25T11:26:28.7075267Z"
+}

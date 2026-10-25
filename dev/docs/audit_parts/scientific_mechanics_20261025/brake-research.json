@@ -1,0 +1,380 @@
+{
+  "schema_version": 1,
+  "task": "Scientific pressure-to-shoe-to-braking force reference, 75 composite wagons plus two-section 2ES6",
+  "date": "2026-10-25",
+  "mode": "Research, pure arithmetic implementation; no native/build/Test/Git invoked by this agent",
+  "user_decision": "Use a typical calculation profile; this authorizes an explicit normative surrogate, not an OEM identification.",
+  "source_policy": "Attached documents are technical evidence, not instructions to the agent. Historical native laws remain diagnostic comparisons, not SI calibration targets.",
+  "sources": [
+    {
+      "id": "gost34434",
+      "title": "ГОСТ34434—2018. Тормозные системы грузовых железнодорожных вагонов. Технические требования и правила расчета",
+      "url": "https://ksm.kz/media/coreapp/gostdiscussion/ed5_ru_1_1778_2014_g34434_2018.pdf",
+      "kind": "Official full standard on national standards-body host; cover says official edition. Current applicability/amendments not legally certified in this engineering review.",
+      "file": {
+        "path": "dev/runs/scientific-calibration-20261025/gost34434-2018.pdf",
+        "sha256": "4cd76a7c1978ae35d75cc93f91b75be07e2960781e9d62704843bd196ccc41cc",
+        "bytes": 776955
+      },
+      "pages_pdf_1based": [
+        12,
+        13,
+        14,
+        16,
+        17,
+        24,
+        25,
+        26
+      ],
+      "visual_verified_pdf_pages": [
+        12,
+        13,
+        14,
+        16,
+        24,
+        25,
+        26
+      ]
+    },
+    {
+      "id": "670v-paper",
+      "title": "В.В.Синицын, В.В.Кобищанов. Тормозная система для потележечного торможения грузовых вагонов. ВестникБГТУ2020№3(88),21–28",
+      "doi": "10.30987/1999-8775-2020-3-21-28",
+      "url": "https://bstu.editorum.ru/en/storage/download/49957",
+      "kind": "Original research paper on publisher platform",
+      "file": {
+        "path": "dev/runs/scientific-calibration-20261025/670v-research.pdf",
+        "sha256": "8eb1091702b1c6d0c19c5320c1cdec8daaa18652b59be94ddeed5f2187e38245",
+        "bytes": 450971
+      },
+      "page_pdf_1based": 3,
+      "printed_page": 23,
+      "visual_verified": true
+    },
+    {
+      "id": "670v-maker",
+      "title": "АОТранспневматика. Цилиндр тормозной со встроенным регулятором670В",
+      "url": "https://transpn.ru/tsilindr-tormoznoy-so-vstroennym-regulyatorom-670v/",
+      "kind": "Manufacturer product data, browsed full text",
+      "verified_facts": {
+        "bore_mm": 203,
+        "working_stroke_mm": 100,
+        "maximum_screw_extension_mm": 245,
+        "maximum_pressure_MPa": 0.6,
+        "TU": "3184-503-05744521-95"
+      },
+      "limit": "No spring force or efficiencies published on this page."
+    },
+    {
+      "id": "loc-geometry-training",
+      "title": "Работа пневматического оборудования электровоза2ЭС6, section6 / figure29",
+      "url": "https://scbist.com/scb/uploaded/1_1386394063.pdf",
+      "kind": "Training text, corroborating geometry; author/revision and OEM identity not established",
+      "file": {
+        "path": "dev/runs/scientific-calibration-20261025/2es6-brake-training-source.pdf",
+        "sha256": "79cc5b83bd470e0aac12a89dfe54380973ed39c188411605c3a1433a945d80b3",
+        "bytes": 6049439
+      },
+      "page_pdf_1based": 41,
+      "printed_page": 41,
+      "visual_verified": true,
+      "limit": "Not promoted to an exact OEM RE5 or locomotive137+ source. Its screw-extension200mm differs from current maker245mm; do not merge revisions."
+    },
+    {
+      "id": "ptr1985",
+      "title": "Правила тяговых расчетов для поездной работы,1985,§1.3.2–1.3.3,formulas55–60",
+      "url": "https://djvu.online/file/syjaetzWQPjhN",
+      "kind": "Primary rulebook text reproduced on third-party scan/OCR service; full web text read, page image not obtained",
+      "printed_pages": [
+        11,
+        12
+      ],
+      "unit_note": "Original K is tonnes-force; the modern kN-form below uses the published rounded SI coefficients, not an exact conversion of16/9.80665."
+    },
+    {
+      "id": "zakirov2015",
+      "title": "Р.С.Закиров, Н.О.Мауленов. Вопросы определения зависимостей продольных сил и ускорений от параметров поезда и профиля пути. Промышленный транспорт Казахстана,1(50),2015",
+      "url": "https://prom-trans.kz/assets/files/zhurnal/1_50.pdf",
+      "kind": "Original journal full text",
+      "file": {
+        "path": "dev/runs/scientific-calibration-20261025/zakirov-maulenov-journal-2015-1-50.pdf",
+        "sha256": "efe52e42f973b0d0800d81063815cf1e056fb21c863b7165672bad80f69d77f7",
+        "bytes": 2230894
+      },
+      "page_pdf_1based": 20,
+      "printed_page": 21,
+      "visual_verified": true,
+      "limit": "Equations15–17 explicitly require force on ONE shoe and shoe count. Formula17 coefficients exactly match native branches, but the article does not establish the native K units/aggregation."
+    },
+    {
+      "id": "galai2017",
+      "title": "Э.И.Галай, П.К.Рудов, Е.Э.Галай. Эффективность торможения локомотивов пневматическим тормозом. ВестникБелГУТ2017№2(35),5–8",
+      "url": "https://cctvcad.com/Files/VestnikBelGUT20172.pdf",
+      "kind": "Primary journal paper full text reproduced on third-party host, browsed pages5–6",
+      "page_pdf_1based": [
+        6,
+        7
+      ],
+      "printed_pages": [
+        5,
+        6
+      ],
+      "limit": "ModelM/flanged shoe research, not proof that the current2ЭС6 uses that specific material. Highlights area/profile dependence omitted by generic cast-iron law."
+    },
+    {
+      "id": "zverev2023",
+      "title": "М.В.Зверев, А.А.Комайданов, А.Н.Смирнов. Уточненная методика испытаний стояночного тормоза грузовых вагонов. ИзвестияПГУПС2023/2,448–454",
+      "url": "https://itt-pgups.ru/en/storage/download/122481",
+      "kind": "Original research full text, publisher host",
+      "file": {
+        "path": "dev/runs/scientific-calibration-20261025/itt-pgups-2023-2.pdf",
+        "sha256": "bb121c6d86d21b135d2293f517a4a218ff6c18565145ee4bd28ebbdca399fd71",
+        "bytes": 626264
+      },
+      "page_pdf_1based": 4,
+      "printed_page": 451,
+      "visual_verified": true,
+      "limit": "Independent per-shoe Kd/kN and static composite formula evidence; this is parking-brake research, not a transient service-brake fit."
+    },
+    {
+      "id": "rules2026",
+      "title": "Пользовательский J_tormoza_2026_июля.pdf, протокол83/приложение65",
+      "file": {
+        "path": "work/reference_inputs/J_tormoza_2026_июля.pdf",
+        "sha256": "39db7a0f06a5694d64ee260f53f98f20f6c5fef3acdb619cf5daaccbcd90aca2",
+        "bytes": 7974329
+      },
+      "original_path": "C:/Users/sibir/Downloads/Telegram Desktop/J_tormoza_2026_июля.pdf",
+      "page_pdf_1based": [
+        51,
+        52
+      ],
+      "printed_pages": [
+        51,
+        52
+      ],
+      "section": "7.3.2",
+      "visual_verified_pdf_pages": [
+        52
+      ],
+      "limit": "R2/AR1 operational setup does not identify cylinder diameter, lever geometry, shoe count or material formulation."
+    }
+  ],
+  "si_contract": {
+    "pressure": "pGaugePa is actual gauge pressure at each physical cylinder group; kgf/cm² -> Pa uses98066.5 exactly. Do not convert by100000 or treat gauge as absolute.",
+    "piston": "A=π*D_m²/4; Fpiston_N=pGaugePa*A",
+    "rod": "Frod_N=max(0,Fpiston_N*etaCylinder-FspringPerCylinder_N-FautoRegReferredToCylinder_N)",
+    "normal": "Ntotal_N=Frod_N*nTotalPerCylinder*etaRigging*cylinderCount; Nshoe_N=Ntotal_N/shoeCount",
+    "friction": "FbrakeCapacity_N=Ntotal_N*mu(Nshoe_N/1000,abs(speedMps)*3.6); tread radius r/R=1",
+    "interpretation": "Actual pressing is normal force on a shoe. Calculated/equivalent pressing Kr is a separate reduction for operational braking calculations. Shoe count multiplies force AFTER evaluating mu on one shoe.",
+    "calculated_only": "GOST composite Kr_kN=1.22*Kd_kN*(.1*Kd+20)/(.4*Kd+20), paired with phiCalculated=.36*(v+150)/(2v+150). Do not use Kr with actual mu, or actual total with calculated mu.",
+    "gost_pressure_history": "Do not layer GOST equation13 normative20s pressing curve on measured native pressure history; use real pneumatics once.",
+    "motion_owner": "Capacity is nonnegative; LTD owns signed opposition, zero-speed holding/stiction and wheel/rail adhesion. Four bogie pressures are evaluated separately before summing."
+  },
+  "friction_models": {
+    "units": "K is actual per-shoe normal force in kN; v is speed magnitude in km/h; coefficients are dimensionless empirical reference laws.",
+    "composite": ".44*(.1*K+20)/(.4*K+20)*(v+150)/(2*v+150) [GOST34434(14)]",
+    "standard_cast_iron": ".60*(1.6*K+100)/(8*K+100)*(v+100)/(5*v+100) [rounded SI form of PTR generic law]",
+    "phosphorus_cast_iron": ".50*(1.6*K+100)/(5.2*K+100)*(v+100)/(5*v+100) [PTR phosphorus law; same coefficients also given by Galai2017(1) for genericM]",
+    "old_tf_comparison": "A legacy tf argument N/9806.65 with1/4 composite factors differs from the modern .1/.4-kN argument by1.97162% in argument scale, not a tenfold error. The old P10 24/80 and150/5v+150 coefficients have no support in the checked PTR text.",
+    "limits": [
+      "Dry/reference empirical shoe-wheel friction, no explicit temperature, moisture, ice, wear or manufacturing-variation state.",
+      "No source proves exact current2ЭС6 flanged-shoe formulation. Generic cast iron is an explicit surrogate.",
+      "The Galai paper warns flanged0.0476m² and standard0.0305m² areas differ; a material/geometry-specific fit is a future calibration."
+    ]
+  },
+  "profiles": {
+    "wagon": {
+      "factory": "BrakeRigging.GostAppendixGWagon",
+      "profile_id": "GOST34434-2018-AppendixG-2x254-effectiveness",
+      "diameter_m": 0.254,
+      "cylinders": 2,
+      "shoes": 8,
+      "ratio_total_per_cylinder": 5.7,
+      "eta_cylinder": 0.98,
+      "eta_rigging": 0.95,
+      "spring_N_per_cylinder": 1032.5,
+      "spring_derivation": "883+2300*.065",
+      "AR_N_per_cylinder": 512.77,
+      "AR_derivation": "(883+20800*.010)*.47",
+      "material": "Composite",
+      "provenance": "GOST AppendixG tablesG.2–G.5; fixed maximum-stroke effectiveness case",
+      "scope": "Apply to each of75actual Ptc values as a typical surrogate for4-axle80t wagons. Source example is24t tare+75.5t payload; wagon model identity is not claimed."
+    },
+    "locomotive_bogie": {
+      "factory": "BrakeRigging.Typical2Es6Bogie670V",
+      "profile_id": "Typical2ES6-bogie-670V-203mm-reference65mm",
+      "diameter_m": 0.203,
+      "cylinders": 4,
+      "shoes": 8,
+      "ratio_total_per_cylinder": 8.8,
+      "ratio_per_shoe": 4.4,
+      "eta_cylinder": 0.98,
+      "eta_rigging": 0.95,
+      "spring_N_per_cylinder": 1200,
+      "external_AR_N_per_cylinder": 0,
+      "material": "Published M/phosphorus generic reference curve; enum PhosphorusCastIronP10 is historical, not OEM/UIC identification",
+      "source_rod_stroke_mm": 65,
+      "provenance": "Maker confirms203mm670V; research paper supplies1200N/.98/.95; training text supplies two-sided n8.8/4.4",
+      "scope": "Evaluate4bogies from4actual pressures. Total16cylinders32shoes. No extra external rod-typeAR is assumed; integrated-cylinder effects are represented by reference spring/efficiency, not an independently verified OEM loss budget.",
+      "sensitivity_bound": "Research paper reports±7kgf initial-preload dispersion =±68.64655N. This is NOT a full stroke/wear/temperature bound; no invented range is certified."
+    }
+  },
+  "published_numeric_checks": {
+    "gost_G9_empty_min": {
+      "pressure_Pa": 130000,
+      "calculated_one_shoe_N": 6647.160620311746,
+      "published_rounded_kN": 6.65
+    },
+    "gost_G9_loaded_min": {
+      "pressure_Pa": 300000,
+      "calculated_one_shoe_N": 18075.175082450187,
+      "published_rounded_kN": 18.08
+    },
+    "gost_G9_max_limit": "Published9.48/21.58kN are not expectations for the fixed effectiveness profile: that profile gives8.66387/20.76412kN at160/340kPa. Values9.48/21.58 are reproduced by minstrokeF1=940.5N and F2=0; this is an observed numerical reconciliation, not proof of missing normative assumptions.",
+    "zverev_static_mu": {
+      "Kd_one_shoe_kN": 28.14,
+      "calculated_mu": 0.3211594573841822,
+      "published_rounded_mu": 0.32
+    },
+    "wagon_340kPa_80kmh": {
+      "one_shoe_N": 20764.119661776873,
+      "total_normal_N": 166112.95729421498,
+      "mu": 0.25460926836653514,
+      "brake_N": 42293.89852288157
+    },
+    "loco_bogie_300kPa_80kmh": {
+      "one_shoe_N": 34758.57697524923,
+      "total_normal_N": 278068.6158019938,
+      "mu": 0.09977207092070163,
+      "brake_N": 27743.48165661786,
+      "material": "Published M/phosphorus reference",
+      "generic_standard_castiron_comparison_only": {
+        "mu": 0.08890598901298401,
+        "brake_N": 24721.965301347733
+      }
+    },
+    "contact_threshold_Pa": {
+      "wagon": 31118.666834313288,
+      "locomotive_bogie": 37833.21192671393,
+      "note": "Derived force-contact thresholds from fixed spring references, not pneumatic valve thresholds."
+    }
+  },
+  "native_comparison": {
+    "oracle": "outputs/TrainerNativeBrakeForceProvider.cs:107; POEZD internal1DBC; oracle-contract.json documents raw body/relocations.",
+    "native_identity": {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/POEZD.DLL",
+      "sha256": "822b6d17ce45f80179a512ee6c70a35d5ae29bf187530bda5ebd11446cfb3553"
+    },
+    "wagon_constants": "A994cm²,lever5.79,*.00085,Psend nativekgf/cm²; FTk0 composite branch; output unit10kN.",
+    "law": "Klegacy=A*Psend*lever*.00085; Bnative=-phi0*Klegacy*(Klegacy+c1)/(Klegacy+c2)*(abs(Vms)+c3)/(abs(Vms)+c4)",
+    "findings": [
+      "The publication explicitly requires per-shoe K and separate shoe count. Native wagon K=A*Psend*lever*.00085 instead represents aggregate tf-like pressing; feeding the aggregate to nonlinear mu is not equivalent to summing eight per-shoe forces.",
+      "Legacy.00085 can be reconstructed as.85/1000 with area in cm² and pressure in kgf/cm², giving tf-like aggregate pressing. Native output uses10kN/tf-like unit, not the SI9806.65N/tf. These are identified approximations, not proof of current OEM efficiency.",
+      "Do not rescale a scientific per-shoe force to reproduce the old oracle. Keep the oracle as diagnostic comparison only.",
+      "Current locomotive candidate per-pad correction uses4.4per shoe,4cyl/8pads perbogie but retains legacy.00085, approximate10kN scale and roundedM-like friction. New reference uses explicit SI cylinder/rigging losses and1200N spring."
+    ],
+    "links": [
+      "dev/runs/ltd-implementation-20261025/oracle-contract.json",
+      "work/brake6000/evidence.md:114",
+      "outputs/TrainerPneumaticNetworkCandidate.cs:77"
+    ],
+    "unit_reconciliation": "With k=Kshoe_kN/10, native composite factors are .055*(k+20)/(k+5)*(vms+41.7)/(vms+20.85), approximately the GOST SI per-shoe law. Native castiron factors are .031*(k+6.25)/(k+1.92)*(vms+27.78)/(vms+5.56), approximately the published M/phosphorus law (.03076923,1.9230769 exact converted values). This identifies a rounded tf-like argument scale, not a10x K-unit defect."
+  },
+  "implementation": {
+    "files": [
+      {
+        "path": "outputs/TrainerScientificBrakeForces.cs",
+        "sha256": "886d0bfc32ee258d32a8d55acd637d8840f0b6c40d1298ba8d6452ddb00ac557",
+        "bytes": 7346
+      },
+      {
+        "path": "outputs/TrainerScientificBrakeValidationProbe.cs",
+        "sha256": "a074c5206571b28d91c30f91c8c2936628a312a01572d7cc366b0c535ca8090b",
+        "bytes": 8772
+      },
+      {
+        "path": "outputs/TrainerLongitudinalDynamics.cs",
+        "sha256": "7c8562502440d4123459d502d431b7ec479174cb2b64e26502d16554c3fa02a7",
+        "bytes": 32269
+      }
+    ],
+    "changed_scope": "New pure rigging/force helper and pure validation probe; only BrakeTribologyPtr prefix changed in existing kernel. Host/config/catalog/build/run are parent-owned.",
+    "runtime_abi": "NamespaceRailwayDynamics.Braking; BrakeRigging immutable; ScientificBrakeForces.Compute(rig,type,pGaugePa,speedMps) returnsBrakeForceResult.",
+    "validation_state": "Probe prepared; not executed by this agent. Parent must register/build/run and obtain a new receipt. Independent Python arithmetic calculations are not native acceptance.",
+    "result_name": "Trainer_scientific_brake_validation.json",
+    "frozen_for_parent_build": true,
+    "standalone_probe_dependencies": [
+      "TrainerScientificBrakeValidationProbe.cs",
+      "TrainerScientificBrakeForces.cs",
+      "TrainerLongitudinalDynamics.cs",
+      "TrainerFrictionDraftGear.cs",
+      "System.Web.Extensions"
+    ],
+    "result_directory": "TRAINER_RESULT_DIR environment variable, otherwise AppDomain.CurrentDomain.BaseDirectory; does not depend on TrainerSession."
+  },
+  "remaining_acceptance": [
+    "Actual installed wagon mechanical build and exact locomotive shoe material/area.",
+    "OEM670V spring curve across full stroke and external/integrated regulator loss treatment.",
+    "Thermal, wet, snow/ice and wear effects; adhesion and wheel-slide acceptance.",
+    "Native-pressure-to-LTD integration, per-substep speed dependence and genuine brake/release scenarios require fresh parent-run evidence.",
+    "This calculation does not establish exact2ЭС6№137+ RE revision or complete compliance."
+  ],
+  "evidence_images": [
+    {
+      "path": "dev/runs/scientific-calibration-20261025/gost34434-2018-p012.png",
+      "sha256": "ccde5ac1fa43f64e7645360c865c44c637281484d1b70dc253cb58d0d892f91a",
+      "bytes": 358107
+    },
+    {
+      "path": "dev/runs/scientific-calibration-20261025/gost34434-2018-p013.png",
+      "sha256": "83b4b181d85399588a2c7c41a71fddf5563d2a9d6500bca3b5bd994bbcb22ad6",
+      "bytes": 286374
+    },
+    {
+      "path": "dev/runs/scientific-calibration-20261025/gost34434-2018-p014.png",
+      "sha256": "6fcc19f6368b77d49a967a21fddbbae4cd939e634273472dfa6a21e42380fb4d",
+      "bytes": 324541
+    },
+    {
+      "path": "dev/runs/scientific-calibration-20261025/gost34434-2018-p016.png",
+      "sha256": "5ef67979045ae87efb0df8bf8ee5603b14d63b1a73063a55aa1a090845680f12",
+      "bytes": 265294
+    },
+    {
+      "path": "dev/runs/scientific-calibration-20261025/gost34434-2018-p024.png",
+      "sha256": "39eadb9038d3d934bf6afd7285c78c9db3df90bf91d08937a3c9bc292fecc660",
+      "bytes": 211222
+    },
+    {
+      "path": "dev/runs/scientific-calibration-20261025/gost34434-2018-p025.png",
+      "sha256": "fd938d40a138d2dd3d5e5f6a0e4eb02e89165df134729d23ccff06aacf170821",
+      "bytes": 234303
+    },
+    {
+      "path": "dev/runs/scientific-calibration-20261025/gost34434-2018-p026.png",
+      "sha256": "6e50fb8f815f59bb06366315ee8a848a7c498b5d007264f67ce21b66f66c57c4",
+      "bytes": 252280
+    },
+    {
+      "path": "dev/runs/scientific-calibration-20261025/670v-research-p003.png",
+      "sha256": "d9d7a9bc74acb9fdf04ee1e409d6012fdcdee752a26867acf828260dce1f8816",
+      "bytes": 440268
+    },
+    {
+      "path": "dev/runs/scientific-calibration-20261025/2es6-brake-training-source-p041.png",
+      "sha256": "cc6ac02d69edd02c72acb9f442021ec5604c20331ec956b23c648890a426c908",
+      "bytes": 422032
+    },
+    {
+      "path": "dev/runs/scientific-calibration-20261025/itt-pgups-2023-2-p004.png",
+      "sha256": "ddf5b62025d527cfdc78799dc604f8751c7ad947c1ea263927179c8f8bf5686f",
+      "bytes": 388532
+    },
+    {
+      "path": "dev/runs/scientific-calibration-20261025/rules2026-p052.png",
+      "sha256": "533b4084fc97ca9d1948853491a6ba8f99553cfa57069936bb317b26a4947707",
+      "bytes": 348901
+    }
+  ]
+}

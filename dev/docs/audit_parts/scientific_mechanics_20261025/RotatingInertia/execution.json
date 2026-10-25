@@ -1,0 +1,15 @@
+{
+  "id": "RotatingInertia",
+  "scope": "Analytic rotating energy/mass, geared rotor square ratio, effective6460t/physical6200t, kernel integration; literature reference gamma, not OEM component J.",
+  "status": "passed",
+  "artifacts": [
+    {
+      "path": "Trainer_rotating_inertia_validation.json",
+      "sha256": "C1A7B71EAA3A14CDF63D3D4A1A5D6546E07031228BD4E167CF8ED0224CC2C394"
+    }
+  ],
+  "build_id": "build-20261025T112622086Z-04dfa031",
+  "pid": 11496,
+  "exit_code": 0,
+  "finished_utc": "2026-10-25T11:26:24.8454630Z"
+}

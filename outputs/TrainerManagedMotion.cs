@@ -5,13 +5,12 @@ using RailwayDynamics.Simulation;
 using RailwayDynamics.Couplers;
 
 partial class TrainerIntegrationHost {
-    // Transitional, explicitly uncalibrated profile: one 200t body and 75*80t.
-    // No claim of factory rotating inertia or draft-gear identification.
+    // User-selected scientific reference scenario; equipment identity is explicit.
     LongitudinalTrainDynamicsSolver managedMotion;
-    TrainerNativeBrakeForceProvider managedBrakeProvider;
-    IntPtr managedBrakeModule;
-    double[] managedBrakeBase = new double[76];
-    double[] managedBrakeNumerator = new double[76], managedBrakeDenominator = new double[76];
+    TrainerScientificMechanicsProfile scientificMechanics;
+    TrainerScientificBrakeFrame scientificBrakeFrame;
+    double managedEffectiveMassKg;
+    bool scientificBogieFallbackLogged;
     long managedMotionFrames;
     const float MechanicalZeroGaugeTolerance=1e-7f; // 0.009807Pa, below .01Pa at the native gauge interface.
     double managedMinimumRawBrakeGauge;
@@ -24,21 +23,22 @@ partial class TrainerIntegrationHost {
     }
     double[][] managedGradeSegments, managedCurveSegments;
     partial void DescribeManagedBrakeOracleOverlay(ref IntPtr cave, ref IntPtr source);
+    partial void ReadScientificBogiePressures(double[] gaugeKgfCm2,ref bool complete);
 
     void InitializeManagedMotion(IntPtr module) { using(TrainerManagedFloatingScope.Enter()) InitializeManagedMotionCore(module); }
     void InitializeManagedMotionCore(IntPtr module) {
         if (managedMotion != null) throw new InvalidOperationException("Movement already owned");
-        managedBrakeModule = module;
         Log("LTD init: route preparation");
         PrepareManagedRoute();
         Log("LTD init: kernel construction");
-        managedMotion = new LongitudinalTrainDynamicsSolver(
-            LongitudinalTrainDynamicsSolver.CreateFreightConsist(75, 0),
-            FrictionDraftGearModel.CreateDefaultFreightDraftGear());
+        scientificMechanics=TrainerScientificMechanicsProfile.Load(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory,@"..\dev\config\train-mechanics.json")));
+        scientificBrakeFrame=new TrainerScientificBrakeFrame(scientificMechanics);
+        var vehicles=scientificMechanics.CreateVehicles();managedEffectiveMassKg=0;
+        foreach(var vehicle in vehicles)managedEffectiveMassKg+=vehicle.MassKg*(1+vehicle.RotaryInertiaGamma);
+        managedMotion = new LongitudinalTrainDynamicsSolver(vehicles,scientificMechanics.CreateCouplers());
         Log("LTD init: providers");
         managedMotion.SetBrakeForceProvider(delegate(int i, double v) {
-            return managedBrakeBase[i] * (Math.Abs(v) + managedBrakeNumerator[i]) /
-                (Math.Abs(v) + managedBrakeDenominator[i]);
+            return scientificBrakeFrame.CapacityNewtons(i,v);
         });
         managedMotion.SetRouteForceProviders(ManagedGradeForce, ManagedCurveResistance);
         // Preserve the public host ABI, but route every consumer to the same owner.
@@ -47,7 +47,7 @@ partial class TrainerIntegrationHost {
         motionStep = StepManagedMotion;
         Log("LTD init: reset");
         ResetManagedMotion(position, 0, 2, 76);
-        Log("Managed LTD owns motion: 76 bodies, 6200t, 1126.18m; native electrical force / real pneumatic pressures; experimental couplers, gamma=0 compatibility profile");
+        Log("Managed LTD scientific reference: 76 bodies, physical6200t/effective"+(managedEffectiveMassKg/1000).ToString("F3",System.Globalization.CultureInfo.InvariantCulture)+"t,1126.18m; published two-gear Sh2V pair; direct SI brake rigging/friction from actual pressures");
     }
 
     void ResetManagedMotion(float front, float speedKmh, int model, int count) { using(TrainerManagedFloatingScope.Enter()) ResetManagedMotionCore(front,speedKmh,model,count); }
@@ -56,7 +56,6 @@ partial class TrainerIntegrationHost {
             throw new InvalidOperationException("Managed movement reset contract");
         managedMotion.SetInitialState(front, speedKmh / 3.6);
         if(managedMotionFrames==0)Log("LTD reset: kernel ready");
-        Array.Clear(managedBrakeBase, 0, 76);
         for(int i=0;i<76;i++) { managedMotion.SetVehicleForce(i,0); managedMotion.SetVehicleDynamicBrakeForceMagnitude(i,0); }
         PublishManagedMotion();
         if(managedMotionFrames==0)Log("LTD reset: publication ready");
@@ -75,34 +74,36 @@ partial class TrainerIntegrationHost {
     void StepManagedMotionCore(float force, float dt, int locomotive, float otherForce) {
         if (managedMotion == null || locomotive != 0 || otherForce != 0 || !Finite(force) || !Finite(dt) || dt<=0 || dt>.11f)
             throw new InvalidOperationException("Managed movement input contract");
-        if (managedBrakeProvider == null) {
-            managedBrakeProvider = new TrainerNativeBrakeForceProvider(managedBrakeModule,
-                Path.Combine(resources,"POEZD.DLL"),
-                delegate(int index, float pressure) { brakeTrain(pressure,76); },
-                delegate { IntPtr cave=IntPtr.Zero,source=IntPtr.Zero;DescribeManagedBrakeOracleOverlay(ref cave,ref source);return new[]{cave,source}; });
-            for(int i=0;i<76;i++) {
-                managedBrakeNumerator[i]=managedBrakeProvider.GetSpeedNumerator(i);
-                managedBrakeDenominator[i]=managedBrakeProvider.GetSpeedDenominator(i);
-            }
-        }
         float rawLocoGauge=FloatAt(mem["TLocParam"],13);
         float effectiveLocoGauge=MechanicalBrakeGauge(rawLocoGauge,0);
-        managedMinimumRawBrakeGauge=Math.Min(managedMinimumRawBrakeGauge,rawLocoGauge);
-        float locoPressure=effectiveLocoGauge*8;
-        SelectNativeLocomotiveBrakeInput(ref locoPressure);
-        var pressures=new float[76]; var velocities=new double[76];
+        double minimumRawGauge=Math.Min(managedMinimumRawBrakeGauge,rawLocoGauge);
+        var pressuresPa=new double[76];var bogieGauge=new double[4];bool fourMeasured=false;
+        ReadScientificBogiePressures(bogieGauge,ref fourMeasured);
+        if(!fourMeasured) {
+            // Integration-only fallback: equal four-bogie reference pressure.
+            // The candidate's accepted path always supplies four actual gauges.
+            for(int b=0;b<4;b++)bogieGauge[b]=effectiveLocoGauge;
+            if(!scientificBogieFallbackLogged){Log("Integration reference fallback: four equal bogie pressures inferred from displayed TC; candidate requires four actual gauges");scientificBogieFallbackLogged=true;}
+        }
+        var bogiePa=new double[4];
+        for(int b=0;b<4;b++) {
+            if(Double.IsNaN(bogieGauge[b])||Double.IsInfinity(bogieGauge[b])||bogieGauge[b]<-MechanicalZeroGaugeTolerance)
+                throw new InvalidOperationException("Invalid scientific bogie gauge "+b);
+            bogiePa[b]=Math.Max(0,bogieGauge[b])*98066.5;
+        }
         for(int i=0;i<76;i++) {
             float rawGauge=i==0 ? rawLocoGauge : FloatAt(cars[i],4);
             float effectiveGauge=MechanicalBrakeGauge(rawGauge,i);
-            managedMinimumRawBrakeGauge=Math.Min(managedMinimumRawBrakeGauge,rawGauge);
-            pressures[i]=i==0 ? locoPressure : effectiveGauge;
-            velocities[i]=managedMotion.GetVehicle(i).VelocityV;
-            // Gauge kgf/cm2 -> Pa. Loco value is an equivalent native sum,
-            // therefore store the actual displayed cylinder gauge separately.
-            managedMotion.SetBrakeCylinderPressure(i,effectiveGauge*98066.5);
+            minimumRawGauge=Math.Min(minimumRawGauge,rawGauge);
+            pressuresPa[i]=effectiveGauge*98066.5;
+            // Displayed loco BC is the first bogie's actual gauge. Forces use
+            // all four bogies separately; no nonlinear pressure averaging.
         }
-        var capacity=managedBrakeProvider.Evaluate(pressures,velocities);
-        for(int i=0;i<76;i++) managedBrakeBase[i]=capacity[i]*(Math.Abs(velocities[i])+managedBrakeDenominator[i])/(Math.Abs(velocities[i])+managedBrakeNumerator[i]);
+        scientificBrakeFrame.SetPressures(pressuresPa,bogiePa);
+        // All source gauges and force arithmetic have passed before publishing
+        // either the frame or per-body pressure metadata.
+        for(int i=0;i<76;i++)managedMotion.SetBrakeCylinderPressure(i,pressuresPa[i]);
+        managedMinimumRawBrakeGauge=minimumRawGauge;
         // Reverse drive remains signed. EDT is dissipative and cannot pull a
         // stopped train backwards or supply a fictitious static holding force.
         bool electricalBrake=contactVoltagePatch!=null && contactVoltagePatch.NativeDynamicBrakingActive;
@@ -172,10 +173,9 @@ partial class TrainerIntegrationHost {
     void CloseManagedMotion() {
         TrainerManagedFloatingScope.DisposeRetainedOwners();
         if(TrainerManagedFloatingScope.HasRetainedOwners)throw new InvalidOperationException("Native close refused while a floating-point environment remains owned");
-        if(managedBrakeProvider!=null) {managedBrakeProvider.Dispose();managedBrakeProvider=null;}
         TrainerNativeBrakeForceProvider.DisposeRetainedOwners();
         if(TrainerNativeBrakeForceProvider.HasRetainedOwners)throw new InvalidOperationException("Native close refused while movement oracle ownership remains");
-        managedMotion=null;stateTrain=null;readTrain=null;motionStep=null;
+        managedMotion=null;scientificBrakeFrame=null;scientificMechanics=null;stateTrain=null;readTrain=null;motionStep=null;
         TrainerManagedFloatingScope.Shutdown();
     }
 }

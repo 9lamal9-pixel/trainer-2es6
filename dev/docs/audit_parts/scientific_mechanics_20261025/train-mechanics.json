@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "profile_id": "2es6-75x80t-scientific-reference-v1",
+  "description": "Типовой научный расчётный профиль по выбору пользователя. Не идентификация фактической комплектации.",
+  "wagon_count": 75,
+  "locomotive_mass_kg": 200000,
+  "wagon_mass_kg": 80000,
+  "locomotive_reference_gamma": 0.25,
+  "wagon_reference_gamma": 0.035,
+  "coupler_profile": "sh2v-pair-published-2023",
+  "wagon_brakes": {
+    "id": "gost34434-appendix-g-effectiveness-2x254",
+    "material": "composite",
+    "cylinder_diameter_m": 0.254,
+    "cylinders": 2,
+    "shoes": 8,
+    "ratio_total_per_cylinder": 5.7,
+    "cylinder_efficiency": 0.98,
+    "rigging_efficiency": 0.95,
+    "return_spring_force_per_cylinder_N": 1032.5,
+    "slack_adjuster_force_per_cylinder_N": 512.77
+  },
+  "locomotive_bogie_brakes": {
+    "id": "typical-670v-203mm-four-cylinder-bogie",
+    "material": "phosphorus-cast-iron",
+    "cylinder_diameter_m": 0.203,
+    "cylinders": 4,
+    "shoes": 8,
+    "ratio_total_per_cylinder": 8.8,
+    "cylinder_efficiency": 0.98,
+    "rigging_efficiency": 0.95,
+    "return_spring_force_per_cylinder_N": 1200,
+    "slack_adjuster_force_per_cylinder_N": 0
+  },
+  "reference_scope": {
+    "inertia": "Fixed equivalent rotating masses 50000kg loco + 75*2800kg wagons; effective6460000kg, physical6200000kg. Literature estimates, not invented component inertias.",
+    "wagon_brakes": "GOST34434-2018 appendixG effectiveness reference at maximum65mm stroke with rod slack adjuster. Two254mm cylinders form a typical mechanical surrogate driven by the current wagon BC pressure. This replaces the legacy994cm2/5.79 force calibration; pneumatic pressure generation and effective air volume are not claimed newly identified.",
+    "locomotive_brakes": "Four bogies with independently measured pressure, four670V203mm cylinders/eight shoes each. 1200N spring reference from Sinitsyn/Kobishchanov2020; eight-point-eight total lever per cylinder, split across two shoes. Not an OEM certificate of this2ES6. Friction curve: generic locomotive type-M/high-phosphorus PTR law, not a proven OEM material grade or UIC certification.",
+    "air_load_mode": "Native wagon AR1/load mode remains pneumatic input behavior. The mechanical rod slack-adjuster force is a separate quantity and is not inferred from that bit.",
+    "couplers": "Published scientific equivalent pair; equipment identity is a reference scenario selected by the user.",
+    "regime": "Dry ordinary tread braking; no accepted wheel-slide, thermal-fade or ice/wet calibration."
+  },
+  "source_urls": [
+    "https://ojs.cvut.cz/ojs/index.php/TEE/article/download/3871/3673",
+    "https://api.ziyonet.uz/uploads/books/1086763/5affb597de2d4.pdf?exVkJALeMUqqr0brDWIbA=",
+    "https://bstu.editorum.ru/en/storage/download/49957",
+    "https://cctvcad.com/Files/VestnikBelGUT20172.pdf"
+  ]
+}

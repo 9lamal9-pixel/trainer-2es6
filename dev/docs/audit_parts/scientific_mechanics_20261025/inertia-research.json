@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "created_local_date": "2026-10-25",
+  "scope": "Read-only research on rotating inertia only. No native execution, tests, builds, source/config/Git edits.",
+  "status": "proposed_estimated_profile_not_factory_identification",
+  "sources": [
+    {
+      "id": "EN14531-1-2015",
+      "kind": "primary_normative_document",
+      "title": "EN 14531-1:2015, SIST EN 14531-1:2016 reproduction",
+      "url": "https://cdn.standards.iteh.ai/samples/38404/e7d9f1843c5743298fe55dc3ffba695e/SIST-EN-14531-1-2016.pdf",
+      "access": "Opened actual 15-page PDF preview, not a search snippet. Complete relevant clauses 4.3.2.3/4/5 are present on PDF 14–15 (printed 12–13). This is a preview, not the complete purchased standard; no claim of latest-edition compliance.",
+      "section": "3.1.3; 4.3.2.3–4.3.2.5",
+      "facts": "Equivalent rotating mass m_rot=4J/D²; dynamic mass is static plus equivalent rotating mass. Determine rotating mass theoretically or by relevant tests. Identify wheel diameter and separate motor/trailer axle types. Static mass remains the basis for axle load/adhesion.",
+      "document_sha256": null
+    },
+    {
+      "id": "MASEK2016",
+      "kind": "primary_peer_reviewed_research_full_text",
+      "title": "Mašek Z., Lenoch V., Lelek T. Simulation Model of Hybrid Shunting Locomotive. Transactions on Electrical Engineering 5(3), 2016, pp. 75–90.",
+      "doi": "10.14311/TEE.2016.3.075",
+      "url": "https://ojs.cvut.cz/ojs/index.php/TEE/article/download/3871/3673",
+      "publisher_page": "https://ojs.cvut.cz/ojs/index.php/TEE/article/view/3871",
+      "access": "Actual complete 16-page publisher PDF opened via web. Relevant Table III and equation 34 read on PDF 11 / printed 85. Local download was refused by OS socket permissions; no local PDF/hash is claimed.",
+      "section": "IV, vehicle model; Table III; equation 34",
+      "facts": "Separate locomotive and wagon rotating-mass multipliers in the acceleration denominator. Generic electric locomotive multiplier 1.2–1.3, generic freight car 1.04–1.12. These ranges are literature/model inputs for a hybrid-shunter study, not measurements of 2ЭС6 or an identified Russian wagon.",
+      "document_sha256": null
+    },
+    {
+      "id": "ABLYALIMOV2016",
+      "kind": "primary_authored_university_teaching_document_full_text_not_empirical_identification",
+      "title": "Аблялимов О. С. Конспект лекций «Подвижной состав и тяга поездов». Ташкентский институт инженеров железнодорожного транспорта, 2016.",
+      "url": "https://api.ziyonet.uz/uploads/books/1086763/5affb597de2d4.pdf?exVkJALeMUqqr0brDWIbA=",
+      "access": "Actual complete 194-page PDF opened via web. Energy derivation on PDF 164–165; load-dependent ranges on PDF 166–167. Relevant text read, not merely search snippets. Printed page numbering not independently visually established.",
+      "section": "Лекция 12, equation 12.2 and adjacent derivation/ranges",
+      "facts": "Derives equivalent mass from translational plus rotational kinetic energy. Gives loaded freight gamma 0.03–0.04, empty freight 0.08–0.09; electric-locomotive examples up to 0.24–0.28. Describes whole-train 0.06 (more exactly 0.058) as a conditional averaged approximation, not a measured constant.",
+      "document_sha256": null
+    },
+    {
+      "id": "RE1_LOCAL",
+      "kind": "primary_manufacturer_manual_local_copy",
+      "title": "2ЭС6.00.000.000 РЭ, часть 1, таблица 1",
+      "path": "work/public_2es6_part1.pdf",
+      "sha256": "c381056881302e0a0ad743d36148cbd8abf18930fc6d756b99ec19b3431c61e6",
+      "pdf_page": 9,
+      "printed_sheet": "9",
+      "visual_path": "dev/runs/re-part1-20261024/source/p009.png",
+      "visual_review": "Complete existing page image viewed in this research pass.",
+      "facts": "Двухсекционный 2ЭС6: 8 моторных осей, масса 200 ± 2 т, передаточное отношение 3.44, номинальный диаметр колеса 1250 мм. Моменты инерции роторов/колёс эта таблица не содержит.",
+      "applicability": "Сборная редакция 2008/2010–2013; точная комплектация электровоза № 137+ остаётся неизвестной."
+    }
+  ],
+  "mechanical_contract": {
+    "assumptions": [
+      "Колёса катятся без значимого продольного проскальзывания; радиусы постоянны на одном расчётном сценарии.",
+      "Все приведённые вращающиеся части жёстко кинематически связаны с колёсами; вспомогательные компрессоры/вентиляторы не включаются, поскольку их скорость не определяется v.",
+      "Для вращающихся частей применяются постоянные механические J; выключение электрического питания ТЭД не отключает его механическую связь с колесом."
+    ],
+    "kinetic_energy": "T=0.5*m*v²+0.5*Σ(J_k*ω_k²)=0.5*m_eff*v²",
+    "effective_mass": "m_eff=m+Σ[J_k*(dω_k/dv)²]=m*(1+gamma), при ω_k=c_k*v с постоянным c_k.",
+    "avoid_zero_division": "Не вычислять ω/v при v=0. Использовать постоянную кинематическую производную dω/dv.",
+    "gear_definition": "g=ω_motor/ω_axle=3.44. Для колеса r=0.625 m: dω_axle/dv=1/r; dω_motor/dv=g/r=5.504 rad/m.",
+    "locomotive_formula": "m_rot,loco=Σ_axles[(J_wheelset+J_large_gears)/r²+(J_rotor+J_pinions)*g²/r²]. Каждый J учитывать ровно один раз.",
+    "gear_reflection_coefficient_per_rotor_kg_per_kgm2": 30.294015999999996,
+    "gamma_definition": "gamma=m_rot/m_static; multiplier=1+gamma. Эти две величины не смешивать.",
+    "force_boundary": "Приведённая масса применима, когда входная тяговая/тормозная сила является эквивалентом приводного/тормозного момента на ободе. Если будущий решатель отдельно интегрирует J*ωdot и передаёт уже решённую контактную силу wheel/rail, повторное включение той же инерции в gamma недопустимо.",
+    "grade_and_adhesion": "Вес, нормальная нагрузка и сила уклона рассчитываются по m_static*g. Не увеличивать их на gamma.",
+    "limits": "Не моделирует боксование/юз, крутильные колебания тяговой передачи, разброс диаметров или разгрузку осей. Для них нужны отдельные вращательные степени свободы и связь с контактной моделью."
+  },
+  "current_source_review": {
+    "observed_sha256": {
+      "outputs/TrainerLongitudinalDynamics.cs": "D10966B59508380332622BE485AF6D63DB6C9E2F4C991FD3FEAA054B31BDE1D3",
+      "outputs/TrainerManagedMotion.cs": "278E2EB0F7118B74E5F710CC2A35B92D7289EE97E30D1DE78F046CCCEA24B6B6"
+    },
+    "anchors": [
+      {
+        "path": "outputs/TrainerLongitudinalDynamics.cs",
+        "line": 154,
+        "observed": "m_eff=m*(1+gamma) корректно вычисляется отдельно для каждого тела при создании решателя."
+      },
+      {
+        "path": "outputs/TrainerLongitudinalDynamics.cs",
+        "line": 417,
+        "observed": "Кинетическая энергия использует ту же эффективную массу; это согласовано с уравнением движения."
+      },
+      {
+        "path": "outputs/TrainerManagedMotion.cs",
+        "line": 123,
+        "observed": "Уклон использует фактическую MassKg, без gamma; это верно."
+      },
+      {
+        "path": "outputs/TrainerManagedMotion.cs",
+        "line": 36,
+        "observed": "Production host пока вызывает CreateFreightConsist(75,0): вращающаяся инерция отсутствует как явно обозначенный переходный профиль."
+      },
+      {
+        "path": "outputs/TrainerLongitudinalDynamics.cs",
+        "line": 436,
+        "observed": "Helper принимает одну общую gamma и копирует её локомотиву и всем вагонам; для научного профиля нужна раздельная инициализация массива до конструктора."
+      },
+      {
+        "path": "outputs/TrainerLongitudinalDynamics.cs",
+        "line": 191,
+        "observed": "EffectiveMomentumKgMps — обобщённая величина Σm_eff*v. Это не физический импульс центра масс Σm_static*v; документация/приёмка должны сохранять различие."
+      }
+    ],
+    "finding": "Механизм effective mass уже физически согласован. Требуется выбрать и явно хранить профиль, а не менять саму формулу или подгонять тормозную силу под инерцию."
+  },
+  "proposed_profile": {
+    "id": "estimated_2es6_loaded80t_rotating_inertia_v1",
+    "classification": "Literature-based estimated prior; not manufacturer calibration, not identification from run traces.",
+    "locomotive": {
+      "static_mass_kg": 200000,
+      "axles": 8,
+      "gamma": 0.25,
+      "gamma_sensitivity_range": [
+        0.2,
+        0.3
+      ],
+      "effective_mass_kg": 250000,
+      "origin": "0.25 — выбранная середина общего диапазона электрических локомотивов 0.20–0.30 из MASEK2016, согласующаяся с учебными примерами ABLYALIMOV2016. Не вычислено из неизвестного J ротора 2ЭС6."
+    },
+    "loaded_wagon": {
+      "static_mass_kg": 80000,
+      "axles": 4,
+      "gamma": 0.035,
+      "gamma_sensitivity_range": [
+        0.03,
+        0.04
+      ],
+      "equivalent_rotating_mass_kg": 2800,
+      "effective_mass_kg": 82800,
+      "origin": "0.035 — выбранная середина учебного диапазона гружёных грузовых вагонов ABLYALIMOV2016. Общая таблица MASEK2016 шире и не различает загрузку; она не используется для ложной точной идентификации."
+    },
+    "identification": "Из 80 т и 14.59 м нельзя установить модель вагона, колесо, буксы, тележку или J. Не присваивать модель 18-100/номер платформы без данных состава.",
+    "mass_change_policy": "Если изменится загрузка того же вагона, физически сохранять m_rot (пока неизменны колёса), а gamma пересчитывать как m_rot/m_static. Не удерживать .035 при произвольной таре/нагрузке. До идентификации это правило остаётся оценочным.",
+    "consist": {
+      "vehicles": 76,
+      "axles": 308,
+      "static_mass_kg": 6200000,
+      "equivalent_rotating_mass_kg": 260000.00000000003,
+      "effective_mass_kg": 6460000,
+      "weighted_gamma": 0.041935483870967745,
+      "locomotive_rotating_mass_kg": 50000,
+      "all_wagons_rotating_mass_kg": 210000,
+      "sensitivity_low_effective_mass_kg": 6420000,
+      "sensitivity_high_effective_mass_kg": 6500000
+    },
+    "simple_flat_constant_force_comparison": {
+      "acceleration_ratio_to_gamma0": 0.9597523219814241,
+      "stopping_distance_ratio_to_gamma0": 1.0419354838709678,
+      "scope": "Только идеальная одинаковая скорость всех тел, постоянная внешняя сила, ровный путь, без сопротивления/упругих переходов. Не обещание реального тормозного пути."
+    },
+    "integration": "Создать VehicleDynamicsNode[] через geometry helper, установить gamma[0]=.25 и gamma[1..75]=.035 перед new Solver. В отчётах сохранять profile ID, источники, обе gamma и массу. Не менять BC, native тормозной закон, массу для уклона/сцепления.",
+    "fallback": "gamma=0 сохранять только как именованный compatibility/debug baseline; не называть научной инерцией."
+  },
+  "proposed_acceptance_not_executed": [
+    "Чистая механическая проверка одного тела 200000 kg, gamma=.25, F=100000 N, без сопротивлений/сцепок: a=.4 m/s²; T=.5*250000*v².",
+    "Для одного вагона 80000 kg, gamma=.035 при F=80000 N: a=1/1.035 m/s²; знак симметричен при обратном движении.",
+    "Для 76 тел на ровном пути без внешних сопротивлений: сумма m_eff*a равна внешней силе, внутренние парные силы сцепок сокращаются. Не требовать одинакового мгновенного ускорения при переходах свободных сцепок.",
+    "Проверить новую profile mass=6460000 kg, static mass=6200000 kg, gamma_w=.035 и gamma_l=.25 раздельно; чувствительность прогнать на обоих углах диапазона.",
+    "При неизменных измеренных ТЦ native brake capacity должна оставаться прежней: изменение gamma меняет ускорение/энергию, а не давление или силу тормозного закона.",
+    "На уклоне и при статическом удержании вес/порог тормозной силы должны остаться основанными на статической массе; gamma не должна искусственно увеличивать вес.",
+    "Гenuine старт/коаст/КМ V→IV→II повторить после смены профиля; прежний native PASS при gamma0 не является приёмкой нового профиля."
+  ],
+  "unresolved": [
+    "Нет паспорта/чертежа J якоря конкретной модели ТЭД 2ЭС6 и J колёсно-редукторной группы.",
+    "Не идентифицированы типы/диаметры колёс и фактическая тара 75 вагонов.",
+    "Точная применимая ревизия РЭ № 137+ не установлена.",
+    "Достоверность общей оценки gamma не заменяет измерение эффективной массы по силе/ускорению с известными сопротивлениями.",
+    "При подключении отдельной динамики колёс необходимо пересмотреть границу gamma и контактных сил во избежание двойного счёта."
+  ],
+  "artifacts_policy": "Сохранён только отчёт. Не создавалась фиктивная локальная копия недоступного скачивания. URL первичных текстов позволяют независимо проверить источники."
+}

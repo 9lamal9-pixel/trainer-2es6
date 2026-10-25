@@ -1,0 +1,15 @@
+{
+  "id": "ScientificBrakeForces",
+  "scope": "PressurePa/pistonN/springN/lever/one-shoeN/frictionN; independent GOSTG9 minima, four unequal bogies and M curve. Typical profile, no native pressures or OEM acceptance.",
+  "status": "passed",
+  "artifacts": [
+    {
+      "path": "Trainer_scientific_brake_validation.json",
+      "sha256": "E8972917FA515F821DA99BD2D877E41A7D7D3BD85DBF30A9D2F7219A815A4A65"
+    }
+  ],
+  "build_id": "build-20261025T112624866Z-d7bdb4b2",
+  "pid": 37128,
+  "exit_code": 0,
+  "finished_utc": "2026-10-25T11:26:26.9474972Z"
+}

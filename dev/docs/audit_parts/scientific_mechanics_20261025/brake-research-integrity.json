@@ -1,0 +1,87 @@
+{
+  "mode": "Research-evidence SHA/path integrity only; no simulator or helper execution",
+  "report_sha256": "a7d318b41abc61c00df12c103d10d886a8a0da6a581fff074f24dcacd0f9c679",
+  "passed": true,
+  "checks": [
+    {
+      "path": "dev/runs/scientific-calibration-20261025/gost34434-2018.pdf",
+      "passed": true
+    },
+    {
+      "path": "dev/runs/scientific-calibration-20261025/670v-research.pdf",
+      "passed": true
+    },
+    {
+      "path": "dev/runs/scientific-calibration-20261025/2es6-brake-training-source.pdf",
+      "passed": true
+    },
+    {
+      "path": "dev/runs/scientific-calibration-20261025/zakirov-maulenov-journal-2015-1-50.pdf",
+      "passed": true
+    },
+    {
+      "path": "dev/runs/scientific-calibration-20261025/itt-pgups-2023-2.pdf",
+      "passed": true
+    },
+    {
+      "path": "work/reference_inputs/J_tormoza_2026_июля.pdf",
+      "passed": true
+    },
+    {
+      "path": "dev/runs/scientific-calibration-20261025/gost34434-2018-p012.png",
+      "passed": true
+    },
+    {
+      "path": "dev/runs/scientific-calibration-20261025/gost34434-2018-p013.png",
+      "passed": true
+    },
+    {
+      "path": "dev/runs/scientific-calibration-20261025/gost34434-2018-p014.png",
+      "passed": true
+    },
+    {
+      "path": "dev/runs/scientific-calibration-20261025/gost34434-2018-p016.png",
+      "passed": true
+    },
+    {
+      "path": "dev/runs/scientific-calibration-20261025/gost34434-2018-p024.png",
+      "passed": true
+    },
+    {
+      "path": "dev/runs/scientific-calibration-20261025/gost34434-2018-p025.png",
+      "passed": true
+    },
+    {
+      "path": "dev/runs/scientific-calibration-20261025/gost34434-2018-p026.png",
+      "passed": true
+    },
+    {
+      "path": "dev/runs/scientific-calibration-20261025/670v-research-p003.png",
+      "passed": true
+    },
+    {
+      "path": "dev/runs/scientific-calibration-20261025/2es6-brake-training-source-p041.png",
+      "passed": true
+    },
+    {
+      "path": "dev/runs/scientific-calibration-20261025/itt-pgups-2023-2-p004.png",
+      "passed": true
+    },
+    {
+      "path": "dev/runs/scientific-calibration-20261025/rules2026-p052.png",
+      "passed": true
+    },
+    {
+      "path": "outputs/TrainerScientificBrakeForces.cs",
+      "passed": true
+    },
+    {
+      "path": "outputs/TrainerScientificBrakeValidationProbe.cs",
+      "passed": true
+    },
+    {
+      "path": "outputs/TrainerLongitudinalDynamics.cs",
+      "passed": true
+    }
+  ]
+}

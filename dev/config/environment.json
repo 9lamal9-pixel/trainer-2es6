@@ -51,7 +51,10 @@
         "outputs/TrainerIndependentExcitation.cs",
         "outputs/TrainerManagedMotion.cs",
         "outputs/TrainerNativeBrakeForceProvider.cs",
-        "outputs/TrainerManagedFloatingScope.cs"
+        "outputs/TrainerManagedFloatingScope.cs",
+        "outputs/TrainerRotatingInertia.cs",
+        "outputs/TrainerScientificBrakeForces.cs",
+        "outputs/TrainerScientificMechanics.cs"
       ]
     },
     "integration": {
@@ -94,14 +97,18 @@
         "outputs/TrainerIndependentExcitation.cs",
         "outputs/TrainerManagedMotion.cs",
         "outputs/TrainerNativeBrakeForceProvider.cs",
-        "outputs/TrainerManagedFloatingScope.cs"
+        "outputs/TrainerManagedFloatingScope.cs",
+        "outputs/TrainerRotatingInertia.cs",
+        "outputs/TrainerScientificBrakeForces.cs",
+        "outputs/TrainerScientificMechanics.cs"
       ]
     }
   },
   "required_files": [
     "outputs/Voynovka_Koshkarovsky_route.json",
     "work/msul_emulator/native_record_schema.json",
-    "dev/config/probes.json"
+    "dev/config/probes.json",
+    "dev/config/train-mechanics.json"
   ],
   "suites": {
     "regression": [

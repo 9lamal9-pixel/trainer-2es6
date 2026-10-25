@@ -31,7 +31,7 @@ public sealed partial class TrainerAutovedenieAdverseBrakeProbe {
         }
         File.WriteAllText(TrainerSession.ResultPath("Trainer_managed_motion_validation.json"), new JavaScriptSerializer { MaxJsonLength = 16000000 }.Serialize(new {
             passed = exit == 0, exit_code = exit, error = failure, checks = Checks, cases = Cases,
-            scope = "Genuine native electrical/pneumatic start drives the managed 76-body movement owner. Physical KM V/IV/II service/release, actual pressure/native brake-capacity oracle, front/centre/velocity/coupler publication and borrowed-buffer restoration. Prepared station/signed-speed components are separate. Teaching green and scripted RBS are explicit fixture inputs. No force/current/pressure/permission output preparation. Full route, factory LTD/adhesion/rotary/draft-gear calibration and genuine cab EDT remain unaccepted.",
+            scope = "Genuine native electrical/pneumatic start drives the managed 76-body movement owner. Physical KM V/IV/II service/release, actual pressure/direct SI brake rigging and one-shoe friction, front/centre/velocity/coupler publication and borrowed-buffer restoration. Prepared station/signed-speed components are separate. Teaching green and scripted RBS are explicit fixture inputs. No force/current/pressure/permission output preparation. Full route, factory LTD/adhesion/rotary/draft-gear calibration and genuine cab EDT remain unaccepted.",
             maximum_wall_seconds = 280, maximum_fixture_cycles = 3500, factory_calibration_accepted = false
         }));
         Console.WriteLine(exit == 0 ? "PASS: genuine managed movement integration" : "FAIL: managed movement integration");
@@ -61,9 +61,10 @@ public sealed partial class TrainerAutovedenieAdverseBrakeProbe {
                 actual_tc_kgf_cm2 = new[] { Float(mem["TLocParam"], 13), Float(motionCars[1], 4), Float(motionCars[75], 4) } };
         }
         void VerifyMotionPublication(string name) {
-            ReadMotionOwner(); double mass = 0, maxV = 0; bool positions = true, coupling = true, pressure = true, finite = true;
+            ReadMotionOwner(); double mass = 0, effectiveMass = 0, maxV = 0; bool positions = true, coupling = true, pressure = true, finite = true;
             for (int i = 0; i < 76; i++) {
                 var v = motionKernelUnderTest.GetVehicle(i); mass += v.MassKg; maxV = Math.Max(maxV, Math.Abs(v.VelocityV) * 3.6);
+                effectiveMass+=v.MassKg*(1+v.RotaryInertiaGamma);
                 float expectedX = (float)motionKernelUnderTest.GetVehicleFrontPosition(i);
                 float expectedCoupler = i == 0 ? 0 : (float)(-motionKernelUnderTest.GetCouplerForceSignedNewtons(i - 1) / 10000);
                 positions &= Float(motionCars[i], 0x14) == expectedX;
@@ -73,6 +74,9 @@ public sealed partial class TrainerAutovedenieAdverseBrakeProbe {
                 finite &= Finite(v.PositionX) && Finite(v.VelocityV) && Finite(v.AccelerationA);
             }
             Check(name + " 76 real masses", motionKernelUnderTest.VehicleCount == 76 && mass == 6200000 && Math.Abs(motionKernelUnderTest.TotalLengthM - 1126.18) < 1e-8, "76/6200t/1126.18m", mass);
+            Check(name + " scientific rotating inertia is active",Math.Abs(effectiveMass-6460000)<1e-6,"physical6200t/effective6460t",effectiveMass);
+            var activeGear=(RailwayDynamics.Couplers.FrictionDraftGearModel)typeof(LongitudinalTrainDynamicsSolver).GetField("_draftGearModel",Flags).GetValue(motionKernelUnderTest);
+            Check(name + " published two-gear profile is active",activeGear.ProfileId=="sh2v-pair-published-2023"&&Math.Abs(activeGear.MaximumWorkingStrokeM-.18)<1e-12,"Sh2Vpair/180mm",activeGear.ProfileId);
             Check(name + " front coordinates for every body", positions, true, positions);
             Check(name + " front-link 10kN sign and free head", coupling && Float(motionCars[0], 0xc) == 0, true, coupling);
             Check(name + " actual measured BC reaches kernel", pressure, true, pressure);
@@ -95,49 +99,63 @@ public sealed partial class TrainerAutovedenieAdverseBrakeProbe {
         }
         void VerifyNextVelocityAndOracle(string name) {
             ReadMotionOwner(); double expectedNextInput = (float)motionKernelUnderTest.GetVehicle(0).VelocityV;
-            Action previousBefore = beforeNativePneumatic, previousAfter = afterNativeMotion;
-            byte[] before = null; double actualInput = 0; bool inputRead = false;
+            var frame=(TrainerScientificBrakeFrame)Field("scientificBrakeFrame");long generation=frame.Generation;
+            Action previousBefore=beforeNativePneumatic, previousAfter=afterNativeMotion;
+            byte[] before=null;double actualInput=0;bool inputRead=false;
             try {
-                beforeNativePneumatic = delegate {
-                    if (previousBefore != null) previousBefore();
-                    byte[] input = new byte[8]; Marshal.Copy(mem["TTygaParam"], input, 0, input.Length);
-                    actualInput = BitConverter.ToDouble(input, 0); inputRead = true;
-                    before = CaptureOracleBuffers();
+                beforeNativePneumatic=delegate {
+                    if(previousBefore!=null)previousBefore();
+                    byte[] input=new byte[8];Marshal.Copy(mem["TTygaParam"],input,0,8);
+                    actualInput=BitConverter.ToDouble(input,0);inputRead=true;before=CaptureOracleBuffers();
                 };
-                afterNativeMotion = delegate {
-                    if (previousAfter != null) previousAfter();
-                    Check(name + " borrowed oracle buffers restored", before != null && before.SequenceEqual(CaptureOracleBuffers()), true, before != null);
+                afterNativeMotion=delegate {
+                    if(previousAfter!=null)previousAfter();
+                    Check(name+" production leaves legacy POEZD buffers untouched",before!=null&&before.SequenceEqual(CaptureOracleBuffers()),true,before!=null);
                 };
-                ManagedBudget(); Step();
-            } finally { beforeNativePneumatic = previousBefore; afterNativeMotion = previousAfter; }
-            Check(name + " previous signed speed supplied to next electrical frame", inputRead && Math.Abs(actualInput - expectedNextInput) < 1e-7, expectedNextInput, actualInput);
-            var p = Field("managedBrakeProvider") as TrainerNativeBrakeForceProvider; if (p == null) throw new Exception("Brake provider absent");
-            p.Validate(); var snapshot = p.Snapshot();
-            Check(name + " native oracle restoration verified", Convert.ToBoolean(snapshot["LastRestoreVerified"]) && !Convert.ToBoolean(snapshot["PendingRestore"]) && Convert.ToInt64(snapshot["SuccessfulEvaluations"]) > 0, true, snapshot);
+                ManagedBudget();Step();
+            }finally{beforeNativePneumatic=previousBefore;afterNativeMotion=previousAfter;}
+            Check(name+" previous signed speed reaches next electrical frame",inputRead&&Math.Abs(actualInput-expectedNextInput)<1e-7,expectedNextInput,actualInput);
+            Check(name+" one actual pneumatic frame per motion frame",frame.Generation==generation+1,generation+1,frame.Generation);
+            Check(name+" native brake oracle is not the production force source",!TrainerNativeBrakeForceProvider.HasRetainedOwners,false,TrainerNativeBrakeForceProvider.HasRetainedOwners);
         }
-
-        void VerifyNativeBrakeCapacity(string name, bool requirePositive) {
-            var p = Field("managedBrakeProvider") as TrainerNativeBrakeForceProvider; if (p == null) throw new Exception("Brake provider absent");
-            ReadMotionOwner(); var pressures = new float[76]; var velocities = new double[76];
-            // The candidate's real four-bogie sum is the native locomotive
-            // oracle input. Do not reconstruct it from the displayed maximum
-            // gauge, which would erase unequal bogie pressures during release.
-            double bogieSum = 0; for (int i = 0; i < 4; i++) bogieSum += Math.Max(0, bogiePressure[i]());
-            for (int i = 0; i < 76; i++) { pressures[i] = i == 0 ? (float)(bogieSum * 4) : Float(motionCars[i], 4); velocities[i] = motionKernelUnderTest.GetVehicle(i).VelocityV; }
-            byte[] before = CaptureOracleBuffers(); var expected = p.Evaluate(pressures, velocities);
-            Check(name + " independent oracle borrow restored", before.SequenceEqual(CaptureOracleBuffers()), true, true);
-            var bases = (double[])Field("managedBrakeBase"); var a = (double[])Field("managedBrakeNumerator"); var b = (double[])Field("managedBrakeDenominator");
-            double maxError = 0, maxTolerance = 0; bool match = true; double positive = 0;
-            for (int i = 0; i < 76; i++) {
-                double actual = bases[i] * (Math.Abs(velocities[i]) + a[i]) / (Math.Abs(velocities[i]) + b[i]);
-                double tolerance = .1 + Math.Abs(expected[i]) * 1e-5; // stated native f32-order tolerance
-                maxError = Math.Max(maxError, Math.Abs(actual - expected[i])); maxTolerance = Math.Max(maxTolerance, tolerance);
-                match &= Math.Abs(actual - expected[i]) <= tolerance; positive = Math.Max(positive, expected[i]);
+        static double IndependentReferenceBrake(ScientificBrakeEquipment rig,double pressurePa,double speedMps) {
+            double rod=Math.Max(0,pressurePa*Math.PI*rig.cylinder_diameter_m*rig.cylinder_diameter_m/4*rig.cylinder_efficiency-rig.return_spring_force_per_cylinder_N-rig.slack_adjuster_force_per_cylinder_N);
+            double normal=rod*rig.ratio_total_per_cylinder*rig.rigging_efficiency*rig.cylinders;
+            double k=normal/rig.shoes/1000, v=Math.Abs(speedMps)*3.6,mu;
+            if(rig.material=="composite")mu=.44*(.1*k+20)/(.4*k+20)*(v+150)/(2*v+150);
+            else if(rig.material=="phosphorus-cast-iron")mu=.5*(1.6*k+100)/(5.2*k+100)*(v+100)/(5*v+100);
+            else mu=.6*(1.6*k+100)/(8*k+100)*(v+100)/(5*v+100);
+            return normal*mu;
+        }
+        void VerifyNativeBrakeCapacity(string name,bool requirePositive) {
+            using(TrainerManagedFloatingScope.Enter())VerifyScientificCapacityCore(name,requirePositive);
+        }
+        void VerifyScientificCapacityCore(string name,bool requirePositive) {
+            var frame=(TrainerScientificBrakeFrame)Field("scientificBrakeFrame");
+            var profile=(TrainerScientificMechanicsProfile)Field("scientificMechanics");ReadMotionOwner();
+            double maxError=0,maxForce=0,maxTolerance=0;bool match=true,pressures=true;
+            var p=frame.VehiclePressuresPa;var b=frame.BogiePressuresPa;
+            for(int i=0;i<76;i++) {
+                double v=motionKernelUnderTest.GetVehicle(i).VelocityV,expected=0;
+                if(i==0) {
+                    for(int n=0;n<4;n++) {
+                        double actualPa=Math.Max(0,bogiePressure[n]())*98066.5;
+                        pressures&=Math.Abs(b[n]-actualPa)<.01;
+                        expected+=IndependentReferenceBrake(profile.locomotive_bogie_brakes,actualPa,v);
+                    }
+                } else {
+                    double actualPa=Math.Max(0,Float(motionCars[i],4))*98066.5;
+                    pressures&=Math.Abs(p[i]-actualPa)<.01;
+                    expected=IndependentReferenceBrake(profile.wagon_brakes,actualPa,v);
+                }
+                double actual=frame.CapacityNewtons(i,v),tolerance=.01+Math.Abs(expected)*1e-10;
+                maxError=Math.Max(maxError,Math.Abs(actual-expected));maxTolerance=Math.Max(maxTolerance,tolerance);
+                maxForce=Math.Max(maxForce,actual);match&=Math.Abs(actual-expected)<=tolerance;
             }
-            Check(name + " native pressure law retained over signed velocity", match, "0.1N+10ppm", new { max_error_N = maxError, maximum_tolerance_N = maxTolerance });
-            if (requirePositive) Check(name + " nontrivial real brake capacity", positive > 100, ">100N", positive);
+            Check(name+" actual 75wagon and four-bogie pressures retained",pressures,true,pressures);
+            Check(name+" direct SI pressure-rigging-one-shoe force",match,"0.01N+1e-10 relative",new{max_error_N=maxError,max_tolerance_N=maxTolerance});
+            if(requirePositive)Check(name+" nontrivial scientific brake force",maxForce>100,">100N",maxForce);
         }
-
         public void MeasureManagedMotion() {
             beforeNativePneumatic = ManagedBudget;
             Start(); ReadMotionOwner();
@@ -202,7 +220,7 @@ public sealed partial class TrainerAutovedenieAdverseBrakeProbe {
                 prepared_components = managedPreparedStates, prepared_initializations_during_genuine = preparedInitializations,
                 managed_owner_closed_before_air = managedOwnerClosed, teaching_inputs_restored = managedTeachingRestored,
                 native_inputs_restored = restored, native_closed = closed, rows = managedMotionRows,
-                limitation = "Prepared reverse is a signed reset/actual-pressure mechanical component. It is not a genuine reverse driving journey or cab EDT acceptance. Native brake speed dependence is retained by pure per-substep provider; pressures are sampled from the actual native outer pneumatic cycle." };
+                limitation = "Prepared reverse is a signed reset/actual-pressure mechanical component. It is not a genuine reverse driving journey or cab EDT acceptance. SI one-shoe friction is evaluated on every mechanical substep; pressure comes from actual native outer pneumatic cycles. Literature equivalent inertia and published Sh2V pair are active." };
         }
     }
 }

@@ -45,6 +45,9 @@
     <Compile Include="..\outputs\TrainerLongitudinalDynamics.cs"><Link>Dynamics\TrainerLongitudinalDynamics.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerIndependentExcitation.cs"><Link>Dynamics\TrainerIndependentExcitation.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerManagedMotion.cs"><Link>Dynamics\TrainerManagedMotion.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerRotatingInertia.cs"><Link>Dynamics\TrainerRotatingInertia.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerScientificBrakeForces.cs"><Link>Dynamics\TrainerScientificBrakeForces.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerScientificMechanics.cs"><Link>Dynamics\TrainerScientificMechanics.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerManagedFloatingScope.cs"><Link>Dynamics\TrainerManagedFloatingScope.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerNativeBrakeForceProvider.cs"><Link>Dynamics\TrainerNativeBrakeForceProvider.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerContactNetwork.cs"><Link>Host\TrainerContactNetwork.cs</Link></Compile>

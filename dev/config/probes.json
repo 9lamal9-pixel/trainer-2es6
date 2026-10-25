@@ -2058,7 +2058,7 @@
         "outputs/Trainer_managed_motion_validation.json"
       ],
       "kind": "regression",
-      "scope": "Genuine electrical/pneumatic start with managed76bodymovement; physical KM V/IV/II, real BC/force law, consistent publication/next-frame signed speed, reversible oracle. Separate declared station/signed speed components. Teaching green/scripted RBS; not factory calibration, full route, AVP or cab EDT acceptance.",
+      "scope": "Actual native electrical/pneumatic genuine start drives scientific managed76bodyprofile: effective6460t, publishedSh2Vpair, directSI pressure-rigging-one-shoe brake force. PhysicalKMV/IV/II, source/read/reset checks. Teachinggreen/scriptedRBS, not OEM/fullroute/cabEDT/AVP acceptance.",
       "timeout_seconds": 300,
       "enabled": true
     },
@@ -2078,6 +2078,86 @@
       "kind": "regression",
       "scope": "x86 component: raw x87/MXCSR preservation, nested scopes and native callback environment, exceptions/restoration. No trainer DLL initialization or factory physics acceptance.",
       "timeout_seconds": 90,
+      "enabled": true
+    },
+    {
+      "id": "RotatingInertia",
+      "main_class": "RotatingInertiaValidationProbe",
+      "title": "Вращающаяся инерция: энергия и приведённая масса",
+      "source": "work/pneumatic_live_fix/analysis/RotatingInertiaValidationProbe.cs",
+      "profile": "standalone",
+      "dependencies": [
+        "outputs/TrainerRotatingInertia.cs",
+        "outputs/TrainerLongitudinalDynamics.cs",
+        "outputs/TrainerFrictionDraftGear.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_rotating_inertia_validation.json"
+      ],
+      "kind": "regression",
+      "scope": "Analytic rotating energy/mass, geared rotor square ratio, effective6460t/physical6200t, kernel integration; literature reference gamma, not OEM component J.",
+      "timeout_seconds": 120,
+      "enabled": true
+    },
+    {
+      "id": "ScientificBrakeForces",
+      "main_class": "TrainerScientificBrakeValidationProbe",
+      "title": "Тормозная сила SI: ГОСТ и типовая тележка670В",
+      "source": "outputs/TrainerScientificBrakeValidationProbe.cs",
+      "profile": "standalone",
+      "dependencies": [
+        "outputs/TrainerScientificBrakeForces.cs",
+        "outputs/TrainerLongitudinalDynamics.cs",
+        "outputs/TrainerFrictionDraftGear.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_scientific_brake_validation.json"
+      ],
+      "kind": "regression",
+      "scope": "PressurePa/pistonN/springN/lever/one-shoeN/frictionN; independent GOSTG9 minima, four unequal bogies and M curve. Typical profile, no native pressures or OEM acceptance.",
+      "timeout_seconds": 120,
+      "enabled": true
+    },
+    {
+      "id": "ScientificCouplers",
+      "main_class": "ScientificCouplerValidationProbe",
+      "title": "Научная пара Ш2В: ход, ветви, энергия",
+      "source": "work/pneumatic_live_fix/analysis/ScientificCouplerValidationProbe.cs",
+      "profile": "standalone",
+      "dependencies": [
+        "outputs/TrainerFrictionDraftGear.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_scientific_coupler_validation.json"
+      ],
+      "kind": "regression",
+      "scope": "Published calculated pair fit, doubled stroke/energy, totalgap65mm, locked unloading, passivity and tangent bounds. No installed equipment or factory gear certification.",
+      "timeout_seconds": 120,
+      "enabled": true
+    },
+    {
+      "id": "ScientificMechanics",
+      "main_class": "TrainerScientificMechanicsValidationProbe",
+      "title": "Научный профиль состава: силы и независимый тормозной расчёт",
+      "source": "outputs/TrainerScientificMechanicsValidationProbe.cs",
+      "profile": "standalone",
+      "dependencies": [
+        "outputs/TrainerScientificMechanics.cs",
+        "outputs/TrainerScientificBrakeForces.cs",
+        "outputs/TrainerRotatingInertia.cs",
+        "outputs/TrainerLongitudinalDynamics.cs",
+        "outputs/TrainerFrictionDraftGear.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_scientific_mechanics_validation.json"
+      ],
+      "kind": "regression",
+      "scope": "Reference config/frame, independent SI force table, fixed-pressure stopping benchmark against Simpson quadrature, timestep convergence and work/energy. Not a native pressure-wave or normative full-train stop test.",
+      "timeout_seconds": 120,
       "enabled": true
     }
   ]

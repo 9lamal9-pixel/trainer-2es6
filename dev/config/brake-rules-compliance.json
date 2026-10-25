@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "current_composite_brake_cycle_integrated_native_release_and_prepared80_force_passed_full_compliance_pending",
+  "status": "scientific_reference_mechanics_active_full_normative_train_acceptance_pending",
   "user_configuration": {
     "freight_wagons": 75,
     "wagon_gross_t": 80,
@@ -382,5 +382,15 @@
     "HardwareSAUTlap/manualVcommandpriority",
     "Fresh acceptedAVPcontract and closed-loop80/full333033route; modes1/2",
     "ExactRE137+ and locomotivepadmaterial"
-  ]
+  ],
+  "scientific_mechanics": {
+    "profile": "dev/config/train-mechanics.json",
+    "user_choice": "typical calculation profile",
+    "force_source": "directSI: actualTC to piston/rod/rigging/individualshoe friction",
+    "wagon_reference": "GOST34434 AppendixG effectiveness 2x254mm/8shoes; mechanical surrogate, not identified actual equipment",
+    "locomotive_reference": "4bogies x4TC203mm/8shoes,typeM curve, sourcebased670V spring",
+    "pneumatic_pressure_and_effective_volume": "Retained current native pressure producer; its volume/load regulation are not newly validated by the mechanics surrogate",
+    "historical_native_force_receipts_are_current_calibration": false,
+    "full_normative_acceptance": false
+  }
 }

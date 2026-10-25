@@ -20,14 +20,17 @@ namespace RailwayDynamics.Couplers {
         public const string CalibrationScope="Illustrative envelopes only; no factory calibration";
         readonly double[] stroke,loading,unloading;
         readonly double halfSlack,contactLength,rigidStiffness,stopStiffness,stiffnessBound;
+        readonly string profileId,profileCalibrationScope,sourceReference;
         readonly int modelId;
         static int nextModelId;
         public FrictionDraftGearModel(double[] strokeTable,double[] loadingEnvelope,double[] unloadingEnvelope,
-            double totalCouplerSlack=.020,double transitionLengthXtr=.0015,double smoothingVelocityV0=.005,double lockedRigidStiffness=2.5e8) {
+            double totalCouplerSlack=.020,double transitionLengthXtr=.0015,double smoothingVelocityV0=.005,double lockedRigidStiffness=2.5e8,
+            double identifiedStopStiffness=0,string identifiedProfileId="illustrative-default",string identifiedCalibrationScope=CalibrationScope,string identifiedSourceReference="") {
             if(strokeTable==null||loadingEnvelope==null||unloadingEnvelope==null||strokeTable.Length<2||loadingEnvelope.Length!=strokeTable.Length||unloadingEnvelope.Length!=strokeTable.Length)
                 throw new ArgumentException("Gear tables must have equal lengths >= 2");
             Nonnegative(totalCouplerSlack,"totalCouplerSlack");Positive(transitionLengthXtr,"transitionLengthXtr");
             Nonnegative(smoothingVelocityV0,"smoothingVelocityV0");Nonnegative(lockedRigidStiffness,"lockedRigidStiffness");
+            Nonnegative(identifiedStopStiffness,"identifiedStopStiffness");
             // Legacy smoothingVelocityV0 is compatibility-only: this passive law is rate independent.
             stroke=(double[])strokeTable.Clone();loading=(double[])loadingEnvelope.Clone();unloading=(double[])unloadingEnvelope.Clone();
             if(stroke[0]!=0)throw new ArgumentException("Gear stroke table must start at zero");
@@ -43,15 +46,43 @@ namespace RailwayDynamics.Couplers {
             }
             halfSlack=totalCouplerSlack*.5;contactLength=transitionLengthXtr;rigidStiffness=lockedRigidStiffness;
             // Reversal is elastic (locked unloading) until the opposite envelope is reached.
-            stopStiffness=Math.Max(1,Math.Max(maxSlope,maxGap/contactLength));
+            stopStiffness=identifiedStopStiffness>0 ? identifiedStopStiffness : Math.Max(1,Math.Max(maxSlope,maxGap/contactLength));
             stiffnessBound=2*maxSlope+loading[0]/contactLength+stopStiffness;
             if(!Finite(stiffnessBound))throw new ArgumentException("Gear stiffness bound overflow");
             modelId=Interlocked.Increment(ref nextModelId);
+            profileId=identifiedProfileId??"";profileCalibrationScope=identifiedCalibrationScope??"";sourceReference=identifiedSourceReference??"";
         }
+        public string ProfileId {get{return profileId;}}
+        public string ProfileCalibrationScope {get{return profileCalibrationScope;}}
+        public string SourceReference {get{return sourceReference;}}
+        public double TotalCouplerSlackM {get{return 2*halfSlack;}}
+        public double MaximumWorkingStrokeM {get{return stroke[stroke.Length-1];}}
+        public double StopStiffnessNewtonsPerMetre {get{return stopStiffness;}}
+        public double PostClosureStiffnessNewtonsPerMetre {get{return rigidStiffness;}}
         public static FrictionDraftGearModel CreateDefaultFreightDraftGear() {
             // Original example values retained, NOT validated device data.
             return new FrictionDraftGearModel(new double[]{0,.010,.025,.045,.065,.080},
                 new double[]{8e4,1.8e5,3.8e5,7.5e5,1.4e6,2.2e6},new double[]{2e4,5e4,1e5,2.2e5,4.5e5,7e5});
+        }
+        public static FrictionDraftGearModel CreateScientificSh2VPairProfile() {
+            // Bespalko/Zhukhin/Pudovikov 2023, pp.57-59, Fig.2: calculated
+            // intervehicle connection, NOT an OEM measured Sh-2-V certificate.
+            // A link contains TWO identical 90mm gears in series: xPair=2*xGear,
+            // FPair=FGear; stiffness is halved and accepted energy doubled.
+            var singleStroke=new double[]{0,.015,.030,.045,.060,.075,.090};
+            var upper=new double[]{100000,491666.666666667,883333.333333333,1275000,1666666.666666667,2058333.333333333,2450000};
+            var lower=new double[]{0,37500,75000,112500,150000,187500,225000};
+            var pairStroke=new double[singleStroke.Length];
+            for(int i=0;i<pairStroke.Length;i++)pairStroke[i]=2*singleStroke[i];
+            // Graphic transition slope ~100MN/m. This model adds the backbone
+            // tangent to its internal stop tangent; subtract it when identifying
+            // Kstop. These are fit parameters, not material constants.
+            double backboneSlope=.5*((2450000-100000)/.180+225000/.180);
+            return new FrictionDraftGearModel(pairStroke,upper,lower,
+                .065,.001,0,1e8,1e8-backboneSlope,
+                "sh2v-pair-published-2023",
+                "Typical calculated pair fitted to published Fig.2; no OEM/installed-consist calibration; odd compression/tension extension and centred initial slack are assumptions",
+                "Bespalko S.V., Zhukhin N.O., Pudovikov O.E., 2023, pp.54-70, Fig.2 pp.57-59, doi:10.20295/2223-9987-2023-2-54-70; https://atjournal.ru/ru/storage/download/122759");
         }
         // Initial prestrain and neutral stop history; its potential is explicitly initial energy.
         public CouplerState InitializeState(double displacementM) {

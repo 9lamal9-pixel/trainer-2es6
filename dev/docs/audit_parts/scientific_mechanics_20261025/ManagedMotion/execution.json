@@ -1,0 +1,22 @@
+{
+  "id": "ManagedMotion",
+  "scope": "Actual native electrical/pneumatic genuine start drives scientific managed76bodyprofile: effective6460t, publishedSh2Vpair, directSI pressure-rigging-one-shoe brake force. PhysicalKMV/IV/II, source/read/reset checks. Teachinggreen/scriptedRBS, not OEM/fullroute/cabEDT/AVP acceptance.",
+  "status": "passed",
+  "artifacts": [
+    {
+      "path": "Trainer_managed_motion_validation.json",
+      "sha256": "7A960ED9A7BC97610834D36CF5F9147DEA6493A0AE5E6EF5B972297CD7343E0C"
+    }
+  ],
+  "build_id": "build-20261025T112646818Z-8fc2a672",
+  "pid": 31672,
+  "exit_code": 0,
+  "session": {
+    "id": "20261025T112650742Z_p31672_d93641547e3e409389008a111343c3a3",
+    "state": "closed",
+    "exceptions": 0,
+    "logging_failures": 0,
+    "source_build_id": "build-20261025T112646818Z-8fc2a672"
+  },
+  "finished_utc": "2026-10-25T11:27:32.1400281Z"
+}

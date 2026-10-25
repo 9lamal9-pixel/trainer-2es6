@@ -1,0 +1,489 @@
+{
+  "schema_version": 1,
+  "utc": "2026-10-25T11:41:19.5763276Z",
+  "user_local_date": "2026-10-25",
+  "status": "validated_typical_scientific_reference_scenario",
+  "user_selection": "Use a typical calculation profile",
+  "profile": {
+    "path": "dev/config/train-mechanics.json",
+    "sha256": "E10BEC82DBAA9E51EF2ECA10C2FB7F5E250327976E28939349ED4536BEC0A81C",
+    "archived": "train-mechanics.json"
+  },
+  "physical_mass_kg": 6200000,
+  "equivalent_rotating_mass_kg": 260000,
+  "effective_mass_kg": 6460000,
+  "inertia": {
+    "gamma_locomotive": 0.25,
+    "gamma_loaded80t_wagon": 0.035,
+    "sensitivity_effective_mass_kg": [
+      6420000,
+      6500000
+    ],
+    "source": "inertia-research.json"
+  },
+  "coupler": {
+    "profile": "sh2v-pair-published-2023",
+    "one_gear_stroke_m": 0.09,
+    "pair_stroke_m": 0.18,
+    "total_slack_m": 0.065,
+    "source": "coupler-research.json",
+    "published_calculated_curve_not_OEM_measurement": true
+  },
+  "brake": {
+    "source": "directSI actual pressure to piston/rod/rigging/one-shoe friction",
+    "wagon": "GOST34434 AppendixG effectiveness 2x254mm/8composite shoes",
+    "locomotive": "4actualbogies,each4x203mm670V/8shoes,typeM curve",
+    "legacy_POEZD_force_used_for_production": false,
+    "research": "brake-research.json"
+  },
+  "tests": [
+    {
+      "id": "RotatingInertia",
+      "run": "test-20261025T112621912Z-be98cff8",
+      "passed": true,
+      "exit_code": 0,
+      "checks": 57,
+      "all_build_sources_match_current": true,
+      "artifact": "RotatingInertia/Trainer_rotating_inertia_validation.json",
+      "sha256": "C1A7B71EAA3A14CDF63D3D4A1A5D6546E07031228BD4E167CF8ED0224CC2C394",
+      "scope": "Analytic rotating energy/mass, geared rotor square ratio, effective6460t/physical6200t, kernel integration; literature reference gamma, not OEM component J.",
+      "session": null
+    },
+    {
+      "id": "ScientificBrakeForces",
+      "run": "test-20261025T112621912Z-be98cff8",
+      "passed": true,
+      "exit_code": 0,
+      "checks": 37,
+      "all_build_sources_match_current": true,
+      "artifact": "ScientificBrakeForces/Trainer_scientific_brake_validation.json",
+      "sha256": "E8972917FA515F821DA99BD2D877E41A7D7D3BD85DBF30A9D2F7219A815A4A65",
+      "scope": "PressurePa/pistonN/springN/lever/one-shoeN/frictionN; independent GOSTG9 minima, four unequal bogies and M curve. Typical profile, no native pressures or OEM acceptance.",
+      "session": null
+    },
+    {
+      "id": "ScientificCouplers",
+      "run": "test-20261025T112621912Z-be98cff8",
+      "passed": true,
+      "exit_code": 0,
+      "checks": 58,
+      "all_build_sources_match_current": true,
+      "artifact": "ScientificCouplers/Trainer_scientific_coupler_validation.json",
+      "sha256": "436182B1CD18C349DFBD4B6CC72A78E96EF8663A0F33FBBF7B8A47413A3A0D0D",
+      "scope": "Published calculated pair fit, doubled stroke/energy, totalgap65mm, locked unloading, passivity and tangent bounds. No installed equipment or factory gear certification.",
+      "session": null
+    },
+    {
+      "id": "ScientificMechanics",
+      "run": "test-20261025T112621912Z-be98cff8",
+      "passed": true,
+      "exit_code": 0,
+      "checks": 178,
+      "all_build_sources_match_current": true,
+      "artifact": "ScientificMechanics/Trainer_scientific_mechanics_validation.json",
+      "sha256": "2AAF9AAAEF466A7300248BE4BC9866970768222E85AB2C44C6F2F0606FD857E8",
+      "scope": "Reference config/frame, independent SI force table, fixed-pressure stopping benchmark against Simpson quadrature, timestep convergence and work/energy. Not a native pressure-wave or normative full-train stop test.",
+      "session": null
+    },
+    {
+      "id": "TrainDynamicsKernel",
+      "run": "test-20261025T112621912Z-be98cff8",
+      "passed": true,
+      "exit_code": 0,
+      "checks": 90,
+      "all_build_sources_match_current": true,
+      "artifact": "TrainDynamicsKernel/Trainer_train_dynamics_kernel_validation.json",
+      "sha256": "16F542163A9A480468D83561F40FBC74F7226DD02E29D9DF567AA8A1BBF909AB",
+      "scope": "Managed component only: 76 bodies, signed braking/static holding, mass/inertia, work/energy, callbacks and rollback. No native pneumatics or factory calibration acceptance.",
+      "session": null
+    },
+    {
+      "id": "ContactAndCoupler",
+      "run": "test-20261025T112621912Z-be98cff8",
+      "passed": true,
+      "exit_code": 0,
+      "checks": 83,
+      "all_build_sources_match_current": true,
+      "artifact": "ContactAndCoupler/Trainer_contact_and_coupler_validation.json",
+      "sha256": "BE21BE50C6321F28BFE154D6434587A40C9B0C7A1BC2368A0725F2EAF5AF847A",
+      "scope": "Independent managed component checks of low-creep slope, force signs and passivity; illustrative gear profile, not calibrated SA3. Polach not wired as a second native traction limiter.",
+      "session": null
+    },
+    {
+      "id": "ManagedFloatingScope",
+      "run": "test-20261025T112621912Z-be98cff8",
+      "passed": true,
+      "exit_code": 0,
+      "checks": 29,
+      "all_build_sources_match_current": true,
+      "artifact": "ManagedFloatingScope/Trainer_managed_floating_scope_validation.json",
+      "sha256": "143267FDED2C5EDD72586BD8FDF7EF6743836FB72086342351999E384D1C1B2E",
+      "scope": "x86 component: raw x87/MXCSR preservation, nested scopes and native callback environment, exceptions/restoration. No trainer DLL initialization or factory physics acceptance.",
+      "session": null
+    },
+    {
+      "id": "ColdNoSource",
+      "run": "test-20261025T112621912Z-be98cff8",
+      "passed": true,
+      "exit_code": 0,
+      "checks": null,
+      "all_build_sources_match_current": true,
+      "artifact": "ColdNoSource/Trainer_cold_no_source_validation.json",
+      "sha256": "38F7D1B5BB4F5A8DBBBECB374D8FD753AF2BBC5A85A64C7DCFA0FCEE4871682B",
+      "scope": "77 узлов, временный Pzar=0 при InitSostavClass, затем уставка 5; 1000 электрических/пневматических шагов. Каждый шаг проверяет абсолютное давление ТМ/ТЦ/ЗР и ПМ/УР <=1e-5 при выключенных компрессорах/SF3/KN7. Повторный InitNew не вызывается. Полный запуск электровоза не принят. Ограничение выявлено при аудите поезда: tempPzar0 InitSostavClass перекалибровывает Dut; результат подтверждает только заявленные dry/control/PM assertions, не штатную вагонную геометрию или зарядку полного состава. Использовать TrainPneumatic для сохранённой геометрии.",
+      "session": {
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "build": "build-20261025T112636395Z-731a0689",
+        "exe_sha256": "0C3FD8119BD32575AEAC4A8935E621C9B6E6F420CD36BCAFBE9DAE63BB7577A3"
+      }
+    },
+    {
+      "id": "ManagedMotion",
+      "run": "test-20261025T112621912Z-be98cff8",
+      "passed": true,
+      "exit_code": 0,
+      "checks": 193,
+      "all_build_sources_match_current": true,
+      "artifact": "ManagedMotion/Trainer_managed_motion_validation.json",
+      "sha256": "7A960ED9A7BC97610834D36CF5F9147DEA6493A0AE5E6EF5B972297CD7343E0C",
+      "scope": "Actual native electrical/pneumatic genuine start drives scientific managed76bodyprofile: effective6460t, publishedSh2Vpair, directSI pressure-rigging-one-shoe brake force. PhysicalKMV/IV/II, source/read/reset checks. Teachinggreen/scriptedRBS, not OEM/fullroute/cabEDT/AVP acceptance.",
+      "session": {
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "build": "build-20261025T112646818Z-8fc2a672",
+        "exe_sha256": "CA2446F738F4A5F7C49E2E4DE366176D718301D920D9949687DDAF66B74041B5"
+      }
+    },
+    {
+      "id": "ContactNetworkVoltage",
+      "run": "test-20261025T112621912Z-be98cff8",
+      "passed": true,
+      "exit_code": 0,
+      "checks": 288,
+      "all_build_sources_match_current": true,
+      "artifact": "ContactNetworkVoltage/Trainer_contact_voltage_validation.json",
+      "sha256": "539484DE806D6791520B55C8356A97DB328B7D58F3A0AF7E246BCFC6CC523475",
+      "scope": "Номинал3000В, genuine старт до3км/ч без prepared speed, явные teaching green/RBS. Пять native producers+Eset: P1/type0/ненулевая I/F без промежуточногоHelp, мгновенный rawIa отклик3200>2800; range0..4101, оба вида возбуждения, общийroofgate/одинТП/доБВ. Отдельная component-only EDT через native setters/CalcRecup. 5entries/Eset/inputs restored; не приёмка Napruga/ПСН/защитных порогов, фактическогоUкс в обычной рекуперации или F(v).",
+      "session": {
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "build": "build-20261025T112732152Z-db91fb53",
+        "exe_sha256": "5A468E3A1752B205E11604F05C0F11900BB5AE67846764D0748CAEED45C5FBB4"
+      }
+    },
+    {
+      "id": "Sa47NativeButton",
+      "run": "test-20261025T112621912Z-be98cff8",
+      "passed": true,
+      "exit_code": 0,
+      "checks": 14,
+      "all_build_sources_match_current": true,
+      "artifact": "Sa47NativeButton/Trainer_sa47_native_button_validation.json",
+      "sha256": "82D3ECC9DAA4D8C1F52C630A98D3265E7A9A322856194B962AA1C14A29E1D3F5",
+      "scope": "Настоящие nativeDwnButton/UpBtn с SHA/байтовыми/VMT guards. Физическийidle0→логическаяготовность1, press1→impulse2, up0→1ссохранениемпамяти; отдельныйcancel0. Все4ТЦ/память и inputrestore. Неаппаратура,непиксели,неfastclickмежду100msциклами.",
+      "session": {
+        "state": "closed",
+        "exceptions": 0,
+        "logging_failures": 0,
+        "build": "build-20261025T112826009Z-6095eda7",
+        "exe_sha256": "823D88210A92E001948E1E512B1B6058149BBDFC027664785163268D2E84BDC9"
+      }
+    }
+  ],
+  "builds": [
+    {
+      "profile": "integration",
+      "id": "build-20261025T113430067Z-3f6fa261",
+      "sources": 42,
+      "sha256": "2B896C33372D3B4844E2D41D1A28255B5B78A65DCA31D821A5F08E1E0A1AAB1E",
+      "status": "built"
+    },
+    {
+      "profile": "candidate",
+      "id": "build-20261025T113434049Z-152e4f61",
+      "sources": 49,
+      "sha256": "A1EA2E4F272F673D513F8DBA39EA9BA4FFD5049FB80A417498F6C26B0AF4D860",
+      "status": "built"
+    }
+  ],
+  "deployed": {
+    "path": "outputs/TrainerIntegrationHost.pneumatic_candidate.exe",
+    "sha256": "A1EA2E4F272F673D513F8DBA39EA9BA4FFD5049FB80A417498F6C26B0AF4D860"
+  },
+  "project_source_parity": {
+    "candidate": 49,
+    "integration": 42,
+    "equal": true,
+    "msbuild_both_profiles_exit_code": 0,
+    "reference_pack_warning": "MSB3644: installed GAC used for NET4; compilation and runtime probes succeeded"
+  },
+  "canonical_candidate_sources": [
+    {
+      "path": "outputs/TrainerIntegrationHost.cs",
+      "sha256": "14A8C57666E22774D6805700F5A41723390133C953FCE2B284F212F32C277BF5"
+    },
+    {
+      "path": "outputs/TrainerNativeSystems.cs",
+      "sha256": "642E746DC4F8F30987DD1D674EF2FB168DA1B3881B065DA21C1FB5D86591131A"
+    },
+    {
+      "path": "outputs/TrainerContactNetwork.cs",
+      "sha256": "49987C7229A5FB4F9E1B3ECDAC376A845D51A65AA90BA182AD71B09E388EDB57"
+    },
+    {
+      "path": "outputs/TrainerContactVoltagePatch.cs",
+      "sha256": "00BF915BCDDA8470EED50E153D79D581EF3918CFD5BCA06765B4307653943986"
+    },
+    {
+      "path": "outputs/TrainerNativeBrakeRelease.cs",
+      "sha256": "43BC878ADDC72999BD44517284AA6CCA71F3DACDA9847D0C6F2D95588F1C1EF1"
+    },
+    {
+      "path": "outputs/TrainerSa47MemoryPatch.cs",
+      "sha256": "08AF53F738C8ADB72192D5928FEF4DFDA415CCB2513CC49499E67FC7655FEB7E"
+    },
+    {
+      "path": "outputs/TrainerAuxSystems.cs",
+      "sha256": "5C1698FCCC74D27BD8364955DF7D88925A7698FB9422AE34D56206611227A9DA"
+    },
+    {
+      "path": "outputs/TrainerRouteDOS.cs",
+      "sha256": "A6833BDFDD042E47A5570F0BB7C39AD823FED3024C03713129D33AC6ABE8F4BE"
+    },
+    {
+      "path": "outputs/TrainerAutovedenieController.cs",
+      "sha256": "EF6CE777859B0D84847A648E1C29111D4F5BCDF2DA107660FD2EDCFEBCA4DCFB"
+    },
+    {
+      "path": "outputs/TrainerTrainBrakeCycle.cs",
+      "sha256": "783FFD1DF4546C99FB131A3A88D71211CBCD67226D002BA254AFF7C9E20E9A8B"
+    },
+    {
+      "path": "outputs/TrainerAutovedenieInterface.cs",
+      "sha256": "EE116B7847A4B946F56EA84DD4F1E8713541E2C0EB3494DCC7085555C384FDCE"
+    },
+    {
+      "path": "outputs/TrainerAutovedenieNativeBridge.cs",
+      "sha256": "EC5C8CB86162319E2AD2030B313EDDB820D2D4F4EC8ACFBF702072846C4D9341"
+    },
+    {
+      "path": "outputs/TrainerAutovedenieHost.cs",
+      "sha256": "6CDC3D240C5968426C137CCF880C3C0742280414292CCDCDDC85E778E3984DB2"
+    },
+    {
+      "path": "outputs/TrainerSautOperatorControls.cs",
+      "sha256": "B78D647440FB4521B97728131A3DF16EC4CDA56D19912C484AEF8AF16FD2E9F8"
+    },
+    {
+      "path": "outputs/TrainerStandaloneSautBinding.cs",
+      "sha256": "7480B65A77C0883BF1FD8EAD8402970355C56BDF1765D011D720052DAFA71145"
+    },
+    {
+      "path": "outputs/TrainerRouteView.cs",
+      "sha256": "CD86F938C78FB0E3A2F49441050D3965BEACDDA1AB861B8F6C59D4B45CF27204"
+    },
+    {
+      "path": "outputs/TrainerNativeFixes.cs",
+      "sha256": "E8D47DAC13D7D1152DEE2206CA5F77A0D4B307313CFBBC506067343495250B4D"
+    },
+    {
+      "path": "outputs/TrainerPneumaticTiming.cs",
+      "sha256": "FAA88FB80BC132188A846AF2453265B2D54E7284D98C38AF881094AFB9D5B2E2"
+    },
+    {
+      "path": "outputs/TrainerSessionLogging.cs",
+      "sha256": "FC409229F2F44AEE2C97FC4633107DACD199C63CE73F6717633C900C8DCEF101"
+    },
+    {
+      "path": "outputs/TrainerAirNetwork.cs",
+      "sha256": "86D4BC73601012D7A4109BEEAA26360F8C476CC06D2FDDE61C3BB1B66F646B32"
+    },
+    {
+      "path": "outputs/TrainerControlAir.cs",
+      "sha256": "45F273528A4E83BB5FC166367646C1A234FDE578C20128AF2881E2A35EF0C4B6"
+    },
+    {
+      "path": "outputs/TrainerBtoNetwork.cs",
+      "sha256": "5E83C5F3BBB597757A8DCFB48881625AD398970A714E4710AFDBA9AD39E58027"
+    },
+    {
+      "path": "outputs/TrainerAirSelector.cs",
+      "sha256": "E4E86DE362E66D7A55C23968F52D1FE1EB64C631D07E18B7D9BACE142C6263FD"
+    },
+    {
+      "path": "outputs/TrainerKvtProfile.cs",
+      "sha256": "E80696785D2542FB5BE5920A87EE6A51368043B06E7FBB388992A9F19A0E17B7"
+    },
+    {
+      "path": "outputs/TrainerTwoSectionAirChain.cs",
+      "sha256": "C04801AB0DFCD7AF736D8069909EC4D8C07C71C1F14CAF393E30F5043F86BBBC"
+    },
+    {
+      "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+      "sha256": "F751BEFB1D8305CFF9B4C1A9AA141CAB22AA26F40F5F792C097000C139157D60"
+    },
+    {
+      "path": "outputs/TrainerTrainPressureView.cs",
+      "sha256": "431EA70A22205EE44EDDB51D71CD2A816AE46912CD14C6DAD7C5F1C165BECD61"
+    },
+    {
+      "path": "outputs/TrainerSafetyInputContext.cs",
+      "sha256": "71883123E6C657A5A62355EA673DC7BB4E10646320141002BE81ABFC57FD5D84"
+    },
+    {
+      "path": "outputs/TrainerSafetyContexts.cs",
+      "sha256": "EFDAFA1202F26FF507A242FF6F2AD7971D2D169619ECAA4FA35B81FD533CF0B4"
+    },
+    {
+      "path": "outputs/TrainerNativeSafetyAdapter.cs",
+      "sha256": "50CFD589AB74F667DF336ABCF157225B5F6BE8CD6F50DB369B828BA58D4E58AA"
+    },
+    {
+      "path": "outputs/TrainerSafetyHost.cs",
+      "sha256": "05ABACF21249C5EF6B7C45C965CDCF94CC3FAFDCF2645FF55D9E8BC28B2BD7B9"
+    },
+    {
+      "path": "outputs/TrainerVigilanceOperatorControls.cs",
+      "sha256": "5A93EC26F39341D0E6632A275BBE1177FB7966E85854C47A32F3658EA178957F"
+    },
+    {
+      "path": "outputs/TrainerMarkupSignalSource.cs",
+      "sha256": "0C927B8BBE2B6A2B444623A83F3C2FEC38577DDBB1E85F8172BE61174CB036A6"
+    },
+    {
+      "path": "outputs/TrainerMarkupHost.cs",
+      "sha256": "BE9D9F6744F80BA327D46392641C3D4240B3D7A7ABC09E12D4BE43FCA83E0266"
+    },
+    {
+      "path": "outputs/TrainerKlubSafetyBinding.cs",
+      "sha256": "942ACF68C73403CE35B833322E85274ED11C37CDB879140C0B3BA5E224F95006"
+    },
+    {
+      "path": "outputs/TrainerNativeVirtualPult.cs",
+      "sha256": "F54E569EB6C9F0B72541E5D08C90999FA572656B06138FBDB7B5EC7EEDC7CE24"
+    },
+    {
+      "path": "outputs/TrainerSandAirInput.cs",
+      "sha256": "C9BA33F9E2ABCBAAE0F3284B20B63A8880B50C4B0DF8B139ABB04E3EAE258C89"
+    },
+    {
+      "path": "outputs/TrainerModernTractionPhysics.cs",
+      "sha256": "E053A8A34488B46C30DCE80774D61FC1DCA8B719276D90DAA062E18031995970"
+    },
+    {
+      "path": "outputs/TrainerModernTractionIntegration.cs",
+      "sha256": "B6D47C6F9F685C2D74D51FD5102E03F02F53CEDD1FC4259103A2B203D1DDC8E4"
+    },
+    {
+      "path": "outputs/TrainerPolachAdhesion.cs",
+      "sha256": "FCE9F7B7FA95E190AD89176CC63A72CCE76F498BA23DE5F243A992456BDCEF5E"
+    },
+    {
+      "path": "outputs/TrainerFrictionDraftGear.cs",
+      "sha256": "043F9151C0BFE79E2D1FEDF3361007C53B2FA92E67313F7728BB38F698E03720"
+    },
+    {
+      "path": "outputs/TrainerLongitudinalDynamics.cs",
+      "sha256": "7C8562502440D4123459D502D431B7EC479174CB2B64E26502D16554C3FA02A7"
+    },
+    {
+      "path": "outputs/TrainerIndependentExcitation.cs",
+      "sha256": "66027CA0FB0A35A31A279CA87A229CA8D1ABAB90516F86020B4267F76688C4A3"
+    },
+    {
+      "path": "outputs/TrainerManagedMotion.cs",
+      "sha256": "A22074514404D13E78EFEA9D4D671BB0EB18B86A55D200AAC92C36FF9812762F"
+    },
+    {
+      "path": "outputs/TrainerNativeBrakeForceProvider.cs",
+      "sha256": "58AB9B7866F7DC171D2BA8AFDD578231241A318FE5AFF0E806D517B70F65E4A9"
+    },
+    {
+      "path": "outputs/TrainerManagedFloatingScope.cs",
+      "sha256": "BD3D766AD25AD408BCE3AA84A2327653B941C359E0064B9A9DD29F1372A15C6A"
+    },
+    {
+      "path": "outputs/TrainerRotatingInertia.cs",
+      "sha256": "3E8EA4F4AC42D3985A2275FB89F4BD5E592B792F99BA6A666F00CD10FB8D60F6"
+    },
+    {
+      "path": "outputs/TrainerScientificBrakeForces.cs",
+      "sha256": "886D0BFC32EE258D32A8D55ACD637D8840F0B6C40D1298BA8D6452DDB00AC557"
+    },
+    {
+      "path": "outputs/TrainerScientificMechanics.cs",
+      "sha256": "03E907CE1A4ACC56678C8CA2182210D7742D9F4F876712726403681A114EFCF3"
+    }
+  ],
+  "native_modules": [
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/TormModel.dll",
+      "sha256": "F871640C5B7699901E3AFBF755BB2B797B659524C29BAA046B311CA6ECC875B9",
+      "unchanged": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Tyga1.dll",
+      "sha256": "8EC6A82E618A1D75CBB31242784084B530BB87308E601DEFC5263D5279270491",
+      "unchanged": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/POEZD.DLL",
+      "sha256": "822B6D17CE45F80179A512EE6C70A35D5AE29BF187530BDA5EBD11446CFB3553",
+      "unchanged": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Pult1.dll",
+      "sha256": "7DAC59BF94276309E012A6EB72602C08A921FE1910A4169F9F0EC27008F0F8F5",
+      "unchanged": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Communication1.dll",
+      "sha256": "27178A089EF33692D16B1D46AE0DD7567135B327A24BE9D7D0CA84AF8DF3DB7F",
+      "unchanged": true
+    }
+  ],
+  "independent_quadrature": {
+    "method": "Composite Simpson in velocity; t=integral(m/B(v))dv, s=integral(m*v/B(v))dv",
+    "independent_capacity": "75 literal composite-wagon equations plus four literal locomotive type-M bogie equations",
+    "distance_2048_m": 502.1042586881477,
+    "distance_4096_m": 502.1042586881463,
+    "time_2048_s": 42.94470537170945,
+    "time_4096_s": 42.94470537170952,
+    "pressure_Pa": 300000,
+    "initial_speed_kmh": 80
+  },
+  "native_motion": {
+    "checks": 193,
+    "cycles": 1580,
+    "genuine_speed_preparations": 0,
+    "inputs_restored": true,
+    "native_closed": true
+  },
+  "plot": {
+    "path": "scientific-profile.png",
+    "sha256": "F6A92D5B2662554C36C1A5560A6748E63AD8516A0A9CF2389CE22EB22B73A5F7"
+  },
+  "source_archive_scope": "Selected complete relevant page images, research notes, configuration, calculation outputs and build/session manifests are versioned. Full research PDFs remain in local dev/runs; primary URLs and hashes are in the research notes.",
+  "previous_failures_preserved": [
+    "test-20261025T111619883Z-e13cac35: inertia result-directory fixture and old standard-iron reference while profile selectedM",
+    "test-20261025T111745869Z-22546ba8: independent energy oracle replaced heuristic tolerance with derived solver-residual bound",
+    "test-20261025T112106287Z-7d65c02f: JSON case-insensitive material/Material property collision corrected"
+  ],
+  "limitations": [
+    "Typical reference, not installed OEM identification",
+    "Locomotive represented as one rigid200t body, no internal section coupler dynamics",
+    "Native pneumatic pressure/volume/load regulation retained, not reidentified by the new mechanical surrogate",
+    "Fixed spring/stroke parameters; no accepted wet/thermal/wear/slide calibration",
+    "Constant-pressure integral is not an actual train braking-distance acceptance",
+    "Full route, operational AVP and exact RE137+ configuration remain unaccepted",
+    "Historic regression receipts are not current full-model certification"
+  ],
+  "full_RE_conformity_accepted": false,
+  "factory_equipment_identified": false,
+  "full_normative_brake_acceptance": false,
+  "named_assertions_total": 1027
+}

@@ -7,7 +7,7 @@ namespace RailwayDynamics.Simulation {
     /// </summary>
     public enum BrakeShoeType {
         StandardCastIron = 1,       // Чугунные стандартные колодки (Формула 56 ПТР)
-        PhosphorusCastIronP10 = 2,  // Чугунные колодки с 1.0-1.4% фосфора / UIC P10 (Формула 57 ПТР)
+        PhosphorusCastIronP10 = 2,  // Historical API name: PTR phosphorus / published M reference curve; no OEM or UIC identification.
         Composite = 3               // Композиционные колодки (Формула 58 ПТР)
     }
 
@@ -20,24 +20,28 @@ namespace RailwayDynamics.Simulation {
         /// в зависимости от скорости v и силы нажатия на одну колодку K1
         /// </summary>
         public static double ComputeBrakeShoeFriction(BrakeShoeType type, double speedMps, double forcePerShoeNewton) {
+            if (Double.IsNaN(speedMps) || Double.IsInfinity(speedMps)) throw new ArgumentOutOfRangeException("speedMps");
+            if (Double.IsNaN(forcePerShoeNewton) || Double.IsInfinity(forcePerShoeNewton) || forcePerShoeNewton < 0)
+                throw new ArgumentOutOfRangeException("forcePerShoeNewton");
             double vKmh = Math.Abs(speedMps) * 3.6;
-            double k1Tf = Math.Max(0.0, forcePerShoeNewton / 9806.65); // пересчет Ньютонов в тонна-силы
+            if (Double.IsInfinity(vKmh) || vKmh > Double.MaxValue / 5.0) throw new ArgumentOutOfRangeException("speedMps");
+            double k1Kn = forcePerShoeNewton / 1000.0; // Actual normal force on ONE shoe, kN (not vehicle total).
 
             switch (type) {
                 case BrakeShoeType.StandardCastIron:
-                    // Формула 56 ПТР: phi_k = 0.60 * ((16 K1 + 100) / (80 K1 + 100)) * ((v + 100) / (5v + 100))
-                    return 0.60 * ((16.0 * k1Tf + 100.0) / (80.0 * k1Tf + 100.0)) * ((vKmh + 100.0) / (5.0 * vKmh + 100.0));
+                    // SI form of PTR standard cast iron: K in kN, speed in km/h.
+                    return 0.60 * ((1.6 * k1Kn + 100.0) / (8.0 * k1Kn + 100.0)) * ((vKmh + 100.0) / (5.0 * vKmh + 100.0));
 
                 case BrakeShoeType.PhosphorusCastIronP10:
-                    // Формула 57 ПТР: phi_k = 0.50 * ((24 K1 + 100) / (80 K1 + 100)) * ((v + 150) / (5v + 150))
-                    return 0.50 * ((24.0 * k1Tf + 100.0) / (80.0 * k1Tf + 100.0)) * ((vKmh + 150.0) / (5.0 * vKmh + 150.0));
+                    // PTR phosphorus cast iron (1.0-1.4% P), SI form; this is not an OEM material identification.
+                    return 0.50 * ((1.6 * k1Kn + 100.0) / (5.2 * k1Kn + 100.0)) * ((vKmh + 100.0) / (5.0 * vKmh + 100.0));
 
                 case BrakeShoeType.Composite:
-                    // Формула 58 ПТР: phi_k = 0.44 * ((K1 + 20) / (4 K1 + 20)) * ((v + 150) / (2v + 150))
-                    return 0.44 * ((k1Tf + 20.0) / (4.0 * k1Tf + 20.0)) * ((vKmh + 150.0) / (2.0 * vKmh + 150.0));
+                    // GOST 34434-2018 8.3.2.6 (14): actual K in kN, not calculated/equivalent pressing.
+                    return 0.44 * ((0.1 * k1Kn + 20.0) / (0.4 * k1Kn + 20.0)) * ((vKmh + 150.0) / (2.0 * vKmh + 150.0));
 
                 default:
-                    return 0.25;
+                    throw new ArgumentOutOfRangeException("type");
             }
         }
 
@@ -45,7 +49,9 @@ namespace RailwayDynamics.Simulation {
         /// Расчетный коэффициент трения колодок по ПТР (Формулы 59-60)
         /// </summary>
         public static double ComputeCalculatedShoeFriction(BrakeShoeType type, double speedMps) {
+            if (Double.IsNaN(speedMps) || Double.IsInfinity(speedMps)) throw new ArgumentOutOfRangeException("speedMps");
             double vKmh = Math.Abs(speedMps) * 3.6;
+            if (Double.IsInfinity(vKmh) || vKmh > Double.MaxValue / 5.0) throw new ArgumentOutOfRangeException("speedMps");
             switch (type) {
                 case BrakeShoeType.StandardCastIron:
                 case BrakeShoeType.PhosphorusCastIronP10:
@@ -57,7 +63,7 @@ namespace RailwayDynamics.Simulation {
                     return 0.36 * (vKmh + 150.0) / (2.0 * vKmh + 150.0);
 
                 default:
-                    return 0.25;
+                    throw new ArgumentOutOfRangeException("type");
             }
         }
     }

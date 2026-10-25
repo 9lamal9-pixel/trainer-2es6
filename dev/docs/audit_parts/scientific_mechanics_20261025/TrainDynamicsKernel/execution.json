@@ -1,0 +1,15 @@
+{
+  "id": "TrainDynamicsKernel",
+  "scope": "Managed component only: 76 bodies, signed braking/static holding, mass/inertia, work/energy, callbacks and rollback. No native pneumatics or factory calibration acceptance.",
+  "status": "passed",
+  "artifacts": [
+    {
+      "path": "Trainer_train_dynamics_kernel_validation.json",
+      "sha256": "16F542163A9A480468D83561F40FBC74F7226DD02E29D9DF567AA8A1BBF909AB"
+    }
+  ],
+  "build_id": "build-20261025T112631032Z-0c1b3d1d",
+  "pid": 45736,
+  "exit_code": 0,
+  "finished_utc": "2026-10-25T11:26:33.2318215Z"
+}
