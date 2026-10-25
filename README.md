@@ -13,6 +13,7 @@
 | [`codex/safety`](https://github.com/9lamal9-pixel/trainer-2es6/tree/codex/safety) | Защитные системы, приоритеты торможения и операторские органы | [README области](https://github.com/9lamal9-pixel/trainer-2es6/blob/codex/safety/dev/docs/branches/safety/README.md) |
 | [`codex/routes`](https://github.com/9lamal9-pixel/trainer-2es6/tree/codex/routes) | Режимная карта, профиль пути, ограничения, сигналы и материалы 3D | [README области](https://github.com/9lamal9-pixel/trainer-2es6/blob/codex/routes/dev/docs/branches/routes/README.md) |
 | [`codex/autovedenie`](https://github.com/9lamal9-pixel/trainer-2es6/tree/codex/autovedenie) | Контроллер АВП, управление тягой/торможением, интерфейс и калибровки | [README области](https://github.com/9lamal9-pixel/trainer-2es6/blob/codex/autovedenie/dev/docs/branches/autovedenie/README.md) |
+| [`codex/re-part1`](https://github.com/9lamal9-pixel/trainer-2es6/tree/codex/re-part1) | Постраничное соответствие первой части РЭ и связанные исправления, включая SA47 | [README области](dev/docs/branches/re-part1/README.md) |
 | [`codex/environment`](https://github.com/9lamal9-pixel/trainer-2es6/tree/codex/environment) | Настройка Windows, сборка, запуск проб, упаковка Release и документация | [README области](https://github.com/9lamal9-pixel/trainer-2es6/blob/codex/environment/dev/docs/branches/environment/README.md) |
 
 ### Общие файлы и пересечения
