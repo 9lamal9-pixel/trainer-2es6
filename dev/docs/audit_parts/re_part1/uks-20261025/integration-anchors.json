@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-25T04:31:30.272670+00:00",
+  "scope": "Current source anchors only; root may still update host/probe files. The scratch patch itself is frozen by the recorded SHA.",
+  "files": [
+    {
+      "path": "outputs/TrainerIntegrationHost.cs",
+      "sha256": "3360b415a61a879bb0fd75f0977c0da4b111794a145a30badb4a6faf242a4e47",
+      "line_count": 151,
+      "anchors": [
+        {
+          "token": "void StartNative",
+          "line": 119,
+          "additional_lines": []
+        },
+        {
+          "token": "InitializeContactNetwork();",
+          "line": 129,
+          "additional_lines": []
+        },
+        {
+          "token": "FormClosed+=",
+          "line": 30,
+          "additional_lines": []
+        }
+      ]
+    },
+    {
+      "path": "outputs/TrainerAuxSystems.cs",
+      "sha256": "170a416046be234820aac2f8707ef72b2c1a3fb3085f7d6eb403d73f6520d4d5",
+      "line_count": 127,
+      "anchors": [
+        {
+          "token": "void PollCommands",
+          "line": 102,
+          "additional_lines": []
+        },
+        {
+          "token": "ReadContactNetworkCommand",
+          "line": 103,
+          "additional_lines": []
+        },
+        {
+          "token": "void ElectricalCycle()",
+          "line": 124,
+          "additional_lines": []
+        }
+      ]
+    },
+    {
+      "path": "outputs/TrainerNativeSystems.cs",
+      "sha256": "85ee79a1261fc4e346cec1d933fab83280526243ee2a8091747334e629fa7c3d",
+      "line_count": 110,
+      "anchors": [
+        {
+          "token": "void InitializePhysics",
+          "line": 23,
+          "additional_lines": []
+        },
+        {
+          "token": "void PneumaticCycle()",
+          "line": 58,
+          "additional_lines": []
+        },
+        {
+          "token": "void MotionCycle()",
+          "line": 79,
+          "additional_lines": []
+        }
+      ]
+    },
+    {
+      "path": "outputs/TrainerContactNetwork.cs",
+      "sha256": "49987c7229a5fb4f9e1b3ecdac376a845d51a65aa90ba182ad71b09e388edb57",
+      "line_count": 57,
+      "anchors": [
+        {
+          "token": "SetContactNetworkVoltage",
+          "line": 10,
+          "additional_lines": [
+            27
+          ]
+        },
+        {
+          "token": "ReadContactNetworkCommand",
+          "line": 19,
+          "additional_lines": []
+        },
+        {
+          "token": "InitializeContactNetwork",
+          "line": 30,
+          "additional_lines": []
+        },
+        {
+          "token": "BeforeContactNetworkElectricalCycle",
+          "line": 33,
+          "additional_lines": [
+            37
+          ]
+        },
+        {
+          "token": "AfterContactNetworkElectricalCycle",
+          "line": 42,
+          "additional_lines": []
+        },
+        {
+          "token": "CloseContactNetwork",
+          "line": 49,
+          "additional_lines": []
+        }
+      ]
+    },
+    {
+      "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+      "sha256": "3c388354adac36b8d0fff3ad4422efb79dea88524ec784d02e85a159b1a336cf",
+      "line_count": 199,
+      "anchors": [
+        {
+          "token": "partial void BeforeElectricalAirCycle",
+          "line": 39,
+          "additional_lines": []
+        },
+        {
+          "token": "ConnectControlPowerCommands",
+          "line": 45,
+          "additional_lines": [
+            157
+          ]
+        },
+        {
+          "token": "ConnectSectionPantographPressure",
+          "line": 46,
+          "additional_lines": [
+            173
+          ]
+        },
+        {
+          "token": "NativeControlPowerReady",
+          "line": 182,
+          "additional_lines": [
+            183
+          ]
+        },
+        {
+          "token": "void StepHostControlAir",
+          "line": 183,
+          "additional_lines": []
+        },
+        {
+          "token": "partial void CloseNativeAirCircuit",
+          "line": 118,
+          "additional_lines": []
+        }
+      ]
+    },
+    {
+      "path": "outputs/TrainerNativeBrakeRelease.cs",
+      "sha256": "43bc878addc72999bd44517284aa6cca71f3dacda9847d0c6f2d95588f1c1ef1",
+      "line_count": 194,
+      "anchors": [
+        {
+          "token": "BeforeReleaseElectricalCycle",
+          "line": 172,
+          "additional_lines": []
+        },
+        {
+          "token": "AfterReleaseElectricalCycle",
+          "line": 180,
+          "additional_lines": []
+        },
+        {
+          "token": "EndReleaseElectricalCycle",
+          "line": 187,
+          "additional_lines": []
+        },
+        {
+          "token": "CloseNativeBrakeRelease",
+          "line": 193,
+          "additional_lines": []
+        }
+      ]
+    },
+    {
+      "path": "outputs/TrainerNativeVirtualPult.cs",
+      "sha256": "f54e569eb6c9f0b72541e5d08c90999fa572656b06138fbdb7b5ec7eedc7ce24",
+      "line_count": 190,
+      "anchors": [
+        {
+          "token": "RequireInactive",
+          "line": 76,
+          "additional_lines": [
+            106,
+            178
+          ]
+        }
+      ]
+    },
+    {
+      "path": "dev/runs/uks-native-20261025/TrainerContactVoltagePatch.cs",
+      "sha256": "267d313214901309b98a6a0be00fd784d75c25def0dc2a473801009654dfae57",
+      "line_count": 316,
+      "anchors": [
+        {
+          "token": "public TrainerContactVoltagePatch",
+          "line": 50,
+          "additional_lines": []
+        },
+        {
+          "token": "SetVoltage",
+          "line": 123,
+          "additional_lines": []
+        },
+        {
+          "token": "VerifyOriginalWindowWithOwnedHooks",
+          "line": 155,
+          "additional_lines": []
+        },
+        {
+          "token": "GuardRetainedFix",
+          "line": 90,
+          "additional_lines": [
+            136,
+            183
+          ]
+        },
+        {
+          "token": "public void Dispose",
+          "line": 258,
+          "additional_lines": []
+        },
+        {
+          "token": "BuildCave",
+          "line": 106,
+          "additional_lines": [
+            201
+          ]
+        }
+      ]
+    }
+  ]
+}

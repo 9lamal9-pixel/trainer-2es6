@@ -28,7 +28,7 @@ foreach(var phase in phases){
  for(int section=0;section<2;section++){var reservoir=physical.ControlAir[section].Rs6;reservoir.ApplyBoundaryMass((phase[section]-reservoir.Gauge)*Flow.Kgf*reservoir.Volume/(Flow.R*reservoir.Temperature));}
  Call(h,"BeforeElectricalAirCycle");for(int cycle=0;cycle<111;cycle++)InvokeRegister(owner,0,IntPtr.Add(module,0x18be58));
  int firstFeedback=Marshal.ReadByte(mem["TPult"],0x97),secondFeedback=Marshal.ReadByte(mem["TPult"],0x98),voltage=Marshal.ReadInt32(schema,0x125);
- if(firstFeedback!=(int)phase[2]||secondFeedback!=(int)phase[3]||voltage!=((phase[2]+phase[3])>0?3100:0))throw new Exception("Section pressure hysteresis or independence mismatch");
+ if(firstFeedback!=(int)phase[2]||secondFeedback!=(int)phase[3]||voltage!=((phase[2]+phase[3])>0?3000:0))throw new Exception("Section pressure hysteresis or independence mismatch");
  fallingRows.Add(new{pm=8.0,first_section_air=phase[0],second_section_air=phase[1],feedbacks=new[]{firstFeedback,secondFeedback},line_voltage=voltage});
 }
 var result=new{passed=true,falling_rows=fallingRows,scope="Native UpdateButton invocation with RS6 reservoir pressure fixtures published through actual BeforeElectricalAirCycle; diagnostic buttons/contacts; no actuator consumption or full cold start",rows=rows};var json=new JavaScriptSerializer().Serialize(result);File.WriteAllText(TrainerSession.ResultPath("Trainer_section_pantograph_pressure_probe.json"),json);Console.WriteLine(json);return 0;

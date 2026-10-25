@@ -26,11 +26,30 @@
       "Sa47ResetTm",
       "Sa47Priorities",
       "Sa47OperatorReset",
-      "Sa47ProducerFault"
+      "Sa47ProducerFault",
+      "ContactNetworkVoltage"
     ]
   },
   "execution_contract": "Build sources directly using the selected profile; legacy build scripts may also execute probes. Run sequentially in separate processes, require exit code 0 and fresh expected artifacts. Do not require a universal passed JSON field. Obsolete and unsafe entries are disabled.",
   "probes": [
+    {
+      "id": "ContactNetworkVoltage",
+      "main_class": "ContactNetworkVoltageProbe",
+      "title": "Общий аналоговый Uкс: нативные producers Pult/Tyga и сохранение крышевых разрешений",
+      "source": "work/pneumatic_live_fix/analysis/ContactNetworkVoltageProbe.cs",
+      "profile": "candidate",
+      "dependencies": [
+        "outputs/TrainerAutovedenieAdverseBrakeProbe.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_contact_voltage_validation.json"
+      ],
+      "kind": "regression",
+      "scope": "Номинал3000В, genuine старт до3км/ч без prepared speed, явные teaching green/RBS. Пять native producers+Eset: P1/type0/ненулевая I/F без промежуточногоHelp, мгновенный rawIa отклик3200>2800; range0..4101, оба вида возбуждения, общийroofgate/одинТП/доБВ. Отдельная component-only EDT через native setters/CalcRecup. 5entries/Eset/inputs restored; не приёмка Napruga/ПСН/защитных порогов, фактическогоUкс в обычной рекуперации или F(v).",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
     {
       "id": "Tyga750Clamp",
       "main_class": "Tyga750ClampProbe",

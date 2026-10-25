@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "reviewed_utc": "2026-10-25T04:39:26.364882+00:00",
+  "kind": "fresh_PE_raw_and_display_current_contract",
+  "native_executed_by_this_review": false,
+  "source_module": {
+    "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Tyga1.dll",
+    "sha256": "8ec6a82e618a1d75cbb31242784084b530bb87308e601defc5263d5279270491"
+  },
+  "PE_evidence": "C:/Users/sibir/Desktop/Макрос/Тренажер/dev/runs/uks-native-20261025/sequential-current-evidence.json",
+  "PE_evidence_sha256": "a8366a17721e9afbf9ad9d1ad0990561ea38f2f3d9305a88a4c4e04d82783bc3",
+  "absolute_offsets": {
+    "raw_Tok_Single": [
+      "TTygaParam+3B",
+      "TTygaParam+3F",
+      "TTygaParam+43",
+      "TTygaParam+47"
+    ],
+    "display_Tok_av_Single": [
+      "TTygaParam+5B",
+      "TTygaParam+5F",
+      "TTygaParam+63",
+      "TTygaParam+67"
+    ],
+    "raw_Ivozb_Single": [
+      "TTygaParam+7B",
+      "TTygaParam+7F",
+      "TTygaParam+83",
+      "TTygaParam+87"
+    ],
+    "display_Ivozb_av_Single": [
+      "TTygaParam+9B",
+      "TTygaParam+9F",
+      "TTygaParam+A3",
+      "TTygaParam+A7"
+    ],
+    "important": "Абсолютные +33/+37 не являются токами: это две половины Udvig Double, TTygaParam+2B+8. Assembly[Tyga+i*8+33] при i=1 даёт абсолютное +3B."
+  },
+  "raw_producer": {
+    "method": "GetCurPosl179D74 calls SetCurPosl17D58C at17A30B.",
+    "ABI": "SetCurPosl: EAX=actualcalc, один Single [EBP+8], RET4. Это setter результата родного solver; не следует вызывать его с fixture current для приёмки.",
+    "writes": "17D5A7/17D5B6 сначала обнуляют все Tok slots; затем17D64A/17D681 и другие S/SP/P branches копируют рассчитанное значение в включённые группы, учитывая native apparatus masks.",
+    "field_address": "[Tyga+i*8+33/+37], i=1..4. Первые две секции: абсолютные +3B/+3F/+43/+47.",
+    "meaning": "Это текущий нативный результат GetCurPosl, доступный сразу после полного Step; никакой периодической публикации до чтения не требуется."
+  },
+  "averaged_producer": {
+    "method": "ProceedTyga17C52B..17C6AE.",
+    "buffers": "module+1AA010/1AA014 — суммы Tok, module+1AA030/1AA034 — суммы Ivozb, с индексом i*8 для каждой секции. Буферы module-global, counter принадлежит calc+30.",
+    "sequence": [
+      "При counter<5 добавляет текущие raw Tok/Ivozb четырёх секций в native BSS buffers.",
+      "17C5D7 увеличивает counter; только при counter==4 выполняется публикация.",
+      "17C633..17C649 делит первую накопленную Tok на literal4 (VA57C708=Single4.0) и пишет [Tyga+i*8+53]. Для i=1 это display+5B.",
+      "17C651..17C667 публикует вторую группу в [Tyga+i*8+57]. Аналогично Ivozb_av пишется на17C607/17C628.",
+      "17C671..17C695 очищает суммы,17C6AE очищает counter. Между публикациями display slots сохраняют прежнее значение."
+    ],
+    "window": "Блочное среднее за4вызова, а не мгновенный ток и не скользящее среднее после каждого вызова. При изменении Uks или позиции окно может содержать предыдущие режимы/выбег."
+  },
+  "historical_run": {
+    "path": "dev/runs/test-20261025T043437064Z-14688ffe/ContactNetworkVoltage/Trainer_contact_voltage_validation.json",
+    "sha256": "9227cc2e1e7c3eddba25f28b7ea03dfd5c857f1ce38dbe503efcf3c4ad19ed26",
+    "fresh_native_run_performed_by_parent": true,
+    "passed": false,
+    "failed_assertions": [
+      {
+        "name": "Sequential current responds to native supply input",
+        "passed": false,
+        "expected": "I(3200)>I(2800)>0 at held position",
+        "actual": {
+          "highCurrent": 34.7829247,
+          "lowCurrent": 141.167145
+        }
+      }
+    ],
+    "cleanup": {
+      "native_patch_restored_before_close": true,
+      "teaching_inputs_restored": true,
+      "native_inputs_restored": true,
+      "native_closed": true
+    },
+    "interpretation": "Неуспех assertions на I(3200)>I(2800) при чтении +5B не доказывает обратный физический отклик solver: +5B является редкой усреднённой публикацией. Нового native прохождения данный статический review не создаёт."
+  },
+  "proper_response_measurement": {
+    "reads": "В одном post-Step snapshot снять все четыре raw Tok и Ivozb, четыре display averages, фактические Uset/VozbType/Pos, speed, force, apparatus masks и native producer generation.",
+    "assertion": "Сохранить физическое ожидание Iraw(3200)>Iraw(2800)>0 при той же удерживаемой позиции/соединении/включённых группах и близкой скорости. Применять его к raw +3B/+3F/+43/+47, а display averages оставить отдельным наблюдением.",
+    "sequence": "Не вызывать Help между voltage samples, не сбрасывать buffers/counter и не задавать подготовленные токи/силы. Подтверждать GetCurPosl reach или native active Pos>0 с genuine mode0; fresh TractionEntry marker сам по себе не доказывает downstream GetCurPosl.",
+    "limits": "Скорость в последовательных динамических samples меняется; записывать её, а заводскую характеристику не выводить из одной монотонной пары."
+  }
+}

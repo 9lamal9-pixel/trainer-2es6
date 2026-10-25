@@ -8,6 +8,8 @@
       "sources": [
         "outputs/TrainerIntegrationHost.cs",
         "outputs/TrainerNativeSystems.cs",
+        "outputs/TrainerContactNetwork.cs",
+        "outputs/TrainerContactVoltagePatch.cs",
         "outputs/TrainerNativeBrakeRelease.cs",
         "outputs/TrainerSa47MemoryPatch.cs",
         "outputs/TrainerAuxSystems.cs",
@@ -47,6 +49,8 @@
       "sources": [
         "outputs/TrainerIntegrationHost.cs",
         "outputs/TrainerNativeSystems.cs",
+        "outputs/TrainerContactNetwork.cs",
+        "outputs/TrainerContactVoltagePatch.cs",
         "outputs/TrainerNativeBrakeRelease.cs",
         "outputs/TrainerSa47MemoryPatch.cs",
         "outputs/TrainerAuxSystems.cs",
@@ -96,7 +100,8 @@
       "Sa47ResetTm",
       "Sa47Priorities",
       "Sa47OperatorReset",
-      "Sa47ProducerFault"
+      "Sa47ProducerFault",
+      "ContactNetworkVoltage"
     ],
     "smoke": [
       "ColdNoSource",

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "reviewed_date": "2026-10-25",
+  "status": "historical_decimal_label_corrected",
+  "native_executed": false,
+  "module": {
+    "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Pult1.dll",
+    "sha256": "7dac59bf94276309e012a6eb72602c08a921fe1910a4169f9f0ec27008f0f8f5"
+  },
+  "historical_sources_preserved": [
+    "dev/runs/uks-native-20261025/voltage-contract-review.json",
+    "dev/runs/uks-native-20261025/voltage-native-evidence.json",
+    "dev/docs/audit_parts/re_part1/uks-20261025"
+  ],
+  "withdrawn_label": "4101 for the three native Proceed_Messages comparisons",
+  "correct_value": {
+    "immediate_hex": "0x0FD2",
+    "immediate_decimal_volts": 4050,
+    "operand": "TShema.Useti, Int32 at EAX+0x125",
+    "following_condition": "JGE skips the following diagnostic-selection block at Useti >= 4050. This is not a measured or implemented >4100 V / >0.3 s BV trip."
+  },
+  "fresh_PE_guards": [
+    {"rva": "0x189941", "length": 10, "bytes": "81b825010000d20f0000"},
+    {"rva": "0x189A6C", "length": 10, "bytes": "81b825010000d20f0000"},
+    {"rva": "0x189B93", "length": 10, "bytes": "81b825010000d20f0000"}
+  ],
+  "evidence": "dev/runs/uks-native-20261025/next-voltage-static-evidence.json",
+  "scope_limit": "Only the erroneous decimal description is corrected. Native bytes, runtime, calibration and historical acceptance receipts are unchanged. A probe input of 4101 V remains a valid source-input case and was never evidence of this comparison implementing the BV threshold."
+}

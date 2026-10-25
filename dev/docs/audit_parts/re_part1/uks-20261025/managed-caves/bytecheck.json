@@ -1,0 +1,5724 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "source_sha256": "267d313214901309b98a6a0be00fd784d75c25def0dc2a473801009654dfae57",
+  "generated_manifest_sha256": "990a976739cfde762446722185d7e35bf4413a0a745183dd07ad3ab95c6a1bfc",
+  "generator_source_sha256": "c80ad62c6133a4badd1ed2ce1111211643e8119347d5ba139f9a47c543bbf179",
+  "generator_exe_sha256": "ed70c4cfa6c40c6eb3bae758d36ff74418b2fdcd6684b743c4da38b93042aec7",
+  "checks_total": 545,
+  "checks_passed": 545,
+  "native_executed": false,
+  "generated_instruction_bytes_executed": false,
+  "sites": [
+    {
+      "name": "Pult",
+      "cave": "0x50000000",
+      "continuation": "0x1018e9c4",
+      "length": 273,
+      "branches": [
+        {
+          "at": "0x50000014",
+          "asm": "jne 0x500000ce",
+          "target": "0x500000ce",
+          "external": false
+        },
+        {
+          "at": "0x5000001f",
+          "asm": "jne 0x500000f2",
+          "target": "0x500000f2",
+          "external": false
+        },
+        {
+          "at": "0x5000002e",
+          "asm": "jne 0x500000da",
+          "target": "0x500000da",
+          "external": false
+        },
+        {
+          "at": "0x5000003d",
+          "asm": "jne 0x500000da",
+          "target": "0x500000da",
+          "external": false
+        },
+        {
+          "at": "0x5000004c",
+          "asm": "jne 0x500000da",
+          "target": "0x500000da",
+          "external": false
+        },
+        {
+          "at": "0x5000005a",
+          "asm": "jne 0x500000e6",
+          "target": "0x500000e6",
+          "external": false
+        },
+        {
+          "at": "0x50000064",
+          "asm": "jne 0x5000010a",
+          "target": "0x5000010a",
+          "external": false
+        },
+        {
+          "at": "0x50000073",
+          "asm": "ja 0x500000e6",
+          "target": "0x500000e6",
+          "external": false
+        },
+        {
+          "at": "0x5000008c",
+          "asm": "jne 0x500000e6",
+          "target": "0x500000e6",
+          "external": false
+        },
+        {
+          "at": "0x50000096",
+          "asm": "je 0x500000e6",
+          "target": "0x500000e6",
+          "external": false
+        },
+        {
+          "at": "0x500000a2",
+          "asm": "jne 0x500000e6",
+          "target": "0x500000e6",
+          "external": false
+        },
+        {
+          "at": "0x500000b1",
+          "asm": "je 0x500000fe",
+          "target": "0x500000fe",
+          "external": false
+        },
+        {
+          "at": "0x500000c9",
+          "asm": "jmp 0x5000010a",
+          "target": "0x5000010a",
+          "external": false
+        },
+        {
+          "at": "0x500000d5",
+          "asm": "jmp 0x5000010a",
+          "target": "0x5000010a",
+          "external": false
+        },
+        {
+          "at": "0x500000e1",
+          "asm": "jmp 0x5000010a",
+          "target": "0x5000010a",
+          "external": false
+        },
+        {
+          "at": "0x500000ed",
+          "asm": "jmp 0x5000010a",
+          "target": "0x5000010a",
+          "external": false
+        },
+        {
+          "at": "0x500000f9",
+          "asm": "jmp 0x5000010a",
+          "target": "0x5000010a",
+          "external": false
+        },
+        {
+          "at": "0x50000105",
+          "asm": "jmp 0x5000010a",
+          "target": "0x5000010a",
+          "external": false
+        },
+        {
+          "at": "0x5000010c",
+          "asm": "jmp 0x1018e9c4",
+          "target": "0x1018e9c4",
+          "external": true
+        }
+      ],
+      "writes": [
+        {
+          "at": "0x500000a8",
+          "asm": "mov dword ptr [edi + 0x125], edx",
+          "kind": "guarded_Useti_or_ResT_Uset"
+        },
+        {
+          "at": "0x500000ae",
+          "asm": "inc dword ptr [ebx + 0x18]",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500000bd",
+          "asm": "mov dword ptr [ebx + 0x2c], esi",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500000c0",
+          "asm": "mov dword ptr [ebx + 0x40], edx",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500000c6",
+          "asm": "mov dword ptr [ebx + 0x54], esi",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500000ce",
+          "asm": "or dword ptr [ebx + 0x14], 1",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500000da",
+          "asm": "or dword ptr [ebx + 0x14], 2",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500000e6",
+          "asm": "or dword ptr [ebx + 0x14], 4",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500000f2",
+          "asm": "or dword ptr [ebx + 0x14], 8",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500000fe",
+          "asm": "or dword ptr [ebx + 0x14], 0x10",
+          "kind": "owned_diagnostic_state"
+        }
+      ],
+      "cfg_paths": 13,
+      "instructions": [
+        {
+          "address": "0x50000000",
+          "bytes": "9c",
+          "asm": "pushfd "
+        },
+        {
+          "address": "0x50000001",
+          "bytes": "60",
+          "asm": "pushal "
+        },
+        {
+          "address": "0x50000002",
+          "bytes": "bb00000040",
+          "asm": "mov ebx, 0x40000000"
+        },
+        {
+          "address": "0x50000007",
+          "bytes": "648b1524000000",
+          "asm": "mov edx, dword ptr fs:[0x24]"
+        },
+        {
+          "address": "0x5000000e",
+          "bytes": "81fa78563412",
+          "asm": "cmp edx, 0x12345678"
+        },
+        {
+          "address": "0x50000014",
+          "bytes": "0f85b4000000",
+          "asm": "jne 0x500000ce"
+        },
+        {
+          "address": "0x5000001a",
+          "bytes": "3d18000130",
+          "asm": "cmp eax, 0x30010018"
+        },
+        {
+          "address": "0x5000001f",
+          "bytes": "0f85cd000000",
+          "asm": "jne 0x500000f2"
+        },
+        {
+          "address": "0x50000025",
+          "bytes": "8b55fc",
+          "asm": "mov edx, dword ptr [ebp - 4]"
+        },
+        {
+          "address": "0x50000028",
+          "bytes": "81fa00000130",
+          "asm": "cmp edx, 0x30010000"
+        },
+        {
+          "address": "0x5000002e",
+          "bytes": "0f85a6000000",
+          "asm": "jne 0x500000da"
+        },
+        {
+          "address": "0x50000034",
+          "bytes": "8b4a04",
+          "asm": "mov ecx, dword ptr [edx + 4]"
+        },
+        {
+          "address": "0x50000037",
+          "bytes": "81f900000030",
+          "asm": "cmp ecx, 0x30000000"
+        },
+        {
+          "address": "0x5000003d",
+          "bytes": "0f8597000000",
+          "asm": "jne 0x500000da"
+        },
+        {
+          "address": "0x50000043",
+          "bytes": "8b4a08",
+          "asm": "mov ecx, dword ptr [edx + 8]"
+        },
+        {
+          "address": "0x50000046",
+          "bytes": "81f900100030",
+          "asm": "cmp ecx, 0x30001000"
+        },
+        {
+          "address": "0x5000004c",
+          "bytes": "0f8588000000",
+          "asm": "jne 0x500000da"
+        },
+        {
+          "address": "0x50000052",
+          "bytes": "8bf8",
+          "asm": "mov edi, eax"
+        },
+        {
+          "address": "0x50000054",
+          "bytes": "813b554b5653",
+          "asm": "cmp dword ptr [ebx], 0x53564b55"
+        },
+        {
+          "address": "0x5000005a",
+          "bytes": "0f8586000000",
+          "asm": "jne 0x500000e6"
+        },
+        {
+          "address": "0x50000060",
+          "bytes": "837b1400",
+          "asm": "cmp dword ptr [ebx + 0x14], 0"
+        },
+        {
+          "address": "0x50000064",
+          "bytes": "0f85a0000000",
+          "asm": "jne 0x5000010a"
+        },
+        {
+          "address": "0x5000006a",
+          "bytes": "8b5304",
+          "asm": "mov edx, dword ptr [ebx + 4]"
+        },
+        {
+          "address": "0x5000006d",
+          "bytes": "81fab0130000",
+          "asm": "cmp edx, 0x13b0"
+        },
+        {
+          "address": "0x50000073",
+          "bytes": "0f876d000000",
+          "asm": "ja 0x500000e6"
+        },
+        {
+          "address": "0x50000079",
+          "bytes": "8b4b08",
+          "asm": "mov ecx, dword ptr [ebx + 8]"
+        },
+        {
+          "address": "0x5000007c",
+          "bytes": "8bf2",
+          "asm": "mov esi, edx"
+        },
+        {
+          "address": "0x5000007e",
+          "bytes": "33f1",
+          "asm": "xor esi, ecx"
+        },
+        {
+          "address": "0x50000080",
+          "bytes": "33730c",
+          "asm": "xor esi, dword ptr [ebx + 0xc]"
+        },
+        {
+          "address": "0x50000083",
+          "bytes": "81f6554b5653",
+          "asm": "xor esi, 0x53564b55"
+        },
+        {
+          "address": "0x50000089",
+          "bytes": "3b7310",
+          "asm": "cmp esi, dword ptr [ebx + 0x10]"
+        },
+        {
+          "address": "0x5000008c",
+          "bytes": "0f8554000000",
+          "asm": "jne 0x500000e6"
+        },
+        {
+          "address": "0x50000092",
+          "bytes": "837b0c00",
+          "asm": "cmp dword ptr [ebx + 0xc], 0"
+        },
+        {
+          "address": "0x50000096",
+          "bytes": "0f844a000000",
+          "asm": "je 0x500000e6"
+        },
+        {
+          "address": "0x5000009c",
+          "bytes": "3915fc030430",
+          "asm": "cmp dword ptr [0x300403fc], edx"
+        },
+        {
+          "address": "0x500000a2",
+          "bytes": "0f853e000000",
+          "asm": "jne 0x500000e6"
+        },
+        {
+          "address": "0x500000a8",
+          "bytes": "899725010000",
+          "asm": "mov dword ptr [edi + 0x125], edx"
+        },
+        {
+          "address": "0x500000ae",
+          "bytes": "ff4318",
+          "asm": "inc dword ptr [ebx + 0x18]"
+        },
+        {
+          "address": "0x500000b1",
+          "bytes": "0f8447000000",
+          "asm": "je 0x500000fe"
+        },
+        {
+          "address": "0x500000b7",
+          "bytes": "8db725010000",
+          "asm": "lea esi, [edi + 0x125]"
+        },
+        {
+          "address": "0x500000bd",
+          "bytes": "89732c",
+          "asm": "mov dword ptr [ebx + 0x2c], esi"
+        },
+        {
+          "address": "0x500000c0",
+          "bytes": "895340",
+          "asm": "mov dword ptr [ebx + 0x40], edx"
+        },
+        {
+          "address": "0x500000c3",
+          "bytes": "8b730c",
+          "asm": "mov esi, dword ptr [ebx + 0xc]"
+        },
+        {
+          "address": "0x500000c6",
+          "bytes": "897354",
+          "asm": "mov dword ptr [ebx + 0x54], esi"
+        },
+        {
+          "address": "0x500000c9",
+          "bytes": "e93c000000",
+          "asm": "jmp 0x5000010a"
+        },
+        {
+          "address": "0x500000ce",
+          "bytes": "814b1401000000",
+          "asm": "or dword ptr [ebx + 0x14], 1"
+        },
+        {
+          "address": "0x500000d5",
+          "bytes": "e930000000",
+          "asm": "jmp 0x5000010a"
+        },
+        {
+          "address": "0x500000da",
+          "bytes": "814b1402000000",
+          "asm": "or dword ptr [ebx + 0x14], 2"
+        },
+        {
+          "address": "0x500000e1",
+          "bytes": "e924000000",
+          "asm": "jmp 0x5000010a"
+        },
+        {
+          "address": "0x500000e6",
+          "bytes": "814b1404000000",
+          "asm": "or dword ptr [ebx + 0x14], 4"
+        },
+        {
+          "address": "0x500000ed",
+          "bytes": "e918000000",
+          "asm": "jmp 0x5000010a"
+        },
+        {
+          "address": "0x500000f2",
+          "bytes": "814b1408000000",
+          "asm": "or dword ptr [ebx + 0x14], 8"
+        },
+        {
+          "address": "0x500000f9",
+          "bytes": "e90c000000",
+          "asm": "jmp 0x5000010a"
+        },
+        {
+          "address": "0x500000fe",
+          "bytes": "814b1410000000",
+          "asm": "or dword ptr [ebx + 0x14], 0x10"
+        },
+        {
+          "address": "0x50000105",
+          "bytes": "e900000000",
+          "asm": "jmp 0x5000010a"
+        },
+        {
+          "address": "0x5000010a",
+          "bytes": "61",
+          "asm": "popal "
+        },
+        {
+          "address": "0x5000010b",
+          "bytes": "9d",
+          "asm": "popfd "
+        },
+        {
+          "address": "0x5000010c",
+          "bytes": "e9b3e818c0",
+          "asm": "jmp 0x1018e9c4"
+        }
+      ]
+    },
+    {
+      "name": "TygaEDT",
+      "cave": "0x50010000",
+      "continuation": "0x201748fb",
+      "length": 271,
+      "branches": [
+        {
+          "at": "0x50010014",
+          "asm": "jne 0x500100cc",
+          "target": "0x500100cc",
+          "external": false
+        },
+        {
+          "at": "0x5001001f",
+          "asm": "jne 0x500100f0",
+          "target": "0x500100f0",
+          "external": false
+        },
+        {
+          "at": "0x5001002e",
+          "asm": "jne 0x500100d8",
+          "target": "0x500100d8",
+          "external": false
+        },
+        {
+          "at": "0x5001003d",
+          "asm": "jne 0x500100d8",
+          "target": "0x500100d8",
+          "external": false
+        },
+        {
+          "at": "0x5001004a",
+          "asm": "jne 0x500100d8",
+          "target": "0x500100d8",
+          "external": false
+        },
+        {
+          "at": "0x50010058",
+          "asm": "jne 0x500100e4",
+          "target": "0x500100e4",
+          "external": false
+        },
+        {
+          "at": "0x50010062",
+          "asm": "jne 0x50010108",
+          "target": "0x50010108",
+          "external": false
+        },
+        {
+          "at": "0x50010071",
+          "asm": "ja 0x500100e4",
+          "target": "0x500100e4",
+          "external": false
+        },
+        {
+          "at": "0x5001008a",
+          "asm": "jne 0x500100e4",
+          "target": "0x500100e4",
+          "external": false
+        },
+        {
+          "at": "0x50010094",
+          "asm": "je 0x500100e4",
+          "target": "0x500100e4",
+          "external": false
+        },
+        {
+          "at": "0x500100a0",
+          "asm": "jne 0x500100e4",
+          "target": "0x500100e4",
+          "external": false
+        },
+        {
+          "at": "0x500100af",
+          "asm": "je 0x500100fc",
+          "target": "0x500100fc",
+          "external": false
+        },
+        {
+          "at": "0x500100c7",
+          "asm": "jmp 0x50010108",
+          "target": "0x50010108",
+          "external": false
+        },
+        {
+          "at": "0x500100d3",
+          "asm": "jmp 0x50010108",
+          "target": "0x50010108",
+          "external": false
+        },
+        {
+          "at": "0x500100df",
+          "asm": "jmp 0x50010108",
+          "target": "0x50010108",
+          "external": false
+        },
+        {
+          "at": "0x500100eb",
+          "asm": "jmp 0x50010108",
+          "target": "0x50010108",
+          "external": false
+        },
+        {
+          "at": "0x500100f7",
+          "asm": "jmp 0x50010108",
+          "target": "0x50010108",
+          "external": false
+        },
+        {
+          "at": "0x50010103",
+          "asm": "jmp 0x50010108",
+          "target": "0x50010108",
+          "external": false
+        },
+        {
+          "at": "0x5001010a",
+          "asm": "jmp 0x201748fb",
+          "target": "0x201748fb",
+          "external": true
+        }
+      ],
+      "writes": [
+        {
+          "at": "0x500100a6",
+          "asm": "mov dword ptr [edi + 0x11], ecx",
+          "kind": "guarded_Useti_or_ResT_Uset"
+        },
+        {
+          "at": "0x500100ac",
+          "asm": "inc dword ptr [ebx + 0x1c]",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500100bb",
+          "asm": "mov dword ptr [ebx + 0x30], esi",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500100be",
+          "asm": "mov dword ptr [ebx + 0x44], ecx",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500100c4",
+          "asm": "mov dword ptr [ebx + 0x58], esi",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500100cc",
+          "asm": "or dword ptr [ebx + 0x14], 1",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500100d8",
+          "asm": "or dword ptr [ebx + 0x14], 2",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500100e4",
+          "asm": "or dword ptr [ebx + 0x14], 4",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500100f0",
+          "asm": "or dword ptr [ebx + 0x14], 8",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500100fc",
+          "asm": "or dword ptr [ebx + 0x14], 0x10",
+          "kind": "owned_diagnostic_state"
+        }
+      ],
+      "cfg_paths": 13,
+      "instructions": [
+        {
+          "address": "0x50010000",
+          "bytes": "9c",
+          "asm": "pushfd "
+        },
+        {
+          "address": "0x50010001",
+          "bytes": "60",
+          "asm": "pushal "
+        },
+        {
+          "address": "0x50010002",
+          "bytes": "bb00000040",
+          "asm": "mov ebx, 0x40000000"
+        },
+        {
+          "address": "0x50010007",
+          "bytes": "648b1524000000",
+          "asm": "mov edx, dword ptr fs:[0x24]"
+        },
+        {
+          "address": "0x5001000e",
+          "bytes": "81fa78563412",
+          "asm": "cmp edx, 0x12345678"
+        },
+        {
+          "address": "0x50010014",
+          "bytes": "0f85b2000000",
+          "asm": "jne 0x500100cc"
+        },
+        {
+          "address": "0x5001001a",
+          "bytes": "3d00000330",
+          "asm": "cmp eax, 0x30030000"
+        },
+        {
+          "address": "0x5001001f",
+          "bytes": "0f85cb000000",
+          "asm": "jne 0x500100f0"
+        },
+        {
+          "address": "0x50010025",
+          "bytes": "8b55fc",
+          "asm": "mov edx, dword ptr [ebp - 4]"
+        },
+        {
+          "address": "0x50010028",
+          "bytes": "81fa00000230",
+          "asm": "cmp edx, 0x30020000"
+        },
+        {
+          "address": "0x5001002e",
+          "bytes": "0f85a4000000",
+          "asm": "jne 0x500100d8"
+        },
+        {
+          "address": "0x50010034",
+          "bytes": "8b4a04",
+          "asm": "mov ecx, dword ptr [edx + 4]"
+        },
+        {
+          "address": "0x50010037",
+          "bytes": "81f900100030",
+          "asm": "cmp ecx, 0x30001000"
+        },
+        {
+          "address": "0x5001003d",
+          "bytes": "0f8595000000",
+          "asm": "jne 0x500100d8"
+        },
+        {
+          "address": "0x50010043",
+          "bytes": "81792700000330",
+          "asm": "cmp dword ptr [ecx + 0x27], 0x30030000"
+        },
+        {
+          "address": "0x5001004a",
+          "bytes": "0f8588000000",
+          "asm": "jne 0x500100d8"
+        },
+        {
+          "address": "0x50010050",
+          "bytes": "8bf8",
+          "asm": "mov edi, eax"
+        },
+        {
+          "address": "0x50010052",
+          "bytes": "813b554b5653",
+          "asm": "cmp dword ptr [ebx], 0x53564b55"
+        },
+        {
+          "address": "0x50010058",
+          "bytes": "0f8586000000",
+          "asm": "jne 0x500100e4"
+        },
+        {
+          "address": "0x5001005e",
+          "bytes": "837b1400",
+          "asm": "cmp dword ptr [ebx + 0x14], 0"
+        },
+        {
+          "address": "0x50010062",
+          "bytes": "0f85a0000000",
+          "asm": "jne 0x50010108"
+        },
+        {
+          "address": "0x50010068",
+          "bytes": "8b5304",
+          "asm": "mov edx, dword ptr [ebx + 4]"
+        },
+        {
+          "address": "0x5001006b",
+          "bytes": "81fab0130000",
+          "asm": "cmp edx, 0x13b0"
+        },
+        {
+          "address": "0x50010071",
+          "bytes": "0f876d000000",
+          "asm": "ja 0x500100e4"
+        },
+        {
+          "address": "0x50010077",
+          "bytes": "8b4b08",
+          "asm": "mov ecx, dword ptr [ebx + 8]"
+        },
+        {
+          "address": "0x5001007a",
+          "bytes": "8bf2",
+          "asm": "mov esi, edx"
+        },
+        {
+          "address": "0x5001007c",
+          "bytes": "33f1",
+          "asm": "xor esi, ecx"
+        },
+        {
+          "address": "0x5001007e",
+          "bytes": "33730c",
+          "asm": "xor esi, dword ptr [ebx + 0xc]"
+        },
+        {
+          "address": "0x50010081",
+          "bytes": "81f6554b5653",
+          "asm": "xor esi, 0x53564b55"
+        },
+        {
+          "address": "0x50010087",
+          "bytes": "3b7310",
+          "asm": "cmp esi, dword ptr [ebx + 0x10]"
+        },
+        {
+          "address": "0x5001008a",
+          "bytes": "0f8554000000",
+          "asm": "jne 0x500100e4"
+        },
+        {
+          "address": "0x50010090",
+          "bytes": "837b0c00",
+          "asm": "cmp dword ptr [ebx + 0xc], 0"
+        },
+        {
+          "address": "0x50010094",
+          "bytes": "0f844a000000",
+          "asm": "je 0x500100e4"
+        },
+        {
+          "address": "0x5001009a",
+          "bytes": "3915fc030430",
+          "asm": "cmp dword ptr [0x300403fc], edx"
+        },
+        {
+          "address": "0x500100a0",
+          "bytes": "0f853e000000",
+          "asm": "jne 0x500100e4"
+        },
+        {
+          "address": "0x500100a6",
+          "bytes": "898f11000000",
+          "asm": "mov dword ptr [edi + 0x11], ecx"
+        },
+        {
+          "address": "0x500100ac",
+          "bytes": "ff431c",
+          "asm": "inc dword ptr [ebx + 0x1c]"
+        },
+        {
+          "address": "0x500100af",
+          "bytes": "0f8447000000",
+          "asm": "je 0x500100fc"
+        },
+        {
+          "address": "0x500100b5",
+          "bytes": "8db711000000",
+          "asm": "lea esi, [edi + 0x11]"
+        },
+        {
+          "address": "0x500100bb",
+          "bytes": "897330",
+          "asm": "mov dword ptr [ebx + 0x30], esi"
+        },
+        {
+          "address": "0x500100be",
+          "bytes": "894b44",
+          "asm": "mov dword ptr [ebx + 0x44], ecx"
+        },
+        {
+          "address": "0x500100c1",
+          "bytes": "8b730c",
+          "asm": "mov esi, dword ptr [ebx + 0xc]"
+        },
+        {
+          "address": "0x500100c4",
+          "bytes": "897358",
+          "asm": "mov dword ptr [ebx + 0x58], esi"
+        },
+        {
+          "address": "0x500100c7",
+          "bytes": "e93c000000",
+          "asm": "jmp 0x50010108"
+        },
+        {
+          "address": "0x500100cc",
+          "bytes": "814b1401000000",
+          "asm": "or dword ptr [ebx + 0x14], 1"
+        },
+        {
+          "address": "0x500100d3",
+          "bytes": "e930000000",
+          "asm": "jmp 0x50010108"
+        },
+        {
+          "address": "0x500100d8",
+          "bytes": "814b1402000000",
+          "asm": "or dword ptr [ebx + 0x14], 2"
+        },
+        {
+          "address": "0x500100df",
+          "bytes": "e924000000",
+          "asm": "jmp 0x50010108"
+        },
+        {
+          "address": "0x500100e4",
+          "bytes": "814b1404000000",
+          "asm": "or dword ptr [ebx + 0x14], 4"
+        },
+        {
+          "address": "0x500100eb",
+          "bytes": "e918000000",
+          "asm": "jmp 0x50010108"
+        },
+        {
+          "address": "0x500100f0",
+          "bytes": "814b1408000000",
+          "asm": "or dword ptr [ebx + 0x14], 8"
+        },
+        {
+          "address": "0x500100f7",
+          "bytes": "e90c000000",
+          "asm": "jmp 0x50010108"
+        },
+        {
+          "address": "0x500100fc",
+          "bytes": "814b1410000000",
+          "asm": "or dword ptr [ebx + 0x14], 0x10"
+        },
+        {
+          "address": "0x50010103",
+          "bytes": "e900000000",
+          "asm": "jmp 0x50010108"
+        },
+        {
+          "address": "0x50010108",
+          "bytes": "61",
+          "asm": "popal "
+        },
+        {
+          "address": "0x50010109",
+          "bytes": "9d",
+          "asm": "popfd "
+        },
+        {
+          "address": "0x5001010a",
+          "bytes": "e9ec4716d0",
+          "asm": "jmp 0x201748fb"
+        }
+      ]
+    },
+    {
+      "name": "Nezav",
+      "cave": "0x50020000",
+      "continuation": "0x20176516",
+      "length": 271,
+      "branches": [
+        {
+          "at": "0x50020014",
+          "asm": "jne 0x500200cc",
+          "target": "0x500200cc",
+          "external": false
+        },
+        {
+          "at": "0x5002001f",
+          "asm": "jne 0x500200f0",
+          "target": "0x500200f0",
+          "external": false
+        },
+        {
+          "at": "0x5002002e",
+          "asm": "jne 0x500200d8",
+          "target": "0x500200d8",
+          "external": false
+        },
+        {
+          "at": "0x5002003d",
+          "asm": "jne 0x500200d8",
+          "target": "0x500200d8",
+          "external": false
+        },
+        {
+          "at": "0x5002004a",
+          "asm": "jne 0x500200d8",
+          "target": "0x500200d8",
+          "external": false
+        },
+        {
+          "at": "0x50020058",
+          "asm": "jne 0x500200e4",
+          "target": "0x500200e4",
+          "external": false
+        },
+        {
+          "at": "0x50020062",
+          "asm": "jne 0x50020108",
+          "target": "0x50020108",
+          "external": false
+        },
+        {
+          "at": "0x50020071",
+          "asm": "ja 0x500200e4",
+          "target": "0x500200e4",
+          "external": false
+        },
+        {
+          "at": "0x5002008a",
+          "asm": "jne 0x500200e4",
+          "target": "0x500200e4",
+          "external": false
+        },
+        {
+          "at": "0x50020094",
+          "asm": "je 0x500200e4",
+          "target": "0x500200e4",
+          "external": false
+        },
+        {
+          "at": "0x500200a0",
+          "asm": "jne 0x500200e4",
+          "target": "0x500200e4",
+          "external": false
+        },
+        {
+          "at": "0x500200af",
+          "asm": "je 0x500200fc",
+          "target": "0x500200fc",
+          "external": false
+        },
+        {
+          "at": "0x500200c7",
+          "asm": "jmp 0x50020108",
+          "target": "0x50020108",
+          "external": false
+        },
+        {
+          "at": "0x500200d3",
+          "asm": "jmp 0x50020108",
+          "target": "0x50020108",
+          "external": false
+        },
+        {
+          "at": "0x500200df",
+          "asm": "jmp 0x50020108",
+          "target": "0x50020108",
+          "external": false
+        },
+        {
+          "at": "0x500200eb",
+          "asm": "jmp 0x50020108",
+          "target": "0x50020108",
+          "external": false
+        },
+        {
+          "at": "0x500200f7",
+          "asm": "jmp 0x50020108",
+          "target": "0x50020108",
+          "external": false
+        },
+        {
+          "at": "0x50020103",
+          "asm": "jmp 0x50020108",
+          "target": "0x50020108",
+          "external": false
+        },
+        {
+          "at": "0x5002010a",
+          "asm": "jmp 0x20176516",
+          "target": "0x20176516",
+          "external": true
+        }
+      ],
+      "writes": [
+        {
+          "at": "0x500200a6",
+          "asm": "mov dword ptr [edi + 0x11], ecx",
+          "kind": "guarded_Useti_or_ResT_Uset"
+        },
+        {
+          "at": "0x500200ac",
+          "asm": "inc dword ptr [ebx + 0x20]",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500200bb",
+          "asm": "mov dword ptr [ebx + 0x34], esi",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500200be",
+          "asm": "mov dword ptr [ebx + 0x48], ecx",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500200c4",
+          "asm": "mov dword ptr [ebx + 0x5c], esi",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500200cc",
+          "asm": "or dword ptr [ebx + 0x14], 1",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500200d8",
+          "asm": "or dword ptr [ebx + 0x14], 2",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500200e4",
+          "asm": "or dword ptr [ebx + 0x14], 4",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500200f0",
+          "asm": "or dword ptr [ebx + 0x14], 8",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500200fc",
+          "asm": "or dword ptr [ebx + 0x14], 0x10",
+          "kind": "owned_diagnostic_state"
+        }
+      ],
+      "cfg_paths": 13,
+      "instructions": [
+        {
+          "address": "0x50020000",
+          "bytes": "9c",
+          "asm": "pushfd "
+        },
+        {
+          "address": "0x50020001",
+          "bytes": "60",
+          "asm": "pushal "
+        },
+        {
+          "address": "0x50020002",
+          "bytes": "bb00000040",
+          "asm": "mov ebx, 0x40000000"
+        },
+        {
+          "address": "0x50020007",
+          "bytes": "648b1524000000",
+          "asm": "mov edx, dword ptr fs:[0x24]"
+        },
+        {
+          "address": "0x5002000e",
+          "bytes": "81fa78563412",
+          "asm": "cmp edx, 0x12345678"
+        },
+        {
+          "address": "0x50020014",
+          "bytes": "0f85b2000000",
+          "asm": "jne 0x500200cc"
+        },
+        {
+          "address": "0x5002001a",
+          "bytes": "3d00000330",
+          "asm": "cmp eax, 0x30030000"
+        },
+        {
+          "address": "0x5002001f",
+          "bytes": "0f85cb000000",
+          "asm": "jne 0x500200f0"
+        },
+        {
+          "address": "0x50020025",
+          "bytes": "8b55fc",
+          "asm": "mov edx, dword ptr [ebp - 4]"
+        },
+        {
+          "address": "0x50020028",
+          "bytes": "81fa00000230",
+          "asm": "cmp edx, 0x30020000"
+        },
+        {
+          "address": "0x5002002e",
+          "bytes": "0f85a4000000",
+          "asm": "jne 0x500200d8"
+        },
+        {
+          "address": "0x50020034",
+          "bytes": "8b4a04",
+          "asm": "mov ecx, dword ptr [edx + 4]"
+        },
+        {
+          "address": "0x50020037",
+          "bytes": "81f900100030",
+          "asm": "cmp ecx, 0x30001000"
+        },
+        {
+          "address": "0x5002003d",
+          "bytes": "0f8595000000",
+          "asm": "jne 0x500200d8"
+        },
+        {
+          "address": "0x50020043",
+          "bytes": "81792700000330",
+          "asm": "cmp dword ptr [ecx + 0x27], 0x30030000"
+        },
+        {
+          "address": "0x5002004a",
+          "bytes": "0f8588000000",
+          "asm": "jne 0x500200d8"
+        },
+        {
+          "address": "0x50020050",
+          "bytes": "8bf8",
+          "asm": "mov edi, eax"
+        },
+        {
+          "address": "0x50020052",
+          "bytes": "813b554b5653",
+          "asm": "cmp dword ptr [ebx], 0x53564b55"
+        },
+        {
+          "address": "0x50020058",
+          "bytes": "0f8586000000",
+          "asm": "jne 0x500200e4"
+        },
+        {
+          "address": "0x5002005e",
+          "bytes": "837b1400",
+          "asm": "cmp dword ptr [ebx + 0x14], 0"
+        },
+        {
+          "address": "0x50020062",
+          "bytes": "0f85a0000000",
+          "asm": "jne 0x50020108"
+        },
+        {
+          "address": "0x50020068",
+          "bytes": "8b5304",
+          "asm": "mov edx, dword ptr [ebx + 4]"
+        },
+        {
+          "address": "0x5002006b",
+          "bytes": "81fab0130000",
+          "asm": "cmp edx, 0x13b0"
+        },
+        {
+          "address": "0x50020071",
+          "bytes": "0f876d000000",
+          "asm": "ja 0x500200e4"
+        },
+        {
+          "address": "0x50020077",
+          "bytes": "8b4b08",
+          "asm": "mov ecx, dword ptr [ebx + 8]"
+        },
+        {
+          "address": "0x5002007a",
+          "bytes": "8bf2",
+          "asm": "mov esi, edx"
+        },
+        {
+          "address": "0x5002007c",
+          "bytes": "33f1",
+          "asm": "xor esi, ecx"
+        },
+        {
+          "address": "0x5002007e",
+          "bytes": "33730c",
+          "asm": "xor esi, dword ptr [ebx + 0xc]"
+        },
+        {
+          "address": "0x50020081",
+          "bytes": "81f6554b5653",
+          "asm": "xor esi, 0x53564b55"
+        },
+        {
+          "address": "0x50020087",
+          "bytes": "3b7310",
+          "asm": "cmp esi, dword ptr [ebx + 0x10]"
+        },
+        {
+          "address": "0x5002008a",
+          "bytes": "0f8554000000",
+          "asm": "jne 0x500200e4"
+        },
+        {
+          "address": "0x50020090",
+          "bytes": "837b0c00",
+          "asm": "cmp dword ptr [ebx + 0xc], 0"
+        },
+        {
+          "address": "0x50020094",
+          "bytes": "0f844a000000",
+          "asm": "je 0x500200e4"
+        },
+        {
+          "address": "0x5002009a",
+          "bytes": "3915fc030430",
+          "asm": "cmp dword ptr [0x300403fc], edx"
+        },
+        {
+          "address": "0x500200a0",
+          "bytes": "0f853e000000",
+          "asm": "jne 0x500200e4"
+        },
+        {
+          "address": "0x500200a6",
+          "bytes": "898f11000000",
+          "asm": "mov dword ptr [edi + 0x11], ecx"
+        },
+        {
+          "address": "0x500200ac",
+          "bytes": "ff4320",
+          "asm": "inc dword ptr [ebx + 0x20]"
+        },
+        {
+          "address": "0x500200af",
+          "bytes": "0f8447000000",
+          "asm": "je 0x500200fc"
+        },
+        {
+          "address": "0x500200b5",
+          "bytes": "8db711000000",
+          "asm": "lea esi, [edi + 0x11]"
+        },
+        {
+          "address": "0x500200bb",
+          "bytes": "897334",
+          "asm": "mov dword ptr [ebx + 0x34], esi"
+        },
+        {
+          "address": "0x500200be",
+          "bytes": "894b48",
+          "asm": "mov dword ptr [ebx + 0x48], ecx"
+        },
+        {
+          "address": "0x500200c1",
+          "bytes": "8b730c",
+          "asm": "mov esi, dword ptr [ebx + 0xc]"
+        },
+        {
+          "address": "0x500200c4",
+          "bytes": "89735c",
+          "asm": "mov dword ptr [ebx + 0x5c], esi"
+        },
+        {
+          "address": "0x500200c7",
+          "bytes": "e93c000000",
+          "asm": "jmp 0x50020108"
+        },
+        {
+          "address": "0x500200cc",
+          "bytes": "814b1401000000",
+          "asm": "or dword ptr [ebx + 0x14], 1"
+        },
+        {
+          "address": "0x500200d3",
+          "bytes": "e930000000",
+          "asm": "jmp 0x50020108"
+        },
+        {
+          "address": "0x500200d8",
+          "bytes": "814b1402000000",
+          "asm": "or dword ptr [ebx + 0x14], 2"
+        },
+        {
+          "address": "0x500200df",
+          "bytes": "e924000000",
+          "asm": "jmp 0x50020108"
+        },
+        {
+          "address": "0x500200e4",
+          "bytes": "814b1404000000",
+          "asm": "or dword ptr [ebx + 0x14], 4"
+        },
+        {
+          "address": "0x500200eb",
+          "bytes": "e918000000",
+          "asm": "jmp 0x50020108"
+        },
+        {
+          "address": "0x500200f0",
+          "bytes": "814b1408000000",
+          "asm": "or dword ptr [ebx + 0x14], 8"
+        },
+        {
+          "address": "0x500200f7",
+          "bytes": "e90c000000",
+          "asm": "jmp 0x50020108"
+        },
+        {
+          "address": "0x500200fc",
+          "bytes": "814b1410000000",
+          "asm": "or dword ptr [ebx + 0x14], 0x10"
+        },
+        {
+          "address": "0x50020103",
+          "bytes": "e900000000",
+          "asm": "jmp 0x50020108"
+        },
+        {
+          "address": "0x50020108",
+          "bytes": "61",
+          "asm": "popal "
+        },
+        {
+          "address": "0x50020109",
+          "bytes": "9d",
+          "asm": "popfd "
+        },
+        {
+          "address": "0x5002010a",
+          "bytes": "e9076415d0",
+          "asm": "jmp 0x20176516"
+        }
+      ]
+    },
+    {
+      "name": "Help",
+      "cave": "0x50030000",
+      "continuation": "0x2017c1b0",
+      "length": 271,
+      "branches": [
+        {
+          "at": "0x50030014",
+          "asm": "jne 0x500300cc",
+          "target": "0x500300cc",
+          "external": false
+        },
+        {
+          "at": "0x5003001f",
+          "asm": "jne 0x500300f0",
+          "target": "0x500300f0",
+          "external": false
+        },
+        {
+          "at": "0x5003002e",
+          "asm": "jne 0x500300d8",
+          "target": "0x500300d8",
+          "external": false
+        },
+        {
+          "at": "0x5003003d",
+          "asm": "jne 0x500300d8",
+          "target": "0x500300d8",
+          "external": false
+        },
+        {
+          "at": "0x5003004a",
+          "asm": "jne 0x500300d8",
+          "target": "0x500300d8",
+          "external": false
+        },
+        {
+          "at": "0x50030058",
+          "asm": "jne 0x500300e4",
+          "target": "0x500300e4",
+          "external": false
+        },
+        {
+          "at": "0x50030062",
+          "asm": "jne 0x50030108",
+          "target": "0x50030108",
+          "external": false
+        },
+        {
+          "at": "0x50030071",
+          "asm": "ja 0x500300e4",
+          "target": "0x500300e4",
+          "external": false
+        },
+        {
+          "at": "0x5003008a",
+          "asm": "jne 0x500300e4",
+          "target": "0x500300e4",
+          "external": false
+        },
+        {
+          "at": "0x50030094",
+          "asm": "je 0x500300e4",
+          "target": "0x500300e4",
+          "external": false
+        },
+        {
+          "at": "0x500300a0",
+          "asm": "jne 0x500300e4",
+          "target": "0x500300e4",
+          "external": false
+        },
+        {
+          "at": "0x500300af",
+          "asm": "je 0x500300fc",
+          "target": "0x500300fc",
+          "external": false
+        },
+        {
+          "at": "0x500300c7",
+          "asm": "jmp 0x50030108",
+          "target": "0x50030108",
+          "external": false
+        },
+        {
+          "at": "0x500300d3",
+          "asm": "jmp 0x50030108",
+          "target": "0x50030108",
+          "external": false
+        },
+        {
+          "at": "0x500300df",
+          "asm": "jmp 0x50030108",
+          "target": "0x50030108",
+          "external": false
+        },
+        {
+          "at": "0x500300eb",
+          "asm": "jmp 0x50030108",
+          "target": "0x50030108",
+          "external": false
+        },
+        {
+          "at": "0x500300f7",
+          "asm": "jmp 0x50030108",
+          "target": "0x50030108",
+          "external": false
+        },
+        {
+          "at": "0x50030103",
+          "asm": "jmp 0x50030108",
+          "target": "0x50030108",
+          "external": false
+        },
+        {
+          "at": "0x5003010a",
+          "asm": "jmp 0x2017c1b0",
+          "target": "0x2017c1b0",
+          "external": true
+        }
+      ],
+      "writes": [
+        {
+          "at": "0x500300a6",
+          "asm": "mov dword ptr [edi + 0x11], ecx",
+          "kind": "guarded_Useti_or_ResT_Uset"
+        },
+        {
+          "at": "0x500300ac",
+          "asm": "inc dword ptr [ebx + 0x24]",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500300bb",
+          "asm": "mov dword ptr [ebx + 0x38], esi",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500300be",
+          "asm": "mov dword ptr [ebx + 0x4c], ecx",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500300c4",
+          "asm": "mov dword ptr [ebx + 0x60], esi",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500300cc",
+          "asm": "or dword ptr [ebx + 0x14], 1",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500300d8",
+          "asm": "or dword ptr [ebx + 0x14], 2",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500300e4",
+          "asm": "or dword ptr [ebx + 0x14], 4",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500300f0",
+          "asm": "or dword ptr [ebx + 0x14], 8",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500300fc",
+          "asm": "or dword ptr [ebx + 0x14], 0x10",
+          "kind": "owned_diagnostic_state"
+        }
+      ],
+      "cfg_paths": 13,
+      "instructions": [
+        {
+          "address": "0x50030000",
+          "bytes": "9c",
+          "asm": "pushfd "
+        },
+        {
+          "address": "0x50030001",
+          "bytes": "60",
+          "asm": "pushal "
+        },
+        {
+          "address": "0x50030002",
+          "bytes": "bb00000040",
+          "asm": "mov ebx, 0x40000000"
+        },
+        {
+          "address": "0x50030007",
+          "bytes": "648b1524000000",
+          "asm": "mov edx, dword ptr fs:[0x24]"
+        },
+        {
+          "address": "0x5003000e",
+          "bytes": "81fa78563412",
+          "asm": "cmp edx, 0x12345678"
+        },
+        {
+          "address": "0x50030014",
+          "bytes": "0f85b2000000",
+          "asm": "jne 0x500300cc"
+        },
+        {
+          "address": "0x5003001a",
+          "bytes": "3d00000330",
+          "asm": "cmp eax, 0x30030000"
+        },
+        {
+          "address": "0x5003001f",
+          "bytes": "0f85cb000000",
+          "asm": "jne 0x500300f0"
+        },
+        {
+          "address": "0x50030025",
+          "bytes": "8b55fc",
+          "asm": "mov edx, dword ptr [ebp - 4]"
+        },
+        {
+          "address": "0x50030028",
+          "bytes": "81fa00000230",
+          "asm": "cmp edx, 0x30020000"
+        },
+        {
+          "address": "0x5003002e",
+          "bytes": "0f85a4000000",
+          "asm": "jne 0x500300d8"
+        },
+        {
+          "address": "0x50030034",
+          "bytes": "8b4a04",
+          "asm": "mov ecx, dword ptr [edx + 4]"
+        },
+        {
+          "address": "0x50030037",
+          "bytes": "81f900100030",
+          "asm": "cmp ecx, 0x30001000"
+        },
+        {
+          "address": "0x5003003d",
+          "bytes": "0f8595000000",
+          "asm": "jne 0x500300d8"
+        },
+        {
+          "address": "0x50030043",
+          "bytes": "81792700000330",
+          "asm": "cmp dword ptr [ecx + 0x27], 0x30030000"
+        },
+        {
+          "address": "0x5003004a",
+          "bytes": "0f8588000000",
+          "asm": "jne 0x500300d8"
+        },
+        {
+          "address": "0x50030050",
+          "bytes": "8bf8",
+          "asm": "mov edi, eax"
+        },
+        {
+          "address": "0x50030052",
+          "bytes": "813b554b5653",
+          "asm": "cmp dword ptr [ebx], 0x53564b55"
+        },
+        {
+          "address": "0x50030058",
+          "bytes": "0f8586000000",
+          "asm": "jne 0x500300e4"
+        },
+        {
+          "address": "0x5003005e",
+          "bytes": "837b1400",
+          "asm": "cmp dword ptr [ebx + 0x14], 0"
+        },
+        {
+          "address": "0x50030062",
+          "bytes": "0f85a0000000",
+          "asm": "jne 0x50030108"
+        },
+        {
+          "address": "0x50030068",
+          "bytes": "8b5304",
+          "asm": "mov edx, dword ptr [ebx + 4]"
+        },
+        {
+          "address": "0x5003006b",
+          "bytes": "81fab0130000",
+          "asm": "cmp edx, 0x13b0"
+        },
+        {
+          "address": "0x50030071",
+          "bytes": "0f876d000000",
+          "asm": "ja 0x500300e4"
+        },
+        {
+          "address": "0x50030077",
+          "bytes": "8b4b08",
+          "asm": "mov ecx, dword ptr [ebx + 8]"
+        },
+        {
+          "address": "0x5003007a",
+          "bytes": "8bf2",
+          "asm": "mov esi, edx"
+        },
+        {
+          "address": "0x5003007c",
+          "bytes": "33f1",
+          "asm": "xor esi, ecx"
+        },
+        {
+          "address": "0x5003007e",
+          "bytes": "33730c",
+          "asm": "xor esi, dword ptr [ebx + 0xc]"
+        },
+        {
+          "address": "0x50030081",
+          "bytes": "81f6554b5653",
+          "asm": "xor esi, 0x53564b55"
+        },
+        {
+          "address": "0x50030087",
+          "bytes": "3b7310",
+          "asm": "cmp esi, dword ptr [ebx + 0x10]"
+        },
+        {
+          "address": "0x5003008a",
+          "bytes": "0f8554000000",
+          "asm": "jne 0x500300e4"
+        },
+        {
+          "address": "0x50030090",
+          "bytes": "837b0c00",
+          "asm": "cmp dword ptr [ebx + 0xc], 0"
+        },
+        {
+          "address": "0x50030094",
+          "bytes": "0f844a000000",
+          "asm": "je 0x500300e4"
+        },
+        {
+          "address": "0x5003009a",
+          "bytes": "3915fc030430",
+          "asm": "cmp dword ptr [0x300403fc], edx"
+        },
+        {
+          "address": "0x500300a0",
+          "bytes": "0f853e000000",
+          "asm": "jne 0x500300e4"
+        },
+        {
+          "address": "0x500300a6",
+          "bytes": "898f11000000",
+          "asm": "mov dword ptr [edi + 0x11], ecx"
+        },
+        {
+          "address": "0x500300ac",
+          "bytes": "ff4324",
+          "asm": "inc dword ptr [ebx + 0x24]"
+        },
+        {
+          "address": "0x500300af",
+          "bytes": "0f8447000000",
+          "asm": "je 0x500300fc"
+        },
+        {
+          "address": "0x500300b5",
+          "bytes": "8db711000000",
+          "asm": "lea esi, [edi + 0x11]"
+        },
+        {
+          "address": "0x500300bb",
+          "bytes": "897338",
+          "asm": "mov dword ptr [ebx + 0x38], esi"
+        },
+        {
+          "address": "0x500300be",
+          "bytes": "894b4c",
+          "asm": "mov dword ptr [ebx + 0x4c], ecx"
+        },
+        {
+          "address": "0x500300c1",
+          "bytes": "8b730c",
+          "asm": "mov esi, dword ptr [ebx + 0xc]"
+        },
+        {
+          "address": "0x500300c4",
+          "bytes": "897360",
+          "asm": "mov dword ptr [ebx + 0x60], esi"
+        },
+        {
+          "address": "0x500300c7",
+          "bytes": "e93c000000",
+          "asm": "jmp 0x50030108"
+        },
+        {
+          "address": "0x500300cc",
+          "bytes": "814b1401000000",
+          "asm": "or dword ptr [ebx + 0x14], 1"
+        },
+        {
+          "address": "0x500300d3",
+          "bytes": "e930000000",
+          "asm": "jmp 0x50030108"
+        },
+        {
+          "address": "0x500300d8",
+          "bytes": "814b1402000000",
+          "asm": "or dword ptr [ebx + 0x14], 2"
+        },
+        {
+          "address": "0x500300df",
+          "bytes": "e924000000",
+          "asm": "jmp 0x50030108"
+        },
+        {
+          "address": "0x500300e4",
+          "bytes": "814b1404000000",
+          "asm": "or dword ptr [ebx + 0x14], 4"
+        },
+        {
+          "address": "0x500300eb",
+          "bytes": "e918000000",
+          "asm": "jmp 0x50030108"
+        },
+        {
+          "address": "0x500300f0",
+          "bytes": "814b1408000000",
+          "asm": "or dword ptr [ebx + 0x14], 8"
+        },
+        {
+          "address": "0x500300f7",
+          "bytes": "e90c000000",
+          "asm": "jmp 0x50030108"
+        },
+        {
+          "address": "0x500300fc",
+          "bytes": "814b1410000000",
+          "asm": "or dword ptr [ebx + 0x14], 0x10"
+        },
+        {
+          "address": "0x50030103",
+          "bytes": "e900000000",
+          "asm": "jmp 0x50030108"
+        },
+        {
+          "address": "0x50030108",
+          "bytes": "61",
+          "asm": "popal "
+        },
+        {
+          "address": "0x50030109",
+          "bytes": "9d",
+          "asm": "popfd "
+        },
+        {
+          "address": "0x5003010a",
+          "bytes": "e9a1c014d0",
+          "asm": "jmp 0x2017c1b0"
+        }
+      ]
+    },
+    {
+      "name": "TractionEntry",
+      "cave": "0x50040000",
+      "continuation": "0x2017c352",
+      "length": 318,
+      "branches": [
+        {
+          "at": "0x5004001a",
+          "asm": "jne 0x500400fb",
+          "target": "0x500400fb",
+          "external": false
+        },
+        {
+          "at": "0x50040025",
+          "asm": "jne 0x5004011f",
+          "target": "0x5004011f",
+          "external": false
+        },
+        {
+          "at": "0x50040034",
+          "asm": "jne 0x50040107",
+          "target": "0x50040107",
+          "external": false
+        },
+        {
+          "at": "0x50040043",
+          "asm": "jne 0x50040107",
+          "target": "0x50040107",
+          "external": false
+        },
+        {
+          "at": "0x50040050",
+          "asm": "jne 0x50040107",
+          "target": "0x50040107",
+          "external": false
+        },
+        {
+          "at": "0x5004005a",
+          "asm": "ja 0x50040113",
+          "target": "0x50040113",
+          "external": false
+        },
+        {
+          "at": "0x50040067",
+          "asm": "jne 0x50040137",
+          "target": "0x50040137",
+          "external": false
+        },
+        {
+          "at": "0x50040078",
+          "asm": "jne 0x50040113",
+          "target": "0x50040113",
+          "external": false
+        },
+        {
+          "at": "0x50040082",
+          "asm": "jne 0x50040137",
+          "target": "0x50040137",
+          "external": false
+        },
+        {
+          "at": "0x50040091",
+          "asm": "ja 0x50040113",
+          "target": "0x50040113",
+          "external": false
+        },
+        {
+          "at": "0x500400aa",
+          "asm": "jne 0x50040113",
+          "target": "0x50040113",
+          "external": false
+        },
+        {
+          "at": "0x500400b4",
+          "asm": "je 0x50040113",
+          "target": "0x50040113",
+          "external": false
+        },
+        {
+          "at": "0x500400c0",
+          "asm": "jne 0x50040113",
+          "target": "0x50040113",
+          "external": false
+        },
+        {
+          "at": "0x500400cd",
+          "asm": "jne 0x500400d5",
+          "target": "0x500400d5",
+          "external": false
+        },
+        {
+          "at": "0x500400de",
+          "asm": "je 0x5004012b",
+          "target": "0x5004012b",
+          "external": false
+        },
+        {
+          "at": "0x500400f6",
+          "asm": "jmp 0x50040137",
+          "target": "0x50040137",
+          "external": false
+        },
+        {
+          "at": "0x50040102",
+          "asm": "jmp 0x50040137",
+          "target": "0x50040137",
+          "external": false
+        },
+        {
+          "at": "0x5004010e",
+          "asm": "jmp 0x50040137",
+          "target": "0x50040137",
+          "external": false
+        },
+        {
+          "at": "0x5004011a",
+          "asm": "jmp 0x50040137",
+          "target": "0x50040137",
+          "external": false
+        },
+        {
+          "at": "0x50040126",
+          "asm": "jmp 0x50040137",
+          "target": "0x50040137",
+          "external": false
+        },
+        {
+          "at": "0x50040132",
+          "asm": "jmp 0x50040137",
+          "target": "0x50040137",
+          "external": false
+        },
+        {
+          "at": "0x50040139",
+          "asm": "jmp 0x2017c352",
+          "target": "0x2017c352",
+          "external": true
+        }
+      ],
+      "writes": [
+        {
+          "at": "0x500400d5",
+          "asm": "mov dword ptr [edi + 0x11], ecx",
+          "kind": "guarded_Useti_or_ResT_Uset"
+        },
+        {
+          "at": "0x500400db",
+          "asm": "inc dword ptr [ebx + 0x28]",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500400ea",
+          "asm": "mov dword ptr [ebx + 0x3c], esi",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500400ed",
+          "asm": "mov dword ptr [ebx + 0x50], ecx",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500400f3",
+          "asm": "mov dword ptr [ebx + 0x64], esi",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500400fb",
+          "asm": "or dword ptr [ebx + 0x14], 1",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x50040107",
+          "asm": "or dword ptr [ebx + 0x14], 2",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x50040113",
+          "asm": "or dword ptr [ebx + 0x14], 4",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x5004011f",
+          "asm": "or dword ptr [ebx + 0x14], 8",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x5004012b",
+          "asm": "or dword ptr [ebx + 0x14], 0x10",
+          "kind": "owned_diagnostic_state"
+        }
+      ],
+      "cfg_paths": 17,
+      "instructions": [
+        {
+          "address": "0x50040000",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "address": "0x50040003",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "address": "0x50040006",
+          "bytes": "9c",
+          "asm": "pushfd "
+        },
+        {
+          "address": "0x50040007",
+          "bytes": "60",
+          "asm": "pushal "
+        },
+        {
+          "address": "0x50040008",
+          "bytes": "bb00000040",
+          "asm": "mov ebx, 0x40000000"
+        },
+        {
+          "address": "0x5004000d",
+          "bytes": "648b1524000000",
+          "asm": "mov edx, dword ptr fs:[0x24]"
+        },
+        {
+          "address": "0x50040014",
+          "bytes": "81fa78563412",
+          "asm": "cmp edx, 0x12345678"
+        },
+        {
+          "address": "0x5004001a",
+          "bytes": "0f85db000000",
+          "asm": "jne 0x500400fb"
+        },
+        {
+          "address": "0x50040020",
+          "bytes": "3d00100030",
+          "asm": "cmp eax, 0x30001000"
+        },
+        {
+          "address": "0x50040025",
+          "bytes": "0f85f4000000",
+          "asm": "jne 0x5004011f"
+        },
+        {
+          "address": "0x5004002b",
+          "bytes": "8b55fc",
+          "asm": "mov edx, dword ptr [ebp - 4]"
+        },
+        {
+          "address": "0x5004002e",
+          "bytes": "81fa00000230",
+          "asm": "cmp edx, 0x30020000"
+        },
+        {
+          "address": "0x50040034",
+          "bytes": "0f85cd000000",
+          "asm": "jne 0x50040107"
+        },
+        {
+          "address": "0x5004003a",
+          "bytes": "8b4a04",
+          "asm": "mov ecx, dword ptr [edx + 4]"
+        },
+        {
+          "address": "0x5004003d",
+          "bytes": "81f900100030",
+          "asm": "cmp ecx, 0x30001000"
+        },
+        {
+          "address": "0x50040043",
+          "bytes": "0f85be000000",
+          "asm": "jne 0x50040107"
+        },
+        {
+          "address": "0x50040049",
+          "bytes": "81792700000330",
+          "asm": "cmp dword ptr [ecx + 0x27], 0x30030000"
+        },
+        {
+          "address": "0x50040050",
+          "bytes": "0f85b1000000",
+          "asm": "jne 0x50040107"
+        },
+        {
+          "address": "0x50040056",
+          "bytes": "80781601",
+          "asm": "cmp byte ptr [eax + 0x16], 1"
+        },
+        {
+          "address": "0x5004005a",
+          "bytes": "0f87b3000000",
+          "asm": "ja 0x50040113"
+        },
+        {
+          "address": "0x50040060",
+          "bytes": "80ba0001000000",
+          "asm": "cmp byte ptr [edx + 0x100], 0"
+        },
+        {
+          "address": "0x50040067",
+          "bytes": "0f85ca000000",
+          "asm": "jne 0x50040137"
+        },
+        {
+          "address": "0x5004006d",
+          "bytes": "bf00000330",
+          "asm": "mov edi, 0x30030000"
+        },
+        {
+          "address": "0x50040072",
+          "bytes": "813b554b5653",
+          "asm": "cmp dword ptr [ebx], 0x53564b55"
+        },
+        {
+          "address": "0x50040078",
+          "bytes": "0f8595000000",
+          "asm": "jne 0x50040113"
+        },
+        {
+          "address": "0x5004007e",
+          "bytes": "837b1400",
+          "asm": "cmp dword ptr [ebx + 0x14], 0"
+        },
+        {
+          "address": "0x50040082",
+          "bytes": "0f85af000000",
+          "asm": "jne 0x50040137"
+        },
+        {
+          "address": "0x50040088",
+          "bytes": "8b5304",
+          "asm": "mov edx, dword ptr [ebx + 4]"
+        },
+        {
+          "address": "0x5004008b",
+          "bytes": "81fab0130000",
+          "asm": "cmp edx, 0x13b0"
+        },
+        {
+          "address": "0x50040091",
+          "bytes": "0f877c000000",
+          "asm": "ja 0x50040113"
+        },
+        {
+          "address": "0x50040097",
+          "bytes": "8b4b08",
+          "asm": "mov ecx, dword ptr [ebx + 8]"
+        },
+        {
+          "address": "0x5004009a",
+          "bytes": "8bf2",
+          "asm": "mov esi, edx"
+        },
+        {
+          "address": "0x5004009c",
+          "bytes": "33f1",
+          "asm": "xor esi, ecx"
+        },
+        {
+          "address": "0x5004009e",
+          "bytes": "33730c",
+          "asm": "xor esi, dword ptr [ebx + 0xc]"
+        },
+        {
+          "address": "0x500400a1",
+          "bytes": "81f6554b5653",
+          "asm": "xor esi, 0x53564b55"
+        },
+        {
+          "address": "0x500400a7",
+          "bytes": "3b7310",
+          "asm": "cmp esi, dword ptr [ebx + 0x10]"
+        },
+        {
+          "address": "0x500400aa",
+          "bytes": "0f8563000000",
+          "asm": "jne 0x50040113"
+        },
+        {
+          "address": "0x500400b0",
+          "bytes": "837b0c00",
+          "asm": "cmp dword ptr [ebx + 0xc], 0"
+        },
+        {
+          "address": "0x500400b4",
+          "bytes": "0f8459000000",
+          "asm": "je 0x50040113"
+        },
+        {
+          "address": "0x500400ba",
+          "bytes": "3915fc030430",
+          "asm": "cmp dword ptr [0x300403fc], edx"
+        },
+        {
+          "address": "0x500400c0",
+          "bytes": "0f854d000000",
+          "asm": "jne 0x50040113"
+        },
+        {
+          "address": "0x500400c6",
+          "bytes": "80b83001000000",
+          "asm": "cmp byte ptr [eax + 0x130], 0"
+        },
+        {
+          "address": "0x500400cd",
+          "bytes": "0f8502000000",
+          "asm": "jne 0x500400d5"
+        },
+        {
+          "address": "0x500400d3",
+          "bytes": "33c9",
+          "asm": "xor ecx, ecx"
+        },
+        {
+          "address": "0x500400d5",
+          "bytes": "898f11000000",
+          "asm": "mov dword ptr [edi + 0x11], ecx"
+        },
+        {
+          "address": "0x500400db",
+          "bytes": "ff4328",
+          "asm": "inc dword ptr [ebx + 0x28]"
+        },
+        {
+          "address": "0x500400de",
+          "bytes": "0f8447000000",
+          "asm": "je 0x5004012b"
+        },
+        {
+          "address": "0x500400e4",
+          "bytes": "8db711000000",
+          "asm": "lea esi, [edi + 0x11]"
+        },
+        {
+          "address": "0x500400ea",
+          "bytes": "89733c",
+          "asm": "mov dword ptr [ebx + 0x3c], esi"
+        },
+        {
+          "address": "0x500400ed",
+          "bytes": "894b50",
+          "asm": "mov dword ptr [ebx + 0x50], ecx"
+        },
+        {
+          "address": "0x500400f0",
+          "bytes": "8b730c",
+          "asm": "mov esi, dword ptr [ebx + 0xc]"
+        },
+        {
+          "address": "0x500400f3",
+          "bytes": "897364",
+          "asm": "mov dword ptr [ebx + 0x64], esi"
+        },
+        {
+          "address": "0x500400f6",
+          "bytes": "e93c000000",
+          "asm": "jmp 0x50040137"
+        },
+        {
+          "address": "0x500400fb",
+          "bytes": "814b1401000000",
+          "asm": "or dword ptr [ebx + 0x14], 1"
+        },
+        {
+          "address": "0x50040102",
+          "bytes": "e930000000",
+          "asm": "jmp 0x50040137"
+        },
+        {
+          "address": "0x50040107",
+          "bytes": "814b1402000000",
+          "asm": "or dword ptr [ebx + 0x14], 2"
+        },
+        {
+          "address": "0x5004010e",
+          "bytes": "e924000000",
+          "asm": "jmp 0x50040137"
+        },
+        {
+          "address": "0x50040113",
+          "bytes": "814b1404000000",
+          "asm": "or dword ptr [ebx + 0x14], 4"
+        },
+        {
+          "address": "0x5004011a",
+          "bytes": "e918000000",
+          "asm": "jmp 0x50040137"
+        },
+        {
+          "address": "0x5004011f",
+          "bytes": "814b1408000000",
+          "asm": "or dword ptr [ebx + 0x14], 8"
+        },
+        {
+          "address": "0x50040126",
+          "bytes": "e90c000000",
+          "asm": "jmp 0x50040137"
+        },
+        {
+          "address": "0x5004012b",
+          "bytes": "814b1410000000",
+          "asm": "or dword ptr [ebx + 0x14], 0x10"
+        },
+        {
+          "address": "0x50040132",
+          "bytes": "e900000000",
+          "asm": "jmp 0x50040137"
+        },
+        {
+          "address": "0x50040137",
+          "bytes": "61",
+          "asm": "popal "
+        },
+        {
+          "address": "0x50040138",
+          "bytes": "9d",
+          "asm": "popfd "
+        },
+        {
+          "address": "0x50040139",
+          "bytes": "e914c213d0",
+          "asm": "jmp 0x2017c352"
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "name": "Pult complete instruction decode",
+      "passed": true,
+      "evidence": 273
+    },
+    {
+      "name": "Pult emitted binary exact",
+      "passed": true,
+      "evidence": "F8BEB4AAFDD26B8B36C9D28D93FCC771E5C873408CB7947E6A6C05F77603E101"
+    },
+    {
+      "name": "Pult binary SHA",
+      "passed": true,
+      "evidence": "f8beb4aafdd26b8b36c9d28d93fcc771e5c873408cb7947e6a6c05f77603e101"
+    },
+    {
+      "name": "Pult no call/ret/x87",
+      "passed": true,
+      "evidence": [
+        "pushfd",
+        "pushal",
+        "mov",
+        "mov",
+        "cmp",
+        "jne",
+        "cmp",
+        "jne",
+        "mov",
+        "cmp",
+        "jne",
+        "mov",
+        "cmp",
+        "jne",
+        "mov",
+        "cmp",
+        "jne",
+        "mov",
+        "cmp",
+        "jne",
+        "cmp",
+        "jne",
+        "mov",
+        "cmp",
+        "ja",
+        "mov",
+        "mov",
+        "xor",
+        "xor",
+        "xor",
+        "cmp",
+        "jne",
+        "cmp",
+        "je",
+        "cmp",
+        "jne",
+        "mov",
+        "inc",
+        "je",
+        "lea",
+        "mov",
+        "mov",
+        "mov",
+        "mov",
+        "jmp",
+        "or",
+        "jmp",
+        "or",
+        "jmp",
+        "or",
+        "jmp",
+        "or",
+        "jmp",
+        "or",
+        "jmp",
+        "popal",
+        "popfd",
+        "jmp"
+      ]
+    },
+    {
+      "name": "Pult replay and save order",
+      "passed": true,
+      "evidence": "9c60"
+    },
+    {
+      "name": "Pult restore and continuation trailer",
+      "passed": true,
+      "evidence": "0x1018e9c4"
+    },
+    {
+      "name": "Pult balanced saved registers/flags",
+      "passed": true,
+      "evidence": [
+        "pushfd",
+        "pushal",
+        "popal",
+        "popfd"
+      ]
+    },
+    {
+      "name": "Pult no other ESP write 0x50000002",
+      "passed": true,
+      "evidence": "mov ebx, 0x40000000"
+    },
+    {
+      "name": "Pult no other ESP write 0x50000007",
+      "passed": true,
+      "evidence": "mov edx, dword ptr fs:[0x24]"
+    },
+    {
+      "name": "Pult no other ESP write 0x5000000e",
+      "passed": true,
+      "evidence": "cmp edx, 0x12345678"
+    },
+    {
+      "name": "Pult branch 0x50000014",
+      "passed": true,
+      "evidence": "0x500000ce"
+    },
+    {
+      "name": "Pult no other ESP write 0x50000014",
+      "passed": true,
+      "evidence": "jne 0x500000ce"
+    },
+    {
+      "name": "Pult no other ESP write 0x5000001a",
+      "passed": true,
+      "evidence": "cmp eax, 0x30010018"
+    },
+    {
+      "name": "Pult branch 0x5000001f",
+      "passed": true,
+      "evidence": "0x500000f2"
+    },
+    {
+      "name": "Pult no other ESP write 0x5000001f",
+      "passed": true,
+      "evidence": "jne 0x500000f2"
+    },
+    {
+      "name": "Pult no other ESP write 0x50000025",
+      "passed": true,
+      "evidence": "mov edx, dword ptr [ebp - 4]"
+    },
+    {
+      "name": "Pult no other ESP write 0x50000028",
+      "passed": true,
+      "evidence": "cmp edx, 0x30010000"
+    },
+    {
+      "name": "Pult branch 0x5000002e",
+      "passed": true,
+      "evidence": "0x500000da"
+    },
+    {
+      "name": "Pult no other ESP write 0x5000002e",
+      "passed": true,
+      "evidence": "jne 0x500000da"
+    },
+    {
+      "name": "Pult no other ESP write 0x50000034",
+      "passed": true,
+      "evidence": "mov ecx, dword ptr [edx + 4]"
+    },
+    {
+      "name": "Pult no other ESP write 0x50000037",
+      "passed": true,
+      "evidence": "cmp ecx, 0x30000000"
+    },
+    {
+      "name": "Pult branch 0x5000003d",
+      "passed": true,
+      "evidence": "0x500000da"
+    },
+    {
+      "name": "Pult no other ESP write 0x5000003d",
+      "passed": true,
+      "evidence": "jne 0x500000da"
+    },
+    {
+      "name": "Pult no other ESP write 0x50000043",
+      "passed": true,
+      "evidence": "mov ecx, dword ptr [edx + 8]"
+    },
+    {
+      "name": "Pult no other ESP write 0x50000046",
+      "passed": true,
+      "evidence": "cmp ecx, 0x30001000"
+    },
+    {
+      "name": "Pult branch 0x5000004c",
+      "passed": true,
+      "evidence": "0x500000da"
+    },
+    {
+      "name": "Pult no other ESP write 0x5000004c",
+      "passed": true,
+      "evidence": "jne 0x500000da"
+    },
+    {
+      "name": "Pult no other ESP write 0x50000052",
+      "passed": true,
+      "evidence": "mov edi, eax"
+    },
+    {
+      "name": "Pult no other ESP write 0x50000054",
+      "passed": true,
+      "evidence": "cmp dword ptr [ebx], 0x53564b55"
+    },
+    {
+      "name": "Pult branch 0x5000005a",
+      "passed": true,
+      "evidence": "0x500000e6"
+    },
+    {
+      "name": "Pult no other ESP write 0x5000005a",
+      "passed": true,
+      "evidence": "jne 0x500000e6"
+    },
+    {
+      "name": "Pult no other ESP write 0x50000060",
+      "passed": true,
+      "evidence": "cmp dword ptr [ebx + 0x14], 0"
+    },
+    {
+      "name": "Pult branch 0x50000064",
+      "passed": true,
+      "evidence": "0x5000010a"
+    },
+    {
+      "name": "Pult no other ESP write 0x50000064",
+      "passed": true,
+      "evidence": "jne 0x5000010a"
+    },
+    {
+      "name": "Pult no other ESP write 0x5000006a",
+      "passed": true,
+      "evidence": "mov edx, dword ptr [ebx + 4]"
+    },
+    {
+      "name": "Pult no other ESP write 0x5000006d",
+      "passed": true,
+      "evidence": "cmp edx, 0x13b0"
+    },
+    {
+      "name": "Pult branch 0x50000073",
+      "passed": true,
+      "evidence": "0x500000e6"
+    },
+    {
+      "name": "Pult no other ESP write 0x50000073",
+      "passed": true,
+      "evidence": "ja 0x500000e6"
+    },
+    {
+      "name": "Pult no other ESP write 0x50000079",
+      "passed": true,
+      "evidence": "mov ecx, dword ptr [ebx + 8]"
+    },
+    {
+      "name": "Pult no other ESP write 0x5000007c",
+      "passed": true,
+      "evidence": "mov esi, edx"
+    },
+    {
+      "name": "Pult no other ESP write 0x5000007e",
+      "passed": true,
+      "evidence": "xor esi, ecx"
+    },
+    {
+      "name": "Pult no other ESP write 0x50000080",
+      "passed": true,
+      "evidence": "xor esi, dword ptr [ebx + 0xc]"
+    },
+    {
+      "name": "Pult no other ESP write 0x50000083",
+      "passed": true,
+      "evidence": "xor esi, 0x53564b55"
+    },
+    {
+      "name": "Pult no other ESP write 0x50000089",
+      "passed": true,
+      "evidence": "cmp esi, dword ptr [ebx + 0x10]"
+    },
+    {
+      "name": "Pult branch 0x5000008c",
+      "passed": true,
+      "evidence": "0x500000e6"
+    },
+    {
+      "name": "Pult no other ESP write 0x5000008c",
+      "passed": true,
+      "evidence": "jne 0x500000e6"
+    },
+    {
+      "name": "Pult no other ESP write 0x50000092",
+      "passed": true,
+      "evidence": "cmp dword ptr [ebx + 0xc], 0"
+    },
+    {
+      "name": "Pult branch 0x50000096",
+      "passed": true,
+      "evidence": "0x500000e6"
+    },
+    {
+      "name": "Pult no other ESP write 0x50000096",
+      "passed": true,
+      "evidence": "je 0x500000e6"
+    },
+    {
+      "name": "Pult no other ESP write 0x5000009c",
+      "passed": true,
+      "evidence": "cmp dword ptr [0x300403fc], edx"
+    },
+    {
+      "name": "Pult branch 0x500000a2",
+      "passed": true,
+      "evidence": "0x500000e6"
+    },
+    {
+      "name": "Pult no other ESP write 0x500000a2",
+      "passed": true,
+      "evidence": "jne 0x500000e6"
+    },
+    {
+      "name": "Pult no other ESP write 0x500000a8",
+      "passed": true,
+      "evidence": "mov dword ptr [edi + 0x125], edx"
+    },
+    {
+      "name": "Pult no other ESP write 0x500000ae",
+      "passed": true,
+      "evidence": "inc dword ptr [ebx + 0x18]"
+    },
+    {
+      "name": "Pult branch 0x500000b1",
+      "passed": true,
+      "evidence": "0x500000fe"
+    },
+    {
+      "name": "Pult no other ESP write 0x500000b1",
+      "passed": true,
+      "evidence": "je 0x500000fe"
+    },
+    {
+      "name": "Pult no other ESP write 0x500000b7",
+      "passed": true,
+      "evidence": "lea esi, [edi + 0x125]"
+    },
+    {
+      "name": "Pult no other ESP write 0x500000bd",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x2c], esi"
+    },
+    {
+      "name": "Pult no other ESP write 0x500000c0",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x40], edx"
+    },
+    {
+      "name": "Pult no other ESP write 0x500000c3",
+      "passed": true,
+      "evidence": "mov esi, dword ptr [ebx + 0xc]"
+    },
+    {
+      "name": "Pult no other ESP write 0x500000c6",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x54], esi"
+    },
+    {
+      "name": "Pult branch 0x500000c9",
+      "passed": true,
+      "evidence": "0x5000010a"
+    },
+    {
+      "name": "Pult no other ESP write 0x500000c9",
+      "passed": true,
+      "evidence": "jmp 0x5000010a"
+    },
+    {
+      "name": "Pult no other ESP write 0x500000ce",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 1"
+    },
+    {
+      "name": "Pult branch 0x500000d5",
+      "passed": true,
+      "evidence": "0x5000010a"
+    },
+    {
+      "name": "Pult no other ESP write 0x500000d5",
+      "passed": true,
+      "evidence": "jmp 0x5000010a"
+    },
+    {
+      "name": "Pult no other ESP write 0x500000da",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 2"
+    },
+    {
+      "name": "Pult branch 0x500000e1",
+      "passed": true,
+      "evidence": "0x5000010a"
+    },
+    {
+      "name": "Pult no other ESP write 0x500000e1",
+      "passed": true,
+      "evidence": "jmp 0x5000010a"
+    },
+    {
+      "name": "Pult no other ESP write 0x500000e6",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 4"
+    },
+    {
+      "name": "Pult branch 0x500000ed",
+      "passed": true,
+      "evidence": "0x5000010a"
+    },
+    {
+      "name": "Pult no other ESP write 0x500000ed",
+      "passed": true,
+      "evidence": "jmp 0x5000010a"
+    },
+    {
+      "name": "Pult no other ESP write 0x500000f2",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 8"
+    },
+    {
+      "name": "Pult branch 0x500000f9",
+      "passed": true,
+      "evidence": "0x5000010a"
+    },
+    {
+      "name": "Pult no other ESP write 0x500000f9",
+      "passed": true,
+      "evidence": "jmp 0x5000010a"
+    },
+    {
+      "name": "Pult no other ESP write 0x500000fe",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 0x10"
+    },
+    {
+      "name": "Pult branch 0x50000105",
+      "passed": true,
+      "evidence": "0x5000010a"
+    },
+    {
+      "name": "Pult no other ESP write 0x50000105",
+      "passed": true,
+      "evidence": "jmp 0x5000010a"
+    },
+    {
+      "name": "Pult branch 0x5000010c",
+      "passed": true,
+      "evidence": "0x1018e9c4"
+    },
+    {
+      "name": "Pult no other ESP write 0x5000010c",
+      "passed": true,
+      "evidence": "jmp 0x1018e9c4"
+    },
+    {
+      "name": "Pult explicit write whitelist 0x500000a8",
+      "passed": true,
+      "evidence": "mov dword ptr [edi + 0x125], edx"
+    },
+    {
+      "name": "Pult explicit write whitelist 0x500000ae",
+      "passed": true,
+      "evidence": "inc dword ptr [ebx + 0x18]"
+    },
+    {
+      "name": "Pult explicit write whitelist 0x500000bd",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x2c], esi"
+    },
+    {
+      "name": "Pult explicit write whitelist 0x500000c0",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x40], edx"
+    },
+    {
+      "name": "Pult explicit write whitelist 0x500000c6",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x54], esi"
+    },
+    {
+      "name": "Pult explicit write whitelist 0x500000ce",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 1"
+    },
+    {
+      "name": "Pult explicit write whitelist 0x500000da",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 2"
+    },
+    {
+      "name": "Pult explicit write whitelist 0x500000e6",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 4"
+    },
+    {
+      "name": "Pult explicit write whitelist 0x500000f2",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 8"
+    },
+    {
+      "name": "Pult explicit write whitelist 0x500000fe",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 0x10"
+    },
+    {
+      "name": "Pult one voltage store",
+      "passed": true,
+      "evidence": [
+        {
+          "at": "0x500000a8",
+          "asm": "mov dword ptr [edi + 0x125], edx",
+          "kind": "guarded_Useti_or_ResT_Uset"
+        },
+        {
+          "at": "0x500000ae",
+          "asm": "inc dword ptr [ebx + 0x18]",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500000bd",
+          "asm": "mov dword ptr [ebx + 0x2c], esi",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500000c0",
+          "asm": "mov dword ptr [ebx + 0x40], edx",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500000c6",
+          "asm": "mov dword ptr [ebx + 0x54], esi",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500000ce",
+          "asm": "or dword ptr [ebx + 0x14], 1",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500000da",
+          "asm": "or dword ptr [ebx + 0x14], 2",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500000e6",
+          "asm": "or dword ptr [ebx + 0x14], 4",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500000f2",
+          "asm": "or dword ptr [ebx + 0x14], 8",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500000fe",
+          "asm": "or dword ptr [ebx + 0x14], 0x10",
+          "kind": "owned_diagnostic_state"
+        }
+      ]
+    },
+    {
+      "name": "Pult all CFG paths restore stack state",
+      "passed": true,
+      "evidence": {
+        "paths": 13,
+        "min_instructions": 11,
+        "max_instructions": 48
+      }
+    },
+    {
+      "name": "Pult entry JMP exact target",
+      "passed": true,
+      "evidence": "e94116e73f9090909090"
+    },
+    {
+      "name": "Pult owned diagnostic base",
+      "passed": true,
+      "evidence": "bb00000040"
+    },
+    {
+      "name": "Pult thread TEB unique thread comparison",
+      "passed": true,
+      "evidence": "648b152400000081fa785634120f85"
+    },
+    {
+      "name": "Pult expected destination comparison",
+      "passed": true,
+      "evidence": "3d180001300f85"
+    },
+    {
+      "name": "Pult native frame owner comparison",
+      "passed": true,
+      "evidence": "8b55fc81fa000001300f85"
+    },
+    {
+      "name": "Pult typed input pointer comparison",
+      "passed": true,
+      "evidence": "8b4a0481f9000000300f85"
+    },
+    {
+      "name": "Pult magic comparison",
+      "passed": true,
+      "evidence": "813b554b56530f85"
+    },
+    {
+      "name": "Pult previous fault skips store",
+      "passed": true,
+      "evidence": "837b14000f85"
+    },
+    {
+      "name": "Pult whole volt unsigned upper limit",
+      "passed": true,
+      "evidence": "8b530481fab01300000f87"
+    },
+    {
+      "name": "Pult checksum exact xor inputs",
+      "passed": true,
+      "evidence": "8b4b088bf233f133730c81f6554b56533b73100f85"
+    },
+    {
+      "name": "Pult generation nonzero",
+      "passed": true,
+      "evidence": "837b0c000f84"
+    },
+    {
+      "name": "Pult live Eset equals integer source",
+      "passed": true,
+      "evidence": "3915fc0304300f85"
+    },
+    {
+      "name": "Pult producer counter overflow trap",
+      "passed": true,
+      "evidence": "ff43180f84"
+    },
+    {
+      "name": "Pult other native input alias",
+      "passed": true,
+      "evidence": "8b4a0881f9001000300f85"
+    },
+    {
+      "name": "TygaEDT complete instruction decode",
+      "passed": true,
+      "evidence": 271
+    },
+    {
+      "name": "TygaEDT emitted binary exact",
+      "passed": true,
+      "evidence": "449552E04B926BB621DE596D852718F9ABD443AE509B43F60861CAC5BC582C0B"
+    },
+    {
+      "name": "TygaEDT binary SHA",
+      "passed": true,
+      "evidence": "449552e04b926bb621de596d852718f9abd443ae509b43f60861cac5bc582c0b"
+    },
+    {
+      "name": "TygaEDT no call/ret/x87",
+      "passed": true,
+      "evidence": [
+        "pushfd",
+        "pushal",
+        "mov",
+        "mov",
+        "cmp",
+        "jne",
+        "cmp",
+        "jne",
+        "mov",
+        "cmp",
+        "jne",
+        "mov",
+        "cmp",
+        "jne",
+        "cmp",
+        "jne",
+        "mov",
+        "cmp",
+        "jne",
+        "cmp",
+        "jne",
+        "mov",
+        "cmp",
+        "ja",
+        "mov",
+        "mov",
+        "xor",
+        "xor",
+        "xor",
+        "cmp",
+        "jne",
+        "cmp",
+        "je",
+        "cmp",
+        "jne",
+        "mov",
+        "inc",
+        "je",
+        "lea",
+        "mov",
+        "mov",
+        "mov",
+        "mov",
+        "jmp",
+        "or",
+        "jmp",
+        "or",
+        "jmp",
+        "or",
+        "jmp",
+        "or",
+        "jmp",
+        "or",
+        "jmp",
+        "popal",
+        "popfd",
+        "jmp"
+      ]
+    },
+    {
+      "name": "TygaEDT replay and save order",
+      "passed": true,
+      "evidence": "9c60"
+    },
+    {
+      "name": "TygaEDT restore and continuation trailer",
+      "passed": true,
+      "evidence": "0x201748fb"
+    },
+    {
+      "name": "TygaEDT balanced saved registers/flags",
+      "passed": true,
+      "evidence": [
+        "pushfd",
+        "pushal",
+        "popal",
+        "popfd"
+      ]
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x50010002",
+      "passed": true,
+      "evidence": "mov ebx, 0x40000000"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x50010007",
+      "passed": true,
+      "evidence": "mov edx, dword ptr fs:[0x24]"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x5001000e",
+      "passed": true,
+      "evidence": "cmp edx, 0x12345678"
+    },
+    {
+      "name": "TygaEDT branch 0x50010014",
+      "passed": true,
+      "evidence": "0x500100cc"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x50010014",
+      "passed": true,
+      "evidence": "jne 0x500100cc"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x5001001a",
+      "passed": true,
+      "evidence": "cmp eax, 0x30030000"
+    },
+    {
+      "name": "TygaEDT branch 0x5001001f",
+      "passed": true,
+      "evidence": "0x500100f0"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x5001001f",
+      "passed": true,
+      "evidence": "jne 0x500100f0"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x50010025",
+      "passed": true,
+      "evidence": "mov edx, dword ptr [ebp - 4]"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x50010028",
+      "passed": true,
+      "evidence": "cmp edx, 0x30020000"
+    },
+    {
+      "name": "TygaEDT branch 0x5001002e",
+      "passed": true,
+      "evidence": "0x500100d8"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x5001002e",
+      "passed": true,
+      "evidence": "jne 0x500100d8"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x50010034",
+      "passed": true,
+      "evidence": "mov ecx, dword ptr [edx + 4]"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x50010037",
+      "passed": true,
+      "evidence": "cmp ecx, 0x30001000"
+    },
+    {
+      "name": "TygaEDT branch 0x5001003d",
+      "passed": true,
+      "evidence": "0x500100d8"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x5001003d",
+      "passed": true,
+      "evidence": "jne 0x500100d8"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x50010043",
+      "passed": true,
+      "evidence": "cmp dword ptr [ecx + 0x27], 0x30030000"
+    },
+    {
+      "name": "TygaEDT branch 0x5001004a",
+      "passed": true,
+      "evidence": "0x500100d8"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x5001004a",
+      "passed": true,
+      "evidence": "jne 0x500100d8"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x50010050",
+      "passed": true,
+      "evidence": "mov edi, eax"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x50010052",
+      "passed": true,
+      "evidence": "cmp dword ptr [ebx], 0x53564b55"
+    },
+    {
+      "name": "TygaEDT branch 0x50010058",
+      "passed": true,
+      "evidence": "0x500100e4"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x50010058",
+      "passed": true,
+      "evidence": "jne 0x500100e4"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x5001005e",
+      "passed": true,
+      "evidence": "cmp dword ptr [ebx + 0x14], 0"
+    },
+    {
+      "name": "TygaEDT branch 0x50010062",
+      "passed": true,
+      "evidence": "0x50010108"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x50010062",
+      "passed": true,
+      "evidence": "jne 0x50010108"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x50010068",
+      "passed": true,
+      "evidence": "mov edx, dword ptr [ebx + 4]"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x5001006b",
+      "passed": true,
+      "evidence": "cmp edx, 0x13b0"
+    },
+    {
+      "name": "TygaEDT branch 0x50010071",
+      "passed": true,
+      "evidence": "0x500100e4"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x50010071",
+      "passed": true,
+      "evidence": "ja 0x500100e4"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x50010077",
+      "passed": true,
+      "evidence": "mov ecx, dword ptr [ebx + 8]"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x5001007a",
+      "passed": true,
+      "evidence": "mov esi, edx"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x5001007c",
+      "passed": true,
+      "evidence": "xor esi, ecx"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x5001007e",
+      "passed": true,
+      "evidence": "xor esi, dword ptr [ebx + 0xc]"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x50010081",
+      "passed": true,
+      "evidence": "xor esi, 0x53564b55"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x50010087",
+      "passed": true,
+      "evidence": "cmp esi, dword ptr [ebx + 0x10]"
+    },
+    {
+      "name": "TygaEDT branch 0x5001008a",
+      "passed": true,
+      "evidence": "0x500100e4"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x5001008a",
+      "passed": true,
+      "evidence": "jne 0x500100e4"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x50010090",
+      "passed": true,
+      "evidence": "cmp dword ptr [ebx + 0xc], 0"
+    },
+    {
+      "name": "TygaEDT branch 0x50010094",
+      "passed": true,
+      "evidence": "0x500100e4"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x50010094",
+      "passed": true,
+      "evidence": "je 0x500100e4"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x5001009a",
+      "passed": true,
+      "evidence": "cmp dword ptr [0x300403fc], edx"
+    },
+    {
+      "name": "TygaEDT branch 0x500100a0",
+      "passed": true,
+      "evidence": "0x500100e4"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x500100a0",
+      "passed": true,
+      "evidence": "jne 0x500100e4"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x500100a6",
+      "passed": true,
+      "evidence": "mov dword ptr [edi + 0x11], ecx"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x500100ac",
+      "passed": true,
+      "evidence": "inc dword ptr [ebx + 0x1c]"
+    },
+    {
+      "name": "TygaEDT branch 0x500100af",
+      "passed": true,
+      "evidence": "0x500100fc"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x500100af",
+      "passed": true,
+      "evidence": "je 0x500100fc"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x500100b5",
+      "passed": true,
+      "evidence": "lea esi, [edi + 0x11]"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x500100bb",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x30], esi"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x500100be",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x44], ecx"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x500100c1",
+      "passed": true,
+      "evidence": "mov esi, dword ptr [ebx + 0xc]"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x500100c4",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x58], esi"
+    },
+    {
+      "name": "TygaEDT branch 0x500100c7",
+      "passed": true,
+      "evidence": "0x50010108"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x500100c7",
+      "passed": true,
+      "evidence": "jmp 0x50010108"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x500100cc",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 1"
+    },
+    {
+      "name": "TygaEDT branch 0x500100d3",
+      "passed": true,
+      "evidence": "0x50010108"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x500100d3",
+      "passed": true,
+      "evidence": "jmp 0x50010108"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x500100d8",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 2"
+    },
+    {
+      "name": "TygaEDT branch 0x500100df",
+      "passed": true,
+      "evidence": "0x50010108"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x500100df",
+      "passed": true,
+      "evidence": "jmp 0x50010108"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x500100e4",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 4"
+    },
+    {
+      "name": "TygaEDT branch 0x500100eb",
+      "passed": true,
+      "evidence": "0x50010108"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x500100eb",
+      "passed": true,
+      "evidence": "jmp 0x50010108"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x500100f0",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 8"
+    },
+    {
+      "name": "TygaEDT branch 0x500100f7",
+      "passed": true,
+      "evidence": "0x50010108"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x500100f7",
+      "passed": true,
+      "evidence": "jmp 0x50010108"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x500100fc",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 0x10"
+    },
+    {
+      "name": "TygaEDT branch 0x50010103",
+      "passed": true,
+      "evidence": "0x50010108"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x50010103",
+      "passed": true,
+      "evidence": "jmp 0x50010108"
+    },
+    {
+      "name": "TygaEDT branch 0x5001010a",
+      "passed": true,
+      "evidence": "0x201748fb"
+    },
+    {
+      "name": "TygaEDT no other ESP write 0x5001010a",
+      "passed": true,
+      "evidence": "jmp 0x201748fb"
+    },
+    {
+      "name": "TygaEDT explicit write whitelist 0x500100a6",
+      "passed": true,
+      "evidence": "mov dword ptr [edi + 0x11], ecx"
+    },
+    {
+      "name": "TygaEDT explicit write whitelist 0x500100ac",
+      "passed": true,
+      "evidence": "inc dword ptr [ebx + 0x1c]"
+    },
+    {
+      "name": "TygaEDT explicit write whitelist 0x500100bb",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x30], esi"
+    },
+    {
+      "name": "TygaEDT explicit write whitelist 0x500100be",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x44], ecx"
+    },
+    {
+      "name": "TygaEDT explicit write whitelist 0x500100c4",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x58], esi"
+    },
+    {
+      "name": "TygaEDT explicit write whitelist 0x500100cc",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 1"
+    },
+    {
+      "name": "TygaEDT explicit write whitelist 0x500100d8",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 2"
+    },
+    {
+      "name": "TygaEDT explicit write whitelist 0x500100e4",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 4"
+    },
+    {
+      "name": "TygaEDT explicit write whitelist 0x500100f0",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 8"
+    },
+    {
+      "name": "TygaEDT explicit write whitelist 0x500100fc",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 0x10"
+    },
+    {
+      "name": "TygaEDT one voltage store",
+      "passed": true,
+      "evidence": [
+        {
+          "at": "0x500100a6",
+          "asm": "mov dword ptr [edi + 0x11], ecx",
+          "kind": "guarded_Useti_or_ResT_Uset"
+        },
+        {
+          "at": "0x500100ac",
+          "asm": "inc dword ptr [ebx + 0x1c]",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500100bb",
+          "asm": "mov dword ptr [ebx + 0x30], esi",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500100be",
+          "asm": "mov dword ptr [ebx + 0x44], ecx",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500100c4",
+          "asm": "mov dword ptr [ebx + 0x58], esi",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500100cc",
+          "asm": "or dword ptr [ebx + 0x14], 1",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500100d8",
+          "asm": "or dword ptr [ebx + 0x14], 2",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500100e4",
+          "asm": "or dword ptr [ebx + 0x14], 4",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500100f0",
+          "asm": "or dword ptr [ebx + 0x14], 8",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500100fc",
+          "asm": "or dword ptr [ebx + 0x14], 0x10",
+          "kind": "owned_diagnostic_state"
+        }
+      ]
+    },
+    {
+      "name": "TygaEDT all CFG paths restore stack state",
+      "passed": true,
+      "evidence": {
+        "paths": 13,
+        "min_instructions": 11,
+        "max_instructions": 47
+      }
+    },
+    {
+      "name": "TygaEDT entry JMP exact target",
+      "passed": true,
+      "evidence": "e907b7e92f9090"
+    },
+    {
+      "name": "TygaEDT owned diagnostic base",
+      "passed": true,
+      "evidence": "bb00000040"
+    },
+    {
+      "name": "TygaEDT thread TEB unique thread comparison",
+      "passed": true,
+      "evidence": "648b152400000081fa785634120f85"
+    },
+    {
+      "name": "TygaEDT expected destination comparison",
+      "passed": true,
+      "evidence": "3d000003300f85"
+    },
+    {
+      "name": "TygaEDT native frame owner comparison",
+      "passed": true,
+      "evidence": "8b55fc81fa000002300f85"
+    },
+    {
+      "name": "TygaEDT typed input pointer comparison",
+      "passed": true,
+      "evidence": "8b4a0481f9001000300f85"
+    },
+    {
+      "name": "TygaEDT magic comparison",
+      "passed": true,
+      "evidence": "813b554b56530f85"
+    },
+    {
+      "name": "TygaEDT previous fault skips store",
+      "passed": true,
+      "evidence": "837b14000f85"
+    },
+    {
+      "name": "TygaEDT whole volt unsigned upper limit",
+      "passed": true,
+      "evidence": "8b530481fab01300000f87"
+    },
+    {
+      "name": "TygaEDT checksum exact xor inputs",
+      "passed": true,
+      "evidence": "8b4b088bf233f133730c81f6554b56533b73100f85"
+    },
+    {
+      "name": "TygaEDT generation nonzero",
+      "passed": true,
+      "evidence": "837b0c000f84"
+    },
+    {
+      "name": "TygaEDT live Eset equals integer source",
+      "passed": true,
+      "evidence": "3915fc0304300f85"
+    },
+    {
+      "name": "TygaEDT producer counter overflow trap",
+      "passed": true,
+      "evidence": "ff431c0f84"
+    },
+    {
+      "name": "TygaEDT owned result alias",
+      "passed": true,
+      "evidence": "817927000003300f85"
+    },
+    {
+      "name": "Nezav complete instruction decode",
+      "passed": true,
+      "evidence": 271
+    },
+    {
+      "name": "Nezav emitted binary exact",
+      "passed": true,
+      "evidence": "2FD5BDE6818A4FEB62275300F97697B818AAE494405AF0761BCB98972D594B21"
+    },
+    {
+      "name": "Nezav binary SHA",
+      "passed": true,
+      "evidence": "2fd5bde6818a4feb62275300f97697b818aae494405af0761bcb98972d594b21"
+    },
+    {
+      "name": "Nezav no call/ret/x87",
+      "passed": true,
+      "evidence": [
+        "pushfd",
+        "pushal",
+        "mov",
+        "mov",
+        "cmp",
+        "jne",
+        "cmp",
+        "jne",
+        "mov",
+        "cmp",
+        "jne",
+        "mov",
+        "cmp",
+        "jne",
+        "cmp",
+        "jne",
+        "mov",
+        "cmp",
+        "jne",
+        "cmp",
+        "jne",
+        "mov",
+        "cmp",
+        "ja",
+        "mov",
+        "mov",
+        "xor",
+        "xor",
+        "xor",
+        "cmp",
+        "jne",
+        "cmp",
+        "je",
+        "cmp",
+        "jne",
+        "mov",
+        "inc",
+        "je",
+        "lea",
+        "mov",
+        "mov",
+        "mov",
+        "mov",
+        "jmp",
+        "or",
+        "jmp",
+        "or",
+        "jmp",
+        "or",
+        "jmp",
+        "or",
+        "jmp",
+        "or",
+        "jmp",
+        "popal",
+        "popfd",
+        "jmp"
+      ]
+    },
+    {
+      "name": "Nezav replay and save order",
+      "passed": true,
+      "evidence": "9c60"
+    },
+    {
+      "name": "Nezav restore and continuation trailer",
+      "passed": true,
+      "evidence": "0x20176516"
+    },
+    {
+      "name": "Nezav balanced saved registers/flags",
+      "passed": true,
+      "evidence": [
+        "pushfd",
+        "pushal",
+        "popal",
+        "popfd"
+      ]
+    },
+    {
+      "name": "Nezav no other ESP write 0x50020002",
+      "passed": true,
+      "evidence": "mov ebx, 0x40000000"
+    },
+    {
+      "name": "Nezav no other ESP write 0x50020007",
+      "passed": true,
+      "evidence": "mov edx, dword ptr fs:[0x24]"
+    },
+    {
+      "name": "Nezav no other ESP write 0x5002000e",
+      "passed": true,
+      "evidence": "cmp edx, 0x12345678"
+    },
+    {
+      "name": "Nezav branch 0x50020014",
+      "passed": true,
+      "evidence": "0x500200cc"
+    },
+    {
+      "name": "Nezav no other ESP write 0x50020014",
+      "passed": true,
+      "evidence": "jne 0x500200cc"
+    },
+    {
+      "name": "Nezav no other ESP write 0x5002001a",
+      "passed": true,
+      "evidence": "cmp eax, 0x30030000"
+    },
+    {
+      "name": "Nezav branch 0x5002001f",
+      "passed": true,
+      "evidence": "0x500200f0"
+    },
+    {
+      "name": "Nezav no other ESP write 0x5002001f",
+      "passed": true,
+      "evidence": "jne 0x500200f0"
+    },
+    {
+      "name": "Nezav no other ESP write 0x50020025",
+      "passed": true,
+      "evidence": "mov edx, dword ptr [ebp - 4]"
+    },
+    {
+      "name": "Nezav no other ESP write 0x50020028",
+      "passed": true,
+      "evidence": "cmp edx, 0x30020000"
+    },
+    {
+      "name": "Nezav branch 0x5002002e",
+      "passed": true,
+      "evidence": "0x500200d8"
+    },
+    {
+      "name": "Nezav no other ESP write 0x5002002e",
+      "passed": true,
+      "evidence": "jne 0x500200d8"
+    },
+    {
+      "name": "Nezav no other ESP write 0x50020034",
+      "passed": true,
+      "evidence": "mov ecx, dword ptr [edx + 4]"
+    },
+    {
+      "name": "Nezav no other ESP write 0x50020037",
+      "passed": true,
+      "evidence": "cmp ecx, 0x30001000"
+    },
+    {
+      "name": "Nezav branch 0x5002003d",
+      "passed": true,
+      "evidence": "0x500200d8"
+    },
+    {
+      "name": "Nezav no other ESP write 0x5002003d",
+      "passed": true,
+      "evidence": "jne 0x500200d8"
+    },
+    {
+      "name": "Nezav no other ESP write 0x50020043",
+      "passed": true,
+      "evidence": "cmp dword ptr [ecx + 0x27], 0x30030000"
+    },
+    {
+      "name": "Nezav branch 0x5002004a",
+      "passed": true,
+      "evidence": "0x500200d8"
+    },
+    {
+      "name": "Nezav no other ESP write 0x5002004a",
+      "passed": true,
+      "evidence": "jne 0x500200d8"
+    },
+    {
+      "name": "Nezav no other ESP write 0x50020050",
+      "passed": true,
+      "evidence": "mov edi, eax"
+    },
+    {
+      "name": "Nezav no other ESP write 0x50020052",
+      "passed": true,
+      "evidence": "cmp dword ptr [ebx], 0x53564b55"
+    },
+    {
+      "name": "Nezav branch 0x50020058",
+      "passed": true,
+      "evidence": "0x500200e4"
+    },
+    {
+      "name": "Nezav no other ESP write 0x50020058",
+      "passed": true,
+      "evidence": "jne 0x500200e4"
+    },
+    {
+      "name": "Nezav no other ESP write 0x5002005e",
+      "passed": true,
+      "evidence": "cmp dword ptr [ebx + 0x14], 0"
+    },
+    {
+      "name": "Nezav branch 0x50020062",
+      "passed": true,
+      "evidence": "0x50020108"
+    },
+    {
+      "name": "Nezav no other ESP write 0x50020062",
+      "passed": true,
+      "evidence": "jne 0x50020108"
+    },
+    {
+      "name": "Nezav no other ESP write 0x50020068",
+      "passed": true,
+      "evidence": "mov edx, dword ptr [ebx + 4]"
+    },
+    {
+      "name": "Nezav no other ESP write 0x5002006b",
+      "passed": true,
+      "evidence": "cmp edx, 0x13b0"
+    },
+    {
+      "name": "Nezav branch 0x50020071",
+      "passed": true,
+      "evidence": "0x500200e4"
+    },
+    {
+      "name": "Nezav no other ESP write 0x50020071",
+      "passed": true,
+      "evidence": "ja 0x500200e4"
+    },
+    {
+      "name": "Nezav no other ESP write 0x50020077",
+      "passed": true,
+      "evidence": "mov ecx, dword ptr [ebx + 8]"
+    },
+    {
+      "name": "Nezav no other ESP write 0x5002007a",
+      "passed": true,
+      "evidence": "mov esi, edx"
+    },
+    {
+      "name": "Nezav no other ESP write 0x5002007c",
+      "passed": true,
+      "evidence": "xor esi, ecx"
+    },
+    {
+      "name": "Nezav no other ESP write 0x5002007e",
+      "passed": true,
+      "evidence": "xor esi, dword ptr [ebx + 0xc]"
+    },
+    {
+      "name": "Nezav no other ESP write 0x50020081",
+      "passed": true,
+      "evidence": "xor esi, 0x53564b55"
+    },
+    {
+      "name": "Nezav no other ESP write 0x50020087",
+      "passed": true,
+      "evidence": "cmp esi, dword ptr [ebx + 0x10]"
+    },
+    {
+      "name": "Nezav branch 0x5002008a",
+      "passed": true,
+      "evidence": "0x500200e4"
+    },
+    {
+      "name": "Nezav no other ESP write 0x5002008a",
+      "passed": true,
+      "evidence": "jne 0x500200e4"
+    },
+    {
+      "name": "Nezav no other ESP write 0x50020090",
+      "passed": true,
+      "evidence": "cmp dword ptr [ebx + 0xc], 0"
+    },
+    {
+      "name": "Nezav branch 0x50020094",
+      "passed": true,
+      "evidence": "0x500200e4"
+    },
+    {
+      "name": "Nezav no other ESP write 0x50020094",
+      "passed": true,
+      "evidence": "je 0x500200e4"
+    },
+    {
+      "name": "Nezav no other ESP write 0x5002009a",
+      "passed": true,
+      "evidence": "cmp dword ptr [0x300403fc], edx"
+    },
+    {
+      "name": "Nezav branch 0x500200a0",
+      "passed": true,
+      "evidence": "0x500200e4"
+    },
+    {
+      "name": "Nezav no other ESP write 0x500200a0",
+      "passed": true,
+      "evidence": "jne 0x500200e4"
+    },
+    {
+      "name": "Nezav no other ESP write 0x500200a6",
+      "passed": true,
+      "evidence": "mov dword ptr [edi + 0x11], ecx"
+    },
+    {
+      "name": "Nezav no other ESP write 0x500200ac",
+      "passed": true,
+      "evidence": "inc dword ptr [ebx + 0x20]"
+    },
+    {
+      "name": "Nezav branch 0x500200af",
+      "passed": true,
+      "evidence": "0x500200fc"
+    },
+    {
+      "name": "Nezav no other ESP write 0x500200af",
+      "passed": true,
+      "evidence": "je 0x500200fc"
+    },
+    {
+      "name": "Nezav no other ESP write 0x500200b5",
+      "passed": true,
+      "evidence": "lea esi, [edi + 0x11]"
+    },
+    {
+      "name": "Nezav no other ESP write 0x500200bb",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x34], esi"
+    },
+    {
+      "name": "Nezav no other ESP write 0x500200be",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x48], ecx"
+    },
+    {
+      "name": "Nezav no other ESP write 0x500200c1",
+      "passed": true,
+      "evidence": "mov esi, dword ptr [ebx + 0xc]"
+    },
+    {
+      "name": "Nezav no other ESP write 0x500200c4",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x5c], esi"
+    },
+    {
+      "name": "Nezav branch 0x500200c7",
+      "passed": true,
+      "evidence": "0x50020108"
+    },
+    {
+      "name": "Nezav no other ESP write 0x500200c7",
+      "passed": true,
+      "evidence": "jmp 0x50020108"
+    },
+    {
+      "name": "Nezav no other ESP write 0x500200cc",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 1"
+    },
+    {
+      "name": "Nezav branch 0x500200d3",
+      "passed": true,
+      "evidence": "0x50020108"
+    },
+    {
+      "name": "Nezav no other ESP write 0x500200d3",
+      "passed": true,
+      "evidence": "jmp 0x50020108"
+    },
+    {
+      "name": "Nezav no other ESP write 0x500200d8",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 2"
+    },
+    {
+      "name": "Nezav branch 0x500200df",
+      "passed": true,
+      "evidence": "0x50020108"
+    },
+    {
+      "name": "Nezav no other ESP write 0x500200df",
+      "passed": true,
+      "evidence": "jmp 0x50020108"
+    },
+    {
+      "name": "Nezav no other ESP write 0x500200e4",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 4"
+    },
+    {
+      "name": "Nezav branch 0x500200eb",
+      "passed": true,
+      "evidence": "0x50020108"
+    },
+    {
+      "name": "Nezav no other ESP write 0x500200eb",
+      "passed": true,
+      "evidence": "jmp 0x50020108"
+    },
+    {
+      "name": "Nezav no other ESP write 0x500200f0",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 8"
+    },
+    {
+      "name": "Nezav branch 0x500200f7",
+      "passed": true,
+      "evidence": "0x50020108"
+    },
+    {
+      "name": "Nezav no other ESP write 0x500200f7",
+      "passed": true,
+      "evidence": "jmp 0x50020108"
+    },
+    {
+      "name": "Nezav no other ESP write 0x500200fc",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 0x10"
+    },
+    {
+      "name": "Nezav branch 0x50020103",
+      "passed": true,
+      "evidence": "0x50020108"
+    },
+    {
+      "name": "Nezav no other ESP write 0x50020103",
+      "passed": true,
+      "evidence": "jmp 0x50020108"
+    },
+    {
+      "name": "Nezav branch 0x5002010a",
+      "passed": true,
+      "evidence": "0x20176516"
+    },
+    {
+      "name": "Nezav no other ESP write 0x5002010a",
+      "passed": true,
+      "evidence": "jmp 0x20176516"
+    },
+    {
+      "name": "Nezav explicit write whitelist 0x500200a6",
+      "passed": true,
+      "evidence": "mov dword ptr [edi + 0x11], ecx"
+    },
+    {
+      "name": "Nezav explicit write whitelist 0x500200ac",
+      "passed": true,
+      "evidence": "inc dword ptr [ebx + 0x20]"
+    },
+    {
+      "name": "Nezav explicit write whitelist 0x500200bb",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x34], esi"
+    },
+    {
+      "name": "Nezav explicit write whitelist 0x500200be",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x48], ecx"
+    },
+    {
+      "name": "Nezav explicit write whitelist 0x500200c4",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x5c], esi"
+    },
+    {
+      "name": "Nezav explicit write whitelist 0x500200cc",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 1"
+    },
+    {
+      "name": "Nezav explicit write whitelist 0x500200d8",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 2"
+    },
+    {
+      "name": "Nezav explicit write whitelist 0x500200e4",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 4"
+    },
+    {
+      "name": "Nezav explicit write whitelist 0x500200f0",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 8"
+    },
+    {
+      "name": "Nezav explicit write whitelist 0x500200fc",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 0x10"
+    },
+    {
+      "name": "Nezav one voltage store",
+      "passed": true,
+      "evidence": [
+        {
+          "at": "0x500200a6",
+          "asm": "mov dword ptr [edi + 0x11], ecx",
+          "kind": "guarded_Useti_or_ResT_Uset"
+        },
+        {
+          "at": "0x500200ac",
+          "asm": "inc dword ptr [ebx + 0x20]",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500200bb",
+          "asm": "mov dword ptr [ebx + 0x34], esi",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500200be",
+          "asm": "mov dword ptr [ebx + 0x48], ecx",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500200c4",
+          "asm": "mov dword ptr [ebx + 0x5c], esi",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500200cc",
+          "asm": "or dword ptr [ebx + 0x14], 1",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500200d8",
+          "asm": "or dword ptr [ebx + 0x14], 2",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500200e4",
+          "asm": "or dword ptr [ebx + 0x14], 4",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500200f0",
+          "asm": "or dword ptr [ebx + 0x14], 8",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500200fc",
+          "asm": "or dword ptr [ebx + 0x14], 0x10",
+          "kind": "owned_diagnostic_state"
+        }
+      ]
+    },
+    {
+      "name": "Nezav all CFG paths restore stack state",
+      "passed": true,
+      "evidence": {
+        "paths": 13,
+        "min_instructions": 11,
+        "max_instructions": 47
+      }
+    },
+    {
+      "name": "Nezav entry JMP exact target",
+      "passed": true,
+      "evidence": "e9ec9aea2f9090"
+    },
+    {
+      "name": "Nezav owned diagnostic base",
+      "passed": true,
+      "evidence": "bb00000040"
+    },
+    {
+      "name": "Nezav thread TEB unique thread comparison",
+      "passed": true,
+      "evidence": "648b152400000081fa785634120f85"
+    },
+    {
+      "name": "Nezav expected destination comparison",
+      "passed": true,
+      "evidence": "3d000003300f85"
+    },
+    {
+      "name": "Nezav native frame owner comparison",
+      "passed": true,
+      "evidence": "8b55fc81fa000002300f85"
+    },
+    {
+      "name": "Nezav typed input pointer comparison",
+      "passed": true,
+      "evidence": "8b4a0481f9001000300f85"
+    },
+    {
+      "name": "Nezav magic comparison",
+      "passed": true,
+      "evidence": "813b554b56530f85"
+    },
+    {
+      "name": "Nezav previous fault skips store",
+      "passed": true,
+      "evidence": "837b14000f85"
+    },
+    {
+      "name": "Nezav whole volt unsigned upper limit",
+      "passed": true,
+      "evidence": "8b530481fab01300000f87"
+    },
+    {
+      "name": "Nezav checksum exact xor inputs",
+      "passed": true,
+      "evidence": "8b4b088bf233f133730c81f6554b56533b73100f85"
+    },
+    {
+      "name": "Nezav generation nonzero",
+      "passed": true,
+      "evidence": "837b0c000f84"
+    },
+    {
+      "name": "Nezav live Eset equals integer source",
+      "passed": true,
+      "evidence": "3915fc0304300f85"
+    },
+    {
+      "name": "Nezav producer counter overflow trap",
+      "passed": true,
+      "evidence": "ff43200f84"
+    },
+    {
+      "name": "Nezav owned result alias",
+      "passed": true,
+      "evidence": "817927000003300f85"
+    },
+    {
+      "name": "Help complete instruction decode",
+      "passed": true,
+      "evidence": 271
+    },
+    {
+      "name": "Help emitted binary exact",
+      "passed": true,
+      "evidence": "422EEA62B6C5F8A5D50ECF9635ED25D6C68D5208B0F03F3F56A34B5A260474AC"
+    },
+    {
+      "name": "Help binary SHA",
+      "passed": true,
+      "evidence": "422eea62b6c5f8a5d50ecf9635ed25d6c68d5208b0f03f3f56a34b5a260474ac"
+    },
+    {
+      "name": "Help no call/ret/x87",
+      "passed": true,
+      "evidence": [
+        "pushfd",
+        "pushal",
+        "mov",
+        "mov",
+        "cmp",
+        "jne",
+        "cmp",
+        "jne",
+        "mov",
+        "cmp",
+        "jne",
+        "mov",
+        "cmp",
+        "jne",
+        "cmp",
+        "jne",
+        "mov",
+        "cmp",
+        "jne",
+        "cmp",
+        "jne",
+        "mov",
+        "cmp",
+        "ja",
+        "mov",
+        "mov",
+        "xor",
+        "xor",
+        "xor",
+        "cmp",
+        "jne",
+        "cmp",
+        "je",
+        "cmp",
+        "jne",
+        "mov",
+        "inc",
+        "je",
+        "lea",
+        "mov",
+        "mov",
+        "mov",
+        "mov",
+        "jmp",
+        "or",
+        "jmp",
+        "or",
+        "jmp",
+        "or",
+        "jmp",
+        "or",
+        "jmp",
+        "or",
+        "jmp",
+        "popal",
+        "popfd",
+        "jmp"
+      ]
+    },
+    {
+      "name": "Help replay and save order",
+      "passed": true,
+      "evidence": "9c60"
+    },
+    {
+      "name": "Help restore and continuation trailer",
+      "passed": true,
+      "evidence": "0x2017c1b0"
+    },
+    {
+      "name": "Help balanced saved registers/flags",
+      "passed": true,
+      "evidence": [
+        "pushfd",
+        "pushal",
+        "popal",
+        "popfd"
+      ]
+    },
+    {
+      "name": "Help no other ESP write 0x50030002",
+      "passed": true,
+      "evidence": "mov ebx, 0x40000000"
+    },
+    {
+      "name": "Help no other ESP write 0x50030007",
+      "passed": true,
+      "evidence": "mov edx, dword ptr fs:[0x24]"
+    },
+    {
+      "name": "Help no other ESP write 0x5003000e",
+      "passed": true,
+      "evidence": "cmp edx, 0x12345678"
+    },
+    {
+      "name": "Help branch 0x50030014",
+      "passed": true,
+      "evidence": "0x500300cc"
+    },
+    {
+      "name": "Help no other ESP write 0x50030014",
+      "passed": true,
+      "evidence": "jne 0x500300cc"
+    },
+    {
+      "name": "Help no other ESP write 0x5003001a",
+      "passed": true,
+      "evidence": "cmp eax, 0x30030000"
+    },
+    {
+      "name": "Help branch 0x5003001f",
+      "passed": true,
+      "evidence": "0x500300f0"
+    },
+    {
+      "name": "Help no other ESP write 0x5003001f",
+      "passed": true,
+      "evidence": "jne 0x500300f0"
+    },
+    {
+      "name": "Help no other ESP write 0x50030025",
+      "passed": true,
+      "evidence": "mov edx, dword ptr [ebp - 4]"
+    },
+    {
+      "name": "Help no other ESP write 0x50030028",
+      "passed": true,
+      "evidence": "cmp edx, 0x30020000"
+    },
+    {
+      "name": "Help branch 0x5003002e",
+      "passed": true,
+      "evidence": "0x500300d8"
+    },
+    {
+      "name": "Help no other ESP write 0x5003002e",
+      "passed": true,
+      "evidence": "jne 0x500300d8"
+    },
+    {
+      "name": "Help no other ESP write 0x50030034",
+      "passed": true,
+      "evidence": "mov ecx, dword ptr [edx + 4]"
+    },
+    {
+      "name": "Help no other ESP write 0x50030037",
+      "passed": true,
+      "evidence": "cmp ecx, 0x30001000"
+    },
+    {
+      "name": "Help branch 0x5003003d",
+      "passed": true,
+      "evidence": "0x500300d8"
+    },
+    {
+      "name": "Help no other ESP write 0x5003003d",
+      "passed": true,
+      "evidence": "jne 0x500300d8"
+    },
+    {
+      "name": "Help no other ESP write 0x50030043",
+      "passed": true,
+      "evidence": "cmp dword ptr [ecx + 0x27], 0x30030000"
+    },
+    {
+      "name": "Help branch 0x5003004a",
+      "passed": true,
+      "evidence": "0x500300d8"
+    },
+    {
+      "name": "Help no other ESP write 0x5003004a",
+      "passed": true,
+      "evidence": "jne 0x500300d8"
+    },
+    {
+      "name": "Help no other ESP write 0x50030050",
+      "passed": true,
+      "evidence": "mov edi, eax"
+    },
+    {
+      "name": "Help no other ESP write 0x50030052",
+      "passed": true,
+      "evidence": "cmp dword ptr [ebx], 0x53564b55"
+    },
+    {
+      "name": "Help branch 0x50030058",
+      "passed": true,
+      "evidence": "0x500300e4"
+    },
+    {
+      "name": "Help no other ESP write 0x50030058",
+      "passed": true,
+      "evidence": "jne 0x500300e4"
+    },
+    {
+      "name": "Help no other ESP write 0x5003005e",
+      "passed": true,
+      "evidence": "cmp dword ptr [ebx + 0x14], 0"
+    },
+    {
+      "name": "Help branch 0x50030062",
+      "passed": true,
+      "evidence": "0x50030108"
+    },
+    {
+      "name": "Help no other ESP write 0x50030062",
+      "passed": true,
+      "evidence": "jne 0x50030108"
+    },
+    {
+      "name": "Help no other ESP write 0x50030068",
+      "passed": true,
+      "evidence": "mov edx, dword ptr [ebx + 4]"
+    },
+    {
+      "name": "Help no other ESP write 0x5003006b",
+      "passed": true,
+      "evidence": "cmp edx, 0x13b0"
+    },
+    {
+      "name": "Help branch 0x50030071",
+      "passed": true,
+      "evidence": "0x500300e4"
+    },
+    {
+      "name": "Help no other ESP write 0x50030071",
+      "passed": true,
+      "evidence": "ja 0x500300e4"
+    },
+    {
+      "name": "Help no other ESP write 0x50030077",
+      "passed": true,
+      "evidence": "mov ecx, dword ptr [ebx + 8]"
+    },
+    {
+      "name": "Help no other ESP write 0x5003007a",
+      "passed": true,
+      "evidence": "mov esi, edx"
+    },
+    {
+      "name": "Help no other ESP write 0x5003007c",
+      "passed": true,
+      "evidence": "xor esi, ecx"
+    },
+    {
+      "name": "Help no other ESP write 0x5003007e",
+      "passed": true,
+      "evidence": "xor esi, dword ptr [ebx + 0xc]"
+    },
+    {
+      "name": "Help no other ESP write 0x50030081",
+      "passed": true,
+      "evidence": "xor esi, 0x53564b55"
+    },
+    {
+      "name": "Help no other ESP write 0x50030087",
+      "passed": true,
+      "evidence": "cmp esi, dword ptr [ebx + 0x10]"
+    },
+    {
+      "name": "Help branch 0x5003008a",
+      "passed": true,
+      "evidence": "0x500300e4"
+    },
+    {
+      "name": "Help no other ESP write 0x5003008a",
+      "passed": true,
+      "evidence": "jne 0x500300e4"
+    },
+    {
+      "name": "Help no other ESP write 0x50030090",
+      "passed": true,
+      "evidence": "cmp dword ptr [ebx + 0xc], 0"
+    },
+    {
+      "name": "Help branch 0x50030094",
+      "passed": true,
+      "evidence": "0x500300e4"
+    },
+    {
+      "name": "Help no other ESP write 0x50030094",
+      "passed": true,
+      "evidence": "je 0x500300e4"
+    },
+    {
+      "name": "Help no other ESP write 0x5003009a",
+      "passed": true,
+      "evidence": "cmp dword ptr [0x300403fc], edx"
+    },
+    {
+      "name": "Help branch 0x500300a0",
+      "passed": true,
+      "evidence": "0x500300e4"
+    },
+    {
+      "name": "Help no other ESP write 0x500300a0",
+      "passed": true,
+      "evidence": "jne 0x500300e4"
+    },
+    {
+      "name": "Help no other ESP write 0x500300a6",
+      "passed": true,
+      "evidence": "mov dword ptr [edi + 0x11], ecx"
+    },
+    {
+      "name": "Help no other ESP write 0x500300ac",
+      "passed": true,
+      "evidence": "inc dword ptr [ebx + 0x24]"
+    },
+    {
+      "name": "Help branch 0x500300af",
+      "passed": true,
+      "evidence": "0x500300fc"
+    },
+    {
+      "name": "Help no other ESP write 0x500300af",
+      "passed": true,
+      "evidence": "je 0x500300fc"
+    },
+    {
+      "name": "Help no other ESP write 0x500300b5",
+      "passed": true,
+      "evidence": "lea esi, [edi + 0x11]"
+    },
+    {
+      "name": "Help no other ESP write 0x500300bb",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x38], esi"
+    },
+    {
+      "name": "Help no other ESP write 0x500300be",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x4c], ecx"
+    },
+    {
+      "name": "Help no other ESP write 0x500300c1",
+      "passed": true,
+      "evidence": "mov esi, dword ptr [ebx + 0xc]"
+    },
+    {
+      "name": "Help no other ESP write 0x500300c4",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x60], esi"
+    },
+    {
+      "name": "Help branch 0x500300c7",
+      "passed": true,
+      "evidence": "0x50030108"
+    },
+    {
+      "name": "Help no other ESP write 0x500300c7",
+      "passed": true,
+      "evidence": "jmp 0x50030108"
+    },
+    {
+      "name": "Help no other ESP write 0x500300cc",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 1"
+    },
+    {
+      "name": "Help branch 0x500300d3",
+      "passed": true,
+      "evidence": "0x50030108"
+    },
+    {
+      "name": "Help no other ESP write 0x500300d3",
+      "passed": true,
+      "evidence": "jmp 0x50030108"
+    },
+    {
+      "name": "Help no other ESP write 0x500300d8",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 2"
+    },
+    {
+      "name": "Help branch 0x500300df",
+      "passed": true,
+      "evidence": "0x50030108"
+    },
+    {
+      "name": "Help no other ESP write 0x500300df",
+      "passed": true,
+      "evidence": "jmp 0x50030108"
+    },
+    {
+      "name": "Help no other ESP write 0x500300e4",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 4"
+    },
+    {
+      "name": "Help branch 0x500300eb",
+      "passed": true,
+      "evidence": "0x50030108"
+    },
+    {
+      "name": "Help no other ESP write 0x500300eb",
+      "passed": true,
+      "evidence": "jmp 0x50030108"
+    },
+    {
+      "name": "Help no other ESP write 0x500300f0",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 8"
+    },
+    {
+      "name": "Help branch 0x500300f7",
+      "passed": true,
+      "evidence": "0x50030108"
+    },
+    {
+      "name": "Help no other ESP write 0x500300f7",
+      "passed": true,
+      "evidence": "jmp 0x50030108"
+    },
+    {
+      "name": "Help no other ESP write 0x500300fc",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 0x10"
+    },
+    {
+      "name": "Help branch 0x50030103",
+      "passed": true,
+      "evidence": "0x50030108"
+    },
+    {
+      "name": "Help no other ESP write 0x50030103",
+      "passed": true,
+      "evidence": "jmp 0x50030108"
+    },
+    {
+      "name": "Help branch 0x5003010a",
+      "passed": true,
+      "evidence": "0x2017c1b0"
+    },
+    {
+      "name": "Help no other ESP write 0x5003010a",
+      "passed": true,
+      "evidence": "jmp 0x2017c1b0"
+    },
+    {
+      "name": "Help explicit write whitelist 0x500300a6",
+      "passed": true,
+      "evidence": "mov dword ptr [edi + 0x11], ecx"
+    },
+    {
+      "name": "Help explicit write whitelist 0x500300ac",
+      "passed": true,
+      "evidence": "inc dword ptr [ebx + 0x24]"
+    },
+    {
+      "name": "Help explicit write whitelist 0x500300bb",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x38], esi"
+    },
+    {
+      "name": "Help explicit write whitelist 0x500300be",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x4c], ecx"
+    },
+    {
+      "name": "Help explicit write whitelist 0x500300c4",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x60], esi"
+    },
+    {
+      "name": "Help explicit write whitelist 0x500300cc",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 1"
+    },
+    {
+      "name": "Help explicit write whitelist 0x500300d8",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 2"
+    },
+    {
+      "name": "Help explicit write whitelist 0x500300e4",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 4"
+    },
+    {
+      "name": "Help explicit write whitelist 0x500300f0",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 8"
+    },
+    {
+      "name": "Help explicit write whitelist 0x500300fc",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 0x10"
+    },
+    {
+      "name": "Help one voltage store",
+      "passed": true,
+      "evidence": [
+        {
+          "at": "0x500300a6",
+          "asm": "mov dword ptr [edi + 0x11], ecx",
+          "kind": "guarded_Useti_or_ResT_Uset"
+        },
+        {
+          "at": "0x500300ac",
+          "asm": "inc dword ptr [ebx + 0x24]",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500300bb",
+          "asm": "mov dword ptr [ebx + 0x38], esi",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500300be",
+          "asm": "mov dword ptr [ebx + 0x4c], ecx",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500300c4",
+          "asm": "mov dword ptr [ebx + 0x60], esi",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500300cc",
+          "asm": "or dword ptr [ebx + 0x14], 1",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500300d8",
+          "asm": "or dword ptr [ebx + 0x14], 2",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500300e4",
+          "asm": "or dword ptr [ebx + 0x14], 4",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500300f0",
+          "asm": "or dword ptr [ebx + 0x14], 8",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500300fc",
+          "asm": "or dword ptr [ebx + 0x14], 0x10",
+          "kind": "owned_diagnostic_state"
+        }
+      ]
+    },
+    {
+      "name": "Help all CFG paths restore stack state",
+      "passed": true,
+      "evidence": {
+        "paths": 13,
+        "min_instructions": 11,
+        "max_instructions": 47
+      }
+    },
+    {
+      "name": "Help entry JMP exact target",
+      "passed": true,
+      "evidence": "e9523eeb2f9090"
+    },
+    {
+      "name": "Help owned diagnostic base",
+      "passed": true,
+      "evidence": "bb00000040"
+    },
+    {
+      "name": "Help thread TEB unique thread comparison",
+      "passed": true,
+      "evidence": "648b152400000081fa785634120f85"
+    },
+    {
+      "name": "Help expected destination comparison",
+      "passed": true,
+      "evidence": "3d000003300f85"
+    },
+    {
+      "name": "Help native frame owner comparison",
+      "passed": true,
+      "evidence": "8b55fc81fa000002300f85"
+    },
+    {
+      "name": "Help typed input pointer comparison",
+      "passed": true,
+      "evidence": "8b4a0481f9001000300f85"
+    },
+    {
+      "name": "Help magic comparison",
+      "passed": true,
+      "evidence": "813b554b56530f85"
+    },
+    {
+      "name": "Help previous fault skips store",
+      "passed": true,
+      "evidence": "837b14000f85"
+    },
+    {
+      "name": "Help whole volt unsigned upper limit",
+      "passed": true,
+      "evidence": "8b530481fab01300000f87"
+    },
+    {
+      "name": "Help checksum exact xor inputs",
+      "passed": true,
+      "evidence": "8b4b088bf233f133730c81f6554b56533b73100f85"
+    },
+    {
+      "name": "Help generation nonzero",
+      "passed": true,
+      "evidence": "837b0c000f84"
+    },
+    {
+      "name": "Help live Eset equals integer source",
+      "passed": true,
+      "evidence": "3915fc0304300f85"
+    },
+    {
+      "name": "Help producer counter overflow trap",
+      "passed": true,
+      "evidence": "ff43240f84"
+    },
+    {
+      "name": "Help owned result alias",
+      "passed": true,
+      "evidence": "817927000003300f85"
+    },
+    {
+      "name": "TractionEntry complete instruction decode",
+      "passed": true,
+      "evidence": 318
+    },
+    {
+      "name": "TractionEntry emitted binary exact",
+      "passed": true,
+      "evidence": "4C9DB25D49209A7D10909779F7D4C91860D77E0FA0FDF6F57953565FE9F3B4BE"
+    },
+    {
+      "name": "TractionEntry binary SHA",
+      "passed": true,
+      "evidence": "4c9db25d49209a7d10909779f7d4c91860d77e0fa0fdf6f57953565fe9f3b4be"
+    },
+    {
+      "name": "TractionEntry no call/ret/x87",
+      "passed": true,
+      "evidence": [
+        "mov",
+        "mov",
+        "pushfd",
+        "pushal",
+        "mov",
+        "mov",
+        "cmp",
+        "jne",
+        "cmp",
+        "jne",
+        "mov",
+        "cmp",
+        "jne",
+        "mov",
+        "cmp",
+        "jne",
+        "cmp",
+        "jne",
+        "cmp",
+        "ja",
+        "cmp",
+        "jne",
+        "mov",
+        "cmp",
+        "jne",
+        "cmp",
+        "jne",
+        "mov",
+        "cmp",
+        "ja",
+        "mov",
+        "mov",
+        "xor",
+        "xor",
+        "xor",
+        "cmp",
+        "jne",
+        "cmp",
+        "je",
+        "cmp",
+        "jne",
+        "cmp",
+        "jne",
+        "xor",
+        "mov",
+        "inc",
+        "je",
+        "lea",
+        "mov",
+        "mov",
+        "mov",
+        "mov",
+        "jmp",
+        "or",
+        "jmp",
+        "or",
+        "jmp",
+        "or",
+        "jmp",
+        "or",
+        "jmp",
+        "or",
+        "jmp",
+        "popal",
+        "popfd",
+        "jmp"
+      ]
+    },
+    {
+      "name": "TractionEntry replay and save order",
+      "passed": true,
+      "evidence": "8b45fc8b40049c60"
+    },
+    {
+      "name": "TractionEntry restore and continuation trailer",
+      "passed": true,
+      "evidence": "0x2017c352"
+    },
+    {
+      "name": "TractionEntry balanced saved registers/flags",
+      "passed": true,
+      "evidence": [
+        "pushfd",
+        "pushal",
+        "popal",
+        "popfd"
+      ]
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x50040000",
+      "passed": true,
+      "evidence": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x50040003",
+      "passed": true,
+      "evidence": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x50040008",
+      "passed": true,
+      "evidence": "mov ebx, 0x40000000"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x5004000d",
+      "passed": true,
+      "evidence": "mov edx, dword ptr fs:[0x24]"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x50040014",
+      "passed": true,
+      "evidence": "cmp edx, 0x12345678"
+    },
+    {
+      "name": "TractionEntry branch 0x5004001a",
+      "passed": true,
+      "evidence": "0x500400fb"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x5004001a",
+      "passed": true,
+      "evidence": "jne 0x500400fb"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x50040020",
+      "passed": true,
+      "evidence": "cmp eax, 0x30001000"
+    },
+    {
+      "name": "TractionEntry branch 0x50040025",
+      "passed": true,
+      "evidence": "0x5004011f"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x50040025",
+      "passed": true,
+      "evidence": "jne 0x5004011f"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x5004002b",
+      "passed": true,
+      "evidence": "mov edx, dword ptr [ebp - 4]"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x5004002e",
+      "passed": true,
+      "evidence": "cmp edx, 0x30020000"
+    },
+    {
+      "name": "TractionEntry branch 0x50040034",
+      "passed": true,
+      "evidence": "0x50040107"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x50040034",
+      "passed": true,
+      "evidence": "jne 0x50040107"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x5004003a",
+      "passed": true,
+      "evidence": "mov ecx, dword ptr [edx + 4]"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x5004003d",
+      "passed": true,
+      "evidence": "cmp ecx, 0x30001000"
+    },
+    {
+      "name": "TractionEntry branch 0x50040043",
+      "passed": true,
+      "evidence": "0x50040107"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x50040043",
+      "passed": true,
+      "evidence": "jne 0x50040107"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x50040049",
+      "passed": true,
+      "evidence": "cmp dword ptr [ecx + 0x27], 0x30030000"
+    },
+    {
+      "name": "TractionEntry branch 0x50040050",
+      "passed": true,
+      "evidence": "0x50040107"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x50040050",
+      "passed": true,
+      "evidence": "jne 0x50040107"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x50040056",
+      "passed": true,
+      "evidence": "cmp byte ptr [eax + 0x16], 1"
+    },
+    {
+      "name": "TractionEntry branch 0x5004005a",
+      "passed": true,
+      "evidence": "0x50040113"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x5004005a",
+      "passed": true,
+      "evidence": "ja 0x50040113"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x50040060",
+      "passed": true,
+      "evidence": "cmp byte ptr [edx + 0x100], 0"
+    },
+    {
+      "name": "TractionEntry branch 0x50040067",
+      "passed": true,
+      "evidence": "0x50040137"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x50040067",
+      "passed": true,
+      "evidence": "jne 0x50040137"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x5004006d",
+      "passed": true,
+      "evidence": "mov edi, 0x30030000"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x50040072",
+      "passed": true,
+      "evidence": "cmp dword ptr [ebx], 0x53564b55"
+    },
+    {
+      "name": "TractionEntry branch 0x50040078",
+      "passed": true,
+      "evidence": "0x50040113"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x50040078",
+      "passed": true,
+      "evidence": "jne 0x50040113"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x5004007e",
+      "passed": true,
+      "evidence": "cmp dword ptr [ebx + 0x14], 0"
+    },
+    {
+      "name": "TractionEntry branch 0x50040082",
+      "passed": true,
+      "evidence": "0x50040137"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x50040082",
+      "passed": true,
+      "evidence": "jne 0x50040137"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x50040088",
+      "passed": true,
+      "evidence": "mov edx, dword ptr [ebx + 4]"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x5004008b",
+      "passed": true,
+      "evidence": "cmp edx, 0x13b0"
+    },
+    {
+      "name": "TractionEntry branch 0x50040091",
+      "passed": true,
+      "evidence": "0x50040113"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x50040091",
+      "passed": true,
+      "evidence": "ja 0x50040113"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x50040097",
+      "passed": true,
+      "evidence": "mov ecx, dword ptr [ebx + 8]"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x5004009a",
+      "passed": true,
+      "evidence": "mov esi, edx"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x5004009c",
+      "passed": true,
+      "evidence": "xor esi, ecx"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x5004009e",
+      "passed": true,
+      "evidence": "xor esi, dword ptr [ebx + 0xc]"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x500400a1",
+      "passed": true,
+      "evidence": "xor esi, 0x53564b55"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x500400a7",
+      "passed": true,
+      "evidence": "cmp esi, dword ptr [ebx + 0x10]"
+    },
+    {
+      "name": "TractionEntry branch 0x500400aa",
+      "passed": true,
+      "evidence": "0x50040113"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x500400aa",
+      "passed": true,
+      "evidence": "jne 0x50040113"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x500400b0",
+      "passed": true,
+      "evidence": "cmp dword ptr [ebx + 0xc], 0"
+    },
+    {
+      "name": "TractionEntry branch 0x500400b4",
+      "passed": true,
+      "evidence": "0x50040113"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x500400b4",
+      "passed": true,
+      "evidence": "je 0x50040113"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x500400ba",
+      "passed": true,
+      "evidence": "cmp dword ptr [0x300403fc], edx"
+    },
+    {
+      "name": "TractionEntry branch 0x500400c0",
+      "passed": true,
+      "evidence": "0x50040113"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x500400c0",
+      "passed": true,
+      "evidence": "jne 0x50040113"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x500400c6",
+      "passed": true,
+      "evidence": "cmp byte ptr [eax + 0x130], 0"
+    },
+    {
+      "name": "TractionEntry branch 0x500400cd",
+      "passed": true,
+      "evidence": "0x500400d5"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x500400cd",
+      "passed": true,
+      "evidence": "jne 0x500400d5"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x500400d3",
+      "passed": true,
+      "evidence": "xor ecx, ecx"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x500400d5",
+      "passed": true,
+      "evidence": "mov dword ptr [edi + 0x11], ecx"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x500400db",
+      "passed": true,
+      "evidence": "inc dword ptr [ebx + 0x28]"
+    },
+    {
+      "name": "TractionEntry branch 0x500400de",
+      "passed": true,
+      "evidence": "0x5004012b"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x500400de",
+      "passed": true,
+      "evidence": "je 0x5004012b"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x500400e4",
+      "passed": true,
+      "evidence": "lea esi, [edi + 0x11]"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x500400ea",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x3c], esi"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x500400ed",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x50], ecx"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x500400f0",
+      "passed": true,
+      "evidence": "mov esi, dword ptr [ebx + 0xc]"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x500400f3",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x64], esi"
+    },
+    {
+      "name": "TractionEntry branch 0x500400f6",
+      "passed": true,
+      "evidence": "0x50040137"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x500400f6",
+      "passed": true,
+      "evidence": "jmp 0x50040137"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x500400fb",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 1"
+    },
+    {
+      "name": "TractionEntry branch 0x50040102",
+      "passed": true,
+      "evidence": "0x50040137"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x50040102",
+      "passed": true,
+      "evidence": "jmp 0x50040137"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x50040107",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 2"
+    },
+    {
+      "name": "TractionEntry branch 0x5004010e",
+      "passed": true,
+      "evidence": "0x50040137"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x5004010e",
+      "passed": true,
+      "evidence": "jmp 0x50040137"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x50040113",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 4"
+    },
+    {
+      "name": "TractionEntry branch 0x5004011a",
+      "passed": true,
+      "evidence": "0x50040137"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x5004011a",
+      "passed": true,
+      "evidence": "jmp 0x50040137"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x5004011f",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 8"
+    },
+    {
+      "name": "TractionEntry branch 0x50040126",
+      "passed": true,
+      "evidence": "0x50040137"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x50040126",
+      "passed": true,
+      "evidence": "jmp 0x50040137"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x5004012b",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 0x10"
+    },
+    {
+      "name": "TractionEntry branch 0x50040132",
+      "passed": true,
+      "evidence": "0x50040137"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x50040132",
+      "passed": true,
+      "evidence": "jmp 0x50040137"
+    },
+    {
+      "name": "TractionEntry branch 0x50040139",
+      "passed": true,
+      "evidence": "0x2017c352"
+    },
+    {
+      "name": "TractionEntry no other ESP write 0x50040139",
+      "passed": true,
+      "evidence": "jmp 0x2017c352"
+    },
+    {
+      "name": "TractionEntry explicit write whitelist 0x500400d5",
+      "passed": true,
+      "evidence": "mov dword ptr [edi + 0x11], ecx"
+    },
+    {
+      "name": "TractionEntry explicit write whitelist 0x500400db",
+      "passed": true,
+      "evidence": "inc dword ptr [ebx + 0x28]"
+    },
+    {
+      "name": "TractionEntry explicit write whitelist 0x500400ea",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x3c], esi"
+    },
+    {
+      "name": "TractionEntry explicit write whitelist 0x500400ed",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x50], ecx"
+    },
+    {
+      "name": "TractionEntry explicit write whitelist 0x500400f3",
+      "passed": true,
+      "evidence": "mov dword ptr [ebx + 0x64], esi"
+    },
+    {
+      "name": "TractionEntry explicit write whitelist 0x500400fb",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 1"
+    },
+    {
+      "name": "TractionEntry explicit write whitelist 0x50040107",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 2"
+    },
+    {
+      "name": "TractionEntry explicit write whitelist 0x50040113",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 4"
+    },
+    {
+      "name": "TractionEntry explicit write whitelist 0x5004011f",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 8"
+    },
+    {
+      "name": "TractionEntry explicit write whitelist 0x5004012b",
+      "passed": true,
+      "evidence": "or dword ptr [ebx + 0x14], 0x10"
+    },
+    {
+      "name": "TractionEntry one voltage store",
+      "passed": true,
+      "evidence": [
+        {
+          "at": "0x500400d5",
+          "asm": "mov dword ptr [edi + 0x11], ecx",
+          "kind": "guarded_Useti_or_ResT_Uset"
+        },
+        {
+          "at": "0x500400db",
+          "asm": "inc dword ptr [ebx + 0x28]",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500400ea",
+          "asm": "mov dword ptr [ebx + 0x3c], esi",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500400ed",
+          "asm": "mov dword ptr [ebx + 0x50], ecx",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500400f3",
+          "asm": "mov dword ptr [ebx + 0x64], esi",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x500400fb",
+          "asm": "or dword ptr [ebx + 0x14], 1",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x50040107",
+          "asm": "or dword ptr [ebx + 0x14], 2",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x50040113",
+          "asm": "or dword ptr [ebx + 0x14], 4",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x5004011f",
+          "asm": "or dword ptr [ebx + 0x14], 8",
+          "kind": "owned_diagnostic_state"
+        },
+        {
+          "at": "0x5004012b",
+          "asm": "or dword ptr [ebx + 0x14], 0x10",
+          "kind": "owned_diagnostic_state"
+        }
+      ]
+    },
+    {
+      "name": "TractionEntry all CFG paths restore stack state",
+      "passed": true,
+      "evidence": {
+        "paths": 17,
+        "min_instructions": 13,
+        "max_instructions": 56
+      }
+    },
+    {
+      "name": "TractionEntry entry JMP exact target",
+      "passed": true,
+      "evidence": "e9af3cec2f90"
+    },
+    {
+      "name": "TractionEntry owned diagnostic base",
+      "passed": true,
+      "evidence": "bb00000040"
+    },
+    {
+      "name": "TractionEntry thread TEB unique thread comparison",
+      "passed": true,
+      "evidence": "648b152400000081fa785634120f85"
+    },
+    {
+      "name": "TractionEntry expected destination comparison",
+      "passed": true,
+      "evidence": "3d001000300f85"
+    },
+    {
+      "name": "TractionEntry native frame owner comparison",
+      "passed": true,
+      "evidence": "8b55fc81fa000002300f85"
+    },
+    {
+      "name": "TractionEntry typed input pointer comparison",
+      "passed": true,
+      "evidence": "8b4a0481f9001000300f85"
+    },
+    {
+      "name": "TractionEntry magic comparison",
+      "passed": true,
+      "evidence": "813b554b56530f85"
+    },
+    {
+      "name": "TractionEntry previous fault skips store",
+      "passed": true,
+      "evidence": "837b14000f85"
+    },
+    {
+      "name": "TractionEntry whole volt unsigned upper limit",
+      "passed": true,
+      "evidence": "8b530481fab01300000f87"
+    },
+    {
+      "name": "TractionEntry checksum exact xor inputs",
+      "passed": true,
+      "evidence": "8b4b088bf233f133730c81f6554b56533b73100f85"
+    },
+    {
+      "name": "TractionEntry generation nonzero",
+      "passed": true,
+      "evidence": "837b0c000f84"
+    },
+    {
+      "name": "TractionEntry live Eset equals integer source",
+      "passed": true,
+      "evidence": "3915fc0304300f85"
+    },
+    {
+      "name": "TractionEntry producer counter overflow trap",
+      "passed": true,
+      "evidence": "ff43280f84"
+    },
+    {
+      "name": "TractionEntry owned result alias",
+      "passed": true,
+      "evidence": "817927000003300f85"
+    },
+    {
+      "name": "fifth hook exact replay",
+      "passed": true,
+      "evidence": "mov eax,[ebp-4]; mov eax,[eax+4]; pushfd; pushad"
+    },
+    {
+      "name": "fifth hook permits both excitation inputs 0/1",
+      "passed": true,
+      "evidence": "cmp byte ptr [eax+0x16],1; ja sourceFault. Unsigned 0/1 continue; values >1 reject."
+    },
+    {
+      "name": "fifth hook skips active regenerative mode",
+      "passed": true,
+      "evidence": "cmp byte ptr [edx+0x100],0; jne done (FFlagRecup !=0 retains calculated Uset)."
+    },
+    {
+      "name": "fifth hook retains roof-contact zero gate",
+      "passed": true,
+      "evidence": "cmp [eax+0x130],0; jne seqPowered; xor ecx,ecx; mov [edi+0x11],ecx"
+    },
+    {
+      "name": "pinned PE read only SHA",
+      "passed": true,
+      "evidence": "8ec6a82e618a1d75cbb31242784084b530bb87308e601defc5263d5279270491"
+    },
+    {
+      "name": "x87 continuation bytes outside replaced six MOV bytes",
+      "passed": true,
+      "evidence": "dd0083c4fcd91c249b8b"
+    },
+    {
+      "name": "pure managed generator scope",
+      "passed": true,
+      "evidence": "Fake addresses only; BuildCave and Jump were generated, not executed."
+    }
+  ],
+  "limits": [
+    "No constructor, install, runtime data guards, fault injection or live behavior tested.",
+    "Branches and store destinations are verified against generated fake-address CFG; native owner graph must still be guarded and tested separately.",
+    "Stack/flags are restored for all generated CFG paths; this does not execute x87 or prove native full RE conformity."
+  ]
+}

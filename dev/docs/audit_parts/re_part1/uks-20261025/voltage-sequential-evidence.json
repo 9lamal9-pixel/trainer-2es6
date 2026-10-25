@@ -1,0 +1,1866 @@
+{
+  "native_executed": false,
+  "modules": {
+    "Tyga1": {
+      "sha256": "8ec6a82e618a1d75cbb31242784084b530bb87308e601defc5263d5279270491"
+    },
+    "Pult1": {
+      "sha256": "7dac59bf94276309e012a6eb72602c08a921fe1910a4169f9f0ec27008f0f8f5"
+    }
+  },
+  "entry_site": {
+    "rva": "0x17c34c",
+    "length": 6,
+    "bytes": "8b45fc8b4004",
+    "sha256": "9a1e92bbbeaa187628d56c1afe901d3a4f12da5abb70f83a3896a7d16ac43e90"
+  },
+  "entry_window": {
+    "rva": "0x17c320",
+    "length": 67,
+    "bytes": "558bec83c4f88945fc8b45fc8b400483781b0075178b45fce84bfeffffb2058b45fce8c10a0000e9d90000008b45fc8b4004dd0083c4fcd91c249b8b45fce87d220000",
+    "sha256": "07150db5a565d9ce840feb7926a36c4be84a26b834a46170bf7cdfe356529223"
+  },
+  "entry_instructions": [
+    {
+      "rva": "0x17c320",
+      "bytes": "55",
+      "asm": "push ebp"
+    },
+    {
+      "rva": "0x17c321",
+      "bytes": "8bec",
+      "asm": "mov ebp, esp"
+    },
+    {
+      "rva": "0x17c323",
+      "bytes": "83c4f8",
+      "asm": "add esp, -8"
+    },
+    {
+      "rva": "0x17c326",
+      "bytes": "8945fc",
+      "asm": "mov dword ptr [ebp - 4], eax"
+    },
+    {
+      "rva": "0x17c329",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17c32c",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17c32f",
+      "bytes": "83781b00",
+      "asm": "cmp dword ptr [eax + 0x1b], 0"
+    },
+    {
+      "rva": "0x17c333",
+      "bytes": "7517",
+      "asm": "jne 0x57c34c"
+    },
+    {
+      "rva": "0x17c335",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17c338",
+      "bytes": "e84bfeffff",
+      "asm": "call 0x57c188"
+    },
+    {
+      "rva": "0x17c33d",
+      "bytes": "b205",
+      "asm": "mov dl, 5"
+    },
+    {
+      "rva": "0x17c33f",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17c342",
+      "bytes": "e8c10a0000",
+      "asm": "call 0x57ce08"
+    },
+    {
+      "rva": "0x17c347",
+      "bytes": "e9d9000000",
+      "asm": "jmp 0x57c425"
+    },
+    {
+      "rva": "0x17c34c",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17c34f",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17c352",
+      "bytes": "dd00",
+      "asm": "fld qword ptr [eax]"
+    },
+    {
+      "rva": "0x17c354",
+      "bytes": "83c4fc",
+      "asm": "add esp, -4"
+    },
+    {
+      "rva": "0x17c357",
+      "bytes": "d91c24",
+      "asm": "fstp dword ptr [esp]"
+    },
+    {
+      "rva": "0x17c35a",
+      "bytes": "9b",
+      "asm": "wait "
+    },
+    {
+      "rva": "0x17c35b",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17c35e",
+      "bytes": "e87d220000",
+      "asm": "call 0x57e5e0"
+    }
+  ],
+  "sequential_Uset_writes": [],
+  "VozbType_native_producers": [
+    {
+      "method": "@Pultdllclassindex@TPult2ES6@UpdateButton$qqrv",
+      "site": {
+        "rva": "0x18c805",
+        "bytes": "c6401601",
+        "asm": "mov byte ptr [eax + 0x16], 1"
+      },
+      "context": [
+        {
+          "rva": "0x18c7db",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c7de",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x18c7e1",
+          "bytes": "80782c01",
+          "asm": "cmp byte ptr [eax + 0x2c], 1"
+        },
+        {
+          "rva": "0x18c7e5",
+          "bytes": "7524",
+          "asm": "jne 0x58c80b"
+        },
+        {
+          "rva": "0x18c7e7",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c7ea",
+          "bytes": "8b4008",
+          "asm": "mov eax, dword ptr [eax + 8]"
+        },
+        {
+          "rva": "0x18c7ed",
+          "bytes": "83780c00",
+          "asm": "cmp dword ptr [eax + 0xc], 0"
+        },
+        {
+          "rva": "0x18c7f1",
+          "bytes": "740c",
+          "asm": "je 0x58c7ff"
+        },
+        {
+          "rva": "0x18c7f3",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c7f6",
+          "bytes": "8b4008",
+          "asm": "mov eax, dword ptr [eax + 8]"
+        },
+        {
+          "rva": "0x18c7f9",
+          "bytes": "83781000",
+          "asm": "cmp dword ptr [eax + 0x10], 0"
+        },
+        {
+          "rva": "0x18c7fd",
+          "bytes": "750c",
+          "asm": "jne 0x58c80b"
+        },
+        {
+          "rva": "0x18c7ff",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c802",
+          "bytes": "8b4008",
+          "asm": "mov eax, dword ptr [eax + 8]"
+        },
+        {
+          "rva": "0x18c805",
+          "bytes": "c6401601",
+          "asm": "mov byte ptr [eax + 0x16], 1"
+        },
+        {
+          "rva": "0x18c809",
+          "bytes": "eb0a",
+          "asm": "jmp 0x58c815"
+        },
+        {
+          "rva": "0x18c80b",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c80e",
+          "bytes": "8b4008",
+          "asm": "mov eax, dword ptr [eax + 8]"
+        }
+      ]
+    },
+    {
+      "method": "@Pultdllclassindex@TPult2ES6@UpdateButton$qqrv",
+      "site": {
+        "rva": "0x18c811",
+        "bytes": "c6401600",
+        "asm": "mov byte ptr [eax + 0x16], 0"
+      },
+      "context": [
+        {
+          "rva": "0x18c7e7",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c7ea",
+          "bytes": "8b4008",
+          "asm": "mov eax, dword ptr [eax + 8]"
+        },
+        {
+          "rva": "0x18c7ed",
+          "bytes": "83780c00",
+          "asm": "cmp dword ptr [eax + 0xc], 0"
+        },
+        {
+          "rva": "0x18c7f1",
+          "bytes": "740c",
+          "asm": "je 0x58c7ff"
+        },
+        {
+          "rva": "0x18c7f3",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c7f6",
+          "bytes": "8b4008",
+          "asm": "mov eax, dword ptr [eax + 8]"
+        },
+        {
+          "rva": "0x18c7f9",
+          "bytes": "83781000",
+          "asm": "cmp dword ptr [eax + 0x10], 0"
+        },
+        {
+          "rva": "0x18c7fd",
+          "bytes": "750c",
+          "asm": "jne 0x58c80b"
+        },
+        {
+          "rva": "0x18c7ff",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c802",
+          "bytes": "8b4008",
+          "asm": "mov eax, dword ptr [eax + 8]"
+        },
+        {
+          "rva": "0x18c805",
+          "bytes": "c6401601",
+          "asm": "mov byte ptr [eax + 0x16], 1"
+        },
+        {
+          "rva": "0x18c809",
+          "bytes": "eb0a",
+          "asm": "jmp 0x58c815"
+        },
+        {
+          "rva": "0x18c80b",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c80e",
+          "bytes": "8b4008",
+          "asm": "mov eax, dword ptr [eax + 8]"
+        },
+        {
+          "rva": "0x18c811",
+          "bytes": "c6401600",
+          "asm": "mov byte ptr [eax + 0x16], 0"
+        },
+        {
+          "rva": "0x18c815",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x18c818",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x18c81b",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        }
+      ]
+    }
+  ],
+  "pre_dispatch_calls": [
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@CheckACommand$qqrv",
+      "calls": [
+        {
+          "rva": "0x177cf8",
+          "target_rva": "0x17995c",
+          "target": "@Tyga_2es6@TTygaCalcClass@GetCurMen$qqrfo"
+        },
+        {
+          "rva": "0x177d0b",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x177d3e",
+          "target_rva": "0x17e284",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetSoedTED$qqrx23Structura_tyga@TSoedTED"
+        },
+        {
+          "rva": "0x177d4a",
+          "target_rva": "0x17e284",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetSoedTED$qqrx23Structura_tyga@TSoedTED"
+        },
+        {
+          "rva": "0x177d56",
+          "target_rva": "0x17e284",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetSoedTED$qqrx23Structura_tyga@TSoedTED"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@KontrolTimePos$qqrv",
+      "calls": [
+        {
+          "rva": "0x17c268",
+          "target_rva": "0x17b774",
+          "target": "@Tyga_2es6@TTygaCalcClass@GetTimeReost$qqrv"
+        },
+        {
+          "rva": "0x17c297",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x17c2a8",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x17c2b9",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x17c2ca",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x17c30d",
+          "target_rva": "0x17ce08",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetCurCommandKont$qqrx33Structura_tyga@TCommandController"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@SetCurCommandKont$qqrx33Structura_tyga@TCommandController",
+      "calls": [
+        {
+          "rva": "0x17cea0",
+          "target_rva": "0x17ccb8",
+          "target": "CheckSoed"
+        },
+        {
+          "rva": "0x17ceb8",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x17cec5",
+          "target_rva": "0x17ccb8",
+          "target": "CheckSoed"
+        },
+        {
+          "rva": "0x17cedd",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x17ceea",
+          "target_rva": "0x17ccb8",
+          "target": "CheckSoed"
+        },
+        {
+          "rva": "0x17cefe",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x17cf1b",
+          "target_rva": "0x17ccb8",
+          "target": "CheckSoed"
+        },
+        {
+          "rva": "0x17cf33",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x17cf49",
+          "target_rva": "0x17ccb8",
+          "target": "CheckSoed"
+        },
+        {
+          "rva": "0x17cf61",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x17cf77",
+          "target_rva": "0x17ccb8",
+          "target": "CheckSoed"
+        },
+        {
+          "rva": "0x17cf8f",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x17cfeb",
+          "target_rva": "0x17995c",
+          "target": "@Tyga_2es6@TTygaCalcClass@GetCurMen$qqrfo"
+        },
+        {
+          "rva": "0x17d01b",
+          "target_rva": "0x17ccb8",
+          "target": "CheckSoed"
+        },
+        {
+          "rva": "0x17d033",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x17d050",
+          "target_rva": "0x17995c",
+          "target": "@Tyga_2es6@TTygaCalcClass@GetCurMen$qqrfo"
+        },
+        {
+          "rva": "0x17d087",
+          "target_rva": "0x17ccb8",
+          "target": "CheckSoed"
+        },
+        {
+          "rva": "0x17d09f",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x17d0bb",
+          "target_rva": "0x17995c",
+          "target": "@Tyga_2es6@TTygaCalcClass@GetCurMen$qqrfo"
+        },
+        {
+          "rva": "0x17d0ce",
+          "target_rva": "0x17995c",
+          "target": "@Tyga_2es6@TTygaCalcClass@GetCurMen$qqrfo"
+        },
+        {
+          "rva": "0x17d12d",
+          "target_rva": "0x17995c",
+          "target": "@Tyga_2es6@TTygaCalcClass@GetCurMen$qqrfo"
+        },
+        {
+          "rva": "0x17d172",
+          "target_rva": "0x17ccb8",
+          "target": "CheckSoed"
+        },
+        {
+          "rva": "0x17d18a",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x17d1e3",
+          "target_rva": "0x17ccb8",
+          "target": "CheckSoed"
+        },
+        {
+          "rva": "0x17d1fb",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x17d21e",
+          "target_rva": "0x17ccb8",
+          "target": "CheckSoed"
+        },
+        {
+          "rva": "0x17d236",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x17d259",
+          "target_rva": "0x17ccb8",
+          "target": "CheckSoed"
+        },
+        {
+          "rva": "0x17d271",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x17d28b",
+          "target_rva": "0x17ccb8",
+          "target": "CheckSoed"
+        },
+        {
+          "rva": "0x17d2a3",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x17d309",
+          "target_rva": "0x17c71c",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetAfterPos$qqrv"
+        },
+        {
+          "rva": "0x17d31c",
+          "target_rva": "0x17c71c",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetAfterPos$qqrv"
+        },
+        {
+          "rva": "0x17d32f",
+          "target_rva": "0x17c71c",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetAfterPos$qqrv"
+        },
+        {
+          "rva": "0x17d339",
+          "target_rva": "0x17c71c",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetAfterPos$qqrv"
+        },
+        {
+          "rva": "0x17d357",
+          "target_rva": "0x17e284",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetSoedTED$qqrx23Structura_tyga@TSoedTED"
+        },
+        {
+          "rva": "0x17d361",
+          "target_rva": "0x17d89c",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetIVozb$qqrf"
+        },
+        {
+          "rva": "0x17d372",
+          "target_rva": "0x17e1cc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetProcentTyga$qqrxi"
+        },
+        {
+          "rva": "0x17d37c",
+          "target_rva": "0x17d870",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetFlagRecup$qqrxo"
+        },
+        {
+          "rva": "0x17d386",
+          "target_rva": "0x17d824",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetEDT$qqrxo"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@SetCurCommandOV$qqrx35Structura_tyga@TCommandOVController",
+      "calls": [
+        {
+          "rva": "0x17d3fb",
+          "target_rva": "0x17e1cc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetProcentTyga$qqrxi"
+        },
+        {
+          "rva": "0x17d428",
+          "target_rva": "0x17e1cc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetProcentTyga$qqrxi"
+        },
+        {
+          "rva": "0x17d45c",
+          "target_rva": "0x17da10",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetNextPOs$qqrv"
+        },
+        {
+          "rva": "0x17d46d",
+          "target_rva": "0x17e1cc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetProcentTyga$qqrxi"
+        },
+        {
+          "rva": "0x17d487",
+          "target_rva": "0x17e1cc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetProcentTyga$qqrxi"
+        },
+        {
+          "rva": "0x17d4d8",
+          "target_rva": "0x17e1cc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetProcentTyga$qqrxi"
+        },
+        {
+          "rva": "0x17d4f6",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x17d503",
+          "target_rva": "0x17e1cc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetProcentTyga$qqrxi"
+        },
+        {
+          "rva": "0x17d50b",
+          "target_rva": "0x177f88",
+          "target": "@Tyga_2es6@TTygaCalcClass@ChooseSoedTEDRecup$qqrv"
+        },
+        {
+          "rva": "0x17d515",
+          "target_rva": "0x17e284",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetSoedTED$qqrx23Structura_tyga@TSoedTED"
+        },
+        {
+          "rva": "0x17d51f",
+          "target_rva": "0x17dec4",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPodgotovkaElTorm$qqrxo"
+        },
+        {
+          "rva": "0x17d545",
+          "target_rva": "0x17e1cc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetProcentTyga$qqrxi"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@SetNextPOs$qqrv",
+      "calls": [
+        {
+          "rva": "0x17da44",
+          "target_rva": "0x178204",
+          "target": "@Tyga_2es6@TTygaCalcClass@GetCountVklTED$qqri"
+        },
+        {
+          "rva": "0x17da53",
+          "target_rva": "0x178204",
+          "target": "@Tyga_2es6@TTygaCalcClass@GetCountVklTED$qqri"
+        },
+        {
+          "rva": "0x17dae8",
+          "target_rva": "0x17d89c",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetIVozb$qqrf"
+        },
+        {
+          "rva": "0x17daf3",
+          "target_rva": "0x17823c",
+          "target": "@Tyga_2es6@TTygaCalcClass@GetCur$qqrf"
+        },
+        {
+          "rva": "0x17db0f",
+          "target_rva": "0x17d89c",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetIVozb$qqrf"
+        },
+        {
+          "rva": "0x17db19",
+          "target_rva": "0x17823c",
+          "target": "@Tyga_2es6@TTygaCalcClass@GetCur$qqrf"
+        },
+        {
+          "rva": "0x17db25",
+          "target_rva": "0x17ba4c",
+          "target": "@Tyga_2es6@TTygaCalcClass@GetUDvig$qqrf"
+        },
+        {
+          "rva": "0x17db59",
+          "target_rva": "0x17d89c",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetIVozb$qqrf"
+        },
+        {
+          "rva": "0x17db7c",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x17db8b",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x17db95",
+          "target_rva": "0x17823c",
+          "target": "@Tyga_2es6@TTygaCalcClass@GetCur$qqrf"
+        },
+        {
+          "rva": "0x17db9f",
+          "target_rva": "0x17b144",
+          "target": "@Tyga_2es6@TTygaCalcClass@GetProcentTygaReal$qqrv"
+        },
+        {
+          "rva": "0x17dbd4",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x17dc38",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x17dc8f",
+          "target_rva": "0x17d89c",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetIVozb$qqrf"
+        },
+        {
+          "rva": "0x17dc9c",
+          "target_rva": "0x17823c",
+          "target": "@Tyga_2es6@TTygaCalcClass@GetCur$qqrf"
+        },
+        {
+          "rva": "0x17dcb8",
+          "target_rva": "0x17d89c",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetIVozb$qqrf"
+        },
+        {
+          "rva": "0x17dcc3",
+          "target_rva": "0x17823c",
+          "target": "@Tyga_2es6@TTygaCalcClass@GetCur$qqrf"
+        },
+        {
+          "rva": "0x17dccf",
+          "target_rva": "0x17ba4c",
+          "target": "@Tyga_2es6@TTygaCalcClass@GetUDvig$qqrf"
+        },
+        {
+          "rva": "0x17dd03",
+          "target_rva": "0x17d89c",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetIVozb$qqrf"
+        },
+        {
+          "rva": "0x17dd26",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x17dd35",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x17dd3f",
+          "target_rva": "0x17823c",
+          "target": "@Tyga_2es6@TTygaCalcClass@GetCur$qqrf"
+        },
+        {
+          "rva": "0x17dd49",
+          "target_rva": "0x17b144",
+          "target": "@Tyga_2es6@TTygaCalcClass@GetProcentTygaReal$qqrv"
+        },
+        {
+          "rva": "0x17dd7e",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x17ddb7",
+          "target_rva": "0x17d89c",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetIVozb$qqrf"
+        },
+        {
+          "rva": "0x17ddc1",
+          "target_rva": "0x17823c",
+          "target": "@Tyga_2es6@TTygaCalcClass@GetCur$qqrf"
+        },
+        {
+          "rva": "0x17dddd",
+          "target_rva": "0x17d89c",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetIVozb$qqrf"
+        },
+        {
+          "rva": "0x17dde7",
+          "target_rva": "0x17823c",
+          "target": "@Tyga_2es6@TTygaCalcClass@GetCur$qqrf"
+        },
+        {
+          "rva": "0x17ddf3",
+          "target_rva": "0x17ba4c",
+          "target": "@Tyga_2es6@TTygaCalcClass@GetUDvig$qqrf"
+        },
+        {
+          "rva": "0x17de27",
+          "target_rva": "0x17d89c",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetIVozb$qqrf"
+        },
+        {
+          "rva": "0x17de4a",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x17de56",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x17de60",
+          "target_rva": "0x17823c",
+          "target": "@Tyga_2es6@TTygaCalcClass@GetCur$qqrf"
+        },
+        {
+          "rva": "0x17de6a",
+          "target_rva": "0x17b144",
+          "target": "@Tyga_2es6@TTygaCalcClass@GetProcentTygaReal$qqrv"
+        },
+        {
+          "rva": "0x17de9b",
+          "target_rva": "0x17defc",
+          "target": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        }
+      ]
+    }
+  ],
+  "SetCurCommandOV_instructions": [
+    {
+      "rva": "0x17d390",
+      "bytes": "55",
+      "asm": "push ebp"
+    },
+    {
+      "rva": "0x17d391",
+      "bytes": "8bec",
+      "asm": "mov ebp, esp"
+    },
+    {
+      "rva": "0x17d393",
+      "bytes": "83c4f8",
+      "asm": "add esp, -8"
+    },
+    {
+      "rva": "0x17d396",
+      "bytes": "8855fb",
+      "asm": "mov byte ptr [ebp - 5], dl"
+    },
+    {
+      "rva": "0x17d399",
+      "bytes": "8945fc",
+      "asm": "mov dword ptr [ebp - 4], eax"
+    },
+    {
+      "rva": "0x17d39c",
+      "bytes": "807dfb00",
+      "asm": "cmp byte ptr [ebp - 5], 0"
+    },
+    {
+      "rva": "0x17d3a0",
+      "bytes": "0f8501010000",
+      "asm": "jne 0x57d4a7"
+    },
+    {
+      "rva": "0x17d3a6",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d3a9",
+      "bytes": "83782001",
+      "asm": "cmp dword ptr [eax + 0x20], 1"
+    },
+    {
+      "rva": "0x17d3ad",
+      "bytes": "7d0b",
+      "asm": "jge 0x57d3ba"
+    },
+    {
+      "rva": "0x17d3af",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d3b2",
+      "bytes": "ff4020",
+      "asm": "inc dword ptr [eax + 0x20]"
+    },
+    {
+      "rva": "0x17d3b5",
+      "bytes": "e9b5010000",
+      "asm": "jmp 0x57d56f"
+    },
+    {
+      "rva": "0x17d3ba",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d3bd",
+      "bytes": "d98004010000",
+      "asm": "fld dword ptr [eax + 0x104]"
+    },
+    {
+      "rva": "0x17d3c3",
+      "bytes": "d81d88d55700",
+      "asm": "fcomp dword ptr [0x57d588]"
+    },
+    {
+      "rva": "0x17d3c9",
+      "bytes": "9b",
+      "asm": "wait "
+    },
+    {
+      "rva": "0x17d3ca",
+      "bytes": "dfe0",
+      "asm": "fnstsw ax"
+    },
+    {
+      "rva": "0x17d3cc",
+      "bytes": "9e",
+      "asm": "sahf "
+    },
+    {
+      "rva": "0x17d3cd",
+      "bytes": "7319",
+      "asm": "jae 0x57d3e8"
+    },
+    {
+      "rva": "0x17d3cf",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d3d2",
+      "bytes": "80780b00",
+      "asm": "cmp byte ptr [eax + 0xb], 0"
+    },
+    {
+      "rva": "0x17d3d6",
+      "bytes": "7510",
+      "asm": "jne 0x57d3e8"
+    },
+    {
+      "rva": "0x17d3d8",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d3db",
+      "bytes": "80b80001000000",
+      "asm": "cmp byte ptr [eax + 0x100], 0"
+    },
+    {
+      "rva": "0x17d3e2",
+      "bytes": "0f849b010000",
+      "asm": "je 0x57d583"
+    },
+    {
+      "rva": "0x17d3e8",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d3eb",
+      "bytes": "83784400",
+      "asm": "cmp dword ptr [eax + 0x44], 0"
+    },
+    {
+      "rva": "0x17d3ef",
+      "bytes": "7d14",
+      "asm": "jge 0x57d405"
+    },
+    {
+      "rva": "0x17d3f1",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d3f4",
+      "bytes": "8b5044",
+      "asm": "mov edx, dword ptr [eax + 0x44]"
+    },
+    {
+      "rva": "0x17d3f7",
+      "bytes": "42",
+      "asm": "inc edx"
+    },
+    {
+      "rva": "0x17d3f8",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d3fb",
+      "bytes": "e8cc0d0000",
+      "asm": "call 0x57e1cc"
+    },
+    {
+      "rva": "0x17d400",
+      "bytes": "e987000000",
+      "asm": "jmp 0x57d48c"
+    },
+    {
+      "rva": "0x17d405",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d408",
+      "bytes": "83784400",
+      "asm": "cmp dword ptr [eax + 0x44], 0"
+    },
+    {
+      "rva": "0x17d40c",
+      "bytes": "7566",
+      "asm": "jne 0x57d474"
+    },
+    {
+      "rva": "0x17d40e",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d411",
+      "bytes": "80785f00",
+      "asm": "cmp byte ptr [eax + 0x5f], 0"
+    },
+    {
+      "rva": "0x17d415",
+      "bytes": "745d",
+      "asm": "je 0x57d474"
+    },
+    {
+      "rva": "0x17d417",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d41a",
+      "bytes": "83784400",
+      "asm": "cmp dword ptr [eax + 0x44], 0"
+    },
+    {
+      "rva": "0x17d41e",
+      "bytes": "7543",
+      "asm": "jne 0x57d463"
+    },
+    {
+      "rva": "0x17d420",
+      "bytes": "ba07000000",
+      "asm": "mov edx, 7"
+    },
+    {
+      "rva": "0x17d425",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d428",
+      "bytes": "e89f0d0000",
+      "asm": "call 0x57e1cc"
+    },
+    {
+      "rva": "0x17d42d",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d430",
+      "bytes": "80780805",
+      "asm": "cmp byte ptr [eax + 8], 5"
+    },
+    {
+      "rva": "0x17d434",
+      "bytes": "7556",
+      "asm": "jne 0x57d48c"
+    },
+    {
+      "rva": "0x17d436",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d439",
+      "bytes": "80785f00",
+      "asm": "cmp byte ptr [eax + 0x5f], 0"
+    },
+    {
+      "rva": "0x17d43d",
+      "bytes": "744d",
+      "asm": "je 0x57d48c"
+    },
+    {
+      "rva": "0x17d43f",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d442",
+      "bytes": "c6405e01",
+      "asm": "mov byte ptr [eax + 0x5e], 1"
+    },
+    {
+      "rva": "0x17d446",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d449",
+      "bytes": "c6400801",
+      "asm": "mov byte ptr [eax + 8], 1"
+    },
+    {
+      "rva": "0x17d44d",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d450",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d453",
+      "bytes": "80781601",
+      "asm": "cmp byte ptr [eax + 0x16], 1"
+    },
+    {
+      "rva": "0x17d457",
+      "bytes": "7533",
+      "asm": "jne 0x57d48c"
+    },
+    {
+      "rva": "0x17d459",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d45c",
+      "bytes": "e8af050000",
+      "asm": "call 0x57da10"
+    },
+    {
+      "rva": "0x17d461",
+      "bytes": "eb29",
+      "asm": "jmp 0x57d48c"
+    },
+    {
+      "rva": "0x17d463",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d466",
+      "bytes": "8b5044",
+      "asm": "mov edx, dword ptr [eax + 0x44]"
+    },
+    {
+      "rva": "0x17d469",
+      "bytes": "42",
+      "asm": "inc edx"
+    },
+    {
+      "rva": "0x17d46a",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d46d",
+      "bytes": "e85a0d0000",
+      "asm": "call 0x57e1cc"
+    },
+    {
+      "rva": "0x17d472",
+      "bytes": "eb18",
+      "asm": "jmp 0x57d48c"
+    },
+    {
+      "rva": "0x17d474",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d477",
+      "bytes": "83784400",
+      "asm": "cmp dword ptr [eax + 0x44], 0"
+    },
+    {
+      "rva": "0x17d47b",
+      "bytes": "7e0f",
+      "asm": "jle 0x57d48c"
+    },
+    {
+      "rva": "0x17d47d",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d480",
+      "bytes": "8b5044",
+      "asm": "mov edx, dword ptr [eax + 0x44]"
+    },
+    {
+      "rva": "0x17d483",
+      "bytes": "42",
+      "asm": "inc edx"
+    },
+    {
+      "rva": "0x17d484",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d487",
+      "bytes": "e8400d0000",
+      "asm": "call 0x57e1cc"
+    },
+    {
+      "rva": "0x17d48c",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d48f",
+      "bytes": "33d2",
+      "asm": "xor edx, edx"
+    },
+    {
+      "rva": "0x17d491",
+      "bytes": "895020",
+      "asm": "mov dword ptr [eax + 0x20], edx"
+    },
+    {
+      "rva": "0x17d494",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d497",
+      "bytes": "c6405e01",
+      "asm": "mov byte ptr [eax + 0x5e], 1"
+    },
+    {
+      "rva": "0x17d49b",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d49e",
+      "bytes": "c6405f00",
+      "asm": "mov byte ptr [eax + 0x5f], 0"
+    },
+    {
+      "rva": "0x17d4a2",
+      "bytes": "e9c8000000",
+      "asm": "jmp 0x57d56f"
+    },
+    {
+      "rva": "0x17d4a7",
+      "bytes": "807dfb01",
+      "asm": "cmp byte ptr [ebp - 5], 1"
+    },
+    {
+      "rva": "0x17d4ab",
+      "bytes": "0f85b1000000",
+      "asm": "jne 0x57d562"
+    },
+    {
+      "rva": "0x17d4b1",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d4b4",
+      "bytes": "83782001",
+      "asm": "cmp dword ptr [eax + 0x20], 1"
+    },
+    {
+      "rva": "0x17d4b8",
+      "bytes": "7d0b",
+      "asm": "jge 0x57d4c5"
+    },
+    {
+      "rva": "0x17d4ba",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d4bd",
+      "bytes": "ff4020",
+      "asm": "inc dword ptr [eax + 0x20]"
+    },
+    {
+      "rva": "0x17d4c0",
+      "bytes": "e994000000",
+      "asm": "jmp 0x57d559"
+    },
+    {
+      "rva": "0x17d4c5",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d4c8",
+      "bytes": "83784400",
+      "asm": "cmp dword ptr [eax + 0x44], 0"
+    },
+    {
+      "rva": "0x17d4cc",
+      "bytes": "7e11",
+      "asm": "jle 0x57d4df"
+    },
+    {
+      "rva": "0x17d4ce",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d4d1",
+      "bytes": "8b5044",
+      "asm": "mov edx, dword ptr [eax + 0x44]"
+    },
+    {
+      "rva": "0x17d4d4",
+      "bytes": "4a",
+      "asm": "dec edx"
+    },
+    {
+      "rva": "0x17d4d5",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d4d8",
+      "bytes": "e8ef0c0000",
+      "asm": "call 0x57e1cc"
+    },
+    {
+      "rva": "0x17d4dd",
+      "bytes": "eb6b",
+      "asm": "jmp 0x57d54a"
+    },
+    {
+      "rva": "0x17d4df",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d4e2",
+      "bytes": "83784400",
+      "asm": "cmp dword ptr [eax + 0x44], 0"
+    },
+    {
+      "rva": "0x17d4e6",
+      "bytes": "753e",
+      "asm": "jne 0x57d526"
+    },
+    {
+      "rva": "0x17d4e8",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d4eb",
+      "bytes": "80785f00",
+      "asm": "cmp byte ptr [eax + 0x5f], 0"
+    },
+    {
+      "rva": "0x17d4ef",
+      "bytes": "7435",
+      "asm": "je 0x57d526"
+    },
+    {
+      "rva": "0x17d4f1",
+      "bytes": "33d2",
+      "asm": "xor edx, edx"
+    },
+    {
+      "rva": "0x17d4f3",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d4f6",
+      "bytes": "e8010a0000",
+      "asm": "call 0x57defc"
+    },
+    {
+      "rva": "0x17d4fb",
+      "bytes": "baf9ffffff",
+      "asm": "mov edx, 0xfffffff9"
+    },
+    {
+      "rva": "0x17d500",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d503",
+      "bytes": "e8c40c0000",
+      "asm": "call 0x57e1cc"
+    },
+    {
+      "rva": "0x17d508",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d50b",
+      "bytes": "e878aaffff",
+      "asm": "call 0x577f88"
+    },
+    {
+      "rva": "0x17d510",
+      "bytes": "8bd0",
+      "asm": "mov edx, eax"
+    },
+    {
+      "rva": "0x17d512",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d515",
+      "bytes": "e86a0d0000",
+      "asm": "call 0x57e284"
+    },
+    {
+      "rva": "0x17d51a",
+      "bytes": "b201",
+      "asm": "mov dl, 1"
+    },
+    {
+      "rva": "0x17d51c",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d51f",
+      "bytes": "e8a0090000",
+      "asm": "call 0x57dec4"
+    },
+    {
+      "rva": "0x17d524",
+      "bytes": "eb24",
+      "asm": "jmp 0x57d54a"
+    },
+    {
+      "rva": "0x17d526",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d529",
+      "bytes": "83784400",
+      "asm": "cmp dword ptr [eax + 0x44], 0"
+    },
+    {
+      "rva": "0x17d52d",
+      "bytes": "7d1b",
+      "asm": "jge 0x57d54a"
+    },
+    {
+      "rva": "0x17d52f",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d532",
+      "bytes": "80b80801000000",
+      "asm": "cmp byte ptr [eax + 0x108], 0"
+    },
+    {
+      "rva": "0x17d539",
+      "bytes": "750f",
+      "asm": "jne 0x57d54a"
+    },
+    {
+      "rva": "0x17d53b",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d53e",
+      "bytes": "8b5044",
+      "asm": "mov edx, dword ptr [eax + 0x44]"
+    },
+    {
+      "rva": "0x17d541",
+      "bytes": "4a",
+      "asm": "dec edx"
+    },
+    {
+      "rva": "0x17d542",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d545",
+      "bytes": "e8820c0000",
+      "asm": "call 0x57e1cc"
+    },
+    {
+      "rva": "0x17d54a",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d54d",
+      "bytes": "33d2",
+      "asm": "xor edx, edx"
+    },
+    {
+      "rva": "0x17d54f",
+      "bytes": "895020",
+      "asm": "mov dword ptr [eax + 0x20], edx"
+    },
+    {
+      "rva": "0x17d552",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d555",
+      "bytes": "c6405f00",
+      "asm": "mov byte ptr [eax + 0x5f], 0"
+    },
+    {
+      "rva": "0x17d559",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d55c",
+      "bytes": "c6405e01",
+      "asm": "mov byte ptr [eax + 0x5e], 1"
+    },
+    {
+      "rva": "0x17d560",
+      "bytes": "eb0d",
+      "asm": "jmp 0x57d56f"
+    },
+    {
+      "rva": "0x17d562",
+      "bytes": "807dfb03",
+      "asm": "cmp byte ptr [ebp - 5], 3"
+    },
+    {
+      "rva": "0x17d566",
+      "bytes": "7507",
+      "asm": "jne 0x57d56f"
+    },
+    {
+      "rva": "0x17d568",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d56b",
+      "bytes": "c6405f01",
+      "asm": "mov byte ptr [eax + 0x5f], 1"
+    },
+    {
+      "rva": "0x17d56f",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d572",
+      "bytes": "8a405d",
+      "asm": "mov al, byte ptr [eax + 0x5d]"
+    },
+    {
+      "rva": "0x17d575",
+      "bytes": "3a45fb",
+      "asm": "cmp al, byte ptr [ebp - 5]"
+    },
+    {
+      "rva": "0x17d578",
+      "bytes": "7409",
+      "asm": "je 0x57d583"
+    },
+    {
+      "rva": "0x17d57a",
+      "bytes": "8a45fb",
+      "asm": "mov al, byte ptr [ebp - 5]"
+    },
+    {
+      "rva": "0x17d57d",
+      "bytes": "8b55fc",
+      "asm": "mov edx, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d580",
+      "bytes": "88425d",
+      "asm": "mov byte ptr [edx + 0x5d], al"
+    },
+    {
+      "rva": "0x17d583",
+      "bytes": "59",
+      "asm": "pop ecx"
+    },
+    {
+      "rva": "0x17d584",
+      "bytes": "59",
+      "asm": "pop ecx"
+    },
+    {
+      "rva": "0x17d585",
+      "bytes": "5d",
+      "asm": "pop ebp"
+    },
+    {
+      "rva": "0x17d586",
+      "bytes": "c3",
+      "asm": "ret "
+    },
+    {
+      "rva": "0x17d587",
+      "bytes": "0000",
+      "asm": "add byte ptr [eax], al"
+    },
+    {
+      "rva": "0x17d589",
+      "bytes": "004041",
+      "asm": "add byte ptr [eax + 0x41], al"
+    }
+  ],
+  "pre_dispatch_recup_flag_tests": [
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@SetCurCommandKont$qqrx33Structura_tyga@TCommandController",
+      "site": {
+        "rva": "0x17ce17",
+        "bytes": "80b80001000000",
+        "asm": "cmp byte ptr [eax + 0x100], 0"
+      },
+      "context": [
+        {
+          "rva": "0x17ce0e",
+          "bytes": "8855fb",
+          "asm": "mov byte ptr [ebp - 5], dl"
+        },
+        {
+          "rva": "0x17ce11",
+          "bytes": "8945fc",
+          "asm": "mov dword ptr [ebp - 4], eax"
+        },
+        {
+          "rva": "0x17ce14",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17ce17",
+          "bytes": "80b80001000000",
+          "asm": "cmp byte ptr [eax + 0x100], 0"
+        },
+        {
+          "rva": "0x17ce1e",
+          "bytes": "740a",
+          "asm": "je 0x57ce2a"
+        },
+        {
+          "rva": "0x17ce20",
+          "bytes": "807dfb05",
+          "asm": "cmp byte ptr [ebp - 5], 5"
+        },
+        {
+          "rva": "0x17ce24",
+          "bytes": "0f8561050000",
+          "asm": "jne 0x57d38b"
+        },
+        {
+          "rva": "0x17ce2a",
+          "bytes": "33c0",
+          "asm": "xor eax, eax"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@SetCurCommandOV$qqrx35Structura_tyga@TCommandOVController",
+      "site": {
+        "rva": "0x17d3db",
+        "bytes": "80b80001000000",
+        "asm": "cmp byte ptr [eax + 0x100], 0"
+      },
+      "context": [
+        {
+          "rva": "0x17d3d2",
+          "bytes": "80780b00",
+          "asm": "cmp byte ptr [eax + 0xb], 0"
+        },
+        {
+          "rva": "0x17d3d6",
+          "bytes": "7510",
+          "asm": "jne 0x57d3e8"
+        },
+        {
+          "rva": "0x17d3d8",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17d3db",
+          "bytes": "80b80001000000",
+          "asm": "cmp byte ptr [eax + 0x100], 0"
+        },
+        {
+          "rva": "0x17d3e2",
+          "bytes": "0f849b010000",
+          "asm": "je 0x57d583"
+        },
+        {
+          "rva": "0x17d3e8",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17d3eb",
+          "bytes": "83784400",
+          "asm": "cmp dword ptr [eax + 0x44], 0"
+        },
+        {
+          "rva": "0x17d3ef",
+          "bytes": "7d14",
+          "asm": "jge 0x57d405"
+        }
+      ]
+    }
+  ],
+  "pre_dispatch_voltage_call_paths": [
+    [
+      {
+        "rva": "0x17eb88",
+        "name": "@Tyga_2es6@TTygaCalcClass@UpdateCommandKontroller$qqr33Structura_tyga@TCommandController"
+      },
+      {
+        "rva": "0x17ce08",
+        "name": "@Tyga_2es6@TTygaCalcClass@SetCurCommandKont$qqrx33Structura_tyga@TCommandController"
+      },
+      {
+        "rva": "0x17defc",
+        "name": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+      },
+      {
+        "rva": "0x1739bc",
+        "name": "@Tyga_2es6@TTygaCalcClass@CalcIvozbMaxMin$qqrf"
+      }
+    ],
+    [
+      {
+        "rva": "0x17ebc0",
+        "name": "@Tyga_2es6@TTygaCalcClass@UpdateCommandOV$qqr35Structura_tyga@TCommandOVController"
+      },
+      {
+        "rva": "0x17d390",
+        "name": "@Tyga_2es6@TTygaCalcClass@SetCurCommandOV$qqrx35Structura_tyga@TCommandOVController"
+      },
+      {
+        "rva": "0x17da10",
+        "name": "@Tyga_2es6@TTygaCalcClass@SetNextPOs$qqrv"
+      },
+      {
+        "rva": "0x17823c",
+        "name": "@Tyga_2es6@TTygaCalcClass@GetCur$qqrf"
+      }
+    ],
+    [
+      {
+        "rva": "0x17ebc0",
+        "name": "@Tyga_2es6@TTygaCalcClass@UpdateCommandOV$qqr35Structura_tyga@TCommandOVController"
+      },
+      {
+        "rva": "0x17d390",
+        "name": "@Tyga_2es6@TTygaCalcClass@SetCurCommandOV$qqrx35Structura_tyga@TCommandOVController"
+      },
+      {
+        "rva": "0x17da10",
+        "name": "@Tyga_2es6@TTygaCalcClass@SetNextPOs$qqrv"
+      },
+      {
+        "rva": "0x17ba4c",
+        "name": "@Tyga_2es6@TTygaCalcClass@GetUDvig$qqrf"
+      }
+    ],
+    [
+      {
+        "rva": "0x17ebc0",
+        "name": "@Tyga_2es6@TTygaCalcClass@UpdateCommandOV$qqr35Structura_tyga@TCommandOVController"
+      },
+      {
+        "rva": "0x17d390",
+        "name": "@Tyga_2es6@TTygaCalcClass@SetCurCommandOV$qqrx35Structura_tyga@TCommandOVController"
+      },
+      {
+        "rva": "0x17defc",
+        "name": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+      },
+      {
+        "rva": "0x1739bc",
+        "name": "@Tyga_2es6@TTygaCalcClass@CalcIvozbMaxMin$qqrf"
+      }
+    ],
+    [
+      {
+        "rva": "0x177cb0",
+        "name": "@Tyga_2es6@TTygaCalcClass@CheckACommand$qqrv"
+      },
+      {
+        "rva": "0x17defc",
+        "name": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+      },
+      {
+        "rva": "0x1739bc",
+        "name": "@Tyga_2es6@TTygaCalcClass@CalcIvozbMaxMin$qqrf"
+      }
+    ],
+    [
+      {
+        "rva": "0x17c244",
+        "name": "@Tyga_2es6@TTygaCalcClass@KontrolTimePos$qqrv"
+      },
+      {
+        "rva": "0x17defc",
+        "name": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+      },
+      {
+        "rva": "0x1739bc",
+        "name": "@Tyga_2es6@TTygaCalcClass@CalcIvozbMaxMin$qqrf"
+      }
+    ]
+  ]
+}

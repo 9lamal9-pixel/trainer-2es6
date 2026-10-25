@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-25",
+  "native_executed": false,
+  "outputs_or_catalogs_changed_by_this_agent": false,
+  "status": "production_patch_prototype_frozen_for_independent_byte_review",
+  "patch": {
+    "path": "dev/runs/uks-native-20261025/TrainerContactVoltagePatch.cs",
+    "sha256": "267d313214901309b98a6a0be00fd784d75c25def0dc2a473801009654dfae57",
+    "standalone_compile_exit_code": 0,
+    "public_api": [
+      "new TrainerContactVoltagePatch(resources, realTPult, realTTygaParam)",
+      "SetVoltage(int volts)",
+      "Validate()",
+      "Snapshot()",
+      "Fault",
+      "VerifyOriginalWindowWithOwnedHooks(module,rva,original)",
+      "Dispose()",
+      "static HasRetainedOwners",
+      "static HasRetainedOwner(module)"
+    ],
+    "production_copy_and_registration": "Root owns copying the reviewed prototype to outputs and updating host/catalog/builds. This agent has not changed outputs or catalogs."
+  },
+  "source_map": "dev/runs/uks-native-20261025/uks-integration-anchors.json",
+  "native_contract": "dev/runs/uks-native-20261025/voltage-contract-review.json",
+  "native_guards": "dev/runs/uks-native-20261025/voltage-producer-guards.json",
+  "early_consumer_evidence": "dev/runs/uks-native-20261025/voltage-sequential-evidence.json",
+  "existing_architecture": {
+    "external_analog_source_before_stage": "No independent external-voltage input existed in the canonical candidate source set. Native Pult generated3100/0 and Tyga generated3200/0 in their own routines.",
+    "native_call_owner": "InitCommunication creates native Pult/Tyga objects. C# rebases real TPult and TTygaParam from the Communication owner; commStep=ExecuteCommunication executes the native chain. C# does not independently call Pult and Tyga each production tick.",
+    "original_tick_order": "PollCommands → BeforeAutovedenieCycle → ElectricalCycle → AfterAutovedenieElectricalCycle → ApplyTestInputs → route/aux/KLUB → PneumaticCycle → MotionCycle.",
+    "electrical_integration_order": "Begin vigilance input scope; BeforeContactNetworkElectricalCycle publishes queued/default voltage; SA47 and physical-air inputs; signed velocity; commStep; immediate AfterContactNetworkElectricalCycle.Validate; UpdateVcu; input finally cleanup; fresh SA47 capture only after success.",
+    "source_install": "After InitCommunication succeeded and real TPult/TTygaParam aliases are known, before the first timer commStep. Source and private memory stay alive through all native calls.",
+    "command_input": "Root partial stores nullable pending override. uks=V changes only that input; each electrical boundary publishes either override or nominal3000. File removal clears override. Invalid integer text is rejected/logged. No UI/after-comm Uset assignment is introduced.",
+    "teardown": "Timer stopped; native driving/scopes detached; voltage entries and Eset restored before CloseCommunicationDll destroys owners. Constructor rollback failure remains rooted in static registry even if the host instance field is null. Native close is forbidden while HasRetainedOwners is true."
+  },
+  "one_source_topology": {
+    "source": "One shared external network/reference voltage, not two arbitrary independent section supplies.",
+    "representation": "Whole volts0..5040; nominal3000; one Int32 and its exact Single bits from the same integer.5040 is the chosen ADC input profile, not a permissible operating-voltage claim.",
+    "section_states": "Preserve native per-section apparatus and roof-contact states. Pult Useti is one Int32 gated by OR of schema58..5B; Tyga TAF.Tokopriemnik is one Boolean generated from OR58/59. The difference remains visible.",
+    "roof_semantics_limit": "Normal regenerative GetUSet is native-derived from Eset and currents; it can differ from Pult Useti, e.g.3300 vs reference3000. This is not yet a physically unified actual roof-voltage model under regenerative load."
+  },
+  "power_boundaries": {
+    "control_air": "Managed NativeControlPowerReady/StepHostControlAir govern the control-air/auxiliary compressor path using VCU, schema control-power gates, SB1/SF3 and pressures. Its KM2 flow boundary is not a contact-network voltage source.",
+    "pantograph_air": "BeforeElectricalAirCycle routes real RS6 pressure by section into the native pantograph thresholds and preserves pneumatic feedback. The new source must not raise a pantograph, close BV or bypass those permissions.",
+    "Napruga": "Native Napruga=anyQF1 && AnyXA1/PowerOn-related contacts. It does not read analog Useti. Analog source0 alone must not be advertised as full electrical network-loss protection.",
+    "unproven": "Complete PowerOn/KM2 actuator supply, high-voltage bus isolation and BV trip thresholds remain separate contracts. Do not invent a new C# gate for these booleans."
+  },
+  "native_producers": [
+    {
+      "role": "Pult",
+      "site": "18E9BA/10",
+      "destination": "TShema+125 Int32",
+      "gate": "Existing four roof-contact OR; original zero branch unchanged."
+    },
+    {
+      "role": "TygaEDT",
+      "site": "1748F4/7",
+      "destination": "ResT+11 Single",
+      "gate": "Only original constant-source EDT branch. Normal CalcRecup GetUSet/FSTP remains untouched."
+    },
+    {
+      "role": "Nezav",
+      "site": "17650F/7",
+      "destination": "ResT+11 Single",
+      "gate": "Existing TAF.Tokopriemnik gate; original zero branch unchanged."
+    },
+    {
+      "role": "Help",
+      "site": "17C1A9/7",
+      "destination": "ResT+11 Single",
+      "gate": "Existing TAF.Tokopriemnik gate; original zero branch unchanged."
+    },
+    {
+      "role": "TractionEntry",
+      "site": "17C34C/6",
+      "destination": "ResT+11 Single",
+      "gate": "Before command/OV/SetNextPos trial consumers: VozbType0 or1, FFlagRecup=false, same native TAF.Tokopriemnik gate. Active derived Recup is preserved."
+    }
+  ],
+  "live_input": {
+    "field": "Eset Int32 at (*(Calc+10C))+3FC; constants record must equal outer+8.",
+    "ownership": "Original3200 is captured and checked. SetVoltage writes only if the current live field still equals the last owned value. Dispose restores the original only under the same ownership check; foreign changes are not overwritten.",
+    "zero": "GetK13 uses Eset in a numerator and initialized nonzero resistance denominator. No epsilon or hidden3200 fallback is used for source0. Full native zero behavior still needs runtime evidence."
+  },
+  "lifecycle_and_guards": [
+    "Independent loaded paths from resources, both source SHA, retained module references, exact Pult/Tyga cells and owner/VMT/alias graph.",
+    "All five original code sites must be RX; full gate windows and retained158-byte.tfix are checked in RAM. Patches do not overlap the retained fix.",
+    "RW source record and counters, RX caves, checksum/generation/range guards, native frame owner/destination/thread guards, no added x87 or CALL in caves.",
+    "Operational sticky fault blocks publication/continuation after commStep, but does not block ownership-only cleanup of code/Eset.",
+    "Each write tracks pending protection and instruction-cache flush; each restore rejects foreign bytes/protection. All original entries are proved again immediately before free.",
+    "Registry retains the object and buffers on rollback failure. No native close/reuse is allowed in that state.",
+    "The original-window compatibility API overlays only exact known owned jumps and verifies all remaining caller baseline bytes; it accepts no arbitrary E9."
+  ],
+  "narrow_probe_plan": {
+    "component_cases": "Use the root producer-coverage probe to vary source0/2800/3000/3200/5040 and observe actual producer counters, last source generation, owned destination addresses, Eset and native values. Invalid negative/above5040 input is rejected; NaN is not representable by the public integer API and command parsing rejects it.",
+    "zero_gates": "Exercise real original roof/panto gates with source nonzero and source0. Do not force Useti/Uset/Napruga, Ia/Iv/M/F, pressures or protection outputs to pass. Keep fixture-only state setup distinctly labelled.",
+    "steady_sequential": "Change the source during sustained VozbType0 and require TractionEntry generation/value propagation before GetCurPosl/POne and SetNextPos trial consumers; test more than the first frame.",
+    "normal_independent": "Repeat for VozbType1 with FFlagRecupfalse, including OV/position trials that occur before CalkNezav. Four constant MOV replacements alone were explicitly rejected as incomplete.",
+    "EDT_component": "Run the actual whole CalcRecup EDT branch via guarded native setters with save/restore, rather than jumping directly into its literal store. Report component evidence separately from a moving train.",
+    "genuine_native": "Use prepared real operator startup, real pantograph/BV permissions and actual native loops at default3000, then observe allowed input changes. Never substitute force/current outputs or force supply gates.",
+    "teardown_faults": "Cover retained constructor rollback owner, foreign source/Eset/site replacement, wrong thread, source buffer protection, operational fault cleanup and original entries/RX/protection/free before native close.",
+    "historical_probe": "SectionPantographPressureProbe used direct UpdateButton and pressure/contact fixtures with literal3100 expectation. Adapt its expected nominal intentionally after the source changes; do not call its old PASS genuine-voltage acceptance."
+  },
+  "scope_not_accepted": [
+    "Actual regenerative roof-voltage/load/substation dynamics and changing-source Recup transitions with pre-dispatch OV operations.",
+    "Complete loss-of-network electrical protection, PowerOn/KM2/BV actuator contract or protection timing.",
+    "Whole power/energy/traction curve calibration or exact factory revision137+.",
+    "A static byte review or compile-only result is not a fresh native acceptance."
+  ],
+  "freeze": "267D313214901309B98A6A0BE00FD784D75C25DEF0DC2A473801009654DFAE57"
+}

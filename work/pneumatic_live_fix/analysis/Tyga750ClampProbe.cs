@@ -133,7 +133,7 @@ public sealed partial class TrainerAutovedenieAdverseBrakeProbe {
                 tygaModule = GetModuleHandle("Tyga1.dll");
                 string expectedPath = Path.GetFullPath(Path.Combine((string)Field("resources"), @"LOCOMOTIVES\1\Tyga1.dll"));
                 if (tygaModule == IntPtr.Zero) throw new Exception("Tyga loaded module absent");
-                tygaObserver = Tyga750ClampObserver.Attach(tygaModule, expectedPath, mem["TTygaParam"]);
+                tygaObserver = Tyga750ClampObserver.Attach(tygaModule, expectedPath, mem["TTygaParam"], (TrainerContactVoltagePatch)Field("contactVoltagePatch"));
             } else if (tygaFrameOpen) {
                 var observation = tygaObserver.ReadSnapshot(); tygaFrameOpen = false; tygaFrames++;
                 if (observation.ErrorFlags != 0 || observation.PendingIndex != 0 || observation.BeforeCalls != observation.AfterCalls ||

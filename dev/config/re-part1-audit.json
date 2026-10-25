@@ -65,9 +65,9 @@
     "counts": {
       "confirmed_static": 5,
       "unverified": 20,
-      "confirmed_mismatch": 5,
-      "partial": 24,
-      "revision_dependent": 7
+      "partial": 26,
+      "revision_dependent": 7,
+      "confirmed_mismatch": 3
     },
     "code_references_checked": 157,
     "parts": [
@@ -111,7 +111,10 @@
       "ledger": "dev/config/re-part1-page-review.json",
       "functional_conformity_accepted": false
     },
-    "current_status_scope": "Текущие counts вычислены по 61 сводному пункту после отзыва RP1-POWER-06; исходные parts и baseline_summary сохранены как история, а не текущая оценка."
+    "current_status_scope": "Текущие counts вычислены по 61 пункту после отзыва RP1-POWER-06 и ограниченной приёмки Uкс: RP1-POWER-05 и CA02 теперь partial. Исходные parts/baseline_summary сохранены как история, а не текущая оценка.",
+    "code_references_checked_scope": "157 относится к исходной статической проверке baseline. После замены текущих anchors двух Uкс строк матрица содержит 160 code entries; восемь новых записей Uкс отдельно проверены по SHA и точным строкам. Исторические ссылки не переобъявляются проверкой текущего runtime.",
+    "current_code_reference_entries": 160,
+    "contact_source_code_references_checked": 8
   },
   "evidence_files": [
     "dev/docs/audit_parts/re_part1/control-native-guards.json",
@@ -152,7 +155,16 @@
     "dev/config/native-calibration-map.json",
     "dev/docs/audit_parts/re_part1/getcur-static-correction-20261025.json",
     "dev/docs/audit_parts/re_part1/getcur-native-evidence-20261025.json",
-    "dev/docs/audit_parts/re_part1/getcur-native-measured-20261025.json"
+    "dev/docs/audit_parts/re_part1/getcur-native-measured-20261025.json",
+    "dev/docs/audit_parts/re_part1/uks-native-final-receipt-20261025.json",
+    "dev/docs/audit_parts/re_part1/uks-20261025/re-contract.json",
+    "dev/docs/audit_parts/re_part1/uks-20261025/managed-caves/bytecheck.json",
+    "dev/docs/audit_parts/re_part1/uks-20261025/independent-cave-review.json",
+    "dev/docs/audit_parts/re_part1/uks-20261025/independent-guard-review.json",
+    "dev/docs/audit_parts/re_part1/uks-20261025/sequential-current-contract.json",
+    "dev/docs/audit_parts/re_part1/uks-20261025/sequential-current-evidence.json",
+    "dev/docs/audit_parts/re_part1/uks-current-success-union-20261025.json",
+    "dev/docs/audit_parts/re_part1/uks-20261025/voltage-diagnostic-threshold-correction.json"
   ],
   "current_native_identity": [
     {
@@ -225,7 +237,7 @@
     },
     {
       "order": 3,
-      "work": "Согласовать измеренный Uкс по секциям, доказать электромеханические единицы и калибровку силы/тока/момента в фактическом retained runtime, затем проверить границу С→СП. Повторный перенос уже существующего раннего clamp не требуется.",
+      "work": "Общий источник Uкс принят в перечисленных native путях. Далее отдельно принять Napruga/ПСН/защиты, единицы и физическую калибровку силы/тока/момента; затем границу С→СП и паспортные точки. Вычисляемую рекуперацию не подменять фиксированным Uкс, ранний clamp повторно не устанавливать.",
       "requirements": [
         "CA02",
         "RP1-POWER-05",
@@ -891,7 +903,7 @@
           "line": 82
         }
       ],
-      "observed": "Тяговая модель использует номинальное колесо 1250 мм и внутренние 3200 В. Свежих замеров паспортных точек в условиях примечаний РЭ нет. Сравнивать только силы при одинаковом токе недостаточно.",
+      "observed": "В принятом source профиле доступно согласованное задание 3000 В вместо базовых 3200 В. Модель по-прежнему использует номинальное колесо 1250 мм; паспортные 1210 мм, КПД передачи 0,98, установившиеся точки мощности/скорости и фактическая F(v) не приняты. Низкоскоростная реакция raw тока на источник не является новой паспортной калибровкой.",
       "status": "unverified",
       "priority": "P1",
       "acceptance": {
@@ -907,7 +919,17 @@
       ],
       "origin_report": "dev/runs/re-part1-20261024/parameters-power.json",
       "numeric_evidence_scope_warning": "В доказанном контракте TTygaParam.V и private FVCur выражены в м/с. Старые строки numeric.py/numeric.json с 49.2/51/80/120 передавали числа без деления на 3,6; их подписи км/ч отозваны. Кроме того, nezav() считала F_kN по raw Ia, хотя actual .tfix рассчитывает момент и силу по bounded Ia. Старые таблицы силы и target roots при raw Ia > 750 А не описывают этот runtime даже после переименования единиц. Их нельзя использовать для калибровки. Фиксированные одинаковые токи 580/540 А не являются паспортной F(v): отличаются колесо 1250/1210 мм, Uкс 3200/3000 В, режим и ещё не принятый механический контракт.",
-      "corrected_contract_ref": "dev/docs/audit_parts/re_part1/getcur-contract-review-20261025.json"
+      "corrected_contract_ref": "dev/docs/audit_parts/re_part1/getcur-contract-review-20261025.json",
+      "observed_before_source_fix": "Тяговая модель использует номинальное колесо 1250 мм и внутренние 3200 В. Свежих замеров паспортных точек в условиях примечаний РЭ нет. Сравнивать только силы при одинаковом токе недостаточно.",
+      "source_followup": {
+        "path": "dev/docs/audit_parts/re_part1/uks-native-final-receipt-20261025.json",
+        "sha256": "3b3070aabcb81ae7daad238c7dae8e389cc447a8f0bbbd5f54256af493c0861e",
+        "run_id": "test-20261025T043704000Z-a11fff61",
+        "build_id": "build-20261025T043704088Z-6bddcccc",
+        "status": "passed_within_source_scope",
+        "checks": 288,
+        "cycles": 1547
+      }
     },
     {
       "id": "RP1-POWER-04",
@@ -973,37 +995,138 @@
       ],
       "code": [
         {
-          "path": "work/traction6000/evidence.md",
-          "line": 47
+          "path": "outputs/TrainerContactNetwork.cs",
+          "line": 10,
+          "anchor": "void SetContactNetworkVoltage",
+          "sha256": "49987c7229a5fb4f9e1b3ecdac376a845d51a65aa90ba182ad71b09e388edb57",
+          "scope": "Текущий source set финального ContactNetworkVoltage, production SHA проверены receipt."
         },
         {
-          "path": "dev/docs/audit_parts/MPSUD_CONTROL.md",
-          "line": 45
+          "path": "outputs/TrainerContactNetwork.cs",
+          "line": 37,
+          "anchor": "void BeforeContactNetworkElectricalCycle",
+          "sha256": "49987c7229a5fb4f9e1b3ecdac376a845d51a65aa90ba182ad71b09e388edb57",
+          "scope": "Текущий source set финального ContactNetworkVoltage, production SHA проверены receipt."
+        },
+        {
+          "path": "outputs/TrainerContactVoltagePatch.cs",
+          "line": 201,
+          "anchor": "byte[] BuildCave",
+          "sha256": "267d313214901309b98a6a0be00fd784d75c25def0dc2a473801009654dfae57",
+          "scope": "Текущий source set финального ContactNetworkVoltage, production SHA проверены receipt."
         },
         {
           "path": "outputs/TrainerAuxSystems.cs",
-          "line": 124
+          "line": 124,
+          "anchor": "void ElectricalCycle()",
+          "sha256": "170a416046be234820aac2f8707ef72b2c1a3fb3085f7d6eb403d73f6520d4d5",
+          "scope": "Текущий source set финального ContactNetworkVoltage, production SHA проверены receipt."
         }
       ],
-      "observed": "Свежая проверка байтов Tyga1 подтверждает запись 3200/0 в ResT.Uset по дискретному признаку. Текущий Pult1 имеет тот же SHA, что прежняя статическая проверка записи 3100/0 в Useti. В обычном пути нет согласованного изменяемого аналогового канала между этими моделями.",
-      "status": "confirmed_mismatch",
+      "observed": "Финальный test-20261025T043704000Z-a11fff61: 288/288 PASS, 1547 полных циклов, exit 0, закрытая x86 сессия без исключений/ошибок журналирования. Подтверждён общий аналоговый источник для Pult, Tyga Help/Nezav, отдельного component EDT вызова и раннего TractionEntry. Все пять entry реально выполнялись и восстановлены; исходный Eset 3200 восстановлен перед native close. Общий источник по умолчанию 3000 В проверен с контактами крыши, одним ТП, опущенными ТП и открытым БВ. При настоящем положении P1, VozbType = 0, без промежуточного Help токи solver реагировали на 3200/2800/3000 В: 148,056915 / 129,426071 / 138,67337 А; сила оставалась положительной. Это не приёмка физической калибровки.",
+      "status": "partial",
       "priority": "P1",
-      "basis": "Подтверждённое упрощение канала, а не доказательство отсутствия всех отдельных аварийных защит.",
+      "basis": "Конкретное рассогласование фиксированных 3100 В Pult / 3200 В Tyga устранено в подтверждённых путях источника. Подача Uкс до обработки команд и расчётов установлена по PE call order; held P1 при последовательном возбуждении проверен нативно. Отдельные прямые счётчики ранних trial calls не заявляются. Широкое требование включает разрешения, ПСН, защиту и/или энергообмен, поэтому общий статус остаётся partial.",
       "acceptance": {
         "executed": false,
+        "partial_executed": true,
+        "completed_scope": "Только источник, перечисленные native пути, общий rooftop input и восстановление; см. фактический receipt.",
+        "receipt": {
+          "path": "dev/docs/audit_parts/re_part1/uks-native-final-receipt-20261025.json",
+          "sha256": "3b3070aabcb81ae7daad238c7dae8e389cc447a8f0bbbd5f54256af493c0861e",
+          "run_id": "test-20261025T043704000Z-a11fff61",
+          "build_id": "build-20261025T043704088Z-6bddcccc",
+          "status": "passed_within_source_scope",
+          "checks": 288,
+          "cycles": 1547
+        },
         "required": [
-          "Нормальное значение и ступени Uкс 0/2.2/2.9/3.0/3.4/3.8/4.0 кВ с проверкой выходов. Раздельно испытать существующую аварийную инъекцию перед добавлением дублирующей защиты."
+          "Проверить Napruga/разрешения при нулевой/пониженной сети и потере/возврате контакта; значение источника 0 В не означает автоматически снятия всех дискретных разрешений.",
+          "Отдельно подтвердить ПСН, его буквальный диапазон (2200 +50)…(4000+50) В, самодиагностику и таймеры без замены + на ±.",
+          "4090/4110 В на 0,2/0,4 с: предупреждения, БВ, тяга и собственная временная база; source sweep не принимает порог > 4100 В / > 0,3 с.",
+          "Сквозной операторский вход ЭДТ, URecup, энергия, ПТР 3800/3400 В и Etd 3900 В, выбранная редакция и комплектация № 137+."
         ]
       },
       "expected": "Электрическая модель должна различать фактическое аналоговое Uкс и признаки наличия питания: от него зависят мощность, пуск ПСН и выбор рекуперативно-реостатного режима.",
-      "proposed_change": "Ввести единый источник Uкс по секциям и раздельное наличие контакта; согласовать тягу, измерения, ПСН и защитные входы. Правки native — только с SHA/byte guards в памяти.",
+      "proposed_change": "Следующий этап — отдельно принять Napruga и дискретные разрешения, пуск/готовность ПСН, сообщения по напряжению и отключение БВ по Uks > 4100 В продолжительностью > 0,3 с; затем полноценные режимы ЭДТ и физическую калибровку. Не заменять вычисляемую рекуперативную ветвь URecup/GetUSet константой и не создавать независимые источники по секциям.",
       "sections": [
         "1.1;1.2.2 примечание 3;2.3.2;2.6.2"
       ],
       "origin_report": "dev/runs/re-part1-20261024/parameters-power.json",
       "fresh_static_evidence": [
         "dev/docs/audit_parts/re_part1/traction-static-current.json"
-      ]
+      ],
+      "baseline_before_contact_source_fix": {
+        "id": "RP1-POWER-05",
+        "printed_pages": [
+          8,
+          12,
+          49,
+          50,
+          61
+        ],
+        "pdf_pages": [
+          8,
+          12,
+          49,
+          50,
+          61
+        ],
+        "code": [
+          {
+            "path": "work/traction6000/evidence.md",
+            "line": 47
+          },
+          {
+            "path": "dev/docs/audit_parts/MPSUD_CONTROL.md",
+            "line": 45
+          },
+          {
+            "path": "outputs/TrainerAuxSystems.cs",
+            "line": 124
+          }
+        ],
+        "observed": "Свежая проверка байтов Tyga1 подтверждает запись 3200/0 в ResT.Uset по дискретному признаку. Текущий Pult1 имеет тот же SHA, что прежняя статическая проверка записи 3100/0 в Useti. В обычном пути нет согласованного изменяемого аналогового канала между этими моделями.",
+        "status": "confirmed_mismatch",
+        "priority": "P1",
+        "basis": "Подтверждённое упрощение канала, а не доказательство отсутствия всех отдельных аварийных защит.",
+        "acceptance": {
+          "executed": false,
+          "required": [
+            "Нормальное значение и ступени Uкс 0/2.2/2.9/3.0/3.4/3.8/4.0 кВ с проверкой выходов. Раздельно испытать существующую аварийную инъекцию перед добавлением дублирующей защиты."
+          ]
+        },
+        "expected": "Электрическая модель должна различать фактическое аналоговое Uкс и признаки наличия питания: от него зависят мощность, пуск ПСН и выбор рекуперативно-реостатного режима.",
+        "proposed_change": "Ввести единый источник Uкс по секциям и раздельное наличие контакта; согласовать тягу, измерения, ПСН и защитные входы. Правки native — только с SHA/byte guards в памяти.",
+        "sections": [
+          "1.1;1.2.2 примечание 3;2.3.2;2.6.2"
+        ],
+        "origin_report": "dev/runs/re-part1-20261024/parameters-power.json",
+        "fresh_static_evidence": [
+          "dev/docs/audit_parts/re_part1/traction-static-current.json"
+        ]
+      },
+      "fresh_dynamic_evidence": {
+        "path": "dev/docs/audit_parts/re_part1/uks-native-final-receipt-20261025.json",
+        "sha256": "3b3070aabcb81ae7daad238c7dae8e389cc447a8f0bbbd5f54256af493c0861e",
+        "run_id": "test-20261025T043704000Z-a11fff61",
+        "build_id": "build-20261025T043704088Z-6bddcccc",
+        "status": "passed_within_source_scope",
+        "checks": 288,
+        "cycles": 1547
+      },
+      "source_contract": "dev/docs/audit_parts/re_part1/uks-20261025/re-contract.json",
+      "native_source_scope": "Один общий внешний источник 3000 В по умолчанию; input profile 0…5040 целых вольт — масштаб канала, а не рабочая норма. Секционные значения следуют соединённым HV шинам после QS1 и до БВ. Один контактирующий ТП питает обе шины; открытый БВ и опущенный собственный ТП не обнуляют измерение при другом питающем ТП.",
+      "current_success_union": {
+        "path": "dev/docs/audit_parts/re_part1/uks-current-success-union-20261025.json",
+        "sha256": "d74dbc8cc03da577c30f22bd45445213a7721d7a15493d6eb7db4194e5d5ee18",
+        "kind": "latest_successful_unique_probe_union",
+        "unique_successful_ids": 21,
+        "single_all_pass_run": false,
+        "status": "passed_within_selected_scopes",
+        "production_source_count": 37
+      },
+      "diagnostic_threshold_correction": "dev/docs/audit_parts/re_part1/uks-20261025/voltage-diagnostic-threshold-correction.json"
     },
     {
       "id": "RP1-POWER-06",
@@ -1146,6 +1269,28 @@
         "checks": 117,
         "passed": 117,
         "status": "passed_within_scope"
+      },
+      "contact_source_followup": {
+        "path": "dev/docs/audit_parts/re_part1/uks-native-final-receipt-20261025.json",
+        "sha256": "3b3070aabcb81ae7daad238c7dae8e389cc447a8f0bbbd5f54256af493c0861e",
+        "run_id": "test-20261025T043704000Z-a11fff61",
+        "build_id": "build-20261025T043704088Z-6bddcccc",
+        "status": "passed_within_source_scope",
+        "checks": 288,
+        "cycles": 1547,
+        "scope": "Новый общий источник принят отдельно. Старый Tyga750Clamp 117 PASS/35 production sources остаётся датированным измерением прежнего source профиля; его силы не являются паспортной F(v) или новым измерением при 3000 В."
+      },
+      "source_3000_compatibility": {
+        "aggregate": {
+          "path": "dev/docs/audit_parts/re_part1/uks-current-success-union-20261025.json",
+          "sha256": "d74dbc8cc03da577c30f22bd45445213a7721d7a15493d6eb7db4194e5d5ee18",
+          "kind": "latest_successful_unique_probe_union",
+          "unique_successful_ids": 21,
+          "single_all_pass_run": false,
+          "status": "passed_within_selected_scopes",
+          "production_source_count": 37
+        },
+        "scope": "В новом наборе Tyga750Clamp прошёл 117 assertions / 1316 cycles. Квалифицированный cycle 1311 имеет native Uset 3000 В; существующий early limit и совместимость Help guard сохранены. Это не новая нормативная приёмка 750 А или factory/F(v) калибровка."
       }
     },
     {
@@ -1353,7 +1498,7 @@
           "line": 124
         }
       ],
-      "observed": "Есть native CalcRecup и отрицательный выход силы, но сквозной переход режимов с фактическим Uкс, током в сеть, тепловыделением ПТР и одинаковым тормозным заданием не принят. Фиксированное Uset ограничивает проверку.",
+      "observed": "Общий источник введён в перечисленные принятые пути; отдельная component EDT фаза вызывает native setters и CalcRecup, не настоящий вход ЭДТ с пульта. Вычисляемая рекуперативная ветвь URecup/GetUSet и её исходная зависимость от Eset/токов/сопротивлений сохранены. Сквозные переходы рекуперация/реостат, ток в сеть, тепловыделение ПТР и одинаковое тормозное задание не приняты.",
       "status": "partial",
       "priority": "P1",
       "acceptance": {
@@ -1367,7 +1512,17 @@
       "sections": [
         "2.3.1–2.3.4"
       ],
-      "origin_report": "dev/runs/re-part1-20261024/parameters-power.json"
+      "origin_report": "dev/runs/re-part1-20261024/parameters-power.json",
+      "observed_before_source_fix": "Есть native CalcRecup и отрицательный выход силы, но сквозной переход режимов с фактическим Uкс, током в сеть, тепловыделением ПТР и одинаковым тормозным заданием не принят. Фиксированное Uset ограничивает проверку.",
+      "source_followup": {
+        "path": "dev/docs/audit_parts/re_part1/uks-native-final-receipt-20261025.json",
+        "sha256": "3b3070aabcb81ae7daad238c7dae8e389cc447a8f0bbbd5f54256af493c0861e",
+        "run_id": "test-20261025T043704000Z-a11fff61",
+        "build_id": "build-20261025T043704088Z-6bddcccc",
+        "status": "passed_within_source_scope",
+        "checks": 288,
+        "cycles": 1547
+      }
     },
     {
       "id": "RP1-POWER-12",
@@ -1729,25 +1884,57 @@
         "note": "Relevant OCR pages were read in full. Listed PNG pages were visually checked for stated values and labels. Appendix coverage does not mean wire-by-wire verification."
       },
       "expected": "Uks — аналоговый вход; верхнее значение канала в таблице составляет 5040 В. При Uks более 4100 В дольше 0,3 с должно происходить защитное отключение БВ.",
-      "observed": "Свежая проверка SHA Pult1 и девяти PE byte guards подтвердила: UpdateButton записывает Useti=3100 В по дискретным состояниям TShema+58…5B, иначе 0. Аналоговая зависимость этого поля теряется. Это не доказывает отсутствие всех дискретных защит DLL.",
-      "status": "confirmed_mismatch",
+      "observed": "Финальный test-20261025T043704000Z-a11fff61: 288/288 PASS, 1547 полных циклов, exit 0, закрытая x86 сессия без исключений/ошибок журналирования. Подтверждён общий аналоговый источник для Pult, Tyga Help/Nezav, отдельного component EDT вызова и раннего TractionEntry. Все пять entry реально выполнялись и восстановлены; исходный Eset 3200 восстановлен перед native close. Общий источник по умолчанию 3000 В проверен с контактами крыши, одним ТП, опущенными ТП и открытым БВ. При настоящем положении P1, VozbType = 0, без промежуточного Help токи solver реагировали на 3200/2800/3000 В: 148,056915 / 129,426071 / 138,67337 А; сила оставалась положительной. Это не приёмка физической калибровки.",
+      "status": "partial",
       "priority": "P1",
-      "acceptance": [
-        "4090/4110 В на 0,2/0,4 с в каждой секции: сравнить Uks, сообщение, БВ и тягу.",
-        "Снять и восстановить напряжение сети. Убедиться, что дискретный флаг контактора не подменяет показание."
-      ],
+      "acceptance": {
+        "executed": false,
+        "partial_executed": true,
+        "completed_scope": "Только источник, перечисленные native пути, общий rooftop input и восстановление; см. фактический receipt.",
+        "receipt": {
+          "path": "dev/docs/audit_parts/re_part1/uks-native-final-receipt-20261025.json",
+          "sha256": "3b3070aabcb81ae7daad238c7dae8e389cc447a8f0bbbd5f54256af493c0861e",
+          "run_id": "test-20261025T043704000Z-a11fff61",
+          "build_id": "build-20261025T043704088Z-6bddcccc",
+          "status": "passed_within_source_scope",
+          "checks": 288,
+          "cycles": 1547
+        },
+        "required": [
+          "Проверить Napruga/разрешения при нулевой/пониженной сети и потере/возврате контакта; значение источника 0 В не означает автоматически снятия всех дискретных разрешений.",
+          "Отдельно подтвердить ПСН, его буквальный диапазон (2200 +50)…(4000+50) В, самодиагностику и таймеры без замены + на ±.",
+          "4090/4110 В на 0,2/0,4 с: предупреждения, БВ, тяга и собственная временная база; source sweep не принимает порог > 4100 В / > 0,3 с.",
+          "Сквозной операторский вход ЭДТ, URecup, энергия, ПТР 3800/3400 В и Etd 3900 В, выбранная редакция и комплектация № 137+."
+        ]
+      },
       "code": [
+        {
+          "path": "outputs/TrainerContactNetwork.cs",
+          "line": 10,
+          "anchor": "void SetContactNetworkVoltage",
+          "sha256": "49987c7229a5fb4f9e1b3ecdac376a845d51a65aa90ba182ad71b09e388edb57",
+          "scope": "Текущий source set финального ContactNetworkVoltage, production SHA проверены receipt."
+        },
+        {
+          "path": "outputs/TrainerContactNetwork.cs",
+          "line": 37,
+          "anchor": "void BeforeContactNetworkElectricalCycle",
+          "sha256": "49987c7229a5fb4f9e1b3ecdac376a845d51a65aa90ba182ad71b09e388edb57",
+          "scope": "Текущий source set финального ContactNetworkVoltage, production SHA проверены receipt."
+        },
+        {
+          "path": "outputs/TrainerContactVoltagePatch.cs",
+          "line": 201,
+          "anchor": "byte[] BuildCave",
+          "sha256": "267d313214901309b98a6a0be00fd784d75c25def0dc2a473801009654dfae57",
+          "scope": "Текущий source set финального ContactNetworkVoltage, production SHA проверены receipt."
+        },
         {
           "path": "outputs/TrainerAuxSystems.cs",
           "line": 124,
           "anchor": "void ElectricalCycle()",
-          "sha256": "ef0f934069aea0c54dcea4856a5f0f23b4eae806aac7bc33925d38ebb3cbdcc3"
-        },
-        {
-          "path": "outputs/TrainerIntegrationHost.cs",
-          "line": 126,
-          "anchor": "commStep=Export<StepFn>",
-          "sha256": "cba44ba9072d9911fc63cb5837eb55bec88de23b90df3b2b62219133c3fd5351"
+          "sha256": "170a416046be234820aac2f8707ef72b2c1a3fb3085f7d6eb403d73f6520d4d5",
+          "scope": "Текущий source set финального ContactNetworkVoltage, production SHA проверены receipt."
         }
       ],
       "native_evidence": {
@@ -1755,13 +1942,94 @@
         "sha256": "7dac59bf94276309e012a6eb72602c08a921fe1910a4169f9f0ec27008f0f8f5",
         "rva": "0x18e97a–0x18e9d6; constant store 0x18e9ba",
         "fresh_report": "dev/docs/audit_parts/re_part1/control-native-guards.json",
-        "mode": "Fresh read-only PE bytes; no dynamic native execution."
+        "mode": "Fresh read-only PE bytes; no dynamic native execution.",
+        "scope_historical": "Это проверка исходных PE bytes на диске; текущий runtime с memory hooks принят отдельно в fresh_dynamic_evidence. Старые 3100/0 литералы не являются новым поведением после source fix."
       },
-      "proposed_change": "Разделить измеренное напряжение сети, наличие питания и состояния контакторов. Найти канонический вход ABI. Не ограничиваться записью в выходное поле, которое DLL затем перезаписывает.",
+      "proposed_change": "Следующий этап — отдельно принять Napruga и дискретные разрешения, пуск/готовность ПСН, сообщения по напряжению и отключение БВ по Uks > 4100 В продолжительностью > 0,3 с; затем полноценные режимы ЭДТ и физическую калибровку. Не заменять вычисляемую рекуперативную ветвь URecup/GetUSet константой и не создавать независимые источники по секциям.",
       "origin_report": "dev/runs/re-part1-20261024/control-aux.json",
       "fresh_static_evidence": [
         "dev/docs/audit_parts/re_part1/control-native-guards.json"
-      ]
+      ],
+      "baseline_before_contact_source_fix": {
+        "id": "CA02",
+        "sections": [
+          "3.3.7 таблица 3.3",
+          "3.6.5"
+        ],
+        "printed_pages": [
+          77,
+          82
+        ],
+        "pdf_pages": [
+          82,
+          87
+        ],
+        "source": "work/public_2es6_part1.pdf",
+        "source_verification": {
+          "ocr_full_pages_read": true,
+          "visually_checked_pdf_pages": [
+            82,
+            87
+          ],
+          "note": "Relevant OCR pages were read in full. Listed PNG pages were visually checked for stated values and labels. Appendix coverage does not mean wire-by-wire verification."
+        },
+        "expected": "Uks — аналоговый вход; верхнее значение канала в таблице составляет 5040 В. При Uks более 4100 В дольше 0,3 с должно происходить защитное отключение БВ.",
+        "observed": "Свежая проверка SHA Pult1 и девяти PE byte guards подтвердила: UpdateButton записывает Useti=3100 В по дискретным состояниям TShema+58…5B, иначе 0. Аналоговая зависимость этого поля теряется. Это не доказывает отсутствие всех дискретных защит DLL.",
+        "status": "confirmed_mismatch",
+        "priority": "P1",
+        "acceptance": [
+          "4090/4110 В на 0,2/0,4 с в каждой секции: сравнить Uks, сообщение, БВ и тягу.",
+          "Снять и восстановить напряжение сети. Убедиться, что дискретный флаг контактора не подменяет показание."
+        ],
+        "code": [
+          {
+            "path": "outputs/TrainerAuxSystems.cs",
+            "line": 124,
+            "anchor": "void ElectricalCycle()",
+            "sha256": "ef0f934069aea0c54dcea4856a5f0f23b4eae806aac7bc33925d38ebb3cbdcc3"
+          },
+          {
+            "path": "outputs/TrainerIntegrationHost.cs",
+            "line": 126,
+            "anchor": "commStep=Export<StepFn>",
+            "sha256": "cba44ba9072d9911fc63cb5837eb55bec88de23b90df3b2b62219133c3fd5351"
+          }
+        ],
+        "native_evidence": {
+          "module": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Pult1.dll",
+          "sha256": "7dac59bf94276309e012a6eb72602c08a921fe1910a4169f9f0ec27008f0f8f5",
+          "rva": "0x18e97a–0x18e9d6; constant store 0x18e9ba",
+          "fresh_report": "dev/docs/audit_parts/re_part1/control-native-guards.json",
+          "mode": "Fresh read-only PE bytes; no dynamic native execution."
+        },
+        "proposed_change": "Разделить измеренное напряжение сети, наличие питания и состояния контакторов. Найти канонический вход ABI. Не ограничиваться записью в выходное поле, которое DLL затем перезаписывает.",
+        "origin_report": "dev/runs/re-part1-20261024/control-aux.json",
+        "fresh_static_evidence": [
+          "dev/docs/audit_parts/re_part1/control-native-guards.json"
+        ]
+      },
+      "fresh_dynamic_evidence": {
+        "path": "dev/docs/audit_parts/re_part1/uks-native-final-receipt-20261025.json",
+        "sha256": "3b3070aabcb81ae7daad238c7dae8e389cc447a8f0bbbd5f54256af493c0861e",
+        "run_id": "test-20261025T043704000Z-a11fff61",
+        "build_id": "build-20261025T043704088Z-6bddcccc",
+        "status": "passed_within_source_scope",
+        "checks": 288,
+        "cycles": 1547
+      },
+      "source_contract": "dev/docs/audit_parts/re_part1/uks-20261025/re-contract.json",
+      "native_source_scope": "Один общий внешний источник 3000 В по умолчанию; input profile 0…5040 целых вольт — масштаб канала, а не рабочая норма. Секционные значения следуют соединённым HV шинам после QS1 и до БВ. Один контактирующий ТП питает обе шины; открытый БВ и опущенный собственный ТП не обнуляют измерение при другом питающем ТП.",
+      "basis": "Конкретное рассогласование фиксированных 3100 В Pult / 3200 В Tyga устранено в подтверждённых путях источника. Подача Uкс до обработки команд и расчётов установлена по PE call order; held P1 при последовательном возбуждении проверен нативно. Отдельные прямые счётчики ранних trial calls не заявляются. Широкое требование включает разрешения, ПСН, защиту и/или энергообмен, поэтому общий статус остаётся partial.",
+      "current_success_union": {
+        "path": "dev/docs/audit_parts/re_part1/uks-current-success-union-20261025.json",
+        "sha256": "d74dbc8cc03da577c30f22bd45445213a7721d7a15493d6eb7db4194e5d5ee18",
+        "kind": "latest_successful_unique_probe_union",
+        "unique_successful_ids": 21,
+        "single_all_pass_run": false,
+        "status": "passed_within_selected_scopes",
+        "production_source_count": 37
+      },
+      "diagnostic_threshold_correction": "dev/docs/audit_parts/re_part1/uks-20261025/voltage-diagnostic-threshold-correction.json"
     },
     {
       "id": "CA03",
@@ -4243,6 +4511,122 @@
       "new_runtime_fix": false,
       "accepted_within_scope": "Измерено уже существовавшее раннее ограничение до момента/силы; поздний clamp является no-op в квалифицированном sample. Прежний late-only вывод отозван как ошибка анализа того же SHA, а не результат новой правки.",
       "limits": "Один сохранённый полный sample, низкоскоростное событие; цель 40 км/ч не достигнута. Нормативность 750 А, factory calibration, энергетический баланс, весь маршрут и вся модель РЭ не приняты. Отдельная приёмка SA47 не заменяется."
+    },
+    {
+      "id": "UKS-SOURCE-20261025",
+      "date": "2026-10-25",
+      "status": "partial",
+      "source_fix_accepted_within_scope": true,
+      "complete_power_system_accepted": false,
+      "receipt": {
+        "path": "dev/docs/audit_parts/re_part1/uks-native-final-receipt-20261025.json",
+        "sha256": "3b3070aabcb81ae7daad238c7dae8e389cc447a8f0bbbd5f54256af493c0861e",
+        "run_id": "test-20261025T043704000Z-a11fff61",
+        "build_id": "build-20261025T043704088Z-6bddcccc",
+        "status": "passed_within_source_scope",
+        "checks": 288,
+        "cycles": 1547
+      },
+      "production_source_count": 37,
+      "probe_source_count": 39,
+      "source_parity_passed": true,
+      "session_closed": true,
+      "exceptions": 0,
+      "logging_failures": 0,
+      "full_cycles": 1547,
+      "checks": 288,
+      "all_checks_passed": true,
+      "five_entry_execution_counts": {
+        "Pult": 1215,
+        "TygaEDT": 4,
+        "Nezav": 137,
+        "Help": 1071,
+        "TractionEntry": 1547
+      },
+      "runtime_eset_final_V": 3000,
+      "original_eset_restored_V": 3200,
+      "all_entries_and_inputs_restored": true,
+      "sequential_hold": {
+        "position": 1,
+        "excitation_type": 0,
+        "source_V": [
+          3200,
+          2800,
+          3000
+        ],
+        "raw_solver_current_A": [
+          148.056915,
+          129.426071,
+          138.67337
+        ],
+        "force_native": [
+          6.29298449,
+          4.967847,
+          5.611475
+        ],
+        "force_unit": "10 кН, единица native модели; не нормативная калибровка",
+        "reported_Tok_av_A": [
+          34.7829247,
+          141.167145,
+          141.167145
+        ],
+        "help_count_before": 974,
+        "help_count_after": 974,
+        "no_intermediate_help": true,
+        "input": "Настоящий ручной +1 через Handle(0x41C,1), затем положение удержано; Cab coast = 0 и genuine VozbType = 0."
+      },
+      "early_call_synchronization": "Подача Uкс до обработки команд и расчётов по PE call order: hook 17C34C при обычных VozbType 0/1 и FFlagRecup = 0. Нативно проверен held P1 и raw current response без Help; прямые отдельные native счётчики ранних trial calls не добавлялись. При FFlagRecup != 0 вычисленная рекуперативная ветвь не подменяется.",
+      "history": [
+        {
+          "run_id": "test-20261025T043207609Z-c2bf9fc0",
+          "checks": 282,
+          "status": "passed",
+          "scope": "Первый ограниченный проход; не окончательная приёмка усиленного held-P1 oracle.",
+          "current_acceptance": false
+        },
+        {
+          "run_id": "test-20261025T043437064Z-14688ffe",
+          "status": "failed",
+          "current_acceptance": false,
+          "reason": "Ошибка oracle: +5B (Tok_av) публикуется блоками через 4 вызова, а сравнение выполнялось после Warm(2). Смешивались прежние окна. Native DLL этим не признана сломанной; ошибка не исправлялась ослаблением I(3200)>I(2800).",
+          "new_oracle": "Мгновенные raw solver Singles +3B/+3F/+43/+47; +5B оставлен отдельным показанием. Абсолютные +33/+37 — половины Udvig Double, не raw ток.",
+          "cleanup_preserved": true,
+          "primary_PE_proof": "dev/docs/audit_parts/re_part1/uks-20261025/sequential-current-contract.json",
+          "primary_PE_evidence": "dev/docs/audit_parts/re_part1/uks-20261025/sequential-current-evidence.json"
+        }
+      ],
+      "not_accepted": [
+        "Napruga и общий арбитраж дискретных разрешений.",
+        "Пуск/готовность ПСН и допуск +50, предупреждения и защита БВ > 4100 В / > 0,3 с.",
+        "Операторский вход ЭДТ, computed URecup/энергообмен/ПТР и полноценная рекуперация.",
+        "Паспортная F(v), мощности до/ниже 2900 В, вся электромеханическая калибровка и точная комплектация № 137+."
+      ],
+      "regression_status": "Последнее успешное выполнение 21 уникального id из трёх запусков: 19 PASS исходного набора из 20, новый успешный повтор SectionPantographPressure и отдельный финальный ContactNetworkVoltage. Исходный 20-run остаётся failed; его единственный отказ вызван post-verifier со старым ожиданием 3100 В после успешной native пробы с 3000 В.",
+      "current_success_union": {
+        "path": "dev/docs/audit_parts/re_part1/uks-current-success-union-20261025.json",
+        "sha256": "d74dbc8cc03da577c30f22bd45445213a7721d7a15493d6eb7db4194e5d5ee18",
+        "kind": "latest_successful_unique_probe_union",
+        "unique_successful_ids": 21,
+        "single_all_pass_run": false,
+        "status": "passed_within_selected_scopes",
+        "production_source_count": 37
+      },
+      "diagnostic_threshold_correction": {
+        "path": "dev/docs/audit_parts/re_part1/uks-20261025/voltage-diagnostic-threshold-correction.json",
+        "sha256": "47fea61efb9a2d2158424be6937568deee9dba2454e1592a01a509d66d17a790",
+        "scope": "Прежняя подпись threshold_4101 отозвана: три CMP в Proceed_Messages содержат 0x0FD2 = 4050 В. Это диагностическая ветвь, а не защита БВ > 4100 В / > 0,3 с. Вход пробы 4101 В и итоговые 288/21 результатов не меняются."
+      },
+      "external_source_usage": {
+        "file": "outputs/Trainer_commands.txt",
+        "syntax": "uks=<целые вольты>",
+        "input_range_V": [
+          0,
+          5040
+        ],
+        "default_V": 3000,
+        "change_detection": "Файл перечитывается при изменении содержимого. Удаление строки uks либо всего файла снимает override и возвращает номинал 3000 В.",
+        "scope": "Стендовый внешний input, не операторский UI кабины и не файл коэффициентов Tyga. Независимые источники по секциям не введены."
+      }
     }
   ],
   "final_verification": {
@@ -4291,11 +4675,13 @@
   },
   "last_followup_date": "2026-10-25",
   "final_verification_current": {
-    "path": "dev/docs/audit_parts/re_part1/sa47-reset-current-validation-20261025.json",
-    "sha256": "7b4e49af3ce6443d14500034234a9a7d1b2a9efac0030d3a3c0c8cda7ebd41a3",
+    "path": "dev/docs/audit_parts/re_part1/uks-current-success-union-20261025.json",
+    "sha256": "d74dbc8cc03da577c30f22bd45445213a7721d7a15493d6eb7db4194e5d5ee18",
     "passed": true,
-    "checks": 56,
-    "scope": "Идентичность текущих исходников, сборок, 19 productionSourceSHA и развёрнутого EXE. Исходный PDF и 171 изображение также проверены. Нормативная приёмка всей модели не расширяется."
+    "kind": "latest_successful_unique_probe_union",
+    "checks": 21,
+    "single_all_pass_run": false,
+    "scope": "21 уникальный id из трёх запусков, все SUCCESS exit 0 / closed / 0 errors и 37 production SHA совпали. Исходный 20-run сохранён failed из-за старого post-verifier. Final Build integration30/candidate37/deploy и Doctor51/51 также проверены. Нормативная приёмка всей модели не расширяется."
   },
   "static_followups": [
     {
@@ -4341,5 +4727,31 @@
     "kind": "descriptive_evidence_map_not_runtime_configuration",
     "purpose": "Куда относятся числа и таблицы native/оболочки, единицы, исполнение, границы приёмки и первые три калибровочные работы. Runtime этот JSON не читает."
   },
-  "last_static_followup_date": "2026-10-25"
+  "last_static_followup_date": "2026-10-25",
+  "contact_source_verification_current": {
+    "path": "dev/docs/audit_parts/re_part1/uks-native-final-receipt-20261025.json",
+    "sha256": "3b3070aabcb81ae7daad238c7dae8e389cc447a8f0bbbd5f54256af493c0861e",
+    "run_id": "test-20261025T043704000Z-a11fff61",
+    "build_id": "build-20261025T043704088Z-6bddcccc",
+    "status": "passed_within_source_scope",
+    "checks": 288,
+    "cycles": 1547,
+    "scope": "Только ContactNetworkVoltage и source parity 37/39. Сохранённый общий final_verification/SA47 относится к своему датированному набору и не заменяется этой пробой."
+  },
+  "final_verification_current_before_uks": {
+    "path": "dev/docs/audit_parts/re_part1/sa47-reset-current-validation-20261025.json",
+    "sha256": "7b4e49af3ce6443d14500034234a9a7d1b2a9efac0030d3a3c0c8cda7ebd41a3",
+    "passed": true,
+    "checks": 56,
+    "scope": "Идентичность текущих исходников, сборок, 19 productionSourceSHA и развёрнутого EXE. Исходный PDF и 171 изображение также проверены. Нормативная приёмка всей модели не расширяется."
+  },
+  "current_selected_union_verification": {
+    "path": "dev/docs/audit_parts/re_part1/uks-current-success-union-20261025.json",
+    "sha256": "d74dbc8cc03da577c30f22bd45445213a7721d7a15493d6eb7db4194e5d5ee18",
+    "kind": "latest_successful_unique_probe_union",
+    "unique_successful_ids": 21,
+    "single_all_pass_run": false,
+    "status": "passed_within_selected_scopes",
+    "production_source_count": 37
+  }
 }

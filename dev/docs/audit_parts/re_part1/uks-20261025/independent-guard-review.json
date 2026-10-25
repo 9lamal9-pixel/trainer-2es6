@@ -1,0 +1,98 @@
+{
+  "kind": "independent_fresh_PE_guard_comparison",
+  "native_executed": false,
+  "source": "C:/Users/sibir/Desktop/Макрос/Тренажер/dev/runs/uks-native-20261025/TrainerContactVoltagePatch.cs",
+  "source_sha256": "267d313214901309b98a6a0be00fd784d75c25def0dc2a473801009654dfae57",
+  "passed": true,
+  "checks": [
+    {
+      "site": "Pult",
+      "kind": "entry",
+      "rva": "0x18e9ba",
+      "length": 10,
+      "passed": true,
+      "sha256": "cdffd74ac78b84739e33997ff506e4f9b229533542b9b73b113b85c42f13b6bd"
+    },
+    {
+      "site": "Pult",
+      "kind": "full_window",
+      "rva": "0x18e97a",
+      "length": 92,
+      "passed": true,
+      "sha256": "9d4d20362bb7d6e7f181492e5c36a08a5bc67a0a4fc7793413b175c5715046f2"
+    },
+    {
+      "site": "TygaEDT",
+      "kind": "entry",
+      "rva": "0x1748f4",
+      "length": 7,
+      "passed": true,
+      "sha256": "0f883247c158e093494fff2413a977e6e2dd497d81abcc222a3b0f6a0e1cfb55"
+    },
+    {
+      "site": "TygaEDT",
+      "kind": "full_window",
+      "rva": "0x1748b0",
+      "length": 91,
+      "passed": true,
+      "sha256": "9f2d7cacbcb7fd8a1e211dad56d51d60f57663ebc760b3c5de3f872abdff139c"
+    },
+    {
+      "site": "Nezav",
+      "kind": "entry",
+      "rva": "0x17650f",
+      "length": 7,
+      "passed": true,
+      "sha256": "0f883247c158e093494fff2413a977e6e2dd497d81abcc222a3b0f6a0e1cfb55"
+    },
+    {
+      "site": "Nezav",
+      "kind": "full_window",
+      "rva": "0x1764ed",
+      "length": 57,
+      "passed": true,
+      "sha256": "df2043f623a7985a98be337e7551bf8bcecc25a7a2d00e3e3d69bd1c6652ed61"
+    },
+    {
+      "site": "Help",
+      "kind": "entry",
+      "rva": "0x17c1a9",
+      "length": 7,
+      "passed": true,
+      "sha256": "0f883247c158e093494fff2413a977e6e2dd497d81abcc222a3b0f6a0e1cfb55"
+    },
+    {
+      "site": "Help",
+      "kind": "full_window",
+      "rva": "0x17c188",
+      "length": 56,
+      "passed": true,
+      "sha256": "580e268d687d25b5ce806f33fa7cce9254d7a1cf2c106389a19b8bebe451ca11"
+    },
+    {
+      "site": "TractionEntry",
+      "kind": "entry",
+      "rva": "0x17c34c",
+      "length": 6,
+      "passed": true,
+      "sha256": "9a1e92bbbeaa187628d56c1afe901d3a4f12da5abb70f83a3896a7d16ac43e90"
+    },
+    {
+      "site": "TractionEntry",
+      "kind": "full_window",
+      "rva": "0x17c320",
+      "length": 67,
+      "passed": true,
+      "sha256": "07150db5a565d9ce840feb7926a36c4be84a26b834a46170bf7cdfe356529223"
+    },
+    {
+      "site": "retained_tfix",
+      "length": 158,
+      "passed": true,
+      "sha256": "1e97515cb1ff16387505395e98140e9c1111c0eea90343bb24856bde3652a817"
+    }
+  ],
+  "entry_native_effect": "MOV EAX,[EBP-4]; MOV EAX,[EAX+4], no flags/FPU change before save; must restore EAX=TTygaParam at continuation17C352.",
+  "source_review": "5site counter/destination/value/generation arrays do not overlap within128bytes; ordinary MOV caves preserve all GP/flags, and cleanup does not depend on operational Fault validation.",
+  "remaining": "Emitted cave bytes and dynamic branch/lifecycle acceptance are separate evidence. Whole physical roof equality during recuperation remains out of accepted scope."
+}

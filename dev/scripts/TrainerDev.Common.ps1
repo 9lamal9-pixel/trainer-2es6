@@ -197,7 +197,7 @@ function Assert-TrainerProbeResult([string]$Id,$Json) {
         if (@($Json.rows).Count -ne 4) { throw 'Неполные rising rows токоприёмников.' }
         for ($i=0;$i -lt 4;$i++) {
             if (($Json.rows[$i].feedbacks -join ',') -ne $expected[$i]) { throw "Неверная секционная связь RS6 в rising row $i" }
-            $voltage = if ($i -eq 0) {0} else {3100}
+            $voltage = if ($i -eq 0) {0} else {3000}
             if ([double]$Json.rows[$i].native_line_voltage -ne $voltage) { throw "Неверное напряжение в rising row $i" }
         }
     }
@@ -459,8 +459,8 @@ function Save-TrainerContext {
         git_head=(Get-TrainerHead)
         working_tree=[ordered]@{changed_files=$dirty.Count;first_files=@($dirty|Select-Object -First 20);more=($dirty.Count -gt 20)}
         latest=$latest
-        active_focus='РЭ1: 171/171страниц, текущаяветкаcodex/re-part1. Приоритетпользователя—внутренниеDLLикалибровки. ActualTyga8EC6 ужеимеетretained.tfixearly750ДОM/F; старыйlate-onlydefectотозван. NativeTyga750Clamp035939967-f0224872PASS117checks/1211cycles:raw766.32→750,ненулеваяM/Fсогласована,4hooksrestored. NativeV=ms,старыеkmh/raw-forceтаблицынеприменимы. SA47новыйкодраньше19/19PASS, модельещёpartial;АВПотключено.'
-        next_model_question='Далееactualnativeкалибровки:единыйаналогUкс(Pult3100/Tyga3200), паспортныйF(v)стендпри3kV/D1210/η.98, затемконкретныеCF/R/силовыепараметры послеevidence; 750нормойРЭнепринят. НовыйтормознойкалибровочныйконтрактFTk0/R2/AR1позагрузке. СохраненыbacklogSA47fastclick/supplyKR22/cold,С→СП400/410А,Riso,повторныеторможения/150s,TM<3.4,АВПfullroute/exact137+.'
+        active_focus='РЭ1: просмотрено 171/171 страниц; работа внутри DLL и калибровок. Native Uкс: 5 guarded hooks Pult/Tyga + owned Eset, номинал 3000 В, source0..5040 целых В. ContactNetworkVoltage a11fff61 PASS288/1547cycles: genuine старт и ручная P1/type0 без Help, rawIa148.06A@3200 >129.43A@2800; five entries/Eset/inputs restored, closed/0errors. Tok_av+5B усредняется за4 вызова, rawIa+3B/3F/43/47. Существующий retained early750 подтверждён ранее, factory750 не принят. Текущая калибровка37candidate/30integration; полная модель partial, АВП отключено.'
+        next_model_question='Далее реальные native Napruga/ПСН/пропадание сети и БВ >4100В >0.3с; общий фактический Uкс в обычной рекуперации/переходах (Eset и derived roof разные), энергетический контракт. Затем паспортный F(v) при3kV/D1210/eta.98, конкретные CF/R/силовые параметры по evidence и новая тормозная калибровка FTk0/R2/AR1. Сохранены SA47fastclick/supplyKR22/cold, С→СП400/410А, Riso, повторные торможения/150s, ТМ<3.4, полное АВП/маршрут и редакция137+.'
         read_next=@('dev/environment-context.json','dev/state/context.json')
         avoid_reading=@('whole telemetry.csv','all historical logs','all disassembly dumps')
         source_of_truth='outputs/*.cs; versioned snapshots dev/builds/<id>/source; Git checkpoints'

@@ -26,6 +26,7 @@ public sealed class Tyga750ClampObserver : IDisposable {
     static readonly Dictionary<IntPtr, Tyga750ClampObserver> Owners = new Dictionary<IntPtr, Tyga750ClampObserver>();
     readonly IntPtr module, cell, outer, calc, param, result, outerVmt, calcVmt;
     readonly string path;
+    readonly TrainerContactVoltagePatch contactVoltage;
     readonly uint thread;
     IntPtr pinned, data, beforeCave, afterCave, earlyData, earlyBeforeCave, earlyAfterCave;
     byte[] beforeCode, afterCode, beforeJump, afterJump, earlyBeforeCode, earlyAfterCode, earlyBeforeJump, earlyAfterJump;
@@ -47,7 +48,8 @@ public sealed class Tyga750ClampObserver : IDisposable {
     [DllImport("kernel32.dll", SetLastError = true)] static extern bool VirtualProtect(IntPtr address, UIntPtr size, uint protection, out uint previous);
     [DllImport("kernel32.dll", SetLastError = true)] static extern bool FlushInstructionCache(IntPtr process, IntPtr address, UIntPtr size);
 
-    Tyga750ClampObserver(IntPtr module, string expectedPath, IntPtr tygaParam) {
+    Tyga750ClampObserver(IntPtr module, string expectedPath, IntPtr tygaParam, TrainerContactVoltagePatch contactVoltage) {
+        this.contactVoltage = contactVoltage;
         this.module = module; path = Path.GetFullPath(expectedPath); thread = GetCurrentThreadId(); param = tygaParam;
         cell = Pointer(At(GlobalRva), 0);
         if (cell != At(CellRva)) throw new InvalidOperationException("Tyga global cell guard");
@@ -55,12 +57,12 @@ public sealed class Tyga750ClampObserver : IDisposable {
         calc = Pointer(outer, 0x420); calcVmt = Pointer(calc, 0); result = Pointer(param, 0x27);
     }
 
-    public static Tyga750ClampObserver Attach(IntPtr nativeModule, string expectedPath, IntPtr tygaParam) {
+    public static Tyga750ClampObserver Attach(IntPtr nativeModule, string expectedPath, IntPtr tygaParam, TrainerContactVoltagePatch contactVoltage = null) {
         if (IntPtr.Size != 4) throw new InvalidOperationException("Tyga observer requires x86");
         if (nativeModule == IntPtr.Zero || tygaParam == IntPtr.Zero) throw new ArgumentException("Loaded Tyga and initialized input records are required");
         lock (OwnerLock) {
             if (Owners.ContainsKey(nativeModule)) throw new InvalidOperationException("Another observer owns the Tyga clamp sites");
-            var observer = new Tyga750ClampObserver(nativeModule, expectedPath, tygaParam);
+            var observer = new Tyga750ClampObserver(nativeModule, expectedPath, tygaParam, contactVoltage);
             Owners.Add(nativeModule, observer);
             try { observer.Install(); return observer; }
             catch (Exception error) {
@@ -320,8 +322,13 @@ public sealed class Tyga750ClampObserver : IDisposable {
         Guard(At(0x179722), Hex("90909090"));
         Guard(At(0x856000), Hex(RetainedFixHex));
         Guard(At(0x178204), Hex("558bec83c4f48955f88945fc8b45fc8b40048b55f88b84d0050100008b55fc8b52048b4df80384ca090100008945f48b45f48be55dc3"));
-        Guard(At(0x17c188), Hex("558bec83c4f48945fc8b45fc8b400480b8300100000074128b45fc8b40048b4027c7401100004845eb0e8b45fc8b40048b402733d28950118b45fc8b40048b402733d289108b45fc8b400483c02b8945f4c745f8010000008b45f88b55f4c64442fe008b45f88b55f4c64442ff008b45f88b55f433c9894cc2088b45f88b55f433c9894cc20c8b45f88b55f433c9898cc2880000008b45f88b55f433c9898cc28c000000ff45f8837df80575ab8b45f433d289500889500c8be55dc3"));
+        GuardCompatibleProducer(0x17c188, Hex("558bec83c4f48945fc8b45fc8b400480b8300100000074128b45fc8b40048b4027c7401100004845eb0e8b45fc8b40048b402733d28950118b45fc8b40048b402733d289108b45fc8b400483c02b8945f4c745f8010000008b45f88b55f4c64442fe008b45f88b55f4c64442ff008b45f88b55f433c9894cc2088b45f88b55f433c9894cc20c8b45f88b55f433c9898cc2880000008b45f88b55f433c9898cc28c000000ff45f8837df80575ab8b45f433d289500889500c8be55dc3"));
     }
+    void GuardCompatibleProducer(int rva, byte[] original) {
+        if (contactVoltage == null) Guard(At(rva), original);
+        else contactVoltage.VerifyOriginalWindowWithOwnedHooks(module, rva, original);
+    }
+
     void CheckAttached() {
         CheckThread();
         if (disposed || !beforeMayExist || !afterMayExist || !earlyBeforeMayExist || !earlyAfterMayExist || data == IntPtr.Zero) throw new ObjectDisposedException("Tyga750ClampObserver");

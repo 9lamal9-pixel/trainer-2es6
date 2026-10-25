@@ -2,7 +2,7 @@
   "schema_version": 1,
   "reviewed_on": "2026-10-25",
   "reviewer": "/root/portable_setup",
-  "mode": "Узкая карта калибровок по текущим C# и ранее статически восстановленным DLL-данным. Сейчас выполнены чтение файлов, проверка SHA и визуальная сверка таблицы 1 РЭ. Нативные функции не вызывались; код и DLL не изменялись.",
+  "mode": "Описательная карта калибровок. Исходный статический этап сохранён как baseline; последующие native измерения Tyga750Clamp и ContactNetworkVoltage привязаны отдельными receipt и имеют ограниченный scope. Этот JSON не является runtime конфигурацией.",
   "baseline": {
     "git_head_from_current_context": "7831af873131cb9b4895f3e60eb389b934975409",
     "context": "dev/state/context.json",
@@ -268,21 +268,76 @@
     {
       "id": "CAL-UKS-01",
       "module": "Tyga1.dll + Pult1.dll",
-      "layer": "native producer literals + integration input",
+      "layer": "Общий внешний input + пять guarded native hooks в памяти + live Eset; расчётные ветви сохранены",
       "topic": "Фактическое напряжение контактной сети",
       "where": {
-        "tyga": "CalkNezavVozb RVA 17650F пишет ResT.Uset3200/0 по флагу токоприёмника; CalcRecup также имеет 3200 для EDT.",
-        "pult": "UpdateButton RVA 18E97A–18E9D6, store18E9BA, пишет Useti3100/0 по дискретным признакам.",
-        "network": "TConst.Eset Int32+0x3FC=3200; Rnagr Double+0x400=100, Rstan+0x408=0,1, Rline+0x410=0,03; используются GetK13/GetKset в рекуперации."
+        "source": "outputs/TrainerContactNetwork.cs: номинал 3000 В; nullable scenario override, whole-volt input 0…5040 В. Это масштаб канала, не допустимая рабочая норма.",
+        "producers": "outputs/TrainerContactVoltagePatch.cs: Pult 18E9BA; TygaEDT 1748F4; Nezav 17650F; Help 17C1A9; ранний TractionEntry 17C34C. На диске исходные литералы 3100/3200 В и SHA сохранены.",
+        "early_calls": "По PE call order hook 17C34C подаёт Uкс до обработки команд и расчётов при обычных VozbType 0/1 и FFlagRecup = 0; нативно проверен held P1. Прямые счётчики каждого раннего trial call не заявляются. Четырёх MOV + Eset без синхронизации недостаточно.",
+        "network": "Live TConst.Eset получает общий источник и восстанавливается к исходным 3200 В перед закрытием. Rnagr/Rstan/Rline и рассчитанная ветвь URecup/GetUSet не калибровались и не заменялись константой."
       },
-      "edit_target": "Единый канонический измеренный Uкс по секциям на входе производителей. Нужно устранить последующее перезаписывание литералами и различать напряжение, токоприёмник, контакторы и наличие питания. Запись только в ResT.Uset после расчёта меняет показание, но не гарантирует изменение расчёта.",
-      "pitfall": "Правка одного Eset в TConst не исправляет литерал 3200 положительной тяги или 3100 показаний Pult1. Ни 3000 В изолированной пробы, ни MSULNativeHost не являются действующим параметром production-тракта.",
-      "acceptance": "Нулевая/номинальная/пониженная сеть, потеря и возврат питания по секциям; измерение и токи/сила/ПСН/рекуперация согласованы. Защитные пороги подтверждать отдельно. Для F(v) явно 3000 В, а не текущие 3200 В.",
+      "edit_target": "Source binding принят только в перечисленном scope. Следующие отдельные правки: Napruga/дискретные разрешения, ПСН, предупреждения и защита БВ по > 4100 В / > 0,3 с. Физическую линию, URecup, энергию и паспортную F(v) принимать отдельно.",
+      "pitfall": "Общий источник не означает принудительное равенство всех расчётных выходов: URecup при рекуперации зависит от Eset, токов и эквивалентных сопротивлений. Источник 0 В сам по себе не очищает прежние Napruga/contactor permissions. Нельзя нулить секцию только по её ТП/БВ, если соединённую шину питает другой ТП.",
+      "acceptance": "Свежий ContactNetworkVoltage: 288/288 PASS, 1547 cycles, genuine start, P1/VozbType0 и raw current response на 3200/2800/3000 В без Help; крышевая шина и измерение до БВ, пять entry/Eset/inputs восстановлены. Component EDT отдельно; protections/PSN/factory calibration не приняты.",
       "evidence": [
-        "dev/runs/re-part1-20261024/control-native-guards.json",
-        "work/traction6000/evidence.md:47",
-        "work/traction6000/electrobrake/evidence.md"
-      ]
+        "dev/docs/audit_parts/re_part1/uks-native-final-receipt-20261025.json",
+        "dev/docs/audit_parts/re_part1/uks-20261025/voltage-contract-review.json",
+        "dev/docs/audit_parts/re_part1/uks-20261025/voltage-scope-followup.json",
+        "dev/docs/audit_parts/re_part1/uks-20261025/managed-caves/bytecheck.json",
+        "dev/docs/audit_parts/re_part1/uks-20261025/independent-cave-review.json",
+        "dev/docs/audit_parts/re_part1/uks-20261025/independent-guard-review.json",
+        "dev/docs/audit_parts/re_part1/uks-20261025/sequential-current-contract.json",
+        "dev/docs/audit_parts/re_part1/uks-20261025/voltage-diagnostic-threshold-correction.json",
+        "dev/docs/audit_parts/re_part1/uks-current-success-union-20261025.json"
+      ],
+      "baseline_before_source_fix": {
+        "id": "CAL-UKS-01",
+        "module": "Tyga1.dll + Pult1.dll",
+        "layer": "native producer literals + integration input",
+        "topic": "Фактическое напряжение контактной сети",
+        "where": {
+          "tyga": "CalkNezavVozb RVA 17650F пишет ResT.Uset3200/0 по флагу токоприёмника; CalcRecup также имеет 3200 для EDT.",
+          "pult": "UpdateButton RVA 18E97A–18E9D6, store18E9BA, пишет Useti3100/0 по дискретным признакам.",
+          "network": "TConst.Eset Int32+0x3FC=3200; Rnagr Double+0x400=100, Rstan+0x408=0,1, Rline+0x410=0,03; используются GetK13/GetKset в рекуперации."
+        },
+        "edit_target": "Единый канонический измеренный Uкс по секциям на входе производителей. Нужно устранить последующее перезаписывание литералами и различать напряжение, токоприёмник, контакторы и наличие питания. Запись только в ResT.Uset после расчёта меняет показание, но не гарантирует изменение расчёта.",
+        "pitfall": "Правка одного Eset в TConst не исправляет литерал 3200 положительной тяги или 3100 показаний Pult1. Ни 3000 В изолированной пробы, ни MSULNativeHost не являются действующим параметром production-тракта.",
+        "acceptance": "Нулевая/номинальная/пониженная сеть, потеря и возврат питания по секциям; измерение и токи/сила/ПСН/рекуперация согласованы. Защитные пороги подтверждать отдельно. Для F(v) явно 3000 В, а не текущие 3200 В.",
+        "evidence": [
+          "dev/runs/re-part1-20261024/control-native-guards.json",
+          "work/traction6000/evidence.md:47",
+          "work/traction6000/electrobrake/evidence.md"
+        ]
+      },
+      "state": "partial_source_binding_accepted",
+      "runtime_configuration": false,
+      "native_acceptance": {
+        "path": "dev/docs/audit_parts/re_part1/uks-native-final-receipt-20261025.json",
+        "sha256": "3b3070aabcb81ae7daad238c7dae8e389cc447a8f0bbbd5f54256af493c0861e",
+        "run_id": "test-20261025T043704000Z-a11fff61",
+        "build_id": "build-20261025T043704088Z-6bddcccc",
+        "status": "passed_within_source_scope",
+        "checks": 288,
+        "cycles": 1547
+      },
+      "source_contract": "dev/docs/audit_parts/re_part1/uks-20261025/re-contract.json",
+      "raw_current_contract": "dev/docs/audit_parts/re_part1/uks-20261025/sequential-current-contract.json",
+      "limits": [
+        "Napruga и общий арбитраж дискретных разрешений.",
+        "Пуск/готовность ПСН и допуск +50, предупреждения и защита БВ > 4100 В / > 0,3 с.",
+        "Операторский вход ЭДТ, computed URecup/энергообмен/ПТР и полноценная рекуперация.",
+        "Паспортная F(v), мощности до/ниже 2900 В, вся электромеханическая калибровка и точная комплектация № 137+."
+      ],
+      "current_success_union": {
+        "path": "dev/docs/audit_parts/re_part1/uks-current-success-union-20261025.json",
+        "sha256": "d74dbc8cc03da577c30f22bd45445213a7721d7a15493d6eb7db4194e5d5ee18",
+        "kind": "latest_successful_unique_probe_union",
+        "unique_successful_ids": 21,
+        "single_all_pass_run": false,
+        "status": "passed_within_selected_scopes",
+        "production_source_count": 37
+      },
+      "diagnostic_threshold_correction": "dev/docs/audit_parts/re_part1/uks-20261025/voltage-diagnostic-threshold-correction.json"
     },
     {
       "id": "CAL-PULT-01",
@@ -404,15 +459,29 @@
     {
       "order": 1,
       "id": "JOB-UKS",
-      "title": "Согласовать фактический Uкс обоих производителей",
-      "proof": "Доказаны разные константы 3100/3200 В и требование 3000 В для паспортных точек.",
+      "title": "Завершить разрешения, защиты и физический контракт при общем Uкс",
+      "proof": "Общий источник 3000 В и переходы native входа приняты в отдельном source scope 288/288 PASS; защита и вся электромеханическая калибровка не приняты.",
       "where_to_change": [
-        "Входной ABI и источник напряжения по секциям",
-        "Native producer Pult1 UpdateButton",
-        "Native producer Tyga1 CalkNezavVozb/CalcRecup и GetK13/GetKset"
+        "Napruga, разрешения и фактические входы защиты; сохранить источники и арбитраж.",
+        "Пуск/готовность ПСН и отдельные пороги/таймеры.",
+        "Физическая рекуперация, Etd/URecup и энергообмен, не подмена вычисляемого выхода."
       ],
-      "deliverable": "Явный измеряемый Uкс без перезаписывания литералами, исправление в памяти с guards, трасса напряжения, мощности и силы. Одного изменения показания прибора недостаточно.",
-      "acceptance": "Свежий изолированный стенд с 0 В, 3000 В, пониженным напряжением и секционной потерей/возвратом питания. Защитные тесты выполнять отдельно после выбора редакции."
+      "deliverable": "Сохранить уже принятый source binding и закрывать оставшиеся условия питания/защит отдельными доказанными изменениями. Перед паспортной F(v) закрепить диаметр 1210 мм, Uкс 3000 В, КПД передачи 0,98 и единицы.",
+      "acceptance": "Не выдавать source sweep за защиту БВ >4100 В/>0,3 с, ПСН или рекуперацию. Проверять отрицательные условия, фактические аппараты/обратные связи и энергию; точная редакция № 137+ остаётся partial.",
+      "baseline_before_source_fix": {
+        "order": 1,
+        "id": "JOB-UKS",
+        "title": "Согласовать фактический Uкс обоих производителей",
+        "proof": "Доказаны разные константы 3100/3200 В и требование 3000 В для паспортных точек.",
+        "where_to_change": [
+          "Входной ABI и источник напряжения по секциям",
+          "Native producer Pult1 UpdateButton",
+          "Native producer Tyga1 CalkNezavVozb/CalcRecup и GetK13/GetKset"
+        ],
+        "deliverable": "Явный измеряемый Uкс без перезаписывания литералами, исправление в памяти с guards, трасса напряжения, мощности и силы. Одного изменения показания прибора недостаточно.",
+        "acceptance": "Свежий изолированный стенд с 0 В, 3000 В, пониженным напряжением и секционной потерей/возвратом питания. Защитные тесты выполнять отдельно после выбора редакции."
+      },
+      "state": "partially_completed"
     },
     {
       "order": 2,
@@ -422,7 +491,7 @@
         "JOB-UKS",
         "Свежий observer фактического retained GetCur и доказательство физических единиц; повторная установка раннего clamp не требуется."
       ],
-      "proof": "Паспортные условия 1210 мм / 3000 В / КПД 0,98 отличаются от native 1250 мм / 3200 В. Константы K4/K5, Rya/Kper/Rkol имеют точную статическую привязку.",
+      "proof": "Паспортные условия 1210 мм / 3000 В / КПД 0,98 отличаются от базового native 1250 мм / 3200 В. Новый source binding позволяет задать 3000 В, но паспортные точки и физические коэффициенты ещё не приняты. Константы K4/K5, Rya/Kper/Rkol имеют статическую привязку.",
       "where_to_change": [
         "Профиль условий: диаметр 1210 мм, радиус 0,605 м, независимое возбуждение, число включённых групп",
         "Доказанный live TConst и выбранные активные функции с guards"
@@ -448,7 +517,7 @@
     "Точная применимая редакция, двигатель и колодка для 2ЭС6 начиная с № 137.",
     "Динамическая достижимость паспортных режимов после согласования тока и силы.",
     "Физическое назначение native делителя 1,3 и полное влияние Rkol на ЭДС.",
-    "Live-проверка установленной статической цепочки owner/TConst и его lifetime в конкретном сеансе; извлечённое смещение само по себе не является указателем.",
+    "Owner/TConst и lifetime подтверждены для ограниченного Uкс source scope; при изменении других калибровок их цепочки и конкретные адреса нужно доказывать заново. Извлечённое смещение само по себе не является указателем.",
     "Нормативная характеристика АР по загрузке, сопротивление, расход и температура пневматики."
   ],
   "acceptance_rule": "Сначала первичный источник и единицы, затем отдельная доказанная числовая гипотеза, точный guarded изменяемыйпараметр, свежие результаты и сохранённые неуспехи. Ни эта карта, ни зелёная регрессия сами по себе не принимают соответствие всей физики РЭ.",
@@ -463,7 +532,8 @@
     "new_runtime_fix": false,
     "withdrawn_claim": "Прежнее утверждение о единственном позднем ограничении 750 А и расчёте силы по необрезанному току отозвано для фактического SHA Tyga1 8ec6a82e618a1d75cbb31242784084b530bb87308e601defc5263d5279270491. Неполный прежний анализ не проследил дальний переход GetCur 17971D → retained .tfix 856032 → 179726. Этот существовавший ранее блок ограничивает оба токовых поля текущей секции до 750 А перед Moment/TygaTED/общей силой. Это исправление оценки документации, а не новая правка DLL.",
     "numeric_tables_withdrawn": "В доказанном контракте TTygaParam.V и private FVCur выражены в м/с. Старые строки numeric.py/numeric.json с 49.2/51/80/120 передавали числа без деления на 3,6; их подписи км/ч отозваны. Кроме того, nezav() считала F_kN по raw Ia, хотя actual .tfix рассчитывает момент и силу по bounded Ia. Старые таблицы силы и target roots при raw Ia > 750 А не описывают этот runtime даже после переименования единиц. Их нельзя использовать для калибровки. Фиксированные одинаковые токи 580/540 А не являются паспортной F(v): отличаются колесо 1250/1210 мм, Uкс 3200/3000 В, режим и ещё не принятый механический контракт.",
-    "energy_coherence": "Статическая гипотеза для будущей проверки; физический дефект и энергетический баланс не приняты."
+    "energy_coherence": "Статическая гипотеза для будущей проверки; физический дефект и энергетический баланс не приняты.",
+    "scope_historical": "Поле native_observer_executed=false относится к исходному статическому этапу. Позднее выполнены отдельные измерения; они не переобъявляют этот статический review нативным тестом и не принимают factory calibration."
   },
   "owner_contract": {
     "source": "dev/docs/audit_parts/re_part1/getcur-contract-review-20261025.json",
@@ -475,5 +545,39 @@
     ],
     "acceptance": "Статическая цепочка установлена; в будущем сеансе нужны live owner, VMT, границы памяти и совпадение с фактическим CommOwner+131. Нативного измерения в этом обновлении нет."
   },
-  "source_scope_warning": "Старые work/traction6000/evidence.md и numeric.py/json сохранены как исторические источники. Их старые SHA описывают тот снимок; приоритет текущей оценки у static_correction и переносимого полного контракта."
+  "source_scope_warning": "Старые work/traction6000/evidence.md и numeric.py/json сохранены как исторические источники. Их старые SHA описывают тот снимок; приоритет текущей оценки у static_correction и переносимого полного контракта.",
+  "contact_source_followup": {
+    "date": "2026-10-25",
+    "receipt": {
+      "path": "dev/docs/audit_parts/re_part1/uks-native-final-receipt-20261025.json",
+      "sha256": "3b3070aabcb81ae7daad238c7dae8e389cc447a8f0bbbd5f54256af493c0861e",
+      "run_id": "test-20261025T043704000Z-a11fff61",
+      "build_id": "build-20261025T043704088Z-6bddcccc",
+      "status": "passed_within_source_scope",
+      "checks": 288,
+      "cycles": 1547
+    },
+    "state": "partial_source_binding_accepted",
+    "raw_current_contract": "dev/docs/audit_parts/re_part1/uks-20261025/sequential-current-contract.json",
+    "historical_current_oracle_error": "Failed14688ffe сравнивал display Tok_av+5B после двух вызовов, хотя публикация блоками через четыре. Финальный run сравнил raw +3B/+3F/+43/+47 и сохранил I3200>I2800>0; это исправление oracle, не заводская калибровка.",
+    "current_success_union": {
+      "path": "dev/docs/audit_parts/re_part1/uks-current-success-union-20261025.json",
+      "sha256": "d74dbc8cc03da577c30f22bd45445213a7721d7a15493d6eb7db4194e5d5ee18",
+      "kind": "latest_successful_unique_probe_union",
+      "unique_successful_ids": 21,
+      "single_all_pass_run": false,
+      "status": "passed_within_selected_scopes",
+      "production_source_count": 37
+    },
+    "diagnostic_threshold_correction": {
+      "path": "dev/docs/audit_parts/re_part1/uks-20261025/voltage-diagnostic-threshold-correction.json",
+      "sha256": "47fea61efb9a2d2158424be6937568deee9dba2454e1592a01a509d66d17a790",
+      "scope": "Прежняя подпись threshold_4101 отозвана: три CMP в Proceed_Messages содержат 0x0FD2 = 4050 В. Это диагностическая ветвь, а не защита БВ > 4100 В / > 0,3 с. Вход пробы 4101 В и итоговые 288/21 результатов не меняются."
+    }
+  },
+  "measured_getcur_followup": {
+    "path": "dev/docs/audit_parts/re_part1/getcur-native-measured-20261025.json",
+    "status": "passed_within_scope",
+    "scope": "Датированное измерение retained limit до нового Uкс source fix; не паспортная калибровка при 3000 В."
+  }
 }

@@ -1,0 +1,87 @@
+{
+  "kind": "independent_emitted_cave_CFG_and_ABI_review",
+  "source_sha256": "267d313214901309b98a6a0be00fd784d75c25def0dc2a473801009654dfae57",
+  "native_executed": false,
+  "native_DLL_loaded": false,
+  "CPU_emulated": false,
+  "passed": true,
+  "sites": [
+    {
+      "site": "Pult",
+      "sha256": "f8beb4aafdd26b8b36c9d28d93fcc771e5c873408cb7947e6a6c05f77603e101",
+      "length": 273,
+      "decoded_bytes": 273,
+      "instruction_count": 58,
+      "restoring_CFG_paths": 13,
+      "continuation": "0x1018e9c4",
+      "physical_store": {
+        "address": "0x500000a8",
+        "asm": "mov dword ptr [edi + 0x125], edx"
+      },
+      "passed": true
+    },
+    {
+      "site": "TygaEDT",
+      "sha256": "449552e04b926bb621de596d852718f9abd443ae509b43f60861cac5bc582c0b",
+      "length": 271,
+      "decoded_bytes": 271,
+      "instruction_count": 57,
+      "restoring_CFG_paths": 13,
+      "continuation": "0x201748fb",
+      "physical_store": {
+        "address": "0x500100a6",
+        "asm": "mov dword ptr [edi + 0x11], ecx"
+      },
+      "passed": true
+    },
+    {
+      "site": "Nezav",
+      "sha256": "2fd5bde6818a4feb62275300f97697b818aae494405af0761bcb98972d594b21",
+      "length": 271,
+      "decoded_bytes": 271,
+      "instruction_count": 57,
+      "restoring_CFG_paths": 13,
+      "continuation": "0x20176516",
+      "physical_store": {
+        "address": "0x500200a6",
+        "asm": "mov dword ptr [edi + 0x11], ecx"
+      },
+      "passed": true
+    },
+    {
+      "site": "Help",
+      "sha256": "422eea62b6c5f8a5d50ecf9635ed25d6c68d5208b0f03f3f56a34b5a260474ac",
+      "length": 271,
+      "decoded_bytes": 271,
+      "instruction_count": 57,
+      "restoring_CFG_paths": 13,
+      "continuation": "0x2017c1b0",
+      "physical_store": {
+        "address": "0x500300a6",
+        "asm": "mov dword ptr [edi + 0x11], ecx"
+      },
+      "passed": true
+    },
+    {
+      "site": "TractionEntry",
+      "sha256": "4c9db25d49209a7d10909779f7d4c91860d77e0fa0fdf6f57953565fe9f3b4be",
+      "length": 318,
+      "decoded_bytes": 318,
+      "instruction_count": 66,
+      "restoring_CFG_paths": 17,
+      "continuation": "0x2017c352",
+      "physical_store": {
+        "address": "0x500400d5",
+        "asm": "mov dword ptr [edi + 0x11], ecx"
+      },
+      "passed": true
+    }
+  ],
+  "scope": "Each branch path balances pushfd/pushad and popad/popfd, reaches the exact continuation; no CALL/x87/SSE or extra physical output stores. TractionEntry preserves original MOV result and limits early publication to excitation0/1 and FFlagRecupfalse; original panto false produces float0. Runtime behavior, scheduling, native exceptions, protection restoration and actual component/operator acceptance remain untested by this static review.",
+  "probe_review": {
+    "source": "work/pneumatic_live_fix/analysis/ContactNetworkVoltageProbe.cs",
+    "sha256_at_review": "900b880b1196cedf3c7251264ac6d1a95193c7ecafa5c4dd7197fe1f11ba1add",
+    "EDT_ABI": "Three native setters, complete CalcRecup and setter restoration order agree with fresh PE. No isolated MOV invocation.",
+    "sequential_limit": "This revision enters the sequential switch phase after genuine start has already returned to coast; entrycounter plus VozbType0 does not prove actual GetCurPosl reach. Root notified; genuine controller widget is form+41C TMultiPosTumbler."
+  }
+}

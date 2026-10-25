@@ -1,0 +1,349 @@
+{
+  "schema_version": 1,
+  "reviewed_utc": "2026-10-25T04:19:57.574092+00:00",
+  "scope": "Свежий статический разбор фактических Pult1/Tyga1, источников и потребителей Uкс. DLL не загружались и не выполнялись; production sources, каталоги и файлы DLL не менялись.",
+  "native_executed": false,
+  "status": "static_ABI_confirmed_native_voltage_acceptance_pending",
+  "modules": {
+    "Tyga1": {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Tyga1.dll",
+      "sha256": "8ec6a82e618a1d75cbb31242784084b530bb87308e601defc5263d5279270491"
+    },
+    "Pult1": {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Pult1.dll",
+      "sha256": "7dac59bf94276309e012a6eb72602c08a921fe1910a4169f9f0ec27008f0f8f5"
+    }
+  },
+  "evidence": {
+    "PE_excerpts": "C:/Users/sibir/Desktop/Макрос/Тренажер/dev/runs/uks-native-20261025/voltage-native-evidence.json",
+    "sha256": "cfb70708119a07bd0314529bc8974364d815ef103c32e486d514d2ba4108b5d2",
+    "guards": "C:/Users/sibir/Desktop/Макрос/Тренажер/dev/runs/uks-native-20261025/voltage-producer-guards.json",
+    "guards_sha256": "fff8c97834ac1dfbc77035c14bc56044c742c71196bd82186625c5b3e8090eec"
+  },
+  "retained_tfix": {
+    "rva": "0x856000",
+    "length": 158,
+    "sha256": "1e97515cb1ff16387505395e98140e9c1111c0eea90343bb24856bde3652a817",
+    "effect": "Учитывается фактическая .tfix, включая раннее ограничение750 перед моментом и защиту Calk без включённых групп. Она не заменяет рассмотренные producers Uset/Useti; изменение voltage не должно переписывать эти hooks."
+  },
+  "types_and_owners": [
+    {
+      "field": "TShema.Useti",
+      "type": "Int32 volts",
+      "address": "Pult2ES6 owner+18+125",
+      "source": "RTTI native_record_schema.json и свежий MOV18E9BA; GetShema18B92C возвращает owner+18."
+    },
+    {
+      "field": "TResTyga.Uset",
+      "type": "Single volts",
+      "address": "*(TTygaParam+27)+11",
+      "source": "RTTI TResTyga и три свежих MOV float3200; Calk/CalcRecup/Help получают EAX = ResT перед записью."
+    },
+    {
+      "field": "TConst.Eset",
+      "type": "Int32 volts",
+      "address": "*(calc+10C)+3FC = TygaOuter+8+3FC",
+      "source": "InitConst172782 пишет integer3200; GetK13 использует FILD dword[...+3FC], а не FLD."
+    },
+    {
+      "field": "TShema.Napruga",
+      "type": "Boolean",
+      "address": "TShema+123",
+      "source": "Свежий producer18C1F0/18C201; это дискретное состояние, не аналоговый вход."
+    },
+    {
+      "field": "TTygaParam.TAF.Tokopriemnik",
+      "type": "Boolean",
+      "address": "TTygaParam+130",
+      "source": "Свежий producer18E35F/18E36E."
+    }
+  ],
+  "owner_graph": {
+    "Pult": "*(*(Pult1+1A2E60)) -> Pult2ES6; owner+4 == caller TPult; owner+8 == caller TTygaParam; schema = owner+18.",
+    "Tyga": "*(Tyga1+19058C) == Tyga1+1AA058; *cell -> TygaOuter; outer+420 -> calc; calc+4 == caller TTygaParam; calc+10C == outer+8; *(param+27) == ResT.",
+    "required": "Thread, loaded path, pinned SHA, module lifetime, VMT, pointer readability and identity must stay valid during attach/update/capture/restore. A name match alone does not establish ownership."
+  },
+  "producers": [
+    {
+      "id": "Pult_Useti",
+      "module": "Pult1",
+      "method": "TPult2ES6.UpdateButton",
+      "rva": "18E9BA",
+      "bytes": "c780250100001c0c0000",
+      "length": 10,
+      "destination": "EAX = TShema; [EAX+125] Int32",
+      "live_branch": "OR of TShema.BVS2to13[58..5B] is true -> literal3100; all false -> original zero18E9D0.",
+      "native_gate": "18E97A..18E9D6; all four native contacts are considered for Useti.",
+      "hook_continuation": "18E9C4"
+    },
+    {
+      "id": "Tyga_Calk_Uset",
+      "module": "Tyga1",
+      "method": "TTygaCalcClass.CalkNezavVozb",
+      "rva": "17650F",
+      "bytes": "c7401100004845",
+      "length": 7,
+      "destination": "EAX = ResT; [EAX+11] Single",
+      "live_branch": "TAF.Tokopriemnik true -> literal3200; false -> original zero176523. Retained entry guard also requires enabled TED groups in the first two sections.",
+      "hook_continuation": "176516"
+    },
+    {
+      "id": "Tyga_Help_Uset",
+      "module": "Tyga1",
+      "method": "TTygaCalcClass.Help",
+      "rva": "17C1A9",
+      "bytes": "c7401100004845",
+      "length": 7,
+      "destination": "EAX = ResT; [EAX+11] Single",
+      "live_branch": "TAF.Tokopriemnik true -> literal3200; false -> original zero17C1BD. Help clears traction/current results and is active on coast and invalid-mode paths.",
+      "hook_continuation": "17C1B0"
+    },
+    {
+      "id": "Tyga_EDT_Uset",
+      "module": "Tyga1",
+      "method": "TTygaCalcClass.CalcRecup",
+      "rva": "1748F4",
+      "bytes": "c7401100004845",
+      "length": 7,
+      "destination": "EAX = ResT; [EAX+11] Single",
+      "live_branch": "FEDT+109 true and TAF.Tokopriemnik true -> literal3200; panto false -> original zero174908.",
+      "hook_continuation": "1748FB"
+    },
+    {
+      "id": "Tyga_recuperation_Uset",
+      "module": "Tyga1",
+      "method": "TTygaCalcClass.CalcRecup",
+      "rva": "1748D6",
+      "bytes": "d95811",
+      "length": 3,
+      "destination": "EAX = ResT; x87 ST0 returned by GetUSet is popped into [EAX+11].",
+      "live_branch": "FEDT+109 false -> GetUSet17C0B0 -> derived bus voltage from Eset and currents. This is a calculated output, not a hardcoded voltage.",
+      "recommendation": "Preserve this branch and x87 FSTP; do not replace calculated recuperation voltage with a constant. Supply common source through live Eset."
+    },
+    {
+      "id": "TConst_Eset_initial",
+      "module": "Tyga1",
+      "method": "InitConst",
+      "rva": "172782",
+      "bytes": "c780fc030000800c0000",
+      "length": 10,
+      "destination": "EAX = TConst; [EAX+3FC] Int32",
+      "live_branch": "Constructor initializer writes3200 once. Current recurring GetK13 reads this live field.",
+      "recommendation": "Owned data update with original-value restoration is preferable to rewriting the initializer for each source change."
+    }
+  ],
+  "active_consumers": {
+    "Tyga_ResT_Uset": {
+      "@Tyga_2es6@TTygaCalcClass@CalcIvozbMaxMin$qqrf": [
+        "0x173ba9",
+        "0x173cd7",
+        "0x173dfe",
+        "0x173fbc",
+        "0x1740ea",
+        "0x174211",
+        "0x1743b3",
+        "0x1744e1",
+        "0x174608"
+      ],
+      "@Tyga_2es6@TTygaCalcClass@CalcRecup$qqrv": [
+        "0x1748d6",
+        "0x1748f4",
+        "0x174908"
+      ],
+      "@Tyga_2es6@TTygaCalcClass@CalkNezavVozb$qqrv": [
+        "0x17650f",
+        "0x176523"
+      ],
+      "@Tyga_2es6@TTygaCalcClass@GetCur$qqrf": [
+        "0x178341",
+        "0x1783e1",
+        "0x178486",
+        "0x178677",
+        "0x1786e5",
+        "0x1787ad",
+        "0x17881b",
+        "0x1788e3",
+        "0x178951",
+        "0x178a19",
+        "0x178a87",
+        "0x178b57",
+        "0x178bc5",
+        "0x178c8d",
+        "0x178cfb",
+        "0x178dc0",
+        "0x178e3d",
+        "0x178edd",
+        "0x178f5a",
+        "0x179022",
+        "0x17909f",
+        "0x17913f",
+        "0x1791bc",
+        "0x179284",
+        "0x179301",
+        "0x1793a1",
+        "0x17941e",
+        "0x1794e6",
+        "0x179563",
+        "0x179603",
+        "0x179680"
+      ],
+      "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf": [
+        "0x179e3f",
+        "0x179fe7",
+        "0x17a186"
+      ],
+      "@Tyga_2es6@TTygaCalcClass@GetCurPOslPOneTED$qqrv": [
+        "0x17a5d5"
+      ],
+      "@Tyga_2es6@TTygaCalcClass@GetUDvig$qqrf": [
+        "0x17bacc",
+        "0x17bb0f",
+        "0x17bb52",
+        "0x17bb99",
+        "0x17bbdc",
+        "0x17bc1f",
+        "0x17bc62",
+        "0x17bca9",
+        "0x17bcec",
+        "0x17bd2f",
+        "0x17bd72",
+        "0x17bdb9"
+      ],
+      "@Tyga_2es6@TTygaCalcClass@Help$qqrv": [
+        "0x17c1a9",
+        "0x17c1bd"
+      ],
+      "@Tyga_2es6@TTygaCalcClass@ProceedTyga$qqrv": [
+        "0x17c6d7"
+      ],
+      "@Tyga_2es6@TTygaCalcClass@SetAfterPos$qqrv": [
+        "0x17c92e",
+        "0x17c957",
+        "0x17ca9b",
+        "0x17cacc"
+      ],
+      "@Tyga_2es6@TTygaCalcClass@SetNextPOs$qqrv": [
+        "0x17db33",
+        "0x17dcdd",
+        "0x17de01"
+      ]
+    },
+    "Eset": {
+      "sole_confirmed_CalcClass_consumer": "GetK13 at17AEAE FILD dword[TConst+3FC].",
+      "GetK13": "EAX=this; no args; returns Double in ST0. If FEDT is true returns0. Otherwise Eset*Rnagr/(Rnagr+Rstan).",
+      "GetK13_callers": {
+        "CalcRecup": 31,
+        "GetUDvig": 12,
+        "GetUSet": 4
+      },
+      "GetKset": "No Eset read. Uses Rnagr/Rstan/Rtyaga and S/SP/P multiplicity to calculate an equivalent resistance. Eset substitution alone leaves this topology unchanged.",
+      "GetK14": "No Eset read; equivalent resistance used in GetUSet = K13 - K14*appropriate current sum."
+    },
+    "Pult_Useti": {
+      "threshold_4101": [
+        "189941",
+        "189A6C",
+        "189B93"
+      ],
+      "bounds_diagnostic": [
+        "18A82B",
+        "18A83A",
+        "18A849",
+        "18A858"
+      ],
+      "meaning": "Confirmed direct TShema.Useti reads in Proceed_Messages. Other generic +125 offset matches belonging to TTygaParam or other records are not classified as Useti."
+    },
+    "sequential_excitation": "GetCurPosl179D74 and GetCurPOslPOneTED17A55C read ResT.Uset. They do not write their own3200 in the inspected methods; Help/cycle history supplies the shared field. A native live changing-voltage test is required for sequential mode, not just an independent-excitation test."
+  },
+  "gates_and_shared_source": {
+    "shared_bus": "Pult Useti is one Int32; Tyga Uset is one Single; no evidence here justifies two independent analog contact-line sources. Keep one input and preserve per-section discrete apparatus states.",
+    "Useti_contact_gate": "OR of BVS2to13 bytes TShema+58,+59,+5A,+5B. RTTI name is BVS2to13; physical attribution of all four contacts to individual pantographs requires the existing air-chain mapping. Do not invent that mapping from the array index.",
+    "Tyga_panto_gate": "Native publication on18E33D..18E36E ORs only TShema+58 and+59 into TAF.Tokopriemnik. This differs from the four-contact Useti gate and must be captured separately in four-pantograph/section tests.",
+    "Napruga": "UpdateButton18C135..18C208 first computes AnyXA1 = OR(XA1[5C..5F]), unless TPult.NF+F0==1 clears it; then Napruga = anyQF1[62..65] && AnyXA1. It does not read analog Useti.",
+    "zero_limitation": "Setting common input0 makes the proposed analog publications0 and Eset0, but does not by itself clear existing Napruga, contactor or BV permission booleans. The voltage-source fix must not be described as complete physical loss-of-line protection.",
+    "PowerOn_KM2_boundary": "Napruga has confirmed downstream auxiliary-control consumers. Full PowerOn/KM2 actuator readiness and BV trip contracts are not proven by this voltage-only static scan; no new thresholds are invented for these booleans."
+  },
+  "zero_input_contract": {
+    "GetK13_direct_zero_divide": "No new divide by zero arises from Eset=0 in GetK13: Eset is only a numerator, while the denominator is Rnagr+Rstan. Initialized Rnagr=100 and Rstan=0.1 are fresh-PE verified at172791..1727AE.",
+    "GetKset_GetK14": "Their resistance denominators do not contain Eset. Changing Eset to0 does not directly make those denominators0.",
+    "native_scope_limit": "No native zero-input cycle was executed here. CalcRecup and mode transitions must be exercised with real enabled-group state, live speed/excitation and all exception checks. A safe helper formula is not full zero-path acceptance.",
+    "no_silent_fallback": "Do not silently substitute epsilon or retain3200 while reporting input0. Capture actual failure and native state if the new full zero path fails.",
+    "recuperation_semantics": "GetUSet may still depend on nonzero/stale native current when Eset=0; preserve and measure that calculated branch. Do not force its output to0 solely for a passing voltage assertion."
+  },
+  "diagnostic_threshold_finding": {
+    "status": "confirmed_static_unreachable_message_branch_for_integer_voltage",
+    "source": "Pult1 Proceed_Messages18A82B..18A867, TShema.Soobsh+31E.",
+    "branches": [
+      "CMP U,2200; JGE18A846",
+      "CMP U,4000; JG18A864",
+      "18A846:CMP U,200; JGE18A871",
+      "CMP U,600; JLE18A871",
+      "18A864:Soobsh=209"
+    ],
+    "proof": "To reach209 from the first pair requires U<2200 and U>4000. To fall through the second pair requires U<200 and U>600. Neither is possible for a signed integer. The diagnostic cannot be treated as an active low/high-voltage safeguard.",
+    "not_concluded": "This finding concerns the message209 branch. It does not prove that all BV/auxiliary protection is absent or authorize changing thresholds without the appropriate circuit/RE contract.",
+    "threshold_4101": "CMP4101 at189941/189A6C/189B93 gates a larger diagnostic selection under additional state conditions. It is not established as a universal BV trip threshold."
+  },
+  "safe_hook_design": {
+    "minimal_change": "Four MOV producers above, each guarded with the complete surrounding gate window. Preserve all original zero branches and the derived recuperation FSTP. Maintain live owned Int32 Eset through the same source value.",
+    "source": "One validated integer volts input, requested diagnostic domain0..5040; derive both Int32 volts and IEEE754 Single bits from that one value. This is one source with type adapters, not two sources.",
+    "Pult_cave": "At18E9BA EAX already points to TShema. Save flags and a scratch register (for example EDX); load source Int32 from private RW state; write [EAX+125]; restore EDX/flags; jump18E9C4. Check actual EAX against pinned schema before writing.",
+    "Tyga_caves": "At1748F4/17650F/17C1A9 EAX already points to ResT. Save flags and EDX; load source Single bits using integer MOV; write [EAX+11]; restore register/flags; continue to the original next instruction. Check actual EAX against pinned ResT.",
+    "x87": "The replacement MOV caves need no x87/SSE instructions or helper calls. They must leave x87 stack, control/status and all GP registers/flags as the original MOV would. Do not hook derived FSTP merely to flatten recuperation voltage.",
+    "Eset_lifecycle": "Attach only to verified live calc/TConst. Save original Eset3200; updates on owning UI/native thread only and guarded expected last-owned Eset. Restore original only when pointer/module and last-owned value still match. Refuse foreign modifications rather than overwrite them.",
+    "memory_ownership": "Allocate state RW and cave RW then RX. Temporarily change entry protection, write guarded jumps, restore original protection and flush cache. Restoration must verify owned entry jumps before writing original instructions; verify original bytes before freeing caves. Keep allocations alive if entries could still target them."
+  },
+  "component_EDT_coverage": {
+    "purpose": "Explicit component-level coverage of the real CalcRecup EDT producer, separate from operator/UI acceptance.",
+    "ABI": {
+      "SetEDT": "RVA17D824, EAX=calc, DL=Boolean, no stack args, RET; stores FEDT+109 and calls SetRPosRec(2/0).",
+      "SetRPosRec": "RVA17E254, EAX=calc, DL=Byte; only updates FPosRec+10A if value<22.",
+      "SetFlagRecup": "RVA17D870, EAX=calc, DL=Boolean; only updates FFlagRecup+100.",
+      "CalcRecup": "RVA1748B0, EAX=calc, no args, void; invoke the complete method, never an isolated MOV."
+    },
+    "guards": [
+      {
+        "name": "@Tyga_2es6@TTygaCalcClass@SetEDT$qqrxo",
+        "rva": "0x17d824",
+        "length": 76,
+        "bytes": "558bec83c4f88855fb8945fc8a45fb8b55fc3a8209010000742e8a45fb8b55fc8882090100008b45fc80b80901000000740cb2028b45fce8f4090000eb0a33d28b45fce8e809000059595dc3",
+        "sha256": "3617129ca3a432563cd1ffa89efe49b8140e70edd6744bf5b2183b80328757d7"
+      },
+      {
+        "name": "@Tyga_2es6@TTygaCalcClass@SetFlagRecup$qqrxo",
+        "rva": "0x17d870",
+        "length": 42,
+        "bytes": "558bec83c4f88855fb8945fc8b45fc8a80000100003a45fb740c8a45fb8b55fc88820001000059595dc3",
+        "sha256": "22a4694b4e5befc0240520789e8d28208dc018f46078dec69010c04bce204681"
+      },
+      {
+        "name": "@Tyga_2es6@TTygaCalcClass@SetRPosRec$qqrxuc",
+        "rva": "0x17e254",
+        "length": 48,
+        "bytes": "558bec83c4f88855fb8945fc8a45fb8b55fc3a820a0100007412807dfb16730c8a45fb8b55fc88820a01000059595dc3",
+        "sha256": "408bb957681f851160bfa22f21d2f8361394d8a6487d952c4a6f8f2c99ce4048"
+      }
+    ],
+    "protocol": [
+      "Stop ordinary timer on its owner thread after a genuine initialized native start with live panto/section permissions; capture owner graph and saved command fields.",
+      "Use native setters to select FEDT=true and, if the component scope requests it, FFlagRecup=true. Do not prepare currents/forces or set panto/BV permission outputs.",
+      "Call complete CalcRecup on the actual calc; verify the 1748F4 producer was reached with the same owner. Snapshot Uset, Eset, input, gates, finite currents/forces and exceptions.",
+      "In finally restore FEDT through SetEDT(saved), then restore FPosRec through SetRPosRec(saved), then restore FFlagRecup through SetFlagRecup(saved), if changed. Native SetEDT itself changes FPosRec.",
+      "Restore ordinary drive through genuine coast/Help/native cycles. Do not restore calculated pressure/current/force fields by fixture writes. Close normally if cleanup or an exception makes the native state uncertain."
+    ],
+    "acceptance_limit": "Even a passing component call confirms only this native producer branch. It does not prove cab entry, regenerative braking dynamics, train stopping or complete EDT correctness."
+  },
+  "next_native_acceptance": [
+    "Exercise0/2100/2200/2700/2900/3000/3100/3200/3400/3800/4000/4100/4101 under genuine native commands; assert one input drives both Pult and Tyga and Eset with correct types.",
+    "Cover Calk, Help, CalcRecup EDT, calculated recuperation and sequential excitation separately; do not accept all producers based on one patched MOV.",
+    "Keep and capture individual section/panto/BV gates; test each native roof contact and all-down. Do not replace these gates with prepared booleans.",
+    "Prove input0 without epsilon/fallback and without suppressing exceptions; document any remaining Napruga/BV behavior separately.",
+    "Verify original producer bytes, Eset and page protections restored before native close, and no previous patch in a new session."
+  ],
+  "unknowns": [
+    "Exact RE revision/equipment selection remains unresolved. Nominal3000 does not establish every protection threshold.",
+    "Full PowerOn/KM2/BV actuator contract is outside the confirmed voltage producer mapping.",
+    "The four-contact Pult gate and two-contact Tyga flag differ; actual section/pantograph behavior must be observed.",
+    "A common source exposes native algorithms and diagnostics that may still require independent correction; this is not full RE acceptance."
+  ]
+}

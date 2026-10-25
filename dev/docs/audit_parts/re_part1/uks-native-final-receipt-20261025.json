@@ -1,0 +1,1047 @@
+{
+  "schema_version": 1,
+  "kind": "limited_native_contact_source_receipt",
+  "date": "2026-10-25",
+  "status": "passed_within_scope",
+  "source_fix_only": true,
+  "run": {
+    "id": "test-20261025T043704000Z-a11fff61",
+    "git_head": "bc0443a0729d88b2e672561611e30fdedf043bea",
+    "started_utc": "2026-10-25T04:37:04.0022483Z",
+    "finished_utc": "2026-10-25T04:37:25.5079076Z",
+    "probe": "ContactNetworkVoltage",
+    "exit_code": 0,
+    "build_id": "build-20261025T043704088Z-6bddcccc"
+  },
+  "source_artifacts": [
+    {
+      "path": "dev/runs/test-20261025T043704000Z-a11fff61/report.json",
+      "sha256": "56b53ad6c99b9c5328b27288bb063808024ea4ee64d585b2bea2555af029467f",
+      "size_bytes": 1659
+    },
+    {
+      "path": "dev/runs/test-20261025T043704000Z-a11fff61/ContactNetworkVoltage/result.json",
+      "sha256": "67167e7087c2020ad25e388c61dc8ee38bfaec0c2774d615ba4d088f3f3d1f19",
+      "size_bytes": 1151
+    },
+    {
+      "path": "dev/runs/test-20261025T043704000Z-a11fff61/ContactNetworkVoltage/Trainer_contact_voltage_validation.json",
+      "sha256": "6f16c99f61685bda557575eedfef52101ed569b4e0896a470a25ace0b617af19",
+      "size_bytes": 165247
+    },
+    {
+      "path": "dev/runs/test-20261025T043704000Z-a11fff61/ContactNetworkVoltage/sessions/20261025T043707988Z_p21320_bb30cc94083d4acb90bc3f2025d85586/session.json",
+      "sha256": "28ee94a4d6a44a30222107b6ea4736d9b885bf298f165cdebc706583d719b817",
+      "size_bytes": 971
+    },
+    {
+      "path": "dev/builds/build-20261025T043704088Z-6bddcccc/build.json",
+      "sha256": "ac33e3c3bd15a3eabe64a8a8b0ee055c3d0a19ac7a99d4d32823913d12762b34",
+      "size_bytes": 29680
+    }
+  ],
+  "checks": {
+    "total": 288,
+    "passed": 288,
+    "failed": 0
+  },
+  "session": {
+    "sessionId": "20261025T043707988Z_p21320_bb30cc94083d4acb90bc3f2025d85586",
+    "pid": 21320,
+    "startedUtc": "2026-10-25T04:37:07.9894579Z",
+    "endedUtc": "2026-10-25T04:37:25.3237619Z",
+    "state": "closed",
+    "completionReason": "process-exit",
+    "exitCode": 0,
+    "exceptionCount": 0,
+    "loggingFailureCount": 0,
+    "executableSha256": "37C11F795564C58E49B1C4F46C955EB3E37E20BA78F529999BDE2EEB70D41494",
+    "sourceBuildId": "build-20261025T043704088Z-6bddcccc",
+    "runtimeVersion": "4.0.30319.42000",
+    "processBits": 32
+  },
+  "source_parity": {
+    "production_count": 37,
+    "probe_total_count": 39,
+    "production": [
+      {
+        "path": "outputs/TrainerIntegrationHost.cs",
+        "sha256": "3360b415a61a879bb0fd75f0977c0da4b111794a145a30badb4a6faf242a4e47",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerNativeSystems.cs",
+        "sha256": "85ee79a1261fc4e346cec1d933fab83280526243ee2a8091747334e629fa7c3d",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerContactNetwork.cs",
+        "sha256": "49987c7229a5fb4f9e1b3ecdac376a845d51a65aa90ba182ad71b09e388edb57",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerContactVoltagePatch.cs",
+        "sha256": "267d313214901309b98a6a0be00fd784d75c25def0dc2a473801009654dfae57",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerNativeBrakeRelease.cs",
+        "sha256": "43bc878addc72999bd44517284aa6cca71f3dacda9847d0c6f2d95588f1c1ef1",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerSa47MemoryPatch.cs",
+        "sha256": "08af53f738c8adb72192d5928fef4dfda415ccb2513cc49499e67fc7655feb7e",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerAuxSystems.cs",
+        "sha256": "170a416046be234820aac2f8707ef72b2c1a3fb3085f7d6eb403d73f6520d4d5",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerRouteDOS.cs",
+        "sha256": "a6833bdfdd042e47a5570f0bb7c39ad823fed3024c03713129d33ac6abe8f4be",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerAutovedenieController.cs",
+        "sha256": "ef6ce777859b0d84847a648e1c29111d4f5bcdf2da107660fd2edcfebca4dcfb",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerTrainBrakeCycle.cs",
+        "sha256": "783ffd1df4546c99fb131a3a88d71211cbcd67226d002ba254aff7c9e20e9a8b",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerAutovedenieInterface.cs",
+        "sha256": "ee116b7847a4b946f56ea84dd4f1e8713541e2c0eb3494dcc7085555c384fdce",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerAutovedenieNativeBridge.cs",
+        "sha256": "ec5c8cb86162319e2ad2030b313eddb820d2d4f4ec8acfbf702072846c4d9341",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerAutovedenieHost.cs",
+        "sha256": "a9f657408e91a5731e25381d662241fd8047479e877d8ceedcb24ca7cb57567b",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerSautOperatorControls.cs",
+        "sha256": "b78d647440fb4521b97728131a3df16ec4cda56d19912c484aef8af16fd2e9f8",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerStandaloneSautBinding.cs",
+        "sha256": "7480b65a77c0883bf1fd8ead8402970355c56bdf1765d011d720052dafa71145",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerRouteView.cs",
+        "sha256": "cd86f938c78fb0e3a2f49441050d3965beacdda1ab861b8f6c59d4b45cf27204",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerNativeFixes.cs",
+        "sha256": "e8d47dac13d7d1152dee2206ca5f77a0d4b307313cfbbc506067343495250b4d",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerPneumaticTiming.cs",
+        "sha256": "faa88fb80bc132188a846af2453265b2d54e7284d98c38af881094afb9d5b2e2",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerSessionLogging.cs",
+        "sha256": "fc409229f2f44aee2c97fc4633107dacd199c63ce73f6717633c900c8dcef101",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerAirNetwork.cs",
+        "sha256": "86d4bc73601012d7a4109beeaa26360f8c476cc06d2fdde61c3bb1b66f646b32",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerControlAir.cs",
+        "sha256": "45f273528a4e83bb5fc166367646c1a234fde578c20128af2881e2a35ef0c4b6",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerBtoNetwork.cs",
+        "sha256": "5e83c5f3bbb597757a8dcfb48881625ad398970a714e4710afdba9ad39e58027",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerAirSelector.cs",
+        "sha256": "e4e86de362e66d7a55c23968f52d1fe1eb64c631d07e18b7d9bace142c6263fd",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerKvtProfile.cs",
+        "sha256": "e80696785d2542fb5be5920a87ee6a51368043b06e7fbb388992a9f19a0e17b7",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerTwoSectionAirChain.cs",
+        "sha256": "c04801ab0dfcd7af736d8069909ec4d8c07c71c1f14caf393e30f5043f86bbbc",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+        "sha256": "3c388354adac36b8d0fff3ad4422efb79dea88524ec784d02e85a159b1a336cf",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerTrainPressureView.cs",
+        "sha256": "431ea70a22205ee44eddb51d71cd2a816ae46912cd14c6dad7c5f1c165becd61",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerSafetyInputContext.cs",
+        "sha256": "71883123e6c657a5a62355ea673dc7bb4e10646320141002be81abfc57fd5d84",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerSafetyContexts.cs",
+        "sha256": "efdafa1202f26ff507a242ff6f2ad7971d2d169619ecaa4fa35b81fd533cf0b4",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerNativeSafetyAdapter.cs",
+        "sha256": "50cfd589ab74f667df336abcf157225b5f6be8cd6f50db369b828ba58d4e58aa",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerSafetyHost.cs",
+        "sha256": "05abacf21249c5ef6b7c45c965cdcf94cc3fafdcf2645ff55d9e8bc28b2bd7b9",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerVigilanceOperatorControls.cs",
+        "sha256": "5a93ec26f39341d0e6632a275bbe1177fb7966e85854c47a32f3658ea178957f",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerMarkupSignalSource.cs",
+        "sha256": "0c927b8bbe2b6a2b444623a83f3c2fec38577ddbb1e85f8172be61174cb036a6",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerMarkupHost.cs",
+        "sha256": "be9d9f6744f80ba327d46392641c3d4240b3d7a7abc09e12d4be43fca83e0266",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerKlubSafetyBinding.cs",
+        "sha256": "942acf68c73403ce35b833322e85274ed11c37cdb879140c0b3ba5e224f95006",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerNativeVirtualPult.cs",
+        "sha256": "f54e569eb6c9f0b72541e5d08c90999fa572656b06138fbdb7b5ec7eedc7ce24",
+        "matches_final_build": true
+      },
+      {
+        "path": "outputs/TrainerSandAirInput.cs",
+        "sha256": "c9ba33f9e2abcbaae0f3284b20b63a8880b50c4b0df8b139abb04e3eae258c89",
+        "matches_final_build": true
+      }
+    ],
+    "diagnostic_sources": [
+      {
+        "path": "outputs/TrainerAutovedenieAdverseBrakeProbe.cs",
+        "sha256": "82aa25112b63d45f75a9f9f61f2c030a9f73740596e50a5f93c2607fa457e2c0"
+      },
+      {
+        "path": "work/pneumatic_live_fix/analysis/ContactNetworkVoltageProbe.cs",
+        "sha256": "86d7e0706dceb3042885a0206afb35e2e56c462b65c22e7dacb695e5c96e4ecb"
+      }
+    ],
+    "all_match_current_source_and_final_build": true
+  },
+  "summary": {
+    "full_cycles": 1547,
+    "prepared_initializations": 0,
+    "genuine_native_positive_force_seen": true,
+    "nominal_source_V": 3000,
+    "input_profile_V": [
+      0,
+      5040
+    ],
+    "input_profile_is_operating_range": false,
+    "source_value_rows": 28
+  },
+  "observed_values": [
+    {
+      "name": "nominal_3000_before_traction",
+      "cycle": 984,
+      "requested_V": 3000,
+      "roof_contacts": 2,
+      "native_Useti_V": 3000,
+      "native_Uset_V": 3000,
+      "tyga_contact": true,
+      "BV": [
+        1,
+        1
+      ],
+      "actual_speed_kmh": 0,
+      "force_native": 0
+    },
+    {
+      "name": "sustained_sequential_source_3200",
+      "cycle": 1215,
+      "requested_V": 3200,
+      "roof_contacts": 2,
+      "native_Useti_V": 3200,
+      "native_Uset_V": 3200,
+      "tyga_contact": true,
+      "BV": [
+        1,
+        1
+      ],
+      "actual_speed_kmh": 2.46180463,
+      "force_native": 6.29298449
+    },
+    {
+      "name": "sequential_solve_3200",
+      "position": 1,
+      "solver_currents_A": [
+        148.056915,
+        148.056915,
+        148.056915,
+        148.056915
+      ],
+      "current_A": 148.056915,
+      "reported_Tok_av_A": 34.7829247,
+      "force_native": 6.29298449,
+      "type": 0,
+      "helpBefore": 974,
+      "helpNow": 974
+    },
+    {
+      "name": "sustained_sequential_source_2800",
+      "cycle": 1217,
+      "requested_V": 2800,
+      "roof_contacts": 2,
+      "native_Useti_V": 2800,
+      "native_Uset_V": 2800,
+      "tyga_contact": true,
+      "BV": [
+        1,
+        1
+      ],
+      "actual_speed_kmh": 2.41348171,
+      "force_native": 4.967847
+    },
+    {
+      "name": "sequential_solve_2800",
+      "position": 1,
+      "solver_currents_A": [
+        129.426071,
+        129.426071,
+        129.426071,
+        129.426071
+      ],
+      "current_A": 129.426071,
+      "reported_Tok_av_A": 141.167145,
+      "force_native": 4.967847,
+      "type": 0,
+      "helpBefore": 974,
+      "helpNow": 974
+    },
+    {
+      "name": "sustained_sequential_source_3000",
+      "cycle": 1219,
+      "requested_V": 3000,
+      "roof_contacts": 2,
+      "native_Useti_V": 3000,
+      "native_Uset_V": 3000,
+      "tyga_contact": true,
+      "BV": [
+        1,
+        1
+      ],
+      "actual_speed_kmh": 2.471137,
+      "force_native": 5.611475
+    },
+    {
+      "name": "sequential_solve_3000",
+      "position": 1,
+      "solver_currents_A": [
+        138.67337,
+        138.67337,
+        138.67337,
+        138.67337
+      ],
+      "current_A": 138.67337,
+      "reported_Tok_av_A": 141.167145,
+      "force_native": 5.611475,
+      "type": 0,
+      "helpBefore": 974,
+      "helpNow": 974
+    },
+    {
+      "name": "coast_source_3200",
+      "cycle": 1223,
+      "requested_V": 3200,
+      "roof_contacts": 2,
+      "native_Useti_V": 3200,
+      "native_Uset_V": 3200,
+      "tyga_contact": true,
+      "BV": [
+        1,
+        1
+      ],
+      "actual_speed_kmh": 2.366081,
+      "force_native": 0
+    },
+    {
+      "name": "coast_source_3100",
+      "cycle": 1225,
+      "requested_V": 3100,
+      "roof_contacts": 2,
+      "native_Useti_V": 3100,
+      "native_Uset_V": 3100,
+      "tyga_contact": true,
+      "BV": [
+        1,
+        1
+      ],
+      "actual_speed_kmh": 2.356631,
+      "force_native": 0
+    },
+    {
+      "name": "coast_source_3000",
+      "cycle": 1227,
+      "requested_V": 3000,
+      "roof_contacts": 2,
+      "native_Useti_V": 3000,
+      "native_Uset_V": 3000,
+      "tyga_contact": true,
+      "BV": [
+        1,
+        1
+      ],
+      "actual_speed_kmh": 2.33646417,
+      "force_native": 0
+    },
+    {
+      "name": "coast_source_2900",
+      "cycle": 1229,
+      "requested_V": 2900,
+      "roof_contacts": 2,
+      "native_Useti_V": 2900,
+      "native_Uset_V": 2900,
+      "tyga_contact": true,
+      "BV": [
+        1,
+        1
+      ],
+      "actual_speed_kmh": 2.32701421,
+      "force_native": 0
+    },
+    {
+      "name": "coast_source_2700",
+      "cycle": 1231,
+      "requested_V": 2700,
+      "roof_contacts": 2,
+      "native_Useti_V": 2700,
+      "native_Uset_V": 2700,
+      "tyga_contact": true,
+      "BV": [
+        1,
+        1
+      ],
+      "actual_speed_kmh": 2.31756425,
+      "force_native": 0
+    },
+    {
+      "name": "coast_source_2200",
+      "cycle": 1233,
+      "requested_V": 2200,
+      "roof_contacts": 2,
+      "native_Useti_V": 2200,
+      "native_Uset_V": 2200,
+      "tyga_contact": true,
+      "BV": [
+        1,
+        1
+      ],
+      "actual_speed_kmh": 2.30811429,
+      "force_native": 0
+    },
+    {
+      "name": "coast_source_0",
+      "cycle": 1235,
+      "requested_V": 0,
+      "roof_contacts": 2,
+      "native_Useti_V": 0,
+      "native_Uset_V": 0,
+      "tyga_contact": true,
+      "BV": [
+        1,
+        1
+      ],
+      "actual_speed_kmh": 2.29866433,
+      "force_native": 0
+    },
+    {
+      "name": "coast_source_3000",
+      "cycle": 1237,
+      "requested_V": 3000,
+      "roof_contacts": 2,
+      "native_Useti_V": 3000,
+      "native_Uset_V": 3000,
+      "tyga_contact": true,
+      "BV": [
+        1,
+        1
+      ],
+      "actual_speed_kmh": 2.28921437,
+      "force_native": 0
+    },
+    {
+      "name": "coast_source_3400",
+      "cycle": 1239,
+      "requested_V": 3400,
+      "roof_contacts": 2,
+      "native_Useti_V": 3400,
+      "native_Uset_V": 3400,
+      "tyga_contact": true,
+      "BV": [
+        1,
+        1
+      ],
+      "actual_speed_kmh": 2.27976251,
+      "force_native": 0
+    },
+    {
+      "name": "coast_source_3800",
+      "cycle": 1241,
+      "requested_V": 3800,
+      "roof_contacts": 2,
+      "native_Useti_V": 3800,
+      "native_Uset_V": 3800,
+      "tyga_contact": true,
+      "BV": [
+        1,
+        1
+      ],
+      "actual_speed_kmh": 2.27030826,
+      "force_native": 0
+    },
+    {
+      "name": "coast_source_4000",
+      "cycle": 1243,
+      "requested_V": 4000,
+      "roof_contacts": 2,
+      "native_Useti_V": 4000,
+      "native_Uset_V": 4000,
+      "tyga_contact": true,
+      "BV": [
+        1,
+        1
+      ],
+      "actual_speed_kmh": 2.260854,
+      "force_native": 0
+    },
+    {
+      "name": "coast_source_4100",
+      "cycle": 1245,
+      "requested_V": 4100,
+      "roof_contacts": 2,
+      "native_Useti_V": 4100,
+      "native_Uset_V": 4100,
+      "tyga_contact": true,
+      "BV": [
+        1,
+        1
+      ],
+      "actual_speed_kmh": 2.25139976,
+      "force_native": 0
+    },
+    {
+      "name": "coast_source_4101",
+      "cycle": 1247,
+      "requested_V": 4101,
+      "roof_contacts": 2,
+      "native_Useti_V": 4101,
+      "native_Uset_V": 4101,
+      "tyga_contact": true,
+      "BV": [
+        1,
+        1
+      ],
+      "actual_speed_kmh": 2.24194551,
+      "force_native": 0
+    },
+    {
+      "name": "coast_source_3000",
+      "cycle": 1249,
+      "requested_V": 3000,
+      "roof_contacts": 2,
+      "native_Useti_V": 3000,
+      "native_Uset_V": 3000,
+      "tyga_contact": true,
+      "BV": [
+        1,
+        1
+      ],
+      "actual_speed_kmh": 2.23249125,
+      "force_native": 0
+    },
+    {
+      "name": "component_EDT_producer_3000",
+      "component_only": true,
+      "requested_V": 3000,
+      "native_Uset_V": 3000
+    },
+    {
+      "name": "component_EDT_producer_3200",
+      "component_only": true,
+      "requested_V": 3200,
+      "native_Uset_V": 3200
+    },
+    {
+      "name": "component_EDT_producer_0",
+      "component_only": true,
+      "requested_V": 0,
+      "native_Uset_V": 0
+    },
+    {
+      "name": "component_EDT_producer_3000",
+      "component_only": true,
+      "requested_V": 3000,
+      "native_Uset_V": 3000
+    },
+    {
+      "name": "live_bus_measured_before_open_BV",
+      "cycle": 1282,
+      "requested_V": 3000,
+      "roof_contacts": 2,
+      "native_Useti_V": 3000,
+      "native_Uset_V": 3000,
+      "tyga_contact": true,
+      "BV": [
+        0,
+        0
+      ],
+      "actual_speed_kmh": 2.07646632,
+      "force_native": 0
+    },
+    {
+      "name": "no_roof_contact_retains_zero",
+      "cycle": 1414,
+      "requested_V": 3200,
+      "roof_contacts": 0,
+      "native_Useti_V": 0,
+      "native_Uset_V": 0,
+      "tyga_contact": false,
+      "BV": [
+        0,
+        0
+      ],
+      "actual_speed_kmh": 1.53618276,
+      "force_native": 0
+    },
+    {
+      "name": "one_pantograph_feeds_shared_bus",
+      "cycle": 1546,
+      "requested_V": 3000,
+      "roof_contacts": 1,
+      "native_Useti_V": 3000,
+      "native_Uset_V": 3000,
+      "tyga_contact": true,
+      "BV": [
+        0,
+        0
+      ],
+      "actual_speed_kmh": 1.58005118,
+      "force_native": 0
+    }
+  ],
+  "sequential_held_position": [
+    {
+      "name": "sequential_solve_3200",
+      "position": 1,
+      "solver_currents_A": [
+        148.056915,
+        148.056915,
+        148.056915,
+        148.056915
+      ],
+      "current_A": 148.056915,
+      "reported_Tok_av_A": 34.7829247,
+      "force_native": 6.29298449,
+      "type": 0,
+      "helpBefore": 974,
+      "helpNow": 974
+    },
+    {
+      "name": "sequential_solve_2800",
+      "position": 1,
+      "solver_currents_A": [
+        129.426071,
+        129.426071,
+        129.426071,
+        129.426071
+      ],
+      "current_A": 129.426071,
+      "reported_Tok_av_A": 141.167145,
+      "force_native": 4.967847,
+      "type": 0,
+      "helpBefore": 974,
+      "helpNow": 974
+    },
+    {
+      "name": "sequential_solve_3000",
+      "position": 1,
+      "solver_currents_A": [
+        138.67337,
+        138.67337,
+        138.67337,
+        138.67337
+      ],
+      "current_A": 138.67337,
+      "reported_Tok_av_A": 141.167145,
+      "force_native": 5.611475,
+      "type": 0,
+      "helpBefore": 974,
+      "helpNow": 974
+    }
+  ],
+  "final_patch_snapshot": {
+    "Value": 3000,
+    "SingleBits": 1161527296,
+    "Generation": 1553,
+    "Eset": 3000,
+    "Fault": "",
+    "SourcePointer": "FF70000",
+    "Sections": 2,
+    "Pult": {
+      "Count": 1215,
+      "LastDestination": 2131951949,
+      "LastValue": 3000,
+      "LastBits": 3000,
+      "LastGeneration": 1553,
+      "EntryRva": 1632698,
+      "Jump": "E9411691009090909090"
+    },
+    "TygaEDT": {
+      "Count": 4,
+      "LastDestination": 91882113,
+      "LastValue": 3000,
+      "LastBits": 1161527296,
+      "LastGeneration": 1255,
+      "EntryRva": 1526004,
+      "Jump": "E907B7F9FB9090"
+    },
+    "Nezav": {
+      "Count": 137,
+      "LastDestination": 91882113,
+      "LastValue": 3000,
+      "LastBits": 1161527296,
+      "LastGeneration": 1181,
+      "EntryRva": 1533199,
+      "Jump": "E9EC9AFAFB9090"
+    },
+    "Help": {
+      "Count": 1071,
+      "LastDestination": 91882113,
+      "LastValue": 3000,
+      "LastBits": 1161527296,
+      "LastGeneration": 1553,
+      "EntryRva": 1556905,
+      "Jump": "E9523EFBFB9090"
+    },
+    "TractionEntry": {
+      "Count": 1547,
+      "LastDestination": 91882113,
+      "LastValue": 3000,
+      "LastBits": 1161527296,
+      "LastGeneration": 1553,
+      "EntryRva": 1557324,
+      "Jump": "E9AF3CFCFB90"
+    }
+  },
+  "restoration": {
+    "native_patch_before_close": true,
+    "native_inputs": true,
+    "teaching_inputs": true,
+    "native_closed": true,
+    "five_entries_restored": true,
+    "original_eset_restored": 3200,
+    "restoration_checks": [
+      {
+        "name": "EDT component commands restored",
+        "passed": true,
+        "expected": [
+          0,
+          0,
+          0
+        ],
+        "actual": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "Native Eset initializer restored",
+        "passed": true,
+        "expected": 3200,
+        "actual": 3200
+      },
+      {
+        "name": "Voltage five native producers restored",
+        "passed": true,
+        "expected": true,
+        "actual": true
+      },
+      {
+        "name": "Voltage teaching inputs restored",
+        "passed": true,
+        "expected": true,
+        "actual": true
+      },
+      {
+        "name": "Cab input restored DB109C9",
+        "passed": true,
+        "expected": 0,
+        "actual": 0
+      },
+      {
+        "name": "Cab input restored DB10C39",
+        "passed": true,
+        "expected": 0,
+        "actual": 0
+      },
+      {
+        "name": "Cab input restored DB12979",
+        "passed": true,
+        "expected": 0,
+        "actual": 0
+      },
+      {
+        "name": "Cab input restored DB11AD9",
+        "passed": true,
+        "expected": 0,
+        "actual": 0
+      },
+      {
+        "name": "Cab input restored DB11D49",
+        "passed": true,
+        "expected": 0,
+        "actual": 0
+      },
+      {
+        "name": "Cab input restored DB115F9",
+        "passed": true,
+        "expected": 2,
+        "actual": 2
+      },
+      {
+        "name": "Cab input restored DB13A89",
+        "passed": true,
+        "expected": 0,
+        "actual": 0
+      },
+      {
+        "name": "Cab input restored DB12BE9",
+        "passed": true,
+        "expected": 0,
+        "actual": 0
+      },
+      {
+        "name": "Production Pult callback restored",
+        "passed": true,
+        "expected": "F66EFC0",
+        "actual": "F66EFC0"
+      }
+    ]
+  },
+  "preserved_topology": "Один общий источник сети; один контактирующий ТП питает соединённые шины обеих секций до БВ. Опущенный собственный ТП и открытый БВ не означают нулевое входное Uкс при другом питающем ТП.",
+  "bytecheck": {
+    "path": "dev/docs/audit_parts/re_part1/uks-20261025/managed-caves/bytecheck.json",
+    "sha256": "7d3de4ad8d2df358699fc56eb001833061b9e3e162b64177ff77e568801b319c",
+    "checks": 545,
+    "passed": 545,
+    "native_executed": false
+  },
+  "evidence_copies": [
+    {
+      "source": "dev/runs/uks-native-20261025/uks-re-contract.json",
+      "portable": "dev/docs/audit_parts/re_part1/uks-20261025/re-contract.json",
+      "sha256": "e06e77c79934e3672f4c572e74f3a8762a6300704f5127dc5006214b10c67677",
+      "size_bytes": 32859
+    },
+    {
+      "source": "dev/runs/uks-native-20261025/p044-inlets-216dpi.png",
+      "portable": "dev/docs/audit_parts/re_part1/uks-20261025/re-p044-shared-roof-bus.png",
+      "sha256": "a308da516a5c526eb5052ba6783d6a8cf385e5277aeb239351ab91057daf3284",
+      "size_bytes": 416388
+    },
+    {
+      "source": "dev/runs/uks-native-20261025/p140-before-bv-detail.png",
+      "portable": "dev/docs/audit_parts/re_part1/uks-20261025/re-p140-before-bv-measurement.png",
+      "sha256": "a56d67d0091b8e789a0da789667ebbf9b05889e3ff6e1fefd6d1975f260bbaf5",
+      "size_bytes": 360989
+    },
+    {
+      "source": "dev/runs/uks-native-20261025/voltage-contract-review.json",
+      "portable": "dev/docs/audit_parts/re_part1/uks-20261025/voltage-contract-review.json",
+      "sha256": "556e6b8d20867baa775bf67baecf8d2bf4b8833cb802c5286ab2635d9387bec3",
+      "size_bytes": 19791
+    },
+    {
+      "source": "dev/runs/uks-native-20261025/voltage-native-evidence.json",
+      "portable": "dev/docs/audit_parts/re_part1/uks-20261025/voltage-native-evidence.json",
+      "sha256": "cfb70708119a07bd0314529bc8974364d815ef103c32e486d514d2ba4108b5d2",
+      "size_bytes": 533757
+    },
+    {
+      "source": "dev/runs/uks-native-20261025/voltage-producer-guards.json",
+      "portable": "dev/docs/audit_parts/re_part1/uks-20261025/voltage-producer-guards.json",
+      "sha256": "fff8c97834ac1dfbc77035c14bc56044c742c71196bd82186625c5b3e8090eec",
+      "size_bytes": 3859
+    },
+    {
+      "source": "dev/runs/uks-native-20261025/voltage-sequential-evidence.json",
+      "portable": "dev/docs/audit_parts/re_part1/uks-20261025/voltage-sequential-evidence.json",
+      "sha256": "6e5c0f78f4fcd8a52aa6e9fe958838e5277b0830eccb6a42996d7590d5e1ae08",
+      "size_bytes": 46380
+    },
+    {
+      "source": "dev/runs/uks-native-20261025/voltage-scope-followup.json",
+      "portable": "dev/docs/audit_parts/re_part1/uks-20261025/voltage-scope-followup.json",
+      "sha256": "7f021e4dec424a9971e8df67756212b8024021c61c49f7ef95994704754af675",
+      "size_bytes": 10723
+    },
+    {
+      "source": "dev/runs/uks-native-20261025/uks-integration-anchors.json",
+      "portable": "dev/docs/audit_parts/re_part1/uks-20261025/integration-anchors.json",
+      "sha256": "afd676be0b98780754a0d88b6043543e801f5c3aecd85addc928e51545b98906",
+      "size_bytes": 6287
+    },
+    {
+      "source": "dev/runs/uks-native-20261025/uks-integration-design.json",
+      "portable": "dev/docs/audit_parts/re_part1/uks-20261025/integration-design.json",
+      "sha256": "5c5dae2bddbd25a689a067a1a69b43b647e6c5f23203d56db4d1b1c889e61633",
+      "size_bytes": 10133
+    },
+    {
+      "source": "dev/runs/uks-native-20261025/independent-cave-review.json",
+      "portable": "dev/docs/audit_parts/re_part1/uks-20261025/independent-cave-review.json",
+      "sha256": "4249a0b7145eb5ebfeae6784b444e9e63d3e63cc48a8557b21d5716326e1de9f",
+      "size_bytes": 3448
+    },
+    {
+      "source": "dev/runs/uks-native-20261025/independent-guard-review.json",
+      "portable": "dev/docs/audit_parts/re_part1/uks-20261025/independent-guard-review.json",
+      "sha256": "2c73c19dea422e98330f0b79a0b8c99feba0945c4a9cb09389098471cc1f1a01",
+      "size_bytes": 3264
+    },
+    {
+      "source": "dev/runs/uks-native-20261025/managed-caves/generated-caves.json",
+      "portable": "dev/docs/audit_parts/re_part1/uks-20261025/managed-caves/generated-caves.json",
+      "sha256": "990a976739cfde762446722185d7e35bf4413a0a745183dd07ad3ab95c6a1bfc",
+      "size_bytes": 5597
+    },
+    {
+      "source": "dev/runs/uks-native-20261025/managed-caves/capstone-disassembly.txt",
+      "portable": "dev/docs/audit_parts/re_part1/uks-20261025/managed-caves/capstone-disassembly.txt",
+      "sha256": "76d93b25142852080c201c8b3f4524582ccd61e9282549a4140b319bc46f286a",
+      "size_bytes": 16961
+    },
+    {
+      "source": "dev/runs/uks-native-20261025/managed-caves/bytecheck.json",
+      "portable": "dev/docs/audit_parts/re_part1/uks-20261025/managed-caves/bytecheck.json",
+      "sha256": "7d3de4ad8d2df358699fc56eb001833061b9e3e162b64177ff77e568801b319c",
+      "size_bytes": 149894
+    },
+    {
+      "source": "dev/runs/uks-native-20261025/ContactVoltageCaveByteGenerator.cs",
+      "portable": "dev/docs/audit_parts/re_part1/uks-20261025/managed-caves/ContactVoltageCaveByteGenerator.cs",
+      "sha256": "c80ad62c6133a4badd1ed2ce1111211643e8119347d5ba139f9a47c543bbf179",
+      "size_bytes": 6015
+    },
+    {
+      "source": "dev/runs/uks-native-20261025/check_managed_caves.py",
+      "portable": "dev/docs/audit_parts/re_part1/uks-20261025/managed-caves/check_managed_caves.py",
+      "sha256": "ca17feb1bd7ec55a2fced15f186451fc3fd4828184ab501a7c0f69bd5d7a8736",
+      "size_bytes": 9497
+    },
+    {
+      "source": "dev/runs/uks-native-20261025/independent_cave_review.py",
+      "portable": "dev/docs/audit_parts/re_part1/uks-20261025/managed-caves/independent_cave_review.py",
+      "sha256": "7434c0c0731197c04bc3800ee6928d9c00cc45c73cb96d27d1d1661b714cd366",
+      "size_bytes": 4867
+    },
+    {
+      "source": "dev/runs/uks-native-20261025/contact_voltage_guard_review.py",
+      "portable": "dev/docs/audit_parts/re_part1/uks-20261025/managed-caves/contact_voltage_guard_review.py",
+      "sha256": "9c36aee906f1bf061690efb962d5124656cf75b4c9ec3fa539b441778d5557ac",
+      "size_bytes": 2539
+    },
+    {
+      "source": "dev/runs/uks-native-20261025/TrainerContactVoltagePatch.cs",
+      "portable": "dev/docs/audit_parts/re_part1/uks-20261025/recipe/TrainerContactVoltagePatch.cs",
+      "sha256": "267d313214901309b98a6a0be00fd784d75c25def0dc2a473801009654dfae57",
+      "size_bytes": 28726
+    },
+    {
+      "source": "dev/runs/uks-native-20261025/managed-caves/Pult.bin",
+      "portable": "dev/docs/audit_parts/re_part1/uks-20261025/managed-caves/Pult.bin",
+      "sha256": "f8beb4aafdd26b8b36c9d28d93fcc771e5c873408cb7947e6a6c05f77603e101",
+      "size_bytes": 273
+    },
+    {
+      "source": "dev/runs/uks-native-20261025/managed-caves/TygaEDT.bin",
+      "portable": "dev/docs/audit_parts/re_part1/uks-20261025/managed-caves/TygaEDT.bin",
+      "sha256": "449552e04b926bb621de596d852718f9abd443ae509b43f60861cac5bc582c0b",
+      "size_bytes": 271
+    },
+    {
+      "source": "dev/runs/uks-native-20261025/managed-caves/Nezav.bin",
+      "portable": "dev/docs/audit_parts/re_part1/uks-20261025/managed-caves/Nezav.bin",
+      "sha256": "2fd5bde6818a4feb62275300f97697b818aae494405af0761bcb98972d594b21",
+      "size_bytes": 271
+    },
+    {
+      "source": "dev/runs/uks-native-20261025/managed-caves/Help.bin",
+      "portable": "dev/docs/audit_parts/re_part1/uks-20261025/managed-caves/Help.bin",
+      "sha256": "422eea62b6c5f8a5d50ecf9635ed25d6c68d5208b0f03f3f56a34b5a260474ac",
+      "size_bytes": 271
+    },
+    {
+      "source": "dev/runs/uks-native-20261025/managed-caves/TractionEntry.bin",
+      "portable": "dev/docs/audit_parts/re_part1/uks-20261025/managed-caves/TractionEntry.bin",
+      "sha256": "4c9db25d49209a7d10909779f7d4c91860d77e0fa0fdf6f57953565fe9f3b4be",
+      "size_bytes": 318
+    },
+    {
+      "source": "outputs/TrainerContactNetwork.cs",
+      "portable": "dev/docs/audit_parts/re_part1/uks-20261025/recipe/TrainerContactNetwork.cs",
+      "sha256": "49987c7229a5fb4f9e1b3ecdac376a845d51a65aa90ba182ad71b09e388edb57",
+      "size_bytes": 2694
+    },
+    {
+      "source": "work/pneumatic_live_fix/analysis/ContactNetworkVoltageProbe.cs",
+      "portable": "dev/docs/audit_parts/re_part1/uks-20261025/recipe/ContactNetworkVoltageProbe.cs",
+      "sha256": "86d7e0706dceb3042885a0206afb35e2e56c462b65c22e7dacb695e5c96e4ecb",
+      "size_bytes": 18355
+    }
+  ],
+  "historical_scope": "Переносимые статические reviews сохранены byte-exact и сохраняют исходные absolute/run paths как происхождение. source→portable mapping приведён выше. Полные 16 исходных PNG не копируются: PDF SHA/страницы остаются в re-contract, два ключевых узла схем приложены.",
+  "acceptance_limits": [
+    "Приняты только перечисленные пути общего источника и restoration, а не вся система питания.",
+    "Napruga, разрешения, ПСН, warning thresholds и БВ >4100 В/>0,3 с не приняты.",
+    "Компонентный CalcRecup явно отделён от полного входа ЭДТ с пульта и физических переходов рекуперация/реостат.",
+    "Приём энергии, сеть/падения, ПТР3800/3400 В, Etd3900 В, паспортныеF(v), мощностьдо2900 В/ниже и комплектация№137+ не приняты.",
+    "Номинал3000 В не является новой заводской калибровкой; 0…5040 В только диапазон измерительного input profile."
+  ],
+  "publication_state": "portable_evidence_promoted"
+}

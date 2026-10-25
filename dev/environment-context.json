@@ -79,7 +79,8 @@
     "re_part1_requirements": "dev/config/re-part1-audit.json",
     "re_part1_page_review": "dev/config/re-part1-page-review.json",
     "sa47_release_policy": "dev/config/sa47-release-policy.json",
-    "native_calibrations": "dev/config/native-calibration-map.json"
+    "native_calibrations": "dev/config/native-calibration-map.json",
+    "native_voltage_proof": "dev/docs/audit_parts/re_part1/uks-native-final-receipt-20261025.json"
   },
   "commands": {
     "entrypoint": ".\\trainer.cmd",
@@ -258,6 +259,12 @@
         "StoppedBrakeServiceUnknown",
         "NativeSandAir"
       ]
+    },
+    "contact_network_voltage": {
+      "probes": ["ContactNetworkVoltage", "SectionPantographPressure", "Tyga750Clamp"],
+      "report": "dev/docs/RE_PART1_AUDIT.md",
+      "proof": "dev/docs/audit_parts/re_part1/uks-native-final-receipt-20261025.json",
+      "limit": "Shared external input with nominal3000V, five guarded native producers plus Eset; genuine P1/type0 solver response, roof gates and restoration verified. Actual regenerative roof voltage, Napruga/PSN/BV timed protections and full traction/braking calibration remain unaccepted."
     },
     "traction_native_calibration": {
       "diagnostics": [

@@ -1,0 +1,4042 @@
+{
+  "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Tyga1.dll",
+  "sha256": "8ec6a82e618a1d75cbb31242784084b530bb87308e601defc5263d5279270491",
+  "native_executed": false,
+  "raw_stores": [
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@ProceedTyga$qqrv",
+      "site": {
+        "rva": "0x17c421",
+        "bytes": "dd5833",
+        "asm": "fstp qword ptr [eax + 0x33]"
+      },
+      "context": [
+        {
+          "rva": "0x17c408",
+          "bytes": "ddd8",
+          "asm": "fstp st(0)"
+        },
+        {
+          "rva": "0x17c40a",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17c40d",
+          "bytes": "ffb098000000",
+          "asm": "push dword ptr [eax + 0x98]"
+        },
+        {
+          "rva": "0x17c413",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17c416",
+          "bytes": "e831f6ffff",
+          "asm": "call 0x57ba4c"
+        },
+        {
+          "rva": "0x17c41b",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17c41e",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x17c421",
+          "bytes": "dd5833",
+          "asm": "fstp qword ptr [eax + 0x33]"
+        },
+        {
+          "rva": "0x17c424",
+          "bytes": "9b",
+          "asm": "wait "
+        },
+        {
+          "rva": "0x17c425",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@ProceedTyga$qqrv",
+      "site": {
+        "rva": "0x17c528",
+        "bytes": "894210",
+        "asm": "mov dword ptr [edx + 0x10], eax"
+      },
+      "context": [
+        {
+          "rva": "0x17c509",
+          "bytes": "8b55fc",
+          "asm": "mov edx, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17c50c",
+          "bytes": "8a9209010000",
+          "asm": "mov dl, byte ptr [edx + 0x109]"
+        },
+        {
+          "rva": "0x17c512",
+          "bytes": "88902e010000",
+          "asm": "mov byte ptr [eax + 0x12e], dl"
+        },
+        {
+          "rva": "0x17c518",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17c51b",
+          "bytes": "0fb6800a010000",
+          "asm": "movzx eax, byte ptr [eax + 0x10a]"
+        },
+        {
+          "rva": "0x17c522",
+          "bytes": "8b55fc",
+          "asm": "mov edx, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17c525",
+          "bytes": "8b5204",
+          "asm": "mov edx, dword ptr [edx + 4]"
+        },
+        {
+          "rva": "0x17c528",
+          "bytes": "894210",
+          "asm": "mov dword ptr [edx + 0x10], eax"
+        },
+        {
+          "rva": "0x17c52b",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17c52e",
+          "bytes": "83783005",
+          "asm": "cmp dword ptr [eax + 0x30], 5"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@SetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17d5a7",
+        "bytes": "894cd033",
+        "asm": "mov dword ptr [eax + edx*8 + 0x33], ecx"
+      },
+      "context": [
+        {
+          "rva": "0x17d58f",
+          "bytes": "83c4f0",
+          "asm": "add esp, -0x10"
+        },
+        {
+          "rva": "0x17d592",
+          "bytes": "8945fc",
+          "asm": "mov dword ptr [ebp - 4], eax"
+        },
+        {
+          "rva": "0x17d595",
+          "bytes": "c745f801000000",
+          "asm": "mov dword ptr [ebp - 8], 1"
+        },
+        {
+          "rva": "0x17d59c",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17d59f",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x17d5a2",
+          "bytes": "8b55f8",
+          "asm": "mov edx, dword ptr [ebp - 8]"
+        },
+        {
+          "rva": "0x17d5a5",
+          "bytes": "33c9",
+          "asm": "xor ecx, ecx"
+        },
+        {
+          "rva": "0x17d5a7",
+          "bytes": "894cd033",
+          "asm": "mov dword ptr [eax + edx*8 + 0x33], ecx"
+        },
+        {
+          "rva": "0x17d5ab",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17d5ae",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@SetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17d5b6",
+        "bytes": "894cd037",
+        "asm": "mov dword ptr [eax + edx*8 + 0x37], ecx"
+      },
+      "context": [
+        {
+          "rva": "0x17d5a2",
+          "bytes": "8b55f8",
+          "asm": "mov edx, dword ptr [ebp - 8]"
+        },
+        {
+          "rva": "0x17d5a5",
+          "bytes": "33c9",
+          "asm": "xor ecx, ecx"
+        },
+        {
+          "rva": "0x17d5a7",
+          "bytes": "894cd033",
+          "asm": "mov dword ptr [eax + edx*8 + 0x33], ecx"
+        },
+        {
+          "rva": "0x17d5ab",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17d5ae",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x17d5b1",
+          "bytes": "8b55f8",
+          "asm": "mov edx, dword ptr [ebp - 8]"
+        },
+        {
+          "rva": "0x17d5b4",
+          "bytes": "33c9",
+          "asm": "xor ecx, ecx"
+        },
+        {
+          "rva": "0x17d5b6",
+          "bytes": "894cd037",
+          "asm": "mov dword ptr [eax + edx*8 + 0x37], ecx"
+        },
+        {
+          "rva": "0x17d5ba",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17d5bd",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@SetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17d64a",
+        "bytes": "894cd033",
+        "asm": "mov dword ptr [eax + edx*8 + 0x33], ecx"
+      },
+      "context": [
+        {
+          "rva": "0x17d631",
+          "bytes": "8b55f8",
+          "asm": "mov edx, dword ptr [ebp - 8]"
+        },
+        {
+          "rva": "0x17d634",
+          "bytes": "83bcd00501000001",
+          "asm": "cmp dword ptr [eax + edx*8 + 0x105], 1"
+        },
+        {
+          "rva": "0x17d63c",
+          "bytes": "7520",
+          "asm": "jne 0x57d65e"
+        },
+        {
+          "rva": "0x17d63e",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17d641",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x17d644",
+          "bytes": "8b55f8",
+          "asm": "mov edx, dword ptr [ebp - 8]"
+        },
+        {
+          "rva": "0x17d647",
+          "bytes": "8b4d08",
+          "asm": "mov ecx, dword ptr [ebp + 8]"
+        },
+        {
+          "rva": "0x17d64a",
+          "bytes": "894cd033",
+          "asm": "mov dword ptr [eax + edx*8 + 0x33], ecx"
+        },
+        {
+          "rva": "0x17d64e",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17d651",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@SetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17d681",
+        "bytes": "894cd037",
+        "asm": "mov dword ptr [eax + edx*8 + 0x37], ecx"
+      },
+      "context": [
+        {
+          "rva": "0x17d664",
+          "bytes": "8b55f8",
+          "asm": "mov edx, dword ptr [ebp - 8]"
+        },
+        {
+          "rva": "0x17d667",
+          "bytes": "83bcd00901000001",
+          "asm": "cmp dword ptr [eax + edx*8 + 0x109], 1"
+        },
+        {
+          "rva": "0x17d66f",
+          "bytes": "0f859b010000",
+          "asm": "jne 0x57d810"
+        },
+        {
+          "rva": "0x17d675",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17d678",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x17d67b",
+          "bytes": "8b55f8",
+          "asm": "mov edx, dword ptr [ebp - 8]"
+        },
+        {
+          "rva": "0x17d67e",
+          "bytes": "8b4d08",
+          "asm": "mov ecx, dword ptr [ebp + 8]"
+        },
+        {
+          "rva": "0x17d681",
+          "bytes": "894cd037",
+          "asm": "mov dword ptr [eax + edx*8 + 0x37], ecx"
+        },
+        {
+          "rva": "0x17d685",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17d688",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@SetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17d6d4",
+        "bytes": "894cd033",
+        "asm": "mov dword ptr [eax + edx*8 + 0x33], ecx"
+      },
+      "context": [
+        {
+          "rva": "0x17d6b7",
+          "bytes": "8b55f8",
+          "asm": "mov edx, dword ptr [ebp - 8]"
+        },
+        {
+          "rva": "0x17d6ba",
+          "bytes": "83bcd00901000001",
+          "asm": "cmp dword ptr [eax + edx*8 + 0x109], 1"
+        },
+        {
+          "rva": "0x17d6c2",
+          "bytes": "0f8548010000",
+          "asm": "jne 0x57d810"
+        },
+        {
+          "rva": "0x17d6c8",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17d6cb",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x17d6ce",
+          "bytes": "8b55f8",
+          "asm": "mov edx, dword ptr [ebp - 8]"
+        },
+        {
+          "rva": "0x17d6d1",
+          "bytes": "8b4d08",
+          "asm": "mov ecx, dword ptr [ebp + 8]"
+        },
+        {
+          "rva": "0x17d6d4",
+          "bytes": "894cd033",
+          "asm": "mov dword ptr [eax + edx*8 + 0x33], ecx"
+        },
+        {
+          "rva": "0x17d6d8",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17d6db",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@SetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17d6e4",
+        "bytes": "894cd037",
+        "asm": "mov dword ptr [eax + edx*8 + 0x37], ecx"
+      },
+      "context": [
+        {
+          "rva": "0x17d6ce",
+          "bytes": "8b55f8",
+          "asm": "mov edx, dword ptr [ebp - 8]"
+        },
+        {
+          "rva": "0x17d6d1",
+          "bytes": "8b4d08",
+          "asm": "mov ecx, dword ptr [ebp + 8]"
+        },
+        {
+          "rva": "0x17d6d4",
+          "bytes": "894cd033",
+          "asm": "mov dword ptr [eax + edx*8 + 0x33], ecx"
+        },
+        {
+          "rva": "0x17d6d8",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17d6db",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x17d6de",
+          "bytes": "8b55f8",
+          "asm": "mov edx, dword ptr [ebp - 8]"
+        },
+        {
+          "rva": "0x17d6e1",
+          "bytes": "8b4d08",
+          "asm": "mov ecx, dword ptr [ebp + 8]"
+        },
+        {
+          "rva": "0x17d6e4",
+          "bytes": "894cd037",
+          "asm": "mov dword ptr [eax + edx*8 + 0x37], ecx"
+        },
+        {
+          "rva": "0x17d6e8",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17d6eb",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@SetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17d73f",
+        "bytes": "894cd033",
+        "asm": "mov dword ptr [eax + edx*8 + 0x33], ecx"
+      },
+      "context": [
+        {
+          "rva": "0x17d726",
+          "bytes": "8b55f8",
+          "asm": "mov edx, dword ptr [ebp - 8]"
+        },
+        {
+          "rva": "0x17d729",
+          "bytes": "83bcd00901000001",
+          "asm": "cmp dword ptr [eax + edx*8 + 0x109], 1"
+        },
+        {
+          "rva": "0x17d731",
+          "bytes": "7545",
+          "asm": "jne 0x57d778"
+        },
+        {
+          "rva": "0x17d733",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17d736",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x17d739",
+          "bytes": "8b55f8",
+          "asm": "mov edx, dword ptr [ebp - 8]"
+        },
+        {
+          "rva": "0x17d73c",
+          "bytes": "8b4d08",
+          "asm": "mov ecx, dword ptr [ebp + 8]"
+        },
+        {
+          "rva": "0x17d73f",
+          "bytes": "894cd033",
+          "asm": "mov dword ptr [eax + edx*8 + 0x33], ecx"
+        },
+        {
+          "rva": "0x17d743",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17d746",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@SetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17d74f",
+        "bytes": "894cd037",
+        "asm": "mov dword ptr [eax + edx*8 + 0x37], ecx"
+      },
+      "context": [
+        {
+          "rva": "0x17d739",
+          "bytes": "8b55f8",
+          "asm": "mov edx, dword ptr [ebp - 8]"
+        },
+        {
+          "rva": "0x17d73c",
+          "bytes": "8b4d08",
+          "asm": "mov ecx, dword ptr [ebp + 8]"
+        },
+        {
+          "rva": "0x17d73f",
+          "bytes": "894cd033",
+          "asm": "mov dword ptr [eax + edx*8 + 0x33], ecx"
+        },
+        {
+          "rva": "0x17d743",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17d746",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x17d749",
+          "bytes": "8b55f8",
+          "asm": "mov edx, dword ptr [ebp - 8]"
+        },
+        {
+          "rva": "0x17d74c",
+          "bytes": "8b4d08",
+          "asm": "mov ecx, dword ptr [ebp + 8]"
+        },
+        {
+          "rva": "0x17d74f",
+          "bytes": "894cd037",
+          "asm": "mov dword ptr [eax + edx*8 + 0x37], ecx"
+        },
+        {
+          "rva": "0x17d753",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17d756",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@SetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17d7c9",
+        "bytes": "894cd033",
+        "asm": "mov dword ptr [eax + edx*8 + 0x33], ecx"
+      },
+      "context": [
+        {
+          "rva": "0x17d7b0",
+          "bytes": "8b55f8",
+          "asm": "mov edx, dword ptr [ebp - 8]"
+        },
+        {
+          "rva": "0x17d7b3",
+          "bytes": "83bcd00501000001",
+          "asm": "cmp dword ptr [eax + edx*8 + 0x105], 1"
+        },
+        {
+          "rva": "0x17d7bb",
+          "bytes": "7520",
+          "asm": "jne 0x57d7dd"
+        },
+        {
+          "rva": "0x17d7bd",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17d7c0",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x17d7c3",
+          "bytes": "8b55f8",
+          "asm": "mov edx, dword ptr [ebp - 8]"
+        },
+        {
+          "rva": "0x17d7c6",
+          "bytes": "8b4df4",
+          "asm": "mov ecx, dword ptr [ebp - 0xc]"
+        },
+        {
+          "rva": "0x17d7c9",
+          "bytes": "894cd033",
+          "asm": "mov dword ptr [eax + edx*8 + 0x33], ecx"
+        },
+        {
+          "rva": "0x17d7cd",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17d7d0",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@SetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17d7fc",
+        "bytes": "894cd037",
+        "asm": "mov dword ptr [eax + edx*8 + 0x37], ecx"
+      },
+      "context": [
+        {
+          "rva": "0x17d7e3",
+          "bytes": "8b55f8",
+          "asm": "mov edx, dword ptr [ebp - 8]"
+        },
+        {
+          "rva": "0x17d7e6",
+          "bytes": "83bcd00901000001",
+          "asm": "cmp dword ptr [eax + edx*8 + 0x109], 1"
+        },
+        {
+          "rva": "0x17d7ee",
+          "bytes": "7520",
+          "asm": "jne 0x57d810"
+        },
+        {
+          "rva": "0x17d7f0",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17d7f3",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x17d7f6",
+          "bytes": "8b55f8",
+          "asm": "mov edx, dword ptr [ebp - 8]"
+        },
+        {
+          "rva": "0x17d7f9",
+          "bytes": "8b4df4",
+          "asm": "mov ecx, dword ptr [ebp - 0xc]"
+        },
+        {
+          "rva": "0x17d7fc",
+          "bytes": "894cd037",
+          "asm": "mov dword ptr [eax + edx*8 + 0x37], ecx"
+        },
+        {
+          "rva": "0x17d800",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17d803",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        }
+      ]
+    }
+  ],
+  "averaged_stores": [
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@ProceedTyga$qqrv",
+      "site": {
+        "rva": "0x17c649",
+        "bytes": "d95cd053",
+        "asm": "fstp dword ptr [eax + edx*8 + 0x53]"
+      },
+      "context": [
+        {
+          "rva": "0x17c62f",
+          "bytes": "9b",
+          "asm": "wait "
+        },
+        {
+          "rva": "0x17c630",
+          "bytes": "8b45f8",
+          "asm": "mov eax, dword ptr [ebp - 8]"
+        },
+        {
+          "rva": "0x17c633",
+          "bytes": "d904c510a05a00",
+          "asm": "fld dword ptr [eax*8 + 0x5aa010]"
+        },
+        {
+          "rva": "0x17c63a",
+          "bytes": "d83508c75700",
+          "asm": "fdiv dword ptr [0x57c708]"
+        },
+        {
+          "rva": "0x17c640",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17c643",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x17c646",
+          "bytes": "8b55f8",
+          "asm": "mov edx, dword ptr [ebp - 8]"
+        },
+        {
+          "rva": "0x17c649",
+          "bytes": "d95cd053",
+          "asm": "fstp dword ptr [eax + edx*8 + 0x53]"
+        },
+        {
+          "rva": "0x17c64d",
+          "bytes": "9b",
+          "asm": "wait "
+        },
+        {
+          "rva": "0x17c64e",
+          "bytes": "8b45f8",
+          "asm": "mov eax, dword ptr [ebp - 8]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@ProceedTyga$qqrv",
+      "site": {
+        "rva": "0x17c667",
+        "bytes": "d95cd057",
+        "asm": "fstp dword ptr [eax + edx*8 + 0x57]"
+      },
+      "context": [
+        {
+          "rva": "0x17c64d",
+          "bytes": "9b",
+          "asm": "wait "
+        },
+        {
+          "rva": "0x17c64e",
+          "bytes": "8b45f8",
+          "asm": "mov eax, dword ptr [ebp - 8]"
+        },
+        {
+          "rva": "0x17c651",
+          "bytes": "d904c514a05a00",
+          "asm": "fld dword ptr [eax*8 + 0x5aa014]"
+        },
+        {
+          "rva": "0x17c658",
+          "bytes": "d83508c75700",
+          "asm": "fdiv dword ptr [0x57c708]"
+        },
+        {
+          "rva": "0x17c65e",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17c661",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x17c664",
+          "bytes": "8b55f8",
+          "asm": "mov edx, dword ptr [ebp - 8]"
+        },
+        {
+          "rva": "0x17c667",
+          "bytes": "d95cd057",
+          "asm": "fstp dword ptr [eax + edx*8 + 0x57]"
+        },
+        {
+          "rva": "0x17c66b",
+          "bytes": "9b",
+          "asm": "wait "
+        },
+        {
+          "rva": "0x17c66c",
+          "bytes": "8b45f8",
+          "asm": "mov eax, dword ptr [ebp - 8]"
+        }
+      ]
+    }
+  ],
+  "sequential_nonstack_stores": [
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17a36b",
+        "bytes": "d99cd0e1000000",
+        "asm": "fstp dword ptr [eax + edx*8 + 0xe1]"
+      },
+      "context": [
+        {
+          "rva": "0x17a358",
+          "bytes": "d84cd033",
+          "asm": "fmul dword ptr [eax + edx*8 + 0x33]"
+        },
+        {
+          "rva": "0x17a35c",
+          "bytes": "d80d38a55700",
+          "asm": "fmul dword ptr [0x57a538]"
+        },
+        {
+          "rva": "0x17a362",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a365",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x17a368",
+          "bytes": "8b55e4",
+          "asm": "mov edx, dword ptr [ebp - 0x1c]"
+        },
+        {
+          "rva": "0x17a36b",
+          "bytes": "d99cd0e1000000",
+          "asm": "fstp dword ptr [eax + edx*8 + 0xe1]"
+        },
+        {
+          "rva": "0x17a372",
+          "bytes": "9b",
+          "asm": "wait "
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17a3b3",
+        "bytes": "d99cd0e5000000",
+        "asm": "fstp dword ptr [eax + edx*8 + 0xe5]"
+      },
+      "context": [
+        {
+          "rva": "0x17a3a0",
+          "bytes": "d84cd037",
+          "asm": "fmul dword ptr [eax + edx*8 + 0x37]"
+        },
+        {
+          "rva": "0x17a3a4",
+          "bytes": "d80d38a55700",
+          "asm": "fmul dword ptr [0x57a538]"
+        },
+        {
+          "rva": "0x17a3aa",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a3ad",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x17a3b0",
+          "bytes": "8b55e4",
+          "asm": "mov edx, dword ptr [ebp - 0x1c]"
+        },
+        {
+          "rva": "0x17a3b3",
+          "bytes": "d99cd0e5000000",
+          "asm": "fstp dword ptr [eax + edx*8 + 0xe5]"
+        },
+        {
+          "rva": "0x17a3ba",
+          "bytes": "9b",
+          "asm": "wait "
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17a402",
+        "bytes": "d99cd0b3000000",
+        "asm": "fstp dword ptr [eax + edx*8 + 0xb3]"
+      },
+      "context": [
+        {
+          "rva": "0x17a3f5",
+          "bytes": "dec9",
+          "asm": "fmulp st(1)"
+        },
+        {
+          "rva": "0x17a3f7",
+          "bytes": "def9",
+          "asm": "fdivp st(1)"
+        },
+        {
+          "rva": "0x17a3f9",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a3fc",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x17a3ff",
+          "bytes": "8b55e4",
+          "asm": "mov edx, dword ptr [ebp - 0x1c]"
+        },
+        {
+          "rva": "0x17a402",
+          "bytes": "d99cd0b3000000",
+          "asm": "fstp dword ptr [eax + edx*8 + 0xb3]"
+        },
+        {
+          "rva": "0x17a409",
+          "bytes": "9b",
+          "asm": "wait "
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17a451",
+        "bytes": "d99cd0b7000000",
+        "asm": "fstp dword ptr [eax + edx*8 + 0xb7]"
+      },
+      "context": [
+        {
+          "rva": "0x17a444",
+          "bytes": "dec9",
+          "asm": "fmulp st(1)"
+        },
+        {
+          "rva": "0x17a446",
+          "bytes": "def9",
+          "asm": "fdivp st(1)"
+        },
+        {
+          "rva": "0x17a448",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a44b",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x17a44e",
+          "bytes": "8b55e4",
+          "asm": "mov edx, dword ptr [ebp - 0x1c]"
+        },
+        {
+          "rva": "0x17a451",
+          "bytes": "d99cd0b7000000",
+          "asm": "fstp dword ptr [eax + edx*8 + 0xb7]"
+        },
+        {
+          "rva": "0x17a458",
+          "bytes": "9b",
+          "asm": "wait "
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17a466",
+        "bytes": "898cd0e1000000",
+        "asm": "mov dword ptr [eax + edx*8 + 0xe1], ecx"
+      },
+      "context": [
+        {
+          "rva": "0x17a459",
+          "bytes": "eb48",
+          "asm": "jmp 0x57a4a3"
+        },
+        {
+          "rva": "0x17a45b",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a45e",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x17a461",
+          "bytes": "8b55e4",
+          "asm": "mov edx, dword ptr [ebp - 0x1c]"
+        },
+        {
+          "rva": "0x17a464",
+          "bytes": "33c9",
+          "asm": "xor ecx, ecx"
+        },
+        {
+          "rva": "0x17a466",
+          "bytes": "898cd0e1000000",
+          "asm": "mov dword ptr [eax + edx*8 + 0xe1], ecx"
+        },
+        {
+          "rva": "0x17a46d",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17a478",
+        "bytes": "898cd0e5000000",
+        "asm": "mov dword ptr [eax + edx*8 + 0xe5], ecx"
+      },
+      "context": [
+        {
+          "rva": "0x17a466",
+          "bytes": "898cd0e1000000",
+          "asm": "mov dword ptr [eax + edx*8 + 0xe1], ecx"
+        },
+        {
+          "rva": "0x17a46d",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a470",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x17a473",
+          "bytes": "8b55e4",
+          "asm": "mov edx, dword ptr [ebp - 0x1c]"
+        },
+        {
+          "rva": "0x17a476",
+          "bytes": "33c9",
+          "asm": "xor ecx, ecx"
+        },
+        {
+          "rva": "0x17a478",
+          "bytes": "898cd0e5000000",
+          "asm": "mov dword ptr [eax + edx*8 + 0xe5], ecx"
+        },
+        {
+          "rva": "0x17a47f",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17a48a",
+        "bytes": "898cd0b3000000",
+        "asm": "mov dword ptr [eax + edx*8 + 0xb3], ecx"
+      },
+      "context": [
+        {
+          "rva": "0x17a478",
+          "bytes": "898cd0e5000000",
+          "asm": "mov dword ptr [eax + edx*8 + 0xe5], ecx"
+        },
+        {
+          "rva": "0x17a47f",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a482",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x17a485",
+          "bytes": "8b55e4",
+          "asm": "mov edx, dword ptr [ebp - 0x1c]"
+        },
+        {
+          "rva": "0x17a488",
+          "bytes": "33c9",
+          "asm": "xor ecx, ecx"
+        },
+        {
+          "rva": "0x17a48a",
+          "bytes": "898cd0b3000000",
+          "asm": "mov dword ptr [eax + edx*8 + 0xb3], ecx"
+        },
+        {
+          "rva": "0x17a491",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17a49c",
+        "bytes": "898cd0b7000000",
+        "asm": "mov dword ptr [eax + edx*8 + 0xb7], ecx"
+      },
+      "context": [
+        {
+          "rva": "0x17a48a",
+          "bytes": "898cd0b3000000",
+          "asm": "mov dword ptr [eax + edx*8 + 0xb3], ecx"
+        },
+        {
+          "rva": "0x17a491",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a494",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x17a497",
+          "bytes": "8b55e4",
+          "asm": "mov edx, dword ptr [ebp - 0x1c]"
+        },
+        {
+          "rva": "0x17a49a",
+          "bytes": "33c9",
+          "asm": "xor ecx, ecx"
+        },
+        {
+          "rva": "0x17a49c",
+          "bytes": "898cd0b7000000",
+          "asm": "mov dword ptr [eax + edx*8 + 0xb7], ecx"
+        },
+        {
+          "rva": "0x17a4a3",
+          "bytes": "ff45e4",
+          "asm": "inc dword ptr [ebp - 0x1c]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17a526",
+        "bytes": "d918",
+        "asm": "fstp dword ptr [eax]"
+      },
+      "context": [
+        {
+          "rva": "0x17a519",
+          "bytes": "dec9",
+          "asm": "fmulp st(1)"
+        },
+        {
+          "rva": "0x17a51b",
+          "bytes": "def9",
+          "asm": "fdivp st(1)"
+        },
+        {
+          "rva": "0x17a51d",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a520",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x17a523",
+          "bytes": "8b4027",
+          "asm": "mov eax, dword ptr [eax + 0x27]"
+        },
+        {
+          "rva": "0x17a526",
+          "bytes": "d918",
+          "asm": "fstp dword ptr [eax]"
+        },
+        {
+          "rva": "0x17a528",
+          "bytes": "9b",
+          "asm": "wait "
+        }
+      ]
+    }
+  ],
+  "sequential_calls": [
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x179d9e",
+        "bytes": "e861e4ffff",
+        "asm": "call 0x578204"
+      },
+      "target": "@Tyga_2es6@TTygaCalcClass@GetCountVklTED$qqri",
+      "context": [
+        {
+          "rva": "0x179d8e",
+          "bytes": "8945ec",
+          "asm": "mov dword ptr [ebp - 0x14], eax"
+        },
+        {
+          "rva": "0x179d91",
+          "bytes": "33c0",
+          "asm": "xor eax, eax"
+        },
+        {
+          "rva": "0x179d93",
+          "bytes": "8945e8",
+          "asm": "mov dword ptr [ebp - 0x18], eax"
+        },
+        {
+          "rva": "0x179d96",
+          "bytes": "ba01000000",
+          "asm": "mov edx, 1"
+        },
+        {
+          "rva": "0x179d9b",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x179d9e",
+          "bytes": "e861e4ffff",
+          "asm": "call 0x578204"
+        },
+        {
+          "rva": "0x179da3",
+          "bytes": "8bd8",
+          "asm": "mov ebx, eax"
+        },
+        {
+          "rva": "0x179da5",
+          "bytes": "ba02000000",
+          "asm": "mov edx, 2"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x179dad",
+        "bytes": "e852e4ffff",
+        "asm": "call 0x578204"
+      },
+      "target": "@Tyga_2es6@TTygaCalcClass@GetCountVklTED$qqri",
+      "context": [
+        {
+          "rva": "0x179d9b",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x179d9e",
+          "bytes": "e861e4ffff",
+          "asm": "call 0x578204"
+        },
+        {
+          "rva": "0x179da3",
+          "bytes": "8bd8",
+          "asm": "mov ebx, eax"
+        },
+        {
+          "rva": "0x179da5",
+          "bytes": "ba02000000",
+          "asm": "mov edx, 2"
+        },
+        {
+          "rva": "0x179daa",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x179dad",
+          "bytes": "e852e4ffff",
+          "asm": "call 0x578204"
+        },
+        {
+          "rva": "0x179db2",
+          "bytes": "03d8",
+          "asm": "add ebx, eax"
+        },
+        {
+          "rva": "0x179db4",
+          "bytes": "895ddc",
+          "asm": "mov dword ptr [ebp - 0x24], ebx"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x179e06",
+        "bytes": "e855abe8ff",
+        "asm": "call 0x404960"
+      },
+      "target": "@System@Exp$qqrxg",
+      "context": [
+        {
+          "rva": "0x179df6",
+          "bytes": "dd80cc030000",
+          "asm": "fld qword ptr [eax + 0x3cc]"
+        },
+        {
+          "rva": "0x179dfc",
+          "bytes": "d84df4",
+          "asm": "fmul dword ptr [ebp - 0xc]"
+        },
+        {
+          "rva": "0x179dff",
+          "bytes": "83c4f4",
+          "asm": "add esp, -0xc"
+        },
+        {
+          "rva": "0x179e02",
+          "bytes": "db3c24",
+          "asm": "fstp xword ptr [esp]"
+        },
+        {
+          "rva": "0x179e05",
+          "bytes": "9b",
+          "asm": "wait "
+        },
+        {
+          "rva": "0x179e06",
+          "bytes": "e855abe8ff",
+          "asm": "call 0x404960"
+        },
+        {
+          "rva": "0x179e0b",
+          "bytes": "d82d34a55700",
+          "asm": "fsubr dword ptr [0x57a534]"
+        },
+        {
+          "rva": "0x179e11",
+          "bytes": "8b45dc",
+          "asm": "mov eax, dword ptr [ebp - 0x24]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x179e57",
+        "bytes": "e8c47bffff",
+        "asm": "call 0x571a20"
+      },
+      "target": "@Consttyga@TConst@RpuskGet$qqri",
+      "context": [
+        {
+          "rva": "0x179e46",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x179e49",
+          "bytes": "33d2",
+          "asm": "xor edx, edx"
+        },
+        {
+          "rva": "0x179e4b",
+          "bytes": "8a500b",
+          "asm": "mov dl, byte ptr [eax + 0xb]"
+        },
+        {
+          "rva": "0x179e4e",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x179e51",
+          "bytes": "8b800c010000",
+          "asm": "mov eax, dword ptr [eax + 0x10c]"
+        },
+        {
+          "rva": "0x179e57",
+          "bytes": "e8c47bffff",
+          "asm": "call 0x571a20"
+        },
+        {
+          "rva": "0x179e5c",
+          "bytes": "8b45dc",
+          "asm": "mov eax, dword ptr [ebp - 0x24]"
+        },
+        {
+          "rva": "0x179e5f",
+          "bytes": "03c0",
+          "asm": "add eax, eax"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x179edd",
+        "bytes": "e87eaae8ff",
+        "asm": "call 0x404960"
+      },
+      "target": "@System@Exp$qqrxg",
+      "context": [
+        {
+          "rva": "0x179ecd",
+          "bytes": "dd80cc030000",
+          "asm": "fld qword ptr [eax + 0x3cc]"
+        },
+        {
+          "rva": "0x179ed3",
+          "bytes": "d84df4",
+          "asm": "fmul dword ptr [ebp - 0xc]"
+        },
+        {
+          "rva": "0x179ed6",
+          "bytes": "83c4f4",
+          "asm": "add esp, -0xc"
+        },
+        {
+          "rva": "0x179ed9",
+          "bytes": "db3c24",
+          "asm": "fstp xword ptr [esp]"
+        },
+        {
+          "rva": "0x179edc",
+          "bytes": "9b",
+          "asm": "wait "
+        },
+        {
+          "rva": "0x179edd",
+          "bytes": "e87eaae8ff",
+          "asm": "call 0x404960"
+        },
+        {
+          "rva": "0x179ee2",
+          "bytes": "8b45dc",
+          "asm": "mov eax, dword ptr [ebp - 0x24]"
+        },
+        {
+          "rva": "0x179ee5",
+          "bytes": "03c0",
+          "asm": "add eax, eax"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x179f2b",
+        "bytes": "e8f07affff",
+        "asm": "call 0x571a20"
+      },
+      "target": "@Consttyga@TConst@RpuskGet$qqri",
+      "context": [
+        {
+          "rva": "0x179f1a",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x179f1d",
+          "bytes": "33d2",
+          "asm": "xor edx, edx"
+        },
+        {
+          "rva": "0x179f1f",
+          "bytes": "8a500b",
+          "asm": "mov dl, byte ptr [eax + 0xb]"
+        },
+        {
+          "rva": "0x179f22",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x179f25",
+          "bytes": "8b800c010000",
+          "asm": "mov eax, dword ptr [eax + 0x10c]"
+        },
+        {
+          "rva": "0x179f2b",
+          "bytes": "e8f07affff",
+          "asm": "call 0x571a20"
+        },
+        {
+          "rva": "0x179f30",
+          "bytes": "8b45dc",
+          "asm": "mov eax, dword ptr [ebp - 0x24]"
+        },
+        {
+          "rva": "0x179f33",
+          "bytes": "03c0",
+          "asm": "add eax, eax"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x179fb3",
+        "bytes": "e8a8a9e8ff",
+        "asm": "call 0x404960"
+      },
+      "target": "@System@Exp$qqrxg",
+      "context": [
+        {
+          "rva": "0x179fa3",
+          "bytes": "dd80cc030000",
+          "asm": "fld qword ptr [eax + 0x3cc]"
+        },
+        {
+          "rva": "0x179fa9",
+          "bytes": "d84df4",
+          "asm": "fmul dword ptr [ebp - 0xc]"
+        },
+        {
+          "rva": "0x179fac",
+          "bytes": "83c4f4",
+          "asm": "add esp, -0xc"
+        },
+        {
+          "rva": "0x179faf",
+          "bytes": "db3c24",
+          "asm": "fstp xword ptr [esp]"
+        },
+        {
+          "rva": "0x179fb2",
+          "bytes": "9b",
+          "asm": "wait "
+        },
+        {
+          "rva": "0x179fb3",
+          "bytes": "e8a8a9e8ff",
+          "asm": "call 0x404960"
+        },
+        {
+          "rva": "0x179fb8",
+          "bytes": "d82d34a55700",
+          "asm": "fsubr dword ptr [0x57a534]"
+        },
+        {
+          "rva": "0x179fbe",
+          "bytes": "d9053ca55700",
+          "asm": "fld dword ptr [0x57a53c]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x179fff",
+        "bytes": "e81c7affff",
+        "asm": "call 0x571a20"
+      },
+      "target": "@Consttyga@TConst@RpuskGet$qqri",
+      "context": [
+        {
+          "rva": "0x179fee",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x179ff1",
+          "bytes": "33d2",
+          "asm": "xor edx, edx"
+        },
+        {
+          "rva": "0x179ff3",
+          "bytes": "8a500b",
+          "asm": "mov dl, byte ptr [eax + 0xb]"
+        },
+        {
+          "rva": "0x179ff6",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x179ff9",
+          "bytes": "8b800c010000",
+          "asm": "mov eax, dword ptr [eax + 0x10c]"
+        },
+        {
+          "rva": "0x179fff",
+          "bytes": "e81c7affff",
+          "asm": "call 0x571a20"
+        },
+        {
+          "rva": "0x17a004",
+          "bytes": "d9053ca55700",
+          "asm": "fld dword ptr [0x57a53c]"
+        },
+        {
+          "rva": "0x17a00a",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17a083",
+        "bytes": "e8d8a8e8ff",
+        "asm": "call 0x404960"
+      },
+      "target": "@System@Exp$qqrxg",
+      "context": [
+        {
+          "rva": "0x17a073",
+          "bytes": "dd80cc030000",
+          "asm": "fld qword ptr [eax + 0x3cc]"
+        },
+        {
+          "rva": "0x17a079",
+          "bytes": "d84df4",
+          "asm": "fmul dword ptr [ebp - 0xc]"
+        },
+        {
+          "rva": "0x17a07c",
+          "bytes": "83c4f4",
+          "asm": "add esp, -0xc"
+        },
+        {
+          "rva": "0x17a07f",
+          "bytes": "db3c24",
+          "asm": "fstp xword ptr [esp]"
+        },
+        {
+          "rva": "0x17a082",
+          "bytes": "9b",
+          "asm": "wait "
+        },
+        {
+          "rva": "0x17a083",
+          "bytes": "e8d8a8e8ff",
+          "asm": "call 0x404960"
+        },
+        {
+          "rva": "0x17a088",
+          "bytes": "d9053ca55700",
+          "asm": "fld dword ptr [0x57a53c]"
+        },
+        {
+          "rva": "0x17a08e",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17a0cc",
+        "bytes": "e84f79ffff",
+        "asm": "call 0x571a20"
+      },
+      "target": "@Consttyga@TConst@RpuskGet$qqri",
+      "context": [
+        {
+          "rva": "0x17a0bb",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a0be",
+          "bytes": "33d2",
+          "asm": "xor edx, edx"
+        },
+        {
+          "rva": "0x17a0c0",
+          "bytes": "8a500b",
+          "asm": "mov dl, byte ptr [eax + 0xb]"
+        },
+        {
+          "rva": "0x17a0c3",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a0c6",
+          "bytes": "8b800c010000",
+          "asm": "mov eax, dword ptr [eax + 0x10c]"
+        },
+        {
+          "rva": "0x17a0cc",
+          "bytes": "e84f79ffff",
+          "asm": "call 0x571a20"
+        },
+        {
+          "rva": "0x17a0d1",
+          "bytes": "d9053ca55700",
+          "asm": "fld dword ptr [0x57a53c]"
+        },
+        {
+          "rva": "0x17a0d7",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17a152",
+        "bytes": "e809a8e8ff",
+        "asm": "call 0x404960"
+      },
+      "target": "@System@Exp$qqrxg",
+      "context": [
+        {
+          "rva": "0x17a142",
+          "bytes": "dd80cc030000",
+          "asm": "fld qword ptr [eax + 0x3cc]"
+        },
+        {
+          "rva": "0x17a148",
+          "bytes": "d84df4",
+          "asm": "fmul dword ptr [ebp - 0xc]"
+        },
+        {
+          "rva": "0x17a14b",
+          "bytes": "83c4f4",
+          "asm": "add esp, -0xc"
+        },
+        {
+          "rva": "0x17a14e",
+          "bytes": "db3c24",
+          "asm": "fstp xword ptr [esp]"
+        },
+        {
+          "rva": "0x17a151",
+          "bytes": "9b",
+          "asm": "wait "
+        },
+        {
+          "rva": "0x17a152",
+          "bytes": "e809a8e8ff",
+          "asm": "call 0x404960"
+        },
+        {
+          "rva": "0x17a157",
+          "bytes": "d82d34a55700",
+          "asm": "fsubr dword ptr [0x57a534]"
+        },
+        {
+          "rva": "0x17a15d",
+          "bytes": "d90538a55700",
+          "asm": "fld dword ptr [0x57a538]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17a19e",
+        "bytes": "e87d78ffff",
+        "asm": "call 0x571a20"
+      },
+      "target": "@Consttyga@TConst@RpuskGet$qqri",
+      "context": [
+        {
+          "rva": "0x17a18d",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a190",
+          "bytes": "33d2",
+          "asm": "xor edx, edx"
+        },
+        {
+          "rva": "0x17a192",
+          "bytes": "8a500b",
+          "asm": "mov dl, byte ptr [eax + 0xb]"
+        },
+        {
+          "rva": "0x17a195",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a198",
+          "bytes": "8b800c010000",
+          "asm": "mov eax, dword ptr [eax + 0x10c]"
+        },
+        {
+          "rva": "0x17a19e",
+          "bytes": "e87d78ffff",
+          "asm": "call 0x571a20"
+        },
+        {
+          "rva": "0x17a1a3",
+          "bytes": "d80d38a55700",
+          "asm": "fmul dword ptr [0x57a538]"
+        },
+        {
+          "rva": "0x17a1a9",
+          "bytes": "d90538a55700",
+          "asm": "fld dword ptr [0x57a538]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17a220",
+        "bytes": "e83ba7e8ff",
+        "asm": "call 0x404960"
+      },
+      "target": "@System@Exp$qqrxg",
+      "context": [
+        {
+          "rva": "0x17a210",
+          "bytes": "dd80cc030000",
+          "asm": "fld qword ptr [eax + 0x3cc]"
+        },
+        {
+          "rva": "0x17a216",
+          "bytes": "d84df4",
+          "asm": "fmul dword ptr [ebp - 0xc]"
+        },
+        {
+          "rva": "0x17a219",
+          "bytes": "83c4f4",
+          "asm": "add esp, -0xc"
+        },
+        {
+          "rva": "0x17a21c",
+          "bytes": "db3c24",
+          "asm": "fstp xword ptr [esp]"
+        },
+        {
+          "rva": "0x17a21f",
+          "bytes": "9b",
+          "asm": "wait "
+        },
+        {
+          "rva": "0x17a220",
+          "bytes": "e83ba7e8ff",
+          "asm": "call 0x404960"
+        },
+        {
+          "rva": "0x17a225",
+          "bytes": "d90538a55700",
+          "asm": "fld dword ptr [0x57a538]"
+        },
+        {
+          "rva": "0x17a22b",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17a269",
+        "bytes": "e8b277ffff",
+        "asm": "call 0x571a20"
+      },
+      "target": "@Consttyga@TConst@RpuskGet$qqri",
+      "context": [
+        {
+          "rva": "0x17a258",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a25b",
+          "bytes": "33d2",
+          "asm": "xor edx, edx"
+        },
+        {
+          "rva": "0x17a25d",
+          "bytes": "8a500b",
+          "asm": "mov dl, byte ptr [eax + 0xb]"
+        },
+        {
+          "rva": "0x17a260",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a263",
+          "bytes": "8b800c010000",
+          "asm": "mov eax, dword ptr [eax + 0x10c]"
+        },
+        {
+          "rva": "0x17a269",
+          "bytes": "e8b277ffff",
+          "asm": "call 0x571a20"
+        },
+        {
+          "rva": "0x17a26e",
+          "bytes": "d80d38a55700",
+          "asm": "fmul dword ptr [0x57a538]"
+        },
+        {
+          "rva": "0x17a274",
+          "bytes": "d90538a55700",
+          "asm": "fld dword ptr [0x57a538]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17a2fc",
+        "bytes": "e84f040000",
+        "asm": "call 0x57a750"
+      },
+      "target": "@Tyga_2es6@TTygaCalcClass@GetCurVozbReal$qqrf",
+      "context": [
+        {
+          "rva": "0x17a2ed",
+          "bytes": "dfe0",
+          "asm": "fnstsw ax"
+        },
+        {
+          "rva": "0x17a2ef",
+          "bytes": "9e",
+          "asm": "sahf "
+        },
+        {
+          "rva": "0x17a2f0",
+          "bytes": "0f82c6faffff",
+          "asm": "jb 0x579dbc"
+        },
+        {
+          "rva": "0x17a2f6",
+          "bytes": "ff75f0",
+          "asm": "push dword ptr [ebp - 0x10]"
+        },
+        {
+          "rva": "0x17a2f9",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a2fc",
+          "bytes": "e84f040000",
+          "asm": "call 0x57a750"
+        },
+        {
+          "rva": "0x17a301",
+          "bytes": "d95df8",
+          "asm": "fstp dword ptr [ebp - 8]"
+        },
+        {
+          "rva": "0x17a304",
+          "bytes": "9b",
+          "asm": "wait "
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17a30b",
+        "bytes": "e87c320000",
+        "asm": "call 0x57d58c"
+      },
+      "target": "@Tyga_2es6@TTygaCalcClass@SetCurPosl$qqrf",
+      "context": [
+        {
+          "rva": "0x17a2fc",
+          "bytes": "e84f040000",
+          "asm": "call 0x57a750"
+        },
+        {
+          "rva": "0x17a301",
+          "bytes": "d95df8",
+          "asm": "fstp dword ptr [ebp - 8]"
+        },
+        {
+          "rva": "0x17a304",
+          "bytes": "9b",
+          "asm": "wait "
+        },
+        {
+          "rva": "0x17a305",
+          "bytes": "ff75f8",
+          "asm": "push dword ptr [ebp - 8]"
+        },
+        {
+          "rva": "0x17a308",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a30b",
+          "bytes": "e87c320000",
+          "asm": "call 0x57d58c"
+        },
+        {
+          "rva": "0x17a310",
+          "bytes": "c745e401000000",
+          "asm": "mov dword ptr [ebp - 0x1c], 1"
+        },
+        {
+          "rva": "0x17a317",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17a33b",
+        "bytes": "e810040000",
+        "asm": "call 0x57a750"
+      },
+      "target": "@Tyga_2es6@TTygaCalcClass@GetCurVozbReal$qqrf",
+      "context": [
+        {
+          "rva": "0x17a32b",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a32e",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x17a331",
+          "bytes": "8b55e4",
+          "asm": "mov edx, dword ptr [ebp - 0x1c]"
+        },
+        {
+          "rva": "0x17a334",
+          "bytes": "ff74d033",
+          "asm": "push dword ptr [eax + edx*8 + 0x33]"
+        },
+        {
+          "rva": "0x17a338",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a33b",
+          "bytes": "e810040000",
+          "asm": "call 0x57a750"
+        },
+        {
+          "rva": "0x17a340",
+          "bytes": "83c4fc",
+          "asm": "add esp, -4"
+        },
+        {
+          "rva": "0x17a343",
+          "bytes": "d91c24",
+          "asm": "fstp dword ptr [esp]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17a34a",
+        "bytes": "e865deffff",
+        "asm": "call 0x5781b4"
+      },
+      "target": "@Tyga_2es6@TTygaCalcClass@GetCF$qqrf",
+      "context": [
+        {
+          "rva": "0x17a33b",
+          "bytes": "e810040000",
+          "asm": "call 0x57a750"
+        },
+        {
+          "rva": "0x17a340",
+          "bytes": "83c4fc",
+          "asm": "add esp, -4"
+        },
+        {
+          "rva": "0x17a343",
+          "bytes": "d91c24",
+          "asm": "fstp dword ptr [esp]"
+        },
+        {
+          "rva": "0x17a346",
+          "bytes": "9b",
+          "asm": "wait "
+        },
+        {
+          "rva": "0x17a347",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a34a",
+          "bytes": "e865deffff",
+          "asm": "call 0x5781b4"
+        },
+        {
+          "rva": "0x17a34f",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a352",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17a383",
+        "bytes": "e8c8030000",
+        "asm": "call 0x57a750"
+      },
+      "target": "@Tyga_2es6@TTygaCalcClass@GetCurVozbReal$qqrf",
+      "context": [
+        {
+          "rva": "0x17a373",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a376",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        },
+        {
+          "rva": "0x17a379",
+          "bytes": "8b55e4",
+          "asm": "mov edx, dword ptr [ebp - 0x1c]"
+        },
+        {
+          "rva": "0x17a37c",
+          "bytes": "ff74d037",
+          "asm": "push dword ptr [eax + edx*8 + 0x37]"
+        },
+        {
+          "rva": "0x17a380",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a383",
+          "bytes": "e8c8030000",
+          "asm": "call 0x57a750"
+        },
+        {
+          "rva": "0x17a388",
+          "bytes": "83c4fc",
+          "asm": "add esp, -4"
+        },
+        {
+          "rva": "0x17a38b",
+          "bytes": "d91c24",
+          "asm": "fstp dword ptr [esp]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site": {
+        "rva": "0x17a392",
+        "bytes": "e81ddeffff",
+        "asm": "call 0x5781b4"
+      },
+      "target": "@Tyga_2es6@TTygaCalcClass@GetCF$qqrf",
+      "context": [
+        {
+          "rva": "0x17a383",
+          "bytes": "e8c8030000",
+          "asm": "call 0x57a750"
+        },
+        {
+          "rva": "0x17a388",
+          "bytes": "83c4fc",
+          "asm": "add esp, -4"
+        },
+        {
+          "rva": "0x17a38b",
+          "bytes": "d91c24",
+          "asm": "fstp dword ptr [esp]"
+        },
+        {
+          "rva": "0x17a38e",
+          "bytes": "9b",
+          "asm": "wait "
+        },
+        {
+          "rva": "0x17a38f",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a392",
+          "bytes": "e81ddeffff",
+          "asm": "call 0x5781b4"
+        },
+        {
+          "rva": "0x17a397",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a39a",
+          "bytes": "8b4004",
+          "asm": "mov eax, dword ptr [eax + 4]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPOslPOneTED$qqrv",
+      "site": {
+        "rva": "0x17a5a1",
+        "bytes": "e8baa3e8ff",
+        "asm": "call 0x404960"
+      },
+      "target": "@System@Exp$qqrxg",
+      "context": [
+        {
+          "rva": "0x17a591",
+          "bytes": "dd80cc030000",
+          "asm": "fld qword ptr [eax + 0x3cc]"
+        },
+        {
+          "rva": "0x17a597",
+          "bytes": "d84df4",
+          "asm": "fmul dword ptr [ebp - 0xc]"
+        },
+        {
+          "rva": "0x17a59a",
+          "bytes": "83c4f4",
+          "asm": "add esp, -0xc"
+        },
+        {
+          "rva": "0x17a59d",
+          "bytes": "db3c24",
+          "asm": "fstp xword ptr [esp]"
+        },
+        {
+          "rva": "0x17a5a0",
+          "bytes": "9b",
+          "asm": "wait "
+        },
+        {
+          "rva": "0x17a5a1",
+          "bytes": "e8baa3e8ff",
+          "asm": "call 0x404960"
+        },
+        {
+          "rva": "0x17a5a6",
+          "bytes": "d82d3ca75700",
+          "asm": "fsubr dword ptr [0x57a73c]"
+        },
+        {
+          "rva": "0x17a5ac",
+          "bytes": "d90540a75700",
+          "asm": "fld dword ptr [0x57a740]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPOslPOneTED$qqrv",
+      "site": {
+        "rva": "0x17a5f0",
+        "bytes": "e82b74ffff",
+        "asm": "call 0x571a20"
+      },
+      "target": "@Consttyga@TConst@RpuskGet$qqri",
+      "context": [
+        {
+          "rva": "0x17a5df",
+          "bytes": "33d2",
+          "asm": "xor edx, edx"
+        },
+        {
+          "rva": "0x17a5e1",
+          "bytes": "8a500b",
+          "asm": "mov dl, byte ptr [eax + 0xb]"
+        },
+        {
+          "rva": "0x17a5e4",
+          "bytes": "83ea14",
+          "asm": "sub edx, 0x14"
+        },
+        {
+          "rva": "0x17a5e7",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a5ea",
+          "bytes": "8b800c010000",
+          "asm": "mov eax, dword ptr [eax + 0x10c]"
+        },
+        {
+          "rva": "0x17a5f0",
+          "bytes": "e82b74ffff",
+          "asm": "call 0x571a20"
+        },
+        {
+          "rva": "0x17a5f5",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a5f8",
+          "bytes": "8b800c010000",
+          "asm": "mov eax, dword ptr [eax + 0x10c]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPOslPOneTED$qqrv",
+      "site": {
+        "rva": "0x17a65e",
+        "bytes": "e8fda2e8ff",
+        "asm": "call 0x404960"
+      },
+      "target": "@System@Exp$qqrxg",
+      "context": [
+        {
+          "rva": "0x17a64e",
+          "bytes": "dd80cc030000",
+          "asm": "fld qword ptr [eax + 0x3cc]"
+        },
+        {
+          "rva": "0x17a654",
+          "bytes": "d84df4",
+          "asm": "fmul dword ptr [ebp - 0xc]"
+        },
+        {
+          "rva": "0x17a657",
+          "bytes": "83c4f4",
+          "asm": "add esp, -0xc"
+        },
+        {
+          "rva": "0x17a65a",
+          "bytes": "db3c24",
+          "asm": "fstp xword ptr [esp]"
+        },
+        {
+          "rva": "0x17a65d",
+          "bytes": "9b",
+          "asm": "wait "
+        },
+        {
+          "rva": "0x17a65e",
+          "bytes": "e8fda2e8ff",
+          "asm": "call 0x404960"
+        },
+        {
+          "rva": "0x17a663",
+          "bytes": "d90540a75700",
+          "asm": "fld dword ptr [0x57a740]"
+        },
+        {
+          "rva": "0x17a669",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPOslPOneTED$qqrv",
+      "site": {
+        "rva": "0x17a6aa",
+        "bytes": "e87173ffff",
+        "asm": "call 0x571a20"
+      },
+      "target": "@Consttyga@TConst@RpuskGet$qqri",
+      "context": [
+        {
+          "rva": "0x17a699",
+          "bytes": "33d2",
+          "asm": "xor edx, edx"
+        },
+        {
+          "rva": "0x17a69b",
+          "bytes": "8a500b",
+          "asm": "mov dl, byte ptr [eax + 0xb]"
+        },
+        {
+          "rva": "0x17a69e",
+          "bytes": "83ea14",
+          "asm": "sub edx, 0x14"
+        },
+        {
+          "rva": "0x17a6a1",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a6a4",
+          "bytes": "8b800c010000",
+          "asm": "mov eax, dword ptr [eax + 0x10c]"
+        },
+        {
+          "rva": "0x17a6aa",
+          "bytes": "e87173ffff",
+          "asm": "call 0x571a20"
+        },
+        {
+          "rva": "0x17a6af",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a6b2",
+          "bytes": "8b800c010000",
+          "asm": "mov eax, dword ptr [eax + 0x10c]"
+        }
+      ]
+    },
+    {
+      "method": "@Tyga_2es6@TTygaCalcClass@GetCurPOslPOneTED$qqrv",
+      "site": {
+        "rva": "0x17a729",
+        "bytes": "e822000000",
+        "asm": "call 0x57a750"
+      },
+      "target": "@Tyga_2es6@TTygaCalcClass@GetCurVozbReal$qqrf",
+      "context": [
+        {
+          "rva": "0x17a71a",
+          "bytes": "dfe0",
+          "asm": "fnstsw ax"
+        },
+        {
+          "rva": "0x17a71c",
+          "bytes": "9e",
+          "asm": "sahf "
+        },
+        {
+          "rva": "0x17a71d",
+          "bytes": "0f825ffeffff",
+          "asm": "jb 0x57a582"
+        },
+        {
+          "rva": "0x17a723",
+          "bytes": "ff75f0",
+          "asm": "push dword ptr [ebp - 0x10]"
+        },
+        {
+          "rva": "0x17a726",
+          "bytes": "8b45fc",
+          "asm": "mov eax, dword ptr [ebp - 4]"
+        },
+        {
+          "rva": "0x17a729",
+          "bytes": "e822000000",
+          "asm": "call 0x57a750"
+        },
+        {
+          "rva": "0x17a72e",
+          "bytes": "d95df8",
+          "asm": "fstp dword ptr [ebp - 8]"
+        },
+        {
+          "rva": "0x17a731",
+          "bytes": "9b",
+          "asm": "wait "
+        }
+      ]
+    }
+  ],
+  "ProceedTyga_averaging": [
+    {
+      "rva": "0x17c52b",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17c52e",
+      "bytes": "83783005",
+      "asm": "cmp dword ptr [eax + 0x30], 5"
+    },
+    {
+      "rva": "0x17c532",
+      "bytes": "0f8d79010000",
+      "asm": "jge 0x57c6b1"
+    },
+    {
+      "rva": "0x17c538",
+      "bytes": "c745f801000000",
+      "asm": "mov dword ptr [ebp - 8], 1"
+    },
+    {
+      "rva": "0x17c53f",
+      "bytes": "8b45f8",
+      "asm": "mov eax, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17c542",
+      "bytes": "d904c530a05a00",
+      "asm": "fld dword ptr [eax*8 + 0x5aa030]"
+    },
+    {
+      "rva": "0x17c549",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17c54c",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17c54f",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17c552",
+      "bytes": "d844d073",
+      "asm": "fadd dword ptr [eax + edx*8 + 0x73]"
+    },
+    {
+      "rva": "0x17c556",
+      "bytes": "8b45f8",
+      "asm": "mov eax, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17c559",
+      "bytes": "d91cc530a05a00",
+      "asm": "fstp dword ptr [eax*8 + 0x5aa030]"
+    },
+    {
+      "rva": "0x17c560",
+      "bytes": "9b",
+      "asm": "wait "
+    },
+    {
+      "rva": "0x17c561",
+      "bytes": "8b45f8",
+      "asm": "mov eax, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17c564",
+      "bytes": "d904c534a05a00",
+      "asm": "fld dword ptr [eax*8 + 0x5aa034]"
+    },
+    {
+      "rva": "0x17c56b",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17c56e",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17c571",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17c574",
+      "bytes": "d844d077",
+      "asm": "fadd dword ptr [eax + edx*8 + 0x77]"
+    },
+    {
+      "rva": "0x17c578",
+      "bytes": "8b45f8",
+      "asm": "mov eax, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17c57b",
+      "bytes": "d91cc534a05a00",
+      "asm": "fstp dword ptr [eax*8 + 0x5aa034]"
+    },
+    {
+      "rva": "0x17c582",
+      "bytes": "9b",
+      "asm": "wait "
+    },
+    {
+      "rva": "0x17c583",
+      "bytes": "8b45f8",
+      "asm": "mov eax, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17c586",
+      "bytes": "d904c510a05a00",
+      "asm": "fld dword ptr [eax*8 + 0x5aa010]"
+    },
+    {
+      "rva": "0x17c58d",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17c590",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17c593",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17c596",
+      "bytes": "d844d033",
+      "asm": "fadd dword ptr [eax + edx*8 + 0x33]"
+    },
+    {
+      "rva": "0x17c59a",
+      "bytes": "8b45f8",
+      "asm": "mov eax, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17c59d",
+      "bytes": "d91cc510a05a00",
+      "asm": "fstp dword ptr [eax*8 + 0x5aa010]"
+    },
+    {
+      "rva": "0x17c5a4",
+      "bytes": "9b",
+      "asm": "wait "
+    },
+    {
+      "rva": "0x17c5a5",
+      "bytes": "8b45f8",
+      "asm": "mov eax, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17c5a8",
+      "bytes": "d904c514a05a00",
+      "asm": "fld dword ptr [eax*8 + 0x5aa014]"
+    },
+    {
+      "rva": "0x17c5af",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17c5b2",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17c5b5",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17c5b8",
+      "bytes": "d844d037",
+      "asm": "fadd dword ptr [eax + edx*8 + 0x37]"
+    },
+    {
+      "rva": "0x17c5bc",
+      "bytes": "8b45f8",
+      "asm": "mov eax, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17c5bf",
+      "bytes": "d91cc514a05a00",
+      "asm": "fstp dword ptr [eax*8 + 0x5aa014]"
+    },
+    {
+      "rva": "0x17c5c6",
+      "bytes": "9b",
+      "asm": "wait "
+    },
+    {
+      "rva": "0x17c5c7",
+      "bytes": "ff45f8",
+      "asm": "inc dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17c5ca",
+      "bytes": "837df805",
+      "asm": "cmp dword ptr [ebp - 8], 5"
+    },
+    {
+      "rva": "0x17c5ce",
+      "bytes": "0f856bffffff",
+      "asm": "jne 0x57c53f"
+    },
+    {
+      "rva": "0x17c5d4",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17c5d7",
+      "bytes": "ff4030",
+      "asm": "inc dword ptr [eax + 0x30]"
+    },
+    {
+      "rva": "0x17c5da",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17c5dd",
+      "bytes": "83783004",
+      "asm": "cmp dword ptr [eax + 0x30], 4"
+    },
+    {
+      "rva": "0x17c5e1",
+      "bytes": "0f85ca000000",
+      "asm": "jne 0x57c6b1"
+    },
+    {
+      "rva": "0x17c5e7",
+      "bytes": "c745f801000000",
+      "asm": "mov dword ptr [ebp - 8], 1"
+    },
+    {
+      "rva": "0x17c5ee",
+      "bytes": "8b45f8",
+      "asm": "mov eax, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17c5f1",
+      "bytes": "d904c530a05a00",
+      "asm": "fld dword ptr [eax*8 + 0x5aa030]"
+    },
+    {
+      "rva": "0x17c5f8",
+      "bytes": "d83508c75700",
+      "asm": "fdiv dword ptr [0x57c708]"
+    },
+    {
+      "rva": "0x17c5fe",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17c601",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17c604",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17c607",
+      "bytes": "d99cd093000000",
+      "asm": "fstp dword ptr [eax + edx*8 + 0x93]"
+    },
+    {
+      "rva": "0x17c60e",
+      "bytes": "9b",
+      "asm": "wait "
+    },
+    {
+      "rva": "0x17c60f",
+      "bytes": "8b45f8",
+      "asm": "mov eax, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17c612",
+      "bytes": "d904c534a05a00",
+      "asm": "fld dword ptr [eax*8 + 0x5aa034]"
+    },
+    {
+      "rva": "0x17c619",
+      "bytes": "d83508c75700",
+      "asm": "fdiv dword ptr [0x57c708]"
+    },
+    {
+      "rva": "0x17c61f",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17c622",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17c625",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17c628",
+      "bytes": "d99cd097000000",
+      "asm": "fstp dword ptr [eax + edx*8 + 0x97]"
+    },
+    {
+      "rva": "0x17c62f",
+      "bytes": "9b",
+      "asm": "wait "
+    },
+    {
+      "rva": "0x17c630",
+      "bytes": "8b45f8",
+      "asm": "mov eax, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17c633",
+      "bytes": "d904c510a05a00",
+      "asm": "fld dword ptr [eax*8 + 0x5aa010]"
+    },
+    {
+      "rva": "0x17c63a",
+      "bytes": "d83508c75700",
+      "asm": "fdiv dword ptr [0x57c708]"
+    },
+    {
+      "rva": "0x17c640",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17c643",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17c646",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17c649",
+      "bytes": "d95cd053",
+      "asm": "fstp dword ptr [eax + edx*8 + 0x53]"
+    },
+    {
+      "rva": "0x17c64d",
+      "bytes": "9b",
+      "asm": "wait "
+    },
+    {
+      "rva": "0x17c64e",
+      "bytes": "8b45f8",
+      "asm": "mov eax, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17c651",
+      "bytes": "d904c514a05a00",
+      "asm": "fld dword ptr [eax*8 + 0x5aa014]"
+    },
+    {
+      "rva": "0x17c658",
+      "bytes": "d83508c75700",
+      "asm": "fdiv dword ptr [0x57c708]"
+    },
+    {
+      "rva": "0x17c65e",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17c661",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17c664",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17c667",
+      "bytes": "d95cd057",
+      "asm": "fstp dword ptr [eax + edx*8 + 0x57]"
+    },
+    {
+      "rva": "0x17c66b",
+      "bytes": "9b",
+      "asm": "wait "
+    },
+    {
+      "rva": "0x17c66c",
+      "bytes": "8b45f8",
+      "asm": "mov eax, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17c66f",
+      "bytes": "33d2",
+      "asm": "xor edx, edx"
+    },
+    {
+      "rva": "0x17c671",
+      "bytes": "8914c530a05a00",
+      "asm": "mov dword ptr [eax*8 + 0x5aa030], edx"
+    },
+    {
+      "rva": "0x17c678",
+      "bytes": "8b45f8",
+      "asm": "mov eax, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17c67b",
+      "bytes": "33d2",
+      "asm": "xor edx, edx"
+    },
+    {
+      "rva": "0x17c67d",
+      "bytes": "8914c534a05a00",
+      "asm": "mov dword ptr [eax*8 + 0x5aa034], edx"
+    },
+    {
+      "rva": "0x17c684",
+      "bytes": "8b45f8",
+      "asm": "mov eax, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17c687",
+      "bytes": "33d2",
+      "asm": "xor edx, edx"
+    },
+    {
+      "rva": "0x17c689",
+      "bytes": "8914c510a05a00",
+      "asm": "mov dword ptr [eax*8 + 0x5aa010], edx"
+    },
+    {
+      "rva": "0x17c690",
+      "bytes": "8b45f8",
+      "asm": "mov eax, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17c693",
+      "bytes": "33d2",
+      "asm": "xor edx, edx"
+    },
+    {
+      "rva": "0x17c695",
+      "bytes": "8914c514a05a00",
+      "asm": "mov dword ptr [eax*8 + 0x5aa014], edx"
+    },
+    {
+      "rva": "0x17c69c",
+      "bytes": "ff45f8",
+      "asm": "inc dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17c69f",
+      "bytes": "837df805",
+      "asm": "cmp dword ptr [ebp - 8], 5"
+    },
+    {
+      "rva": "0x17c6a3",
+      "bytes": "0f8545ffffff",
+      "asm": "jne 0x57c5ee"
+    },
+    {
+      "rva": "0x17c6a9",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17c6ac",
+      "bytes": "33d2",
+      "asm": "xor edx, edx"
+    },
+    {
+      "rva": "0x17c6ae",
+      "bytes": "895030",
+      "asm": "mov dword ptr [eax + 0x30], edx"
+    },
+    {
+      "rva": "0x17c6b1",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17c6b4",
+      "bytes": "e867e5ffff",
+      "asm": "call 0x57ac20"
+    },
+    {
+      "rva": "0x17c6b9",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17c6bc",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17c6bf",
+      "bytes": "8b4027",
+      "asm": "mov eax, dword ptr [eax + 0x27]"
+    },
+    {
+      "rva": "0x17c6c2",
+      "bytes": "d95808",
+      "asm": "fstp dword ptr [eax + 8]"
+    },
+    {
+      "rva": "0x17c6c5",
+      "bytes": "9b",
+      "asm": "wait "
+    },
+    {
+      "rva": "0x17c6c6",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17c6c9",
+      "bytes": "e852e5ffff",
+      "asm": "call 0x57ac20"
+    }
+  ],
+  "average_divisor": {
+    "rva": "0x17c708",
+    "bytes": "00008040",
+    "value": 4.0
+  },
+  "SetCurPosl": [
+    {
+      "rva": "0x17d58c",
+      "bytes": "55",
+      "asm": "push ebp"
+    },
+    {
+      "rva": "0x17d58d",
+      "bytes": "8bec",
+      "asm": "mov ebp, esp"
+    },
+    {
+      "rva": "0x17d58f",
+      "bytes": "83c4f0",
+      "asm": "add esp, -0x10"
+    },
+    {
+      "rva": "0x17d592",
+      "bytes": "8945fc",
+      "asm": "mov dword ptr [ebp - 4], eax"
+    },
+    {
+      "rva": "0x17d595",
+      "bytes": "c745f801000000",
+      "asm": "mov dword ptr [ebp - 8], 1"
+    },
+    {
+      "rva": "0x17d59c",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d59f",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d5a2",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d5a5",
+      "bytes": "33c9",
+      "asm": "xor ecx, ecx"
+    },
+    {
+      "rva": "0x17d5a7",
+      "bytes": "894cd033",
+      "asm": "mov dword ptr [eax + edx*8 + 0x33], ecx"
+    },
+    {
+      "rva": "0x17d5ab",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d5ae",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d5b1",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d5b4",
+      "bytes": "33c9",
+      "asm": "xor ecx, ecx"
+    },
+    {
+      "rva": "0x17d5b6",
+      "bytes": "894cd037",
+      "asm": "mov dword ptr [eax + edx*8 + 0x37], ecx"
+    },
+    {
+      "rva": "0x17d5ba",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d5bd",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d5c0",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d5c3",
+      "bytes": "33c9",
+      "asm": "xor ecx, ecx"
+    },
+    {
+      "rva": "0x17d5c5",
+      "bytes": "894cd073",
+      "asm": "mov dword ptr [eax + edx*8 + 0x73], ecx"
+    },
+    {
+      "rva": "0x17d5c9",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d5cc",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d5cf",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d5d2",
+      "bytes": "33c9",
+      "asm": "xor ecx, ecx"
+    },
+    {
+      "rva": "0x17d5d4",
+      "bytes": "894cd077",
+      "asm": "mov dword ptr [eax + edx*8 + 0x77], ecx"
+    },
+    {
+      "rva": "0x17d5d8",
+      "bytes": "ff45f8",
+      "asm": "inc dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d5db",
+      "bytes": "837df805",
+      "asm": "cmp dword ptr [ebp - 8], 5"
+    },
+    {
+      "rva": "0x17d5df",
+      "bytes": "75bb",
+      "asm": "jne 0x57d59c"
+    },
+    {
+      "rva": "0x17d5e1",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d5e4",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d5e7",
+      "bytes": "8b4008",
+      "asm": "mov eax, dword ptr [eax + 8]"
+    },
+    {
+      "rva": "0x17d5ea",
+      "bytes": "85c0",
+      "asm": "test eax, eax"
+    },
+    {
+      "rva": "0x17d5ec",
+      "bytes": "0f8e2a020000",
+      "asm": "jle 0x57d81c"
+    },
+    {
+      "rva": "0x17d5f2",
+      "bytes": "8945f0",
+      "asm": "mov dword ptr [ebp - 0x10], eax"
+    },
+    {
+      "rva": "0x17d5f5",
+      "bytes": "c745f801000000",
+      "asm": "mov dword ptr [ebp - 8], 1"
+    },
+    {
+      "rva": "0x17d5fc",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d5ff",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d602",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d605",
+      "bytes": "807c102200",
+      "asm": "cmp byte ptr [eax + edx + 0x22], 0"
+    },
+    {
+      "rva": "0x17d60a",
+      "bytes": "0f8400020000",
+      "asm": "je 0x57d810"
+    },
+    {
+      "rva": "0x17d610",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d613",
+      "bytes": "8a4040",
+      "asm": "mov al, byte ptr [eax + 0x40]"
+    },
+    {
+      "rva": "0x17d616",
+      "bytes": "fec8",
+      "asm": "dec al"
+    },
+    {
+      "rva": "0x17d618",
+      "bytes": "7411",
+      "asm": "je 0x57d62b"
+    },
+    {
+      "rva": "0x17d61a",
+      "bytes": "fec8",
+      "asm": "dec al"
+    },
+    {
+      "rva": "0x17d61c",
+      "bytes": "747c",
+      "asm": "je 0x57d69a"
+    },
+    {
+      "rva": "0x17d61e",
+      "bytes": "fec8",
+      "asm": "dec al"
+    },
+    {
+      "rva": "0x17d620",
+      "bytes": "0f84e7000000",
+      "asm": "je 0x57d70d"
+    },
+    {
+      "rva": "0x17d626",
+      "bytes": "e9e5010000",
+      "asm": "jmp 0x57d810"
+    },
+    {
+      "rva": "0x17d62b",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d62e",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d631",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d634",
+      "bytes": "83bcd00501000001",
+      "asm": "cmp dword ptr [eax + edx*8 + 0x105], 1"
+    },
+    {
+      "rva": "0x17d63c",
+      "bytes": "7520",
+      "asm": "jne 0x57d65e"
+    },
+    {
+      "rva": "0x17d63e",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d641",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d644",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d647",
+      "bytes": "8b4d08",
+      "asm": "mov ecx, dword ptr [ebp + 8]"
+    },
+    {
+      "rva": "0x17d64a",
+      "bytes": "894cd033",
+      "asm": "mov dword ptr [eax + edx*8 + 0x33], ecx"
+    },
+    {
+      "rva": "0x17d64e",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d651",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d654",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d657",
+      "bytes": "8b4d08",
+      "asm": "mov ecx, dword ptr [ebp + 8]"
+    },
+    {
+      "rva": "0x17d65a",
+      "bytes": "894cd073",
+      "asm": "mov dword ptr [eax + edx*8 + 0x73], ecx"
+    },
+    {
+      "rva": "0x17d65e",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d661",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d664",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d667",
+      "bytes": "83bcd00901000001",
+      "asm": "cmp dword ptr [eax + edx*8 + 0x109], 1"
+    },
+    {
+      "rva": "0x17d66f",
+      "bytes": "0f859b010000",
+      "asm": "jne 0x57d810"
+    },
+    {
+      "rva": "0x17d675",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d678",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d67b",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d67e",
+      "bytes": "8b4d08",
+      "asm": "mov ecx, dword ptr [ebp + 8]"
+    },
+    {
+      "rva": "0x17d681",
+      "bytes": "894cd037",
+      "asm": "mov dword ptr [eax + edx*8 + 0x37], ecx"
+    },
+    {
+      "rva": "0x17d685",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d688",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d68b",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d68e",
+      "bytes": "8b4d08",
+      "asm": "mov ecx, dword ptr [ebp + 8]"
+    },
+    {
+      "rva": "0x17d691",
+      "bytes": "894cd077",
+      "asm": "mov dword ptr [eax + edx*8 + 0x77], ecx"
+    },
+    {
+      "rva": "0x17d695",
+      "bytes": "e976010000",
+      "asm": "jmp 0x57d810"
+    },
+    {
+      "rva": "0x17d69a",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d69d",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d6a0",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d6a3",
+      "bytes": "83bcd00501000001",
+      "asm": "cmp dword ptr [eax + edx*8 + 0x105], 1"
+    },
+    {
+      "rva": "0x17d6ab",
+      "bytes": "0f855f010000",
+      "asm": "jne 0x57d810"
+    },
+    {
+      "rva": "0x17d6b1",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d6b4",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d6b7",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d6ba",
+      "bytes": "83bcd00901000001",
+      "asm": "cmp dword ptr [eax + edx*8 + 0x109], 1"
+    },
+    {
+      "rva": "0x17d6c2",
+      "bytes": "0f8548010000",
+      "asm": "jne 0x57d810"
+    },
+    {
+      "rva": "0x17d6c8",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d6cb",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d6ce",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d6d1",
+      "bytes": "8b4d08",
+      "asm": "mov ecx, dword ptr [ebp + 8]"
+    },
+    {
+      "rva": "0x17d6d4",
+      "bytes": "894cd033",
+      "asm": "mov dword ptr [eax + edx*8 + 0x33], ecx"
+    },
+    {
+      "rva": "0x17d6d8",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d6db",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d6de",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d6e1",
+      "bytes": "8b4d08",
+      "asm": "mov ecx, dword ptr [ebp + 8]"
+    },
+    {
+      "rva": "0x17d6e4",
+      "bytes": "894cd037",
+      "asm": "mov dword ptr [eax + edx*8 + 0x37], ecx"
+    },
+    {
+      "rva": "0x17d6e8",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d6eb",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d6ee",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d6f1",
+      "bytes": "8b4d08",
+      "asm": "mov ecx, dword ptr [ebp + 8]"
+    },
+    {
+      "rva": "0x17d6f4",
+      "bytes": "894cd073",
+      "asm": "mov dword ptr [eax + edx*8 + 0x73], ecx"
+    },
+    {
+      "rva": "0x17d6f8",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d6fb",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d6fe",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d701",
+      "bytes": "8b4d08",
+      "asm": "mov ecx, dword ptr [ebp + 8]"
+    },
+    {
+      "rva": "0x17d704",
+      "bytes": "894cd077",
+      "asm": "mov dword ptr [eax + edx*8 + 0x77], ecx"
+    },
+    {
+      "rva": "0x17d708",
+      "bytes": "e903010000",
+      "asm": "jmp 0x57d810"
+    },
+    {
+      "rva": "0x17d70d",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d710",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d713",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d716",
+      "bytes": "83bcd00501000001",
+      "asm": "cmp dword ptr [eax + edx*8 + 0x105], 1"
+    },
+    {
+      "rva": "0x17d71e",
+      "bytes": "7558",
+      "asm": "jne 0x57d778"
+    },
+    {
+      "rva": "0x17d720",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d723",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d726",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d729",
+      "bytes": "83bcd00901000001",
+      "asm": "cmp dword ptr [eax + edx*8 + 0x109], 1"
+    },
+    {
+      "rva": "0x17d731",
+      "bytes": "7545",
+      "asm": "jne 0x57d778"
+    },
+    {
+      "rva": "0x17d733",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d736",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d739",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d73c",
+      "bytes": "8b4d08",
+      "asm": "mov ecx, dword ptr [ebp + 8]"
+    },
+    {
+      "rva": "0x17d73f",
+      "bytes": "894cd033",
+      "asm": "mov dword ptr [eax + edx*8 + 0x33], ecx"
+    },
+    {
+      "rva": "0x17d743",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d746",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d749",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d74c",
+      "bytes": "8b4d08",
+      "asm": "mov ecx, dword ptr [ebp + 8]"
+    },
+    {
+      "rva": "0x17d74f",
+      "bytes": "894cd037",
+      "asm": "mov dword ptr [eax + edx*8 + 0x37], ecx"
+    },
+    {
+      "rva": "0x17d753",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d756",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d759",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d75c",
+      "bytes": "8b4d08",
+      "asm": "mov ecx, dword ptr [ebp + 8]"
+    },
+    {
+      "rva": "0x17d75f",
+      "bytes": "894cd073",
+      "asm": "mov dword ptr [eax + edx*8 + 0x73], ecx"
+    },
+    {
+      "rva": "0x17d763",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d766",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d769",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d76c",
+      "bytes": "8b4d08",
+      "asm": "mov ecx, dword ptr [ebp + 8]"
+    },
+    {
+      "rva": "0x17d76f",
+      "bytes": "894cd077",
+      "asm": "mov dword ptr [eax + edx*8 + 0x77], ecx"
+    },
+    {
+      "rva": "0x17d773",
+      "bytes": "e998000000",
+      "asm": "jmp 0x57d810"
+    },
+    {
+      "rva": "0x17d778",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d77b",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d77e",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d781",
+      "bytes": "83bcd00501000001",
+      "asm": "cmp dword ptr [eax + edx*8 + 0x105], 1"
+    },
+    {
+      "rva": "0x17d789",
+      "bytes": "7413",
+      "asm": "je 0x57d79e"
+    },
+    {
+      "rva": "0x17d78b",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d78e",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d791",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d794",
+      "bytes": "83bcd00901000001",
+      "asm": "cmp dword ptr [eax + edx*8 + 0x109], 1"
+    },
+    {
+      "rva": "0x17d79c",
+      "bytes": "7572",
+      "asm": "jne 0x57d810"
+    },
+    {
+      "rva": "0x17d79e",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d7a1",
+      "bytes": "e8b6cdffff",
+      "asm": "call 0x57a55c"
+    },
+    {
+      "rva": "0x17d7a6",
+      "bytes": "d95df4",
+      "asm": "fstp dword ptr [ebp - 0xc]"
+    },
+    {
+      "rva": "0x17d7a9",
+      "bytes": "9b",
+      "asm": "wait "
+    },
+    {
+      "rva": "0x17d7aa",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d7ad",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d7b0",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d7b3",
+      "bytes": "83bcd00501000001",
+      "asm": "cmp dword ptr [eax + edx*8 + 0x105], 1"
+    },
+    {
+      "rva": "0x17d7bb",
+      "bytes": "7520",
+      "asm": "jne 0x57d7dd"
+    },
+    {
+      "rva": "0x17d7bd",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d7c0",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d7c3",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d7c6",
+      "bytes": "8b4df4",
+      "asm": "mov ecx, dword ptr [ebp - 0xc]"
+    },
+    {
+      "rva": "0x17d7c9",
+      "bytes": "894cd033",
+      "asm": "mov dword ptr [eax + edx*8 + 0x33], ecx"
+    },
+    {
+      "rva": "0x17d7cd",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d7d0",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d7d3",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d7d6",
+      "bytes": "8b4df4",
+      "asm": "mov ecx, dword ptr [ebp - 0xc]"
+    },
+    {
+      "rva": "0x17d7d9",
+      "bytes": "894cd073",
+      "asm": "mov dword ptr [eax + edx*8 + 0x73], ecx"
+    },
+    {
+      "rva": "0x17d7dd",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d7e0",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d7e3",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d7e6",
+      "bytes": "83bcd00901000001",
+      "asm": "cmp dword ptr [eax + edx*8 + 0x109], 1"
+    },
+    {
+      "rva": "0x17d7ee",
+      "bytes": "7520",
+      "asm": "jne 0x57d810"
+    },
+    {
+      "rva": "0x17d7f0",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d7f3",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d7f6",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d7f9",
+      "bytes": "8b4df4",
+      "asm": "mov ecx, dword ptr [ebp - 0xc]"
+    },
+    {
+      "rva": "0x17d7fc",
+      "bytes": "894cd037",
+      "asm": "mov dword ptr [eax + edx*8 + 0x37], ecx"
+    },
+    {
+      "rva": "0x17d800",
+      "bytes": "8b45fc",
+      "asm": "mov eax, dword ptr [ebp - 4]"
+    },
+    {
+      "rva": "0x17d803",
+      "bytes": "8b4004",
+      "asm": "mov eax, dword ptr [eax + 4]"
+    },
+    {
+      "rva": "0x17d806",
+      "bytes": "8b55f8",
+      "asm": "mov edx, dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d809",
+      "bytes": "8b4df4",
+      "asm": "mov ecx, dword ptr [ebp - 0xc]"
+    },
+    {
+      "rva": "0x17d80c",
+      "bytes": "894cd077",
+      "asm": "mov dword ptr [eax + edx*8 + 0x77], ecx"
+    },
+    {
+      "rva": "0x17d810",
+      "bytes": "ff45f8",
+      "asm": "inc dword ptr [ebp - 8]"
+    },
+    {
+      "rva": "0x17d813",
+      "bytes": "ff4df0",
+      "asm": "dec dword ptr [ebp - 0x10]"
+    },
+    {
+      "rva": "0x17d816",
+      "bytes": "0f85e0fdffff",
+      "asm": "jne 0x57d5fc"
+    },
+    {
+      "rva": "0x17d81c",
+      "bytes": "8be5",
+      "asm": "mov esp, ebp"
+    },
+    {
+      "rva": "0x17d81e",
+      "bytes": "5d",
+      "asm": "pop ebp"
+    },
+    {
+      "rva": "0x17d81f",
+      "bytes": "c20400",
+      "asm": "ret 4"
+    }
+  ]
+}

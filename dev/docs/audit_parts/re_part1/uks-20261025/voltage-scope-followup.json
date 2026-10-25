@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "reviewed_utc": "2026-10-25T04:34:29.606666+00:00",
+  "native_executed": false,
+  "scope": "Дополнение к voltage-contract-review.json: пятый ранний producer, единицы внешнего источника и рассчитанного напряжения при рекуперации, настоящие органы управления.",
+  "correction_to_initial_proposal": "Четырёх MOV hooks и live Eset недостаточно для непрерывного обновления ResT.Uset в последовательной тяге. Кроме того, ранние OV/position trials при независимом возбуждении читают Uset до Calk. Начальное предложение четырёх hooks расширено до пяти в frozen patch267d3132…; его действие ограничено обычной тягой, активная рекуперация остаётся отдельным контрактом.",
+  "early_producer": {
+    "entry": {
+      "rva": "0x17c34c",
+      "length": 6,
+      "bytes": "8b45fc8b4004",
+      "sha256": "9a1e92bbbeaa187628d56c1afe901d3a4f12da5abb70f83a3896a7d16ac43e90"
+    },
+    "whole_window": {
+      "rva": "0x17c320",
+      "length": 67,
+      "bytes": "558bec83c4f88945fc8b45fc8b400483781b0075178b45fce84bfeffffb2058b45fce8c10a0000e9d90000008b45fc8b4004dd0083c4fcd91c249b8b45fce87d220000",
+      "sha256": "07150db5a565d9ce840feb7926a36c4be84a26b834a46170bf7cdfe356529223"
+    },
+    "continuation": "17C352, исходный FLD скорости не заменён.",
+    "owner_ABI": "Нативный frame ProceedTyga: [EBP-4]=calc. Сначала повторяются MOV EAX,[EBP-4]; MOV EAX,[EAX+4], после которых EAX=TTygaParam. Затем сохраняются GP/flags и выполняется native producer; при возврате EAX остаётся как после исходных MOV.",
+    "gate": "VozbType0 или1, FFlagRecup+100=false, исходный TAF.Tokopriemnik выбирает sourceSingle либо0. ActiveRecup пропускает раннюю публикацию и сохраняет предыдущую derived Uset до своего solver.",
+    "reason": "Участок находится до UpdateCommandKontroller/UpdateCommandOV/CheckACommand/KontrolTimePos. Эти методы могут вызвать GetCur и CalcIvozbMaxMin через SetNextPos/SetPos до основного Calk.",
+    "verified_pre_dispatch_call_paths": [
+      [
+        {
+          "rva": "0x17eb88",
+          "name": "@Tyga_2es6@TTygaCalcClass@UpdateCommandKontroller$qqr33Structura_tyga@TCommandController"
+        },
+        {
+          "rva": "0x17ce08",
+          "name": "@Tyga_2es6@TTygaCalcClass@SetCurCommandKont$qqrx33Structura_tyga@TCommandController"
+        },
+        {
+          "rva": "0x17defc",
+          "name": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x1739bc",
+          "name": "@Tyga_2es6@TTygaCalcClass@CalcIvozbMaxMin$qqrf"
+        }
+      ],
+      [
+        {
+          "rva": "0x17ebc0",
+          "name": "@Tyga_2es6@TTygaCalcClass@UpdateCommandOV$qqr35Structura_tyga@TCommandOVController"
+        },
+        {
+          "rva": "0x17d390",
+          "name": "@Tyga_2es6@TTygaCalcClass@SetCurCommandOV$qqrx35Structura_tyga@TCommandOVController"
+        },
+        {
+          "rva": "0x17da10",
+          "name": "@Tyga_2es6@TTygaCalcClass@SetNextPOs$qqrv"
+        },
+        {
+          "rva": "0x17823c",
+          "name": "@Tyga_2es6@TTygaCalcClass@GetCur$qqrf"
+        }
+      ],
+      [
+        {
+          "rva": "0x17ebc0",
+          "name": "@Tyga_2es6@TTygaCalcClass@UpdateCommandOV$qqr35Structura_tyga@TCommandOVController"
+        },
+        {
+          "rva": "0x17d390",
+          "name": "@Tyga_2es6@TTygaCalcClass@SetCurCommandOV$qqrx35Structura_tyga@TCommandOVController"
+        },
+        {
+          "rva": "0x17da10",
+          "name": "@Tyga_2es6@TTygaCalcClass@SetNextPOs$qqrv"
+        },
+        {
+          "rva": "0x17ba4c",
+          "name": "@Tyga_2es6@TTygaCalcClass@GetUDvig$qqrf"
+        }
+      ],
+      [
+        {
+          "rva": "0x17ebc0",
+          "name": "@Tyga_2es6@TTygaCalcClass@UpdateCommandOV$qqr35Structura_tyga@TCommandOVController"
+        },
+        {
+          "rva": "0x17d390",
+          "name": "@Tyga_2es6@TTygaCalcClass@SetCurCommandOV$qqrx35Structura_tyga@TCommandOVController"
+        },
+        {
+          "rva": "0x17defc",
+          "name": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x1739bc",
+          "name": "@Tyga_2es6@TTygaCalcClass@CalcIvozbMaxMin$qqrf"
+        }
+      ],
+      [
+        {
+          "rva": "0x177cb0",
+          "name": "@Tyga_2es6@TTygaCalcClass@CheckACommand$qqrv"
+        },
+        {
+          "rva": "0x17defc",
+          "name": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x1739bc",
+          "name": "@Tyga_2es6@TTygaCalcClass@CalcIvozbMaxMin$qqrf"
+        }
+      ],
+      [
+        {
+          "rva": "0x17c244",
+          "name": "@Tyga_2es6@TTygaCalcClass@KontrolTimePos$qqrv"
+        },
+        {
+          "rva": "0x17defc",
+          "name": "@Tyga_2es6@TTygaCalcClass@SetPos$qqrxuc"
+        },
+        {
+          "rva": "0x1739bc",
+          "name": "@Tyga_2es6@TTygaCalcClass@CalcIvozbMaxMin$qqrf"
+        }
+      ]
+    ]
+  },
+  "sequential": "GetCurPosl и GetCurPOslPOneTED не имеют прямых записей ResT.Uset в проверенных телах. При выключенных группах они могут прийти к Help; steady active path собственного voltage producer не имеет. Поэтому новый ранний producer необходим именно при смене Uks в продолжающейся тяге.",
+  "actual_source_semantics": {
+    "external_input": "Один Int32 input volts задаёт TConst.Eset и typed literals обычной тяги/EDT. При рекуперации Eset — внешний эквивалентный источник, а не автоматически рассчитанное roof Uks.",
+    "GetUSet_ABI": "RVA17C0B0; EAX=calc, no stack args, результат Double в ST0; метод и вызываемые GetK13/GetK14 не записывают native model state. Caller CalcRecup1748D6 делает FSTP Single в ResT.Uset+11.",
+    "formula": "Uset=K13−K14*sumI; K13=Eset*Rnagr/(Rnagr+Rstan); K14=(Rnagr*Rstan+Rnagr*Rtyaga+Rstan*Rtyaga)/(Rnagr+Rstan). S:sumI=Tok+3B; SP:Tok+3B+Tok+43; P:Tok+3B+Tok+3F+Tok+43+Tok+47.",
+    "regeneration": "Отрицательный native ток повышает рассчитанное Uset относительно K13. Постоянный внешний Eset3000 и рассчитанное roof Uset3300 могут быть различными физическими величинами в существующей схеме.",
+    "Pult_followup": "Текущий Pult producer получает внешний source; он не становится автоматически exact actual-roof measurement в Recup. Использование предыдущего complete derived solver state в native Pult producer требует явной задержки/эпохи и отдельной калибровки. Post-Tyga публикация до MSUL не пересчитает уже выполненные contactor/message decisions текущего цикла.",
+    "acceptance_limit": "Полная мгновенная общая roof-сеть, переходы Recup↔traction при меняющемся источнике и PowerOn/KM2/BV loss-of-line protection не приняты данным source fix."
+  },
+  "genuine_cab": {
+    "excitation": "Communication.UpdatePultMash2AF51B..2AF533 читает form+3FC -> widget+1D9 Byte и публикует TPult+2C. Pult1.UpdateButton18C805/18C811 публикует Tyga+16 из этого входа. Cab(3FC,0) выбирает последовательное возбуждение,1 независимое; после полного native step читать оба поля заново.",
+    "main_controller": "RTTI field table у TPultMashIndexForm: TygaPosController находится form+41C. DFM подтверждает TMultiPosTumbler. Native OnChangeState2AF2BC получает Double [EBP+8], Round и пишет TPult+69 на2AF2D9.",
+    "setter": "TMultiPosTumbler.SetPosition2A4944: EAX=widget, два Double на стеке, RET16. Существующий Fixture.Handle(41C,value) передаёт0,value. Нельзя подменять это byte Cab+1D9 или записью Tyga.FPos.",
+    "coast": "Вход coast — TPult+26, существующий Cab(3E0,0/1). Перед положительной командой coast должен быть0. После Handle(41C,1) можно вернуть Handle(41C,0), сохранив достигнутую native позицию; cleanup включает явный coast1.",
+    "sequential_acceptance": "VozbType0 на выбеге и ранний counter доказывают только coast publication. Для GetCurPosl нужно подтвердить native Pos>0 и действительное достижение sequential consumer при изменениях Uks без Help между ними; токи/силы/скорость не задавать fixture.",
+    "PE_evidence": "C:/Users/sibir/Desktop/Макрос/Тренажер/dev/runs/uks-native-20261025/cab-excitation-evidence.json"
+  },
+  "frozen_patch": {
+    "path": "C:/Users/sibir/Desktop/Макрос/Тренажер/dev/runs/uks-native-20261025/TrainerContactVoltagePatch.cs",
+    "sha256": "267d313214901309b98a6a0be00fd784d75c25def0dc2a473801009654dfae57",
+    "independent_guards": "C:/Users/sibir/Desktop/Макрос/Тренажер/dev/runs/uks-native-20261025/independent-guard-review.json",
+    "independent_caves": "C:/Users/sibir/Desktop/Макрос/Тренажер/dev/runs/uks-native-20261025/independent-cave-review.json",
+    "native_result": "Нет: независимый review статический; запуск и динамическую приёмку выполняет root отдельно."
+  },
+  "unchanged": "Производственные исходники, DLL и каталоги в этой работе не редактировались."
+}

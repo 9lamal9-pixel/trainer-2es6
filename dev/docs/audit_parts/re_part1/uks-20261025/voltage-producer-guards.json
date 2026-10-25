@@ -1,0 +1,94 @@
+{
+  "modules": {
+    "Tyga1": {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Tyga1.dll",
+      "sha256": "8ec6a82e618a1d75cbb31242784084b530bb87308e601defc5263d5279270491"
+    },
+    "Pult1": {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Pult1.dll",
+      "sha256": "7dac59bf94276309e012a6eb72602c08a921fe1910a4169f9f0ec27008f0f8f5"
+    }
+  },
+  "native_executed": false,
+  "producer_guards": [
+    {
+      "module": "Pult1",
+      "name": "Useti_nonzero_MOV",
+      "rva": "0x18e9ba",
+      "length": 10,
+      "bytes": "c780250100001c0c0000",
+      "sha256": "cdffd74ac78b84739e33997ff506e4f9b229533542b9b73b113b85c42f13b6bd"
+    },
+    {
+      "module": "Pult1",
+      "name": "Useti_roof_OR_and_zero",
+      "rva": "0x18e97a",
+      "length": 92,
+      "bytes": "8b45fce8aacfffff80785800752a8b45fce89ccfffff80785900751c8b45fce88ecfffff80785a00750e8b45fce880cfffff80785b0074148b45fce872cfffffc780250100001c0c0000eb108b45fce85ecfffff33d2899025010000",
+      "sha256": "9d4d20362bb7d6e7f181492e5c36a08a5bc67a0a4fc7793413b175c5715046f2"
+    },
+    {
+      "module": "Tyga1",
+      "name": "Uset_Calk_MOV",
+      "rva": "0x17650f",
+      "length": 7,
+      "bytes": "c7401100004845",
+      "sha256": "0f883247c158e093494fff2413a977e6e2dd497d81abcc222a3b0f6a0e1cfb55"
+    },
+    {
+      "module": "Tyga1",
+      "name": "Uset_Calk_gate",
+      "rva": "0x1764ed",
+      "length": 57,
+      "bytes": "8b45fcc68001010000008b45fc8b400480b8300100000074128b45fc8b40048b4027c7401100004845eb0e8b45fc8b40048b402733d2895011",
+      "sha256": "df2043f623a7985a98be337e7551bf8bcecc25a7a2d00e3e3d69bd1c6652ed61"
+    },
+    {
+      "module": "Tyga1",
+      "name": "Uset_Recup_EDT_MOV",
+      "rva": "0x1748f4",
+      "length": 7,
+      "bytes": "c7401100004845",
+      "sha256": "0f883247c158e093494fff2413a977e6e2dd497d81abcc222a3b0f6a0e1cfb55"
+    },
+    {
+      "module": "Tyga1",
+      "name": "Uset_Recup_branch",
+      "rva": "0x1748b0",
+      "length": 91,
+      "bytes": "558bec83c4bc8945fc8b45fc80b8090100000075178b45fce8e37700008b45fc8b40048b4027d958119beb2f8b45fc8b400480b8300100000074128b45fc8b40048b4027c7401100004845eb0e8b45fc8b40048b402733d2895011",
+      "sha256": "9f2d7cacbcb7fd8a1e211dad56d51d60f57663ebc760b3c5de3f872abdff139c"
+    },
+    {
+      "module": "Tyga1",
+      "name": "Uset_Help_MOV",
+      "rva": "0x17c1a9",
+      "length": 7,
+      "bytes": "c7401100004845",
+      "sha256": "0f883247c158e093494fff2413a977e6e2dd497d81abcc222a3b0f6a0e1cfb55"
+    },
+    {
+      "module": "Tyga1",
+      "name": "Uset_Help_gate",
+      "rva": "0x17c188",
+      "length": 56,
+      "bytes": "558bec83c4f48945fc8b45fc8b400480b8300100000074128b45fc8b40048b4027c7401100004845eb0e8b45fc8b40048b402733d2895011",
+      "sha256": "580e268d687d25b5ce806f33fa7cce9254d7a1cf2c106389a19b8bebe451ca11"
+    },
+    {
+      "module": "Tyga1",
+      "name": "Eset_FILD_consumer",
+      "rva": "0x17aeae",
+      "length": 6,
+      "bytes": "db80fc030000",
+      "sha256": "9bf9ed2d5fd6b81bb56a7f643ccc9c1fdcb310a3daf37089ca91ea69b3506f45"
+    }
+  ],
+  "retained_tfix": {
+    "rva": "0x856000",
+    "length": 158,
+    "bytes": "837df0007f0633c08be55dc3db45f0d87dece950e891ff837ddc000f8fbb4292ff8b45fce85f6192ffd9ee5b8be55dc204008b45fc8b40048b55f4817cd03300803b447608c744d03300803b44817cd03700803b447608c744d03700803b44e9c23692ff8b45fcba01000000e8932192ff508b45fcba02000000e8852192ff5a03c285c0750c8b45fce8fa6092ff8be55dc38b45fc80780b00e90e0492ff",
+    "sha256": "1e97515cb1ff16387505395e98140e9c1111c0eea90343bb24856bde3652a817"
+  },
+  "note": "Guards contain no absolute imported/data references in these selected windows; relative intra-module CALL/JMP displacements remain invariant under image-base relocation."
+}

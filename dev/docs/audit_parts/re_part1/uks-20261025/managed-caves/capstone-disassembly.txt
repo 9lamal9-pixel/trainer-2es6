@@ -1,0 +1,305 @@
+
+Pult
+0x50000000  9c                     pushfd 
+0x50000001  60                     pushal 
+0x50000002  bb00000040             mov ebx, 0x40000000
+0x50000007  648b1524000000         mov edx, dword ptr fs:[0x24]
+0x5000000e  81fa78563412           cmp edx, 0x12345678
+0x50000014  0f85b4000000           jne 0x500000ce
+0x5000001a  3d18000130             cmp eax, 0x30010018
+0x5000001f  0f85cd000000           jne 0x500000f2
+0x50000025  8b55fc                 mov edx, dword ptr [ebp - 4]
+0x50000028  81fa00000130           cmp edx, 0x30010000
+0x5000002e  0f85a6000000           jne 0x500000da
+0x50000034  8b4a04                 mov ecx, dword ptr [edx + 4]
+0x50000037  81f900000030           cmp ecx, 0x30000000
+0x5000003d  0f8597000000           jne 0x500000da
+0x50000043  8b4a08                 mov ecx, dword ptr [edx + 8]
+0x50000046  81f900100030           cmp ecx, 0x30001000
+0x5000004c  0f8588000000           jne 0x500000da
+0x50000052  8bf8                   mov edi, eax
+0x50000054  813b554b5653           cmp dword ptr [ebx], 0x53564b55
+0x5000005a  0f8586000000           jne 0x500000e6
+0x50000060  837b1400               cmp dword ptr [ebx + 0x14], 0
+0x50000064  0f85a0000000           jne 0x5000010a
+0x5000006a  8b5304                 mov edx, dword ptr [ebx + 4]
+0x5000006d  81fab0130000           cmp edx, 0x13b0
+0x50000073  0f876d000000           ja 0x500000e6
+0x50000079  8b4b08                 mov ecx, dword ptr [ebx + 8]
+0x5000007c  8bf2                   mov esi, edx
+0x5000007e  33f1                   xor esi, ecx
+0x50000080  33730c                 xor esi, dword ptr [ebx + 0xc]
+0x50000083  81f6554b5653           xor esi, 0x53564b55
+0x50000089  3b7310                 cmp esi, dword ptr [ebx + 0x10]
+0x5000008c  0f8554000000           jne 0x500000e6
+0x50000092  837b0c00               cmp dword ptr [ebx + 0xc], 0
+0x50000096  0f844a000000           je 0x500000e6
+0x5000009c  3915fc030430           cmp dword ptr [0x300403fc], edx
+0x500000a2  0f853e000000           jne 0x500000e6
+0x500000a8  899725010000           mov dword ptr [edi + 0x125], edx
+0x500000ae  ff4318                 inc dword ptr [ebx + 0x18]
+0x500000b1  0f8447000000           je 0x500000fe
+0x500000b7  8db725010000           lea esi, [edi + 0x125]
+0x500000bd  89732c                 mov dword ptr [ebx + 0x2c], esi
+0x500000c0  895340                 mov dword ptr [ebx + 0x40], edx
+0x500000c3  8b730c                 mov esi, dword ptr [ebx + 0xc]
+0x500000c6  897354                 mov dword ptr [ebx + 0x54], esi
+0x500000c9  e93c000000             jmp 0x5000010a
+0x500000ce  814b1401000000         or dword ptr [ebx + 0x14], 1
+0x500000d5  e930000000             jmp 0x5000010a
+0x500000da  814b1402000000         or dword ptr [ebx + 0x14], 2
+0x500000e1  e924000000             jmp 0x5000010a
+0x500000e6  814b1404000000         or dword ptr [ebx + 0x14], 4
+0x500000ed  e918000000             jmp 0x5000010a
+0x500000f2  814b1408000000         or dword ptr [ebx + 0x14], 8
+0x500000f9  e90c000000             jmp 0x5000010a
+0x500000fe  814b1410000000         or dword ptr [ebx + 0x14], 0x10
+0x50000105  e900000000             jmp 0x5000010a
+0x5000010a  61                     popal 
+0x5000010b  9d                     popfd 
+0x5000010c  e9b3e818c0             jmp 0x1018e9c4
+
+TygaEDT
+0x50010000  9c                     pushfd 
+0x50010001  60                     pushal 
+0x50010002  bb00000040             mov ebx, 0x40000000
+0x50010007  648b1524000000         mov edx, dword ptr fs:[0x24]
+0x5001000e  81fa78563412           cmp edx, 0x12345678
+0x50010014  0f85b2000000           jne 0x500100cc
+0x5001001a  3d00000330             cmp eax, 0x30030000
+0x5001001f  0f85cb000000           jne 0x500100f0
+0x50010025  8b55fc                 mov edx, dword ptr [ebp - 4]
+0x50010028  81fa00000230           cmp edx, 0x30020000
+0x5001002e  0f85a4000000           jne 0x500100d8
+0x50010034  8b4a04                 mov ecx, dword ptr [edx + 4]
+0x50010037  81f900100030           cmp ecx, 0x30001000
+0x5001003d  0f8595000000           jne 0x500100d8
+0x50010043  81792700000330         cmp dword ptr [ecx + 0x27], 0x30030000
+0x5001004a  0f8588000000           jne 0x500100d8
+0x50010050  8bf8                   mov edi, eax
+0x50010052  813b554b5653           cmp dword ptr [ebx], 0x53564b55
+0x50010058  0f8586000000           jne 0x500100e4
+0x5001005e  837b1400               cmp dword ptr [ebx + 0x14], 0
+0x50010062  0f85a0000000           jne 0x50010108
+0x50010068  8b5304                 mov edx, dword ptr [ebx + 4]
+0x5001006b  81fab0130000           cmp edx, 0x13b0
+0x50010071  0f876d000000           ja 0x500100e4
+0x50010077  8b4b08                 mov ecx, dword ptr [ebx + 8]
+0x5001007a  8bf2                   mov esi, edx
+0x5001007c  33f1                   xor esi, ecx
+0x5001007e  33730c                 xor esi, dword ptr [ebx + 0xc]
+0x50010081  81f6554b5653           xor esi, 0x53564b55
+0x50010087  3b7310                 cmp esi, dword ptr [ebx + 0x10]
+0x5001008a  0f8554000000           jne 0x500100e4
+0x50010090  837b0c00               cmp dword ptr [ebx + 0xc], 0
+0x50010094  0f844a000000           je 0x500100e4
+0x5001009a  3915fc030430           cmp dword ptr [0x300403fc], edx
+0x500100a0  0f853e000000           jne 0x500100e4
+0x500100a6  898f11000000           mov dword ptr [edi + 0x11], ecx
+0x500100ac  ff431c                 inc dword ptr [ebx + 0x1c]
+0x500100af  0f8447000000           je 0x500100fc
+0x500100b5  8db711000000           lea esi, [edi + 0x11]
+0x500100bb  897330                 mov dword ptr [ebx + 0x30], esi
+0x500100be  894b44                 mov dword ptr [ebx + 0x44], ecx
+0x500100c1  8b730c                 mov esi, dword ptr [ebx + 0xc]
+0x500100c4  897358                 mov dword ptr [ebx + 0x58], esi
+0x500100c7  e93c000000             jmp 0x50010108
+0x500100cc  814b1401000000         or dword ptr [ebx + 0x14], 1
+0x500100d3  e930000000             jmp 0x50010108
+0x500100d8  814b1402000000         or dword ptr [ebx + 0x14], 2
+0x500100df  e924000000             jmp 0x50010108
+0x500100e4  814b1404000000         or dword ptr [ebx + 0x14], 4
+0x500100eb  e918000000             jmp 0x50010108
+0x500100f0  814b1408000000         or dword ptr [ebx + 0x14], 8
+0x500100f7  e90c000000             jmp 0x50010108
+0x500100fc  814b1410000000         or dword ptr [ebx + 0x14], 0x10
+0x50010103  e900000000             jmp 0x50010108
+0x50010108  61                     popal 
+0x50010109  9d                     popfd 
+0x5001010a  e9ec4716d0             jmp 0x201748fb
+
+Nezav
+0x50020000  9c                     pushfd 
+0x50020001  60                     pushal 
+0x50020002  bb00000040             mov ebx, 0x40000000
+0x50020007  648b1524000000         mov edx, dword ptr fs:[0x24]
+0x5002000e  81fa78563412           cmp edx, 0x12345678
+0x50020014  0f85b2000000           jne 0x500200cc
+0x5002001a  3d00000330             cmp eax, 0x30030000
+0x5002001f  0f85cb000000           jne 0x500200f0
+0x50020025  8b55fc                 mov edx, dword ptr [ebp - 4]
+0x50020028  81fa00000230           cmp edx, 0x30020000
+0x5002002e  0f85a4000000           jne 0x500200d8
+0x50020034  8b4a04                 mov ecx, dword ptr [edx + 4]
+0x50020037  81f900100030           cmp ecx, 0x30001000
+0x5002003d  0f8595000000           jne 0x500200d8
+0x50020043  81792700000330         cmp dword ptr [ecx + 0x27], 0x30030000
+0x5002004a  0f8588000000           jne 0x500200d8
+0x50020050  8bf8                   mov edi, eax
+0x50020052  813b554b5653           cmp dword ptr [ebx], 0x53564b55
+0x50020058  0f8586000000           jne 0x500200e4
+0x5002005e  837b1400               cmp dword ptr [ebx + 0x14], 0
+0x50020062  0f85a0000000           jne 0x50020108
+0x50020068  8b5304                 mov edx, dword ptr [ebx + 4]
+0x5002006b  81fab0130000           cmp edx, 0x13b0
+0x50020071  0f876d000000           ja 0x500200e4
+0x50020077  8b4b08                 mov ecx, dword ptr [ebx + 8]
+0x5002007a  8bf2                   mov esi, edx
+0x5002007c  33f1                   xor esi, ecx
+0x5002007e  33730c                 xor esi, dword ptr [ebx + 0xc]
+0x50020081  81f6554b5653           xor esi, 0x53564b55
+0x50020087  3b7310                 cmp esi, dword ptr [ebx + 0x10]
+0x5002008a  0f8554000000           jne 0x500200e4
+0x50020090  837b0c00               cmp dword ptr [ebx + 0xc], 0
+0x50020094  0f844a000000           je 0x500200e4
+0x5002009a  3915fc030430           cmp dword ptr [0x300403fc], edx
+0x500200a0  0f853e000000           jne 0x500200e4
+0x500200a6  898f11000000           mov dword ptr [edi + 0x11], ecx
+0x500200ac  ff4320                 inc dword ptr [ebx + 0x20]
+0x500200af  0f8447000000           je 0x500200fc
+0x500200b5  8db711000000           lea esi, [edi + 0x11]
+0x500200bb  897334                 mov dword ptr [ebx + 0x34], esi
+0x500200be  894b48                 mov dword ptr [ebx + 0x48], ecx
+0x500200c1  8b730c                 mov esi, dword ptr [ebx + 0xc]
+0x500200c4  89735c                 mov dword ptr [ebx + 0x5c], esi
+0x500200c7  e93c000000             jmp 0x50020108
+0x500200cc  814b1401000000         or dword ptr [ebx + 0x14], 1
+0x500200d3  e930000000             jmp 0x50020108
+0x500200d8  814b1402000000         or dword ptr [ebx + 0x14], 2
+0x500200df  e924000000             jmp 0x50020108
+0x500200e4  814b1404000000         or dword ptr [ebx + 0x14], 4
+0x500200eb  e918000000             jmp 0x50020108
+0x500200f0  814b1408000000         or dword ptr [ebx + 0x14], 8
+0x500200f7  e90c000000             jmp 0x50020108
+0x500200fc  814b1410000000         or dword ptr [ebx + 0x14], 0x10
+0x50020103  e900000000             jmp 0x50020108
+0x50020108  61                     popal 
+0x50020109  9d                     popfd 
+0x5002010a  e9076415d0             jmp 0x20176516
+
+Help
+0x50030000  9c                     pushfd 
+0x50030001  60                     pushal 
+0x50030002  bb00000040             mov ebx, 0x40000000
+0x50030007  648b1524000000         mov edx, dword ptr fs:[0x24]
+0x5003000e  81fa78563412           cmp edx, 0x12345678
+0x50030014  0f85b2000000           jne 0x500300cc
+0x5003001a  3d00000330             cmp eax, 0x30030000
+0x5003001f  0f85cb000000           jne 0x500300f0
+0x50030025  8b55fc                 mov edx, dword ptr [ebp - 4]
+0x50030028  81fa00000230           cmp edx, 0x30020000
+0x5003002e  0f85a4000000           jne 0x500300d8
+0x50030034  8b4a04                 mov ecx, dword ptr [edx + 4]
+0x50030037  81f900100030           cmp ecx, 0x30001000
+0x5003003d  0f8595000000           jne 0x500300d8
+0x50030043  81792700000330         cmp dword ptr [ecx + 0x27], 0x30030000
+0x5003004a  0f8588000000           jne 0x500300d8
+0x50030050  8bf8                   mov edi, eax
+0x50030052  813b554b5653           cmp dword ptr [ebx], 0x53564b55
+0x50030058  0f8586000000           jne 0x500300e4
+0x5003005e  837b1400               cmp dword ptr [ebx + 0x14], 0
+0x50030062  0f85a0000000           jne 0x50030108
+0x50030068  8b5304                 mov edx, dword ptr [ebx + 4]
+0x5003006b  81fab0130000           cmp edx, 0x13b0
+0x50030071  0f876d000000           ja 0x500300e4
+0x50030077  8b4b08                 mov ecx, dword ptr [ebx + 8]
+0x5003007a  8bf2                   mov esi, edx
+0x5003007c  33f1                   xor esi, ecx
+0x5003007e  33730c                 xor esi, dword ptr [ebx + 0xc]
+0x50030081  81f6554b5653           xor esi, 0x53564b55
+0x50030087  3b7310                 cmp esi, dword ptr [ebx + 0x10]
+0x5003008a  0f8554000000           jne 0x500300e4
+0x50030090  837b0c00               cmp dword ptr [ebx + 0xc], 0
+0x50030094  0f844a000000           je 0x500300e4
+0x5003009a  3915fc030430           cmp dword ptr [0x300403fc], edx
+0x500300a0  0f853e000000           jne 0x500300e4
+0x500300a6  898f11000000           mov dword ptr [edi + 0x11], ecx
+0x500300ac  ff4324                 inc dword ptr [ebx + 0x24]
+0x500300af  0f8447000000           je 0x500300fc
+0x500300b5  8db711000000           lea esi, [edi + 0x11]
+0x500300bb  897338                 mov dword ptr [ebx + 0x38], esi
+0x500300be  894b4c                 mov dword ptr [ebx + 0x4c], ecx
+0x500300c1  8b730c                 mov esi, dword ptr [ebx + 0xc]
+0x500300c4  897360                 mov dword ptr [ebx + 0x60], esi
+0x500300c7  e93c000000             jmp 0x50030108
+0x500300cc  814b1401000000         or dword ptr [ebx + 0x14], 1
+0x500300d3  e930000000             jmp 0x50030108
+0x500300d8  814b1402000000         or dword ptr [ebx + 0x14], 2
+0x500300df  e924000000             jmp 0x50030108
+0x500300e4  814b1404000000         or dword ptr [ebx + 0x14], 4
+0x500300eb  e918000000             jmp 0x50030108
+0x500300f0  814b1408000000         or dword ptr [ebx + 0x14], 8
+0x500300f7  e90c000000             jmp 0x50030108
+0x500300fc  814b1410000000         or dword ptr [ebx + 0x14], 0x10
+0x50030103  e900000000             jmp 0x50030108
+0x50030108  61                     popal 
+0x50030109  9d                     popfd 
+0x5003010a  e9a1c014d0             jmp 0x2017c1b0
+
+TractionEntry
+0x50040000  8b45fc                 mov eax, dword ptr [ebp - 4]
+0x50040003  8b4004                 mov eax, dword ptr [eax + 4]
+0x50040006  9c                     pushfd 
+0x50040007  60                     pushal 
+0x50040008  bb00000040             mov ebx, 0x40000000
+0x5004000d  648b1524000000         mov edx, dword ptr fs:[0x24]
+0x50040014  81fa78563412           cmp edx, 0x12345678
+0x5004001a  0f85db000000           jne 0x500400fb
+0x50040020  3d00100030             cmp eax, 0x30001000
+0x50040025  0f85f4000000           jne 0x5004011f
+0x5004002b  8b55fc                 mov edx, dword ptr [ebp - 4]
+0x5004002e  81fa00000230           cmp edx, 0x30020000
+0x50040034  0f85cd000000           jne 0x50040107
+0x5004003a  8b4a04                 mov ecx, dword ptr [edx + 4]
+0x5004003d  81f900100030           cmp ecx, 0x30001000
+0x50040043  0f85be000000           jne 0x50040107
+0x50040049  81792700000330         cmp dword ptr [ecx + 0x27], 0x30030000
+0x50040050  0f85b1000000           jne 0x50040107
+0x50040056  80781601               cmp byte ptr [eax + 0x16], 1
+0x5004005a  0f87b3000000           ja 0x50040113
+0x50040060  80ba0001000000         cmp byte ptr [edx + 0x100], 0
+0x50040067  0f85ca000000           jne 0x50040137
+0x5004006d  bf00000330             mov edi, 0x30030000
+0x50040072  813b554b5653           cmp dword ptr [ebx], 0x53564b55
+0x50040078  0f8595000000           jne 0x50040113
+0x5004007e  837b1400               cmp dword ptr [ebx + 0x14], 0
+0x50040082  0f85af000000           jne 0x50040137
+0x50040088  8b5304                 mov edx, dword ptr [ebx + 4]
+0x5004008b  81fab0130000           cmp edx, 0x13b0
+0x50040091  0f877c000000           ja 0x50040113
+0x50040097  8b4b08                 mov ecx, dword ptr [ebx + 8]
+0x5004009a  8bf2                   mov esi, edx
+0x5004009c  33f1                   xor esi, ecx
+0x5004009e  33730c                 xor esi, dword ptr [ebx + 0xc]
+0x500400a1  81f6554b5653           xor esi, 0x53564b55
+0x500400a7  3b7310                 cmp esi, dword ptr [ebx + 0x10]
+0x500400aa  0f8563000000           jne 0x50040113
+0x500400b0  837b0c00               cmp dword ptr [ebx + 0xc], 0
+0x500400b4  0f8459000000           je 0x50040113
+0x500400ba  3915fc030430           cmp dword ptr [0x300403fc], edx
+0x500400c0  0f854d000000           jne 0x50040113
+0x500400c6  80b83001000000         cmp byte ptr [eax + 0x130], 0
+0x500400cd  0f8502000000           jne 0x500400d5
+0x500400d3  33c9                   xor ecx, ecx
+0x500400d5  898f11000000           mov dword ptr [edi + 0x11], ecx
+0x500400db  ff4328                 inc dword ptr [ebx + 0x28]
+0x500400de  0f8447000000           je 0x5004012b
+0x500400e4  8db711000000           lea esi, [edi + 0x11]
+0x500400ea  89733c                 mov dword ptr [ebx + 0x3c], esi
+0x500400ed  894b50                 mov dword ptr [ebx + 0x50], ecx
+0x500400f0  8b730c                 mov esi, dword ptr [ebx + 0xc]
+0x500400f3  897364                 mov dword ptr [ebx + 0x64], esi
+0x500400f6  e93c000000             jmp 0x50040137
+0x500400fb  814b1401000000         or dword ptr [ebx + 0x14], 1
+0x50040102  e930000000             jmp 0x50040137
+0x50040107  814b1402000000         or dword ptr [ebx + 0x14], 2
+0x5004010e  e924000000             jmp 0x50040137
+0x50040113  814b1404000000         or dword ptr [ebx + 0x14], 4
+0x5004011a  e918000000             jmp 0x50040137
+0x5004011f  814b1408000000         or dword ptr [ebx + 0x14], 8
+0x50040126  e90c000000             jmp 0x50040137
+0x5004012b  814b1410000000         or dword ptr [ebx + 0x14], 0x10
+0x50040132  e900000000             jmp 0x50040137
+0x50040137  61                     popal 
+0x50040138  9d                     popfd 
+0x50040139  e914c213d0             jmp 0x2017c352

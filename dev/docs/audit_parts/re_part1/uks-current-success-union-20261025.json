@@ -1,0 +1,1459 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-25",
+  "kind": "latest_successful_unique_probe_union",
+  "status": "passed_within_selected_scopes",
+  "single_all_pass_run": false,
+  "unique_successful_ids": 21,
+  "successful_records": 21,
+  "failed_original_run_preserved": true,
+  "definition": "Выбрано последнее успешное выполнение каждого уникального id из трёх отчётов. Исходный набор из 20 проверок остаётся failed с 19 PASS и одним отказом post-verifier; он не переобозначается успешным.",
+  "production_source_set": {
+    "count": 37,
+    "sha256": "24278c95577d34a58c815f5f6b8f54cc66f0c56ed602d7b66c52d3f4db6e6ad4",
+    "digest_recipe": "SHA256 UTF-8 JSON.stringify массива [{path,sha256}], сортированного по path (список ниже); digest общий для каждого SUCCESS.",
+    "sources": [
+      {
+        "path": "outputs/TrainerAirNetwork.cs",
+        "sha256": "86d4bc73601012d7a4109beeaa26360f8c476cc06d2fdde61c3bb1b66f646b32"
+      },
+      {
+        "path": "outputs/TrainerAirSelector.cs",
+        "sha256": "e4e86de362e66d7a55c23968f52d1fe1eb64c631d07e18b7d9bace142c6263fd"
+      },
+      {
+        "path": "outputs/TrainerAutovedenieController.cs",
+        "sha256": "ef6ce777859b0d84847a648e1c29111d4f5bcdf2da107660fd2edcfebca4dcfb"
+      },
+      {
+        "path": "outputs/TrainerAutovedenieHost.cs",
+        "sha256": "a9f657408e91a5731e25381d662241fd8047479e877d8ceedcb24ca7cb57567b"
+      },
+      {
+        "path": "outputs/TrainerAutovedenieInterface.cs",
+        "sha256": "ee116b7847a4b946f56ea84dd4f1e8713541e2c0eb3494dcc7085555c384fdce"
+      },
+      {
+        "path": "outputs/TrainerAutovedenieNativeBridge.cs",
+        "sha256": "ec5c8cb86162319e2ad2030b313eddb820d2d4f4ec8acfbf702072846c4d9341"
+      },
+      {
+        "path": "outputs/TrainerAuxSystems.cs",
+        "sha256": "170a416046be234820aac2f8707ef72b2c1a3fb3085f7d6eb403d73f6520d4d5"
+      },
+      {
+        "path": "outputs/TrainerBtoNetwork.cs",
+        "sha256": "5e83c5f3bbb597757a8dcfb48881625ad398970a714e4710afdba9ad39e58027"
+      },
+      {
+        "path": "outputs/TrainerContactNetwork.cs",
+        "sha256": "49987c7229a5fb4f9e1b3ecdac376a845d51a65aa90ba182ad71b09e388edb57"
+      },
+      {
+        "path": "outputs/TrainerContactVoltagePatch.cs",
+        "sha256": "267d313214901309b98a6a0be00fd784d75c25def0dc2a473801009654dfae57"
+      },
+      {
+        "path": "outputs/TrainerControlAir.cs",
+        "sha256": "45f273528a4e83bb5fc166367646c1a234fde578c20128af2881e2a35ef0c4b6"
+      },
+      {
+        "path": "outputs/TrainerIntegrationHost.cs",
+        "sha256": "3360b415a61a879bb0fd75f0977c0da4b111794a145a30badb4a6faf242a4e47"
+      },
+      {
+        "path": "outputs/TrainerKlubSafetyBinding.cs",
+        "sha256": "942acf68c73403ce35b833322e85274ed11c37cdb879140c0b3ba5e224f95006"
+      },
+      {
+        "path": "outputs/TrainerKvtProfile.cs",
+        "sha256": "e80696785d2542fb5be5920a87ee6a51368043b06e7fbb388992a9f19a0e17b7"
+      },
+      {
+        "path": "outputs/TrainerMarkupHost.cs",
+        "sha256": "be9d9f6744f80ba327d46392641c3d4240b3d7a7abc09e12d4be43fca83e0266"
+      },
+      {
+        "path": "outputs/TrainerMarkupSignalSource.cs",
+        "sha256": "0c927b8bbe2b6a2b444623a83f3c2fec38577ddbb1e85f8172be61174cb036a6"
+      },
+      {
+        "path": "outputs/TrainerNativeBrakeRelease.cs",
+        "sha256": "43bc878addc72999bd44517284aa6cca71f3dacda9847d0c6f2d95588f1c1ef1"
+      },
+      {
+        "path": "outputs/TrainerNativeFixes.cs",
+        "sha256": "e8d47dac13d7d1152dee2206ca5f77a0d4b307313cfbbc506067343495250b4d"
+      },
+      {
+        "path": "outputs/TrainerNativeSafetyAdapter.cs",
+        "sha256": "50cfd589ab74f667df336abcf157225b5f6be8cd6f50db369b828ba58d4e58aa"
+      },
+      {
+        "path": "outputs/TrainerNativeSystems.cs",
+        "sha256": "85ee79a1261fc4e346cec1d933fab83280526243ee2a8091747334e629fa7c3d"
+      },
+      {
+        "path": "outputs/TrainerNativeVirtualPult.cs",
+        "sha256": "f54e569eb6c9f0b72541e5d08c90999fa572656b06138fbdb7b5ec7eedc7ce24"
+      },
+      {
+        "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+        "sha256": "3c388354adac36b8d0fff3ad4422efb79dea88524ec784d02e85a159b1a336cf"
+      },
+      {
+        "path": "outputs/TrainerPneumaticTiming.cs",
+        "sha256": "faa88fb80bc132188a846af2453265b2d54e7284d98c38af881094afb9d5b2e2"
+      },
+      {
+        "path": "outputs/TrainerRouteDOS.cs",
+        "sha256": "a6833bdfdd042e47a5570f0bb7c39ad823fed3024c03713129d33ac6abe8f4be"
+      },
+      {
+        "path": "outputs/TrainerRouteView.cs",
+        "sha256": "cd86f938c78fb0e3a2f49441050d3965beacdda1ab861b8f6c59d4b45cf27204"
+      },
+      {
+        "path": "outputs/TrainerSa47MemoryPatch.cs",
+        "sha256": "08af53f738c8adb72192d5928fef4dfda415ccb2513cc49499e67fc7655feb7e"
+      },
+      {
+        "path": "outputs/TrainerSafetyContexts.cs",
+        "sha256": "efdafa1202f26ff507a242ff6f2ad7971d2d169619ecaa4fa35b81fd533cf0b4"
+      },
+      {
+        "path": "outputs/TrainerSafetyHost.cs",
+        "sha256": "05abacf21249c5ef6b7c45c965cdcf94cc3fafdcf2645ff55d9e8bc28b2bd7b9"
+      },
+      {
+        "path": "outputs/TrainerSafetyInputContext.cs",
+        "sha256": "71883123e6c657a5a62355ea673dc7bb4e10646320141002be81abfc57fd5d84"
+      },
+      {
+        "path": "outputs/TrainerSandAirInput.cs",
+        "sha256": "c9ba33f9e2abcbaae0f3284b20b63a8880b50c4b0df8b139abb04e3eae258c89"
+      },
+      {
+        "path": "outputs/TrainerSautOperatorControls.cs",
+        "sha256": "b78d647440fb4521b97728131a3df16ec4cda56d19912c484aef8af16fd2e9f8"
+      },
+      {
+        "path": "outputs/TrainerSessionLogging.cs",
+        "sha256": "fc409229f2f44aee2c97fc4633107dacd199c63ce73f6717633c900c8dcef101"
+      },
+      {
+        "path": "outputs/TrainerStandaloneSautBinding.cs",
+        "sha256": "7480b65a77c0883bf1fd8ead8402970355c56bdf1765d011d720052dafa71145"
+      },
+      {
+        "path": "outputs/TrainerTrainBrakeCycle.cs",
+        "sha256": "783ffd1df4546c99fb131a3a88d71211cbcd67226d002ba254aff7c9e20e9a8b"
+      },
+      {
+        "path": "outputs/TrainerTrainPressureView.cs",
+        "sha256": "431ea70a22205ee44eddb51d71cd2a816ae46912cd14c6dad7c5f1c165becd61"
+      },
+      {
+        "path": "outputs/TrainerTwoSectionAirChain.cs",
+        "sha256": "c04801ab0dfcd7af736d8069909ec4d8c07c71c1f14caf393e30f5043f86bbbc"
+      },
+      {
+        "path": "outputs/TrainerVigilanceOperatorControls.cs",
+        "sha256": "5a93ec26f39341d0e6632a275bbe1177fb7966e85854c47a32f3658ea178957f"
+      }
+    ]
+  },
+  "source_reports": [
+    {
+      "id": "test-20261025T043900251Z-620c2dc8",
+      "report": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/report.json",
+        "sha256": "80dff2113d53b5b575885780d063daecc86b6eb014495c67c08f89fbbcc7f5ea"
+      },
+      "status": "failed",
+      "passed": 19,
+      "failed": 1
+    },
+    {
+      "id": "test-20261025T044459112Z-b0d72ce6",
+      "report": {
+        "path": "dev/runs/test-20261025T044459112Z-b0d72ce6/report.json",
+        "sha256": "124e6fa5d7b9068872165eba3d91905f5f943cf1fe82a39bf9f7a0b0c5480097"
+      },
+      "status": "passed",
+      "passed": 1,
+      "failed": 0
+    },
+    {
+      "id": "test-20261025T043704000Z-a11fff61",
+      "report": {
+        "path": "dev/runs/test-20261025T043704000Z-a11fff61/report.json",
+        "sha256": "56b53ad6c99b9c5328b27288bb063808024ea4ee64d585b2bea2555af029467f"
+      },
+      "status": "passed",
+      "passed": 1,
+      "failed": 0
+    }
+  ],
+  "successes": [
+    {
+      "id": "ColdNoSource",
+      "status": "passed",
+      "run_id": "test-20261025T043900251Z-620c2dc8",
+      "run_report": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/report.json",
+        "sha256": "80dff2113d53b5b575885780d063daecc86b6eb014495c67c08f89fbbcc7f5ea"
+      },
+      "step_result": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/ColdNoSource/result.json",
+        "sha256": "c76b16c919a40fa5f7c6996fd8af0920bd14c10c28cf3862fea11ef0f6b8cd38"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-10-25T04:39:09.0239897Z",
+      "build": {
+        "id": "build-20261025T043900348Z-121b0664",
+        "manifest": {
+          "path": "dev/builds/build-20261025T043900348Z-121b0664/build.json",
+          "sha256": "140e13ad550741bcf0361bf15077ef802c72d399809816aef98e68cbc5b74210"
+        },
+        "executable_sha256": "c04bcef316ecc9f9b96300e2f16643d4c9268579ce4527bfec4df946105d7f39",
+        "source_count": 38
+      },
+      "production_source_sha_parity": {
+        "matched": 37,
+        "expected": 37,
+        "all_match_current_sources": true,
+        "source_set_sha256": "24278c95577d34a58c815f5f6b8f54cc66f0c56ed602d7b66c52d3f4db6e6ad4"
+      },
+      "session": {
+        "id": "20261025T043904025Z_p36340_26c5d1644dd1496e8fadc7120026a98a",
+        "artifact": {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/ColdNoSource/sessions/20261025T043904025Z_p36340_26c5d1644dd1496e8fadc7120026a98a/session.json",
+          "sha256": "e0c3aed06138f4d4c5581bf337f6646e7fa5885d317390693eeaad8c9dde38ee"
+        },
+        "state": "closed",
+        "exit_code": 0,
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T043900348Z-121b0664",
+        "process_bits": 32
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/ColdNoSource/Trainer_cold_no_source_validation.json",
+          "sha256": "38f7d1b5bb4f5a8dbbbecb374d8fd753af2bbc5a85a64c7dcfa0fcee4871682b"
+        }
+      ]
+    },
+    {
+      "id": "CandidateAirHost",
+      "status": "passed",
+      "run_id": "test-20261025T043900251Z-620c2dc8",
+      "run_report": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/report.json",
+        "sha256": "80dff2113d53b5b575885780d063daecc86b6eb014495c67c08f89fbbcc7f5ea"
+      },
+      "step_result": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/CandidateAirHost/result.json",
+        "sha256": "2fd49fcb790c09a361239c5e23f01b4c037aa1fe10504ad72f4109faa579f8ad"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-10-25T04:39:40.2407680Z",
+      "build": {
+        "id": "build-20261025T043915399Z-9694da0b",
+        "manifest": {
+          "path": "dev/builds/build-20261025T043915399Z-9694da0b/build.json",
+          "sha256": "714dcd5df7199b5a49f3b98d2b25d14653c9e17a0f4e76e1acde93ede7ad7d14"
+        },
+        "executable_sha256": "00d9fbbe3bc54b0b6611f1138f57add6ec26160c881fcb74babf55f0b8497572",
+        "source_count": 38
+      },
+      "production_source_sha_parity": {
+        "matched": 37,
+        "expected": 37,
+        "all_match_current_sources": true,
+        "source_set_sha256": "24278c95577d34a58c815f5f6b8f54cc66f0c56ed602d7b66c52d3f4db6e6ad4"
+      },
+      "session": {
+        "id": "20261025T043918752Z_p28364_648165f8ec7944e584de8b950bc0de68",
+        "artifact": {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/CandidateAirHost/sessions/20261025T043918752Z_p28364_648165f8ec7944e584de8b950bc0de68/session.json",
+          "sha256": "9dc6f3f6f461e72753c323d26341cb4ffadcac89b28330dbff600ac8db0ea373"
+        },
+        "state": "closed",
+        "exit_code": 0,
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T043915399Z-9694da0b",
+        "process_bits": 32
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/CandidateAirHost/Trainer_air_candidate_host_validation.json",
+          "sha256": "b276459ea17387dc19edf5694e6b7357c0732fc3e828caad860e64aa49962b71"
+        }
+      ]
+    },
+    {
+      "id": "ColdTrainAuxiliary",
+      "status": "passed",
+      "run_id": "test-20261025T043900251Z-620c2dc8",
+      "run_report": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/report.json",
+        "sha256": "80dff2113d53b5b575885780d063daecc86b6eb014495c67c08f89fbbcc7f5ea"
+      },
+      "step_result": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/ColdTrainAuxiliary/result.json",
+        "sha256": "7fabdc8dc56d8c505fa35c4743e49ae288e8a4c2e99b012006a15ae989dfff00"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-10-25T04:39:59.4362815Z",
+      "build": {
+        "id": "build-20261025T043940256Z-9d37b3e6",
+        "manifest": {
+          "path": "dev/builds/build-20261025T043940256Z-9d37b3e6/build.json",
+          "sha256": "1320c05bfd7712ac51dd1b1488c773a603c9ca9cee144da9f2d76ad2133d0eb5"
+        },
+        "executable_sha256": "518d47eba2675f9e369790b087772a1ad83d2d253b543928700cf6b9317e2c28",
+        "source_count": 38
+      },
+      "production_source_sha_parity": {
+        "matched": 37,
+        "expected": 37,
+        "all_match_current_sources": true,
+        "source_set_sha256": "24278c95577d34a58c815f5f6b8f54cc66f0c56ed602d7b66c52d3f4db6e6ad4"
+      },
+      "session": {
+        "id": "20261025T043943776Z_p36384_636386e19d1543a19629624b1d92331c",
+        "artifact": {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/ColdTrainAuxiliary/sessions/20261025T043943776Z_p36384_636386e19d1543a19629624b1d92331c/session.json",
+          "sha256": "9cebf001187fd5a7de22bf75955e67e8876baca2c916a2f8cc8bdbeaa43f0b10"
+        },
+        "state": "closed",
+        "exit_code": 0,
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T043940256Z-9d37b3e6",
+        "process_bits": 32
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/ColdTrainAuxiliary/Trainer_cold_train_auxiliary_validation.json",
+          "sha256": "ce5776288498f3ad517c60c57bd3ee90c4216dab127ea07686eb136f65831bfb"
+        }
+      ]
+    },
+    {
+      "id": "VcuAirSequence",
+      "status": "passed",
+      "run_id": "test-20261025T043900251Z-620c2dc8",
+      "run_report": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/report.json",
+        "sha256": "80dff2113d53b5b575885780d063daecc86b6eb014495c67c08f89fbbcc7f5ea"
+      },
+      "step_result": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/VcuAirSequence/result.json",
+        "sha256": "73bd462e7d27f473f24b148997f3b219c4835353223ba5e1ee42c06b4ebe41ea"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-10-25T04:40:14.3046744Z",
+      "build": {
+        "id": "build-20261025T043959446Z-b6b1c2dd",
+        "manifest": {
+          "path": "dev/builds/build-20261025T043959446Z-b6b1c2dd/build.json",
+          "sha256": "70e11b8ce098516183f603a99d80a9d21beb8fed4101c4a530ccc9c657ddb9b0"
+        },
+        "executable_sha256": "4a764bb272d0798f4b09797ce6efeb20225897d7217ae5e189b3e50cc8c74c92",
+        "source_count": 38
+      },
+      "production_source_sha_parity": {
+        "matched": 37,
+        "expected": 37,
+        "all_match_current_sources": true,
+        "source_set_sha256": "24278c95577d34a58c815f5f6b8f54cc66f0c56ed602d7b66c52d3f4db6e6ad4"
+      },
+      "session": {
+        "id": "20261025T044002867Z_p12764_a9281c0571354d108c0eb9b65daffea9",
+        "artifact": {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/VcuAirSequence/sessions/20261025T044002867Z_p12764_a9281c0571354d108c0eb9b65daffea9/session.json",
+          "sha256": "4b85dad5db1528719f65473555f8c4a7a0b6ded16a81b3dc9fcf8c0d578986ef"
+        },
+        "state": "closed",
+        "exit_code": 0,
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T043959446Z-b6b1c2dd",
+        "process_bits": 32
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/VcuAirSequence/Trainer_vcu_air_sequence.json",
+          "sha256": "b02b9f08045ba2e6b5b280dba4f0c79533ce35cd61150bb40631a09a77dce8e0"
+        }
+      ]
+    },
+    {
+      "id": "CompressorPrepared",
+      "status": "passed",
+      "run_id": "test-20261025T043900251Z-620c2dc8",
+      "run_report": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/report.json",
+        "sha256": "80dff2113d53b5b575885780d063daecc86b6eb014495c67c08f89fbbcc7f5ea"
+      },
+      "step_result": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/CompressorPrepared/result.json",
+        "sha256": "f58b22a7d00f1f40ebbe939fbc6eb17318709955e6bda6c8aef1b169fd3c6169"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-10-25T04:40:27.9259895Z",
+      "build": {
+        "id": "build-20261025T044014313Z-8c175f7f",
+        "manifest": {
+          "path": "dev/builds/build-20261025T044014313Z-8c175f7f/build.json",
+          "sha256": "bf073d243ec24a4e6bf39543f800562a79b54c5f343bda5d310f7e4113c892f3"
+        },
+        "executable_sha256": "dd436ab93e840a03db781ba3a6b05c6910288506b3f0b99deda351071752e107",
+        "source_count": 38
+      },
+      "production_source_sha_parity": {
+        "matched": 37,
+        "expected": 37,
+        "all_match_current_sources": true,
+        "source_set_sha256": "24278c95577d34a58c815f5f6b8f54cc66f0c56ed602d7b66c52d3f4db6e6ad4"
+      },
+      "session": {
+        "id": "20261025T044017723Z_p33076_8205516045cf4e6199b1020bb157a51c",
+        "artifact": {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/CompressorPrepared/sessions/20261025T044017723Z_p33076_8205516045cf4e6199b1020bb157a51c/session.json",
+          "sha256": "a61bfb35174fc1d7a0b6bc8f23993586ee6dde4f8e637d98c123a51405487aa8"
+        },
+        "state": "closed",
+        "exit_code": 0,
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T044014313Z-8c175f7f",
+        "process_bits": 32
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/CompressorPrepared/Trainer_compressor_prepared_observations.json",
+          "sha256": "8c121a1c672d2cae067b1acf174d826fdbf902b54d6b1da6f4df9628d8c2d25d"
+        }
+      ]
+    },
+    {
+      "id": "Sa47Release",
+      "status": "passed",
+      "run_id": "test-20261025T043900251Z-620c2dc8",
+      "run_report": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/report.json",
+        "sha256": "80dff2113d53b5b575885780d063daecc86b6eb014495c67c08f89fbbcc7f5ea"
+      },
+      "step_result": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/Sa47Release/result.json",
+        "sha256": "7be6d0ab98ccb56c10040e2cbee57ca24b79c5aef2b35bbe9f38c8d23e667c0a"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-10-25T04:40:52.2177046Z",
+      "build": {
+        "id": "build-20261025T044027938Z-288e781a",
+        "manifest": {
+          "path": "dev/builds/build-20261025T044027938Z-288e781a/build.json",
+          "sha256": "2e384eb190548a2c006b55c3ef0404800cfb27370701248334fdc3b2d2f9892b"
+        },
+        "executable_sha256": "01286781bae04c4adeba31f72c559687aa81f63413e8c9b2325d34b8065cb6b0",
+        "source_count": 38
+      },
+      "production_source_sha_parity": {
+        "matched": 37,
+        "expected": 37,
+        "all_match_current_sources": true,
+        "source_set_sha256": "24278c95577d34a58c815f5f6b8f54cc66f0c56ed602d7b66c52d3f4db6e6ad4"
+      },
+      "session": {
+        "id": "20261025T044031251Z_p21136_e1df9bbc36e94fcfa5a3ae66c57d9211",
+        "artifact": {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/Sa47Release/sessions/20261025T044031251Z_p21136_e1df9bbc36e94fcfa5a3ae66c57d9211/session.json",
+          "sha256": "f85e5e3e08e52e6bb127fd04a262a6bf5e0b5d1a0665d2b0566f25caf8cfb89b"
+        },
+        "state": "closed",
+        "exit_code": 0,
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T044027938Z-288e781a",
+        "process_bits": 32
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/Sa47Release/Trainer_sa47_release_validation.json",
+          "sha256": "0e1d3849c884eb8963e576b5614954be484d4670b55ee09ad99107cb667da7c5"
+        }
+      ]
+    },
+    {
+      "id": "Sa47ReleaseFault",
+      "status": "passed",
+      "run_id": "test-20261025T043900251Z-620c2dc8",
+      "run_report": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/report.json",
+        "sha256": "80dff2113d53b5b575885780d063daecc86b6eb014495c67c08f89fbbcc7f5ea"
+      },
+      "step_result": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/Sa47ReleaseFault/result.json",
+        "sha256": "4abeee912d41afcfb8d6977e072943d45d2080dd2c7d9ce7cece10e7c9680c89"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-10-25T04:40:58.9145598Z",
+      "build": {
+        "id": "build-20261025T044052233Z-d88909fc",
+        "manifest": {
+          "path": "dev/builds/build-20261025T044052233Z-d88909fc/build.json",
+          "sha256": "b3e2794af397283c5f24e5d6b1432292104ba5cd913ae1c44cd855732696136a"
+        },
+        "executable_sha256": "969b6239e2dcb01026a568aed137668c06cc1e2b253d8d89f4b9265e71bfa6f5",
+        "source_count": 38
+      },
+      "production_source_sha_parity": {
+        "matched": 37,
+        "expected": 37,
+        "all_match_current_sources": true,
+        "source_set_sha256": "24278c95577d34a58c815f5f6b8f54cc66f0c56ed602d7b66c52d3f4db6e6ad4"
+      },
+      "session": {
+        "id": "20261025T044055823Z_p22508_711391c3e4d04310947b44c427746e9e",
+        "artifact": {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/Sa47ReleaseFault/sessions/20261025T044055823Z_p22508_711391c3e4d04310947b44c427746e9e/session.json",
+          "sha256": "acddff2c398e8b2beb6d846e83c8fbcf2401a9d67019c2e11a1d339a4fb2c822"
+        },
+        "state": "closed",
+        "exit_code": 0,
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T044052233Z-d88909fc",
+        "process_bits": 32
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/Sa47ReleaseFault/Trainer_sa47_release_fault_validation.json",
+          "sha256": "0954f4bc62a44f19ef1996d6d19de9924db3bea97cb22c487951cea83482820c"
+        }
+      ]
+    },
+    {
+      "id": "Sa47NativeButton",
+      "status": "passed",
+      "run_id": "test-20261025T043900251Z-620c2dc8",
+      "run_report": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/report.json",
+        "sha256": "80dff2113d53b5b575885780d063daecc86b6eb014495c67c08f89fbbcc7f5ea"
+      },
+      "step_result": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/Sa47NativeButton/result.json",
+        "sha256": "bc75dbb630e4812479a9774536883d8a3efef0a9ce45bf812b8bc7908a3ab20c"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-10-25T04:41:19.5869897Z",
+      "build": {
+        "id": "build-20261025T044058929Z-de0dbb12",
+        "manifest": {
+          "path": "dev/builds/build-20261025T044058929Z-de0dbb12/build.json",
+          "sha256": "244061828f1d9a48ecdc58b77c9d7ab7c95e2efe75e78fcfbb72726569181b6e"
+        },
+        "executable_sha256": "e4d91d9c73636767f5261b04064491d1a84e1c4c55dbd50db6b085f46bd1ed44",
+        "source_count": 38
+      },
+      "production_source_sha_parity": {
+        "matched": 37,
+        "expected": 37,
+        "all_match_current_sources": true,
+        "source_set_sha256": "24278c95577d34a58c815f5f6b8f54cc66f0c56ed602d7b66c52d3f4db6e6ad4"
+      },
+      "session": {
+        "id": "20261025T044102568Z_p3640_b070ef4a9cd7477fabdb25516bbd2deb",
+        "artifact": {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/Sa47NativeButton/sessions/20261025T044102568Z_p3640_b070ef4a9cd7477fabdb25516bbd2deb/session.json",
+          "sha256": "21340c08a39b48aa851fab31193e9669d37863e4bfb0fd6f2631a515cfa882b3"
+        },
+        "state": "closed",
+        "exit_code": 0,
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T044058929Z-de0dbb12",
+        "process_bits": 32
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/Sa47NativeButton/Trainer_sa47_native_button_validation.json",
+          "sha256": "82d3ecc9daa4d8c1f52c630a98d3265e7a9a322856194b962aa1c14a29e1d3f5"
+        }
+      ]
+    },
+    {
+      "id": "Sa47ResetZero",
+      "status": "passed",
+      "run_id": "test-20261025T043900251Z-620c2dc8",
+      "run_report": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/report.json",
+        "sha256": "80dff2113d53b5b575885780d063daecc86b6eb014495c67c08f89fbbcc7f5ea"
+      },
+      "step_result": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/Sa47ResetZero/result.json",
+        "sha256": "3d7d59994929924ec2a18486a733fbb1f4c9d60b05a2b2657b24b227644e5d81"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-10-25T04:41:36.6793536Z",
+      "build": {
+        "id": "build-20261025T044119599Z-8e13e465",
+        "manifest": {
+          "path": "dev/builds/build-20261025T044119599Z-8e13e465/build.json",
+          "sha256": "4315665dd489049e205aeb8f58a1b68782c3a7087e3bd8e028df2ddbd8660d1a"
+        },
+        "executable_sha256": "ca32a7c5e51ded88444195348496174920740e71bdf83f53790236a0ce43f2d1",
+        "source_count": 38
+      },
+      "production_source_sha_parity": {
+        "matched": 37,
+        "expected": 37,
+        "all_match_current_sources": true,
+        "source_set_sha256": "24278c95577d34a58c815f5f6b8f54cc66f0c56ed602d7b66c52d3f4db6e6ad4"
+      },
+      "session": {
+        "id": "20261025T044122940Z_p20280_4453dd0bbbf14ecdbf0fb9cb63c2f93a",
+        "artifact": {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/Sa47ResetZero/sessions/20261025T044122940Z_p20280_4453dd0bbbf14ecdbf0fb9cb63c2f93a/session.json",
+          "sha256": "e880fe434e718ecd34313c3fead455d0b58094062890cba06094dc72eb301e3e"
+        },
+        "state": "closed",
+        "exit_code": 0,
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T044119599Z-8e13e465",
+        "process_bits": 32
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/Sa47ResetZero/Trainer_sa47_zero_reset_validation.json",
+          "sha256": "cc0797f5da66c814cd3146935d200f84d182336d168c89ffa984e47b9c948a90"
+        }
+      ]
+    },
+    {
+      "id": "Sa47ResetTm",
+      "status": "passed",
+      "run_id": "test-20261025T043900251Z-620c2dc8",
+      "run_report": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/report.json",
+        "sha256": "80dff2113d53b5b575885780d063daecc86b6eb014495c67c08f89fbbcc7f5ea"
+      },
+      "step_result": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/Sa47ResetTm/result.json",
+        "sha256": "9cef80638b937598f8ae2ba68dc917d042eb8915ce2513ccd4cfd4a57edf4f51"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-10-25T04:42:03.2373568Z",
+      "build": {
+        "id": "build-20261025T044136689Z-e198aa27",
+        "manifest": {
+          "path": "dev/builds/build-20261025T044136689Z-e198aa27/build.json",
+          "sha256": "85f910319bdd811663e9cbaa983ad860f32632d437d73f0cd3917cb3c12502a7"
+        },
+        "executable_sha256": "a744280c3f2ff98fe09fff94cb803e24c0428c3863d268c7a0bc2254167d85b1",
+        "source_count": 38
+      },
+      "production_source_sha_parity": {
+        "matched": 37,
+        "expected": 37,
+        "all_match_current_sources": true,
+        "source_set_sha256": "24278c95577d34a58c815f5f6b8f54cc66f0c56ed602d7b66c52d3f4db6e6ad4"
+      },
+      "session": {
+        "id": "20261025T044139970Z_p43612_a3dcef98d12a41c185dc4ae7b7d73ce9",
+        "artifact": {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/Sa47ResetTm/sessions/20261025T044139970Z_p43612_a3dcef98d12a41c185dc4ae7b7d73ce9/session.json",
+          "sha256": "a395ed4fe54c6046f7e3a3599b1710b4fac44095c907f132c130b5d3b7a94688"
+        },
+        "state": "closed",
+        "exit_code": 0,
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T044136689Z-e198aa27",
+        "process_bits": 32
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/Sa47ResetTm/Trainer_sa47_tm_reset_validation.json",
+          "sha256": "bea0f47d499b2de3df2a08fb64032b8a22c96d882f9f8789d88e79607cf6342a"
+        }
+      ]
+    },
+    {
+      "id": "Sa47Priorities",
+      "status": "passed",
+      "run_id": "test-20261025T043900251Z-620c2dc8",
+      "run_report": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/report.json",
+        "sha256": "80dff2113d53b5b575885780d063daecc86b6eb014495c67c08f89fbbcc7f5ea"
+      },
+      "step_result": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/Sa47Priorities/result.json",
+        "sha256": "605555ba0f60d5ed3babaec9ec6f91dedd1e0360a2e9959e06e732b61bbfc641"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-10-25T04:42:25.3577923Z",
+      "build": {
+        "id": "build-20261025T044203248Z-f61fe432",
+        "manifest": {
+          "path": "dev/builds/build-20261025T044203248Z-f61fe432/build.json",
+          "sha256": "1872415aa8e266cfaa1a15c44924d6c066fb7573d951f2365a8b4de75c09ec15"
+        },
+        "executable_sha256": "a672ed19f25d0e47a96c05cbb4e8321a5fccbcf6651cfba492701a6dbe89953d",
+        "source_count": 38
+      },
+      "production_source_sha_parity": {
+        "matched": 37,
+        "expected": 37,
+        "all_match_current_sources": true,
+        "source_set_sha256": "24278c95577d34a58c815f5f6b8f54cc66f0c56ed602d7b66c52d3f4db6e6ad4"
+      },
+      "session": {
+        "id": "20261025T044206540Z_p13236_1ece0b1dc4354c6fb8799b0e6d3e85a0",
+        "artifact": {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/Sa47Priorities/sessions/20261025T044206540Z_p13236_1ece0b1dc4354c6fb8799b0e6d3e85a0/session.json",
+          "sha256": "8e67d224f7c7d5704b15ae41dafa52fa40accc33f427dd70af1447df0db5ee08"
+        },
+        "state": "closed",
+        "exit_code": 0,
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T044203248Z-f61fe432",
+        "process_bits": 32
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/Sa47Priorities/Trainer_sa47_priority_validation.json",
+          "sha256": "c3835bc88b426b63dc6d1b3f9d74a088dfb1374f5b6a29f7c741e881738e76b1"
+        }
+      ]
+    },
+    {
+      "id": "Sa47OperatorReset",
+      "status": "passed",
+      "run_id": "test-20261025T043900251Z-620c2dc8",
+      "run_report": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/report.json",
+        "sha256": "80dff2113d53b5b575885780d063daecc86b6eb014495c67c08f89fbbcc7f5ea"
+      },
+      "step_result": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/Sa47OperatorReset/result.json",
+        "sha256": "ff355dfce9fe2588b53f478d2d278e80c2a3b25e6dc730219e99230e35ee77e6"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-10-25T04:43:02.0087139Z",
+      "build": {
+        "id": "build-20261025T044225371Z-dc24e722",
+        "manifest": {
+          "path": "dev/builds/build-20261025T044225371Z-dc24e722/build.json",
+          "sha256": "a38364191bcf8160ecac732dd345d384d18fa3524d7b3049d71342cb9c8452b3"
+        },
+        "executable_sha256": "033b7b0bb44af91a3885af381d818a1d334156962949bf1bccd3b90403c89189",
+        "source_count": 38
+      },
+      "production_source_sha_parity": {
+        "matched": 37,
+        "expected": 37,
+        "all_match_current_sources": true,
+        "source_set_sha256": "24278c95577d34a58c815f5f6b8f54cc66f0c56ed602d7b66c52d3f4db6e6ad4"
+      },
+      "session": {
+        "id": "20261025T044228724Z_p32520_12a7a0dae18e4cedbe3a4d22151bb1ac",
+        "artifact": {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/Sa47OperatorReset/sessions/20261025T044228724Z_p32520_12a7a0dae18e4cedbe3a4d22151bb1ac/session.json",
+          "sha256": "56cd1a63f9a815cfe00f3c3f81ea0a336dc7dbc3952fe8ef2c5f00ff7341f8be"
+        },
+        "state": "closed",
+        "exit_code": 0,
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T044225371Z-dc24e722",
+        "process_bits": 32
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/Sa47OperatorReset/Trainer_sa47_operator_reset_validation.json",
+          "sha256": "271c034d84c7cbec1ea3c2cae7ea43d2126754654e84522ee87a413b05f5a9e9"
+        }
+      ]
+    },
+    {
+      "id": "Sa47ProducerFault",
+      "status": "passed",
+      "run_id": "test-20261025T043900251Z-620c2dc8",
+      "run_report": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/report.json",
+        "sha256": "80dff2113d53b5b575885780d063daecc86b6eb014495c67c08f89fbbcc7f5ea"
+      },
+      "step_result": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/Sa47ProducerFault/result.json",
+        "sha256": "1d077757ec663c777222129ebe250d9bb40c0c0bf85c4bfbd1e116cb020810bb"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-10-25T04:43:08.4814996Z",
+      "build": {
+        "id": "build-20261025T044302020Z-343b007c",
+        "manifest": {
+          "path": "dev/builds/build-20261025T044302020Z-343b007c/build.json",
+          "sha256": "6a36cc331acb7c7b3a5fc817c429d74fe2e4f48f1e74a62ba10d1a71232f89ef"
+        },
+        "executable_sha256": "af81ef015d1a4f9012de15ca4e3c2592b83fa02cbf911a7fba7b5491970c8e12",
+        "source_count": 38
+      },
+      "production_source_sha_parity": {
+        "matched": 37,
+        "expected": 37,
+        "all_match_current_sources": true,
+        "source_set_sha256": "24278c95577d34a58c815f5f6b8f54cc66f0c56ed602d7b66c52d3f4db6e6ad4"
+      },
+      "session": {
+        "id": "20261025T044305361Z_p28592_dabb7b5fd0d243e49bbd591ac11909aa",
+        "artifact": {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/Sa47ProducerFault/sessions/20261025T044305361Z_p28592_dabb7b5fd0d243e49bbd591ac11909aa/session.json",
+          "sha256": "0a5749820ad6fce879e0953883b274373476e6fd1d9e5f052d4def0e65987e24"
+        },
+        "state": "closed",
+        "exit_code": 0,
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T044302020Z-343b007c",
+        "process_bits": 32
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/Sa47ProducerFault/Trainer_sa47_producer_fault_validation.json",
+          "sha256": "9e59a961e4605ada96a28f342101afe7bfd6bbd5de9da12806ee0c8598067369"
+        }
+      ]
+    },
+    {
+      "id": "AirControlIsolation",
+      "status": "passed",
+      "run_id": "test-20261025T043900251Z-620c2dc8",
+      "run_report": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/report.json",
+        "sha256": "80dff2113d53b5b575885780d063daecc86b6eb014495c67c08f89fbbcc7f5ea"
+      },
+      "step_result": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/AirControlIsolation/result.json",
+        "sha256": "ddfa0e83ef10afb6e3830bc26adb322d11728cfff6a09609376c38338ab93879"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-10-25T04:43:12.0744601Z",
+      "build": {
+        "id": "build-20261025T044308492Z-c4918343",
+        "manifest": {
+          "path": "dev/builds/build-20261025T044308492Z-c4918343/build.json",
+          "sha256": "53effddae3f91b84b08eb65c473179deaeb0b6e8c0e54b956bfe9fc3b5bc73ec"
+        },
+        "executable_sha256": "39a58608591b114118b7997a109f3b789ca2321caab3615c1734f8541b6434f9",
+        "source_count": 38
+      },
+      "production_source_sha_parity": {
+        "matched": 37,
+        "expected": 37,
+        "all_match_current_sources": true,
+        "source_set_sha256": "24278c95577d34a58c815f5f6b8f54cc66f0c56ed602d7b66c52d3f4db6e6ad4"
+      },
+      "session": {
+        "id": "20261025T044311807Z_p32988_c7fcec7ceee94a3888f2a2a3c8b45bbb",
+        "artifact": {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/AirControlIsolation/sessions/20261025T044311807Z_p32988_c7fcec7ceee94a3888f2a2a3c8b45bbb/session.json",
+          "sha256": "039abb3ad3e04a490a268ec32c78e61d3ad8fe163806ed7132cd50a15627469a"
+        },
+        "state": "closed",
+        "exit_code": 0,
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T044308492Z-c4918343",
+        "process_bits": 32
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/AirControlIsolation/Trainer_air_control_isolation_validation.json",
+          "sha256": "fc371bc3767ff8cfea7611dddddaeb80cac6b95e687906c0e7388f95f4c6f3fe"
+        }
+      ]
+    },
+    {
+      "id": "NativeSandAir",
+      "status": "passed",
+      "run_id": "test-20261025T043900251Z-620c2dc8",
+      "run_report": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/report.json",
+        "sha256": "80dff2113d53b5b575885780d063daecc86b6eb014495c67c08f89fbbcc7f5ea"
+      },
+      "step_result": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/NativeSandAir/result.json",
+        "sha256": "95e00e724bc551ac1c00a0f9c3ea131eeb04ce882649d225c966ccafafbda91e"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-10-25T04:43:26.6705902Z",
+      "build": {
+        "id": "build-20261025T044312086Z-44e5a7a0",
+        "manifest": {
+          "path": "dev/builds/build-20261025T044312086Z-44e5a7a0/build.json",
+          "sha256": "6b97f37ea1d1914493d635e6cabe05d7a1e2f99c293298996ce7255be4ca3f98"
+        },
+        "executable_sha256": "37975223c458f02602abf2f0f8951d7b4222e668f8566026ab2429e4600b13ed",
+        "source_count": 39
+      },
+      "production_source_sha_parity": {
+        "matched": 37,
+        "expected": 37,
+        "all_match_current_sources": true,
+        "source_set_sha256": "24278c95577d34a58c815f5f6b8f54cc66f0c56ed602d7b66c52d3f4db6e6ad4"
+      },
+      "session": {
+        "id": "20261025T044315500Z_p6836_b98ee33ec33e4290926195e0d2911435",
+        "artifact": {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/NativeSandAir/sessions/20261025T044315500Z_p6836_b98ee33ec33e4290926195e0d2911435/session.json",
+          "sha256": "76f39544232b2067281fafd0a6b13420bc6e94f4096f06363d9271b944a16ce0"
+        },
+        "state": "closed",
+        "exit_code": 0,
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T044312086Z-44e5a7a0",
+        "process_bits": 32
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/NativeSandAir/Trainer_native_sand_air.json",
+          "sha256": "d381d1097d2207b65653aec66ccbbae469d0ba8d5ca46b28e4e912ba47982481"
+        }
+      ]
+    },
+    {
+      "id": "MarkupSafety",
+      "status": "passed",
+      "run_id": "test-20261025T043900251Z-620c2dc8",
+      "run_report": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/report.json",
+        "sha256": "80dff2113d53b5b575885780d063daecc86b6eb014495c67c08f89fbbcc7f5ea"
+      },
+      "step_result": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/MarkupSafety/result.json",
+        "sha256": "5ef38f42265d9d6f691c8f2bb73b6300839e1eefba15ea33380b0e045502fa99"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-10-25T04:43:34.5888132Z",
+      "build": {
+        "id": "build-20261025T044326681Z-4f57a169",
+        "manifest": {
+          "path": "dev/builds/build-20261025T044326681Z-4f57a169/build.json",
+          "sha256": "73febee70c52a5db4cda49b0dd089b1a12df0c6083086541216845a7a14d7b97"
+        },
+        "executable_sha256": "65b155400c6d46be1ed19f9dbac7b6183f315c3162092801f82134f3363a0c30",
+        "source_count": 38
+      },
+      "production_source_sha_parity": {
+        "matched": 37,
+        "expected": 37,
+        "all_match_current_sources": true,
+        "source_set_sha256": "24278c95577d34a58c815f5f6b8f54cc66f0c56ed602d7b66c52d3f4db6e6ad4"
+      },
+      "session": {
+        "id": "20261025T044330028Z_p12380_395928443b9b44deadff922c43f7db1a",
+        "artifact": {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/MarkupSafety/sessions/20261025T044330028Z_p12380_395928443b9b44deadff922c43f7db1a/session.json",
+          "sha256": "b31326faffdbcbc45d2e7259644697e32a8ee3aa3be233699646c11646e68c3f"
+        },
+        "state": "closed",
+        "exit_code": 0,
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T044326681Z-4f57a169",
+        "process_bits": 32
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/MarkupSafety/Markup_safety.json",
+          "sha256": "8b149190eae7c88cf7f85c998f7040e51d7c022f39b20f9da5a63dc6680c90d8"
+        }
+      ]
+    },
+    {
+      "id": "NativeSafetyAdapter",
+      "status": "passed",
+      "run_id": "test-20261025T043900251Z-620c2dc8",
+      "run_report": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/report.json",
+        "sha256": "80dff2113d53b5b575885780d063daecc86b6eb014495c67c08f89fbbcc7f5ea"
+      },
+      "step_result": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/NativeSafetyAdapter/result.json",
+        "sha256": "a7877e0ebef7eced96f3f7ddcb6e643a3662a4254b2e821da7da0b65207338c3"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-10-25T04:43:59.6006416Z",
+      "build": {
+        "id": "build-20261025T044334597Z-bde67aae",
+        "manifest": {
+          "path": "dev/builds/build-20261025T044334597Z-bde67aae/build.json",
+          "sha256": "5bbef8685b74c091221ae730ab96fbf589bc30789839492e1af07b70507d5e77"
+        },
+        "executable_sha256": "3862e9ffa1f4eda3fa9ebc7dde6e8a0d224518984ab7997a3bb06e4be56422be",
+        "source_count": 38
+      },
+      "production_source_sha_parity": {
+        "matched": 37,
+        "expected": 37,
+        "all_match_current_sources": true,
+        "source_set_sha256": "24278c95577d34a58c815f5f6b8f54cc66f0c56ed602d7b66c52d3f4db6e6ad4"
+      },
+      "session": {
+        "id": "20261025T044337908Z_p24672_ed21ea0908004bc9b7b1036e91268486",
+        "artifact": {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/NativeSafetyAdapter/sessions/20261025T044337908Z_p24672_ed21ea0908004bc9b7b1036e91268486/session.json",
+          "sha256": "2369ebf19c9382d5dd64cbef81a84b985642cd9423755efa0d3deaa844a00438"
+        },
+        "state": "closed",
+        "exit_code": 0,
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T044334597Z-bde67aae",
+        "process_bits": 32
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/NativeSafetyAdapter/Trainer_native_safety.json",
+          "sha256": "34df99c0b07192c4d53fd44b2bb0c4b4af2ec243269e9188690c47203486bf1a"
+        }
+      ]
+    },
+    {
+      "id": "VigilanceOperator",
+      "status": "passed",
+      "run_id": "test-20261025T043900251Z-620c2dc8",
+      "run_report": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/report.json",
+        "sha256": "80dff2113d53b5b575885780d063daecc86b6eb014495c67c08f89fbbcc7f5ea"
+      },
+      "step_result": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/VigilanceOperator/result.json",
+        "sha256": "8285e7b46bc6a6ce2710c767c977c88e65700646b73eda726979e6e1f254544e"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-10-25T04:44:07.8504964Z",
+      "build": {
+        "id": "build-20261025T044359621Z-5e13e24a",
+        "manifest": {
+          "path": "dev/builds/build-20261025T044359621Z-5e13e24a/build.json",
+          "sha256": "ca0b36425dcbbc22a0329e08b47ce9f0f7c0ab938ca386f0f67fd052e8d33bac"
+        },
+        "executable_sha256": "c9bbe3766c0ec276b74853744460689149ccf960da77f67b44a88152b4b8c076",
+        "source_count": 38
+      },
+      "production_source_sha_parity": {
+        "matched": 37,
+        "expected": 37,
+        "all_match_current_sources": true,
+        "source_set_sha256": "24278c95577d34a58c815f5f6b8f54cc66f0c56ed602d7b66c52d3f4db6e6ad4"
+      },
+      "session": {
+        "id": "20261025T044403347Z_p27336_8353369d611e42269f54e26b4f270364",
+        "artifact": {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/VigilanceOperator/sessions/20261025T044403347Z_p27336_8353369d611e42269f54e26b4f270364/session.json",
+          "sha256": "43b0ecfb7f2998bc83395b71bbbc93f8502615d96eea8c433f045bd398fa58d8"
+        },
+        "state": "closed",
+        "exit_code": 0,
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T044359621Z-5e13e24a",
+        "process_bits": 32
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/VigilanceOperator/Trainer_vigilance_operator.json",
+          "sha256": "c3c4b33d7f5eb99014acb74ab93d4c1858951d7047f2523b00cf9cf0606a7394"
+        }
+      ]
+    },
+    {
+      "id": "Tyga750Clamp",
+      "status": "passed",
+      "run_id": "test-20261025T043900251Z-620c2dc8",
+      "run_report": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/report.json",
+        "sha256": "80dff2113d53b5b575885780d063daecc86b6eb014495c67c08f89fbbcc7f5ea"
+      },
+      "step_result": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/Tyga750Clamp/result.json",
+        "sha256": "7722666ece079c9786a1d5dd3554f817a9efa7064c93b276d3a7e2c1a501e643"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-10-25T04:44:27.3978925Z",
+      "build": {
+        "id": "build-20261025T044407862Z-9c3f71d0",
+        "manifest": {
+          "path": "dev/builds/build-20261025T044407862Z-9c3f71d0/build.json",
+          "sha256": "a1d6199bdf0d74eceab01b2c649f9bb364c2b9bd452c950369cf018b006b7a19"
+        },
+        "executable_sha256": "89d2dec8de50e00e28e62cb350d57e9e804b6ee0a356eb1671ad0c49aa4336b0",
+        "source_count": 40
+      },
+      "production_source_sha_parity": {
+        "matched": 37,
+        "expected": 37,
+        "all_match_current_sources": true,
+        "source_set_sha256": "24278c95577d34a58c815f5f6b8f54cc66f0c56ed602d7b66c52d3f4db6e6ad4"
+      },
+      "session": {
+        "id": "20261025T044411529Z_p20348_f79efca6dd05411886fd517914835749",
+        "artifact": {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/Tyga750Clamp/sessions/20261025T044411529Z_p20348_f79efca6dd05411886fd517914835749/session.json",
+          "sha256": "7fa927e9f78af10afa7f1f5279b731ca2c64a6bda248a87383e764f6ddc3b2ab"
+        },
+        "state": "closed",
+        "exit_code": 0,
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T044407862Z-9c3f71d0",
+        "process_bits": 32
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261025T043900251Z-620c2dc8/Tyga750Clamp/Trainer_tyga750_clamp_diagnostic.json",
+          "sha256": "070553bdf19cacb351034f394fdb6b74606cda10a386ccf7d2c73d716795d59e"
+        }
+      ]
+    },
+    {
+      "id": "SectionPantographPressure",
+      "status": "passed",
+      "run_id": "test-20261025T044459112Z-b0d72ce6",
+      "run_report": {
+        "path": "dev/runs/test-20261025T044459112Z-b0d72ce6/report.json",
+        "sha256": "124e6fa5d7b9068872165eba3d91905f5f943cf1fe82a39bf9f7a0b0c5480097"
+      },
+      "step_result": {
+        "path": "dev/runs/test-20261025T044459112Z-b0d72ce6/SectionPantographPressure/result.json",
+        "sha256": "4893689e8ceb9ac735d866b23c091cec7ee1f089b2ab0cbf446cedef63dbcb34"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-10-25T04:45:06.4978489Z",
+      "build": {
+        "id": "build-20261025T044459197Z-be20bded",
+        "manifest": {
+          "path": "dev/builds/build-20261025T044459197Z-be20bded/build.json",
+          "sha256": "9cf45808034396481b4d5ae218da667c920c23e19057ab3f649a190674b469b0"
+        },
+        "executable_sha256": "8ada68efd6988722e5d8855cb60690260a99cf52dccb910160924e794b842eb5",
+        "source_count": 38
+      },
+      "production_source_sha_parity": {
+        "matched": 37,
+        "expected": 37,
+        "all_match_current_sources": true,
+        "source_set_sha256": "24278c95577d34a58c815f5f6b8f54cc66f0c56ed602d7b66c52d3f4db6e6ad4"
+      },
+      "session": {
+        "id": "20261025T044502854Z_p41776_3db47dddc05045509e3b579e14cadcb6",
+        "artifact": {
+          "path": "dev/runs/test-20261025T044459112Z-b0d72ce6/SectionPantographPressure/sessions/20261025T044502854Z_p41776_3db47dddc05045509e3b579e14cadcb6/session.json",
+          "sha256": "89d04313767af580b89a2ef839468e181c9af82f232b19739091ec0b2ad5b54c"
+        },
+        "state": "closed",
+        "exit_code": 0,
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T044459197Z-be20bded",
+        "process_bits": 32
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261025T044459112Z-b0d72ce6/SectionPantographPressure/Trainer_section_pantograph_pressure_probe.json",
+          "sha256": "00dbed6cbc25fcee600b4f989d7a9023ed637f113f59cd5cbabbe835c8e35778"
+        }
+      ]
+    },
+    {
+      "id": "ContactNetworkVoltage",
+      "status": "passed",
+      "run_id": "test-20261025T043704000Z-a11fff61",
+      "run_report": {
+        "path": "dev/runs/test-20261025T043704000Z-a11fff61/report.json",
+        "sha256": "56b53ad6c99b9c5328b27288bb063808024ea4ee64d585b2bea2555af029467f"
+      },
+      "step_result": {
+        "path": "dev/runs/test-20261025T043704000Z-a11fff61/ContactNetworkVoltage/result.json",
+        "sha256": "67167e7087c2020ad25e388c61dc8ee38bfaec0c2774d615ba4d088f3f3d1f19"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-10-25T04:37:25.4919822Z",
+      "build": {
+        "id": "build-20261025T043704088Z-6bddcccc",
+        "manifest": {
+          "path": "dev/builds/build-20261025T043704088Z-6bddcccc/build.json",
+          "sha256": "ac33e3c3bd15a3eabe64a8a8b0ee055c3d0a19ac7a99d4d32823913d12762b34"
+        },
+        "executable_sha256": "37c11f795564c58e49b1c4f46c955eb3e37e20ba78f529999bde2eeb70d41494",
+        "source_count": 39
+      },
+      "production_source_sha_parity": {
+        "matched": 37,
+        "expected": 37,
+        "all_match_current_sources": true,
+        "source_set_sha256": "24278c95577d34a58c815f5f6b8f54cc66f0c56ed602d7b66c52d3f4db6e6ad4"
+      },
+      "session": {
+        "id": "20261025T043707988Z_p21320_bb30cc94083d4acb90bc3f2025d85586",
+        "artifact": {
+          "path": "dev/runs/test-20261025T043704000Z-a11fff61/ContactNetworkVoltage/sessions/20261025T043707988Z_p21320_bb30cc94083d4acb90bc3f2025d85586/session.json",
+          "sha256": "28ee94a4d6a44a30222107b6ea4736d9b885bf298f165cdebc706583d719b817"
+        },
+        "state": "closed",
+        "exit_code": 0,
+        "exceptions": 0,
+        "logging_failures": 0,
+        "source_build_id": "build-20261025T043704088Z-6bddcccc",
+        "process_bits": 32
+      },
+      "artifacts": [
+        {
+          "path": "dev/runs/test-20261025T043704000Z-a11fff61/ContactNetworkVoltage/Trainer_contact_voltage_validation.json",
+          "sha256": "6f16c99f61685bda557575eedfef52101ed569b4e0896a470a25ace0b617af19"
+        }
+      ]
+    }
+  ],
+  "original_failed_verifier": {
+    "id": "SectionPantographPressure",
+    "run_id": "test-20261025T043900251Z-620c2dc8",
+    "status": "failed",
+    "native_exit_code": 0,
+    "runner_error": "Неверное напряжение в rising row 1",
+    "native_artifact_passed": true,
+    "native_artifact": {
+      "path": "dev/runs/test-20261025T043900251Z-620c2dc8/SectionPantographPressure/Trainer_section_pantograph_pressure_probe.json",
+      "sha256": "00dbed6cbc25fcee600b4f989d7a9023ed637f113f59cd5cbabbe835c8e35778"
+    },
+    "native_session": {
+      "artifact": {
+        "path": "dev/runs/test-20261025T043900251Z-620c2dc8/SectionPantographPressure/sessions/20261025T043912405Z_p22808_fabb76e39ec14930967edda2f376f2ff/session.json",
+        "sha256": "f520ffb2b10e691a1c1f6019c56b6ab3da236528665c1c594685a716574b3a7c"
+      },
+      "state": "closed",
+      "exit_code": 0,
+      "exceptions": 0,
+      "logging_failures": 0
+    },
+    "original_post_verifier": "$voltage = if ($i -eq 0) {0} else {3100}",
+    "corrected_post_verifier": "$voltage = if ($i -eq 0) {0} else {3000}",
+    "post_verifier_source": {
+      "path": "dev/scripts/TrainerDev.Common.ps1",
+      "sha256": "8f33645bbbda10ecb65b25137c422d3a85cbe27bb877ae1527fe56a50c6ea262"
+    },
+    "original_expression_git_head": "bc0443a0729d88b2e672561611e30fdedf043bea",
+    "physical_rising_rows": [
+      {
+        "first_RS6": 0,
+        "second_RS6": 0,
+        "feedbacks": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "native_line_voltage_V": 0
+      },
+      {
+        "first_RS6": 0,
+        "second_RS6": 5,
+        "feedbacks": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "native_line_voltage_V": 3000
+      },
+      {
+        "first_RS6": 5,
+        "second_RS6": 0,
+        "feedbacks": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "native_line_voltage_V": 3000
+      },
+      {
+        "first_RS6": 5,
+        "second_RS6": 5,
+        "feedbacks": [
+          1,
+          1,
+          0,
+          0
+        ],
+        "native_line_voltage_V": 3000
+      }
+    ],
+    "physical_falling_rows": [
+      {
+        "first_RS6": 3.1,
+        "second_RS6": 5,
+        "feedbacks": [
+          1,
+          1
+        ],
+        "native_line_voltage_V": 3000
+      },
+      {
+        "first_RS6": 2.8,
+        "second_RS6": 5,
+        "feedbacks": [
+          0,
+          1
+        ],
+        "native_line_voltage_V": 3000
+      },
+      {
+        "first_RS6": 5,
+        "second_RS6": 5,
+        "feedbacks": [
+          1,
+          1
+        ],
+        "native_line_voltage_V": 3000
+      },
+      {
+        "first_RS6": 5,
+        "second_RS6": 3.1,
+        "feedbacks": [
+          1,
+          1
+        ],
+        "native_line_voltage_V": 3000
+      },
+      {
+        "first_RS6": 5,
+        "second_RS6": 2.8,
+        "feedbacks": [
+          1,
+          0
+        ],
+        "native_line_voltage_V": 3000
+      },
+      {
+        "first_RS6": 2.8,
+        "second_RS6": 2.8,
+        "feedbacks": [
+          0,
+          0
+        ],
+        "native_line_voltage_V": 0
+      },
+      {
+        "first_RS6": 3.1,
+        "second_RS6": 3.1,
+        "feedbacks": [
+          0,
+          0
+        ],
+        "native_line_voltage_V": 0
+      }
+    ],
+    "interpretation": "Нативная проба закончилась exit 0 и создала passed artifact с корректными 3000/0 В и секционными обратными связями. Ошибка возникла после неё: Common.ps1 ожидал старые 3100 В. Исправлено ожидание runner, затем выполнен новый отдельный успешный повтор b0d72ce6. Исходный отказ остаётся в истории, не объявляется новым дефектом DLL."
+  },
+  "tyga750_current_3000_compatibility": {
+    "id": "Tyga750Clamp",
+    "run_id": "test-20261025T043900251Z-620c2dc8",
+    "artifact": {
+      "path": "dev/runs/test-20261025T043900251Z-620c2dc8/Tyga750Clamp/Trainer_tyga750_clamp_diagnostic.json",
+      "sha256": "070553bdf19cacb351034f394fdb6b74606cda10a386ccf7d2c73d716795d59e"
+    },
+    "passed": true,
+    "checks": 117,
+    "full_cycles": 1316,
+    "observed_electrical_frames": 1315,
+    "maximum_actual_speed_kmh": 4.467061519622803,
+    "qualified_cycle": 1311,
+    "qualified_native_uset_V": 3000,
+    "qualified_status": "retained_early750_before_nonzero_force_and_late_noop_verified",
+    "observer_and_input_restoration": true,
+    "scope": "Ограниченная совместимость существующего retained early750 и диагностического Help guard с новым source3000. Не новая приёмка нормативности750 А, защит800 А/10 с, factory calibration или паспортной F(v)."
+  },
+  "final_build_and_deployment": {
+    "builds": [
+      {
+        "profile": "integration",
+        "build_id": "build-20261025T044536466Z-da5cbb8d",
+        "manifest": {
+          "path": "dev/builds/build-20261025T044536466Z-da5cbb8d/build.json",
+          "sha256": "fa819fb3165cc3e726987c969b1e9b728c9d0722f10f404f6c2ebfc3115583bc"
+        },
+        "artifact": {
+          "path": "dev/builds/build-20261025T044536466Z-da5cbb8d/TrainerIntegrationHost.exe",
+          "sha256": "5e0399ffc17484b20b935ec2b388c2c3f8caa4d455737a4656b633a3f33d833c"
+        },
+        "source_count": 30,
+        "source_sha_parity_passed": true
+      },
+      {
+        "profile": "candidate",
+        "build_id": "build-20261025T044539416Z-5bb10ed7",
+        "manifest": {
+          "path": "dev/builds/build-20261025T044539416Z-5bb10ed7/build.json",
+          "sha256": "187f818bf9e48c5ff5e2d1d0e9b21f2c74d51e29fadaf1a9ed12b02b5363626f"
+        },
+        "artifact": {
+          "path": "dev/builds/build-20261025T044539416Z-5bb10ed7/TrainerIntegrationHost.pneumatic_candidate.exe",
+          "sha256": "48da185e470b0372df727ea0e4cfc10acf715fd9e8b2e9f69388541229368079"
+        },
+        "source_count": 37,
+        "source_sha_parity_passed": true
+      }
+    ],
+    "deployment": {
+      "path": "outputs/TrainerIntegrationHost.pneumatic_candidate.exe",
+      "sha256": "48da185e470b0372df727ea0e4cfc10acf715fd9e8b2e9f69388541229368079"
+    },
+    "deployment_matches_candidate_build": true,
+    "csproj": {
+      "path": "dev/TrainerIntegrationHost.csproj",
+      "sha256": "744f482a8256b20ad8eedb7865460ffc6c9315394a658ad2cbb2f1ad6ab4dd2c"
+    },
+    "csproj_candidate_source_parity": {
+      "sources": 37,
+      "passed": true
+    },
+    "integration_profile_sources": 30,
+    "candidate_profile_sources": 37
+  },
+  "doctor": {
+    "artifact": {
+      "path": "dev/runs/doctor-20261025T044558630Z-fe802c78/doctor.json",
+      "sha256": "edcf3f6e7f0b78b51404a0e324d19a82ca3080c63af966a4d9e55ce2b9ab766a"
+    },
+    "passed": true,
+    "native_DLL_count": 51,
+    "native_DLL_sha_matches": 51,
+    "required_tools_passed": true,
+    "Pult_sha256": "7dac59bf94276309e012a6eb72602c08a921fe1910a4169f9f0ec27008f0f8f5",
+    "Tyga_sha256": "8ec6a82e618a1d75cbb31242784084b530bb87308e601defc5263d5279270491",
+    "patch_source_sha256": "267d313214901309b98a6a0be00fd784d75c25def0dc2a473801009654dfae57"
+  },
+  "limitations": [
+    "21 уникальный успешный id — объединение трёх запусков, а не один переименованный 20/20 run.",
+    "PASS относится к описанным сценариям; полная РЭ/физическая калибровка, ПСН/защиты/операторская рекуперация и №137+ не принимаются.",
+    "Trial-call order подтверждён PE анализом. Прямые отдельные native счётчики каждого раннего trial call не добавлялись; нативно принят удержанный P1 source/current response.",
+    "В этой агрегации native не выполнялся; только прочитаны immutable report/result/session/build, проверены SHA источников и артефактов."
+  ],
+  "additional_static_correction": {
+    "path": "dev/docs/audit_parts/re_part1/uks-20261025/voltage-diagnostic-threshold-correction.json",
+    "sha256": "47fea61efb9a2d2158424be6937568deee9dba2454e1592a01a509d66d17a790",
+    "scope": "Прежняя подпись threshold_4101 отозвана: три CMP в Proceed_Messages содержат 0x0FD2 = 4050 В. Это диагностическая ветвь, а не защита БВ > 4100 В / > 0,3 с. Вход пробы 4101 В и итоговые 288/21 результатов не меняются."
+  }
+}
