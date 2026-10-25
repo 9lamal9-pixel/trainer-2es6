@@ -1,0 +1,252 @@
+{
+  "schema_version": 1,
+  "reviewed_utc": "2026-10-25T04:52:05.857512+00:00",
+  "status": "static_path_confirmed_analog_protection_acceptance_pending",
+  "scope": "Потеря сети, поднапряжение, разрешение тяги, пуск ПСН и отключение БВ по напряжению. Свежий статический разбор фактических DLL и выбранных native входов/производителей, без исполнения. Это проект следующей проверки и возможного исправления, не приёмка защит.",
+  "native_executed": false,
+  "production_or_catalog_edited": false,
+  "git_used": false,
+  "source": {
+    "path": "work/public_2es6_part1.pdf",
+    "sha256": "c381056881302e0a0ad743d36148cbd8abf18930fc6d756b99ec19b3431c61e6",
+    "revision_limit": "Смешанные изменённые листы 2008/2010/2013; точная применимость к комплектации начиная с №137 не установлена. Пороги ниже являются требованиями этого экземпляра РЭ, не окончательно выбранным runtime-профилем."
+  },
+  "requirements_kept_separate": [
+    {
+      "id": "PSN_INPUT",
+      "section": "2.6.2",
+      "printed_page": 61,
+      "pdf_page": 61,
+      "visual_checked": true,
+      "requirement": "Для начала работы ПСН нужны низковольтное питание и входное высокое напряжение от (2200 +50) В до (4000+50) В. Надпись +50 сохранена буквально; она не переписана в ±50 и не выбрана здесь как самостоятельная жёсткая уставка 2250/4050.",
+      "image": "dev/runs/re-part1-20261024/source/p061.png",
+      "image_sha256": "0a0a4797805730f9e9fb208058f008e7812e58abb1b9cebb4d01e8bd98917a03"
+    },
+    {
+      "id": "TRACTION_PERMISSION",
+      "section": "3.11.9.1",
+      "printed_page": 96,
+      "pdf_page": 101,
+      "visual_checked": true,
+      "requirement": "Разрешение набора: Uks любой секции в пределах 2200–4000 В либо 200–600 В, либо тестовый режим, наряду с реверсором, цепью «Выбег» и отсутствием команды отключения тяги САУТ. Потеря разрешения более 0,5 с вне позиции 0 приводит к команде «Выбег». Это не требование отключать БВ при любом Uks<2200.",
+      "image": "dev/runs/re-part1-20261024/source/p101.png",
+      "image_sha256": "8f8a7f7ca87bb3b24db80eb70816929e7b7725063d08456f0be34390fb592c7c"
+    },
+    {
+      "id": "VOLTAGE_WARNINGS",
+      "section": "3.11.9.1",
+      "printed_page": 96,
+      "pdf_page": 101,
+      "visual_checked": true,
+      "requirement": "Отдельная индикация «Повышенное Uks» при Uks>4000 В и «Пониженное Uks» при Uks<2700 В. Нормальное для тяги 2500 В одновременно является причиной предупреждения; порог 2700 не должен сам превращаться в запрет тяги или отключение БВ.",
+      "image": "dev/runs/re-part1-20261024/source/p101.png",
+      "image_sha256": "8f8a7f7ca87bb3b24db80eb70816929e7b7725063d08456f0be34390fb592c7c"
+    },
+    {
+      "id": "BV_OVERVOLTAGE",
+      "section": "3.6.5",
+      "printed_page": 82,
+      "pdf_page": 87,
+      "visual_checked": true,
+      "requirement": "Uks по каналу МПСУиД любой секции строго более 4100 В продолжительностью строго более 0,3 с вызывает защитное отключение БВ. Ровно 4100 В и ровно 0,3 с не равны этому условию.",
+      "image": "dev/runs/re-part1-20261024/source/p087.png",
+      "image_sha256": "a0ac9d81c000b59ce847a371a1de7ba4d1774116e717756ed1d8f1fbea2472fe"
+    },
+    {
+      "id": "PSN_SEQUENCE",
+      "section": "3.6.3–3.6.4",
+      "printed_page": 82,
+      "pdf_page": 87,
+      "visual_checked": true,
+      "requirement": "КМ 1 через 3 с после выключения КМ 17, КМ 2 ещё через 2 с; при отсутствии «Контроль ПСН» через 1 с отключаются КМ 1/КМ 2, повтор только после выключения БВ. При оперативном выключении БВ сначала выключаются тяга/ЭТ и ПСН. Этот набор времён не подтверждается одним фактом наличия native счётчиков.",
+      "image": "dev/runs/re-part1-20261024/source/p087.png",
+      "image_sha256": "a0ac9d81c000b59ce847a371a1de7ba4d1774116e717756ed1d8f1fbea2472fe"
+    }
+  ],
+  "module_identity": {
+    "Pult1": {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Pult1.dll",
+      "sha256": "7dac59bf94276309e012a6eb72602c08a921fe1910a4169f9f0ec27008f0f8f5"
+    },
+    "Communication1": {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Communication1.dll",
+      "sha256": "27178a089ef33692d16b1d46ae0dd7567135b327a24be9d7d0ca84af8df3db7f"
+    },
+    "MSUL_MON": {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/MSUL_MON.dll",
+      "sha256": "95e3fb14cbc7ff2b5e9c61dc2215cfa7c2f23161fe21d075adf04f45907b653b"
+    }
+  },
+  "fresh_findings": [
+    {
+      "id": "NV01",
+      "status": "confirmed_static",
+      "rva": "Pult1:18C135–18C208",
+      "finding": "Napruga (TShema+123) = OR(QF1[62..65]) && AnyXA1. AnyXA1 = OR(XA1[5C..5F]), кроме принудительного сброса при TPult.NF.Neispr2(+F0)==1. Useti не участвует в этом producer. Формулировка «только PowerOn/BV» неточна: доказаны конкретные контакты XA1/QF1, а не отдельный аналоговый PowerOn.",
+      "consequence": "При внешнем source0 сохранённые контакты могут оставить Napruga=true. Исправление аналогового источника само по себе не подтверждает отключение вспомогательных потребителей при исчезновении сети."
+    },
+    {
+      "id": "NV02",
+      "status": "confirmed_static",
+      "rva": "Pult1:18CF68–18D054",
+      "finding": "Секционный XA1 публикуется по VUP1, KEP1Katushka и BVS2to13, затем сбрасывается по условиям давления и кнопке токоприёмника. В этом участке нет аналогового сравнения Uks.",
+      "consequence": "Нельзя заменять физический путь контактов безусловным host PowerOn=true или прямой установкой XA1/QF1 для прохождения проверки."
+    },
+    {
+      "id": "NV03",
+      "status": "confirmed_static",
+      "rva": "Pult1:18E97A–18E9D6",
+      "finding": "Обычный Useti producer расположен в конце UpdateButton: OR четырёх BVS2to13 → активная запись напряжения, иначе 0. Текущий memory patch подставляет общий source в эту активную native запись, сохраняя OR gate. Решения Napruga, секционных БВ и запусков ПСН текущего вызова уже были выполнены.",
+      "consequence": "Вмешательство после commStep либо только в этот поздний MOV не подключает новое напряжение к предшествующим защитным решениям. Нужен согласованный ранний снимок источника и native producer voltage conditions до соответствующих потребителей."
+    },
+    {
+      "id": "NV04",
+      "status": "confirmed_static",
+      "rva": "Pult1:18CD6B–18CDCE",
+      "finding": "В UpdateButton есть настоящее чтение TShema.Useti>0 перед ветвью управления токоприёмником, когда BV_Btn не 0 и BVS данной секции ещё 0. Оно использует Useti прошлого завершённого вызова, поскольку поздняя публикация 18E9BA ещё не выполнена. Это не проверка рабочего диапазона ПСН или отключения БВ 4100.",
+      "consequence": "Глобальное переписывание всех совпадений offset125 ошибочно: часть +125 относится к другим записям, а это сравнение имеет иной смысл."
+    },
+    {
+      "id": "NV05",
+      "status": "confirmed_static",
+      "rva": "Pult1:18D0F9–18D568;18E56C–18E7E7",
+      "finding": "Native путь БВ и поэтапный запуск существуют. BV_Btn=1, отсутствие NF9/NF10, QF1=0, AnyXA1 и нулевая позиция участвуют в запросе включения. Таймерные этапы позднее устанавливают QF1, KM19 и PSN state. Оперативная ветвь отключения очищает QF1, KM19, KA1/KA2, PSN state и AB state. Наличие этих ветвей опровергает утверждение, что в DLL вообще нет управления или защитных приоритетов.",
+      "consequence": "Будущий аналоговый trip должен проходить через согласованный native аппаратный producer и сброс его отложенных этапов. Однократный сброс QF1/PSN после commStep может быть перезаписан ожидающим таймером на следующем вызове."
+    },
+    {
+      "id": "NV06",
+      "status": "confirmed_static",
+      "rva": "Pult1:18D568–18D616;outer loop18CC62–18DF95",
+      "finding": "TShema.BVCount+98 и BVError+96 относятся к неуспешному включению: BV_Btn=1, секционный QF1=0, NF9/NF10=0 → инкремент; иначе общий счётчик сбрасывается. Порог 50. Общий счётчик находится внутри цикла по двум секциям, поэтому может инкрементироваться дважды за один UpdateButton либо сбрасываться соседней секцией.",
+      "consequence": "Нельзя называть это 50 электрическими циклами,5 секундами или защитой Uks>4100 более 0,3 с без отдельной динамической трассы."
+    },
+    {
+      "id": "NV07",
+      "status": "confirmed_static",
+      "rva": "Pult1:18D32C–18D348",
+      "finding": "В ветви возврата БВ есть условие ResTyga.Uset (TTygaParam.ResT+11)>0.0: FCOMP на 18D338 использует Pult data RVA18ED30, четыре байта 00000000 (Single0.0), JBE пропускает возврат. Это ветвь возврата/компонентного состояния, а не компаратор 4100 с выдержкой 0,3 с. Она читает результат предшествующего расчёта Tyga, до расчёта Tyga текущего Pult.Proceed.",
+      "consequence": "Для любого нового исправления нужно сохранить существующие приоритеты возврата, NF и релейных условий, не заменять их одним predicate source>0."
+    },
+    {
+      "id": "NV08",
+      "status": "confirmed_static",
+      "rva": "Pult1:189941;189A6C;189B93",
+      "finding": "Все три immediate имеют байты 81B825010000D20F0000: 0xFD2=4050 В. JGE пропускает следующий диагностический блок при Useti>=4050. Дальше проверяются позиция 0, последовательное возбуждение и нулевой ток. Это выбор сообщений, не доказанный trip4100. Историческая метка 4101 отозвана отдельным correction.",
+      "consequence": "Не менять результаты проверки source input4101: такой вход допустим. Исправить только ошибочную атрибуцию native порога."
+    },
+    {
+      "id": "NV09",
+      "status": "confirmed_static_message_branch_defect",
+      "rva": "Pult1:18A828–18A871",
+      "finding": "Ветка сообщения 209 (Soobsh+31E=0xD1) недостижима для любого Int32 Useti. Переходы: U>=2200 → проверка U>=200 → выход; при U<2200 сравнение U>4000 ложно, затем U>=200 даёт выход, а для U<200 проверка U<=600 тоже даёт выход.",
+      "consequence": "Это доказанный дефект именно выбора сообщения о напряжении. Он не доказывает отсутствие отдельной защиты или полного алгоритма разрешения тяги. Эта ветвь также не реализует отдельные предупреждения 2700/4000."
+    },
+    {
+      "id": "NV10",
+      "status": "confirmed_static_scoped_negative",
+      "rva": "Communication1:2973BC;29761A;1A2170;2B0944;2B1EF4",
+      "finding": "Проверены актуальные Communication Basis/2ES6 Proceed, wrapper вызова Pult, сеттер нейтральной вставки и hardware update graph. Pult Proceed вызывается один раз через wrapper, после него выполняются платформенные/САУТ/пультовые обновления. В исследованных Communication классах не найден самостоятельный аналоговый producer Uks→поднапряжение/БВ 4100. SetNeytralVstav297EB4 лишь сохраняет byteComm+27C.",
+      "consequence": "Это ограниченный отрицательный результат по конкретному пути, не доказательство отсутствия всех возможных автоматических защит во всех модулях/внешних обратных вызовах."
+    },
+    {
+      "id": "NV11",
+      "status": "confirmed_static_scoped_negative",
+      "rva": "MSUL_MON:1EF890–1EF8CA;1EF904–1EF95F;1F1A48",
+      "finding": "Активный ProceedMSUL вызывает UpdateButtonMSUL и ProceedMonitor двух мониторов. UpdateButtonMSUL передаёт нажатия кнопок выбора экранов и очищает их, не вычисляет Uks. В DLL есть отдельная копия TShema.Proceed_Messages/Proceed_Kontaktors, но среди 2043 рассмотренных nonframework процедур не найдено прямых вызовов методов этой записи; реальный render entry не вызывает их.",
+      "consequence": "Наличие названий защит и схем в библиотеке экрана само по себе не доказывает действующий алгоритм защиты. Не приписывать неиспользованной копии TShema отдельный канал МПСУиД."
+    }
+  ],
+  "cycle_and_time": {
+    "managed_order": "PollCommands → BeforeAutovedenieCycle → ElectricalCycle → AfterAutovedenieElectricalCycle → ApplyTestInputs → route/aux/KLUB → PneumaticCycle → MotionCycle → ticks++.",
+    "electrical_order": "BeforeContactNetworkElectricalCycle.SetVoltage → SA47 scope → air scope → commStep → voltage Validate → interlock → finally восстановления scopes → fresh release capture только после успешного вызова.",
+    "native_order": "Communication.ProceedPultDll → Pult2ES6.Proceed: PrevStates → UpdateKont → UpdateButton → UpdateFlags → lights/pribors → Proceed_Kontaktors → Proceed_Messages → UpdateOborud → Tyga Proceed → MSUL render → UpdateLastParam.",
+    "host_nominal_step_seconds": 0.1,
+    "source": "TrainerIntegrationHost.cs:135 Timer.Interval100; TrainerNativeSystems.cs:85 motionStep(...,.1f,...).",
+    "timing_limit": "Timer.Interval100 не гарантирует фактическую стенную задержку 100 мс. Native счётчики выполняются на вызовах, некоторые находятся в секционном цикле. Новую 0,3/0,5 с логику считать по согласованным завершённым native simulation epochs, а не по числу заходов секционного участка, вызовам Snapshot или времени рендеринга.",
+    "boundary_protocol": "Задать событие перед известным native epochT0; хранить целые длительности шага и отмечать фактическое время первого семпла/срабатывания. Для строгого >0,3 с отдельно проверять 0,2;0,3;0,4 с. Не считать двойное округление 0,1+0,1+0,1 причиной срабатывания на равенстве."
+  },
+  "next_producer_design_not_implemented": [
+    "Сначала установить применимый профиль РЭ и смысл source/Eset против фактического roof Uks в рекуперации. Не создавать два независимых секционных аналоговых источника без схемного основания: внешняя сеть общая, контакты и защиты остаются секционными.",
+    "Замораживать один owned source snapshot на входе каждого настоящего native UpdateButton. От него получать раздельные line-present, разрешение диапазона тяги, разрешение пуска ПСН, предупреждения и overvoltage timer/latch. Не читать одновременно ранний новый source и поздний Useti предыдущей генерации как один физический снимок.",
+    "Для потери сети исследовать producer Napruga18C1F0/18C201 и реальные входы ПСН до секционных запросов 18D0F9 и timer completions18E5C4/18E681. Не подменять AnyXA1, SB30, instructorNF, QF1 или выход силы в host для имитации прохождения. Uks0 не означает автоматически требование разомкнуть БВ: поведение БВ при потере сети и отдельно >4100 должны следовать выбранной схеме.",
+    "Для >4100/>0,3 с нужен native latched trip producer до команд контакторов, с аппаратным разбором, блокировкой повторного включения ожидающими timer stages и согласованным сбросом. После выявления точно охватить все late writers, не ограничиваться подавлением C# силы/тока или одним QF1 после commStep.",
+    "Ранние guarded memory hooks должны сохранять flags/GP/x87 и чужие условия, проверять SHA, байты, owner graph, source epoch и поток, закрываться с восстановлением до native close. Выбор точки hook и изменения логики согласовать до реализации; в этом отчёте runtime-код не написан."
+  ],
+  "narrow_genuine_probe_plan": [
+    {
+      "case": "baseline_and_loss",
+      "steps": "Настоящими native органами получить тёплый пуск при 3000, подтверждённые QF1 и PSN. Переключить только owned source3000→0→3000. Регистрировать вход, source generation, Useti, derivedU, Napruga, XA1/BVS/QF1, PSN/AB state, запросы и обратную связь контакторов, native counters; не задавать эти выходы напрямую.",
+      "acceptance": "Сначала воспроизведение фактического поведения, затем проверка выбранного и документированного контракта потери сети. Успешное изменение аналогового Useti не равно PASS защиты."
+    },
+    {
+      "case": "permission_vs_warning",
+      "steps": "Отдельные границы 2199/2200,2699/2700,4000/4001; низковольтный диапазон 200/600 и тестовый режим отдельным сценарием. Использовать реальные команды набора и независимый САУТ.",
+      "acceptance": "Разрешение набора, предупреждения и выдержка 0,5 с проверяются раздельно.2500 В может быть разрешённым напряжением с предупреждением."
+    },
+    {
+      "case": "BV_overvoltage",
+      "steps": "4100 В не менее 0,4 с;4101 В на 0,2/0,3/0,4 с; разрыв импульсов нормальным напряжением; смена между секциями при общем source и разных native контактах. Наблюдать реальную команду/обратную связь БВ и разбор ПСН/тяги.",
+      "acceptance": "Строгие величина/время, сброс накопления, отсутствие reclose от pending stage и сохранение NF/SAUT/КВТ/ЭПК приоритетов. В каждом варианте известны sample epoch и длительность, Force/Ia/F не форсируются."
+    },
+    {
+      "case": "PSN_start_and_feedback",
+      "steps": "Начать штатный warm start при допустимом напряжении и ниже выбранной нижней границы. Измерить КМ 17 OFF→КМ 1→КМ 2, затем отдельно снять настоящий штатный «Контроль ПСН».",
+      "acceptance": "Пороговый профиль до теста;3/2/1 с проверяются по фактическим producer/feedback, а не по произвольным PSN enum. Повторный пуск после отказа требует состояния БВ согласно РЭ."
+    },
+    {
+      "case": "fault_component_separate",
+      "steps": "Отдельная component-проба native SetNeispravPult и сброса ошибки: NF2→AnyXA1=0; NF9/NF10 и невключение БВ. Не считать эти instructor events аналоговым voltage trip.",
+      "acceptance": "Подтверждается реальное существование аварийного пути/приоритета, без заявления о полноте измерительного канала."
+    }
+  ],
+  "coverage_limit": "Проверен путь активных Pult/Communication/MSUL entry points и относящиеся методы/поля; scan литералов использовался только как локатор. Не выполнены исчерпывающий межмодульный CFG всех импортов, dynamic trace, проверка всех исполнений/комплектаций и доказательство отсутствия любого иного fault channel. Токовая 2700 А, дифференциальная защита и рекуперативные 3800/3400 В не принимаются этим отчётом.",
+  "evidence": [
+    {
+      "path": "dev/runs/uks-native-20261025/next-voltage-static-evidence.json",
+      "sha256": "7b1ac1f21b246c21fcae39a0fbcd9041fb32e85f94f593e3dd9de5764c11c67e",
+      "meaning": "Свежие PE identities, точные выбранные code windows/bytes и RTTI полей; большие линейные function excerpts могут содержать inline data, решения опираются на обозначенные выровненные блоки."
+    },
+    {
+      "path": "dev/runs/uks-native-20261025/voltage-diagnostic-threshold-correction.json",
+      "sha256": "47fea61efb9a2d2158424be6937568deee9dba2454e1592a01a509d66d17a790",
+      "meaning": "Отдельный отзыв ошибочной исторической подписи 4101 для 0xFD2; старые proof сохранены."
+    }
+  ],
+  "host_source_anchors": [
+    {
+      "path": "outputs/TrainerAuxSystems.cs",
+      "sha256_at_review": "170a416046be234820aac2f8707ef72b2c1a3fb3085f7d6eb403d73f6520d4d5",
+      "lines": [
+        102,
+        124
+      ]
+    },
+    {
+      "path": "outputs/TrainerIntegrationHost.cs",
+      "sha256_at_review": "3360b415a61a879bb0fd75f0977c0da4b111794a145a30badb4a6faf242a4e47",
+      "lines": [
+        126,
+        135
+      ]
+    },
+    {
+      "path": "outputs/TrainerNativeSystems.cs",
+      "sha256_at_review": "85ee79a1261fc4e346cec1d933fab83280526243ee2a8091747334e629fa7c3d",
+      "lines": [
+        79,
+        85
+      ]
+    },
+    {
+      "path": "outputs/TrainerContactNetwork.cs",
+      "sha256_at_review": "49987c7229a5fb4f9e1b3ecdac376a845d51a65aa90ba182ad71b09e388edb57",
+      "lines": [
+        6,
+        32,
+        37,
+        42,
+        49
+      ]
+    }
+  ]
+}

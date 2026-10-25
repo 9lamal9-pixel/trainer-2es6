@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "reviewed_utc": "2026-10-25T04:52:26.404344+00:00",
+  "status": "passed",
+  "native_executed": false,
+  "report": "dev/runs/uks-native-20261025/next-voltage-protections-review.json",
+  "report_sha256": "82466000a746c9d3521d4fc1186147356d6919f8261744398d0453da9271807e",
+  "checks": 41,
+  "passed": 41,
+  "results": [
+    {
+      "check": "report_native_not_executed",
+      "passed": true
+    },
+    {
+      "check": "requirements_5",
+      "passed": true
+    },
+    {
+      "check": "findings_11_unique",
+      "passed": true
+    },
+    {
+      "check": "RE_PDF_SHA",
+      "passed": true
+    },
+    {
+      "check": "PSN_INPUT_visual_source_SHA",
+      "passed": true
+    },
+    {
+      "check": "TRACTION_PERMISSION_visual_source_SHA",
+      "passed": true
+    },
+    {
+      "check": "VOLTAGE_WARNINGS_visual_source_SHA",
+      "passed": true
+    },
+    {
+      "check": "BV_OVERVOLTAGE_visual_source_SHA",
+      "passed": true
+    },
+    {
+      "check": "PSN_SEQUENCE_visual_source_SHA",
+      "passed": true
+    },
+    {
+      "check": "Pult1_file_SHA",
+      "passed": true
+    },
+    {
+      "check": "Communication1_file_SHA",
+      "passed": true
+    },
+    {
+      "check": "MSUL_MON_file_SHA",
+      "passed": true
+    },
+    {
+      "check": "outputs/TrainerAuxSystems.cs_source_SHA",
+      "passed": true
+    },
+    {
+      "check": "outputs/TrainerIntegrationHost.cs_source_SHA",
+      "passed": true
+    },
+    {
+      "check": "outputs/TrainerNativeSystems.cs_source_SHA",
+      "passed": true
+    },
+    {
+      "check": "outputs/TrainerContactNetwork.cs_source_SHA",
+      "passed": true
+    },
+    {
+      "check": "dev/runs/uks-native-20261025/next-voltage-static-evidence.json_evidence_SHA",
+      "passed": true
+    },
+    {
+      "check": "dev/runs/uks-native-20261025/voltage-diagnostic-threshold-correction.json_evidence_SHA",
+      "passed": true
+    },
+    {
+      "check": "Napruga_native_window",
+      "passed": true
+    },
+    {
+      "check": "BV_candidate_native_window",
+      "passed": true
+    },
+    {
+      "check": "PSN_start_native_window",
+      "passed": true
+    },
+    {
+      "check": "voltage_permission_messages_native_window",
+      "passed": true
+    },
+    {
+      "check": "voltage_diagnostic_4050_native_window",
+      "passed": true
+    },
+    {
+      "check": "panto_when_BV_on_native_window",
+      "passed": true
+    },
+    {
+      "check": "XA1_native_contact_producer_native_window",
+      "passed": true
+    },
+    {
+      "check": "Pult_to_Tyga_native_window",
+      "passed": true
+    },
+    {
+      "check": "Tyga_DLL_wrapper_native_window",
+      "passed": true
+    },
+    {
+      "check": "native_cycle_native_window",
+      "passed": true
+    },
+    {
+      "check": "Communication_to_Pult_native_window",
+      "passed": true
+    },
+    {
+      "check": "neutral_section_state_only_native_window",
+      "passed": true
+    },
+    {
+      "check": "hardware_buttons_and_outputs_native_window",
+      "passed": true
+    },
+    {
+      "check": "MSUL_renderer_native_window",
+      "passed": true
+    },
+    {
+      "check": "MSUL_button_input_native_window",
+      "passed": true
+    },
+    {
+      "check": "0x189941_CMP_native_bytes",
+      "passed": true
+    },
+    {
+      "check": "0x189941_immediate_4050",
+      "passed": true
+    },
+    {
+      "check": "0x189A6C_CMP_native_bytes",
+      "passed": true
+    },
+    {
+      "check": "0x189A6C_immediate_4050",
+      "passed": true
+    },
+    {
+      "check": "0x189B93_CMP_native_bytes",
+      "passed": true
+    },
+    {
+      "check": "0x189B93_immediate_4050",
+      "passed": true
+    },
+    {
+      "check": "BV_return_comparison_literal_zero",
+      "passed": true
+    },
+    {
+      "check": "correction_preserves_history",
+      "passed": true
+    }
+  ],
+  "meaning": "Проверены целостность JSON, все заявленные SHA и выбранные свежие PE байты. Это не запуск модели и не приёмка защит."
+}
