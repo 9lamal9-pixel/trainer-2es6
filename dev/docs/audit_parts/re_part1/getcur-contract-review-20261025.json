@@ -1,0 +1,764 @@
+{
+  "schema_version": 1,
+  "reviewed_utc": "2026-10-25T03:51:08.531334+00:00",
+  "scope": "Статический разбор фактического Tyga1.dll с сохранённой исторической секцией .tfix, GetCur, вызывающего CalkNezavVozb, владельцев и цепочки штатного вызова. Нативные DLL не загружались и не выполнялись; пробы, рабочий код и каталоги не менялись.",
+  "native_executed": false,
+  "status": "static_contract_confirmed_dynamic_calibration_pending",
+  "critical_correction": {
+    "status": "prior_claim_withdrawn_for_actual_SHA",
+    "withdrawn_claim": "Для текущего Tyga1.dll сила вычисляется из тока выше 750 А, а ограничение действует только после расчёта силы.",
+    "reason": "В фактическом SHA 8ec6a82e618a1d75cbb31242784084b530bb87308e601defc5263d5279270491 GetCur на RVA 17971D уже переходит в исторический .tfix stub 856032. Он ограничивает оба тока пары до 750 перед расчётом Moment, TygaTED и общей силы. Поздний clamp 177C29 существует, но не является единственным ограничителем.",
+    "new_conclusion": "Рассогласование тока и силы вследствие одного только позднего ограничения не доказано для фактического runtime. Прежний статический вывод отзывается. Это не подтверждает заводскую правильность 750 А, электрических формул и всей модели.",
+    "affected_evidence": [
+      "dev/docs/audit_parts/re_part1/traction-static-current.json",
+      "work/traction6000/evidence.md"
+    ],
+    "not_rewritten_by_this_task": true
+  },
+  "identities": {
+    "Tyga1": {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Tyga1.dll",
+      "sha256": "8ec6a82e618a1d75cbb31242784084b530bb87308e601defc5263d5279270491",
+      "image_base": "0x400000",
+      "provenance": "Фактическая рабочая копия с retained .tfix; это не нетронутая заводская DLL."
+    },
+    "Communication1": {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Communication1.dll",
+      "sha256": "27178a089ef33692d16b1d46ae0dd7567135b327a24be9d7d0ca84af8df3db7f"
+    },
+    "Pult1": {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Pult1.dll",
+      "sha256": "7dac59bf94276309e012a6eb72602c08a921fe1910a4169f9f0ec27008f0f8f5"
+    },
+    "POEZD": {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/POEZD.DLL",
+      "sha256": "822b6d17ce45f80179a512ee6c70a35d5ae29bf187530bda5ebd11446cfb3553"
+    }
+  },
+  "evidence": {
+    "selected_PE_excerpts": "C:/Users/sibir/Desktop/Макрос/Тренажер/dev/runs/tyga-calibration-20261025/getcur-native-evidence.json",
+    "selected_PE_excerpts_sha256": "6f5a74df493b9aeefab93eef349c3d00dc8e0e0f5d7a5fe9fe1cb565978af3f4",
+    "extraction_script": "C:/Users/sibir/Desktop/Макрос/Тренажер/dev/runs/tyga-calibration-20261025/getcur_pe_extract.py",
+    "no_whole_DLL_dump": true
+  },
+  "retained_tfix": {
+    "guards": [
+      {
+        "name": "full_tfix",
+        "rva": "0x856000",
+        "length": 158,
+        "bytes": "837df0007f0633c08be55dc3db45f0d87dece950e891ff837ddc000f8fbb4292ff8b45fce85f6192ffd9ee5b8be55dc204008b45fc8b40048b55f4817cd03300803b447608c744d03300803b44817cd03700803b447608c744d03700803b44e9c23692ff8b45fcba01000000e8932192ff508b45fcba02000000e8852192ff5a03c285c0750c8b45fce8fa6092ff8be55dc38b45fc80780b00e90e0492ff",
+        "sha256": "1e97515cb1ff16387505395e98140e9c1111c0eea90343bb24856bde3652a817"
+      },
+      {
+        "name": "GetCur_prelimit_jump",
+        "rva": "0x17971d",
+        "length": 9,
+        "bytes": "e910c96d0090909090",
+        "sha256": "fc5fbd908f1cbad4d144b5ed7dbbad05f5ce01fee0bba136b381e7e1fd3bc8ba"
+      },
+      {
+        "name": "Calk_entry_jump",
+        "rva": "0x1764a5",
+        "length": 7,
+        "bytes": "e9bafb6d009090",
+        "sha256": "e7b6dbd95cc6ff238b5a82fda7b88aa50e6db2259d23df6a5c5f10b25d904e0a"
+      },
+      {
+        "name": "prelimit_stub",
+        "rva": "0x856032",
+        "length": 50,
+        "bytes": "8b45fc8b40048b55f4817cd03300803b447608c744d03300803b44817cd03700803b447608c744d03700803b44e9c23692ff",
+        "sha256": "844accf46514205ec7c13675b6b281c7cc86fbcbfdf745faa1065afc0c0daddc"
+      },
+      {
+        "name": "Calk_entry_stub",
+        "rva": "0x856064",
+        "length": 58,
+        "bytes": "8b45fcba01000000e8932192ff508b45fcba02000000e8852192ff5a03c285c0750c8b45fce8fa6092ff8be55dc38b45fc80780b00e90e0492ff",
+        "sha256": "8b66033d8cb8245d7f4c25ded96a01e58dd8c9b117bd76b4ae565b0f0339ba9f"
+      },
+      {
+        "name": "GetCountVklTED",
+        "rva": "0x178204",
+        "length": 54,
+        "bytes": "558bec83c4f48955f88945fc8b45fc8b40048b55f88b84d0050100008b55fc8b52048b4df80384ca090100008945f48b45f48be55dc3",
+        "sha256": "3184bb22889cdbb41719faf4eb924a68793fc55f0520c675feeb708cfa8f775f"
+      },
+      {
+        "name": "Help",
+        "rva": "0x17c188",
+        "length": 188,
+        "bytes": "558bec83c4f48945fc8b45fc8b400480b8300100000074128b45fc8b40048b4027c7401100004845eb0e8b45fc8b40048b402733d28950118b45fc8b40048b402733d289108b45fc8b400483c02b8945f4c745f8010000008b45f88b55f4c64442fe008b45f88b55f4c64442ff008b45f88b55f433c9894cc2088b45f88b55f433c9894cc20c8b45f88b55f433c9898cc2880000008b45f88b55f433c9898cc28c000000ff45f8837df80575ab8b45f433d289500889500c8be55dc3",
+        "sha256": "a27b2f2f9c15b9ad8793b3b6ef70b09fce6b34efbc87580257c3a645cdf7860a"
+      }
+    ],
+    "verified_class_function_inbounds": [
+      {
+        "function": "@Tyga_2es6@TTygaCalcClass@CalcRealProcent$qqrv",
+        "site_rva": "0x174861",
+        "bytes": "e99a176e00",
+        "target_rva": "0x856000"
+      },
+      {
+        "function": "@Tyga_2es6@TTygaCalcClass@CalkNezavVozb$qqrv",
+        "site_rva": "0x1764a5",
+        "bytes": "e9bafb6d00",
+        "target_rva": "0x856064"
+      },
+      {
+        "function": "@Tyga_2es6@TTygaCalcClass@GetCur$qqrf",
+        "site_rva": "0x17971d",
+        "bytes": "e910c96d00",
+        "target_rva": "0x856032"
+      },
+      {
+        "function": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+        "site_rva": "0x179db7",
+        "bytes": "e95bc26d00",
+        "target_rva": "0x856017"
+      }
+    ],
+    "layout": [
+      {
+        "rva": "856000",
+        "length": 23,
+        "effect": "Защита деления в CalcRealProcent: при count <= 0 вернуть 0; иначе выполнить исходное деление и перейти на 174867."
+      },
+      {
+        "rva": "856017",
+        "length": 27,
+        "effect": "Защита пути GetCurPosl: count <= 0 вызывает Help и возвращает ST0=0 с ret 4; иначе переход на 17A2DC."
+      },
+      {
+        "rva": "856032",
+        "length": 50,
+        "effect": "Ограничение обоих сырых токов текущей секции до float 750 до Moment/Force. Возврат на 179726."
+      },
+      {
+        "rva": "856064",
+        "length": 58,
+        "effect": "Суммирует GetCountVklTED(1) и GetCountVklTED(2). При нуле вызывает Help и завершает Calk; иначе восстанавливает CMP FPos,0 и переходит на 1764AC."
+      }
+    ],
+    "prelimit_detail": "В 856032 загружаются EAX = TTygaParam, EDX = индекс секции 1..4. Оба DWORD Tok сравниваются беззнаково с IEEE754 0x443B8000 и при превышении заменяются этим значением. Входной loop перед этим уже обнуляет отрицательные токи через x87 сравнение. В retained stub отсутствует изменение Ivozb и отсутствует повторный электрический расчёт.",
+    "scope_warning": "Prelimit действует для каждого GetCur, включая пробные вызовы SetNextPOs. Поэтому нельзя применять новый общий GetCur patch, предполагая, что он затронет только текущий цикл тяги."
+  },
+  "owner_and_ABI": {
+    "Init_Tyga": {
+      "rva": "17EE4C",
+      "ABI": "stdcall, один указатель TTygaParam на стеке, ret 4; результат AL = 1/0",
+      "evidence": [
+        "17EE61 loads [EBP+8]",
+        "17EE6B calls outer constructor",
+        "17EE70..76 stores outer through global cell"
+      ]
+    },
+    "Proceed_Tyga": {
+      "rva": "17EEA0",
+      "ABI": "stdcall без аргументов; результат AL = 1/0; caller использует side effects shared records"
+    },
+    "CloseTygaDll": {
+      "rva": "17EECC",
+      "executable_end": "17EEDC",
+      "ABI": "stdcall без аргументов"
+    },
+    "pointer_chain": [
+      "module+19058C contains relocated pointer to cell module+1AA058",
+      "*cell -> outer TTyga2ES6",
+      "outer+420 -> TTygaCalcClass",
+      "calc+4 -> TTygaParam",
+      "calc+10C -> TConst",
+      "TConst is embedded in outer through base GetCk returning outer+8"
+    ],
+    "static_pointer_values_at_preferred_base": {
+      "global_slot": {
+        "rva": "0x19058c",
+        "value_VA": "0x5aa058",
+        "value_RVA": "0x1aa058"
+      },
+      "calc_vmt_pointer": {
+        "rva": "0x172ef0",
+        "value_VA": "0x572f48",
+        "value_RVA": "0x172f48"
+      },
+      "outer_vmt_pointer": {
+        "rva": "0x17ebfc",
+        "value_VA": "0x57ec54",
+        "value_RVA": "0x17ec54"
+      }
+    },
+    "GetCur": {
+      "symbol": "@Tyga_2es6@TTygaCalcClass@GetCur$qqrf",
+      "rva": "17823C",
+      "ABI": "Borland register-this: EAX = TTygaCalcClass; один Single [EBP+8], ret 4; EAX/ECX/EDX используются как временные. В полном теле до executable RET используются только EAX/ECX/EDX/EBP/ESP; EBX/ESI/EDI не используются.",
+      "general_registers_used": [
+        "eax",
+        "ebp",
+        "ecx",
+        "edx",
+        "esp"
+      ],
+      "argument_contract": "Оба Calk caller передают Single 0. В GetCur аргумент читается только для передачи GetEDS_Ya_El и GetU2 как Double. Проверенные тела этих helpers используют сохранённые поля, а не аргумент скорости. Сам аргумент не является входом задания тока.",
+      "argument_reference_instructions": [
+        {
+          "rva": "0x178273",
+          "bytes": "d94508",
+          "asm": "fld dword ptr [ebp + 8]"
+        },
+        {
+          "rva": "0x178285",
+          "bytes": "d94508",
+          "asm": "fld dword ptr [ebp + 8]"
+        }
+      ],
+      "result_contract": "Рабочий результат записывается в shared records. Нормальный epilogue 17992F..17993A возвращает literal 0 в ST0; Calk оба раза удаляет его fstp ST0. Нельзя трактовать возвращаемый float как силу.",
+      "outputs": [
+        "Tok",
+        "Moment",
+        "TygaTED",
+        "ResT.Tyga",
+        "private EdsYaSec/U2Sec/resistance aggregates"
+      ],
+      "return_bytes": "33c08945f8d945f88be55dc20400"
+    },
+    "runtime_owner_acceptance": "Для конкретного сеанса observer обязан сравнить calc+4 с фактическим CommOwner+131 и Tyga.ResT с host TResTyga, а не полагаться только на имя DLL и постоянный адрес."
+  },
+  "fields": [
+    {
+      "name": "V",
+      "offset_from_TTygaParam": "00",
+      "type": "Double",
+      "meaning": "Скорость в м/с в обоих проверенных путях производителя; Double."
+    },
+    {
+      "name": "Section",
+      "offset_from_TTygaParam": "08",
+      "type": "Int32",
+      "meaning": "Количество секций, поддерживаемый массивом диапазон не больше 4."
+    },
+    {
+      "name": "Kont.Pos",
+      "offset_from_TTygaParam": "0C",
+      "type": "Int32",
+      "meaning": "Выход текущей позиции. SetPos публикует сюда private FPos; запись этого поля не задаёт позицию."
+    },
+    {
+      "name": "Kont.CommandContr",
+      "offset_from_TTygaParam": "14",
+      "type": "Byte",
+      "meaning": "Нативная команда контроллера."
+    },
+    {
+      "name": "Kont.CommandOV",
+      "offset_from_TTygaParam": "15",
+      "type": "Byte",
+      "meaning": "Нативная команда независимого возбуждения."
+    },
+    {
+      "name": "Kont.VozbType",
+      "offset_from_TTygaParam": "16",
+      "type": "Byte",
+      "meaning": "0 последовательное, 1 независимое возбуждение."
+    },
+    {
+      "name": "Kont.mode",
+      "offset_from_TTygaParam": "1B",
+      "type": "Int32",
+      "meaning": "Ненулевое состояние разрешает рабочий путь, знак учитывается SetVCur и конечной силой. Название поля по RTTI: mode."
+    },
+    {
+      "name": "Kont.tygavkl",
+      "offset_from_TTygaParam": "1F+s",
+      "type": "Byte[4]",
+      "meaning": "Разрешение тяги секции для GetTygaVkl."
+    },
+    {
+      "name": "Kont.Sec",
+      "offset_from_TTygaParam": "23+s",
+      "type": "Byte[4]",
+      "meaning": "Флаг секции в loop расчёта момента/силы."
+    },
+    {
+      "name": "ResT",
+      "offset_from_TTygaParam": "27",
+      "type": "Pointer32",
+      "meaning": "Указатель TResTyga; +0 сила, +11 напряжение сети."
+    },
+    {
+      "name": "Tok",
+      "offset_from_TTygaParam": "3B+8*s+4*j",
+      "type": "Single[4,2]",
+      "meaning": "Сырой ток якоря пары ТЭД. Текущий .tfix ограничивает его до 750 перед моментом."
+    },
+    {
+      "name": "Tok_av",
+      "offset_from_TTygaParam": "5B+8*s+4*j",
+      "type": "Single[4,2]",
+      "meaning": "Среднее четырёх результатов Tok после prelimit и позднего clamp; это поле читает текущая телеметрия."
+    },
+    {
+      "name": "Ivozb",
+      "offset_from_TTygaParam": "7B+8*s+4*j",
+      "type": "Single[4,2]",
+      "meaning": "Сырой ток возбуждения пары; clamp750 его не меняет."
+    },
+    {
+      "name": "Ivozb_av",
+      "offset_from_TTygaParam": "9B+8*s+4*j",
+      "type": "Single[4,2]",
+      "meaning": "Среднее четырёх результатов Ivozb."
+    },
+    {
+      "name": "TygaTED",
+      "offset_from_TTygaParam": "BB+8*s+4*j",
+      "type": "Single[4,2]",
+      "meaning": "Сила группы из двух ТЭД, native единицы силы."
+    },
+    {
+      "name": "Moment",
+      "offset_from_TTygaParam": "E9+8*s+4*j",
+      "type": "Single[4,2]",
+      "meaning": "Нативная переменная момента группы из двух ТЭД; физическая размерность phi требует калибровки."
+    },
+    {
+      "name": "TAF.VklTD",
+      "offset_from_TTygaParam": "10D+8*s+4*j",
+      "type": "Int32[4,2]",
+      "meaning": "Флаг реальной включённой группы; GetCountVklTED суммирует две группы секции."
+    },
+    {
+      "name": "TAF.Tokopriemnik",
+      "offset_from_TTygaParam": "130",
+      "type": "Boolean",
+      "meaning": "Разрешение пути рабочего расчёта."
+    }
+  ],
+  "indices": "В формулах смещений s = 0..3, j = 0..1. Каждая ячейка представляет пару ТЭД. Для двух секций с четырьмя ТЭД на секцию активно четыре ячейки; восемь ячеек массива не означают восемь пар в двухсекционном локомотиве.",
+  "native_input_enums": [
+    {
+      "type_va": "0x570ef4",
+      "name": "TCommandController",
+      "ordinal_type": 1,
+      "min": 0,
+      "max": 5,
+      "base_pointer_va": "0x570ef4",
+      "values": [
+        {
+          "value": 0,
+          "name": "None_cmd"
+        },
+        {
+          "value": 1,
+          "name": "PlusOdin_cmd"
+        },
+        {
+          "value": 2,
+          "name": "APlus_cmd"
+        },
+        {
+          "value": 3,
+          "name": "MinusOdin_cmd"
+        },
+        {
+          "value": 4,
+          "name": "AMinus_cmd"
+        },
+        {
+          "value": 5,
+          "name": "Vybeg_cmd"
+        }
+      ]
+    },
+    {
+      "type_va": "0x570f70",
+      "name": "TCommandOVController",
+      "ordinal_type": 1,
+      "min": 0,
+      "max": 3,
+      "base_pointer_va": "0x570f70",
+      "values": [
+        {
+          "value": 0,
+          "name": "PlusOV_cmd"
+        },
+        {
+          "value": 1,
+          "name": "MinusOV_cmd"
+        },
+        {
+          "value": 2,
+          "name": "FiksSpeed_cmd"
+        },
+        {
+          "value": 3,
+          "name": "NullOV_cmd"
+        }
+      ]
+    },
+    {
+      "type_va": "0x571020",
+      "name": "TVozbType",
+      "ordinal_type": 1,
+      "min": 0,
+      "max": 1,
+      "base_pointer_va": "0x571020",
+      "values": [
+        {
+          "value": 0,
+          "name": "Posled_vt"
+        },
+        {
+          "value": 1,
+          "name": "Nezav_vt"
+        }
+      ]
+    },
+    {
+      "type_va": "0x570fd8",
+      "name": "TSoedTED",
+      "ordinal_type": 1,
+      "min": 0,
+      "max": 3,
+      "base_pointer_va": "0x570fd8",
+      "values": [
+        {
+          "value": 0,
+          "name": "None_std"
+        },
+        {
+          "value": 1,
+          "name": "S_std"
+        },
+        {
+          "value": 2,
+          "name": "SP_std"
+        },
+        {
+          "value": 3,
+          "name": "P_std"
+        }
+      ]
+    }
+  ],
+  "native_call_path": [
+    {
+      "module": "host",
+      "site": "outputs/TrainerAuxSystems.cs:124",
+      "call": "ElectricalCycle publishes signedVelocity to Tyga.V, then commStep()"
+    },
+    {
+      "module": "Communication1",
+      "site": "2B200C / 2B2022",
+      "call": "ExecuteCommunication -> outer VMT+10; slot 2AFD94 contains 2B0944"
+    },
+    {
+      "module": "Communication1",
+      "site": "2B0944 / 2B0A40",
+      "call": "TComm2ES6.Proceed -> Basis.Proceed2973BC"
+    },
+    {
+      "module": "Communication1",
+      "site": "29761A / 1A2170",
+      "call": "TPultDLLClass.Proceed -> wrapper+8 resolved ProceedPult, if initialized+21"
+    },
+    {
+      "module": "Pult1",
+      "site": "18EFC0 / 18EFD6",
+      "call": "ProceedPult -> Pult VMT+8; slot18B628 contains18BA1C"
+    },
+    {
+      "module": "Pult1",
+      "site": "18BA84 / 18738E",
+      "call": "Pult2ES6.Proceed -> PultBasic.Proceed -> TUpdateTygaDllClass.Proceed178CA0"
+    },
+    {
+      "module": "Pult1",
+      "site": "178CB3",
+      "call": "wrapper+14 resolved Proceed_Tyga, if Init_Tyga returned AL1 in wrapper+21"
+    },
+    {
+      "module": "Tyga1",
+      "site": "17EEA0 / 17EEB7",
+      "call": "Proceed_Tyga -> outer VMT+4; slot17EC58 contains17EE28"
+    },
+    {
+      "module": "Tyga1",
+      "site": "17EE28",
+      "call": "outer.Proceed loads calc from+420 -> ProceedTyga17C320"
+    },
+    {
+      "module": "Tyga1",
+      "site": "17C3D5..17C41D",
+      "call": "VozbType1 and non-recuperation -> CalkNezavVozb17649C -> retained entry guard"
+    },
+    {
+      "module": "Tyga1",
+      "site": "177A47 or 177BD6",
+      "call": "GetCur17823C -> retained prelimit17971D->856032 -> Moment/Force -> Calk late clamp177C29"
+    }
+  ],
+  "static_call_path_limits": "Это подтверждение структуры статических вызовов и адресов. Фактическая загруженная DLL, владельцы, разрешения и достижение веток в новом сеансе требуют нативной пробы. Успешные исторические отчёты не объявляются новым прохождением.",
+  "reachability": {
+    "required": [
+      "Успешный Init_Tyga и initialized flag в Pult wrapper.",
+      "Kont.mode != 0; GetTygaVkl видит хотя бы одну разрешённую секцию.",
+      "FPos != 0 или активная рекуперация для входа в рабочую часть Proceed; именно Calk требует FPos > 0.",
+      "TAF.Tokopriemnik = true; VozbType = 1; private FFlagRecup = false.",
+      "Retained Calk guard требует ненулевой суммы TAF.VklTD в первых двух секциях."
+    ],
+    "call_selection": [
+      {
+        "condition": "FProcentTyga != 0",
+        "site": "177A47",
+        "result": "GetCur, затем общий участок177BDD и поздний clamp."
+      },
+      {
+        "condition": "FProcentTyga = 0 и позиция не входит в set0/23/44/65",
+        "site": "177BD6",
+        "result": "GetCur, затем общий участок177BDD и поздний clamp."
+      },
+      {
+        "condition": "FProcentTyga = 0 и ходовая позиция23/44/65",
+        "site": "177A6B..177BCF",
+        "result": "Специальный путь без GetCur: сила0, токи0, TygaTED0, возбуждение по включённым группам максимальное; затем общий поздний clamp. Moment здесь отдельно не обнуляется."
+      }
+    ],
+    "position_driver": "Использовать команды CommandContr через штатный Proceed_Tyga и реальный producer пульта. Kont.Pos является выходом. UpdateCommandKontroller срабатывает на смене команды; SetPos дополнительно запрещает увеличение при GetCurMen(700,false). Нельзя считать запрос произвольной позиции доказательством её естественного достижения.",
+    "other_GetCur_callers": [
+      {
+        "caller": "@Tyga_2es6@TTygaCalcClass@CalkNezavVozb$qqrv",
+        "call_rva": "0x177a47"
+      },
+      {
+        "caller": "@Tyga_2es6@TTygaCalcClass@CalkNezavVozb$qqrv",
+        "call_rva": "0x177bd6"
+      },
+      {
+        "caller": "@Tyga_2es6@TTygaCalcClass@SetNextPOs$qqrv",
+        "call_rva": "0x17daf3"
+      },
+      {
+        "caller": "@Tyga_2es6@TTygaCalcClass@SetNextPOs$qqrv",
+        "call_rva": "0x17db19"
+      },
+      {
+        "caller": "@Tyga_2es6@TTygaCalcClass@SetNextPOs$qqrv",
+        "call_rva": "0x17db95"
+      },
+      {
+        "caller": "@Tyga_2es6@TTygaCalcClass@SetNextPOs$qqrv",
+        "call_rva": "0x17dc9c"
+      },
+      {
+        "caller": "@Tyga_2es6@TTygaCalcClass@SetNextPOs$qqrv",
+        "call_rva": "0x17dcc3"
+      },
+      {
+        "caller": "@Tyga_2es6@TTygaCalcClass@SetNextPOs$qqrv",
+        "call_rva": "0x17dd3f"
+      },
+      {
+        "caller": "@Tyga_2es6@TTygaCalcClass@SetNextPOs$qqrv",
+        "call_rva": "0x17ddc1"
+      },
+      {
+        "caller": "@Tyga_2es6@TTygaCalcClass@SetNextPOs$qqrv",
+        "call_rva": "0x17dde7"
+      },
+      {
+        "caller": "@Tyga_2es6@TTygaCalcClass@SetNextPOs$qqrv",
+        "call_rva": "0x17de60"
+      }
+    ],
+    "unproven": "В этой задаче не воспроизведена история естественных команд, при которой solved Ia до .tfix становится >750. Алгебраические строки из старого numeric.json таким доказательством не являются."
+  },
+  "calculation_order": [
+    {
+      "rva": "178245..178271",
+      "effect": "Очистка всех Tok."
+    },
+    {
+      "rva": "178273..1796C6",
+      "effect": "ЭДС, U2, сопротивления и расчёт токов для S/SP/P с учётом отключённых групп."
+    },
+    {
+      "rva": "1796CD..179719",
+      "effect": "Обнуление отрицательных токов текущей секции."
+    },
+    {
+      "rva": "17971D -> 856032 -> 179726",
+      "effect": "Retained upper limit 750 обоих Tok ДО момента и сил."
+    },
+    {
+      "rva": "17973A..1797B9",
+      "effect": "Moment_pair = 2 * phi(Ivozb/h) * already_limited_Ia."
+    },
+    {
+      "rva": "1797C2..179857",
+      "effect": "TygaTED_pair = Kper * Moment_pair / (10000 * Rkol * 1.3)."
+    },
+    {
+      "rva": "1798C2..17992C",
+      "effect": "Сумма восьми Moment slots и запись ResT.Tyga с тем же масштабом; выключенные секции дают ноль."
+    },
+    {
+      "rva": "177BDD..177C29",
+      "effect": "Udvig и обратная связь процента после GetCur."
+    },
+    {
+      "rva": "177C29..177C8B",
+      "effect": "Поздний clamp изменяет только Tok, не Ivozb/Moment/TygaTED/ResT; после штатного GetCur с retained prelimit он должен быть no-op."
+    },
+    {
+      "rva": "17C52B..17C6B7",
+      "effect": "Усреднение Tok/Ivozb в Tok_av/Ivozb_av после clamp, затем потребление для приборов/энергии."
+    }
+  ],
+  "speed_units": {
+    "confirmed_static": true,
+    "original_communication": {
+      "rva": "2975DD..2975EF",
+      "contract": "InputParamPult.V / 3.6 -> TTygaParam.V Double; literal3.6 декодирован из fresh PE."
+    },
+    "current_host": [
+      {
+        "path": "outputs/TrainerAuxSystems.cs",
+        "line": 124,
+        "anchor": "Dbl(mem[\"TTygaParam\"],0,signedVelocity);commStep();"
+      },
+      {
+        "path": "outputs/TrainerNativeSystems.cs",
+        "line": 89,
+        "anchor": "signedVelocity=v; ... Math.Abs(v)*3.6f"
+      },
+      {
+        "path": "outputs/TrainerNativeFixes.cs",
+        "line": 20,
+        "anchor": "Discard that x87 value with a balanced pop; the host supplies signed POEZD V."
+      }
+    ],
+    "native_caller": {
+      "rva": "17C34C..17C35E",
+      "contract": "Читает Tyga.V Double, округляет до Single на стеке и вызывает SetVCur; множителя 3.6, передачи и радиуса нет."
+    },
+    "SetVCur": {
+      "rva": "17E5E0",
+      "contract": "В зависимости от реверса меняет знак и сохраняет скорость в calc+104; единица остаётся м/с."
+    },
+    "GetEDS": {
+      "rva": "17A8B4",
+      "contract": "Все шесть branch stores S/SP/P используют Epair = 2 * phi * privateFVCur; это та же скорость м/с, не угловая скорость двигателя."
+    },
+    "old_numeric_limit": "В work/traction6000/numeric.py значения49.2/51/80/120 передавались в формулы без деления на3.6. Старые подписи km/h неверны для этих строк. Их нельзя использовать как паспортные физические точки до пересчёта и проверки единиц."
+  },
+  "force_units": {
+    "status": "confirmed_static_boundary_contract",
+    "fresh_PE_source": "getcur-native-evidence.json: poezd_units",
+    "proof": [
+      "POEZD SetInitState2435 умножает входную скорость км/ч на0.2777777777778.",
+      "SetSostav22CF..22F3 пишет scaledMass = 0.1 * mass_t.",
+      "1627..164F делит coupler_left - coupler_right + external на scaledMass.",
+      "Poezd1263..1266 сохраняет аргумент силы без масштаба;1A5B..1A67 прибавляет его к внешней силе без cap.",
+      "Current MotionCycle передаёт ResT.Tyga прямо в motionStep(force,0.1,0,0)."
+    ],
+    "conclusion": "При массе в тоннах, скорости м/с и времени в секундах одна native единица силы соответствует 10 кН. Это размерностный вывод из проверенного consumer, а не натурная калибровка."
+  },
+  "energy_coherence_hypothesis": {
+    "status": "unaccepted_hypothesis_requires_physical_contract_and_native_measurement",
+    "facts": [
+      "GetEDS: Epair = 2 * phi * v_m_s.",
+      "Momentpair = 2 * phi * Ia; те же пары и та же кратность2.",
+      "При двух секциях и всех включённых группах используются четыре пары, а не восемь.",
+      "F_N = Kper * sum(Momentpair) / (Rkol *1.3), после перевода native force в ньютоны."
+    ],
+    "algebra": "Для одних и тех же активных пар при положительном v и согласованном знаке F_N*v / sum(Epair*Ia) = Kper/(Rkol*1.3) = 4.233846153846154 при Kper=3.44 и Rkol=0.625. Кратность двух ТЭД и число пар сокращаются.",
+    "not_concluded": "Это не объявлено подтверждённым физическим дефектом. Нужно установить физическую размерность phi/K4 и Moment, токи именно пары/двигателя в каждом соединении, масштаб EDS и контракты мощности. Отсутствие передаточного множителя в SetVCur доказано, но оно само по себе не определяет, где этот коэффициент должен находиться.",
+    "next_acceptance": "На одном штатном native cycle сопоставить V, solved Ia до .tfix, limited Ia, Ivozb, Epair, U2, Uset, Mom/PairF/aggregateF и вход POEZD для каждого S/SP/P. Проверить электрический баланс по реальной схеме и баланс Pwheel <= PairElectricalConverted с механическим КПД и потерями. Не калибровать множитель1.3 по одной паспортной точке."
+  },
+  "physical_correction_recommendation": {
+    "current_runtime": "Повторно переносить ограничение750 перед моментом не требуется: retained .tfix уже это делает. Нужна проверка фактического поведения существующего исправления и электрических единиц.",
+    "if_another_unpatched_revision": "Если в другой SHA действительно останется только поздний current clamp и будет доказано физическое ограничение тока, ограничить ток до всех зависимых вычислений либо пересчитать Moment, PairF и aggregateF из ограниченного тока и сохранённого возбуждения. Повторный вызов GetCur не подходит: он заново решает и перезаписывает токи.",
+    "if_750_only_display_or_artificial_limit": "Не объявлять750 нормой РЭ. Установить реальную характеристику ограничения, возбуждения и реостатного управления по выбранной комплектации; при насыщении согласовать уравнение напряжения/тока, а не только менять выход силы.",
+    "required_before_production_fix": [
+      "Сохранить solved raw Ia до retained prelimit в собственном диагностическом observer, не записывая физические выходы.",
+      "Разделить измерения фактического GetCur цикла и пробных SetNextPos вызовов.",
+      "Пересчитать прежние численные таблицы с доказанной скоростью м/с.",
+      "Проверить единицы потока/ЭДС/момента и баланс мощности; только затем выбирать физическую калибровку.",
+      "Для изменения native использовать отдельный SHA/byte guarded memory-only patch с восстановлением."
+    ]
+  },
+  "observer_contract": {
+    "pre_late_clamp": {
+      "rva": "0x177c29",
+      "bytes": "c745f801000000"
+    },
+    "post_late_clamp": {
+      "rva": "0x177c84",
+      "bytes": "ff45f8837df805"
+    },
+    "post_continuation": {
+      "rva": "0x177c8b",
+      "bytes": "75a3"
+    },
+    "late_sites_meaning": "Эти два участка проверяют, что late clamp является no-op после retained prelimit. Они не показывают solved raw Ia выше750.",
+    "required_extra_prelimit_site": {
+      "rva": "17971D",
+      "bytes": "e910c96d00",
+      "effect": "Общий переход GetCur в retained stub; observer должен восстановить/исполнить существующий JMP в856032, а не pristine инструкции."
+    },
+    "late_site_inbounds_checked_inside_Calk": [
+      {
+        "from": "0x177bff",
+        "target": "0x177c29",
+        "asm": "jne 0x577c29"
+      },
+      {
+        "from": "0x177c1a",
+        "target": "0x177c29",
+        "asm": "jge 0x577c29"
+      },
+      {
+        "from": "0x177c71",
+        "target": "0x177c84",
+        "asm": "jbe 0x577c84"
+      }
+    ],
+    "limits": "Отсутствие найденных прямых interior jumps проверено внутри Calk. Это не доказательство отсутствия всех возможных косвенных вызовов во всей DLL. Guards обязательны на фактические retained entry/stub, владельцев и lifecycle. Результат не является разрешением нативного запуска."
+  },
+  "unknowns": [
+    "Заводская комплектация и точная редакция РЭ начиная с №137 не установлены;750 А не принято за норматив.",
+    "Естественное достижение solved Ia >750 через команды настоящего пульта пока не воспроизведено в новом scope.",
+    "Штатные enum команды известны из RTTI, но история их producer и timing для целевого режима требует native observer.",
+    "Физические единицы phi/K4 и нативного Moment, коэффициент ЭДС/угловой скорости и корректный баланс мощности остаются открытыми.",
+    "Нужно проверить native NaN/ошибки/отключённые пары и state transitions без подмены выходов; статический разбор не заменяет свежую приёмку.",
+    "На zero-percent ходовом пути Moment может быть старым, хотя PairF/aggregateF/Tok очищены. Это отдельная семантика диагностического поля, не доказанная ошибка действующей силы.",
+    "Исходная pristine Tyga DLL может иметь другую логику, чем retained .tfix SHA; нельзя переносить выводы между SHA автоматически."
+  ],
+  "code_snapshots": [
+    {
+      "path": "outputs/TrainerAuxSystems.cs",
+      "sha256": "e9dc02f6c7af2b7407048e595bb93346bb8bed265d77408e8ed8c4a1067bf72f"
+    },
+    {
+      "path": "outputs/TrainerNativeSystems.cs",
+      "sha256": "85ee79a1261fc4e346cec1d933fab83280526243ee2a8091747334e629fa7c3d"
+    },
+    {
+      "path": "outputs/TrainerNativeFixes.cs",
+      "sha256": "e8d47dac13d7d1152dee2206ca5f77a0d4b307313cfbbc506067343495250b4d"
+    },
+    {
+      "path": "outputs/TrainerIntegrationHost.cs",
+      "sha256": "1286ced6097ba137d46b47f9f6feac26952d525cf5f1c70c6d375da56fdb9839"
+    },
+    {
+      "path": "work/traction6000/fields.json",
+      "sha256": "b3e369dac4ed9bcf6d315f396d03e9b8b2a5f6d5577e30bc40a19a257408efae"
+    },
+    {
+      "path": "work/traction6000/TConst.json",
+      "sha256": "8daa6ddf2067f4455b1ba5c18eaaf78264283cc9fc058d9f5204082105cca899"
+    }
+  ]
+}

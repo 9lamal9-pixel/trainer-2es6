@@ -49,7 +49,8 @@
         "На PDF 140–148, 150–168 и 170 часть номеров проводов, контактов, чертежей и исполнений малоконтрастна. Полная распиновка и побитная транскрипция всех таблиц не заявляются.",
         "На PDF 171 часть рукописных номеров извещений и дат неразборчива. Регистр изменений не определяет комплектацию конкретного электровоза."
       ]
-    }
+    },
+    "static_correction_20261025": "После полного прослеживания retained .tfix прежний late-only вывод RP1-POWER-06 отозван; это документальное исправление анализа, не новая правка DLL и не динамическая приёмка."
   },
   "status_definitions": {
     "confirmed_static": "A specifically named parameter, table or code property is confirmed; broader function remains outside this status.",
@@ -64,9 +65,9 @@
     "counts": {
       "confirmed_static": 5,
       "unverified": 20,
-      "confirmed_mismatch": 6,
-      "revision_dependent": 7,
-      "partial": 23
+      "confirmed_mismatch": 5,
+      "partial": 24,
+      "revision_dependent": 7
     },
     "code_references_checked": 157,
     "parts": [
@@ -109,7 +110,8 @@
       "total": 171,
       "ledger": "dev/config/re-part1-page-review.json",
       "functional_conformity_accepted": false
-    }
+    },
+    "current_status_scope": "Текущие counts вычислены по 61 сводному пункту после отзыва RP1-POWER-06; исходные parts и baseline_summary сохранены как история, а не текущая оценка."
   },
   "evidence_files": [
     "dev/docs/audit_parts/re_part1/control-native-guards.json",
@@ -144,7 +146,13 @@
     "dev/docs/audit_parts/re_part1/sa47-reset-operator-20261025.json",
     "dev/docs/audit_parts/re_part1/sa47-reset-producer-fault-20261025.json",
     "dev/docs/audit_parts/re_part1/sa47-reset-final-receipt-20261025.json",
-    "dev/docs/audit_parts/re_part1/sa47-reset-current-validation-20261025.json"
+    "dev/docs/audit_parts/re_part1/sa47-reset-current-validation-20261025.json",
+    "dev/docs/audit_parts/re_part1/getcur-contract-review-20261025.json",
+    "dev/docs/audit_parts/re_part1/getcur-retained-tfix-proof-20261025.json",
+    "dev/config/native-calibration-map.json",
+    "dev/docs/audit_parts/re_part1/getcur-static-correction-20261025.json",
+    "dev/docs/audit_parts/re_part1/getcur-native-evidence-20261025.json",
+    "dev/docs/audit_parts/re_part1/getcur-native-measured-20261025.json"
   ],
   "current_native_identity": [
     {
@@ -217,7 +225,7 @@
     },
     {
       "order": 3,
-      "work": "Introduce a coherent measured voltage per section; verify current/force consistency and the C-to-SP current boundary.",
+      "work": "Согласовать измеренный Uкс по секциям, доказать электромеханические единицы и калибровку силы/тока/момента в фактическом retained runtime, затем проверить границу С→СП. Повторный перенос уже существующего раннего clamp не требуется.",
       "requirements": [
         "CA02",
         "RP1-POWER-05",
@@ -897,7 +905,9 @@
       "sections": [
         "1.2.2, таблица 1 и примечания 1, 3–5"
       ],
-      "origin_report": "dev/runs/re-part1-20261024/parameters-power.json"
+      "origin_report": "dev/runs/re-part1-20261024/parameters-power.json",
+      "numeric_evidence_scope_warning": "В доказанном контракте TTygaParam.V и private FVCur выражены в м/с. Старые строки numeric.py/numeric.json с 49.2/51/80/120 передавали числа без деления на 3,6; их подписи км/ч отозваны. Кроме того, nezav() считала F_kN по raw Ia, хотя actual .tfix рассчитывает момент и силу по bounded Ia. Старые таблицы силы и target roots при raw Ia > 750 А не описывают этот runtime даже после переименования единиц. Их нельзя использовать для калибровки. Фиксированные одинаковые токи 580/540 А не являются паспортной F(v): отличаются колесо 1250/1210 мм, Uкс 3200/3000 В, режим и ещё не принятый механический контракт.",
+      "corrected_contract_ref": "dev/docs/audit_parts/re_part1/getcur-contract-review-20261025.json"
     },
     {
       "id": "RP1-POWER-04",
@@ -941,7 +951,9 @@
       "sections": [
         "1.4, рисунок 1.4"
       ],
-      "origin_report": "dev/runs/re-part1-20261024/parameters-power.json"
+      "origin_report": "dev/runs/re-part1-20261024/parameters-power.json",
+      "numeric_evidence_scope_warning": "В доказанном контракте TTygaParam.V и private FVCur выражены в м/с. Старые строки numeric.py/numeric.json с 49.2/51/80/120 передавали числа без деления на 3,6; их подписи км/ч отозваны. Кроме того, nezav() считала F_kN по raw Ia, хотя actual .tfix рассчитывает момент и силу по bounded Ia. Старые таблицы силы и target roots при raw Ia > 750 А не описывают этот runtime даже после переименования единиц. Их нельзя использовать для калибровки. Фиксированные одинаковые токи 580/540 А не являются паспортной F(v): отличаются колесо 1250/1210 мм, Uкс 3200/3000 В, режим и ещё не принятый механический контракт.",
+      "corrected_contract_ref": "dev/docs/audit_parts/re_part1/getcur-contract-review-20261025.json"
     },
     {
       "id": "RP1-POWER-05",
@@ -1007,37 +1019,134 @@
       ],
       "code": [
         {
-          "path": "work/traction6000/evidence.md",
-          "line": 74
-        },
-        {
           "path": "outputs/TrainerNativeSystems.cs",
-          "line": 82
+          "line": 79,
+          "anchor": "void MotionCycle()",
+          "sha256": "85ee79a1261fc4e346cec1d933fab83280526243ee2a8091747334e629fa7c3d",
+          "scope": "Точка входа/выхода модели. Доказательство retained native пути находится в свежем полном контракте; этот C# anchor сам по себе его не доказывает."
         },
         {
           "path": "outputs/TrainerAuxSystems.cs",
-          "line": 124
+          "line": 124,
+          "anchor": "void ElectricalCycle()",
+          "sha256": "e9dc02f6c7af2b7407048e595bb93346bb8bed265d77408e8ed8c4a1067bf72f",
+          "scope": "Точка входа/выхода модели. Доказательство retained native пути находится в свежем полном контракте; этот C# anchor сам по себе его не доказывает."
+        },
+        {
+          "path": "dev/docs/audit_parts/re_part1/getcur-contract-review-20261025.json",
+          "line": 1,
+          "kind": "fresh_static_contract",
+          "sha256": "230758641c7b69b2fe0449a6f9f75f5fc02717c9d341bb1ecdc321a92bd319e4"
         }
       ],
-      "observed": "Текущие байты подтверждают ветвь GetCur до ограничения сохранённых токов 750 А и возврат после clamp без перерасчёта силы/момента. При расчётном токе выше 750 записанная сила и публикуемый ток могут относиться к разным значениям. Динамическая достижимость и масштаб эффекта в текущем профиле не измерены.",
-      "status": "confirmed_mismatch",
+      "observed": "Полный статический разбор фактической DLL с retained .tfix подтверждает раннее ограничение токов до 750 А до Moment и силы. GetCur RVA 17971D переходит в 856032 и возвращается на 179726; Calk RVA 1764A5 также имеет ранее существовавший переход в 856064 с защитой первых двух секций от нулевого числа включённых групп. Поздний clamp сохранён, но не является единственным. Прежнее конкретное утверждение о рассогласовании силы и тока из-за late-only clamp отозвано как ошибка неполного анализа. Физические единицы ЭДС/потока/момента, согласованность мощности и паспортные F(v) ещё не приняты; новые дефекты ими не объявляются. Свежий native Tyga750Clamp test-20261025T035939967Z-f0224872: 117/117 проверок PASS, 1211 полных циклов, 134 вызова producer и 44 затронутых вызова. Сырой ток достиг 766,3215 А; в полном sample цикла 1176 токи 756,241943 А ограничены до 750 А перед моментом/силой, четыре Iv = 440 А. Поздний clamp не меняет момент/силу; расчёт по bounded Ia совпадает с native Force 60,003696 (600,036964 кН по контракту 10 кН) с разностью 0. Native V = 0,8013864756 м/с и private FVCur = 0,8013865 м/с совпали. Максимум реальной скорости 3,09626 км/ч; цель 40 км/ч не достигалась.",
+      "status": "partial",
       "priority": "P1",
-      "basis": "Статический дефект согласованности компонента; не утверждение о любом штатном цикле и не норма ограничения токов из РЭ.",
+      "basis": "Конкретный прежний confirmed_mismatch не доказан для фактического SHA. Статический контракт раннего ограничения подтверждён, но общая электромеханическая калибровка остаётся partial. Это не новая правка native кода и не приёмка 750 А как нормы РЭ. Отзыв теперь имеет и ограниченное измеренное подтверждение для существующего retained пути; нового runtime исправления нет.",
       "acceptance": {
         "executed": false,
         "required": [
-          "Контролируемый сценарий входа/выхода из области ограничения: Ia/Iв/момент/сила до и после должны согласовываться; затем паспортные точки и регрессия нормального диапазона."
-        ]
+          "Свежий native observer в штатной цепочке: solved Ia до retained prelimit, bounded Ia, Iexc, Epair, U2, Uset, Moment, PairF, aggregateF и фактический вход POEZD; различать текущий цикл и пробные SetNextPos вызовы.",
+          "Проверить С/СП/П, отключённые группы и переходы; поздний clamp после раннего должен быть no-op в своём допустимом контракте.",
+          "Пересчитать численные таблицы со скоростью м/с и фактическим ранним ограничением; проверить паспортные точки при диаметре 1210 мм и Uкс 3000 В. Не использовать отозванные force/target-root таблицы как калибровочные."
+        ],
+        "scope": "Часть критериев подтверждена свежим native observer: существующий ранний limit до момента/силы, late no-op, единицы входной скорости и восстановление. Все критерии электромеханической калибровки не выполнены: максимум 3,09626 км/ч, без полного охвата режимов/переходов, баланса энергии, паспортной F(v) и нормативной приёмки 750 А. Общий статус partial.",
+        "partial_executed": true,
+        "measured_receipt": "dev/docs/audit_parts/re_part1/getcur-native-measured-20261025.json"
       },
       "expected": "Тяговая сила, токи и момент должны описывать одно физическое состояние двигателя; это инженерное следствие модели по РЭ, а не отдельная норма 750 А из части 1.",
-      "proposed_change": "Сначала воспроизвести на native выходах и определить физический контракт ограничения. Затем согласовать вычисление силы и токов; не назначать 750 А нормативным пределом без применимого источника.",
+      "proposed_change": "Повторно переносить clamp не требуется: существующий retained .tfix подтверждён полным статическим разбором и ограниченным native наблюдением. Следующий шаг — согласовать Uкс и доказать единицы и баланс ЭДС, тока, момента, мощности и силы; затем паспортная F(v). Числа менять по доказанному физическому контракту и применимому РЭ.",
       "sections": [
         "1.4;2.1.1"
       ],
       "origin_report": "dev/runs/re-part1-20261024/parameters-power.json",
       "fresh_static_evidence": [
-        "dev/docs/audit_parts/re_part1/traction-static-current.json"
-      ]
+        "dev/docs/audit_parts/re_part1/getcur-contract-review-20261025.json",
+        "dev/docs/audit_parts/re_part1/getcur-retained-tfix-proof-20261025.json"
+      ],
+      "title": "Электромеханическая калибровка: прежний late-only clamp-дефект отозван",
+      "withdrawal": {
+        "date": "2026-10-25",
+        "reason": "Ошибка неполного прежнего анализа фактической DLL: дальние переходы в retained .tfix не были включены в локальные byte guards.",
+        "new_fix_applied": false,
+        "actual_tyga_sha256": "8ec6a82e618a1d75cbb31242784084b530bb87308e601defc5263d5279270491",
+        "previous_assessment": {
+          "id": "RP1-POWER-06",
+          "printed_pages": [
+            21,
+            22,
+            32
+          ],
+          "pdf_pages": [
+            21,
+            22,
+            32
+          ],
+          "code": [
+            {
+              "path": "work/traction6000/evidence.md",
+              "line": 74
+            },
+            {
+              "path": "outputs/TrainerNativeSystems.cs",
+              "line": 82
+            },
+            {
+              "path": "outputs/TrainerAuxSystems.cs",
+              "line": 124
+            }
+          ],
+          "observed": "Текущие байты подтверждают ветвь GetCur до ограничения сохранённых токов 750 А и возврат после clamp без перерасчёта силы/момента. При расчётном токе выше 750 записанная сила и публикуемый ток могут относиться к разным значениям. Динамическая достижимость и масштаб эффекта в текущем профиле не измерены.",
+          "status": "confirmed_mismatch",
+          "priority": "P1",
+          "basis": "Статический дефект согласованности компонента; не утверждение о любом штатном цикле и не норма ограничения токов из РЭ.",
+          "acceptance": {
+            "executed": false,
+            "required": [
+              "Контролируемый сценарий входа/выхода из области ограничения: Ia/Iв/момент/сила до и после должны согласовываться; затем паспортные точки и регрессия нормального диапазона."
+            ]
+          },
+          "expected": "Тяговая сила, токи и момент должны описывать одно физическое состояние двигателя; это инженерное следствие модели по РЭ, а не отдельная норма 750 А из части 1.",
+          "proposed_change": "Сначала воспроизвести на native выходах и определить физический контракт ограничения. Затем согласовать вычисление силы и токов; не назначать 750 А нормативным пределом без применимого источника.",
+          "sections": [
+            "1.4;2.1.1"
+          ],
+          "origin_report": "dev/runs/re-part1-20261024/parameters-power.json",
+          "fresh_static_evidence": [
+            "dev/docs/audit_parts/re_part1/traction-static-current.json"
+          ]
+        },
+        "correction": "Прежнее утверждение о единственном позднем ограничении 750 А и расчёте силы по необрезанному току отозвано для фактического SHA Tyga1 8ec6a82e618a1d75cbb31242784084b530bb87308e601defc5263d5279270491. Неполный прежний анализ не проследил дальний переход GetCur 17971D → retained .tfix 856032 → 179726. Этот существовавший ранее блок ограничивает оба токовых поля текущей секции до 750 А перед Moment/TygaTED/общей силой. Это исправление оценки документации, а не новая правка DLL.",
+        "old_numeric_tables": "В доказанном контракте TTygaParam.V и private FVCur выражены в м/с. Старые строки numeric.py/numeric.json с 49.2/51/80/120 передавали числа без деления на 3,6; их подписи км/ч отозваны. Кроме того, nezav() считала F_kN по raw Ia, хотя actual .tfix рассчитывает момент и силу по bounded Ia. Старые таблицы силы и target roots при raw Ia > 750 А не описывают этот runtime даже после переименования единиц. Их нельзя использовать для калибровки. Фиксированные одинаковые токи 580/540 А не являются паспортной F(v): отличаются колесо 1250/1210 мм, Uкс 3200/3000 В, режим и ещё не принятый механический контракт."
+      },
+      "historical_evidence_scope_warnings": [
+        {
+          "path": "dev/docs/audit_parts/re_part1/traction-static-current.json",
+          "historical": true,
+          "checks_passed": 10,
+          "checks_total": 10,
+          "warning": "Эти 10 локальных byte guards подтверждали только выбранные участки. Они не покрывали дальние переходы в .tfix и не доказывали отсутствие раннего clamp. Содержимое и результат сохранены как история; конкретный вывод о late-only дефекте отозван."
+        },
+        {
+          "path": "work/traction6000/evidence.md",
+          "historical": true,
+          "warning": "Прежний текст о late-only clamp и численные подписи/таблицы не принимаются без нового контракта. В доказанном контракте TTygaParam.V и private FVCur выражены в м/с. Старые строки numeric.py/numeric.json с 49.2/51/80/120 передавали числа без деления на 3,6; их подписи км/ч отозваны. Кроме того, nezav() считала F_kN по raw Ia, хотя actual .tfix рассчитывает момент и силу по bounded Ia. Старые таблицы силы и target roots при raw Ia > 750 А не описывают этот runtime даже после переименования единиц. Их нельзя использовать для калибровки. Фиксированные одинаковые токи 580/540 А не являются паспортной F(v): отличаются колесо 1250/1210 мм, Uкс 3200/3000 В, режим и ещё не принятый механический контракт."
+        },
+        {
+          "path": "dev/docs/audit_parts/re_part1/traction-native-static.json",
+          "historical": true,
+          "warning": "Ограниченные выбранные участки не заменяют разбор полного графа переходов и .tfix. Их старый PASS не подтверждает текущую общую электромеханическую калибровку."
+        }
+      ],
+      "native_observer_executed": true,
+      "fresh_dynamic_evidence": {
+        "path": "dev/docs/audit_parts/re_part1/getcur-native-measured-20261025.json",
+        "sha256": "e5668cba3d0b71f8b3eb5b0624590d0fe8ce1c0ea51e4da8bcddc0c6f0c4d8cc",
+        "run_id": "test-20261025T035939967Z-f0224872",
+        "checks": 117,
+        "passed": 117,
+        "status": "passed_within_scope"
+      }
     },
     {
       "id": "RP1-POWER-07",
@@ -3758,7 +3867,8 @@
           "revision_dependent": 2
         }
       }
-    ]
+    ],
+    "scope_warning": "Исторический снимок прежней оценки. Его confirmed_mismatch для RP1-POWER-06 отозван 25 октября из-за неполного анализа retained .tfix; исторические числа не являются текущими counts."
   },
   "revision_scope": {
     "baseline_commit": "a04ed4b144d9ca49ef08018377566aec722a8204",
@@ -4106,6 +4216,33 @@
         "checks": 56,
         "scope": "Идентичность текущих исходников, сборок, 19 productionSourceSHA и развёрнутого EXE. Исходный PDF и 171 изображение также проверены. Нормативная приёмка всей модели не расширяется."
       }
+    },
+    {
+      "id": "GETCUR-MEASURED-20261025",
+      "date": "2026-10-25",
+      "status": "partial",
+      "run_id": "test-20261025T035939967Z-f0224872",
+      "report": "dev/runs/test-20261025T035939967Z-f0224872/report.json",
+      "versioned_evidence": "dev/docs/audit_parts/re_part1/getcur-native-measured-20261025.json",
+      "evidence_sha256": "e5668cba3d0b71f8b3eb5b0624590d0fe8ce1c0ea51e4da8bcddc0c6f0c4d8cc",
+      "checks": 117,
+      "passed": 117,
+      "exit_code": 0,
+      "session_state": "closed",
+      "exception_count": 0,
+      "logging_failure_count": 0,
+      "full_cycles": 1211,
+      "observed_electrical_frames": 1210,
+      "observed_producer_invocations": 134,
+      "affected_invocations": 44,
+      "maximum_raw_Ia_A": 766.321533203125,
+      "maximum_actual_speed_kmh": 3.0962600708007812,
+      "canonical_production_sources_unchanged": 35,
+      "observer_entries_restored": 4,
+      "native_inputs_and_signals_restored": true,
+      "new_runtime_fix": false,
+      "accepted_within_scope": "Измерено уже существовавшее раннее ограничение до момента/силы; поздний clamp является no-op в квалифицированном sample. Прежний late-only вывод отозван как ошибка анализа того же SHA, а не результат новой правки.",
+      "limits": "Один сохранённый полный sample, низкоскоростное событие; цель 40 км/ч не достигнута. Нормативность 750 А, factory calibration, энергетический баланс, весь маршрут и вся модель РЭ не приняты. Отдельная приёмка SA47 не заменяется."
     }
   ],
   "final_verification": {
@@ -4159,5 +4296,50 @@
     "passed": true,
     "checks": 56,
     "scope": "Идентичность текущих исходников, сборок, 19 productionSourceSHA и развёрнутого EXE. Исходный PDF и 171 изображение также проверены. Нормативная приёмка всей модели не расширяется."
-  }
+  },
+  "static_followups": [
+    {
+      "id": "GETCUR-STATIC-CORRECTION-20261025",
+      "date": "2026-10-25",
+      "status": "prior_claim_withdrawn_actual_runtime_calibration_partial",
+      "native_executed": false,
+      "dll_changed": false,
+      "review": "dev/docs/audit_parts/re_part1/getcur-contract-review-20261025.json",
+      "proof": "dev/docs/audit_parts/re_part1/getcur-retained-tfix-proof-20261025.json",
+      "affected_requirements": [
+        "RP1-POWER-03",
+        "RP1-POWER-04",
+        "RP1-POWER-06"
+      ],
+      "correction": "Прежнее утверждение о единственном позднем ограничении 750 А и расчёте силы по необрезанному току отозвано для фактического SHA Tyga1 8ec6a82e618a1d75cbb31242784084b530bb87308e601defc5263d5279270491. Неполный прежний анализ не проследил дальний переход GetCur 17971D → retained .tfix 856032 → 179726. Этот существовавший ранее блок ограничивает оба токовых поля текущей секции до 750 А перед Moment/TygaTED/общей силой. Это исправление оценки документации, а не новая правка DLL.",
+      "numeric_withdrawal": "В доказанном контракте TTygaParam.V и private FVCur выражены в м/с. Старые строки numeric.py/numeric.json с 49.2/51/80/120 передавали числа без деления на 3,6; их подписи км/ч отозваны. Кроме того, nezav() считала F_kN по raw Ia, хотя actual .tfix рассчитывает момент и силу по bounded Ia. Старые таблицы силы и target roots при raw Ia > 750 А не описывают этот runtime даже после переименования единиц. Их нельзя использовать для калибровки. Фиксированные одинаковые токи 580/540 А не являются паспортной F(v): отличаются колесо 1250/1210 мм, Uкс 3200/3000 В, режим и ещё не принятый механический контракт.",
+      "observer_executed": false,
+      "selected_pe_evidence": "dev/docs/audit_parts/re_part1/getcur-native-evidence-20261025.json"
+    }
+  ],
+  "evidence_scope_warnings": [
+    {
+      "path": "dev/docs/audit_parts/re_part1/traction-static-current.json",
+      "historical": true,
+      "checks_passed": 10,
+      "checks_total": 10,
+      "warning": "Эти 10 локальных byte guards подтверждали только выбранные участки. Они не покрывали дальние переходы в .tfix и не доказывали отсутствие раннего clamp. Содержимое и результат сохранены как история; конкретный вывод о late-only дефекте отозван."
+    },
+    {
+      "path": "work/traction6000/evidence.md",
+      "historical": true,
+      "warning": "Прежний текст о late-only clamp и численные подписи/таблицы не принимаются без нового контракта. В доказанном контракте TTygaParam.V и private FVCur выражены в м/с. Старые строки numeric.py/numeric.json с 49.2/51/80/120 передавали числа без деления на 3,6; их подписи км/ч отозваны. Кроме того, nezav() считала F_kN по raw Ia, хотя actual .tfix рассчитывает момент и силу по bounded Ia. Старые таблицы силы и target roots при raw Ia > 750 А не описывают этот runtime даже после переименования единиц. Их нельзя использовать для калибровки. Фиксированные одинаковые токи 580/540 А не являются паспортной F(v): отличаются колесо 1250/1210 мм, Uкс 3200/3000 В, режим и ещё не принятый механический контракт."
+    },
+    {
+      "path": "dev/docs/audit_parts/re_part1/traction-native-static.json",
+      "historical": true,
+      "warning": "Ограниченные выбранные участки не заменяют разбор полного графа переходов и .tfix. Их старый PASS не подтверждает текущую общую электромеханическую калибровку."
+    }
+  ],
+  "native_calibration_map": {
+    "path": "dev/config/native-calibration-map.json",
+    "kind": "descriptive_evidence_map_not_runtime_configuration",
+    "purpose": "Куда относятся числа и таблицы native/оболочки, единицы, исполнение, границы приёмки и первые три калибровочные работы. Runtime этот JSON не читает."
+  },
+  "last_static_followup_date": "2026-10-25"
 }

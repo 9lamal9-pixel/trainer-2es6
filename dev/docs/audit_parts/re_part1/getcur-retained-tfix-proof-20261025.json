@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "kind": "fresh_read_only_actual_retained_tfix_proof",
+  "reviewed_utc": "2026-10-25T03:51:08.531334+00:00",
+  "native_executed": false,
+  "Tyga1": {
+    "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Tyga1.dll",
+    "sha256": "8ec6a82e618a1d75cbb31242784084b530bb87308e601defc5263d5279270491",
+    "image_base": "0x400000",
+    "provenance": "Фактическая рабочая копия с retained .tfix; это не нетронутая заводская DLL."
+  },
+  "withdrawal": {
+    "status": "prior_claim_withdrawn_for_actual_SHA",
+    "withdrawn_claim": "Для текущего Tyga1.dll сила вычисляется из тока выше 750 А, а ограничение действует только после расчёта силы.",
+    "reason": "В фактическом SHA 8ec6a82e618a1d75cbb31242784084b530bb87308e601defc5263d5279270491 GetCur на RVA 17971D уже переходит в исторический .tfix stub 856032. Он ограничивает оба тока пары до 750 перед расчётом Moment, TygaTED и общей силы. Поздний clamp 177C29 существует, но не является единственным ограничителем.",
+    "new_conclusion": "Рассогласование тока и силы вследствие одного только позднего ограничения не доказано для фактического runtime. Прежний статический вывод отзывается. Это не подтверждает заводскую правильность 750 А, электрических формул и всей модели.",
+    "affected_evidence": [
+      "dev/docs/audit_parts/re_part1/traction-static-current.json",
+      "work/traction6000/evidence.md"
+    ],
+    "not_rewritten_by_this_task": true
+  },
+  "guards": [
+    {
+      "name": "full_tfix",
+      "rva": "0x856000",
+      "length": 158,
+      "bytes": "837df0007f0633c08be55dc3db45f0d87dece950e891ff837ddc000f8fbb4292ff8b45fce85f6192ffd9ee5b8be55dc204008b45fc8b40048b55f4817cd03300803b447608c744d03300803b44817cd03700803b447608c744d03700803b44e9c23692ff8b45fcba01000000e8932192ff508b45fcba02000000e8852192ff5a03c285c0750c8b45fce8fa6092ff8be55dc38b45fc80780b00e90e0492ff",
+      "sha256": "1e97515cb1ff16387505395e98140e9c1111c0eea90343bb24856bde3652a817"
+    },
+    {
+      "name": "GetCur_prelimit_jump",
+      "rva": "0x17971d",
+      "length": 9,
+      "bytes": "e910c96d0090909090",
+      "sha256": "fc5fbd908f1cbad4d144b5ed7dbbad05f5ce01fee0bba136b381e7e1fd3bc8ba"
+    },
+    {
+      "name": "Calk_entry_jump",
+      "rva": "0x1764a5",
+      "length": 7,
+      "bytes": "e9bafb6d009090",
+      "sha256": "e7b6dbd95cc6ff238b5a82fda7b88aa50e6db2259d23df6a5c5f10b25d904e0a"
+    },
+    {
+      "name": "prelimit_stub",
+      "rva": "0x856032",
+      "length": 50,
+      "bytes": "8b45fc8b40048b55f4817cd03300803b447608c744d03300803b44817cd03700803b447608c744d03700803b44e9c23692ff",
+      "sha256": "844accf46514205ec7c13675b6b281c7cc86fbcbfdf745faa1065afc0c0daddc"
+    },
+    {
+      "name": "Calk_entry_stub",
+      "rva": "0x856064",
+      "length": 58,
+      "bytes": "8b45fcba01000000e8932192ff508b45fcba02000000e8852192ff5a03c285c0750c8b45fce8fa6092ff8be55dc38b45fc80780b00e90e0492ff",
+      "sha256": "8b66033d8cb8245d7f4c25ded96a01e58dd8c9b117bd76b4ae565b0f0339ba9f"
+    },
+    {
+      "name": "GetCountVklTED",
+      "rva": "0x178204",
+      "length": 54,
+      "bytes": "558bec83c4f48955f88945fc8b45fc8b40048b55f88b84d0050100008b55fc8b52048b4df80384ca090100008945f48b45f48be55dc3",
+      "sha256": "3184bb22889cdbb41719faf4eb924a68793fc55f0520c675feeb708cfa8f775f"
+    },
+    {
+      "name": "Help",
+      "rva": "0x17c188",
+      "length": 188,
+      "bytes": "558bec83c4f48945fc8b45fc8b400480b8300100000074128b45fc8b40048b4027c7401100004845eb0e8b45fc8b40048b402733d28950118b45fc8b40048b402733d289108b45fc8b400483c02b8945f4c745f8010000008b45f88b55f4c64442fe008b45f88b55f4c64442ff008b45f88b55f433c9894cc2088b45f88b55f433c9894cc20c8b45f88b55f433c9898cc2880000008b45f88b55f433c9898cc28c000000ff45f8837df80575ab8b45f433d289500889500c8be55dc3",
+      "sha256": "a27b2f2f9c15b9ad8793b3b6ef70b09fce6b34efbc87580257c3a645cdf7860a"
+    }
+  ],
+  "verified_class_function_inbounds": [
+    {
+      "function": "@Tyga_2es6@TTygaCalcClass@CalcRealProcent$qqrv",
+      "site_rva": "0x174861",
+      "bytes": "e99a176e00",
+      "target_rva": "0x856000"
+    },
+    {
+      "function": "@Tyga_2es6@TTygaCalcClass@CalkNezavVozb$qqrv",
+      "site_rva": "0x1764a5",
+      "bytes": "e9bafb6d00",
+      "target_rva": "0x856064"
+    },
+    {
+      "function": "@Tyga_2es6@TTygaCalcClass@GetCur$qqrf",
+      "site_rva": "0x17971d",
+      "bytes": "e910c96d00",
+      "target_rva": "0x856032"
+    },
+    {
+      "function": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+      "site_rva": "0x179db7",
+      "bytes": "e95bc26d00",
+      "target_rva": "0x856017"
+    }
+  ],
+  "flow": [
+    "GetCur17971D -> existing856032 -> limitedTok -> Moment179771/1797B9 -> PairF179808/179857 -> ResT.Tyga17992C.",
+    "Calk1764A5 -> existing856064 -> require enabled groups in sections1/2 -> replayCMP ->1764AC.",
+    "Late clamp177C29 exists, but is not the only clamp for this SHA."
+  ],
+  "speed_units": {
+    "confirmed_static": true,
+    "original_communication": {
+      "rva": "2975DD..2975EF",
+      "contract": "InputParamPult.V / 3.6 -> TTygaParam.V Double; literal3.6 декодирован из fresh PE."
+    },
+    "current_host": [
+      {
+        "path": "outputs/TrainerAuxSystems.cs",
+        "line": 124,
+        "anchor": "Dbl(mem[\"TTygaParam\"],0,signedVelocity);commStep();"
+      },
+      {
+        "path": "outputs/TrainerNativeSystems.cs",
+        "line": 89,
+        "anchor": "signedVelocity=v; ... Math.Abs(v)*3.6f"
+      },
+      {
+        "path": "outputs/TrainerNativeFixes.cs",
+        "line": 20,
+        "anchor": "Discard that x87 value with a balanced pop; the host supplies signed POEZD V."
+      }
+    ],
+    "native_caller": {
+      "rva": "17C34C..17C35E",
+      "contract": "Читает Tyga.V Double, округляет до Single на стеке и вызывает SetVCur; множителя 3.6, передачи и радиуса нет."
+    },
+    "SetVCur": {
+      "rva": "17E5E0",
+      "contract": "В зависимости от реверса меняет знак и сохраняет скорость в calc+104; единица остаётся м/с."
+    },
+    "GetEDS": {
+      "rva": "17A8B4",
+      "contract": "Все шесть branch stores S/SP/P используют Epair = 2 * phi * privateFVCur; это та же скорость м/с, не угловая скорость двигателя."
+    },
+    "old_numeric_limit": "В work/traction6000/numeric.py значения49.2/51/80/120 передавались в формулы без деления на3.6. Старые подписи km/h неверны для этих строк. Их нельзя использовать как паспортные физические точки до пересчёта и проверки единиц."
+  },
+  "force_units": {
+    "status": "confirmed_static_boundary_contract",
+    "fresh_PE_source": "getcur-native-evidence.json: poezd_units",
+    "proof": [
+      "POEZD SetInitState2435 умножает входную скорость км/ч на0.2777777777778.",
+      "SetSostav22CF..22F3 пишет scaledMass = 0.1 * mass_t.",
+      "1627..164F делит coupler_left - coupler_right + external на scaledMass.",
+      "Poezd1263..1266 сохраняет аргумент силы без масштаба;1A5B..1A67 прибавляет его к внешней силе без cap.",
+      "Current MotionCycle передаёт ResT.Tyga прямо в motionStep(force,0.1,0,0)."
+    ],
+    "conclusion": "При массе в тоннах, скорости м/с и времени в секундах одна native единица силы соответствует 10 кН. Это размерностный вывод из проверенного consumer, а не натурная калибровка."
+  },
+  "energy_hypothesis_status": "unaccepted_hypothesis_requires_physical_contract_and_native_measurement",
+  "full_contract": "C:/Users/sibir/Desktop/Макрос/Тренажер/dev/runs/tyga-calibration-20261025/getcur-contract-review.json",
+  "full_contract_sha256": "230758641c7b69b2fe0449a6f9f75f5fc02717c9d341bb1ecdc321a92bd319e4",
+  "selected_PE_evidence": "C:/Users/sibir/Desktop/Макрос/Тренажер/dev/runs/tyga-calibration-20261025/getcur-native-evidence.json",
+  "selected_PE_evidence_sha256": "6f5a74df493b9aeefab93eef349c3d00dc8e0e0f5d7a5fe9fe1cb565978af3f4",
+  "old_numeric_source": {
+    "path": "work/traction6000/numeric.py",
+    "sha256": "6abb8144d3ae89284b40909072b1d6e93f5a780bb8c36e2aeb4afc440f70fcd3",
+    "warning": "Values49.2/51/80/120 go directly to the formulas. Labels km/h are withdrawn for these rows; actual native V is m/s."
+  }
+}

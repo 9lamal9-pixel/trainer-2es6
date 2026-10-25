@@ -1,0 +1,952 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-25",
+  "kind": "limited_native_measured_continuation",
+  "requirement": "RP1-POWER-06",
+  "status": "passed_within_scope",
+  "purpose": "Измеренное подтверждение уже существовавшего retained раннего ограничения для того же SHA Tyga1; прежний late-only вывод отозван как ошибка анализа, а не исправлен новой правкой DLL.",
+  "new_runtime_fix": false,
+  "source_artifacts": [
+    {
+      "path": "dev/runs/test-20261025T035939967Z-f0224872/report.json",
+      "sha256": "db34c710ef183aeef42dab3ff1df5dea3ecc403e028760a031df13291e2deee9",
+      "size_bytes": 1627
+    },
+    {
+      "path": "dev/runs/test-20261025T035939967Z-f0224872/Tyga750Clamp/result.json",
+      "sha256": "ce686b24058bfff379f0b4e70f2e94d27801b402cea0eb74421d1dbef94a31ba",
+      "size_bytes": 1119
+    },
+    {
+      "path": "dev/runs/test-20261025T035939967Z-f0224872/Tyga750Clamp/Trainer_tyga750_clamp_diagnostic.json",
+      "sha256": "4c4b283a0fafd1a6e72afd37b3600828d6700c27ae778b1c4e4dec30a0de1a3c",
+      "size_bytes": 366625
+    },
+    {
+      "path": "dev/runs/test-20261025T035939967Z-f0224872/Tyga750Clamp/sessions/20261025T035944554Z_p38480_da55cea5687a43768426ae5f76605026/session.json",
+      "sha256": "1ffcebd426cc857c11b0bbf7acadf9fe1df267985425651ec2f6f2e0d2af6cf5",
+      "size_bytes": 953
+    },
+    {
+      "path": "dev/builds/build-20261025T035940059Z-5fa7f118/build.json",
+      "sha256": "5a923834ab2d7e563c2db2a4a8bd8935387ca716e03a9918612f98fb69403054",
+      "size_bytes": 29358
+    }
+  ],
+  "run": {
+    "id": "test-20261025T035939967Z-f0224872",
+    "git_head": "7831af873131cb9b4895f3e60eb389b934975409",
+    "started_utc": "2026-10-25T03:59:39.9685282Z",
+    "finished_utc": "2026-10-25T03:59:59.7191531Z",
+    "status": "passed",
+    "probe": "Tyga750Clamp",
+    "exit_code": 0,
+    "build_id": "build-20261025T035940059Z-5fa7f118"
+  },
+  "checks": {
+    "total": 117,
+    "passed": 117,
+    "failed": []
+  },
+  "session": {
+    "id": "20261025T035944554Z_p38480_da55cea5687a43768426ae5f76605026",
+    "pid": 38480,
+    "started_utc": "2026-10-25T03:59:44.5547940Z",
+    "ended_utc": "2026-10-25T03:59:59.4661423Z",
+    "state": "closed",
+    "completion_reason": "process-exit",
+    "exit_code": 0,
+    "exceptions": 0,
+    "logging_failures": 0,
+    "executable_sha256": "A6C82BF1AB4386AA5DE62B6E153F7768C1B2CED2FFC7CA2166C5E854D814B2DB",
+    "process_bits": 32,
+    "runtime": "4.0.30319.42000"
+  },
+  "summary": {
+    "full_cycles": 1211,
+    "observed_electrical_frames": 1210,
+    "no_independent_producer_frames": 1076,
+    "observed_producer_invocations": 134,
+    "affected_invocations": 44,
+    "maximum_actual_speed_kmh": 3.0962600708007812,
+    "maximum_raw_Ia_A": 766.321533203125,
+    "minimum_nonzero_observed_field_A": 245,
+    "prepared_initializations": 0
+  },
+  "measured_interpretation": {
+    "retained_early_limit_verified": true,
+    "raw_current_max_A": 766.321533203125,
+    "bounded_current_A": 750,
+    "sample_raw_current_A": 756.241943,
+    "sample_field_A": 440,
+    "sample_native_force": 60.00369644165039,
+    "force_unit": "10 кН по отдельно подтверждённому статическому контракту потребителя POEZD",
+    "sample_force_kN": 600.0369644165039,
+    "counterfactual_difference_native": 0,
+    "velocity_input_ms": 0.8013864755630493,
+    "internal_velocity_ms": 0.8013865,
+    "conclusion": "В наблюдённом вызове ранний retained путь ограничил ток до вычисления момента/силы. Поздний clamp не изменил Ia, Iv, момент, силы пар и общую силу. Пересчёт из ограниченного тока совпал с захваченной силой. Это измеренное опровержение старого late-only вывода в данном пути, а не приёмка всей электромеханической модели."
+  },
+  "qualified_sample": {
+    "source_json_pointer": "/cases/0/observations/43",
+    "selection": "Первое подтверждённое событие цикл 1176; сохранён ровно один полный sample без объектов вагонов.",
+    "canonical_json_sha256": "4bebd85e85acd10d3b3239fa2eca7dd1028e073df2bd31acfbb9288c8f9dde71",
+    "data": {
+      "cycle": 1176,
+      "phase": "genuine_native_operator_start_on_full_markup",
+      "generation": 1176,
+      "analysis": {
+        "Status": "retained_early750_before_nonzero_force_and_late_noop_verified",
+        "AffectedPairs": 4,
+        "MatchedEarlySections": 2,
+        "EarlyCurrentMatchesLateInput": true,
+        "EarlyExcitationUnchanged": true,
+        "ExcitationUnchanged": true,
+        "MomentUnchanged": true,
+        "PairForceUnchanged": true,
+        "TotalForceUnchanged": true,
+        "CounterfactualForceFromStoredCurrent": 60.00369644165039,
+        "CapturedForce": 60.00369644165039,
+        "CounterfactualDifference": 0,
+        "Scope": "One observed native producer invocation; no train trajectory or calibration acceptance"
+      },
+      "record": {
+        "Sequence": 1,
+        "Sections": 2,
+        "ControllerPosition": 10,
+        "InternalPosition": 10,
+        "Connection": 1,
+        "Percent": 93,
+        "SectionInputBits": 0,
+        "Complete": true,
+        "VelocityInputMetresPerSecond": 0.8013864755630493,
+        "InternalVelocityMetresPerSecond": 0.8013865,
+        "ForceBefore": 60.0036964,
+        "ForceAfter": 60.0036964,
+        "UsetBefore": 3200,
+        "UsetAfter": 3200,
+        "ForceBeforeBits": 1114637257,
+        "ForceAfterBits": 1114637257,
+        "NativeFramePointer": 5696120,
+        "EarlyEndSequence": 4,
+        "IaBefore": [
+          1144750080,
+          1144750080,
+          1144750080,
+          1144750080,
+          0,
+          0,
+          0,
+          0
+        ],
+        "IaAfter": [
+          1144750080,
+          1144750080,
+          1144750080,
+          1144750080,
+          0,
+          0,
+          0,
+          0
+        ],
+        "IvBefore": [
+          1138491392,
+          1138491392,
+          1138491392,
+          1138491392,
+          0,
+          0,
+          0,
+          0
+        ],
+        "IvAfter": [
+          1138491392,
+          1138491392,
+          1138491392,
+          1138491392,
+          0,
+          0,
+          0,
+          0
+        ],
+        "MomentBefore": [
+          1191864054,
+          1191864054,
+          1191864054,
+          1191864054,
+          0,
+          0,
+          0,
+          0
+        ],
+        "MomentAfter": [
+          1191864054,
+          1191864054,
+          1191864054,
+          1191864054,
+          0,
+          0,
+          0,
+          0
+        ],
+        "PairForceBefore": [
+          1097860041,
+          1097860041,
+          1097860041,
+          1097860041,
+          0,
+          0,
+          0,
+          0
+        ],
+        "PairForceAfter": [
+          1097860041,
+          1097860041,
+          1097860041,
+          1097860041,
+          0,
+          0,
+          0,
+          0
+        ],
+        "AveragedIaBefore": [
+          1144750080,
+          1144750080,
+          1144750080,
+          1144750080,
+          0,
+          0,
+          0,
+          0
+        ],
+        "AveragedIvBefore": [
+          1138491392,
+          1138491392,
+          1138491392,
+          1138491392,
+          0,
+          0,
+          0,
+          0
+        ],
+        "EdsBefore": [
+          1108832033,
+          1108832033,
+          1108832033,
+          1108832033,
+          0,
+          0,
+          0,
+          0
+        ],
+        "U2Before": [
+          1075398239,
+          1075398239,
+          1075398239,
+          1075398239,
+          0,
+          0,
+          0,
+          0
+        ],
+        "ApparatusInputs": [
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "IaBeforeA": [
+          750,
+          750,
+          750,
+          750,
+          0,
+          0,
+          0,
+          0
+        ],
+        "IaAfterA": [
+          750,
+          750,
+          750,
+          750,
+          0,
+          0,
+          0,
+          0
+        ],
+        "IvBeforeA": [
+          440,
+          440,
+          440,
+          440,
+          0,
+          0,
+          0,
+          0
+        ],
+        "IvAfterA": [
+          440,
+          440,
+          440,
+          440,
+          0,
+          0,
+          0,
+          0
+        ],
+        "NativeMomentBefore": [
+          35430.96,
+          35430.96,
+          35430.96,
+          35430.96,
+          0,
+          0,
+          0,
+          0
+        ],
+        "NativeMomentAfter": [
+          35430.96,
+          35430.96,
+          35430.96,
+          35430.96,
+          0,
+          0,
+          0,
+          0
+        ],
+        "NativePairForceBefore": [
+          15.0009241,
+          15.0009241,
+          15.0009241,
+          15.0009241,
+          0,
+          0,
+          0,
+          0
+        ],
+        "NativePairForceAfter": [
+          15.0009241,
+          15.0009241,
+          15.0009241,
+          15.0009241,
+          0,
+          0,
+          0,
+          0
+        ],
+        "NativeEdsBefore": [
+          37.8585243,
+          37.8585243,
+          37.8585243,
+          37.8585243,
+          0,
+          0,
+          0,
+          0
+        ],
+        "NativeU2Before": [
+          2.39492,
+          2.39492,
+          2.39492,
+          2.39492,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "early_records": [
+        {
+          "Sequence": 1,
+          "Section": 1,
+          "Percent": 93,
+          "ControllerPosition": 10,
+          "VozbType": 1,
+          "Pair0Enabled": 1,
+          "Pair1Enabled": 1,
+          "Complete": true,
+          "ReturnAddress": 344554060,
+          "CallerFramePointer": 5696120,
+          "NativeFramePointer": 5696096,
+          "VelocityInputMetresPerSecond": 0.8013864755630493,
+          "InternalVelocityMetresPerSecond": 0.8013865,
+          "IaBefore": [
+            1144852348,
+            1144852348
+          ],
+          "IaAfter": [
+            1144750080,
+            1144750080
+          ],
+          "IvBefore": [
+            1138491392,
+            1138491392
+          ],
+          "IvAfter": [
+            1138491392,
+            1138491392
+          ],
+          "RawIaA": [
+            756.241943,
+            756.241943
+          ],
+          "BoundedIaA": [
+            750,
+            750
+          ],
+          "IvBeforeA": [
+            440,
+            440
+          ],
+          "IvAfterA": [
+            440,
+            440
+          ]
+        },
+        {
+          "Sequence": 2,
+          "Section": 2,
+          "Percent": 93,
+          "ControllerPosition": 10,
+          "VozbType": 1,
+          "Pair0Enabled": 1,
+          "Pair1Enabled": 1,
+          "Complete": true,
+          "ReturnAddress": 344554060,
+          "CallerFramePointer": 5696120,
+          "NativeFramePointer": 5696096,
+          "VelocityInputMetresPerSecond": 0.8013864755630493,
+          "InternalVelocityMetresPerSecond": 0.8013865,
+          "IaBefore": [
+            1144852348,
+            1144852348
+          ],
+          "IaAfter": [
+            1144750080,
+            1144750080
+          ],
+          "IvBefore": [
+            1138491392,
+            1138491392
+          ],
+          "IvAfter": [
+            1138491392,
+            1138491392
+          ],
+          "RawIaA": [
+            756.241943,
+            756.241943
+          ],
+          "BoundedIaA": [
+            750,
+            750
+          ],
+          "IvBeforeA": [
+            440,
+            440
+          ],
+          "IvAfterA": [
+            440,
+            440
+          ]
+        },
+        {
+          "Sequence": 3,
+          "Section": 3,
+          "Percent": 93,
+          "ControllerPosition": 10,
+          "VozbType": 1,
+          "Pair0Enabled": 0,
+          "Pair1Enabled": 0,
+          "Complete": true,
+          "ReturnAddress": 344554060,
+          "CallerFramePointer": 5696120,
+          "NativeFramePointer": 5696096,
+          "VelocityInputMetresPerSecond": 0.8013864755630493,
+          "InternalVelocityMetresPerSecond": 0.8013865,
+          "IaBefore": [
+            0,
+            0
+          ],
+          "IaAfter": [
+            0,
+            0
+          ],
+          "IvBefore": [
+            0,
+            0
+          ],
+          "IvAfter": [
+            0,
+            0
+          ],
+          "RawIaA": [
+            0,
+            0
+          ],
+          "BoundedIaA": [
+            0,
+            0
+          ],
+          "IvBeforeA": [
+            0,
+            0
+          ],
+          "IvAfterA": [
+            0,
+            0
+          ]
+        },
+        {
+          "Sequence": 4,
+          "Section": 4,
+          "Percent": 93,
+          "ControllerPosition": 10,
+          "VozbType": 1,
+          "Pair0Enabled": 0,
+          "Pair1Enabled": 0,
+          "Complete": true,
+          "ReturnAddress": 344554060,
+          "CallerFramePointer": 5696120,
+          "NativeFramePointer": 5696096,
+          "VelocityInputMetresPerSecond": 0.8013864755630493,
+          "InternalVelocityMetresPerSecond": 0.8013865,
+          "IaBefore": [
+            0,
+            0
+          ],
+          "IaAfter": [
+            0,
+            0
+          ],
+          "IvBefore": [
+            0,
+            0
+          ],
+          "IvAfter": [
+            0,
+            0
+          ],
+          "RawIaA": [
+            0,
+            0
+          ],
+          "BoundedIaA": [
+            0,
+            0
+          ],
+          "IvBeforeA": [
+            0,
+            0
+          ],
+          "IvAfterA": [
+            0,
+            0
+          ]
+        }
+      ],
+      "averaged_Ia_at_native_return": [
+        1144750080,
+        1144750080,
+        1144750080,
+        1144750080,
+        0,
+        0,
+        0,
+        0
+      ],
+      "averaged_Iv_at_native_return": [
+        1138491392,
+        1138491392,
+        1138491392,
+        1138491392,
+        0,
+        0,
+        0,
+        0
+      ],
+      "output_velocity_kmh": 2.88499117,
+      "late_native_force": 60.0036964,
+      "timing": "Record is from the completed preceding ElectricalCycle; late averages read before the next pneumatic call"
+    }
+  },
+  "source_identity": {
+    "tyga_sha256": "8EC6A82E618A1D75CBB31242784084B530BB87308E601DEFC5263D5279270491",
+    "build_source_count": 38,
+    "canonical_production_count": 35,
+    "canonical_matches_probe_and_prior_production": true,
+    "prior_production_build": "build-20261025T031759359Z-fc9f8821",
+    "canonical_sources": [
+      {
+        "path": "outputs/TrainerIntegrationHost.cs",
+        "sha256": "1286ced6097ba137d46b47f9f6feac26952d525cf5f1c70c6d375da56fdb9839",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerNativeSystems.cs",
+        "sha256": "85ee79a1261fc4e346cec1d933fab83280526243ee2a8091747334e629fa7c3d",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerNativeBrakeRelease.cs",
+        "sha256": "43bc878addc72999bd44517284aa6cca71f3dacda9847d0c6f2d95588f1c1ef1",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerSa47MemoryPatch.cs",
+        "sha256": "08af53f738c8adb72192d5928fef4dfda415ccb2513cc49499e67fc7655feb7e",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerAuxSystems.cs",
+        "sha256": "e9dc02f6c7af2b7407048e595bb93346bb8bed265d77408e8ed8c4a1067bf72f",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerRouteDOS.cs",
+        "sha256": "a6833bdfdd042e47a5570f0bb7c39ad823fed3024c03713129d33ac6abe8f4be",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerAutovedenieController.cs",
+        "sha256": "ef6ce777859b0d84847a648e1c29111d4f5bcdf2da107660fd2edcfebca4dcfb",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerTrainBrakeCycle.cs",
+        "sha256": "783ffd1df4546c99fb131a3a88d71211cbcd67226d002ba254aff7c9e20e9a8b",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerAutovedenieInterface.cs",
+        "sha256": "ee116b7847a4b946f56ea84dd4f1e8713541e2c0eb3494dcc7085555c384fdce",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerAutovedenieNativeBridge.cs",
+        "sha256": "ec5c8cb86162319e2ad2030b313eddb820d2d4f4ec8acfbf702072846c4d9341",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerAutovedenieHost.cs",
+        "sha256": "a9f657408e91a5731e25381d662241fd8047479e877d8ceedcb24ca7cb57567b",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerSautOperatorControls.cs",
+        "sha256": "b78d647440fb4521b97728131a3df16ec4cda56d19912c484aef8af16fd2e9f8",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerStandaloneSautBinding.cs",
+        "sha256": "7480b65a77c0883bf1fd8ead8402970355c56bdf1765d011d720052dafa71145",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerRouteView.cs",
+        "sha256": "cd86f938c78fb0e3a2f49441050d3965beacdda1ab861b8f6c59d4b45cf27204",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerNativeFixes.cs",
+        "sha256": "e8d47dac13d7d1152dee2206ca5f77a0d4b307313cfbbc506067343495250b4d",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerPneumaticTiming.cs",
+        "sha256": "faa88fb80bc132188a846af2453265b2d54e7284d98c38af881094afb9d5b2e2",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerSessionLogging.cs",
+        "sha256": "fc409229f2f44aee2c97fc4633107dacd199c63ce73f6717633c900c8dcef101",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerAirNetwork.cs",
+        "sha256": "86d4bc73601012d7a4109beeaa26360f8c476cc06d2fdde61c3bb1b66f646b32",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerControlAir.cs",
+        "sha256": "45f273528a4e83bb5fc166367646c1a234fde578c20128af2881e2a35ef0c4b6",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerBtoNetwork.cs",
+        "sha256": "5e83c5f3bbb597757a8dcfb48881625ad398970a714e4710afdba9ad39e58027",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerAirSelector.cs",
+        "sha256": "e4e86de362e66d7a55c23968f52d1fe1eb64c631d07e18b7d9bace142c6263fd",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerKvtProfile.cs",
+        "sha256": "e80696785d2542fb5be5920a87ee6a51368043b06e7fbb388992a9f19a0e17b7",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerTwoSectionAirChain.cs",
+        "sha256": "c04801ab0dfcd7af736d8069909ec4d8c07c71c1f14caf393e30f5043f86bbbc",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+        "sha256": "3c388354adac36b8d0fff3ad4422efb79dea88524ec784d02e85a159b1a336cf",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerTrainPressureView.cs",
+        "sha256": "431ea70a22205ee44eddb51d71cd2a816ae46912cd14c6dad7c5f1c165becd61",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerSafetyInputContext.cs",
+        "sha256": "71883123e6c657a5a62355ea673dc7bb4e10646320141002be81abfc57fd5d84",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerSafetyContexts.cs",
+        "sha256": "efdafa1202f26ff507a242ff6f2ad7971d2d169619ecaa4fa35b81fd533cf0b4",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerNativeSafetyAdapter.cs",
+        "sha256": "50cfd589ab74f667df336abcf157225b5f6be8cd6f50db369b828ba58d4e58aa",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerSafetyHost.cs",
+        "sha256": "05abacf21249c5ef6b7c45c965cdcf94cc3fafdcf2645ff55d9e8bc28b2bd7b9",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerVigilanceOperatorControls.cs",
+        "sha256": "5a93ec26f39341d0e6632a275bbe1177fb7966e85854c47a32f3658ea178957f",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerMarkupSignalSource.cs",
+        "sha256": "0c927b8bbe2b6a2b444623a83f3c2fec38577ddbb1e85f8172be61174cb036a6",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerMarkupHost.cs",
+        "sha256": "be9d9f6744f80ba327d46392641c3d4240b3d7a7abc09e12d4be43fca83e0266",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerKlubSafetyBinding.cs",
+        "sha256": "942acf68c73403ce35b833322e85274ed11c37cdb879140c0b3ba5e224f95006",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerNativeVirtualPult.cs",
+        "sha256": "f54e569eb6c9f0b72541e5d08c90999fa572656b06138fbdb7b5ec7eedc7ce24",
+        "matches_probe": true,
+        "matches_prior_production": true
+      },
+      {
+        "path": "outputs/TrainerSandAirInput.cs",
+        "sha256": "c9ba33f9e2abcbaae0f3284b20b63a8880b50c4b0df8b139abb04e3eae258c89",
+        "matches_probe": true,
+        "matches_prior_production": true
+      }
+    ],
+    "diagnostic_and_extra_probe_sources": [
+      {
+        "path": "outputs/TrainerAutovedenieAdverseBrakeProbe.cs",
+        "sha256": "82AA25112B63D45F75A9F9F61F2C030A9F73740596E50A5F93C2607FA457E2C0"
+      },
+      {
+        "path": "work/pneumatic_live_fix/analysis/Tyga750ClampObserver.cs",
+        "sha256": "B36744C82ADF8C880C79D21CED0B6DE035C315B7A9A407735D90566D61E98172"
+      },
+      {
+        "path": "work/pneumatic_live_fix/analysis/Tyga750ClampProbe.cs",
+        "sha256": "5CDC0BB8AFE00952DDBAB6FA5ED4732B05F7A074D72180CFF65F854DC4533FC5"
+      }
+    ],
+    "loaded_native_modules": [
+      {
+        "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Communication1.dll",
+        "sha256": "27178A089EF33692D16B1D46AE0DD7567135B327A24BE9D7D0CA84AF8DF3DB7F",
+        "matches_lock": true
+      },
+      {
+        "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Pult1.dll",
+        "sha256": "7DAC59BF94276309E012A6EB72602C08A921FE1910A4169F9F0EC27008F0F8F5",
+        "matches_lock": true
+      },
+      {
+        "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Tyga1.dll",
+        "sha256": "8EC6A82E618A1D75CBB31242784084B530BB87308E601DEFC5263D5279270491",
+        "matches_lock": true
+      },
+      {
+        "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/POEZD.DLL",
+        "sha256": "822B6D17CE45F80179A512EE6C70A35D5AE29BF187530BDA5EBD11446CFB3553",
+        "matches_lock": true
+      },
+      {
+        "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/TormModel.dll",
+        "sha256": "F871640C5B7699901E3AFBF755BB2B797B659524C29BAA046B311CA6ECC875B9",
+        "matches_lock": true
+      }
+    ]
+  },
+  "restoration": {
+    "observer_restored_before_native_close": true,
+    "teaching_signals_restored": true,
+    "native_inputs_restored": true,
+    "native_close_allowed": true,
+    "native_closed": true,
+    "entry_sites": [
+      {
+        "rva": "177C29",
+        "original_bytes": "C7 45 F8 01 00 00 00"
+      },
+      {
+        "rva": "177C84",
+        "original_bytes": "FF 45 F8 83 7D F8 05"
+      },
+      {
+        "rva": "17971D",
+        "original_bytes": "E9 10 C9 6D 00",
+        "meaning": "Восстановлен ранее существовавший retained переход в 856032, а не исходный код без .tfix."
+      },
+      {
+        "rva": "179726",
+        "original_bytes": "80 7C 10 22 00"
+      }
+    ],
+    "source_anchor": "work/pneumatic_live_fix/analysis/Tyga750ClampObserver.cs:427–434",
+    "entry_guard_scope": "Dispose восстанавливает четыре собственных guarded entry, повторно сравнивает исходные байты и RX; результат observer_restored исключает retained owner. При чужих байтах закрытие запрещается. Это не отдельный запуск fault-injection ветви.",
+    "input_and_callback_checks": [
+      {
+        "name": "Cab input restored D8109C9",
+        "expected": 0,
+        "actual": 0,
+        "passed": true
+      },
+      {
+        "name": "Cab input restored D810C39",
+        "expected": 0,
+        "actual": 0,
+        "passed": true
+      },
+      {
+        "name": "Cab input restored D812979",
+        "expected": 0,
+        "actual": 0,
+        "passed": true
+      },
+      {
+        "name": "Cab input restored D811AD9",
+        "expected": 0,
+        "actual": 0,
+        "passed": true
+      },
+      {
+        "name": "Cab input restored D811D49",
+        "expected": 0,
+        "actual": 0,
+        "passed": true
+      },
+      {
+        "name": "Cab input restored D8115F9",
+        "expected": 2,
+        "actual": 2,
+        "passed": true
+      },
+      {
+        "name": "Cab input restored D813A89",
+        "expected": 0,
+        "actual": 0,
+        "passed": true
+      },
+      {
+        "name": "Cab input restored D812BE9",
+        "expected": 0,
+        "actual": 0,
+        "passed": true
+      },
+      {
+        "name": "Production Pult callback restored",
+        "expected": "1037EFC0",
+        "actual": "1037EFC0",
+        "passed": true
+      }
+    ]
+  },
+  "failure_bounds": {
+    "observed_error": null,
+    "case_error": null,
+    "output_current_field_torque_force_voltage_assignments": false,
+    "prepared_speed_initializations": 0,
+    "target_speed_kmh": 40,
+    "target_reached": false,
+    "maximum_additional_frames": 4000,
+    "termination": "Остановлено по первому подтверждённому событию. Максимум фактической скорости 3,09626 км/ч; поле sweep_finished не означает достижения цели 40 км/ч.",
+    "exit_contract": {
+      "0": "Ограниченное подтверждение retained early limit и успешное восстановление.",
+      "1": "Ошибка assertions/исключение/нарушение guards: приёмки нет.",
+      "2": "В пределах окна событие не найдено: inconclusive, а не доказательство недостижимости."
+    },
+    "fault_branches_executed": false,
+    "scope": "Настоящий начальный разгон штатными командами пульта и полные host cycles; teaching green и scripted РБС являются объявленными диагностическими входами. Выходы Ia/Iv/M/F/Uset не присваивались. Это не всережимная проверка, не баланс энергии, не полный маршрут и не замена отдельной регрессии SA47."
+  },
+  "acceptance_limits": {
+    "requirement_status": "partial",
+    "current_limit_750_A_normative_RE_accepted": false,
+    "model_correctness_accepted": false,
+    "factory_calibration_accepted": false,
+    "whole_route_accepted": false,
+    "still_required": [
+      "Общий физический контракт Uкс/ЭДС/потока/момента/силы и баланс мощности.",
+      "С/СП/П, отключённые группы, переходы и охват высоких скоростей.",
+      "Применимая редакция РЭ и паспортная F(v) при согласованных Uкс, диаметре колеса и КПД.",
+      "Пересчёт отозванных численных таблиц со скоростью м/с и retained ограничением."
+    ]
+  }
+}

@@ -32,6 +32,28 @@
   "execution_contract": "Build sources directly using the selected profile; legacy build scripts may also execute probes. Run sequentially in separate processes, require exit code 0 and fresh expected artifacts. Do not require a universal passed JSON field. Obsolete and unsafe entries are disabled.",
   "probes": [
     {
+      "id": "Tyga750Clamp",
+      "main_class": "Tyga750ClampProbe",
+      "title": "Tyga1: проверка фактического раннего ограничения перед моментом и силой",
+      "source": "work/pneumatic_live_fix/analysis/Tyga750ClampProbe.cs",
+      "profile": "candidate",
+      "dependencies": [
+        "outputs/TrainerAutovedenieAdverseBrakeProbe.cs",
+        "work/pneumatic_live_fix/analysis/Tyga750ClampObserver.cs"
+      ],
+      "arguments": [
+        "40",
+        "4000"
+      ],
+      "result_files": [
+        "outputs/Trainer_tyga750_clamp_diagnostic.json"
+      ],
+      "kind": "diagnostic",
+      "scope": "Actual SHA8EC6 с retained .tfix:4guarded memory-only observers чтенияrawIa→earlylimit→M/F→lateclamp, штатные командыпульта/декларированныйteachinggreen/RBS и настоящийначальныйразгонбезprepared80. НикакихIa/Iv/M/F/Usetoutputassignments. PASSтолькоподтверждаетсуществующийearly750передненулевойсилой; boundednonhit=exit2inconclusive,неfactorycalibration/modelacceptance.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
       "id": "Sa47ProducerFault",
       "main_class": "Sa47ReleaseProbe",
       "title": "SA47: fault собственного состояния и восстановление входов/кода",

@@ -1,4 +1,10 @@
-"""Algebraic transcription of checked instructions; never loads/executes DLL code."""
+"""Historical partial transcription; never loads/executes DLL code.
+
+Not current calibration evidence: v is the native m/s argument, not km/h;
+nezav raw-Ia force and target-root tables omit the existing .tfix early750 limit.
+See dev/docs/audit_parts/re_part1/getcur-retained-tfix-proof-20261025.json.
+The calculations below are preserved as historical analysis, not repaired here.
+"""
 import json, math, struct
 from pathlib import Path
 import pefile

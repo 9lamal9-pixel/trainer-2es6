@@ -78,7 +78,8 @@
     "re_part1_audit": "dev/docs/RE_PART1_AUDIT.md",
     "re_part1_requirements": "dev/config/re-part1-audit.json",
     "re_part1_page_review": "dev/config/re-part1-page-review.json",
-    "sa47_release_policy": "dev/config/sa47-release-policy.json"
+    "sa47_release_policy": "dev/config/sa47-release-policy.json",
+    "native_calibrations": "dev/config/native-calibration-map.json"
   },
   "commands": {
     "entrypoint": ".\\trainer.cmd",
@@ -257,6 +258,14 @@
         "StoppedBrakeServiceUnknown",
         "NativeSandAir"
       ]
+    },
+    "traction_native_calibration": {
+      "diagnostics": [
+        "Tyga750Clamp"
+      ],
+      "report": "dev/docs/RE_PART1_AUDIT.md",
+      "map": "dev/config/native-calibration-map.json",
+      "limit": "Actual retained.tfix750 before M/F verified by native observer; not factory750 acceptance or F(v)calibration. Old raw-Ia numeric/kmh tables withdrawn. Next actualUks, normalizedpassportbench, CF/energycontract and compositebrakecalibration."
     }
   },
   "model_context": {

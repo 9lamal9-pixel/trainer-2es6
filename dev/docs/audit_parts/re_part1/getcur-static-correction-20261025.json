@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-25",
+  "id": "GETCUR-STATIC-CORRECTION-20261025",
+  "type": "documentary_withdrawal_and_portable_static_evidence",
+  "native_executed": false,
+  "native_observer_executed": false,
+  "dll_or_runtime_code_changed": false,
+  "tests_or_catalogs_changed": false,
+  "correction": "Прежнее утверждение о единственном позднем ограничении 750 А и расчёте силы по необрезанному току отозвано для фактического SHA Tyga1 8ec6a82e618a1d75cbb31242784084b530bb87308e601defc5263d5279270491. Неполный прежний анализ не проследил дальний переход GetCur 17971D → retained .tfix 856032 → 179726. Этот существовавший ранее блок ограничивает оба токовых поля текущей секции до 750 А перед Moment/TygaTED/общей силой. Это исправление оценки документации, а не новая правка DLL.",
+  "numeric_withdrawal": "В доказанном контракте TTygaParam.V и private FVCur выражены в м/с. Старые строки numeric.py/numeric.json с 49.2/51/80/120 передавали числа без деления на 3,6; их подписи км/ч отозваны. Кроме того, nezav() считала F_kN по raw Ia, хотя actual .tfix рассчитывает момент и силу по bounded Ia. Старые таблицы силы и target roots при raw Ia > 750 А не описывают этот runtime даже после переименования единиц. Их нельзя использовать для калибровки. Фиксированные одинаковые токи 580/540 А не являются паспортной F(v): отличаются колесо 1250/1210 мм, Uкс 3200/3000 В, режим и ещё не принятый механический контракт.",
+  "source_review": {
+    "path": "dev/docs/audit_parts/re_part1/getcur-contract-review-20261025.json",
+    "sha256": "230758641c7b69b2fe0449a6f9f75f5fc02717c9d341bb1ecdc321a92bd319e4"
+  },
+  "evidence_copies": [
+    {
+      "path": "dev/docs/audit_parts/re_part1/getcur-contract-review-20261025.json",
+      "origin": "dev/runs/tyga-calibration-20261025/getcur-contract-review.json",
+      "sha256": "230758641c7b69b2fe0449a6f9f75f5fc02717c9d341bb1ecdc321a92bd319e4",
+      "bytes": 38240,
+      "identical_to_origin": true
+    },
+    {
+      "path": "dev/docs/audit_parts/re_part1/getcur-retained-tfix-proof-20261025.json",
+      "origin": "dev/runs/tyga-calibration-20261025/getcur-retained-tfix-proof.json",
+      "sha256": "c1ff1ec3960f6bca7c251e1890f64d6bbc0e747192028800d4ca97e88d4154fe",
+      "bytes": 9294,
+      "identical_to_origin": true
+    },
+    {
+      "path": "dev/docs/audit_parts/re_part1/getcur-native-evidence-20261025.json",
+      "origin": "dev/runs/tyga-calibration-20261025/getcur-native-evidence.json",
+      "sha256": "6f5a74df493b9aeefab93eef349c3d00dc8e0e0f5d7a5fe9fe1cb565978af3f4",
+      "bytes": 364800,
+      "identical_to_origin": true
+    }
+  ],
+  "full_tfix": {
+    "bytes": 158,
+    "sha256": "1e97515cb1ff16387505395e98140e9c1111c0eea90343bb24856bde3652a817",
+    "verified_inbound_jumps": [
+      {
+        "function": "@Tyga_2es6@TTygaCalcClass@CalcRealProcent$qqrv",
+        "site_rva": "0x174861",
+        "bytes": "e99a176e00",
+        "target_rva": "0x856000"
+      },
+      {
+        "function": "@Tyga_2es6@TTygaCalcClass@CalkNezavVozb$qqrv",
+        "site_rva": "0x1764a5",
+        "bytes": "e9bafb6d00",
+        "target_rva": "0x856064"
+      },
+      {
+        "function": "@Tyga_2es6@TTygaCalcClass@GetCur$qqrf",
+        "site_rva": "0x17971d",
+        "bytes": "e910c96d00",
+        "target_rva": "0x856032"
+      },
+      {
+        "function": "@Tyga_2es6@TTygaCalcClass@GetCurPosl$qqrf",
+        "site_rva": "0x179db7",
+        "bytes": "e95bc26d00",
+        "target_rva": "0x856017"
+      }
+    ],
+    "hash_verified": true
+  },
+  "historical_evidence": [
+    {
+      "path": "dev/docs/audit_parts/re_part1/traction-static-current.json",
+      "sha256": "557de64eb4277bf281c68ba13c270036f5688d2b0aca86d1472c1ea9b92f8047",
+      "modified_by_this_followup": false,
+      "scope_warning": "Эти 10 локальных byte guards подтверждали только выбранные участки. Они не покрывали дальние переходы в .tfix и не доказывали отсутствие раннего clamp. Содержимое и результат сохранены как история; конкретный вывод о late-only дефекте отозван."
+    },
+    {
+      "path": "dev/docs/audit_parts/re_part1/traction-native-static.json",
+      "sha256": "5a06eb4b0c007307e2b58a0a08660d425dd81fee2405c822d6f7367a7382285b",
+      "modified_by_this_followup": false,
+      "scope_warning": "Ограниченные выбранные участки не заменяют разбор полного графа переходов и .tfix. Их старый PASS не подтверждает текущую общую электромеханическую калибровку."
+    }
+  ],
+  "counts": {
+    "requirements": 61,
+    "unique_ids": 61,
+    "current": {
+      "confirmed_static": 5,
+      "unverified": 20,
+      "confirmed_mismatch": 5,
+      "partial": 24,
+      "revision_dependent": 7
+    },
+    "previous_current": {
+      "confirmed_static": 5,
+      "unverified": 20,
+      "confirmed_mismatch": 6,
+      "revision_dependent": 7,
+      "partial": 23
+    },
+    "historical_baseline_retained": true
+  },
+  "descriptive_map": {
+    "path": "dev/config/native-calibration-map.json",
+    "sha256": "2ec267e71847f996406e03cae7adca1ab5d0be60ab402603acc9d8ab29e0f071",
+    "runtime_configuration": false,
+    "run_origin": "dev/runs/tyga-calibration-20261025/native-calibration-map.json",
+    "same_bytes": true
+  },
+  "portability": "Исходные абсолютные пути внутри неизменённых copied reviews сохраняют происхождение. Соответствие origin → portable path записано в evidence_copies; переписывание оригиналов не выполнялось.",
+  "document_changes": {
+    "matrix": "dev/config/re-part1-audit.json",
+    "report": "dev/docs/RE_PART1_AUDIT.md",
+    "matrix_previous_sha256": "54721c9ef57af75f26c11982e2a41c32c855107ab0c5e82e68c502c7823cd1f5",
+    "report_previous_sha256": "2fc51bd03b7241df4bbb2dff332857f9ddf4387900def0a0d12537ccd5cccf0c"
+  },
+  "acceptance_limit": "Подтверждены статический retained контракт, целостность копий и пересчёт 61 статуса. Правильность норматива 750 А, электромеханическая/энергетическая калибровка и динамический результат не приняты.",
+  "validation": {
+    "requirements": 61,
+    "unique_ids": 61,
+    "status_counts_match": true,
+    "full_tfix_bytes": 158,
+    "full_tfix_hash_matches": true,
+    "portable_source_copies": 3,
+    "source_copies_sha_match": true,
+    "run_map_matches_permanent_map": true,
+    "native_observer_executed": false
+  }
+}

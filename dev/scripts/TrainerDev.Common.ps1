@@ -459,8 +459,8 @@ function Save-TrainerContext {
         git_head=(Get-TrainerHead)
         working_tree=[ordered]@{changed_files=$dirty.Count;first_files=@($dirty|Select-Object -First 20);more=($dirty.Count -gt 20)}
         latest=$latest
-        active_focus='РЭ1: просмотрены171/171страниц, матрица61требование. SA47 nativeproducer исправлен: память отменяется0/головнойТМ>5.0кгс/см2, oldheld2 не реармит; отпускание→1сохраняет память. Реальные органыКВТ/КМ, sourcehandover, UIcapture/focus, Entryepoch/no-op, faultcleanupиrestorecode проверены. Свежийtest20261025T031217357Z-bebbc4ff19/19PASS, SA47 213assertions/23701cycles. 75вагонов FTk0/R2/AR1, зарядка5.1; АВП отключено.'
-        next_model_question='Далее SA47 fast native/managedclick полностью между100msциклами: нужна очередь импульсов безвозобновлениястарого после0/ТМ; затем supply/расход/минимумKR22 и холодныйпуск. СледующиерасхожденияРЭ1: общийUкс, ток/силаGetCur, границаС→СП400/410А и Riso. АРпозагрузке, повторноеторможение/150s, TM<3.4наспуске, АВПclosedloop/full333033m и exactРЭ137+ остаются.'
+        active_focus='РЭ1: 171/171страниц, текущаяветкаcodex/re-part1. Приоритетпользователя—внутренниеDLLикалибровки. ActualTyga8EC6 ужеимеетretained.tfixearly750ДОM/F; старыйlate-onlydefectотозван. NativeTyga750Clamp035939967-f0224872PASS117checks/1211cycles:raw766.32→750,ненулеваяM/Fсогласована,4hooksrestored. NativeV=ms,старыеkmh/raw-forceтаблицынеприменимы. SA47новыйкодраньше19/19PASS, модельещёpartial;АВПотключено.'
+        next_model_question='Далееactualnativeкалибровки:единыйаналогUкс(Pult3100/Tyga3200), паспортныйF(v)стендпри3kV/D1210/η.98, затемконкретныеCF/R/силовыепараметры послеevidence; 750нормойРЭнепринят. НовыйтормознойкалибровочныйконтрактFTk0/R2/AR1позагрузке. СохраненыbacklogSA47fastclick/supplyKR22/cold,С→СП400/410А,Riso,повторныеторможения/150s,TM<3.4,АВПfullroute/exact137+.'
         read_next=@('dev/environment-context.json','dev/state/context.json')
         avoid_reading=@('whole telemetry.csv','all historical logs','all disassembly dumps')
         source_of_truth='outputs/*.cs; versioned snapshots dev/builds/<id>/source; Git checkpoints'

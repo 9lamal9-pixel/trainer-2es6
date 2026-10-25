@@ -1,5 +1,7 @@
 # 2ЭС6 Tyga1.dll: numerical model recovered statically
 
+> Historical partial analysis; corrected on2026-10-25. The actual SHA8EC6 runtime already has a retained `.tfix` jump that limits currents to750 **before** Moment/Force. The late-only-clamp defect claim below is withdrawn. The old numerical `v` labels in km/h are wrong (native argument is m/s), and raw-Ia force/target-root tables omit the retained early limit. They are not current calibration evidence. See `dev/docs/audit_parts/re_part1/getcur-retained-tfix-proof-20261025.json` and `dev/docs/RE_PART1_AUDIT.md`. The original body is retained as dated history.
+
 Sample: `work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Tyga1.dll`.
 Only PE/RTTI/TD32 parsing and disassembly were used. The sample was not loaded or executed.
 All addresses below are RVA (PE image base is 0x400000) unless explicitly marked VA.
