@@ -1,0 +1,22 @@
+{
+  "id": "ColdNoSource",
+  "scope": "77 узлов, временный Pzar=0 при InitSostavClass, затем уставка 5; 1000 электрических/пневматических шагов. Каждый шаг проверяет абсолютное давление ТМ/ТЦ/ЗР и ПМ/УР <=1e-5 при выключенных компрессорах/SF3/KN7. Повторный InitNew не вызывается. Полный запуск электровоза не принят. Ограничение выявлено при аудите поезда: tempPzar0 InitSostavClass перекалибровывает Dut; результат подтверждает только заявленные dry/control/PM assertions, не штатную вагонную геометрию или зарядку полного состава. Использовать TrainPneumatic для сохранённой геометрии.",
+  "status": "passed",
+  "artifacts": [
+    {
+      "path": "Trainer_cold_no_source_validation.json",
+      "sha256": "38F7D1B5BB4F5A8DBBBECB374D8FD753AF2BBC5A85A64C7DCFA0FCEE4871682B"
+    }
+  ],
+  "build_id": "build-20261025T104501267Z-5290d872",
+  "pid": 26896,
+  "exit_code": 0,
+  "session": {
+    "id": "20261025T104505439Z_p26896_b21e01339b934567b7b38177c1cd512a",
+    "state": "closed",
+    "exceptions": 0,
+    "logging_failures": 0,
+    "source_build_id": "build-20261025T104501267Z-5290d872"
+  },
+  "finished_utc": "2026-10-25T10:45:13.9613450Z"
+}

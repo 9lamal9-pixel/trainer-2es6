@@ -33,6 +33,81 @@
   "execution_contract": "Build sources directly using the selected profile; legacy build scripts may also execute probes. Run sequentially in separate processes, require exit code 0 and fresh expected artifacts. Do not require a universal passed JSON field. Obsolete and unsafe entries are disabled.",
   "probes": [
     {
+      "id": "ModernTractionValidation",
+      "main_class": "ModernTractionValidationProbe",
+      "title": "Научная модель тяги 2ЭС6: паспортные точки РЭ, закон сцепления ПТР, баланс мощностей и разгон 6200 т",
+      "source": "work/pneumatic_live_fix/analysis/ModernTractionValidationProbe.cs",
+      "profile": "standalone",
+      "dependencies": [
+        "outputs/TrainerModernTractionPhysics.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_modern_traction_validation.json"
+      ],
+      "kind": "research",
+      "scope": "Historical standalone research sample only. Does not execute the host/native electrical loop; known energy/current/voltage consistency defects remain. NOT RE or MPSUID acceptance.",
+      "timeout_seconds": 60,
+      "enabled": true
+    },
+    {
+      "id": "ModernTractionIntegration",
+      "main_class": "ModernTractionIntegrationProbe",
+      "title": "Интеграция тяги МПСУиД: ходовые позиции 23/44/65, соответствие РЭ Таблица 1, поосное сцепление и структуры TResTyga/TTygaParam",
+      "source": "work/pneumatic_live_fix/analysis/ModernTractionIntegrationProbe.cs",
+      "profile": "standalone",
+      "dependencies": [
+        "outputs/TrainerModernTractionPhysics.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_modern_traction_integration.json"
+      ],
+      "kind": "research",
+      "scope": "Historical standalone research sample only. Does not execute the host/native electrical loop; known energy/current/voltage consistency defects remain. NOT RE or MPSUID acceptance.",
+      "timeout_seconds": 60,
+      "enabled": true
+    },
+    {
+      "id": "ComputationalTrainDynamics",
+      "main_class": "ComputationalTrainDynamicsProbe",
+      "title": "Мультифизическая динамика поезда: сцепление О. Полаха (2005), поглощающие аппараты TDEAS/Cole, трибология ПТР и 1D LTD интегратор",
+      "source": "work/pneumatic_live_fix/analysis/ComputationalTrainDynamicsProbe.cs",
+      "profile": "standalone",
+      "dependencies": [
+        "outputs/TrainerPolachAdhesion.cs",
+        "outputs/TrainerFrictionDraftGear.cs",
+        "outputs/TrainerLongitudinalDynamics.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_computational_train_dynamics.json"
+      ],
+      "kind": "regression",
+      "scope": "Superseded by TrainDynamicsKernel and ContactAndCoupler: old thresholds relied on missing pi/4 and unverified gear/pneumatic semantics. Retained as historical research.",
+      "timeout_seconds": 60,
+      "enabled": false
+    },
+    {
+      "id": "IndependentExcitationValidation",
+      "main_class": "IndependentExcitationValidationProbe",
+      "title": "Физическая модель НВ и алгоритмы МПСУиД: регулирование СТПР, вентильные переходы РЭ и электрическое торможение",
+      "source": "work/pneumatic_live_fix/analysis/IndependentExcitationValidationProbe.cs",
+      "profile": "standalone",
+      "dependencies": [
+        "outputs/TrainerModernTractionPhysics.cs",
+        "outputs/TrainerIndependentExcitation.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_independent_excitation_validation.json"
+      ],
+      "kind": "research",
+      "scope": "Historical standalone research sample only. Does not execute the host/native electrical loop; known energy/current/voltage consistency defects remain. NOT RE or MPSUID acceptance.",
+      "timeout_seconds": 60,
+      "enabled": true
+    },
+    {
       "id": "ContactNetworkVoltage",
       "main_class": "ContactNetworkVoltageProbe",
       "title": "Общий аналоговый Uкс: нативные producers Pult/Tyga и сохранение крышевых разрешений",
@@ -1744,9 +1819,9 @@
         "outputs/Autovedenie_native_brake_bound.json"
       ],
       "kind": "candidate",
-      "scope": "Declaredprepared80aftergenuineoperatorstart; fulloriginalprofile/teachinggreen/SAUTOFF diagnostic. GuardedoriginalFSTP observer, all75actualpressures andpredictorforces, firstUR.7 V→IV. Conditionalwagon-onlybound; noAVPcalibrationorfullrouteacceptance.",
+      "scope": "Historical POEZD-integrator diagnostic, incompatible with the new LTD oracle full-body ownership guard (observer patches inside1DBC). Retained as evidence; migrate observer fixture before new acceptance.",
       "timeout_seconds": 300,
-      "enabled": true
+      "enabled": false
     },
     {
       "id": "StoppedBrakeService",
@@ -1929,6 +2004,80 @@
       "kind": "candidate",
       "scope": "Originalwholeconsist-6/full333033/prepared80 aftergenuineorigin; productionpolicy choosesrealhandles. EarlyrepeatI+30, measuredFIRST+.3, originalAF/sandair andsecondIV/allTC. Teachinggreen/SAUTOFF/scriptedRBS; no fullAVPacceptance.",
       "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "TrainDynamicsKernel",
+      "main_class": "TrainDynamicsKernelValidationProbe",
+      "title": "Продольная динамика: механические инварианты ядра",
+      "source": "work/pneumatic_live_fix/analysis/TrainDynamicsKernelValidationProbe.cs",
+      "profile": "standalone",
+      "dependencies": [
+        "outputs/TrainerLongitudinalDynamics.cs",
+        "outputs/TrainerFrictionDraftGear.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_train_dynamics_kernel_validation.json"
+      ],
+      "kind": "regression",
+      "scope": "Managed component only: 76 bodies, signed braking/static holding, mass/inertia, work/energy, callbacks and rollback. No native pneumatics or factory calibration acceptance.",
+      "timeout_seconds": 120,
+      "enabled": true
+    },
+    {
+      "id": "ContactAndCoupler",
+      "main_class": "ContactAndCouplerValidationProbe",
+      "title": "Контакт Полаха и пассивные поглощающие аппараты",
+      "source": "work/pneumatic_live_fix/analysis/ContactAndCouplerValidationProbe.cs",
+      "profile": "standalone",
+      "dependencies": [
+        "outputs/TrainerPolachAdhesion.cs",
+        "outputs/TrainerFrictionDraftGear.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_contact_and_coupler_validation.json"
+      ],
+      "kind": "regression",
+      "scope": "Independent managed component checks of low-creep slope, force signs and passivity; illustrative gear profile, not calibrated SA3. Polach not wired as a second native traction limiter.",
+      "timeout_seconds": 120,
+      "enabled": true
+    },
+    {
+      "id": "ManagedMotion",
+      "main_class": "TrainerManagedMotionProbe",
+      "title": "Новое движение: настоящий старт и тормоза в полном контуре",
+      "source": "outputs/TrainerManagedMotionProbe.cs",
+      "profile": "candidate",
+      "dependencies": [
+        "outputs/TrainerAutovedenieAdverseBrakeProbe.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_managed_motion_validation.json"
+      ],
+      "kind": "regression",
+      "scope": "Genuine electrical/pneumatic start with managed76bodymovement; physical KM V/IV/II, real BC/force law, consistent publication/next-frame signed speed, reversible oracle. Separate declared station/signed speed components. Teaching green/scripted RBS; not factory calibration, full route, AVP or cab EDT acceptance.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
+      "id": "ManagedFloatingScope",
+      "main_class": "ManagedFloatingScopeValidationProbe",
+      "title": "Изоляция вычислительного окружения managed/native",
+      "source": "work/pneumatic_live_fix/analysis/ManagedFloatingScopeValidationProbe.cs",
+      "profile": "standalone",
+      "dependencies": [
+        "outputs/TrainerManagedFloatingScope.cs"
+      ],
+      "arguments": [],
+      "result_files": [
+        "outputs/Trainer_managed_floating_scope_validation.json"
+      ],
+      "kind": "regression",
+      "scope": "x86 component: raw x87/MXCSR preservation, nested scopes and native callback environment, exceptions/restoration. No trainer DLL initialization or factory physics acceptance.",
+      "timeout_seconds": 90,
       "enabled": true
     }
   ]

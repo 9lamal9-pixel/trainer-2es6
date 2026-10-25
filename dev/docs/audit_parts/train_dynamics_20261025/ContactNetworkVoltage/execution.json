@@ -1,0 +1,22 @@
+{
+  "id": "ContactNetworkVoltage",
+  "scope": "Номинал3000В, genuine старт до3км/ч без prepared speed, явные teaching green/RBS. Пять native producers+Eset: P1/type0/ненулевая I/F без промежуточногоHelp, мгновенный rawIa отклик3200>2800; range0..4101, оба вида возбуждения, общийroofgate/одинТП/доБВ. Отдельная component-only EDT через native setters/CalcRecup. 5entries/Eset/inputs restored; не приёмка Napruga/ПСН/защитных порогов, фактическогоUкс в обычной рекуперации или F(v).",
+  "status": "passed",
+  "artifacts": [
+    {
+      "path": "Trainer_contact_voltage_validation.json",
+      "sha256": "FE58A5513BE32C6178366F0173D5778E765D936901C4EAC9DC1B9918B7588CE8"
+    }
+  ],
+  "build_id": "build-20261025T104513979Z-4682f516",
+  "pid": 33828,
+  "exit_code": 0,
+  "session": {
+    "id": "20261025T104518028Z_p33828_20243ba57d574cd396ec2065300f2cff",
+    "state": "closed",
+    "exceptions": 0,
+    "logging_failures": 0,
+    "source_build_id": "build-20261025T104513979Z-4682f516"
+  },
+  "finished_utc": "2026-10-25T10:46:33.2724243Z"
+}

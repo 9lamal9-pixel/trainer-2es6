@@ -1,0 +1,624 @@
+{
+  "schema_version": 1,
+  "build_id": "build-20261025T104147662Z-8b2bd69c",
+  "utc": "2026-10-25T10:41:47.6643693Z",
+  "profile": "candidate",
+  "main_class": "Sa47ReleaseProbe",
+  "git_head": "6586fe1d08512189b6e6a7151b5a271fb96b04dc",
+  "compiler": "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\csc.exe",
+  "compiler_sha256": "012E8CD8ADFF0C439A90FFD22C0E33EFEB6FBC8CF660D52B4858D310649382FA",
+  "sources": [
+    {
+      "path": "outputs/TrainerIntegrationHost.cs",
+      "sha256": "14A8C57666E22774D6805700F5A41723390133C953FCE2B284F212F32C277BF5"
+    },
+    {
+      "path": "outputs/TrainerNativeSystems.cs",
+      "sha256": "642E746DC4F8F30987DD1D674EF2FB168DA1B3881B065DA21C1FB5D86591131A"
+    },
+    {
+      "path": "outputs/TrainerContactNetwork.cs",
+      "sha256": "49987C7229A5FB4F9E1B3ECDAC376A845D51A65AA90BA182AD71B09E388EDB57"
+    },
+    {
+      "path": "outputs/TrainerContactVoltagePatch.cs",
+      "sha256": "00BF915BCDDA8470EED50E153D79D581EF3918CFD5BCA06765B4307653943986"
+    },
+    {
+      "path": "outputs/TrainerNativeBrakeRelease.cs",
+      "sha256": "43BC878ADDC72999BD44517284AA6CCA71F3DACDA9847D0C6F2D95588F1C1EF1"
+    },
+    {
+      "path": "outputs/TrainerSa47MemoryPatch.cs",
+      "sha256": "08AF53F738C8ADB72192D5928FEF4DFDA415CCB2513CC49499E67FC7655FEB7E"
+    },
+    {
+      "path": "outputs/TrainerAuxSystems.cs",
+      "sha256": "5C1698FCCC74D27BD8364955DF7D88925A7698FB9422AE34D56206611227A9DA"
+    },
+    {
+      "path": "outputs/TrainerRouteDOS.cs",
+      "sha256": "A6833BDFDD042E47A5570F0BB7C39AD823FED3024C03713129D33AC6ABE8F4BE"
+    },
+    {
+      "path": "outputs/TrainerAutovedenieController.cs",
+      "sha256": "EF6CE777859B0D84847A648E1C29111D4F5BCDF2DA107660FD2EDCFEBCA4DCFB"
+    },
+    {
+      "path": "outputs/TrainerTrainBrakeCycle.cs",
+      "sha256": "783FFD1DF4546C99FB131A3A88D71211CBCD67226D002BA254AFF7C9E20E9A8B"
+    },
+    {
+      "path": "outputs/TrainerAutovedenieInterface.cs",
+      "sha256": "EE116B7847A4B946F56EA84DD4F1E8713541E2C0EB3494DCC7085555C384FDCE"
+    },
+    {
+      "path": "outputs/TrainerAutovedenieNativeBridge.cs",
+      "sha256": "EC5C8CB86162319E2AD2030B313EDDB820D2D4F4EC8ACFBF702072846C4D9341"
+    },
+    {
+      "path": "outputs/TrainerAutovedenieHost.cs",
+      "sha256": "6CDC3D240C5968426C137CCF880C3C0742280414292CCDCDDC85E778E3984DB2"
+    },
+    {
+      "path": "outputs/TrainerSautOperatorControls.cs",
+      "sha256": "B78D647440FB4521B97728131A3DF16EC4CDA56D19912C484AEF8AF16FD2E9F8"
+    },
+    {
+      "path": "outputs/TrainerStandaloneSautBinding.cs",
+      "sha256": "7480B65A77C0883BF1FD8EAD8402970355C56BDF1765D011D720052DAFA71145"
+    },
+    {
+      "path": "outputs/TrainerRouteView.cs",
+      "sha256": "CD86F938C78FB0E3A2F49441050D3965BEACDDA1AB861B8F6C59D4B45CF27204"
+    },
+    {
+      "path": "outputs/TrainerNativeFixes.cs",
+      "sha256": "E8D47DAC13D7D1152DEE2206CA5F77A0D4B307313CFBBC506067343495250B4D"
+    },
+    {
+      "path": "outputs/TrainerPneumaticTiming.cs",
+      "sha256": "FAA88FB80BC132188A846AF2453265B2D54E7284D98C38AF881094AFB9D5B2E2"
+    },
+    {
+      "path": "outputs/TrainerSessionLogging.cs",
+      "sha256": "FC409229F2F44AEE2C97FC4633107DACD199C63CE73F6717633C900C8DCEF101"
+    },
+    {
+      "path": "outputs/TrainerAirNetwork.cs",
+      "sha256": "86D4BC73601012D7A4109BEEAA26360F8C476CC06D2FDDE61C3BB1B66F646B32"
+    },
+    {
+      "path": "outputs/TrainerControlAir.cs",
+      "sha256": "45F273528A4E83BB5FC166367646C1A234FDE578C20128AF2881E2A35EF0C4B6"
+    },
+    {
+      "path": "outputs/TrainerBtoNetwork.cs",
+      "sha256": "5E83C5F3BBB597757A8DCFB48881625AD398970A714E4710AFDBA9AD39E58027"
+    },
+    {
+      "path": "outputs/TrainerAirSelector.cs",
+      "sha256": "E4E86DE362E66D7A55C23968F52D1FE1EB64C631D07E18B7D9BACE142C6263FD"
+    },
+    {
+      "path": "outputs/TrainerKvtProfile.cs",
+      "sha256": "E80696785D2542FB5BE5920A87EE6A51368043B06E7FBB388992A9F19A0E17B7"
+    },
+    {
+      "path": "outputs/TrainerTwoSectionAirChain.cs",
+      "sha256": "C04801AB0DFCD7AF736D8069909EC4D8C07C71C1F14CAF393E30F5043F86BBBC"
+    },
+    {
+      "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+      "sha256": "BCC72E3E1735C8EA58B77BFA988E6CA2CB4D84F9C9ECCF18D5F5ED37C558B499"
+    },
+    {
+      "path": "outputs/TrainerTrainPressureView.cs",
+      "sha256": "431EA70A22205EE44EDDB51D71CD2A816AE46912CD14C6DAD7C5F1C165BECD61"
+    },
+    {
+      "path": "outputs/TrainerSafetyInputContext.cs",
+      "sha256": "71883123E6C657A5A62355EA673DC7BB4E10646320141002BE81ABFC57FD5D84"
+    },
+    {
+      "path": "outputs/TrainerSafetyContexts.cs",
+      "sha256": "EFDAFA1202F26FF507A242FF6F2AD7971D2D169619ECAA4FA35B81FD533CF0B4"
+    },
+    {
+      "path": "outputs/TrainerNativeSafetyAdapter.cs",
+      "sha256": "50CFD589AB74F667DF336ABCF157225B5F6BE8CD6F50DB369B828BA58D4E58AA"
+    },
+    {
+      "path": "outputs/TrainerSafetyHost.cs",
+      "sha256": "05ABACF21249C5EF6B7C45C965CDCF94CC3FAFDCF2645FF55D9E8BC28B2BD7B9"
+    },
+    {
+      "path": "outputs/TrainerVigilanceOperatorControls.cs",
+      "sha256": "5A93EC26F39341D0E6632A275BBE1177FB7966E85854C47A32F3658EA178957F"
+    },
+    {
+      "path": "outputs/TrainerMarkupSignalSource.cs",
+      "sha256": "0C927B8BBE2B6A2B444623A83F3C2FEC38577DDBB1E85F8172BE61174CB036A6"
+    },
+    {
+      "path": "outputs/TrainerMarkupHost.cs",
+      "sha256": "BE9D9F6744F80BA327D46392641C3D4240B3D7A7ABC09E12D4BE43FCA83E0266"
+    },
+    {
+      "path": "outputs/TrainerKlubSafetyBinding.cs",
+      "sha256": "942ACF68C73403CE35B833322E85274ED11C37CDB879140C0B3BA5E224F95006"
+    },
+    {
+      "path": "outputs/TrainerNativeVirtualPult.cs",
+      "sha256": "F54E569EB6C9F0B72541E5D08C90999FA572656B06138FBDB7B5EC7EEDC7CE24"
+    },
+    {
+      "path": "outputs/TrainerSandAirInput.cs",
+      "sha256": "C9BA33F9E2ABCBAAE0F3284B20B63A8880B50C4B0DF8B139ABB04E3EAE258C89"
+    },
+    {
+      "path": "outputs/TrainerModernTractionPhysics.cs",
+      "sha256": "E053A8A34488B46C30DCE80774D61FC1DCA8B719276D90DAA062E18031995970"
+    },
+    {
+      "path": "outputs/TrainerModernTractionIntegration.cs",
+      "sha256": "B6D47C6F9F685C2D74D51FD5102E03F02F53CEDD1FC4259103A2B203D1DDC8E4"
+    },
+    {
+      "path": "outputs/TrainerPolachAdhesion.cs",
+      "sha256": "FCE9F7B7FA95E190AD89176CC63A72CCE76F498BA23DE5F243A992456BDCEF5E"
+    },
+    {
+      "path": "outputs/TrainerFrictionDraftGear.cs",
+      "sha256": "5431785401D09CCDC7749532768796AA434B92E59F2CC858B5286733EE838CB3"
+    },
+    {
+      "path": "outputs/TrainerLongitudinalDynamics.cs",
+      "sha256": "D10966B59508380332622BE485AF6D63DB6C9E2F4C991FD3FEAA054B31BDE1D3"
+    },
+    {
+      "path": "outputs/TrainerIndependentExcitation.cs",
+      "sha256": "66027CA0FB0A35A31A279CA87A229CA8D1ABAB90516F86020B4267F76688C4A3"
+    },
+    {
+      "path": "outputs/TrainerManagedMotion.cs",
+      "sha256": "278E2EB0F7118B74E5F710CC2A35B92D7289EE97E30D1DE78F046CCCEA24B6B6"
+    },
+    {
+      "path": "outputs/TrainerNativeBrakeForceProvider.cs",
+      "sha256": "58AB9B7866F7DC171D2BA8AFDD578231241A318FE5AFF0E806D517B70F65E4A9"
+    },
+    {
+      "path": "outputs/TrainerManagedFloatingScope.cs",
+      "sha256": "BD3D766AD25AD408BCE3AA84A2327653B941C359E0064B9A9DD29F1372A15C6A"
+    },
+    {
+      "path": "work/pneumatic_live_fix/analysis/Sa47ReleaseProbe.cs",
+      "sha256": "30B69E130B650846E731E76041D8B93D19BD29E5C0051F5B9C0B3F8FA0BD0576"
+    }
+  ],
+  "native_modules": [
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/AVP.dll",
+      "exists": true,
+      "expected": "EC3C2A59340E6054BBF65FA357A58E682B9552ADBBC3C4360EA4EB9E2E425255",
+      "actual": "EC3C2A59340E6054BBF65FA357A58E682B9552ADBBC3C4360EA4EB9E2E425255",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/BLOK.dll",
+      "exists": true,
+      "expected": "26712B37084B51814462C039ED7EC91E31670351ABFD8BC1C209FF9298CF3D7C",
+      "actual": "26712B37084B51814462C039ED7EC91E31670351ABFD8BC1C209FF9298CF3D7C",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/CalcOgr.dll",
+      "exists": true,
+      "expected": "1AD8E4F1D323D334B4E0D09F8A75159EFD3FB1ABE297F507C73073CB627E081E",
+      "actual": "1AD8E4F1D323D334B4E0D09F8A75159EFD3FB1ABE297F507C73073CB627E081E",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/Cbndll.dll",
+      "exists": true,
+      "expected": "8F2CE18A6839C9A0D13F49705206CDDF9E6AEA91DD88C797B7ECC4E1ADD24F58",
+      "actual": "8F2CE18A6839C9A0D13F49705206CDDF9E6AEA91DD88C797B7ECC4E1ADD24F58",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/D3DX8ab.dll",
+      "exists": true,
+      "expected": "E9C9D124582A1B1F2F5B0EAB0C5B4E11FD5F54DC3CB045A7E828FD4593042010",
+      "actual": "E9C9D124582A1B1F2F5B0EAB0C5B4E11FD5F54DC3CB045A7E828FD4593042010",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/da10.dll",
+      "exists": true,
+      "expected": "66D607FBCEF8F1D89748A9C2FAC2AFE98BD5C6A77C8E9DB18C59E5AB6589B52D",
+      "actual": "66D607FBCEF8F1D89748A9C2FAC2AFE98BD5C6A77C8E9DB18C59E5AB6589B52D",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/DATAKLUB/SOUNDSKLUB/SoundsKLUB.dll",
+      "exists": true,
+      "expected": "7ABF3029027B5BF5F41BB5914685A7554329E907566D05B74BA7FD3D07E0BD89",
+      "actual": "7ABF3029027B5BF5F41BB5914685A7554329E907566D05B74BA7FD3D07E0BD89",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/DATASAUT/SOUNDSSAUT/SoundsSAUT.dll",
+      "exists": true,
+      "expected": "7ABF3029027B5BF5F41BB5914685A7554329E907566D05B74BA7FD3D07E0BD89",
+      "actual": "7ABF3029027B5BF5F41BB5914685A7554329E907566D05B74BA7FD3D07E0BD89",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/DLL_BBT.dll",
+      "exists": true,
+      "expected": "C3DF17C2456662D87324FE775AA73227DC333946424FEE6C5A0EA7328A45DC1C",
+      "actual": "C3DF17C2456662D87324FE775AA73227DC333946424FEE6C5A0EA7328A45DC1C",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/InfoDisplay.dll",
+      "exists": true,
+      "expected": "B784CAD795AAEE0B307C3A9AA849AED27482710E0672950E64EC26C46CCD876C",
+      "actual": "B784CAD795AAEE0B307C3A9AA849AED27482710E0672950E64EC26C46CCD876C",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/JoyLib.dll",
+      "exists": true,
+      "expected": "A6EE074FEE2616B0E716446F14E442E3FFA966A54170884DE884014DCECF0F34",
+      "actual": "A6EE074FEE2616B0E716446F14E442E3FFA966A54170884DE884014DCECF0F34",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/KLUB_U_LCD_XE2.dll",
+      "exists": true,
+      "expected": "671D3BDB1AD57BD8EA7AFC714B11BC14141A5B2750D72E8B5598C7BB0CFAF20F",
+      "actual": "671D3BDB1AD57BD8EA7AFC714B11BC14141A5B2750D72E8B5598C7BB0CFAF20F",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/KPD_3PV.dll",
+      "exists": true,
+      "expected": "A7C6A36E355777238041BF2443BBD8B3467FD1DD5438C3E8578DB73C9353240C",
+      "actual": "A7C6A36E355777238041BF2443BBD8B3467FD1DD5438C3E8578DB73C9353240C",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/0/Communication0.dll",
+      "exists": true,
+      "expected": "D3B0513C95DC1BD56F35A086613C6C752B683408D9C16469A2997340C0A12766",
+      "actual": "D3B0513C95DC1BD56F35A086613C6C752B683408D9C16469A2997340C0A12766",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/0/Pult0.dll",
+      "exists": true,
+      "expected": "C95CABF93AA999A4CE280D6EEC562CFBEF922AED6A7B4EF47895769D0B0996D6",
+      "actual": "C95CABF93AA999A4CE280D6EEC562CFBEF922AED6A7B4EF47895769D0B0996D6",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/0/Tyga0.dll",
+      "exists": true,
+      "expected": "734DAECE00E51ACB9834A0FC6E788CC6DC58DB6E8B422C2DBEC9BE4C220372F8",
+      "actual": "734DAECE00E51ACB9834A0FC6E788CC6DC58DB6E8B422C2DBEC9BE4C220372F8",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/1/Communication1.dll",
+      "exists": true,
+      "expected": "495B21E98C19B80B4A555199AD09A958AF69E35BAB267E2DC765B0E4A97682FB",
+      "actual": "495B21E98C19B80B4A555199AD09A958AF69E35BAB267E2DC765B0E4A97682FB",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/1/MSUL_MON.dll",
+      "exists": true,
+      "expected": "3E355CE7D7E6425B8E1ECA217FC1C2C002BFF915409C21388AF53578240EE16D",
+      "actual": "3E355CE7D7E6425B8E1ECA217FC1C2C002BFF915409C21388AF53578240EE16D",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/1/Pult1.dll",
+      "exists": true,
+      "expected": "F66665DC52361BF7ADCD0F2E6DAB9947CCB2945117168DBEB15CF2F029CE8CC9",
+      "actual": "F66665DC52361BF7ADCD0F2E6DAB9947CCB2945117168DBEB15CF2F029CE8CC9",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/1/SoundsMSUL.dll",
+      "exists": true,
+      "expected": "42A82A3F41B711CC450CF4BE9012CF23C0D7EC5E473702F0E145802780B89098",
+      "actual": "42A82A3F41B711CC450CF4BE9012CF23C0D7EC5E473702F0E145802780B89098",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/1/Tyga1.dll",
+      "exists": true,
+      "expected": "AD3D8DDDC32E739E43C24FA088EBF012EE24C245B1A1B005709185ED94491EE8",
+      "actual": "AD3D8DDDC32E739E43C24FA088EBF012EE24C245B1A1B005709185ED94491EE8",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/2ES6/1/Communication1.dll",
+      "exists": true,
+      "expected": "27178A089EF33692D16B1D46AE0DD7567135B327A24BE9D7D0CA84AF8DF3DB7F",
+      "actual": "27178A089EF33692D16B1D46AE0DD7567135B327A24BE9D7D0CA84AF8DF3DB7F",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/2ES6/1/MSUL_MON.dll",
+      "exists": true,
+      "expected": "95E3FB14CBC7FF2B5E9C61DC2215CFA7C2F23161FE21D075ADF04F45907B653B",
+      "actual": "95E3FB14CBC7FF2B5E9C61DC2215CFA7C2F23161FE21D075ADF04F45907B653B",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/2ES6/1/Pult1.dll",
+      "exists": true,
+      "expected": "7DAC59BF94276309E012A6EB72602C08A921FE1910A4169F9F0EC27008F0F8F5",
+      "actual": "7DAC59BF94276309E012A6EB72602C08A921FE1910A4169F9F0EC27008F0F8F5",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/2ES6/1/SoundsMSUL.dll",
+      "exists": true,
+      "expected": "42A82A3F41B711CC450CF4BE9012CF23C0D7EC5E473702F0E145802780B89098",
+      "actual": "42A82A3F41B711CC450CF4BE9012CF23C0D7EC5E473702F0E145802780B89098",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/2ES6/1/Tyga1.dll",
+      "exists": true,
+      "expected": "C56D401D7D0E38C137A0FD70604F416E1A9B1ADDC9776A585E0E6D4397D588ED",
+      "actual": "C56D401D7D0E38C137A0FD70604F416E1A9B1ADDC9776A585E0E6D4397D588ED",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Communication1.dll",
+      "exists": true,
+      "expected": "27178A089EF33692D16B1D46AE0DD7567135B327A24BE9D7D0CA84AF8DF3DB7F",
+      "actual": "27178A089EF33692D16B1D46AE0DD7567135B327A24BE9D7D0CA84AF8DF3DB7F",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/MSUL_MON.dll",
+      "exists": true,
+      "expected": "95E3FB14CBC7FF2B5E9C61DC2215CFA7C2F23161FE21D075ADF04F45907B653B",
+      "actual": "95E3FB14CBC7FF2B5E9C61DC2215CFA7C2F23161FE21D075ADF04F45907B653B",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Pult1.dll",
+      "exists": true,
+      "expected": "7DAC59BF94276309E012A6EB72602C08A921FE1910A4169F9F0EC27008F0F8F5",
+      "actual": "7DAC59BF94276309E012A6EB72602C08A921FE1910A4169F9F0EC27008F0F8F5",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/SoundsMSUL.dll",
+      "exists": true,
+      "expected": "42A82A3F41B711CC450CF4BE9012CF23C0D7EC5E473702F0E145802780B89098",
+      "actual": "42A82A3F41B711CC450CF4BE9012CF23C0D7EC5E473702F0E145802780B89098",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/1/Tyga1.dll",
+      "exists": true,
+      "expected": "8EC6A82E618A1D75CBB31242784084B530BB87308E601DEFC5263D5279270491",
+      "actual": "8EC6A82E618A1D75CBB31242784084B530BB87308E601DEFC5263D5279270491",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/LOCOMOTIVES/SoundsLoc.dll",
+      "exists": true,
+      "expected": "7ABF3029027B5BF5F41BB5914685A7554329E907566D05B74BA7FD3D07E0BD89",
+      "actual": "7ABF3029027B5BF5F41BB5914685A7554329E907566D05B74BA7FD3D07E0BD89",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/MVCONTROL_DLL_.dll",
+      "exists": true,
+      "expected": "2BF32C43D1DA4E8D6CBB070A6343592B3D8DBD194A66E2D0F2C85F93939D6403",
+      "actual": "2BF32C43D1DA4E8D6CBB070A6343592B3D8DBD194A66E2D0F2C85F93939D6403",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/MVCONTROL_DLL.dll",
+      "exists": true,
+      "expected": "2BF32C43D1DA4E8D6CBB070A6343592B3D8DBD194A66E2D0F2C85F93939D6403",
+      "actual": "2BF32C43D1DA4E8D6CBB070A6343592B3D8DBD194A66E2D0F2C85F93939D6403",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/PlayerVideo.dll",
+      "exists": true,
+      "expected": "7858DE5238730F1A4F0F5852F3423A55EE5C89E964C8DF3BFF4E77B42712F173",
+      "actual": "7858DE5238730F1A4F0F5852F3423A55EE5C89E964C8DF3BFF4E77B42712F173",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/PlayVideo.dll",
+      "exists": true,
+      "expected": "D207D6C22A2E92E7A6A1CE007ACA4699F0B900765ABC730ED0EE6F4E0227035B",
+      "actual": "D207D6C22A2E92E7A6A1CE007ACA4699F0B900765ABC730ED0EE6F4E0227035B",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/POEZD.DLL",
+      "exists": true,
+      "expected": "822B6D17CE45F80179A512EE6C70A35D5AE29BF187530BDA5EBD11446CFB3553",
+      "actual": "822B6D17CE45F80179A512EE6C70A35D5AE29BF187530BDA5EBD11446CFB3553",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/Saut_Dll.dll",
+      "exists": true,
+      "expected": "977B4B8BD3D3EB98BF9E2F08A8C413525D85F42085D34ABBE842F2BB79384A92",
+      "actual": "977B4B8BD3D3EB98BF9E2F08A8C413525D85F42085D34ABBE842F2BB79384A92",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/SaveParam.dll",
+      "exists": true,
+      "expected": "2FF69345EAF6ED2A790B8E3AB7D4943A51D4E09975B06C113105E86AFD8B52B3",
+      "actual": "2FF69345EAF6ED2A790B8E3AB7D4943A51D4E09975B06C113105E86AFD8B52B3",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/SoundsTren.dll",
+      "exists": true,
+      "expected": "7ABF3029027B5BF5F41BB5914685A7554329E907566D05B74BA7FD3D07E0BD89",
+      "actual": "7ABF3029027B5BF5F41BB5914685A7554329E907566D05B74BA7FD3D07E0BD89",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/SoundsVideo.dll",
+      "exists": true,
+      "expected": "7ABF3029027B5BF5F41BB5914685A7554329E907566D05B74BA7FD3D07E0BD89",
+      "actual": "7ABF3029027B5BF5F41BB5914685A7554329E907566D05B74BA7FD3D07E0BD89",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/SpeedMeterEM.dll",
+      "exists": true,
+      "expected": "13B766D724CA8CB32490E6F486178167A504F240E88B961E4FDBA40A20AC342D",
+      "actual": "13B766D724CA8CB32490E6F486178167A504F240E88B961E4FDBA40A20AC342D",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/TalkSound.dll",
+      "exists": true,
+      "expected": "7ABF3029027B5BF5F41BB5914685A7554329E907566D05B74BA7FD3D07E0BD89",
+      "actual": "7ABF3029027B5BF5F41BB5914685A7554329E907566D05B74BA7FD3D07E0BD89",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/Torm_Pass_Dll.dll",
+      "exists": true,
+      "expected": "B6B91DA78088E96D36816C294E1529C4ABB247CB994F0D0D639CE4F54AB966F0",
+      "actual": "B6B91DA78088E96D36816C294E1529C4ABB247CB994F0D0D639CE4F54AB966F0",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/TormModel.dll",
+      "exists": true,
+      "expected": "F871640C5B7699901E3AFBF755BB2B797B659524C29BAA046B311CA6ECC875B9",
+      "actual": "F871640C5B7699901E3AFBF755BB2B797B659524C29BAA046B311CA6ECC875B9",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/TormModelGruz.dll",
+      "exists": true,
+      "expected": "5704818B49C5C6E16947BDFE3A834C3DA1AD053FEBB57BABFE705B719C821BD9",
+      "actual": "5704818B49C5C6E16947BDFE3A834C3DA1AD053FEBB57BABFE705B719C821BD9",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/TormModelPrig.dll",
+      "exists": true,
+      "expected": "331B93FE9FD260AF2D3070299ABE9F032CAE339A2EB40097610066D8AD4BEFCB",
+      "actual": "331B93FE9FD260AF2D3070299ABE9F032CAE339A2EB40097610066D8AD4BEFCB",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/VideoHandle.dll",
+      "exists": true,
+      "expected": "253C1A3E9EF7115DA99BB3CB30AEE9718045A2F8084333198C9000898BD1EBE8",
+      "actual": "253C1A3E9EF7115DA99BB3CB30AEE9718045A2F8084333198C9000898BD1EBE8",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/VideoModul.dll",
+      "exists": true,
+      "expected": "8E75CCBF3F809092E41AFC95450FDB8DB10BAC481FED0263B86813DD7326573A",
+      "actual": "8E75CCBF3F809092E41AFC95450FDB8DB10BAC481FED0263B86813DD7326573A",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/VideoModulScen.dll",
+      "exists": true,
+      "expected": "31D69803D533F68DBEDB947D6357F61C16564793EB0541F735E0C1359BDD16B8",
+      "actual": "31D69803D533F68DBEDB947D6357F61C16564793EB0541F735E0C1359BDD16B8",
+      "matches": true
+    },
+    {
+      "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/VideoStream.dll",
+      "exists": true,
+      "expected": "F0800A941ACB26C0517F2DDF826DA92FFF4FE3A650FA08A52D36D55D45B4DF05",
+      "actual": "F0800A941ACB26C0517F2DDF826DA92FFF4FE3A650FA08A52D36D55D45B4DF05",
+      "matches": true
+    }
+  ],
+  "status": "built",
+  "compiler_arguments": [
+    "/nologo",
+    "/codepage:65001",
+    "/platform:x86",
+    "/target:exe",
+    "/main:Sa47ReleaseProbe",
+    "/debug:pdbonly",
+    "/optimize+",
+    "/r:System.Windows.Forms.dll",
+    "/r:System.Drawing.dll",
+    "/r:System.Web.Extensions.dll",
+    "/out:C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\Sa47ReleaseProbe.exe",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerIntegrationHost.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerNativeSystems.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerContactNetwork.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerContactVoltagePatch.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerNativeBrakeRelease.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerSa47MemoryPatch.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerAuxSystems.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerRouteDOS.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerAutovedenieController.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerTrainBrakeCycle.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerAutovedenieInterface.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerAutovedenieNativeBridge.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerAutovedenieHost.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerSautOperatorControls.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerStandaloneSautBinding.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerRouteView.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerNativeFixes.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerPneumaticTiming.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerSessionLogging.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerAirNetwork.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerControlAir.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerBtoNetwork.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerAirSelector.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerKvtProfile.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerTwoSectionAirChain.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerPneumaticNetworkCandidate.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerTrainPressureView.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerSafetyInputContext.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerSafetyContexts.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerNativeSafetyAdapter.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerSafetyHost.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerVigilanceOperatorControls.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerMarkupSignalSource.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerMarkupHost.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerKlubSafetyBinding.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerNativeVirtualPult.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerSandAirInput.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerModernTractionPhysics.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerModernTractionIntegration.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerPolachAdhesion.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerFrictionDraftGear.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerLongitudinalDynamics.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerIndependentExcitation.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerManagedMotion.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerNativeBrakeForceProvider.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\outputs\\TrainerManagedFloatingScope.cs",
+    "C:\\Users\\sibir\\Desktop\\Макрос\\Тренажер\\dev\\builds\\build-20261025T104147662Z-8b2bd69c\\source\\work\\pneumatic_live_fix\\analysis\\Sa47ReleaseProbe.cs"
+  ],
+  "compiler_exit_code": 0,
+  "executable": "Sa47ReleaseProbe.exe",
+  "executable_sha256": "861DF60A2DE37DA29C908B20F45ECDE307C101CC8A61029A86962623E4C33E62",
+  "finished_utc": "2026-10-25T10:41:50.5122788Z"
+}

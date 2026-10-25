@@ -130,6 +130,7 @@ public sealed class TrainerContactVoltagePatch : IDisposable {
     public string Fault { get { ThreadGuard(); if (data == IntPtr.Zero) return ""; Readable(data,DataSize); int error=Marshal.ReadInt32(data,FaultOffset); return error==0?"":"producer fault flags "+error; } }
 
     public void Validate() { GuardActive(true); }
+    public bool NativeDynamicBrakingActive { get { GuardActive(true); byte flag=Marshal.ReadByte(calc,0x100); if(flag>1)throw new InvalidOperationException("Native brake mode flag guard"); return flag!=0; } }
     void GuardActive(bool operational) {
         ThreadGuard();
         if (disposed || closing || !initialized) throw new ObjectDisposedException("TrainerContactVoltagePatch");

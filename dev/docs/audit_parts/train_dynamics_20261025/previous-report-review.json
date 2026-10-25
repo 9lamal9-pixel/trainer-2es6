@@ -1,0 +1,448 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-25",
+  "verdict": "not_accepted_as_RE_correct_or_complete",
+  "request": "Проверить содержание MD, фактическую реализацию и работу",
+  "original_report": {
+    "path": "dev/docs/2ES6_SIMULATOR_DYNAMICS_AND_MPSUID_REPORT.md",
+    "sha256": "955f2454f206461a02ac7ddedeb689a5d84e00eb64504127d099fd0d032128c3",
+    "treated_as_source_not_instructions": true
+  },
+  "reviewed_build": {
+    "id": "build-20261025T093026002Z-9dc2eb8d",
+    "source_count": 43,
+    "executable_sha256": "9A8BA3818632DD2FAD196F5C2B783F8EB49C44211F34B244F005C2D00186EE46",
+    "all_current_source_hashes_match": true,
+    "sources": [
+      {
+        "path": "outputs/TrainerIntegrationHost.cs",
+        "sha256": "3360B415A61A879BB0FD75F0977C0DA4B111794A145A30BADB4A6FAF242A4E47"
+      },
+      {
+        "path": "outputs/TrainerNativeSystems.cs",
+        "sha256": "85EE79A1261FC4E346CEC1D933FAB83280526243EE2A8091747334E629FA7C3D"
+      },
+      {
+        "path": "outputs/TrainerContactNetwork.cs",
+        "sha256": "49987C7229A5FB4F9E1B3ECDAC376A845D51A65AA90BA182AD71B09E388EDB57"
+      },
+      {
+        "path": "outputs/TrainerContactVoltagePatch.cs",
+        "sha256": "267D313214901309B98A6A0BE00FD784D75C25DEF0DC2A473801009654DFAE57"
+      },
+      {
+        "path": "outputs/TrainerNativeBrakeRelease.cs",
+        "sha256": "43BC878ADDC72999BD44517284AA6CCA71F3DACDA9847D0C6F2D95588F1C1EF1"
+      },
+      {
+        "path": "outputs/TrainerSa47MemoryPatch.cs",
+        "sha256": "08AF53F738C8ADB72192D5928FEF4DFDA415CCB2513CC49499E67FC7655FEB7E"
+      },
+      {
+        "path": "outputs/TrainerAuxSystems.cs",
+        "sha256": "B1ADA79A20447CE22B5E084E07DFC3A5C112190C7EB85A6FAEE1EA4E4077A873"
+      },
+      {
+        "path": "outputs/TrainerRouteDOS.cs",
+        "sha256": "A6833BDFDD042E47A5570F0BB7C39AD823FED3024C03713129D33AC6ABE8F4BE"
+      },
+      {
+        "path": "outputs/TrainerAutovedenieController.cs",
+        "sha256": "EF6CE777859B0D84847A648E1C29111D4F5BCDF2DA107660FD2EDCFEBCA4DCFB"
+      },
+      {
+        "path": "outputs/TrainerTrainBrakeCycle.cs",
+        "sha256": "783FFD1DF4546C99FB131A3A88D71211CBCD67226D002BA254AFF7C9E20E9A8B"
+      },
+      {
+        "path": "outputs/TrainerAutovedenieInterface.cs",
+        "sha256": "EE116B7847A4B946F56EA84DD4F1E8713541E2C0EB3494DCC7085555C384FDCE"
+      },
+      {
+        "path": "outputs/TrainerAutovedenieNativeBridge.cs",
+        "sha256": "EC5C8CB86162319E2AD2030B313EDDB820D2D4F4EC8ACFBF702072846C4D9341"
+      },
+      {
+        "path": "outputs/TrainerAutovedenieHost.cs",
+        "sha256": "A9F657408E91A5731E25381D662241FD8047479E877D8CEEDCB24CA7CB57567B"
+      },
+      {
+        "path": "outputs/TrainerSautOperatorControls.cs",
+        "sha256": "B78D647440FB4521B97728131A3DF16EC4CDA56D19912C484AEF8AF16FD2E9F8"
+      },
+      {
+        "path": "outputs/TrainerStandaloneSautBinding.cs",
+        "sha256": "7480B65A77C0883BF1FD8EAD8402970355C56BDF1765D011D720052DAFA71145"
+      },
+      {
+        "path": "outputs/TrainerRouteView.cs",
+        "sha256": "CD86F938C78FB0E3A2F49441050D3965BEACDDA1AB861B8F6C59D4B45CF27204"
+      },
+      {
+        "path": "outputs/TrainerNativeFixes.cs",
+        "sha256": "E8D47DAC13D7D1152DEE2206CA5F77A0D4B307313CFBBC506067343495250B4D"
+      },
+      {
+        "path": "outputs/TrainerPneumaticTiming.cs",
+        "sha256": "FAA88FB80BC132188A846AF2453265B2D54E7284D98C38AF881094AFB9D5B2E2"
+      },
+      {
+        "path": "outputs/TrainerSessionLogging.cs",
+        "sha256": "FC409229F2F44AEE2C97FC4633107DACD199C63CE73F6717633C900C8DCEF101"
+      },
+      {
+        "path": "outputs/TrainerAirNetwork.cs",
+        "sha256": "86D4BC73601012D7A4109BEEAA26360F8C476CC06D2FDDE61C3BB1B66F646B32"
+      },
+      {
+        "path": "outputs/TrainerControlAir.cs",
+        "sha256": "45F273528A4E83BB5FC166367646C1A234FDE578C20128AF2881E2A35EF0C4B6"
+      },
+      {
+        "path": "outputs/TrainerBtoNetwork.cs",
+        "sha256": "5E83C5F3BBB597757A8DCFB48881625AD398970A714E4710AFDBA9AD39E58027"
+      },
+      {
+        "path": "outputs/TrainerAirSelector.cs",
+        "sha256": "E4E86DE362E66D7A55C23968F52D1FE1EB64C631D07E18B7D9BACE142C6263FD"
+      },
+      {
+        "path": "outputs/TrainerKvtProfile.cs",
+        "sha256": "E80696785D2542FB5BE5920A87EE6A51368043B06E7FBB388992A9F19A0E17B7"
+      },
+      {
+        "path": "outputs/TrainerTwoSectionAirChain.cs",
+        "sha256": "C04801AB0DFCD7AF736D8069909EC4D8C07C71C1F14CAF393E30F5043F86BBBC"
+      },
+      {
+        "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+        "sha256": "3C388354ADAC36B8D0FFF3AD4422EFB79DEA88524EC784D02E85A159B1A336CF"
+      },
+      {
+        "path": "outputs/TrainerTrainPressureView.cs",
+        "sha256": "431EA70A22205EE44EDDB51D71CD2A816AE46912CD14C6DAD7C5F1C165BECD61"
+      },
+      {
+        "path": "outputs/TrainerSafetyInputContext.cs",
+        "sha256": "71883123E6C657A5A62355EA673DC7BB4E10646320141002BE81ABFC57FD5D84"
+      },
+      {
+        "path": "outputs/TrainerSafetyContexts.cs",
+        "sha256": "EFDAFA1202F26FF507A242FF6F2AD7971D2D169619ECAA4FA35B81FD533CF0B4"
+      },
+      {
+        "path": "outputs/TrainerNativeSafetyAdapter.cs",
+        "sha256": "50CFD589AB74F667DF336ABCF157225B5F6BE8CD6F50DB369B828BA58D4E58AA"
+      },
+      {
+        "path": "outputs/TrainerSafetyHost.cs",
+        "sha256": "05ABACF21249C5EF6B7C45C965CDCF94CC3FAFDCF2645FF55D9E8BC28B2BD7B9"
+      },
+      {
+        "path": "outputs/TrainerVigilanceOperatorControls.cs",
+        "sha256": "5A93EC26F39341D0E6632A275BBE1177FB7966E85854C47A32F3658EA178957F"
+      },
+      {
+        "path": "outputs/TrainerMarkupSignalSource.cs",
+        "sha256": "0C927B8BBE2B6A2B444623A83F3C2FEC38577DDBB1E85F8172BE61174CB036A6"
+      },
+      {
+        "path": "outputs/TrainerMarkupHost.cs",
+        "sha256": "BE9D9F6744F80BA327D46392641C3D4240B3D7A7ABC09E12D4BE43FCA83E0266"
+      },
+      {
+        "path": "outputs/TrainerKlubSafetyBinding.cs",
+        "sha256": "942ACF68C73403CE35B833322E85274ED11C37CDB879140C0B3BA5E224F95006"
+      },
+      {
+        "path": "outputs/TrainerNativeVirtualPult.cs",
+        "sha256": "F54E569EB6C9F0B72541E5D08C90999FA572656B06138FBDB7B5EC7EEDC7CE24"
+      },
+      {
+        "path": "outputs/TrainerSandAirInput.cs",
+        "sha256": "C9BA33F9E2ABCBAAE0F3284B20B63A8880B50C4B0DF8B139ABB04E3EAE258C89"
+      },
+      {
+        "path": "outputs/TrainerModernTractionPhysics.cs",
+        "sha256": "E053A8A34488B46C30DCE80774D61FC1DCA8B719276D90DAA062E18031995970"
+      },
+      {
+        "path": "outputs/TrainerModernTractionIntegration.cs",
+        "sha256": "D3430336AAB3F6D4F525D4FB824373DA2639EB374EA549B1EA873BC77FB1A8AD"
+      },
+      {
+        "path": "outputs/TrainerPolachAdhesion.cs",
+        "sha256": "A5CA664EF19FB2F53E3C1A19C7D233BD9A261B552E11A433A07C3C956308EB8F"
+      },
+      {
+        "path": "outputs/TrainerFrictionDraftGear.cs",
+        "sha256": "3C44082BCC8C2E93EACA5C64728BBF3F373604F73DB8D35FEACE09BB48A0C6E7"
+      },
+      {
+        "path": "outputs/TrainerLongitudinalDynamics.cs",
+        "sha256": "5E172EC2FC8EDF2F7C76A346F885203705B2C8B870E1B9695272BEAE00175DBB"
+      },
+      {
+        "path": "outputs/TrainerIndependentExcitation.cs",
+        "sha256": "66027CA0FB0A35A31A279CA87A229CA8D1ABAB90516F86020B4267F76688C4A3"
+      }
+    ]
+  },
+  "authored_tests": {
+    "run": "dev/runs/test-20261025T092722184Z-14ac9da8",
+    "status": "passed",
+    "test_groups": [
+      {
+        "id": "ModernTractionValidation",
+        "status": "passed",
+        "exit_code": 0,
+        "assertions": 21,
+        "build_id": "build-20261025T092722279Z-c8469239",
+        "artifact": "dev\\runs\\test-20261025T092722184Z-14ac9da8\\ModernTractionValidation\\Trainer_modern_traction_validation.json",
+        "sha256": "e37eca92fbb23c1fbc257c60fcd8240796127a0bd9af2c7d77a38c183ccf5c15",
+        "profile": "standalone"
+      },
+      {
+        "id": "ModernTractionIntegration",
+        "status": "passed",
+        "exit_code": 0,
+        "assertions": 25,
+        "build_id": "build-20261025T092724791Z-3ccd26ec",
+        "artifact": "dev\\runs\\test-20261025T092722184Z-14ac9da8\\ModernTractionIntegration\\Trainer_modern_traction_integration.json",
+        "sha256": "a7d725a1094079f33d5f33f112af39e947ca5b39e6678a8768e75e174ed43f79",
+        "profile": "standalone"
+      },
+      {
+        "id": "ComputationalTrainDynamics",
+        "status": "passed",
+        "exit_code": 0,
+        "assertions": 20,
+        "build_id": "build-20261025T092726208Z-ce5717d1",
+        "artifact": "dev\\runs\\test-20261025T092722184Z-14ac9da8\\ComputationalTrainDynamics\\Trainer_computational_train_dynamics.json",
+        "sha256": "468d616979a2407b6fb1eaa751a6e0749c8d76f3fd4a6dee2f80cca5afca3ba6",
+        "profile": "standalone"
+      },
+      {
+        "id": "IndependentExcitationValidation",
+        "status": "passed",
+        "exit_code": 0,
+        "assertions": 20,
+        "build_id": "build-20261025T092727722Z-59b5ccc0",
+        "artifact": "dev\\runs\\test-20261025T092722184Z-14ac9da8\\IndependentExcitationValidation\\Trainer_independent_excitation_validation.json",
+        "sha256": "e703564ea618072cbe5086d4d045d8f0092503c79675fa6b1f29078c43550341",
+        "profile": "standalone"
+      }
+    ],
+    "total_assertions": 86,
+    "scope": "standalone mathematical components, not native MPSUID integration"
+  },
+  "native_smoke": {
+    "run": "dev/runs/test-20261025T093454479Z-e05625f3",
+    "status": "passed",
+    "exit_code": 0,
+    "session": {
+      "id": "20261025T093459090Z_p16380_7a1a4cfbcbe84e72963fe52385ae0d1b",
+      "state": "closed",
+      "exceptions": 0,
+      "logging_failures": 0,
+      "source_build_id": "build-20261025T093454585Z-d22bf296"
+    },
+    "scope": "existing genuine-start and voltage-source scenario; not acceptance of all MD physics or newly claimed protections"
+  },
+  "independent_counterexamples": {
+    "result": "dev\\runs\\md-review-20261025\\independent-behavior-results-confirmed.json",
+    "sha256": "5806f68c026f6678d4559b393bd50c859d58c44ff30fffed01bdb398377f5bf4",
+    "failures": 13,
+    "total_checks": 14,
+    "expected_exit": 2,
+    "scope": "actual built mathematical methods and allocated post-comm record fixtures; trainer native libraries absent"
+  },
+  "project_build": {
+    "log": "dev\\runs\\md-review-20261025\\project-build.log",
+    "exit_code": 1,
+    "error": "CS0103 ReadModernTractionCommand absent; 6 modern files not in csproj"
+  },
+  "sources_changed_by_review": false,
+  "original_MD_edited": false,
+  "git_commits_created": false,
+  "working_candidate_deployed_by_review": false,
+  "primary_reference": {
+    "local_RE": "work/public_2es6_part1.pdf",
+    "visual_pages": [
+      11,
+      12
+    ],
+    "polach": "https://polach.ch/data/object_4/Wear_2005.pdf",
+    "equation": 4
+  },
+  "findings": [
+    {
+      "priority": "P1",
+      "title": "Сила не согласована с возбуждением, током и энергией",
+      "file": "outputs/TrainerModernTractionPhysics.cs",
+      "line": 237,
+      "reason": "Сила задаётся скоростной кривой до расчёта тока. Ограничение тока 750 А не пересчитывает силу.",
+      "evidence": "При Iv=0 получается 513,274 кН при Ia=0 и нулевой входной мощности. На последовательном соединении при 40 км/ч мощность на валу 4189,99 кВт, входная — 2250 кВт.",
+      "verification": "executed_actual_math"
+    },
+    {
+      "priority": "P1",
+      "title": "Неверно распознаётся электрическое торможение",
+      "file": "outputs/TrainerModernTractionIntegration.cs",
+      "line": 53,
+      "reason": "Нативная тяговая позиция Pos имеет диапазон 0–65; тормозная позиция хранится отдельно. Ветка Pos<0 не распознаёт штатный электротормоз.",
+      "evidence": "На выделенных тестовых структурах Pos=0, PosRec=2, исходная сила −20 нативных единиц: после функции интеграции сила равна 0. Это компонентная проверка, без настоящего управления пультом.",
+      "verification": "executed_allocated_record_fixture"
+    },
+    {
+      "priority": "P1",
+      "title": "Утрачен знак силы заднего хода",
+      "file": "outputs/TrainerModernTractionIntegration.cs",
+      "line": 106,
+      "reason": "Расчёт игнорирует подписанное направление и публикует положительную силу.",
+      "evidence": "Компонентная фикстура: mode=−1, Pos=10, исходная сила −20; после функции интеграции сила +24,190815 нативной единицы.",
+      "verification": "executed_allocated_record_fixture"
+    },
+    {
+      "priority": "P1",
+      "title": "Ноль напряжения заменяется номиналом; маски оборудования не учитываются",
+      "file": "outputs/TrainerModernTractionIntegration.cs",
+      "line": 41,
+      "reason": "Законный Uset=0 трактуется как отсутствующее измерение. Расчёт всегда относится к восьми двигателям, без аппаратных разрешений и масок секций.",
+      "evidence": "На выделенных структурах с нулевыми флагами оборудования исходная сила 0 заменяется на +24,190815 как при Uset=0, так и при Uset=3000. Достижимость конкретного такого кадра реальными органами управления отдельно не принималась.",
+      "verification": "executed_allocated_record_fixture"
+    },
+    {
+      "priority": "P1",
+      "title": "Обработчик ArithmeticException больше не гарантирует снятие тяги",
+      "file": "outputs/TrainerAuxSystems.cs",
+      "line": 125,
+      "reason": "Прежняя запись Force=0 удалена из catch. Новый hook вызывается после ошибки, а при отключённом moderntraction просто возвращается.",
+      "evidence": "Подтверждено исходным кодом и diff. Отдельная нативная инъекция этой ошибки в рамках проверки не выполнялась.",
+      "verification": "source_inspection"
+    },
+    {
+      "priority": "P1",
+      "title": "МПСУиД получает результаты разных физических моделей",
+      "file": "outputs/TrainerModernTractionIntegration.cs",
+      "line": 113,
+      "reason": "Поздний hook заменяет силу и по одному элементу усреднённых токов после нативных решений и отрисовки. Raw токи групп, моменты и расход энергии остаются от DLL.",
+      "evidence": "Авторский интеграционный тест вызывает только CalculateTraction; host, нативная память и ElectricalCycle в нём отсутствуют.",
+      "verification": "source_and_catalog_inspection"
+    },
+    {
+      "priority": "P1",
+      "title": "Рекуперация выбирается без проверки отдачи энергии",
+      "file": "outputs/TrainerIndependentExcitation.cs",
+      "line": 253,
+      "reason": "Выбор режима зависит от скорости и напряжения, но рабочая точка электрической цепи не решается. Переменная circuitR не используется; заявленные SI коэффициенты Ce и Cm различаются в 9,53 раза.",
+      "evidence": "ComputeDynamicBraking(60,350,3200) выбирает Recuperation с ЭДС 15,286 В на двигатель. Даже восемь последовательно дают лишь 122,291 В при сети 3200 В.",
+      "verification": "executed_actual_math"
+    },
+    {
+      "priority": "P1",
+      "title": "На реостатной позиции 64 нарушается минимум возбуждения",
+      "file": "outputs/TrainerIndependentExcitation.cs",
+      "line": 103,
+      "reason": "Позиции 45–64 не включены в условие isRheostatNotch.",
+      "evidence": "CalculateMpsuidTargetIv(64,100,80,false) возвращает 160 А вместо минимальных 400 А. Сопоставлено с локальным РЭ.",
+      "verification": "executed_actual_math_and_RE_review"
+    },
+    {
+      "priority": "P1",
+      "title": "Тормоз LTD может развернуть вагон и увеличить энергию",
+      "file": "outputs/TrainerLongitudinalDynamics.cs",
+      "line": 220,
+      "reason": "Остановочное условие проверяет только положительную тормозную силу и несимметрично для движения назад.",
+      "evidence": "Вагон 80 т без тяги: скорость −0,0002 м/с после шага 5 мс становится +0,00171398 м/с. Кинетическая энергия растёт с 0,00168 до 0,123385 Дж.",
+      "verification": "executed_actual_math"
+    },
+    {
+      "priority": "P1",
+      "title": "Задержка тормозной волны не используется",
+      "file": "outputs/TrainerLongitudinalDynamics.cs",
+      "line": 166,
+      "reason": "waveDelaySec вычисляется, но не влияет на наполнение ТЦ. История распространения головного сигнала не хранится.",
+      "evidence": "Компоненты с DistanceFromHeadM=0 и 2800 м получают одинаковые 475 Па в ТЦ за 5 мс. При скорости волны 280 м/с задержка дальнего компонента должна составлять 10 с.",
+      "verification": "executed_actual_math"
+    },
+    {
+      "priority": "P2",
+      "title": "Polach, LTD и аппараты не подключены к рабочему движению",
+      "file": "outputs/TrainerNativeSystems.cs",
+      "line": 79,
+      "reason": "MotionCycle продолжает вызывать POEZD. В рабочем host нет вызовов трёх новых компонентов.",
+      "evidence": "Эти классы компилируются и используются самостоятельной Computational-пробой. Само наличие в сборке не подтверждает участие в движении поезда.",
+      "verification": "source_and_catalog_inspection"
+    },
+    {
+      "priority": "P2",
+      "title": "Мощность снижается уже при 2,9 кВ",
+      "file": "outputs/TrainerModernTractionPhysics.cs",
+      "line": 187,
+      "reason": "Коэффициент U/3000 уменьшает мощность при 2900 В.",
+      "evidence": "При 80 км/ч мощность на валу меняется с 6030 до 5829 кВт. РЭ, таблица 1, примечание 3: паспортные мощность и скорость должны сохраняться до 2,9 кВ.",
+      "verification": "executed_actual_math_and_visual_RE_review"
+    },
+    {
+      "priority": "P2",
+      "title": "Песок читается из непривязанной схемы",
+      "file": "outputs/TrainerModernTractionIntegration.cs",
+      "line": 32,
+      "reason": "mem[TShema] остаётся первоначально выделенным буфером. Реальная схема Pult находится в native owner+18; уже существует проверенный канал acceptedSandSignal.",
+      "evidence": "Подтверждено связями памяти и порядком вызовов. Отдельный нативный сценарий с педалью песка не выполнялся.",
+      "verification": "source_inspection"
+    },
+    {
+      "priority": "P2",
+      "title": "IDE-проект не включает шесть новых файлов",
+      "file": "dev/TrainerIntegrationHost.csproj",
+      "line": 40,
+      "reason": "environment.json перечисляет 43 исходника candidate, а csproj — 37. При этом TrainerAuxSystems требует новый ReadModernTractionCommand.",
+      "evidence": "Сборка MSBuild действительно завершается exit 1 с CS0103. Предупреждение об SDK — отдельный вопрос, не причина этой ошибки.",
+      "verification": "executed_project_build"
+    },
+    {
+      "priority": "P2",
+      "title": "Запускной EXE собран из другого комплекта",
+      "file": "outputs/TrainerIntegrationHost.pneumatic_candidate.exe.build.json",
+      "line": 1,
+      "reason": "Развёрнутая сборка 090645381 содержит 44 исходника, включая UnifiedBrakeSystem. Текущая конфигурация содержит 43 файла без него.",
+      "evidence": "Для проверки текущих исходников создана отдельная сборка 093026002. Развёрнутый EXE с SHA DC24102D… не заменялся.",
+      "verification": "manifest_and_hash_inspection"
+    },
+    {
+      "priority": "P2",
+      "title": "В коэффициенте модели Polach пропущен множитель",
+      "file": "outputs/TrainerPolachAdhesion.cs",
+      "line": 91,
+      "reason": "При объявленных параметрах G, a, b, c11 формула epsilon пропускает множитель π/4 из уравнения 4 Polach (2005).",
+      "evidence": "Сверено с первичной публикацией автора. Модель также не содержит отдельных динамических состояний спина и температуры.",
+      "verification": "primary_paper_and_source_inspection"
+    },
+    {
+      "priority": "P2",
+      "title": "Авторские зелёные проверки не доказывают полную достоверность",
+      "file": "dev/docs/2ES6_SIMULATOR_DYNAMICS_AND_MPSUID_REPORT.md",
+      "line": 206,
+      "reason": "Выполнены четыре самостоятельные группы: 21, 25, 20 и 20 утверждений — всего 86, а не 82. У них нет запуска рабочего host.",
+      "evidence": "Все 86 утверждений прошли, но независимая проверка воспроизвела 13 контрпримеров. Отсутствуют полноценные проверки направлений, защит, торможения и энергетической согласованности.",
+      "verification": "fresh_tests_and_counterexamples"
+    },
+    {
+      "priority": "P2",
+      "title": "Старый вывод об ограничителе 750 А приведён как действующий",
+      "file": "dev/docs/2ES6_SIMULATOR_DYNAMICS_AND_MPSUID_REPORT.md",
+      "line": 44,
+      "reason": "Для фактического Tyga1 с SHA 8EC6… раннее ограничение через retained .tfix было подтверждено ранее.",
+      "evidence": "См. getcur-native-measured-20261025.json. Рассогласование силы и ограниченного тока в новой C# модели является отдельной ошибкой.",
+      "verification": "prior_pinned_evidence_and_current_module_guards"
+    }
+  ],
+  "next_steps": [
+    "Согласовать единый producer силы, токов и моментов до потребителей: направление, аппаратные разрешения, свежий успешный кадр.",
+    "Согласовать SI параметры двигателя и баланс напряжения, тока, момента и энергии; затем провести паспортную калибровку.",
+    "Подключать LTD и Polach после проверки энергии, тормозной волны и устойчивости; сохранить проверенную пневматику.",
+    "Добавить реальные нативные сценарии реверса, электротормоза, отключения оборудования и ошибок; синхронизировать IDE и развёрнутую сборку."
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "ContactAndCoupler",
+  "scope": "Independent managed component checks of low-creep slope, force signs and passivity; illustrative gear profile, not calibrated SA3. Polach not wired as a second native traction limiter.",
+  "status": "passed",
+  "artifacts": [
+    {
+      "path": "Trainer_contact_and_coupler_validation.json",
+      "sha256": "BE21BE50C6321F28BFE154D6434587A40C9B0C7A1BC2368A0725F2EAF5AF847A"
+    }
+  ],
+  "build_id": "build-20261025T104457848Z-406863a2",
+  "pid": 29152,
+  "exit_code": 0,
+  "finished_utc": "2026-10-25T10:44:59.4948261Z"
+}

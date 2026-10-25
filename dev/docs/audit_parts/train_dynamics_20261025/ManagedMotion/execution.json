@@ -1,0 +1,22 @@
+{
+  "id": "ManagedMotion",
+  "scope": "Genuine electrical/pneumatic start with managed76bodymovement; physical KM V/IV/II, real BC/force law, consistent publication/next-frame signed speed, reversible oracle. Separate declared station/signed speed components. Teaching green/scripted RBS; not factory calibration, full route, AVP or cab EDT acceptance.",
+  "status": "passed",
+  "artifacts": [
+    {
+      "path": "Trainer_managed_motion_validation.json",
+      "sha256": "5667241E0A2BF3055EE10FAE4418A5AF055BA812AA151FFB15D2A29FC1E8075F"
+    }
+  ],
+  "build_id": "build-20261025T104249001Z-2ada2c0e",
+  "pid": 40820,
+  "exit_code": 0,
+  "session": {
+    "id": "20261025T104252722Z_p40820_cd0b500195a84f52adf74b6c3db94468",
+    "state": "closed",
+    "exceptions": 0,
+    "logging_failures": 0,
+    "source_build_id": "build-20261025T104249001Z-2ada2c0e"
+  },
+  "finished_utc": "2026-10-25T10:43:59.0299424Z"
+}

@@ -38,6 +38,15 @@
   <ItemGroup>
     <Compile Include="..\outputs\TrainerIntegrationHost.cs"><Link>Host\TrainerIntegrationHost.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerNativeSystems.cs"><Link>Host\TrainerNativeSystems.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerModernTractionPhysics.cs"><Link>Dynamics\TrainerModernTractionPhysics.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerModernTractionIntegration.cs"><Link>Dynamics\TrainerModernTractionIntegration.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerPolachAdhesion.cs"><Link>Dynamics\TrainerPolachAdhesion.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerFrictionDraftGear.cs"><Link>Dynamics\TrainerFrictionDraftGear.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerLongitudinalDynamics.cs"><Link>Dynamics\TrainerLongitudinalDynamics.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerIndependentExcitation.cs"><Link>Dynamics\TrainerIndependentExcitation.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerManagedMotion.cs"><Link>Dynamics\TrainerManagedMotion.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerManagedFloatingScope.cs"><Link>Dynamics\TrainerManagedFloatingScope.cs</Link></Compile>
+    <Compile Include="..\outputs\TrainerNativeBrakeForceProvider.cs"><Link>Dynamics\TrainerNativeBrakeForceProvider.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerContactNetwork.cs"><Link>Host\TrainerContactNetwork.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerContactVoltagePatch.cs"><Link>Host\TrainerContactVoltagePatch.cs</Link></Compile>
     <Compile Include="..\outputs\TrainerNativeBrakeRelease.cs"><Link>Host\TrainerNativeBrakeRelease.cs</Link></Compile>

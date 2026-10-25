@@ -261,7 +261,11 @@
       ]
     },
     "contact_network_voltage": {
-      "probes": ["ContactNetworkVoltage", "SectionPantographPressure", "Tyga750Clamp"],
+      "probes": [
+        "ContactNetworkVoltage",
+        "SectionPantographPressure",
+        "Tyga750Clamp"
+      ],
       "report": "dev/docs/RE_PART1_AUDIT.md",
       "proof": "dev/docs/audit_parts/re_part1/uks-native-final-receipt-20261025.json",
       "limit": "Shared external input with nominal3000V, five guarded native producers plus Eset; genuine P1/type0 solver response, roof gates and restoration verified. Actual regenerative roof voltage, Napruga/PSN/BV timed protections and full traction/braking calibration remain unaccepted."
@@ -273,12 +277,22 @@
       "report": "dev/docs/RE_PART1_AUDIT.md",
       "map": "dev/config/native-calibration-map.json",
       "limit": "Actual retained.tfix750 before M/F verified by native observer; not factory750 acceptance or F(v)calibration. Old raw-Ia numeric/kmh tables withdrawn. Next actualUks, normalizedpassportbench, CF/energycontract and compositebrakecalibration."
+    },
+    "longitudinal_dynamics": {
+      "probes": [
+        "ManagedFloatingScope",
+        "TrainDynamicsKernel",
+        "ContactAndCoupler",
+        "ManagedMotion"
+      ],
+      "report": "dev/docs/TRAIN_DYNAMICS_IMPLEMENTATION.md",
+      "limit": "Managed LTD owns X/V/A/couplers; native electrical traction and isolated native brake-capacity law from actual pressures. Illustrative couplers/gamma0 compatibility, factory brake/traction/AVP/fullroute calibration unaccepted."
     }
   },
   "model_context": {
     "train": "75 x 80t wagons=6000t plus 200t locomotive; 76 motion elements,77 air nodes.",
     "display": "МСУЛ left/right, native КЛУБ-У БИЛ-УТ center; route map in a separate themed window. Separate train pressure mode: read-only all75 wagon TM/TC/ZR table, spatial graph and selected-wagon bounded simulated-time history.",
-    "three_d": "Received server world graph/scenario/DSP data and DirectX meshes for video overlays; registered Kornilcevo/main.exe and WorldSkils/main.exe absent from34188 loose files. Static network/code bridge mapped: server owns train motion/brakes, client cab+traction, separate VideoHandle overlay. Current managed host uses local POEZD/PDF route with no explicit world/render bridge. No native3D/live network/render acceptance.",
+    "three_d": "Received server world graph/scenario/DSP data and DirectX meshes for video overlays; registered Kornilcevo/main.exe and WorldSkils/main.exe absent from34188 loose files. Static network/code bridge mapped: server owns train motion/brakes, client cab+traction, separate VideoHandle overlay. Current host uses local managed LTD/native brake oracle with PDF or native markup route with no explicit world/render bridge. No native3D/live network/render acceptance.",
     "known_valid": [
       "Inactive VCU II/III isolates KVT and retains independent pilot.",
       "Finite PM feeds BTO/control air; section RS6 sources are independent.",
@@ -335,7 +349,8 @@
           "both sections, KVT preservation and pneumatic actuation"
         ]
       }
-    }
+    },
+    "motion_engine": "Managed76-body LTD is the sole motion owner; native POEZD is a guarded reversible brake-force oracle only. Full x87/MXCSR isolation, length-averaged route forces, real pneumatic BC inputs. See TRAIN_DYNAMICS_IMPLEMENTATION.md and fresh receipt."
   },
   "backlog": {
     "priority": "Complete locomotive cold preparation remains unverified: diagnostic cold pneumatic chain now charges PM successfully, but actuator demand, exact equipment and calibration remain unresolved.",

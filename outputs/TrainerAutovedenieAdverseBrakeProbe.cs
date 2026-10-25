@@ -284,7 +284,11 @@ public sealed partial class TrainerAutovedenieAdverseBrakeProbe {
             operatorBridge.SetAdditionalSafetySource(()=>(string)typeof(TrainerIntegrationHost).GetMethod("StandaloneSautSafetyReason",Flags).Invoke(host,null));
             Cab(0x3e0,0);phase="genuine_native_operator_start_on_full_markup";
             int start=cycle;
-            for(int n=0;n<3000&&Capture().head_v_kmh<3;n++) {
+            // LTD admits different body speeds during the start wave. Reaching
+            // 3km/h at the locomotive alone is not a settled consist origin.
+            // Strengthen this fixture's physical start condition; do not prepare
+            // velocities or tune the production couplers to an old POEZD trace.
+            for(int n=0;n<3000&&!GenuineOriginSpeedReached(Capture());n++) {
                 operatorCommand=n%10==0?1:0;Step();var f=Capture();if(f.force_native>0)originForceSeen=true;
                 if(operatorBridge.Fault.Length!=0 || operatorBridge.CancellationLatched)throw new Exception("Native operator source failed: "+operatorBridge.Fault);
                 if(f.epk_trip!=0||f.kon_trip!=0)throw new Exception("Protection rejected genuine native traction start");
@@ -295,6 +299,9 @@ public sealed partial class TrainerAutovedenieAdverseBrakeProbe {
             Cab(0x3e0,1);phase="actual_native_coast_after_qualified_start";Warm(30);var coast=Capture();
             Check("Actual native force removed before declared scenario",Math.Abs(coast.force_native)<.001&&coast.head_v_kmh>2,"force0 / speed>2",coast);
             originEvidence=new {start_cycle=start,end_cycle=cycle,moving,coast,positive_native_force_observed=originForceSeen,source="Diagnostic operator pulses through guarded original bridge/Pult/Tyga/POEZD; production AVP disabled, full source; no RK/permission/force output assignments"};
+        }
+        bool GenuineOriginSpeedReached(Frame frame) {
+            return Field("managedMotion")!=null ? frame.vehicles.All(v=>v.v_m_s*3.6>=5) : frame.head_v_kmh>=3;
         }
         public void Measure() {
             GenuineNativeStart();

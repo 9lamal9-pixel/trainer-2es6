@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "reviewed_utc": "2026-10-25T10:34:31.112278+00:00",
+  "status": "passed",
+  "native_executed": false,
+  "managed_execution": "Only private static byte generators and pure array ownership policies via reflection; no constructor, Enter, RunNative, P/Invoke, helper execution or simulator native module load.",
+  "source": "outputs/TrainerNativeBrakeForceProvider.cs",
+  "source_sha256": "58ab9b7866f7dc171d2ba8afdd578231241a318fe5aff0e806d517b70f65e4a9",
+  "dependencies": [
+    {
+      "path": "outputs/TrainerManagedFloatingScope.cs",
+      "sha256": "bd3d766ad25ad408bce3aa84a2327653b941c359e0064b9a9dd29f1372a15c6a"
+    }
+  ],
+  "checks": 55,
+  "passed": 55,
+  "results": [
+    {
+      "check": "native_source_sha",
+      "passed": true
+    },
+    {
+      "check": "managed_known_pressure_slot_and_cursor",
+      "passed": true
+    },
+    {
+      "check": "managed_failed_callback_before_native_writes",
+      "passed": true
+    },
+    {
+      "check": "managed_owned_partial_slot_write",
+      "passed": true
+    },
+    {
+      "check": "managed_foreign_pressure_value_rejected",
+      "passed": true
+    },
+    {
+      "check": "managed_foreign_cursor_rejected",
+      "passed": true
+    },
+    {
+      "check": "managed_foreign_pressure_padding_not_adopted",
+      "passed": true
+    },
+    {
+      "check": "managed_only_76_brake_outputs_adopted",
+      "passed": true
+    },
+    {
+      "check": "managed_full_150_brake_adoption_rejected",
+      "passed": true
+    },
+    {
+      "check": "managed_foreign_brake_padding_not_adopted",
+      "passed": true
+    },
+    {
+      "check": "body_complete_HIGHLOW_list",
+      "passed": true
+    },
+    {
+      "check": "body_0x400000_full_emitted_bytes",
+      "passed": true
+    },
+    {
+      "check": "body_0x400000_complete_instruction_decode",
+      "passed": true
+    },
+    {
+      "check": "body_0x400000_final_ret",
+      "passed": true
+    },
+    {
+      "check": "body_0x400000_fabs_call_targets",
+      "passed": true
+    },
+    {
+      "check": "body_0x10000000_full_emitted_bytes",
+      "passed": true
+    },
+    {
+      "check": "body_0x10000000_complete_instruction_decode",
+      "passed": true
+    },
+    {
+      "check": "body_0x10000000_final_ret",
+      "passed": true
+    },
+    {
+      "check": "body_0x10000000_fabs_call_targets",
+      "passed": true
+    },
+    {
+      "check": "body_0x90000000_full_emitted_bytes",
+      "passed": true
+    },
+    {
+      "check": "body_0x90000000_complete_instruction_decode",
+      "passed": true
+    },
+    {
+      "check": "body_0x90000000_final_ret",
+      "passed": true
+    },
+    {
+      "check": "body_0x90000000_fabs_call_targets",
+      "passed": true
+    },
+    {
+      "check": "settorm_complete_HIGHLOW_list",
+      "passed": true
+    },
+    {
+      "check": "settorm_0x400000_full_emitted_bytes",
+      "passed": true
+    },
+    {
+      "check": "settorm_0x400000_complete_instruction_decode",
+      "passed": true
+    },
+    {
+      "check": "settorm_0x400000_final_ret",
+      "passed": true
+    },
+    {
+      "check": "settorm_0x10000000_full_emitted_bytes",
+      "passed": true
+    },
+    {
+      "check": "settorm_0x10000000_complete_instruction_decode",
+      "passed": true
+    },
+    {
+      "check": "settorm_0x10000000_final_ret",
+      "passed": true
+    },
+    {
+      "check": "settorm_0x90000000_full_emitted_bytes",
+      "passed": true
+    },
+    {
+      "check": "settorm_0x90000000_complete_instruction_decode",
+      "passed": true
+    },
+    {
+      "check": "settorm_0x90000000_final_ret",
+      "passed": true
+    },
+    {
+      "check": "owned_cave_exact_length27",
+      "passed": true
+    },
+    {
+      "check": "owned_cave_original6_replay",
+      "passed": true
+    },
+    {
+      "check": "owned_cave_source_pointer",
+      "passed": true
+    },
+    {
+      "check": "owned_cave_branch_to_POPFD",
+      "passed": true
+    },
+    {
+      "check": "owned_cave_return_target",
+      "passed": true
+    },
+    {
+      "check": "owned_cave_no_CALL",
+      "passed": true
+    },
+    {
+      "check": "owned_site_exact_jump6",
+      "passed": true
+    },
+    {
+      "check": "fabs_helper_full13",
+      "passed": true
+    },
+    {
+      "check": "pressure_conversion_Double",
+      "passed": true
+    },
+    {
+      "check": "all_original_geometry_and_material_table_constants",
+      "passed": true
+    },
+    {
+      "check": "capacities_and_ranges_disjoint",
+      "passed": true
+    },
+    {
+      "check": "fp_save_exact_nonwaiting_FNSAVE_and_CLR_controls",
+      "passed": true
+    },
+    {
+      "check": "fp_restore_exact_FRSTOR_and_native_MXCSR",
+      "passed": true
+    },
+    {
+      "check": "fp_private_code_image128_and_offset64",
+      "passed": true
+    },
+    {
+      "check": "fp_save_complete_decode_and_RET4",
+      "passed": true
+    },
+    {
+      "check": "fp_restore_complete_decode_and_RET4",
+      "passed": true
+    },
+    {
+      "check": "fp_save_instruction_sequence",
+      "passed": true
+    },
+    {
+      "check": "fp_restore_instruction_sequence",
+      "passed": true
+    },
+    {
+      "check": "fp_helpers_no_CALL",
+      "passed": true
+    },
+    {
+      "check": "provider_Evaluate_managed_scope",
+      "passed": true
+    },
+    {
+      "check": "provider_SetTorm_native_environment",
+      "passed": true
+    },
+    {
+      "check": "provider_producer_native_environment",
+      "passed": true
+    }
+  ],
+  "scope": "Compile-only and emitted-code/PE guard structure verification; actual oracle invocation, floating-environment execution, pressure paths and restoration require a fresh native probe."
+}

@@ -1,6 +1,7 @@
 ﻿// Experimental host coupling. Build separately: uncalibrated geometry must not silently replace the default model.
 using System;using System.IO;using System.Security.Cryptography;using System.Collections.Generic;using System.Runtime.InteropServices;using TrainerAir;
 partial class TrainerIntegrationHost {
+ partial void DescribeManagedBrakeOracleOverlay(ref IntPtr cave,ref IntPtr source){if(perPadConnected){cave=perPadCave;source=perPadSource;}}
  IntPtr nativeInitialPressureCave;IntPtr pantographPressureSources,pantographPressureCave;TwoSectionAirChain airCircuit;IntPtr secondBvr;double beforeAirPm,beforeAirAuto1,beforeAirAuto2;
  IntPtr controlPowerCave;bool controlPowerCommandsConnected;IntPtr tc2Source;bool airGaugeHooks;readonly List<KeyValuePair<IntPtr,byte[]>> airGaugeOriginal=new List<KeyValuePair<IntPtr,byte[]>>();
  bool locomotiveGeometryConnected;IntPtr perPadSource,perPadCave;bool perPadConnected;

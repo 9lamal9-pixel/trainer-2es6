@@ -510,6 +510,7 @@ partial class TrainerIntegrationHost {
         return mass;
     }
     string AutovedenieModelReason() {
+        if (managedMotion!=null) return "Новая продольная модель и композиционные колодки требуют отдельной тормозной калибровки";
         if (!physicsReady || trainData==IntPtr.Zero || cars==null || cars.Length!=76 || Marshal.ReadInt32(trainData)!=77)
             return "Калибровка подтверждена только для пневматической модели 77 элементов и POEZD 76 транспортных единиц";
         var airArray=Marshal.ReadIntPtr(trainData,0x42);
@@ -536,6 +537,7 @@ partial class TrainerIntegrationHost {
         return "";
     }
     double LoadAutovedenieCalibration() {
+        if (managedMotion!=null) throw new Exception("Новая продольная модель и композиционные колодки требуют отдельной тормозной калибровки; историческая POEZD-калибровка не применяется");
         string workspace=Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory,".."));
         string path=Path.Combine(workspace,@"dev\config\autovedenie-brake-calibration.json");
         var serializer=new JavaScriptSerializer { MaxJsonLength=8000000 };

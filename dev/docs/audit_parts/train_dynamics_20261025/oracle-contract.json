@@ -1,0 +1,447 @@
+{
+  "schema_version": 1,
+  "reviewed_utc": "2026-10-25T10:03:09.183108+00:00",
+  "scope": "Контракт native тормозного oracle без интегрирования движения POEZD. Только статическое чтение PE/исходников; native не загружался и не исполнялся. Новая LTD становится единственным владельцем координат, скоростей, ускорений и сцепных сил.",
+  "native_executed": false,
+  "production_edited": false,
+  "module": {
+    "path": "work/trenager_static/WORK_TRENAGER_3D/RESOURCES/POEZD.dll",
+    "sha256": "822b6d17ce45f80179a512ee6c70a35d5ae29bf187530bda5ebd11446cfb3553",
+    "preferred_image_base": "0x400000",
+    "size_of_image": 208896
+  },
+  "oracle": {
+    "rva": "0x1dbc",
+    "end_exclusive": "0x1ede",
+    "length": 290,
+    "sha256_original_body": "ad28e01d9fab60be769a314878aff15287368b50e72421e70c02151efb21a863",
+    "original_body_hex": "558bec83c4e833c08945f0e9ff0000008b45f099f73d645642008945fc8b4df08b048d24ab4100d90485c05141008b55f0d80c9574a641008b4df08b048d24ab41008b55f08b0c957cad41008d0c498d148dcc514100d80c82dc0de01e4000d95df88b45fcd90485048f410083c4f8dd1c24e89df6000083c4088b4df08b048d7cad4100d80485fc514100dd5de88b55fcd90495048f410083c4f8dd1c24e871f6000083c4088b4df08b048d7cad4100d8048504524100dc7de8d95df48b55f08b0c957cad4100d9048de4514100d9e0d84df8d945f88b45f08b14857cad4100d80495ec514100dec9d945f88b4df08b048d7cad4100d80485f4514100def9d84df48b55f0d91c95acd04100ff45f08b4df03b0d585642000f8cf2feffff8be55dc3",
+    "nonrelocation_byte_mask_hex": "ffffffffffffffffffffffffffffffffffffffffffff00000000ffffffffffffffffff00000000ffffff00000000ffffffffffff00000000ffffffffffff00000000ffffffffffff00000000ffffffffffff00000000ffffffffff00000000ffffffffffffffffff00000000ffffffffffffffffffffffffffffffffffffffff00000000ffffff00000000ffffffffffffffffff00000000ffffffffffffffffffffffffffffffffffffffff00000000ffffff00000000ffffffffffffffffffffffff00000000ffffff00000000ffffffffffffffffffffffffffff00000000ffffff00000000ffffffffffffffffffffff00000000ffffff00000000ffffffffffffffffffffff00000000ffffffffffffffff00000000ffffffffffffffffffff",
+    "highlow_fixups": [
+      {
+        "body_offset": 22,
+        "relocation_rva": "0x1dd2",
+        "type": "IMAGE_REL_BASED_HIGHLOW",
+        "original_va": "0x425664",
+        "target_rva": "0x25664"
+      },
+      {
+        "body_offset": 35,
+        "relocation_rva": "0x1ddf",
+        "type": "IMAGE_REL_BASED_HIGHLOW",
+        "original_va": "0x41ab24",
+        "target_rva": "0x1ab24"
+      },
+      {
+        "body_offset": 42,
+        "relocation_rva": "0x1de6",
+        "type": "IMAGE_REL_BASED_HIGHLOW",
+        "original_va": "0x4151c0",
+        "target_rva": "0x151c0"
+      },
+      {
+        "body_offset": 52,
+        "relocation_rva": "0x1df0",
+        "type": "IMAGE_REL_BASED_HIGHLOW",
+        "original_va": "0x41a674",
+        "target_rva": "0x1a674"
+      },
+      {
+        "body_offset": 62,
+        "relocation_rva": "0x1dfa",
+        "type": "IMAGE_REL_BASED_HIGHLOW",
+        "original_va": "0x41ab24",
+        "target_rva": "0x1ab24"
+      },
+      {
+        "body_offset": 72,
+        "relocation_rva": "0x1e04",
+        "type": "IMAGE_REL_BASED_HIGHLOW",
+        "original_va": "0x41ad7c",
+        "target_rva": "0x1ad7c"
+      },
+      {
+        "body_offset": 82,
+        "relocation_rva": "0x1e0e",
+        "type": "IMAGE_REL_BASED_HIGHLOW",
+        "original_va": "0x4151cc",
+        "target_rva": "0x151cc"
+      },
+      {
+        "body_offset": 91,
+        "relocation_rva": "0x1e17",
+        "type": "IMAGE_REL_BASED_HIGHLOW",
+        "original_va": "0x401ee0",
+        "target_rva": "0x1ee0"
+      },
+      {
+        "body_offset": 104,
+        "relocation_rva": "0x1e24",
+        "type": "IMAGE_REL_BASED_HIGHLOW",
+        "original_va": "0x418f04",
+        "target_rva": "0x18f04"
+      },
+      {
+        "body_offset": 128,
+        "relocation_rva": "0x1e3c",
+        "type": "IMAGE_REL_BASED_HIGHLOW",
+        "original_va": "0x41ad7c",
+        "target_rva": "0x1ad7c"
+      },
+      {
+        "body_offset": 135,
+        "relocation_rva": "0x1e43",
+        "type": "IMAGE_REL_BASED_HIGHLOW",
+        "original_va": "0x4151fc",
+        "target_rva": "0x151fc"
+      },
+      {
+        "body_offset": 148,
+        "relocation_rva": "0x1e50",
+        "type": "IMAGE_REL_BASED_HIGHLOW",
+        "original_va": "0x418f04",
+        "target_rva": "0x18f04"
+      },
+      {
+        "body_offset": 172,
+        "relocation_rva": "0x1e68",
+        "type": "IMAGE_REL_BASED_HIGHLOW",
+        "original_va": "0x41ad7c",
+        "target_rva": "0x1ad7c"
+      },
+      {
+        "body_offset": 179,
+        "relocation_rva": "0x1e6f",
+        "type": "IMAGE_REL_BASED_HIGHLOW",
+        "original_va": "0x415204",
+        "target_rva": "0x15204"
+      },
+      {
+        "body_offset": 195,
+        "relocation_rva": "0x1e7f",
+        "type": "IMAGE_REL_BASED_HIGHLOW",
+        "original_va": "0x41ad7c",
+        "target_rva": "0x1ad7c"
+      },
+      {
+        "body_offset": 202,
+        "relocation_rva": "0x1e86",
+        "type": "IMAGE_REL_BASED_HIGHLOW",
+        "original_va": "0x4151e4",
+        "target_rva": "0x151e4"
+      },
+      {
+        "body_offset": 220,
+        "relocation_rva": "0x1e98",
+        "type": "IMAGE_REL_BASED_HIGHLOW",
+        "original_va": "0x41ad7c",
+        "target_rva": "0x1ad7c"
+      },
+      {
+        "body_offset": 227,
+        "relocation_rva": "0x1e9f",
+        "type": "IMAGE_REL_BASED_HIGHLOW",
+        "original_va": "0x4151ec",
+        "target_rva": "0x151ec"
+      },
+      {
+        "body_offset": 242,
+        "relocation_rva": "0x1eae",
+        "type": "IMAGE_REL_BASED_HIGHLOW",
+        "original_va": "0x41ad7c",
+        "target_rva": "0x1ad7c"
+      },
+      {
+        "body_offset": 249,
+        "relocation_rva": "0x1eb5",
+        "type": "IMAGE_REL_BASED_HIGHLOW",
+        "original_va": "0x4151f4",
+        "target_rva": "0x151f4"
+      },
+      {
+        "body_offset": 264,
+        "relocation_rva": "0x1ec4",
+        "type": "IMAGE_REL_BASED_HIGHLOW",
+        "original_va": "0x41d0ac",
+        "target_rva": "0x1d0ac"
+      },
+      {
+        "body_offset": 276,
+        "relocation_rva": "0x1ed0",
+        "type": "IMAGE_REL_BASED_HIGHLOW",
+        "original_va": "0x425658",
+        "target_rva": "0x25658"
+      }
+    ],
+    "relocation_rule": "Материализовать полный expected body из original_body_hex: к каждому перечисленному UInt32 прибавить loadedBase−preferredBase по modulo2^32. Сравнить все байты RAM после только явно разрешённых owned overlays. Mask дан для диагностики; не оставлять relocation words непроверенными.",
+    "ABI": "void BrakeProducer(); stack arguments отсутствуют, обычный RET, EAX/ECX/EDX и x87 volatile. Noargs cdecl/StdCall одинаковы на x86. Никакого Self/Delphi instance. Единственные CALL тела — CRT fabs RVA114D0, два раза на элемент; FPU stack после полного прохода сбалансирован.",
+    "calls_rva": [
+      "0x114d0",
+      "0x114d0"
+    ],
+    "output": "B[i] at loadedBase+1D0AC; signed nonpositive capacity, units10kN. MagnitudeN=−B[i]*10000. Producer использует Abs(V), поэтому знак движения не меняет знак B. Направление трения и удержание около нуля назначает LTD.",
+    "model_side_effects": "Тело читает inputs/config/counts, пишет локальный стек и B[0..75]. Не интегрирует X/V/A/couplers. Отдельный текущий perPad hook читает owned perPadSource, а диагностический observer может писать свои capture buffers."
+  },
+  "ranges": [
+    {
+      "name": "V_group_m_s",
+      "rva": "0x18f04",
+      "element": "Single",
+      "capacity": 150,
+      "capacity_bytes": 600,
+      "capacity_end_exclusive": "0x1915c",
+      "used_elements": 76,
+      "used_bytes": 304,
+      "used_end_exclusive": "0x19034"
+    },
+    {
+      "name": "B_native_10kN",
+      "rva": "0x1d0ac",
+      "element": "Single",
+      "capacity": 150,
+      "capacity_bytes": 600,
+      "capacity_end_exclusive": "0x1d304",
+      "used_elements": 76,
+      "used_bytes": 304,
+      "used_end_exclusive": "0x1d1dc"
+    },
+    {
+      "name": "Psend_native_kgf_cm2",
+      "rva": "0x1a674",
+      "element": "Single",
+      "capacity": 150,
+      "capacity_bytes": 600,
+      "capacity_end_exclusive": "0x1a8cc",
+      "used_elements": 76,
+      "used_bytes": 304,
+      "used_end_exclusive": "0x1a7a4"
+    }
+  ],
+  "counts": [
+    {
+      "rva": "0x25658",
+      "name": "element_count",
+      "type": "Int32",
+      "required": 76
+    },
+    {
+      "rva": "0x2565c",
+      "name": "group_count",
+      "type": "Int32",
+      "required": 76
+    },
+    {
+      "rva": "0x25664",
+      "name": "elements_per_group",
+      "type": "Int32",
+      "required": 1
+    },
+    {
+      "rva": "0x15234",
+      "name": "SetTorm_cursor",
+      "type": "Int32",
+      "required_before_and_after_76_inputs": 0
+    }
+  ],
+  "configuration": {
+    "kind_rva": "0x1AB24",
+    "FTk_rva": "0x1AD7C",
+    "mass_rva": "0x19ABC",
+    "group_mass_rva": "0x19F6C",
+    "loco": {
+      "motion_index": 0,
+      "mass_t": 200,
+      "native_scaled_mass": 20,
+      "kind": 2,
+      "FTk": 1,
+      "length_m": 31.93
+    },
+    "wagons": {
+      "motion_indexes": "1..75",
+      "mass_each_t": 80,
+      "native_scaled_mass_each": 8,
+      "kind": 1,
+      "FTk": 0,
+      "length_each_m": 14.59
+    },
+    "motion_total": "76 units,6200t,8+300=308axles; locomotive is one200t LTD body.",
+    "pneumatic_mapping": "77 pneumatic records: index0=first100t BVR section, index1=second100t BVR section, then75 wagons. Public cars[0] is first BVR, cars[n>=1] maps pneumatic table index n+1. The second BVR is not another LTD vehicle.",
+    "padding": "Data arrays have capacity150 even though76 are configured. Snapshot/restore at least exact used304 bytes; whole600-byte buffers are acceptable if ownership/capacity verified. Do not read a151st element or use77 pneumatic count as76 motion count."
+  },
+  "pressure_units": {
+    "source": "TrainerAir.Reservoir.Gauge=(PressurePa−101325)/98066.5 at TrainerAirNetwork.cs:13,21. Thus native interface scalar is gauge kgf/cm²; legacy field names ending Bar are not a reason to multiply by1e5.",
+    "wagons": "Pass cars[n].TC Single+4 for n1..75, once each, through exported SetTorm(Psend,76).",
+    "loco": "Current candidate SelectNativeLocomotiveBrakeInput uses four physical Cylinder[s,b].Gauge, s,b=0,1; Psend_loco=4*sum(Pbogie),16 cylinders total. Loc+13 is ONLY section0/bogie0 gauge and is not the four-bogie pressure average. Legacy LocTC*8 was default fallback before the candidate hook.",
+    "per_pad": "For every bogie: k=Acm2*Pbogie*4.4*0.00085; base contribution8*0.031*k*(k+6.25)/(k+1.92). Sum four bogies, set perPadSource to negative sum. Native cast-iron speed factor remains (abs(vms)+27.78)/(abs(vms)+5.56). Do not replace unequal pressures by one total pressure inside this nonlinear law.",
+    "geometry": "Candidate updates kind2 area to pi*20.3²/4 cm² and both kind2 levers to8.8, preserving wagon kind1 geometry. Calibration of material-specific locomotive law, return spring and0.85 efficiency remains explicitly unaccepted."
+  },
+  "friction_formula": {
+    "literal_native_formula": "K=A[kind]*Psend*Lever[FTk,kind]*0.00085; B=−phi0[FTk]*K*(K+c1[FTk])/(K+c2[FTk])*(abs(Vms)+c3[FTk])/(abs(Vms)+c4[FTk]). B is the native10kN force capacity, not directly a SI pad force. Preserve legacy numeric law rather than silently reinterpret its0.00085 factor.",
+    "FTk0_wagon_composite": {
+      "phi0": 0.055,
+      "c1": 20,
+      "c2": 5,
+      "c3_m_s": 41.7,
+      "c4_m_s": 20.85,
+      "kind1_area_cm2": 994,
+      "kind1_lever": 5.79
+    },
+    "FTk1_locomotive_cast_iron_native": {
+      "phi0": 0.031,
+      "c1": 6.25,
+      "c2": 1.92,
+      "c3_m_s": 27.78,
+      "c4_m_s": 5.56,
+      "candidate_per_pad_override": true
+    },
+    "scope": "FTk0/FTk1 identifies retained mathematical branches and current host configuration. No newly accepted normative brake-force calibration is claimed."
+  },
+  "owned_overlay": {
+    "site_rva": "0x1EBB",
+    "length": 6,
+    "original_hex": "D84DF48B55F0",
+    "fields": "TrainerPneumaticNetworkCandidate.cs:6 perPadConnected/perPadCave/perPadSource; installation109–115; restoration118–121.",
+    "entry_expected": "E9 littleEndianInt32(perPadCave−(loadedBase+1EBB)−5) 90",
+    "cave_length": 27,
+    "cave_template": "9C837DF0007508DDD8DD05{perPadSource:UInt32LE}9DD84DF48B55F0E9{(loadedBase+1EC1)−(perPadCave+27):Int32LE}",
+    "cave_semantics": "PUSHFD; if [EBP−10]!=0 skip replacement; otherwise pop original x87 base and FLD Double[perPadSource]; POPFD; replay FMUL[EBP−C],MOV EDX,[EBP−10]; JMP1EC1.",
+    "guard": "Only allow this overlay when private owner says perPadConnected and exact host-owned pointers are live. Validate exact six entry bytes, exact27 cave bytes including source pointer and return displacement, executable committed cave, readable8-byte source, source finiteness, module/thread/lifetime. Do not accept arbitrary JMP or first-observed bytes.",
+    "observer_conflict": "TrainerNativeBrakeObserver may independently own store1EC1 (inside full body). Reject it unless a separately verified known owner API supplies its exact overlay; do not weaken entire bodyguard. Production currently needs only perPad overlay.",
+    "source_borrow": "If oracle stages perPadSource for a query, snapshot and restore its8 bytes under the same owner guard, or explicitly keep original SelectNativeLocomotiveBrakeInput ownership; no foreign memory writes."
+  },
+  "borrow_call_restore": [
+    "On the single synchronous owner thread, require loaded path/SHA, module pin/lifetime, counts76/76/1, configuration kind/FTk, complete relocated codeguard+known cave. Reject NaN/Infinity and illegal pressures/speeds before any write.",
+    "Call existing SelectNativeLocomotiveBrakeInput to obtain aggregate locomotive pressure and correct perPad source; publish exactly76 SetTorm inputs in order0..75, verifying cursor0 before and after. For a completely reversible oracle snapshot/restore Psend[0..75], cursor, perPadSource too, since SetTorm changes them.",
+    "Snapshot V_group[0..75] and B[0..75] (or validated whole150 arrays); stage one coherent LTD velocity vector in m/s; call ONLY BrakeProducer1DBC; copy76 finite nonpositive force capacities and convert to positive newtons for LTD.",
+    "In independent finally blocks restore borrowed V/B and any staged inputs/source/cursor even on native/managed failure. Do not return stale capacities if call or cleanup fails. Keep module pinned through cleanup; require owner/thread/data lifetime for restoration.",
+    "Do not call Poezd1258, ForceAll19F4, coordinate update1FAC, rolling1EE8 or a native model step to obtain B. New LTD alone performs movement. Old Poezd invokes19F4 both before and inside predictor/corrector; for closer speed dependence the LTD oracle can be queried per force evaluation with pressure held during the external0.1s pneumatic frame. If sampled only once per frame, document that approximation.",
+    "LTD applies friction opposite each vehicle velocity and static holding at zero from the capacity; a negative native B is not an instruction to accelerate backward. Do not add native rolling/grade/curve/brake resistance twice."
+  ],
+  "get_cur_val": {
+    "export_rva": "0x28E2",
+    "calling_convention": "stdcall",
+    "ret_stack_bytes": 24,
+    "actual_order": [
+      "out xFront_m",
+      "out signedVelocity_m_s",
+      "out frontCoupler_10kN",
+      "out accel_m_s2",
+      "out internal_q_m",
+      "Int32 vehicleIndex"
+    ],
+    "arrays_rva": [
+      "0x1960C",
+      "0x18F04",
+      "0x193B4",
+      "0x1B934",
+      "0x1915C"
+    ],
+    "coordinates": "Producer1FAC: xFront[0]=−q[0]; xFront[n]=xFront[n−1]−length[n−1]−q[n]. Head position is front reference, not centre. For centre-based LTD: Reset centre0=headFront−L0/2, publish xFront[n]=centre[n]+Ln/2 on the existing positive route axis. Out5 is −absolute head position for n0 and relative inter-vehicle q for following nodes; not a universal exported deformation.",
+    "coupler_index_sign": "S[n] is coupling ahead of vehicle n; S[0] is the free leading boundary (zero, BSS; native coupling loop starts1). S[1] is loco↔first wagon, ...,S[75] is wagon74↔wagon75. Positive S is tension/pull, negative is compression; equation a[n]=(S[n]−S[n+1]+external[n])/scaledMass[n] at1627–1652. For a75-link LTD array: cars[0].coupler=0; cars[n>0].coupler=link[n−1] with conversion sign if LTD stores compression positive, divide newtons by10000."
+  },
+  "host_publication": {
+    "cars_fields": {
+      "0x0": "TM gauge kgf/cm²: retain native pneumatic producer",
+      "0x4": "TC gauge kgf/cm²: retain native pneumatic producer",
+      "0x8": "ZR gauge kgf/cm²: retain native pneumatic producer",
+      "0xC": "front coupler signed native10kN, zero forhead",
+      "0x10": "vehicle acceleration m/s²",
+      "0x14": "vehicle front coordinate m"
+    },
+    "head_fields": "position=headFront; signedVelocity=LTDv0 m/s; acceleration=LTDa0; InputPult+1=abs(v0)*3.6 Single; InputPult+D=headFront Single; +11=(int)headFront; +19=a0 Single; maximumConsistSpeedKmh=max(abs(vi))*3.6. ElectricalCycle already passes signedVelocity directly into Tyga.V before commStep.",
+    "length": "Fixed lengths sum31.93+75*14.59=1126.18m. Old SetInitState model2 initializes q[n>=1]=0.065m, therefore its front-coordinate spacing includes these relative offsets. New LTD reset/free-play convention must be explicit; do not accidentally add half locomotive length to route or double-count slack."
+  },
+  "production_consumers_to_migrate": [
+    {
+      "path": "outputs/TrainerNativeSystems.cs",
+      "lines": [
+        44,
+        48,
+        49,
+        79,
+        88,
+        91
+      ],
+      "action": "Retain POEZD setup only as oracle configuration if desired. Replace MotionCycle movement/state reads and SetInitialSpeed reset with LTD. Publish all76 vehicle states atomically."
+    },
+    {
+      "path": "outputs/TrainerAutovedenieHost.cs",
+      "lines": [
+        305,
+        309,
+        313
+      ],
+      "action": "ReadAutovedenieConsistVelocity must use LTD signed mass-weighted mean, not stale native readTrain: (200*v0+80*sum(v1..75))/6200."
+    },
+    {
+      "path": "outputs/TrainerRouteDOS.cs",
+      "lines": [
+        68,
+        70,
+        71,
+        86,
+        92,
+        97,
+        102
+      ],
+      "action": "StartAtRouteStation resets LTD before publishing head fields and markup ResetPosition; routeGeneration/boundary/limits/routeview remain coherent. ConfigureNativeRoute may keep old profile for oracle-only library but actual LTD grade/curve provider must use centre-based geometry consistently."
+    },
+    {
+      "path": "outputs/TrainerAutovedenieHost.cs",
+      "lines": [
+        512,
+        523,
+        525,
+        529,
+        535
+      ],
+      "action": "Legacy mass/material/charging calibration checks and historic brake model identity must remain unaccepted or be replaced by new LTD calibration. Initializing POEZD arrays is not proof of the new movement model."
+    },
+    {
+      "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+      "lines": [
+        77,
+        84,
+        92,
+        104,
+        118
+      ],
+      "action": "Retain geometry and perPad ownership for native brake oracle; do not remove its guarded cleanup while oracle can still call the native body."
+    },
+    {
+      "path": "outputs/TrainerNativeSystems.cs",
+      "lines": [
+        94,
+        95
+      ],
+      "action": "Telemetry/logging consume published cars position/accel/coupler and head speed; do not leave these as old POEZD values."
+    }
+  ],
+  "test_fixture_migration": "All probes that call stateTrain/readTrain or assume native MotionCycle, GetCurVal first-step publication, native predictor velocities or original BrakeObserver capture counts need explicit LTD-aware fixtures. Keep old receipts historical; do not reinterpret old POEZD passing results as new LTD acceptance.",
+  "sources": [
+    {
+      "path": "outputs/TrainerNativeSystems.cs",
+      "sha256_at_review": "85ee79a1261fc4e346cec1d933fab83280526243ee2a8091747334e629fa7c3d"
+    },
+    {
+      "path": "outputs/TrainerAutovedenieHost.cs",
+      "sha256_at_review": "a9f657408e91a5731e25381d662241fd8047479e877d8ceedcb24ca7cb57567b"
+    },
+    {
+      "path": "outputs/TrainerRouteDOS.cs",
+      "sha256_at_review": "a6833bdfdd042e47a5570f0bb7c39ad823fed3024c03713129d33ac6abe8f4be"
+    },
+    {
+      "path": "outputs/TrainerPneumaticNetworkCandidate.cs",
+      "sha256_at_review": "3c388354adac36b8d0fff3ad4422efb79dea88524ec784d02e85a159b1a336cf"
+    },
+    {
+      "path": "outputs/TrainerNativeBrakeObserver.cs",
+      "sha256_at_review": "b3f3d56ac206583abceeb899366dab86ba9a2ac089dfdf7988018be046bc39c6"
+    },
+    {
+      "path": "outputs/TrainerAirNetwork.cs",
+      "sha256_at_review": "86d4bc73601012d7a4109beeaa26360f8c476cc06d2fdde61c3bb1b66f646b32"
+    }
+  ]
+}

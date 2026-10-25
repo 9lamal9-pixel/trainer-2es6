@@ -42,7 +42,16 @@
         "outputs/TrainerMarkupHost.cs",
         "outputs/TrainerKlubSafetyBinding.cs",
         "outputs/TrainerNativeVirtualPult.cs",
-        "outputs/TrainerSandAirInput.cs"
+        "outputs/TrainerSandAirInput.cs",
+        "outputs/TrainerModernTractionPhysics.cs",
+        "outputs/TrainerModernTractionIntegration.cs",
+        "outputs/TrainerPolachAdhesion.cs",
+        "outputs/TrainerFrictionDraftGear.cs",
+        "outputs/TrainerLongitudinalDynamics.cs",
+        "outputs/TrainerIndependentExcitation.cs",
+        "outputs/TrainerManagedMotion.cs",
+        "outputs/TrainerNativeBrakeForceProvider.cs",
+        "outputs/TrainerManagedFloatingScope.cs"
       ]
     },
     "integration": {
@@ -76,7 +85,16 @@
         "outputs/TrainerMarkupHost.cs",
         "outputs/TrainerKlubSafetyBinding.cs",
         "outputs/TrainerNativeVirtualPult.cs",
-        "outputs/TrainerSandAirInput.cs"
+        "outputs/TrainerSandAirInput.cs",
+        "outputs/TrainerModernTractionPhysics.cs",
+        "outputs/TrainerModernTractionIntegration.cs",
+        "outputs/TrainerPolachAdhesion.cs",
+        "outputs/TrainerFrictionDraftGear.cs",
+        "outputs/TrainerLongitudinalDynamics.cs",
+        "outputs/TrainerIndependentExcitation.cs",
+        "outputs/TrainerManagedMotion.cs",
+        "outputs/TrainerNativeBrakeForceProvider.cs",
+        "outputs/TrainerManagedFloatingScope.cs"
       ]
     }
   },
