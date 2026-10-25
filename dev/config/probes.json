@@ -2045,6 +2045,34 @@
       "enabled": true
     },
     {
+      "id": "TrainForceData",
+      "main_class": "TrainerTrainForceDataProbe",
+      "title": "Силы состава: снимок принятого шага и баланс",
+      "source": "outputs/TrainerTrainForceDataProbe.cs",
+      "profile": "standalone",
+      "dependencies": ["outputs/TrainerTrainForceData.cs", "outputs/TrainerLongitudinalDynamics.cs", "outputs/TrainerFrictionDraftGear.cs"],
+      "arguments": [],
+      "result_files": ["outputs/Trainer_train_force_data_validation.json"],
+      "kind": "regression",
+      "scope": "Immutable actual last-substep force balance; coupler action/reaction signs, brake impulses, reset, pending input isolation, failed-step rollback and bounded epoch history. No native equipment or wave speed calibration.",
+      "timeout_seconds": 120,
+      "enabled": true
+    },
+    {
+      "id": "TrainForceLive",
+      "main_class": "TrainerTrainForceLiveProbe",
+      "title": "Силы в поезде: настоящий старт, тормоза и графики",
+      "source": "outputs/TrainerTrainForceLiveProbe.cs",
+      "profile": "candidate",
+      "dependencies": ["outputs/TrainerManagedMotionProbe.cs", "outputs/TrainerAutovedenieAdverseBrakeProbe.cs"],
+      "arguments": [],
+      "result_files": ["outputs/Trainer_train_force_live_validation.json"],
+      "kind": "regression",
+      "scope": "Real electrical/pneumatic start and physical KM V/IV service feed76body/75link force snapshots. Applied balance and read-only UI/replay/pause/render/reset. Teaching green/software RBS declared; no release/stop, factory force/wave calibration or complete RE acceptance.",
+      "timeout_seconds": 300,
+      "enabled": true
+    },
+    {
       "id": "ManagedMotion",
       "main_class": "TrainerManagedMotionProbe",
       "title": "Новое движение: настоящий старт и тормоза в полном контуре",

@@ -126,6 +126,12 @@ namespace RailwayDynamics.Simulation {
         private double _time, _externalWork, _dissipated;
         private bool _legacyUsed;
         private bool _stepping, _runningResistanceEnabled;
+        // Observation only: freeze the last accepted force endpoint, because
+        // input setters may change live node fields before the next Step.
+        private readonly VehicleDynamicsNode[] _lastAcceptedForceVehicles;
+        private readonly double[] _lastAcceptedForceCouplers;
+        private bool _lastAcceptedForceAvailable;
+        private double _lastAcceptedForceDt, _lastAcceptedForceTime;
         private double _maximumSubstepSeconds;
         public bool RunningResistanceEnabled { get { return _runningResistanceEnabled; } set { EnsureInputsMutable(); _runningResistanceEnabled = value; } }
         public double MaximumSubstepSeconds { get { return _maximumSubstepSeconds; } set { EnsureInputsMutable(); RequireFinite(value, "MaximumSubstepSeconds"); if (value < 1e-6 || value > .05) throw new ArgumentOutOfRangeException("MaximumSubstepSeconds"); _maximumSubstepSeconds = value; } }
@@ -147,6 +153,8 @@ namespace RailwayDynamics.Simulation {
             _couplerStates = new CouplerState[vehicles.Length - 1];
             _couplerForces = new double[vehicles.Length - 1];
             int n = vehicles.Length;
+            _lastAcceptedForceVehicles = new VehicleDynamicsNode[n];
+            _lastAcceptedForceCouplers = new double[n - 1];
             _effectiveMass = new double[n]; _brakeOverride = new double[n]; _curveMagnitude = new double[n];
             _dynamicBrakeCapacity = new double[n]; _oldVelocity = new double[n];
             _velocity = new double[n]; _solution = new double[n]; _couplerNet = new double[n];
@@ -177,6 +185,21 @@ namespace RailwayDynamics.Simulation {
             return _vehicles[index];
         }
 
+        /// <summary>Copies the actual last accepted substep, not pending inputs.
+        /// Positive rear force is compression on the leading body. Reset makes
+        /// the force endpoint unavailable until another successful Step.</summary>
+        public bool TryGetLastAcceptedForceStep(out VehicleDynamicsNode[] vehicles,
+            out double[] rearCouplerForcesN, out double acceptedSubstepSeconds, out double endTimeSeconds) {
+            if (_stepping) throw new InvalidOperationException("Force observation requires a completed Step.");
+            if (!_lastAcceptedForceAvailable) {
+                vehicles = null; rearCouplerForcesN = null; acceptedSubstepSeconds = endTimeSeconds = 0; return false;
+            }
+            vehicles = (VehicleDynamicsNode[])_lastAcceptedForceVehicles.Clone();
+            rearCouplerForcesN = (double[])_lastAcceptedForceCouplers.Clone();
+            acceptedSubstepSeconds = _lastAcceptedForceDt; endTimeSeconds = _lastAcceptedForceTime;
+            return true;
+        }
+
         public double GetCouplerForce(int index) {
             return _couplerForces[index];
         }
@@ -199,6 +222,7 @@ namespace RailwayDynamics.Simulation {
         public void SetInitialState(double headFrontM, double signedSpeedMps) {
             EnsureInputsMutable();
             RequireFinite(headFrontM, "headFrontM"); RequireFinite(signedSpeedMps, "signedSpeedMps");
+            _lastAcceptedForceAvailable = false; _lastAcceptedForceDt = _lastAcceptedForceTime = 0;
             double front = headFrontM;
             for (int i = 0; i < VehicleCount; i++) {
                 _vehicles[i].PositionX = front - _vehicles[i].LengthM * .5;
@@ -265,6 +289,10 @@ namespace RailwayDynamics.Simulation {
             var savedStates = (CouplerState[])_couplerStates.Clone();
             var savedForces = (double[])_couplerForces.Clone();
             double savedTime = _time, savedWork = _externalWork, savedDissipation = _dissipated;
+            bool savedForceAvailable = _lastAcceptedForceAvailable;
+            double savedForceDt = _lastAcceptedForceDt, savedForceTime = _lastAcceptedForceTime;
+            var savedForceVehicles = savedForceAvailable ? (VehicleDynamicsNode[])_lastAcceptedForceVehicles.Clone() : null;
+            var savedForceCouplers = savedForceAvailable ? (double[])_lastAcceptedForceCouplers.Clone() : null;
             LastSubstepCount = LastRejectedSubstepCount = 0;
             _stepping = true;
             try {
@@ -285,6 +313,11 @@ namespace RailwayDynamics.Simulation {
                 Array.Copy(savedVehicles, _vehicles, VehicleCount); Array.Copy(savedStates, _couplerStates, _couplerStates.Length);
                 Array.Copy(savedForces, _couplerForces, _couplerForces.Length);
                 _time = savedTime; _externalWork = savedWork; _dissipated = savedDissipation;
+                _lastAcceptedForceAvailable = savedForceAvailable; _lastAcceptedForceDt = savedForceDt; _lastAcceptedForceTime = savedForceTime;
+                if (savedForceAvailable) {
+                    Array.Copy(savedForceVehicles, _lastAcceptedForceVehicles, VehicleCount);
+                    Array.Copy(savedForceCouplers, _lastAcceptedForceCouplers, _couplerForces.Length);
+                }
                 throw;
             } finally { _stepping = false; }
         }
@@ -374,6 +407,9 @@ namespace RailwayDynamics.Simulation {
             Array.Copy(_trialStates, _couplerStates, _trialStates.Length);
             Array.Copy(_trialForces, _couplerForces, _trialForces.Length);
             _externalWork += work; _dissipated += Math.Max(0, oldEnergy + work - energy);
+            Array.Copy(_vehicles, _lastAcceptedForceVehicles, VehicleCount);
+            Array.Copy(_couplerForces, _lastAcceptedForceCouplers, _couplerForces.Length);
+            _lastAcceptedForceDt = h; _lastAcceptedForceTime = _time + h; _lastAcceptedForceAvailable = true;
             return true;
         }
 

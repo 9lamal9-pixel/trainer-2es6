@@ -1,0 +1,15 @@
+{
+  "id": "ScientificMechanics",
+  "scope": "Reference config/frame, independent SI force table, fixed-pressure stopping benchmark against Simpson quadrature, timestep convergence and work/energy. Not a native pressure-wave or normative full-train stop test.",
+  "status": "passed",
+  "artifacts": [
+    {
+      "path": "Trainer_scientific_mechanics_validation.json",
+      "sha256": "2AAF9AAAEF466A7300248BE4BC9866970768222E85AB2C44C6F2F0606FD857E8"
+    }
+  ],
+  "build_id": "build-20261025T115541700Z-bb1286a6",
+  "pid": 11444,
+  "exit_code": 0,
+  "finished_utc": "2026-10-25T11:55:43.9302869Z"
+}

@@ -168,7 +168,7 @@ public class DosRouteSurface:Control {
  protected override void Dispose(bool disposing){if(disposing){ClearPages();tips.Dispose();title.Dispose();heading.Dispose();body.Dispose();small.Dispose();metric.Dispose();}base.Dispose(disposing);}
 }
 public class DosRouteWindow:Form {
- public DosRouteSurface View;public Action<int> StartAtStation;public Action ShowTrainPressures;
+ public DosRouteSurface View;public Action<int> StartAtStation;public Action ShowTrainPressures;public Action ShowTrainForces;
  FlowLayoutPanel row1,row2;ComboBox theme,mode,zoom,page;CheckBox follow;bool loading=true;
  string settingsPath=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"Trainer_view_settings.json");
  public DosRouteWindow(RouteModel route){
@@ -185,6 +185,7 @@ public class DosRouteWindow:Form {
   AddLabel(row2,"Станция");var station=Combo(216);foreach(var x in route.stations)station.Items.Add(x.name);if(station.Items.Count>0)station.SelectedIndex=0;row2.Controls.Add(station);
   var start=Button("Начать со станции",167);row2.Controls.Add(start);
   var pressures=Button("Давления",130);pressures.Name="TrainPressures";pressures.Click+=(s,e)=>{if(ShowTrainPressures!=null)ShowTrainPressures();};row2.Controls.Add(pressures);
+  var forces=Button("Силы в поезде",150);forces.Name="TrainForces";forces.Click+=(s,e)=>{if(ShowTrainForces!=null)ShowTrainForces();};row2.Controls.Add(forces);
   AddLabel(row2,"Управление — штатный пульт");
   RouteViewSettings settings=new RouteViewSettings();try{if(File.Exists(settingsPath))settings=new JavaScriptSerializer().Deserialize<RouteViewSettings>(File.ReadAllText(settingsPath))??settings;}catch{}
   if(double.IsNaN(settings.span)||double.IsInfinity(settings.span)||settings.span<=0)settings.span=18000;

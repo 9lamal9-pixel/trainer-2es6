@@ -54,7 +54,10 @@
         "outputs/TrainerManagedFloatingScope.cs",
         "outputs/TrainerRotatingInertia.cs",
         "outputs/TrainerScientificBrakeForces.cs",
-        "outputs/TrainerScientificMechanics.cs"
+        "outputs/TrainerScientificMechanics.cs",
+        "outputs/TrainerTrainForceData.cs",
+        "outputs/TrainerTrainForceView.cs",
+        "outputs/TrainerTrainForceHost.cs"
       ]
     },
     "integration": {
@@ -100,7 +103,10 @@
         "outputs/TrainerManagedFloatingScope.cs",
         "outputs/TrainerRotatingInertia.cs",
         "outputs/TrainerScientificBrakeForces.cs",
-        "outputs/TrainerScientificMechanics.cs"
+        "outputs/TrainerScientificMechanics.cs",
+        "outputs/TrainerTrainForceData.cs",
+        "outputs/TrainerTrainForceView.cs",
+        "outputs/TrainerTrainForceHost.cs"
       ]
     }
   },

@@ -54,6 +54,7 @@ partial class TrainerIntegrationHost {
     void ResetManagedMotionCore(float front, float speedKmh, int model, int count) {
         if (managedMotion == null || count != 76 || model != 2 || !Finite(front) || !Finite(speedKmh))
             throw new InvalidOperationException("Managed movement reset contract");
+        trainForceEpoch++;
         managedMotion.SetInitialState(front, speedKmh / 3.6);
         if(managedMotionFrames==0)Log("LTD reset: kernel ready");
         for(int i=0;i<76;i++) { managedMotion.SetVehicleForce(i,0); managedMotion.SetVehicleDynamicBrakeForceMagnitude(i,0); }
@@ -169,8 +170,10 @@ partial class TrainerIntegrationHost {
             if(n==0) {position=x;signedVelocity=v;acceleration=a;F(mem["TInputParamPult"],1,Math.Abs(v)*3.6f);F(mem["TInputParamPult"],0xd,x);I(mem["TInputParamPult"],0x11,(int)x);F(mem["TInputParamPult"],0x19,a);}
         }
         maximumConsistSpeedKmh=measuredMaximum;
+        CaptureTrainForces();
     }
     void CloseManagedMotion() {
+        CloseTrainForceMode();
         TrainerManagedFloatingScope.DisposeRetainedOwners();
         if(TrainerManagedFloatingScope.HasRetainedOwners)throw new InvalidOperationException("Native close refused while a floating-point environment remains owned");
         TrainerNativeBrakeForceProvider.DisposeRetainedOwners();

@@ -1,0 +1,28 @@
+[
+  {
+    "run": "test-20261025T115906490Z-be3616d1",
+    "passed": false,
+    "error": "System.Exception: RouteInputCycle: System.InvalidOperationException: Обратное движение источником не поддержано; нужен явный ResetPosition нового сценария\r\n   в TrainerMarkupSignalSource.Sample(Double nativeX)\r\n   в TrainerIntegrationHost.PublishMarkupSignalInput()\r\n   в TrainerIntegrationHost.RouteInputCycle() ---> System.InvalidOperationException: Обратное движение источником не поддержано; нужен явный ResetPosition нового сценария\r\n   в TrainerMarkupSignalSource.Sample(Double nativeX)\r\n   в TrainerIntegrationHost.PublishMarkupSignalInput()\r\n   в TrainerIntegrationHost.RouteInputCycle()\r\n   --- Конец трассировки внутреннего стека исключений ---\r\n   в TrainerAutovedenieAdverseBrakeProbe.Fixture.Call(String name, Object[] args)\r\n   в TrainerAutovedenieAdverseBrakeProbe.Fixture.Step()\r\n   в TrainerAutovedenieAdverseBrakeProbe.Fixture.MeasureManagedMotion()\r\n   в TrainerAutovedenieAdverseBrakeProbe.RunTrainForceLive()",
+    "checks_failed": [],
+    "inputs_restored": true,
+    "native_closed": true
+  },
+  {
+    "run": "test-20261025T120158322Z-7ee57262",
+    "passed": false,
+    "error": "System.Exception: Force-view II begins actual BC release expected=BC decreases actual=System.Double[]\r\n   в TrainerAutovedenieAdverseBrakeProbe.Check(String name, Boolean passed, Object expected, Object actual)\r\n   в TrainerAutovedenieAdverseBrakeProbe.Fixture.MeasureTrainForceScenario()\r\n   в TrainerAutovedenieAdverseBrakeProbe.RunTrainForceLive()",
+    "checks_failed": [
+      {
+        "name": "Force-view II begins actual BC release",
+        "passed": false,
+        "expected": "BC decreases",
+        "actual": [
+          1.1693527698516846,
+          1.1693527698516846
+        ]
+      }
+    ],
+    "inputs_restored": true,
+    "native_closed": true
+  }
+]
