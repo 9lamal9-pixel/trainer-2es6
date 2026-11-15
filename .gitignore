@@ -45,3 +45,15 @@
 !/setup.cmd
 
 /work/portable_python/
+
+# Фантомас (2ТЕ116): исходники и декомпиляция (без native)
+!/work/fantomas/**/*.java
+!/work/fantomas/**/*.csproj
+!/work/fantomas/**/*.json
+!/work/Trainer2TE116_0.7.4/**/*.csproj
+!/work/Trainer2TE116_0.7.4/**/*.sln
+!/work/Trainer2TE116_0.7.4/**/*.cmd
+!/work/Trainer2TE116_0.7.4/**/*.json
+!/work/Trainer2TE116_0.7.4/**/*.config
+!/work/Trainer2TE116_0.7.4/**/*.xml
+!/work/Trainer2TE116_0.7.4/**/*.resx

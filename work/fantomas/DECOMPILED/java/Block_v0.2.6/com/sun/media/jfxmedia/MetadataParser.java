@@ -1,0 +1,36 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package com.sun.media.jfxmedia;
+
+import com.sun.media.jfxmedia.events.MetadataListener;
+import java.io.IOException;
+
+public interface MetadataParser {
+    public static final String DURATION_TAG_NAME = "duration";
+    public static final String IMAGE_TAG_NAME = "image";
+    public static final String ALBUMARTIST_TAG_NAME = "album artist";
+    public static final String ALBUM_TAG_NAME = "album";
+    public static final String ARTIST_TAG_NAME = "artist";
+    public static final String COMMENT_TAG_NAME = "comment";
+    public static final String COMPOSER_TAG_NAME = "composer";
+    public static final String GENRE_TAG_NAME = "genre";
+    public static final String TITLE_TAG_NAME = "title";
+    public static final String TRACKNUMBER_TAG_NAME = "track number";
+    public static final String TRACKCOUNT_TAG_NAME = "track count";
+    public static final String DISCNUMBER_TAG_NAME = "disc number";
+    public static final String DISCCOUNT_TAG_NAME = "disc count";
+    public static final String YEAR_TAG_NAME = "year";
+    public static final String TEXT_TAG_NAME = "text";
+    public static final String RAW_METADATA_TAG_NAME = "raw metadata";
+    public static final String RAW_ID3_METADATA_NAME = "ID3";
+
+    public void addListener(MetadataListener var1);
+
+    public void removeListener(MetadataListener var1);
+
+    public void startParser() throws IOException;
+
+    public void stopParser();
+}
+
